@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class AdvisorsApi {
-  String basePath = "http://developers.vestorly.com/";
+  String basePath = "http://api.vestorly.com/";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public ApiInvoker getInvoker() {

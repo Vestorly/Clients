@@ -28,7 +28,7 @@ public:
   updateWithCompletion(String* vestorly-auth, String* _id, void (* handler)(SamiVoid*, SamiError*));
   
   static String getBasePath() {
-    return L"http://developers.vestorly.com/";
+    return L"http://api.vestorly.com/";
   }
 
 private:

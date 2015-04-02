@@ -6,7 +6,7 @@
 
 
 @implementation SWGRssfeedsApi
-static NSString * basePath = @"http://developers.vestorly.com/";
+static NSString * basePath = @"http://api.vestorly.com/";
 
 +(SWGRssfeedsApi*) apiWithHeader:(NSString*)headerValue key:(NSString*)key {
     static SWGRssfeedsApi* singletonAPI = nil;

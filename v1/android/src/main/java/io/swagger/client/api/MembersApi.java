@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.io.File;
 
 public class MembersApi {
-  String basePath = "http://developers.vestorly.com/";
+  String basePath = "http://api.vestorly.com/";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {

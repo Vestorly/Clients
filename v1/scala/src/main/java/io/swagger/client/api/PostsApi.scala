@@ -8,7 +8,7 @@ import java.util.Date
 
 import scala.collection.mutable.HashMap
 
-class PostsApi(val defBasePath: String = "http://developers.vestorly.com/",
+class PostsApi(val defBasePath: String = "http://api.vestorly.com/",
                         defApiInvoker: ApiInvoker = ApiInvoker) {
   var basePath = defBasePath
   var apiInvoker = defApiInvoker

@@ -6,7 +6,7 @@
 
 
 @implementation SWGEventsApi
-static NSString * basePath = @"http://developers.vestorly.com/";
+static NSString * basePath = @"http://api.vestorly.com/";
 
 +(SWGEventsApi*) apiWithHeader:(NSString*)headerValue key:(NSString*)key {
     static SWGEventsApi* singletonAPI = nil;
