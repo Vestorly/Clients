@@ -1,0 +1,773 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>API Reference</title>
+    <link rel="stylesheet" type="text/css" href="site.css" media="screen" />
+  </head>
+  <body>
+  <h1>Vestorly API v2</h1>
+    <div class="app-desc">The Vestorly API provides an open REST API for developers to synchronize various data with Vestorly. for our Partner</div>
+    <div class="app-desc">More information: <a href="success@vestorly.com">success@vestorly.com</a></div>
+    <div class="app-desc">Contact Info: <a href="hello@helloreverb.com">hello@helloreverb.com</a></div>
+    <div class="license-info">Apache 2.0</div>
+    <div class="license-url">http://www.apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+  <div class="method-summary">Access to the API requires an api key to be provided by our Partner for all requests.  The api key is passed as a header with the name `api_key` and the value provided by Reverb Technologies, Inc.  Unless otherwise agreed upon, access to the Reverb API is intended solely for usage by our Partner and not third parties.</div>
+  <h2>Methods</h2>
+  
+  
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: api/rss_feeds.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">index</span> Read a list of rss feed</div>
+    <div class="method-notes">This retrieves a list of rss feed objects</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Authentication token </div>
+      <div class="param">ids (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return rss feed with list of IDs provided </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: api/rss_feeds.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">create</span> Create an post</div>
+    <div class="method-notes">This creates an post in the database</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">rss_feed (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; JSON block of rss feed data </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: api/rss_feeds/{id}.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">show</span> Retreive a single rss feed</div>
+    <div class="method-notes">Retrieve a single rss feed from the database</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Authentication token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of rss feed </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: api/rss_feeds/{id}.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">update</span> Create an advisor</div>
+    <div class="method-notes">This creates an advisor in the database</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of post </div>
+      <div class="param">rss_feed (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; JSON block of rss feed data </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="delete"><code class="huge"><span>delete</span>: api/rss_feeds/{id}.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">destroy</span> Destroy a post</div>
+    <div class="method-notes">This destroys a post in the database</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of pow5 </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: api/events.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">index</span> Read a list of events</div>
+    <div class="method-notes">This retrieves a list of events objects</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Authentication token </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: api/events.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">create</span> Create a event</div>
+    <div class="method-notes">This creates an event in the database</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">event (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; JSON block of event data </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: api/events/{id}.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">show</span> Read a specific event</div>
+    <div class="method-notes">This retrieves a specific event document</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Authentication token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of event </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: api/events/{id}.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">update</span> Create a event</div>
+    <div class="method-notes">This creates an event in the database</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of g </div>
+      <div class="param">event (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; JSON block of event data </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: api/articles.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">index</span> Read a list of articles</div>
+    <div class="method-notes">This retrieves a list of articles objects</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Authentication token </div>
+      <div class="param">is_published (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter by published articles </div>
+      <div class="param">external_url_source (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter by posts with external URL source </div>
+      <div class="param">ids (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return posts with list of IDs provided </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: api/articles/{id}.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">show</span> Read a specific article</div>
+    <div class="method-notes">This retrieves a specific article document</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Authentication token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of article </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: api/articles/{id}.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">update</span> Update an article</div>
+    <div class="method-notes">This updates an article in the database</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Authentication token </div>
+      <div class="param">article (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; JSON block of article data </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: api/advisors/{id}.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">show</span> Read a specific advisor</div>
+    <div class="method-notes">This retrieves a specific article advisor</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Authentication token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of advisor </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: api/posts.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">index</span> Read a list of posts</div>
+    <div class="method-notes">This retrieves a list of post objects</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Authentication token </div>
+      <div class="param">is_published (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter by published articles </div>
+      <div class="param">external_url_source (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter by posts with external URL source </div>
+      <div class="param">ids (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return posts with list of IDs provided </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: api/posts.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">create</span> Create an post</div>
+    <div class="method-notes">This creates an post in the database</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">post (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; JSON block of post data </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: api/posts/{id}.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">show</span> Retreive a single post</div>
+    <div class="method-notes">Retrieve a single post from the database</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Authentication token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of post </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: api/posts/{id}.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">update</span> Create an advisor</div>
+    <div class="method-notes">This creates an advisor in the database</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of post </div>
+      <div class="param">post (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; JSON block of post data </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="delete"><code class="huge"><span>delete</span>: api/posts/{id}.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">destroy</span> Destroy a post</div>
+    <div class="method-notes">This destroys a post in the database</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of pow5 </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: api/sources.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">index</span> Read a list of sources</div>
+    <div class="method-notes">This retrieves a list of sources objects</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Authentication token </div>
+      <div class="param">ids (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return sources with list of IDs provided </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: api/sources/{id}.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">show</span> Read a specific source</div>
+    <div class="method-notes">This retrieves a specific source document</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Authentication token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of source </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: api/sources/{id}.json</code></pre></div>
+    <div class="method-summary"><span class="nickname">update</span> Create a source</div>
+    <div class="method-notes">This creates an source in the database</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of g </div>
+      <div class="param">source (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; JSON block of source data </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">void</a></div>
+
+    
+  </div> <!-- method -->
+  <hr>
+  
+  
+
+  <h2>Models</h2>
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="RSSFeed">RSSFeed</a></h3>
+    <div class="field-items">
+      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> Id of object</div>
+      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> Name of rss feed</div>
+      <div class="param">category </div><div class="param-desc"><span class="param-type">String</span> Category of rss feed</div>
+      <div class="param">url </div><div class="param-desc"><span class="param-type">url</span> URL of rss feed</div>
+      <div class="param">logo_url </div><div class="param-desc"><span class="param-type">url</span> Logo URL of rss feed</div>
+      <div class="param">needs_sanitize </div><div class="param-desc"><span class="param-type">String</span> Does the feed need to be sanatized.</div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Post">Post</a></h3>
+    <div class="field-items">
+      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> Id of object</div>
+      <div class="param">title </div><div class="param-desc"><span class="param-type">String</span> Title of the post</div>
+      <div class="param">body </div><div class="param-desc"><span class="param-type">String</span> Body of the post</div>
+      <div class="param">comment </div><div class="param-desc"><span class="param-type">String</span> Comment associated with the post</div>
+      <div class="param">video </div><div class="param-desc"><span class="param-type">String</span> Video associated with the post</div>
+      <div class="param">img </div><div class="param-desc"><span class="param-type">String</span> Image associated with the post</div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Article">Article</a></h3>
+    <div class="field-items">
+      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> Id of object</div>
+      <div class="param">url </div><div class="param-desc"><span class="param-type">String</span> URL of the article</div>
+      <div class="param">title </div><div class="param-desc"><span class="param-type">String</span> Title of the article</div>
+      <div class="param">open_calais_topics </div><div class="param-desc"><span class="param-type">String</span> Open calcais optics</div>
+      <div class="param">open_calais_keywords </div><div class="param-desc"><span class="param-type">String</span> Open calais keywords</div>
+      <div class="param">categories </div><div class="param-desc"><span class="param-type">String</span> Categories of article</div>
+      <div class="param">summary </div><div class="param-desc"><span class="param-type">String</span> Summary of article</div>
+      <div class="param">unparsed_html </div><div class="param-desc"><span class="param-type">String</span> Unparsed HTML</div>
+      <div class="param">parsed_html </div><div class="param-desc"><span class="param-type">String</span> Parsed HTML</div>
+      <div class="param">content </div><div class="param-desc"><span class="param-type">String</span> Content of article</div>
+      <div class="param">vestorly_topics </div><div class="param-desc"><span class="param-type">String</span> Vestorly topics</div>
+      <div class="param">override_topic </div><div class="param-desc"><span class="param-type">String</span> Override topics</div>
+      <div class="param">published_at </div><div class="param-desc"><span class="param-type">datetime</span> Article published at time</div>
+      <div class="param">original_image_url </div><div class="param-desc"><span class="param-type">String</span> Original image url</div>
+      <div class="param">small_image_url </div><div class="param-desc"><span class="param-type">String</span> Small image url</div>
+      <div class="param">large_image_url </div><div class="param-desc"><span class="param-type">String</span> Large image url</div>
+      <div class="param">img </div><div class="param-desc"><span class="param-type">String</span> Image</div>
+      <div class="param">webpage_mobile_image_url </div><div class="param-desc"><span class="param-type">String</span> Webpage mobile url</div>
+      <div class="param">webpage_tablet_image_url </div><div class="param-desc"><span class="param-type">String</span> Webpage tablet url</div>
+      <div class="param">rss_feed_url </div><div class="param-desc"><span class="param-type">String</span> Article URL</div>
+      <div class="param">rss_feed_category </div><div class="param-desc"><span class="param-type">String</span> Article category</div>
+      <div class="param">rss_feed_logo_url </div><div class="param-desc"><span class="param-type">String</span> Article logo</div>
+      <div class="param">needs_sanitize </div><div class="param-desc"><span class="param-type">Boolean</span> Does this article need sanitizing?</div>
+      <div class="param">is_responsive </div><div class="param-desc"><span class="param-type">Boolean</span> Is this article responsive</div>
+      <div class="param">is_proxy_needed </div><div class="param-desc"><span class="param-type">Boolean</span> Is a proxy used for this article</div>
+      <div class="param">is_mobile_proxy_needed </div><div class="param-desc"><span class="param-type">Boolean</span> Is mobile proxying needed</div>
+      <div class="param">is_working_url </div><div class="param-desc"><span class="param-type">Boolean</span> Is working url?</div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Event">Event</a></h3>
+    <div class="field-items">
+      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> Id of object</div>
+      <div class="param">type </div><div class="param-desc"><span class="param-type">symbol</span> Type of the event</div>
+      <div class="param">referrer </div><div class="param-desc"><span class="param-type">String</span> Event referrer</div>
+      <div class="param">original_url </div><div class="param-desc"><span class="param-type">String</span> Originator URL</div>
+      <div class="param">originator_email </div><div class="param-desc"><span class="param-type">String</span> Originator email</div>
+      <div class="param">subject_email </div><div class="param-desc"><span class="param-type">String</span> Subject email</div>
+      <div class="param">advisor_email </div><div class="param-desc"><span class="param-type">String</span> Advisor email</div>
+      <div class="param">originator_group_name </div><div class="param-desc"><span class="param-type">String</span> Original group name</div>
+      <div class="param">newsletter </div><div class="param-desc"><span class="param-type">String</span> Newsletter</div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Advisor">Advisor</a></h3>
+    <div class="field-items">
+      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> Id of object</div>
+      <div class="param">company </div><div class="param-desc"><span class="param-type">String</span> Company of advisor</div>
+      <div class="param">address </div><div class="param-desc"><span class="param-type">String</span> Address of advisor</div>
+      <div class="param">city </div><div class="param-desc"><span class="param-type">String</span> City of advisor</div>
+      <div class="param">state </div><div class="param-desc"><span class="param-type">String</span> State of advisor</div>
+      <div class="param">zip </div><div class="param-desc"><span class="param-type">String</span> Zip of advisor</div>
+      <div class="param">first_name </div><div class="param-desc"><span class="param-type">String</span> First name of advisor</div>
+      <div class="param">last_name </div><div class="param-desc"><span class="param-type">String</span> Last name of advisor</div>
+      <div class="param">reg_number </div><div class="param-desc"><span class="param-type">String</span> Registration number of advisor</div>
+      <div class="param">account_type </div><div class="param-desc"><span class="param-type">String</span> Account type of advisor</div>
+      <div class="param">advisor_employees </div><div class="param-desc"><span class="param-type">String</span> Employees of advisor</div>
+      <div class="param">assets </div><div class="param-desc"><span class="param-type">String</span> Assets of advisor</div>
+      <div class="param">num_clients </div><div class="param-desc"><span class="param-type">Integer</span> Number of clients the advisor has</div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Source">Source</a></h3>
+    <div class="field-items">
+      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> Id of source</div>
+      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> Name of source</div>
+      <div class="param">url </div><div class="param-desc"><span class="param-type">String</span> Url of source</div>
+      <div class="param">logo_url </div><div class="param-desc"><span class="param-type">String</span> Logo url of source</div>
+      <div class="param">enabled </div><div class="param-desc"><span class="param-type">Boolean</span> Is the source enabled</div>
+      <div class="param">custom_rss_feed </div><div class="param-desc"><span class="param-type">Boolean</span> Is the source using custom RSS feed</div>
+      <div class="param">rss_publisher </div><div class="param-desc"><span class="param-type">String</span> RSS publisher of the source</div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  <style>
+body { 
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+	display: none;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+  </style>
+  </body>
+</html>

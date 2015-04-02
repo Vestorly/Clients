@@ -1,0 +1,1011 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "The Vestorly API provides an open REST API for developers to synchronize various data with Vestorly.",
+    "version" : "2.0",
+    "title" : "Vestorly API v2",
+    "termsOfService" : "https://www.vestorly.com/terms/",
+    "contact" : {
+      "url" : "success@vestorly.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host" : "developers.vestorly.com",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "api/advisors/{id}.json" : {
+      "get" : {
+        "tags" : [ "advisors" ],
+        "summary" : "Read a specific advisor",
+        "description" : "This retrieves a specific article advisor",
+        "operationId" : "show",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Authentication token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of advisor",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          },
+          "400" : {
+            "description" : "The request you made is not acceptable"
+          },
+          "401" : {
+            "description" : "The request you made does not contain a valid auth token"
+          }
+        }
+      }
+    },
+    "api/articles.json" : {
+      "get" : {
+        "tags" : [ "articles" ],
+        "summary" : "Read a list of articles",
+        "description" : "This retrieves a list of articles objects",
+        "operationId" : "index",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Authentication token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "is_published",
+          "in" : "query",
+          "description" : "Filter by published articles",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "external_url_source",
+          "in" : "query",
+          "description" : "Filter by posts with external URL source",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "ids",
+          "in" : "query",
+          "description" : "Return posts with list of IDs provided",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          },
+          "400" : {
+            "description" : "The request you made is not acceptable"
+          },
+          "401" : {
+            "description" : "The request you made does not contain a valid auth token"
+          }
+        }
+      }
+    },
+    "api/articles/{id}.json" : {
+      "get" : {
+        "tags" : [ "articles" ],
+        "summary" : "Read a specific article",
+        "description" : "This retrieves a specific article document",
+        "operationId" : "show",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Authentication token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of article",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          },
+          "400" : {
+            "description" : "The request you made is not acceptable"
+          },
+          "401" : {
+            "description" : "The request you made does not contain a valid auth token"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "articles" ],
+        "summary" : "Update an article",
+        "description" : "This updates an article in the database",
+        "operationId" : "update",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Authentication token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "article",
+          "in" : "formData",
+          "description" : "JSON block of article data",
+          "required" : true,
+          "type" : "ref"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          },
+          "400" : {
+            "description" : "The request you made is not acceptable"
+          },
+          "401" : {
+            "description" : "The request you made does not contain a valid auth token"
+          }
+        }
+      }
+    },
+    "api/events.json" : {
+      "get" : {
+        "tags" : [ "events" ],
+        "summary" : "Read a list of events",
+        "description" : "This retrieves a list of events objects",
+        "operationId" : "index",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Authentication token",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          },
+          "400" : {
+            "description" : "The request you made is not acceptable"
+          },
+          "401" : {
+            "description" : "The request you made does not contain a valid auth token"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "events" ],
+        "summary" : "Create a event",
+        "description" : "This creates an event in the database",
+        "operationId" : "create",
+        "parameters" : [ {
+          "name" : "event",
+          "in" : "formData",
+          "description" : "JSON block of event data",
+          "required" : true,
+          "type" : "ref"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          },
+          "400" : {
+            "description" : "The request you made is not acceptable"
+          },
+          "401" : {
+            "description" : "The request you made does not contain a valid auth token"
+          }
+        }
+      }
+    },
+    "api/events/{id}.json" : {
+      "get" : {
+        "tags" : [ "events" ],
+        "summary" : "Read a specific event",
+        "description" : "This retrieves a specific event document",
+        "operationId" : "show",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Authentication token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of event",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          },
+          "400" : {
+            "description" : "The request you made is not acceptable"
+          },
+          "401" : {
+            "description" : "The request you made does not contain a valid auth token"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "events" ],
+        "summary" : "Create a event",
+        "description" : "This creates an event in the database",
+        "operationId" : "update",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of g",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "event",
+          "in" : "formData",
+          "description" : "JSON block of event data",
+          "required" : true,
+          "type" : "ref"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          },
+          "400" : {
+            "description" : "The request you made is not acceptable"
+          },
+          "401" : {
+            "description" : "The request you made does not contain a valid auth token"
+          }
+        }
+      }
+    },
+    "api/posts.json" : {
+      "get" : {
+        "tags" : [ "posts" ],
+        "summary" : "Read a list of posts",
+        "description" : "This retrieves a list of post objects",
+        "operationId" : "index",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Authentication token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "is_published",
+          "in" : "query",
+          "description" : "Filter by published articles",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "external_url_source",
+          "in" : "query",
+          "description" : "Filter by posts with external URL source",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "ids",
+          "in" : "query",
+          "description" : "Return posts with list of IDs provided",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          },
+          "400" : {
+            "description" : "The request you made is not acceptable"
+          },
+          "401" : {
+            "description" : "The request you made does not contain a valid auth token"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "posts" ],
+        "summary" : "Create an post",
+        "description" : "This creates an post in the database",
+        "operationId" : "create",
+        "parameters" : [ {
+          "name" : "post",
+          "in" : "formData",
+          "description" : "JSON block of post data",
+          "required" : true,
+          "type" : "ref"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          }
+        }
+      }
+    },
+    "api/posts/{id}.json" : {
+      "get" : {
+        "tags" : [ "posts" ],
+        "summary" : "Retreive a single post",
+        "description" : "Retrieve a single post from the database",
+        "operationId" : "show",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Authentication token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of post",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          },
+          "400" : {
+            "description" : "Post not found"
+          },
+          "401" : {
+            "description" : "The request you made does not contain a valid auth token"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "posts" ],
+        "summary" : "Create an advisor",
+        "description" : "This creates an advisor in the database",
+        "operationId" : "update",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of post",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "post",
+          "in" : "formData",
+          "description" : "JSON block of post data",
+          "required" : true,
+          "type" : "ref"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          },
+          "400" : {
+            "description" : "The request you made is not acceptable"
+          },
+          "401" : {
+            "description" : "The request you made does not contain a valid auth token"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "posts" ],
+        "summary" : "Destroy a post",
+        "description" : "This destroys a post in the database",
+        "operationId" : "destroy",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of pow5",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          }
+        }
+      }
+    },
+    "api/rss_feeds.json" : {
+      "get" : {
+        "tags" : [ "rss_feeds" ],
+        "summary" : "Read a list of rss feed",
+        "description" : "This retrieves a list of rss feed objects",
+        "operationId" : "index",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Authentication token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "ids",
+          "in" : "query",
+          "description" : "Return rss feed with list of IDs provided",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          },
+          "400" : {
+            "description" : "The request you made is not acceptable"
+          },
+          "401" : {
+            "description" : "The request you made does not contain a valid auth token"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "rss_feeds" ],
+        "summary" : "Create an post",
+        "description" : "This creates an post in the database",
+        "operationId" : "create",
+        "parameters" : [ {
+          "name" : "rss_feed",
+          "in" : "formData",
+          "description" : "JSON block of rss feed data",
+          "required" : true,
+          "type" : "ref"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          }
+        }
+      }
+    },
+    "api/rss_feeds/{id}.json" : {
+      "get" : {
+        "tags" : [ "rss_feeds" ],
+        "summary" : "Retreive a single rss feed",
+        "description" : "Retrieve a single rss feed from the database",
+        "operationId" : "show",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Authentication token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of rss feed",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          },
+          "400" : {
+            "description" : "RSS Feed not found"
+          },
+          "401" : {
+            "description" : "The request you made does not contain a valid auth token"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "rss_feeds" ],
+        "summary" : "Create an advisor",
+        "description" : "This creates an advisor in the database",
+        "operationId" : "update",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of post",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "rss_feed",
+          "in" : "formData",
+          "description" : "JSON block of rss feed data",
+          "required" : true,
+          "type" : "ref"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          },
+          "400" : {
+            "description" : "The request you made is not acceptable"
+          },
+          "401" : {
+            "description" : "The request you made does not contain a valid auth token"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "rss_feeds" ],
+        "summary" : "Destroy a post",
+        "description" : "This destroys a post in the database",
+        "operationId" : "destroy",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of pow5",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          }
+        }
+      }
+    },
+    "api/sources.json" : {
+      "get" : {
+        "tags" : [ "sources" ],
+        "summary" : "Read a list of sources",
+        "description" : "This retrieves a list of sources objects",
+        "operationId" : "index",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Authentication token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "ids",
+          "in" : "query",
+          "description" : "Return sources with list of IDs provided",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          },
+          "400" : {
+            "description" : "The request you made is not acceptable"
+          },
+          "401" : {
+            "description" : "The request you made does not contain a valid auth token"
+          }
+        }
+      }
+    },
+    "api/sources/{id}.json" : {
+      "get" : {
+        "tags" : [ "sources" ],
+        "summary" : "Read a specific source",
+        "description" : "This retrieves a specific source document",
+        "operationId" : "show",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Authentication token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of source",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          },
+          "400" : {
+            "description" : "The request you made is not acceptable"
+          },
+          "401" : {
+            "description" : "The request you made does not contain a valid auth token"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "sources" ],
+        "summary" : "Create a source",
+        "description" : "This creates an source in the database",
+        "operationId" : "update",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of g",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "source",
+          "in" : "formData",
+          "description" : "JSON block of source data",
+          "required" : true,
+          "type" : "ref"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "schema" : {
+              "$ref" : "#/definitions/void"
+            }
+          },
+          "400" : {
+            "description" : "The request you made is not acceptable"
+          },
+          "401" : {
+            "description" : "The request you made does not contain a valid auth token"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "RSSFeed" : {
+      "required" : [ "_id", "category", "logo_url", "name", "needs_sanitize", "url" ],
+      "properties" : {
+        "_id" : {
+          "type" : "string",
+          "description" : "Id of object"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Name of rss feed"
+        },
+        "category" : {
+          "type" : "string",
+          "description" : "Category of rss feed"
+        },
+        "url" : {
+          "description" : "URL of rss feed",
+          "$ref" : "#/definitions/url"
+        },
+        "logo_url" : {
+          "description" : "Logo URL of rss feed",
+          "$ref" : "#/definitions/url"
+        },
+        "needs_sanitize" : {
+          "type" : "string",
+          "description" : "Does the feed need to be sanatized."
+        }
+      },
+      "description" : "An RSSFeed document."
+    },
+    "Post" : {
+      "required" : [ "_id", "body", "comment", "title" ],
+      "properties" : {
+        "_id" : {
+          "type" : "string",
+          "description" : "Id of object"
+        },
+        "title" : {
+          "type" : "string",
+          "description" : "Title of the post"
+        },
+        "body" : {
+          "type" : "string",
+          "description" : "Body of the post"
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "Comment associated with the post"
+        },
+        "video" : {
+          "type" : "string",
+          "description" : "Video associated with the post"
+        },
+        "img" : {
+          "type" : "string",
+          "description" : "Image associated with the post"
+        }
+      },
+      "description" : "A Post object."
+    },
+    "Article" : {
+      "required" : [ "_id", "categories", "content", "img", "is_mobile_proxy_needed", "is_proxy_needed", "is_responsive", "is_working_url", "large_image_url", "needs_sanitize", "open_calais_keywords", "open_calais_topics", "original_image_url", "override_topic", "parsed_html", "published_at", "rss_feed_category", "rss_feed_logo_url", "rss_feed_url", "small_image_url", "summary", "title", "unparsed_html", "url", "vestorly_topics", "webpage_mobile_image_url", "webpage_tablet_image_url" ],
+      "properties" : {
+        "_id" : {
+          "type" : "string",
+          "description" : "Id of object"
+        },
+        "url" : {
+          "type" : "string",
+          "description" : "URL of the article"
+        },
+        "title" : {
+          "type" : "string",
+          "description" : "Title of the article"
+        },
+        "open_calais_topics" : {
+          "type" : "string",
+          "description" : "Open calcais optics"
+        },
+        "open_calais_keywords" : {
+          "type" : "string",
+          "description" : "Open calais keywords"
+        },
+        "categories" : {
+          "type" : "string",
+          "description" : "Categories of article"
+        },
+        "summary" : {
+          "type" : "string",
+          "description" : "Summary of article"
+        },
+        "unparsed_html" : {
+          "type" : "string",
+          "description" : "Unparsed HTML"
+        },
+        "parsed_html" : {
+          "type" : "string",
+          "description" : "Parsed HTML"
+        },
+        "content" : {
+          "type" : "string",
+          "description" : "Content of article"
+        },
+        "vestorly_topics" : {
+          "type" : "string",
+          "description" : "Vestorly topics"
+        },
+        "override_topic" : {
+          "type" : "string",
+          "description" : "Override topics"
+        },
+        "published_at" : {
+          "description" : "Article published at time",
+          "$ref" : "#/definitions/datetime"
+        },
+        "original_image_url" : {
+          "type" : "string",
+          "description" : "Original image url"
+        },
+        "small_image_url" : {
+          "type" : "string",
+          "description" : "Small image url"
+        },
+        "large_image_url" : {
+          "type" : "string",
+          "description" : "Large image url"
+        },
+        "img" : {
+          "type" : "string",
+          "description" : "Image"
+        },
+        "webpage_mobile_image_url" : {
+          "type" : "string",
+          "description" : "Webpage mobile url"
+        },
+        "webpage_tablet_image_url" : {
+          "type" : "string",
+          "description" : "Webpage tablet url"
+        },
+        "rss_feed_url" : {
+          "type" : "string",
+          "description" : "Article URL"
+        },
+        "rss_feed_category" : {
+          "type" : "string",
+          "description" : "Article category"
+        },
+        "rss_feed_logo_url" : {
+          "type" : "string",
+          "description" : "Article logo"
+        },
+        "needs_sanitize" : {
+          "type" : "boolean",
+          "description" : "Does this article need sanitizing?"
+        },
+        "is_responsive" : {
+          "type" : "boolean",
+          "description" : "Is this article responsive"
+        },
+        "is_proxy_needed" : {
+          "type" : "boolean",
+          "description" : "Is a proxy used for this article"
+        },
+        "is_mobile_proxy_needed" : {
+          "type" : "boolean",
+          "description" : "Is mobile proxying needed"
+        },
+        "is_working_url" : {
+          "type" : "boolean",
+          "description" : "Is working url?"
+        }
+      },
+      "description" : "An Article document."
+    },
+    "Event" : {
+      "required" : [ "_id", "advisor_email", "newsletter", "original_url", "originator_email", "originator_group_name", "referrer", "subject_email", "type" ],
+      "properties" : {
+        "_id" : {
+          "type" : "string",
+          "description" : "Id of object"
+        },
+        "type" : {
+          "description" : "Type of the event",
+          "$ref" : "#/definitions/symbol"
+        },
+        "referrer" : {
+          "type" : "string",
+          "description" : "Event referrer"
+        },
+        "original_url" : {
+          "type" : "string",
+          "description" : "Originator URL"
+        },
+        "originator_email" : {
+          "type" : "string",
+          "description" : "Originator email"
+        },
+        "subject_email" : {
+          "type" : "string",
+          "description" : "Subject email"
+        },
+        "advisor_email" : {
+          "type" : "string",
+          "description" : "Advisor email"
+        },
+        "originator_group_name" : {
+          "type" : "string",
+          "description" : "Original group name"
+        },
+        "newsletter" : {
+          "type" : "string",
+          "description" : "Newsletter"
+        }
+      },
+      "description" : "An Event document."
+    },
+    "Advisor" : {
+      "required" : [ "_id", "account_type", "address", "advisor_employees", "assets", "city", "company", "first_name", "last_name", "num_clients", "reg_number", "state", "zip" ],
+      "properties" : {
+        "_id" : {
+          "type" : "string",
+          "description" : "Id of object"
+        },
+        "company" : {
+          "type" : "string",
+          "description" : "Company of advisor"
+        },
+        "address" : {
+          "type" : "string",
+          "description" : "Address of advisor"
+        },
+        "city" : {
+          "type" : "string",
+          "description" : "City of advisor"
+        },
+        "state" : {
+          "type" : "string",
+          "description" : "State of advisor"
+        },
+        "zip" : {
+          "type" : "string",
+          "description" : "Zip of advisor"
+        },
+        "first_name" : {
+          "type" : "string",
+          "description" : "First name of advisor"
+        },
+        "last_name" : {
+          "type" : "string",
+          "description" : "Last name of advisor"
+        },
+        "reg_number" : {
+          "type" : "string",
+          "description" : "Registration number of advisor"
+        },
+        "account_type" : {
+          "type" : "string",
+          "description" : "Account type of advisor"
+        },
+        "advisor_employees" : {
+          "type" : "string",
+          "description" : "Employees of advisor"
+        },
+        "assets" : {
+          "type" : "string",
+          "description" : "Assets of advisor"
+        },
+        "num_clients" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Number of clients the advisor has"
+        }
+      },
+      "description" : "An Advisor object."
+    },
+    "Source" : {
+      "required" : [ "_id", "custom_rss_feed", "enabled", "logo_url", "name", "rss_publisher", "url" ],
+      "properties" : {
+        "_id" : {
+          "type" : "string",
+          "description" : "Id of source"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Name of source"
+        },
+        "url" : {
+          "type" : "string",
+          "description" : "Url of source"
+        },
+        "logo_url" : {
+          "type" : "string",
+          "description" : "Logo url of source"
+        },
+        "enabled" : {
+          "type" : "boolean",
+          "description" : "Is the source enabled"
+        },
+        "custom_rss_feed" : {
+          "type" : "boolean",
+          "description" : "Is the source using custom RSS feed"
+        },
+        "rss_publisher" : {
+          "type" : "string",
+          "description" : "RSS publisher of the source"
+        }
+      },
+      "description" : "A source object."
+    }
+  }
+}
