@@ -73,8 +73,11 @@ class ArticlesApi(object):
         files = {}
         bodyParam = None
 
-        headerParams['Accept'] = ''
-        headerParams['Content-Type'] = ''
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
 
         
         if ('vestorly_auth' in params):
@@ -107,7 +110,7 @@ class ArticlesApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, None)
+        responseObject = self.apiClient.deserialize(response, 'Article')
         return responseObject
         
         
@@ -147,8 +150,11 @@ class ArticlesApi(object):
         files = {}
         bodyParam = None
 
-        headerParams['Accept'] = ''
-        headerParams['Content-Type'] = ''
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
 
         
         if ('vestorly_auth' in params):
@@ -178,7 +184,7 @@ class ArticlesApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, None)
+        responseObject = self.apiClient.deserialize(response, 'Article')
         return responseObject
         
         
@@ -218,8 +224,11 @@ class ArticlesApi(object):
         files = {}
         bodyParam = None
 
-        headerParams['Accept'] = ''
-        headerParams['Content-Type'] = ''
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
 
         
         if ('vestorly_auth' in params):
@@ -246,7 +255,7 @@ class ArticlesApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, None)
+        responseObject = self.apiClient.deserialize(response, 'Article')
         return responseObject
         
         

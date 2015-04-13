@@ -64,8 +64,11 @@ class EventsApi(object):
         files = {}
         bodyParam = None
 
-        headerParams['Accept'] = ''
-        headerParams['Content-Type'] = ''
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
 
         
         if ('vestorly_auth' in params):
@@ -120,8 +123,11 @@ class EventsApi(object):
         files = {}
         bodyParam = None
 
-        headerParams['Accept'] = ''
-        headerParams['Content-Type'] = ''
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
 
         
 
@@ -145,7 +151,7 @@ class EventsApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, None)
+        responseObject = self.apiClient.deserialize(response, 'Event')
         return responseObject
         
         
@@ -185,8 +191,11 @@ class EventsApi(object):
         files = {}
         bodyParam = None
 
-        headerParams['Accept'] = ''
-        headerParams['Content-Type'] = ''
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
 
         
         if ('vestorly_auth' in params):
@@ -216,7 +225,7 @@ class EventsApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, None)
+        responseObject = self.apiClient.deserialize(response, 'Event')
         return responseObject
         
         
@@ -256,8 +265,11 @@ class EventsApi(object):
         files = {}
         bodyParam = None
 
-        headerParams['Accept'] = ''
-        headerParams['Content-Type'] = ''
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
 
         
 
@@ -287,7 +299,7 @@ class EventsApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, None)
+        responseObject = self.apiClient.deserialize(response, 'Event')
         return responseObject
         
         

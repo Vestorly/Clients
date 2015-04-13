@@ -82,12 +82,12 @@ class ApiClient(object):
     elif method in ['POST', 'PUT', 'DELETE']:
       if postData:
         postData = ApiClient.sanitizeForSerialization(postData)
-        if 'Content-type' not in headers:
-          headers['Content-type'] = 'application/json'
+        if 'Content-Type' not in headers:
+          headers['Content-Type'] = 'application/json'
           data = json.dumps(postData)
-        elif headers['Content-type'] == 'multipart/form-data':
+        elif headers['Content-Type'] == 'multipart/form-data':
           data = self.buildMultipartFormData(postData, files)
-          headers['Content-type'] = 'multipart/form-data; boundary={0}'.format(self.boundary)
+          headers['Content-Type'] = 'multipart/form-data; boundary={0}'.format(self.boundary)
           headers['Content-length'] = str(len(data))
         else:
             data = urllib.urlencode(postData)
@@ -209,7 +209,7 @@ class ApiClient(object):
       if (objClass in ['int', 'float', 'long', 'dict', 'list', 'str', 'bool', 'datetime']):
         objClass = eval(objClass)
       else:  # not a native type, must be model class
-        objClass = eval(objClass + '.' + objClass)
+        objClass = eval(objClass.lower() + '.' + objClass)
 
     if objClass in [int, long, float, dict, list, str, bool]:
       return objClass(obj)
