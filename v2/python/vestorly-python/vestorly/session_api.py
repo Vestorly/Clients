@@ -149,7 +149,7 @@ class SessionApi(object):
 
         
         if ('vestorly_auth' in params):
-            formParams['vestorly_auth'] = params['vestorly_auth']
+            formParams['vestorly-auth'] = params['vestorly_auth']
         
 
         

@@ -74,6 +74,9 @@ class AdvisorApi(object):
         headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
 
         
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
 
         
 
@@ -82,12 +85,6 @@ class AdvisorApi(object):
             replacement = str(self.apiClient.toPathValue(params['id']))
             replacement = urllib.quote(replacement)
             resourcePath = resourcePath.replace('{' + 'id' + '}',
-                                                replacement)
-        
-        if ('vestorly_auth' in params):
-            replacement = str(self.apiClient.toPathValue(params['vestorly_auth']))
-            replacement = urllib.quote(replacement)
-            resourcePath = resourcePath.replace('{' + 'vestorly_auth' + '}',
                                                 replacement)
         
 
@@ -106,6 +103,65 @@ class AdvisorApi(object):
 
         responseObject = self.apiClient.deserialize(response, 'Advisor')
         return responseObject
+        
+        
+        
+    
+    def findAdvisors(self, **kwargs):
+        """
+
+        Args:
+            
+            vestorly_auth, str: Vestorly Auth Token (required)
+            
+            
+        
+        Returns: 
+        """
+
+        allParams = ['vestorly_auth']
+
+        params = locals()
+        for (key, val) in params['kwargs'].iteritems():
+            if key not in allParams:
+                raise TypeError("Got an unexpected keyword argument '%s' to method findAdvisors" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resourcePath = '/advisors'
+        resourcePath = resourcePath.replace('{format}', 'json')
+        method = 'GET'
+
+        queryParams = {}
+        headerParams = {}
+        formParams = {}
+        files = {}
+        bodyParam = None
+
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
+
+        
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
+
+        
+
+        
+
+        
+
+        
+
+        postData = (formParams if formParams else bodyParam)
+
+        response = self.apiClient.callAPI(resourcePath, method, queryParams,
+                                          postData, headerParams, files=files)
+
         
         
         
