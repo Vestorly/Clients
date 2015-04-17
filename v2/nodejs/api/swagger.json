@@ -10,6 +10,126 @@
   "basePath": "/api/v2",
   "paths": {
   
+  "/events": {
+    "get": {
+      "x-swagger-router-controller": "Events",
+      "tags": ["Events"],
+      "operationId": "findEvents",
+      "parameters": [
+        
+        {
+  "name" : "vestorly-auth",
+  "in" : "query",
+  "description" : "Vestorly Auth Token",
+  "required" : true,
+  "type" : "string",
+  "format" : "string"
+}
+        
+      ],
+      "responses": {
+        
+        "200": {
+  "description" : "Event response",
+  "schema" : {
+    "$ref" : "#/definitions/Events"
+  }
+}
+        
+        
+      }
+    }
+  } ,
+  
+  "/events/{id}": {
+    "get": {
+      "x-swagger-router-controller": "Events",
+      "tags": ["Events"],
+      "operationId": "findEventByID",
+      "parameters": [
+        
+        {
+  "name" : "id",
+  "in" : "path",
+  "description" : "Mongo ID of event to fetch",
+  "required" : true,
+  "type" : "string",
+  "format" : "string"
+},
+        
+        {
+  "name" : "vestorly-auth",
+  "in" : "query",
+  "description" : "Vestorly Auth Token",
+  "required" : true,
+  "type" : "string",
+  "format" : "string"
+}
+        
+      ],
+      "responses": {
+        
+        "200": {
+  "description" : "Event response",
+  "schema" : {
+    "$ref" : "#/definitions/Event"
+  }
+}
+        
+        
+      }
+    }
+  } ,
+  
+  "/events/{id}": {
+    "put": {
+      "x-swagger-router-controller": "Events",
+      "tags": ["Events"],
+      "operationId": "updateEventByID",
+      "parameters": [
+        
+        {
+  "name" : "id",
+  "in" : "path",
+  "description" : "Mongo ID of event to update",
+  "required" : true,
+  "type" : "string",
+  "format" : "string"
+},
+        
+        {
+  "name" : "vestorly-auth",
+  "in" : "query",
+  "description" : "Vestorly Auth Token",
+  "required" : true,
+  "type" : "string",
+  "format" : "string"
+},
+        
+        {
+  "name" : "Event",
+  "in" : "formData",
+  "description" : "Event",
+  "required" : true
+}
+        
+      ],
+      "responses": {
+        
+        "200": {
+  "description" : "Event response",
+  "schema" : {
+    "$ref" : "#/definitions/Event"
+  }
+}
+        
+        
+      }
+    }
+  } 
+  
+   ,
+  
   "/newsletters": {
     "get": {
       "x-swagger-router-controller": "Newslettters",
@@ -193,14 +313,12 @@
         
       }
     }
-  } 
-  
-   ,
+  } ,
   
   "/articles/{id}": {
     "get": {
-      "x-swagger-router-controller": "Article",
-      "tags": ["Article"],
+      "x-swagger-router-controller": "Articles",
+      "tags": ["Articles"],
       "operationId": "findArticleByID",
       "parameters": [
         
@@ -844,6 +962,68 @@
     "img_changed" : {
       "type" : "boolean",
       "default" : false
+    }
+  }
+},"EventInput": {
+  "required" : [ "advisor_email", "newsletter", "original_url", "originator_group_name", "subject_email" ],
+  "properties" : {
+    "referrer" : {
+      "type" : "string"
+    },
+    "original_url" : {
+      "type" : "string"
+    },
+    "originator_email" : {
+      "type" : "string"
+    },
+    "subject_email" : {
+      "type" : "string"
+    },
+    "advisor_email" : {
+      "type" : "string"
+    },
+    "originator_group_name" : {
+      "type" : "string"
+    },
+    "newsletter" : {
+      "type" : "string"
+    }
+  }
+},"Event": {
+  "required" : [ "_id", "advisor_email", "newsletter", "original_url", "originator_group_name", "subject_email" ],
+  "properties" : {
+    "_id" : {
+      "type" : "string"
+    },
+    "referrer" : {
+      "type" : "string"
+    },
+    "original_url" : {
+      "type" : "string"
+    },
+    "originator_email" : {
+      "type" : "string"
+    },
+    "subject_email" : {
+      "type" : "string"
+    },
+    "advisor_email" : {
+      "type" : "string"
+    },
+    "originator_group_name" : {
+      "type" : "string"
+    },
+    "newsletter" : {
+      "type" : "string"
+    }
+  }
+},"Events": {
+  "properties" : {
+    "events" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Event"
+      }
     }
   }
 }

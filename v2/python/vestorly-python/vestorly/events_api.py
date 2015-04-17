@@ -2,7 +2,7 @@
 # coding: utf-8
 
 """
-ArticlesApi.py
+EventsApi.py
 Copyright 2015 Reverb Technologies, Inc.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,14 +26,14 @@ import urllib
 from models import *
 
 
-class ArticlesApi(object):
+class EventsApi(object):
 
     def __init__(self, apiClient):
       self.apiClient = apiClient
 
     
     
-    def findArticles(self, **kwargs):
+    def findEvents(self, **kwargs):
         """
 
         Args:
@@ -41,32 +41,20 @@ class ArticlesApi(object):
             vestorly_auth, str: Vestorly Auth Token (required)
             
             
-            limit, int: Limit on the number of articles to return (required)
-            
-            
-            text_query, str: Search query parameter (required)
-            
-            
-            suitability_score, str: Sort by suitability score (true or false) (required)
-            
-            
-            all_query, str: Query all articles (required)
-            
-            
         
-        Returns: Articles
+        Returns: Events
         """
 
-        allParams = ['vestorly_auth', 'limit', 'text_query', 'suitability_score', 'all_query']
+        allParams = ['vestorly_auth']
 
         params = locals()
         for (key, val) in params['kwargs'].iteritems():
             if key not in allParams:
-                raise TypeError("Got an unexpected keyword argument '%s' to method findArticles" % key)
+                raise TypeError("Got an unexpected keyword argument '%s' to method findEvents" % key)
             params[key] = val
         del params['kwargs']
 
-        resourcePath = '/articles'
+        resourcePath = '/events'
         resourcePath = resourcePath.replace('{format}', 'json')
         method = 'GET'
 
@@ -86,18 +74,6 @@ class ArticlesApi(object):
         if ('vestorly_auth' in params):
             queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
-        if ('limit' in params):
-            queryParams['limit'] = self.apiClient.toPathValue(params['limit'])
-        
-        if ('text_query' in params):
-            queryParams['text_query'] = self.apiClient.toPathValue(params['text_query'])
-        
-        if ('suitability_score' in params):
-            queryParams['suitability_score'] = self.apiClient.toPathValue(params['suitability_score'])
-        
-        if ('all_query' in params):
-            queryParams['all_query'] = self.apiClient.toPathValue(params['all_query'])
-        
 
         
 
@@ -116,34 +92,37 @@ class ArticlesApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'Articles')
+        responseObject = self.apiClient.deserialize(response, 'Events')
         return responseObject
         
         
         
     
-    def findArticleByID(self, **kwargs):
+    def findEventByID(self, **kwargs):
         """
 
         Args:
             
-            id, str: Article Id to fetch (required)
+            id, str: Mongo ID of event to fetch (required)
+            
+            
+            vestorly_auth, str: Vestorly Auth Token (required)
             
             
         
-        Returns: Article
+        Returns: Event
         """
 
-        allParams = ['id']
+        allParams = ['id', 'vestorly_auth']
 
         params = locals()
         for (key, val) in params['kwargs'].iteritems():
             if key not in allParams:
-                raise TypeError("Got an unexpected keyword argument '%s' to method findArticleByID" % key)
+                raise TypeError("Got an unexpected keyword argument '%s' to method findEventByID" % key)
             params[key] = val
         del params['kwargs']
 
-        resourcePath = '/articles/{id}'
+        resourcePath = '/events/{id}'
         resourcePath = resourcePath.replace('{format}', 'json')
         method = 'GET'
 
@@ -159,6 +138,9 @@ class ArticlesApi(object):
         content_types = []
         headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
 
+        
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         
@@ -184,7 +166,87 @@ class ArticlesApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'Article')
+        responseObject = self.apiClient.deserialize(response, 'Event')
+        return responseObject
+        
+        
+        
+    
+    def updateEventByID(self, **kwargs):
+        """
+
+        Args:
+            
+            id, str: Mongo ID of event to update (required)
+            
+            
+            vestorly_auth, str: Vestorly Auth Token (required)
+            
+            
+            event, str: Event (required)
+            
+            
+        
+        Returns: Event
+        """
+
+        allParams = ['id', 'vestorly_auth', 'event']
+
+        params = locals()
+        for (key, val) in params['kwargs'].iteritems():
+            if key not in allParams:
+                raise TypeError("Got an unexpected keyword argument '%s' to method updateEventByID" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resourcePath = '/events/{id}'
+        resourcePath = resourcePath.replace('{format}', 'json')
+        method = 'PUT'
+
+        queryParams = {}
+        headerParams = {}
+        formParams = {}
+        files = {}
+        bodyParam = None
+
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
+
+        
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
+
+        
+
+        
+        if ('id' in params):
+            replacement = str(self.apiClient.toPathValue(params['id']))
+            replacement = urllib.quote(replacement)
+            resourcePath = resourcePath.replace('{' + 'id' + '}',
+                                                replacement)
+        
+
+        
+        if ('event' in params):
+            formParams['Event'] = params['event']
+        
+
+        
+
+        postData = (formParams if formParams else bodyParam)
+
+        response = self.apiClient.callAPI(resourcePath, method, queryParams,
+                                          postData, headerParams, files=files)
+
+        
+        if not response:
+            return None
+
+        responseObject = self.apiClient.deserialize(response, 'Event')
         return responseObject
         
         

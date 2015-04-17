@@ -1,6 +1,7 @@
 package io.swagger.client.api
 
 import io.swagger.client.model.Articles
+import io.swagger.client.model.Article
 import io.swagger.client.ApiInvoker
 import io.swagger.client.ApiException
 
@@ -46,6 +47,41 @@ class ArticlesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2
       apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, None, headerParams.toMap, contentType) match {
         case s: String =>
            Some(ApiInvoker.deserialize(s, "", classOf[Articles]).asInstanceOf[Articles])
+         
+        case _ => None
+      }
+    } catch {
+      case ex: ApiException if ex.code == 404 => None
+      case ex: ApiException => throw ex
+    }
+  }
+  
+  def findArticleByID (id: String) : Option[Article] = {
+    // create path and map variables
+    val path = "/articles/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
+
+    
+
+    
+    val contentType = {
+      
+      "application/json"
+    }
+
+    // query params
+    val queryParams = new HashMap[String, String]
+    val headerParams = new HashMap[String, String]
+
+    
+
+    
+    
+    
+
+    try {
+      apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, None, headerParams.toMap, contentType) match {
+        case s: String =>
+           Some(ApiInvoker.deserialize(s, "", classOf[Article]).asInstanceOf[Article])
          
         case _ => None
       }

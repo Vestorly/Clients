@@ -26,14 +26,20 @@ from .models.posts import Posts
 
 from .models.post import Post
 
+from .models.event_input import EventInput
+
+from .models.event import Event
+
+from .models.events import Events
+
 
 # import apis into package
+
+from .events_api import EventsApi
 
 from .newslettters_api import NewsletttersApi
 
 from .articles_api import ArticlesApi
-
-from .article_api import ArticleApi
 
 from .posts_api import PostsApi
 

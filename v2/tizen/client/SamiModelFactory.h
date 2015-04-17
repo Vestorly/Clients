@@ -14,6 +14,9 @@
 #include "SamiNewsletters.h"
 #include "SamiPosts.h"
 #include "SamiPost.h"
+#include "SamiEventInput.h"
+#include "SamiEvent.h"
+#include "SamiEvents.h"
 
 namespace Swagger {
   void*
@@ -50,6 +53,15 @@ namespace Swagger {
     }
     if(type.Equals(L"SamiPost", true)) {
       return new SamiPost();
+    }
+    if(type.Equals(L"SamiEventInput", true)) {
+      return new SamiEventInput();
+    }
+    if(type.Equals(L"SamiEvent", true)) {
+      return new SamiEvent();
+    }
+    if(type.Equals(L"SamiEvents", true)) {
+      return new SamiEvents();
     }
     
     if(type.Equals(L"String", true)) {

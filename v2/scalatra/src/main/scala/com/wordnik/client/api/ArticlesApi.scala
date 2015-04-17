@@ -1,6 +1,7 @@
 package com.wordnik.client.api
 
 import com.wordnik.client.model.Articles
+import com.wordnik.client.model.Article
 
 import java.io.File
 
@@ -160,6 +161,41 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
     
     
     println("all_query: " + all_query)
+  
+  }
+
+  
+
+  val findArticleByIDOperation = (apiOperation[Article]("findArticleByID")
+      summary ""
+      parameters(
+        
+        pathParam[String]("id").description("")
+        
+        
+        
+        
+        
+        )
+  )
+
+  get("/articles/{id}",operation(findArticleByIDOperation)) {
+    
+    
+    
+    
+      val id = params.getOrElse("id", halt(400))
+    
+
+    
+
+    
+
+    
+
+    
+    
+    println("id: " + id)
   
   }
 

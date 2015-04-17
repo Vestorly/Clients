@@ -1,20 +1,20 @@
-#import "SWGArticlesApi.h"
+#import "SWGEventsApi.h"
 #import "SWGFile.h"
 #import "SWGQueryParamCollection.h"
 #import "SWGApiClient.h"
-#import "SWGArticles.h"
-#import "SWGArticle.h"
+#import "SWGEvents.h"
+#import "SWGEvent.h"
 
 
 
-@implementation SWGArticlesApi
+@implementation SWGEventsApi
 static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
-+(SWGArticlesApi*) apiWithHeader:(NSString*)headerValue key:(NSString*)key {
-    static SWGArticlesApi* singletonAPI = nil;
++(SWGEventsApi*) apiWithHeader:(NSString*)headerValue key:(NSString*)key {
+    static SWGEventsApi* singletonAPI = nil;
 
     if (singletonAPI == nil) {
-        singletonAPI = [[SWGArticlesApi alloc] init];
+        singletonAPI = [[SWGEventsApi alloc] init];
         [singletonAPI addHeader:headerValue forKey:key];
     }
     return singletonAPI;
@@ -52,16 +52,12 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 
--(NSNumber*) findArticlesWithCompletionBlock: (NSString*) vestorly-auth
-         limit: (NSNumber*) limit
-         text_query: (NSString*) text_query
-         suitability_score: (NSString*) suitability_score
-         all_query: (NSString*) all_query
+-(NSNumber*) findEventsWithCompletionBlock: (NSString*) vestorly-auth
         
-        completionHandler: (void (^)(SWGArticles* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGEvents* output, NSError* error))completionBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/articles", basePath];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/events", basePath];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound)
@@ -80,22 +76,6 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
         
         queryParams[@"vestorly-auth"] = vestorly-auth;
     }
-    if(limit != nil) {
-        
-        queryParams[@"limit"] = limit;
-    }
-    if(text_query != nil) {
-        
-        queryParams[@"text_query"] = text_query;
-    }
-    if(suitability_score != nil) {
-        
-        queryParams[@"suitability_score"] = suitability_score;
-    }
-    if(all_query != nil) {
-        
-        queryParams[@"all_query"] = all_query;
-    }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
     
@@ -137,9 +117,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGArticles* result = nil;
+                SWGEvents* result = nil;
                 if (data) {
-                    result = [[SWGArticles  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGEvents  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 
@@ -151,12 +131,13 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     
 }
 
--(NSNumber*) findArticleByIDWithCompletionBlock: (NSString*) _id
+-(NSNumber*) findEventByIDWithCompletionBlock: (NSString*) _id
+         vestorly-auth: (NSString*) vestorly-auth
         
-        completionHandler: (void (^)(SWGArticle* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGEvent* output, NSError* error))completionBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/articles/{id}", basePath];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/events/{id}", basePath];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound)
@@ -172,6 +153,10 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if(vestorly-auth != nil) {
+        
+        queryParams[@"vestorly-auth"] = vestorly-auth;
+    }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
     
@@ -213,9 +198,99 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGArticle* result = nil;
+                SWGEvent* result = nil;
                 if (data) {
-                    result = [[SWGArticle  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGEvent  alloc]  initWithDictionary:data error:nil];
+                }
+                completionBlock(result , nil);
+                
+              }];
+    
+
+    
+
+    
+}
+
+-(NSNumber*) updateEventByIDWithCompletionBlock: (NSString*) _id
+         vestorly-auth: (NSString*) vestorly-auth
+         Event: (NSString*) Event
+        
+        completionHandler: (void (^)(SWGEvent* output, NSError* error))completionBlock
+         {
+
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/events/{id}", basePath];
+
+    // remove format in URL if needed
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound)
+        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"id", @"}"]] withString: [SWGApiClient escape:_id]];
+    
+
+    NSArray* requestContentTypes = @[];
+    NSString* requestContentType = [requestContentTypes count] > 0 ? requestContentTypes[0] : @"application/json";
+
+    NSArray* responseContentTypes = @[];
+    NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if(vestorly-auth != nil) {
+        
+        queryParams[@"vestorly-auth"] = vestorly-auth;
+    }
+    
+    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    
+
+    id bodyDictionary = nil;
+    
+    
+
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
+
+    
+    
+    formParams[@"Event"] = Event;
+    
+    if(bodyDictionary == nil) {
+      bodyDictionary = [[NSMutableArray alloc] init];
+    }
+    [bodyDictionary addObject:formParams];
+    
+    
+
+    
+
+    SWGApiClient* client = [SWGApiClient sharedClientFromPool:basePath];
+
+    
+
+    
+    // non container response
+
+    
+
+    
+    // complex response
+        
+    // comples response type
+    return [client dictionary: requestUrl
+                       method: @"PUT"
+                  queryParams: queryParams
+                         body: bodyDictionary
+                 headerParams: headerParams
+           requestContentType: requestContentType
+          responseContentType: responseContentType
+              completionBlock: ^(NSDictionary *data, NSError *error) {
+                if (error) {
+                    completionBlock(nil, error);
+                    
+                    return;
+                }
+                SWGEvent* result = nil;
+                if (data) {
+                    result = [[SWGEvent  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 

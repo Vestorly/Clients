@@ -8,6 +8,7 @@
 using Tizen::Base::Integer;
 #include "SamiArticles.h"
 using Tizen::Base::String;
+#include "SamiArticle.h"
 
 using namespace Tizen::Net::Http;
 
@@ -21,6 +22,9 @@ public:
   
   SamiArticles* 
   findArticlesWithCompletion(String* vestorly-auth, Integer* limit, String* text_query, String* suitability_score, String* all_query, void (* handler)(SamiArticles*, SamiError*));
+  
+  SamiArticle* 
+  findArticleByIDWithCompletion(String* _id, void (* handler)(SamiArticle*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

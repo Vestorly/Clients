@@ -19,6 +19,89 @@
   
   
   <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /events</code></pre></div>
+    <div class="method-summary"><span class="nickname">findEvents</span> </div>
+    <div class="method-notes">Returns all events</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Events</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "events" : [ {\n    "referrer" : "aeiou",\n    "newsletter" : "aeiou",\n    "originator_group_name" : "aeiou",\n    "advisor_email" : "aeiou",\n    "original_url" : "aeiou",\n    "originator_email" : "aeiou",\n    "_id" : "aeiou",\n    "subject_email" : "aeiou"\n  } ]\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /events/{id}</code></pre></div>
+    <div class="method-summary"><span class="nickname">findEventByID</span> </div>
+    <div class="method-notes">Returns a single event if the user has access</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of event to fetch </div>
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Event</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "referrer" : "aeiou",\n  "newsletter" : "aeiou",\n  "originator_group_name" : "aeiou",\n  "advisor_email" : "aeiou",\n  "original_url" : "aeiou",\n  "originator_email" : "aeiou",\n  "_id" : "aeiou",\n  "subject_email" : "aeiou"\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /events/{id}</code></pre></div>
+    <div class="method-summary"><span class="nickname">updateEventByID</span> </div>
+    <div class="method-notes">Updates a single event by mongo id</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of event to update </div>
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">Event (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Event </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Event</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "referrer" : "aeiou",\n  "newsletter" : "aeiou",\n  "originator_group_name" : "aeiou",\n  "advisor_email" : "aeiou",\n  "original_url" : "aeiou",\n  "originator_email" : "aeiou",\n  "_id" : "aeiou",\n  "subject_email" : "aeiou"\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  
+  
+  <div class="method">
     <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /newsletters</code></pre></div>
     <div class="method-summary"><span class="nickname">findNewsletters</span> </div>
     <div class="method-notes">Returns all newsletters</div>
@@ -136,8 +219,6 @@
     
   </div> <!-- method -->
   <hr>
-  
-  
   
   <div class="method">
     <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /articles/{id}</code></pre></div>
@@ -620,6 +701,49 @@
       <div class="param">client_only </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       <div class="param">img_compressed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       <div class="param">img_changed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="EventInput">EventInput</a></h3>
+    <div class="field-items">
+      <div class="param">referrer </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">original_url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">originator_email </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">subject_email </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">advisor_email </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">originator_group_name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">newsletter </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Event">Event</a></h3>
+    <div class="field-items">
+      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">referrer </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">original_url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">originator_email </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">subject_email </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">advisor_email </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">originator_group_name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">newsletter </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Events">Events</a></h3>
+    <div class="field-items">
+      <div class="param">events </div><div class="param-desc"><span class="param-type">array[Event]</span> </div>
       
     </div>  <!-- field-items -->
   </div>

@@ -22,7 +22,7 @@
 
 namespace SwaggerPetstore;
 
-class ArticlesApi {
+class EventsApi {
 
   function __construct($apiClient) {
     $this->apiClient = $apiClient;
@@ -30,21 +30,17 @@ class ArticlesApi {
 
   
   /**
-   * findArticles
+   * findEvents
    *
    * 
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @param int $limit Limit on the number of articles to return (required)
-   * @param string $text_query Search query parameter (required)
-   * @param string $suitability_score Sort by suitability score (true or false) (required)
-   * @param string $all_query Query all articles (required)
-   * @return Articles
+   * @return Events
    */
-   public function findArticles($vestorly_auth, $limit, $text_query, $suitability_score, $all_query) {
+   public function findEvents($vestorly_auth) {
 
       // parse inputs
-      $resourcePath = "/articles";
+      $resourcePath = "/events";
       $resourcePath = str_replace("{format}", "json", $resourcePath);
       $method = "GET";
       $httpBody = '';
@@ -61,18 +57,6 @@ class ArticlesApi {
       // query params
       if($vestorly_auth !== null) {
         $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
-      }// query params
-      if($limit !== null) {
-        $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
-      }// query params
-      if($text_query !== null) {
-        $queryParams['text_query'] = $this->apiClient->toQueryValue($text_query);
-      }// query params
-      if($suitability_score !== null) {
-        $queryParams['suitability_score'] = $this->apiClient->toQueryValue($suitability_score);
-      }// query params
-      if($all_query !== null) {
-        $queryParams['all_query'] = $this->apiClient->toQueryValue($all_query);
       }
       
       
@@ -99,22 +83,23 @@ class ArticlesApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Articles');
+  		                                                'Events');
   		return $responseObject;
   }
   
   /**
-   * findArticleByID
+   * findEventByID
    *
    * 
    *
-   * @param string $id Article Id to fetch (required)
-   * @return Article
+   * @param string $id Mongo ID of event to fetch (required)
+   * @param string $vestorly_auth Vestorly Auth Token (required)
+   * @return Event
    */
-   public function findArticleByID($id) {
+   public function findEventByID($id, $vestorly_auth) {
 
       // parse inputs
-      $resourcePath = "/articles/{id}";
+      $resourcePath = "/events/{id}";
       $resourcePath = str_replace("{format}", "json", $resourcePath);
       $method = "GET";
       $httpBody = '';
@@ -128,7 +113,10 @@ class ArticlesApi {
       $_header_content_type = array();
       $headerParams['Content-Type'] = count($_header_content_type) > 0 ? $_header_content_type[0] : 'application/json';
 
-      
+      // query params
+      if($vestorly_auth !== null) {
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+      }
       
       // path params
       if($id !== null) {
@@ -158,7 +146,74 @@ class ArticlesApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Article');
+  		                                                'Event');
+  		return $responseObject;
+  }
+  
+  /**
+   * updateEventByID
+   *
+   * 
+   *
+   * @param string $id Mongo ID of event to update (required)
+   * @param string $vestorly_auth Vestorly Auth Token (required)
+   * @param string $event Event (required)
+   * @return Event
+   */
+   public function updateEventByID($id, $vestorly_auth, $event) {
+
+      // parse inputs
+      $resourcePath = "/events/{id}";
+      $resourcePath = str_replace("{format}", "json", $resourcePath);
+      $method = "PUT";
+      $httpBody = '';
+      $queryParams = array();
+      $headerParams = array();
+      $formParams = array();
+      $_header_accept = '';
+      if ($_header_accept !== '') {
+        $headerParams['Accept'] = $_header_accept;
+      }
+      $_header_content_type = array();
+      $headerParams['Content-Type'] = count($_header_content_type) > 0 ? $_header_content_type[0] : 'application/json';
+
+      // query params
+      if($vestorly_auth !== null) {
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+      }
+      
+      // path params
+      if($id !== null) {
+        $resourcePath = str_replace("{" . "id" . "}",
+                                    $this->apiClient->toPathValue($id), $resourcePath);
+      }
+      // form params
+      if ($event !== null) {
+        $formParams['Event'] = $this->apiClient->toFormValue($event);
+      }
+      
+
+      // for model (json/xml)
+      if (isset($body)) {
+        $httpBody = $body; // $body is the method argument, if present
+      }
+      
+      // for HTTP post (form)
+      if (strpos($headerParams['Content-Type'], "application/x-www-form-urlencoded") !== FALSE) {
+        $httpBody = http_build_query($formParams);
+      }
+
+      // make the API Call
+      $response = $this->apiClient->callAPI($resourcePath, $method,
+                                            $queryParams, $httpBody,
+                                            $headerParams);
+
+      if(! $response) {
+        return null;
+      }
+
+  		$responseObject = $this->apiClient->deserialize($response,
+  		                                                'Event');
   		return $responseObject;
   }
   

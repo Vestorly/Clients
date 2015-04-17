@@ -23,3 +23,17 @@ module.exports.findArticles = function findArticles (req, res, next) {
   else
     res.end();
 };
+
+module.exports.findArticleByID = function findArticleByID (req, res, next) {
+  var id = req.swagger.params['id'].value;
+  
+
+  var result = Articles.findArticleByID(id);
+
+  if(typeof result !== 'undefined') {
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(result || {}, null, 2));
+  }
+  else
+    res.end();
+};
