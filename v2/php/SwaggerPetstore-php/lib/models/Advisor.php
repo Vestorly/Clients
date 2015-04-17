@@ -28,26 +28,18 @@ use \ArrayAccess;
 
 class Advisor implements ArrayAccess {
   static $swaggerTypes = array(
-      'client_only' => 'boolean',
-      'img_compressed' => 'boolean',
-      'img_changed' => 'boolean'
+      'new_user' => 'boolean'
   );
 
   static $attributeMap = array(
-      'client_only' => 'client_only',
-      'img_compressed' => 'img_compressed',
-      'img_changed' => 'img_changed'
+      'new_user' => 'new_user'
   );
 
   
-  public $client_only; /* boolean */
-  public $img_compressed; /* boolean */
-  public $img_changed; /* boolean */
+  public $new_user; /* boolean */
 
   public function __construct(array $data = null) {
-    $this->client_only = $data["client_only"];
-    $this->img_compressed = $data["img_compressed"];
-    $this->img_changed = $data["img_changed"];
+    $this->new_user = $data["new_user"];
   }
 
   public function offsetExists($offset) {

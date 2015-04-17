@@ -6,12 +6,11 @@ var url = require('url');
 var Advisor = require('./AdvisorService');
 
 
-module.exports.findAdvisorByID = function findAdvisorByID (req, res, next) {
-  var id = req.swagger.params['id'].value;
+module.exports.findAdvisors = function findAdvisors (req, res, next) {
   var vestorly-auth = req.swagger.params['vestorly-auth'].value;
   
 
-  var result = Advisor.findAdvisorByID(id, vestorly-auth);
+  var result = Advisor.findAdvisors(vestorly-auth);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -21,11 +20,12 @@ module.exports.findAdvisorByID = function findAdvisorByID (req, res, next) {
     res.end();
 };
 
-module.exports.findAdvisors = function findAdvisors (req, res, next) {
+module.exports.findAdvisorByID = function findAdvisorByID (req, res, next) {
+  var id = req.swagger.params['id'].value;
   var vestorly-auth = req.swagger.params['vestorly-auth'].value;
   
 
-  var result = Advisor.findAdvisors(vestorly-auth);
+  var result = Advisor.findAdvisorByID(id, vestorly-auth);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

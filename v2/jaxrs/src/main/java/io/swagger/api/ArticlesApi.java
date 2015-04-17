@@ -6,6 +6,8 @@ import com.wordnik.swagger.annotations.ApiParam;
 
 import com.sun.jersey.multipart.FormDataParam;
 
+import io.swagger.model.Articles;
+import io.swagger.model.Article;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -26,13 +28,30 @@ public class ArticlesApi {
   
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns all articles", response = Void.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns all articles", response = Articles.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
-    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Response") })
+    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "article response") })
 
   public Response findArticles(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
-    @ApiParam(value = "Limit on the number of articles to return") @QueryParam("limit") Long limit,
-    @ApiParam(value = "Search query parameter") @QueryParam("text_query") String textQuery)
+    @ApiParam(value = "Limit on the number of articles to return") @QueryParam("limit") Integer limit,
+    @ApiParam(value = "Search query parameter") @QueryParam("text_query") String textQuery,
+    @ApiParam(value = "Sort by suitability score (true or false)") @QueryParam("suitability_score") String suitabilityScore,
+    @ApiParam(value = "Query all articles") @QueryParam("all_query") String allQuery)
+      throws NotFoundException {
+      // do some magic!
+      return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+  }
+
+  
+  @GET
+  @Path("/{id}")
+  
+  
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns a single article", response = Article.class)
+  @com.wordnik.swagger.annotations.ApiResponses(value = { 
+    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Article response") })
+
+  public Response findArticleByID(@ApiParam(value = "Article Id to fetch",required=true ) @PathParam("id") String id)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

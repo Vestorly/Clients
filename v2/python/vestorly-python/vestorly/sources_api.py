@@ -42,7 +42,7 @@ class SourcesApi(object):
             
             
         
-        Returns: 
+        Returns: Sources
         """
 
         allParams = ['vestorly_auth']
@@ -88,6 +88,237 @@ class SourcesApi(object):
         response = self.apiClient.callAPI(resourcePath, method, queryParams,
                                           postData, headerParams, files=files)
 
+        
+        if not response:
+            return None
+
+        responseObject = self.apiClient.deserialize(response, 'Sources')
+        return responseObject
+        
+        
+        
+    
+    def createSource(self, **kwargs):
+        """
+
+        Args:
+            
+            vestorly_auth, str: Vestorly Auth Token (required)
+            
+            
+            source, str: Source (required)
+            
+            
+        
+        Returns: Source
+        """
+
+        allParams = ['vestorly_auth', 'source']
+
+        params = locals()
+        for (key, val) in params['kwargs'].iteritems():
+            if key not in allParams:
+                raise TypeError("Got an unexpected keyword argument '%s' to method createSource" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resourcePath = '/sources/'
+        resourcePath = resourcePath.replace('{format}', 'json')
+        method = 'POST'
+
+        queryParams = {}
+        headerParams = {}
+        formParams = {}
+        files = {}
+        bodyParam = None
+
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
+
+        
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
+
+        
+
+        
+
+        
+        if ('source' in params):
+            formParams['Source'] = params['source']
+        
+
+        
+
+        postData = (formParams if formParams else bodyParam)
+
+        response = self.apiClient.callAPI(resourcePath, method, queryParams,
+                                          postData, headerParams, files=files)
+
+        
+        if not response:
+            return None
+
+        responseObject = self.apiClient.deserialize(response, 'Source')
+        return responseObject
+        
+        
+        
+    
+    def getSourceByID(self, **kwargs):
+        """
+
+        Args:
+            
+            vestorly_auth, str: Vestorly Auth Token (required)
+            
+            
+            id, str: ID of source to fetch (required)
+            
+            
+        
+        Returns: Source
+        """
+
+        allParams = ['vestorly_auth', 'id']
+
+        params = locals()
+        for (key, val) in params['kwargs'].iteritems():
+            if key not in allParams:
+                raise TypeError("Got an unexpected keyword argument '%s' to method getSourceByID" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resourcePath = '/sources/{id}'
+        resourcePath = resourcePath.replace('{format}', 'json')
+        method = 'GET'
+
+        queryParams = {}
+        headerParams = {}
+        formParams = {}
+        files = {}
+        bodyParam = None
+
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
+
+        
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
+
+        
+
+        
+        if ('id' in params):
+            replacement = str(self.apiClient.toPathValue(params['id']))
+            replacement = urllib.quote(replacement)
+            resourcePath = resourcePath.replace('{' + 'id' + '}',
+                                                replacement)
+        
+
+        
+
+        
+
+        postData = (formParams if formParams else bodyParam)
+
+        response = self.apiClient.callAPI(resourcePath, method, queryParams,
+                                          postData, headerParams, files=files)
+
+        
+        if not response:
+            return None
+
+        responseObject = self.apiClient.deserialize(response, 'Source')
+        return responseObject
+        
+        
+        
+    
+    def UpdateSourceByID(self, **kwargs):
+        """
+
+        Args:
+            
+            vestorly_auth, str: Vestorly Auth Token (required)
+            
+            
+            id, str: ID of source to fetch (required)
+            
+            
+            source, str: Source (required)
+            
+            
+        
+        Returns: Source
+        """
+
+        allParams = ['vestorly_auth', 'id', 'source']
+
+        params = locals()
+        for (key, val) in params['kwargs'].iteritems():
+            if key not in allParams:
+                raise TypeError("Got an unexpected keyword argument '%s' to method UpdateSourceByID" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resourcePath = '/sources/{id}'
+        resourcePath = resourcePath.replace('{format}', 'json')
+        method = 'PUT'
+
+        queryParams = {}
+        headerParams = {}
+        formParams = {}
+        files = {}
+        bodyParam = None
+
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
+
+        
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
+
+        
+
+        
+        if ('id' in params):
+            replacement = str(self.apiClient.toPathValue(params['id']))
+            replacement = urllib.quote(replacement)
+            resourcePath = resourcePath.replace('{' + 'id' + '}',
+                                                replacement)
+        
+
+        
+        if ('source' in params):
+            formParams['Source'] = params['source']
+        
+
+        
+
+        postData = (formParams if formParams else bodyParam)
+
+        response = self.apiClient.callAPI(resourcePath, method, queryParams,
+                                          postData, headerParams, files=files)
+
+        
+        if not response:
+            return None
+
+        responseObject = self.apiClient.deserialize(response, 'Source')
+        return responseObject
         
         
         

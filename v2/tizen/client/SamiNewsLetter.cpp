@@ -1,5 +1,5 @@
 
-#include "SamiNewsLetter.h"
+#include "SamiNewsletter.h"
 #include <FLocales.h>
 
 using namespace Tizen::Base;
@@ -12,16 +12,16 @@ using namespace Tizen::Locales;
 
 namespace Swagger {
 
-SamiNewsLetter::SamiNewsLetter() {
+SamiNewsletter::SamiNewsletter() {
     init();
 }
 
-SamiNewsLetter::~SamiNewsLetter() {
+SamiNewsletter::~SamiNewsletter() {
     this->cleanup();
 }
 
 void
-SamiNewsLetter::init() {
+SamiNewsletter::init() {
     pIs_sent = null;
     pIs_default = null;
     pClick_count = null;
@@ -31,7 +31,7 @@ SamiNewsLetter::init() {
 }
 
 void
-SamiNewsLetter::cleanup() {
+SamiNewsletter::cleanup() {
     if(pIs_sent != null) {
         
         delete pIs_sent;
@@ -61,8 +61,8 @@ SamiNewsLetter::cleanup() {
 }
 
 
-SamiNewsLetter*
-SamiNewsLetter::fromJson(String* json) {
+SamiNewsletter*
+SamiNewsletter::fromJson(String* json) {
     this->cleanup();
     String str(json->GetPointer());
     int length = str.GetLength();
@@ -91,7 +91,7 @@ SamiNewsLetter::fromJson(String* json) {
 
 
 void
-SamiNewsLetter::fromJsonObject(IJsonValue* pJson) {
+SamiNewsletter::fromJsonObject(IJsonValue* pJson) {
     JsonObject* pJsonObject = static_cast< JsonObject* >(pJson);
 
     if(pJsonObject != null) {
@@ -144,7 +144,7 @@ SamiNewsLetter::fromJsonObject(IJsonValue* pJson) {
     }
 }
 
-SamiNewsLetter::SamiNewsLetter(String* json) {
+SamiNewsletter::SamiNewsletter(String* json) {
     init();
     String str(json->GetPointer());
     int length = str.GetLength();
@@ -171,7 +171,7 @@ SamiNewsLetter::SamiNewsLetter(String* json) {
 }
 
 String
-SamiNewsLetter::asJson ()
+SamiNewsletter::asJson ()
 {
     JsonObject* pJsonObject = asJsonObject();
 
@@ -187,7 +187,7 @@ SamiNewsLetter::asJson ()
 }
 
 JsonObject*
-SamiNewsLetter::asJsonObject() {
+SamiNewsletter::asJsonObject() {
     JsonObject *pJsonObject = new JsonObject();
     pJsonObject->Construct();
 
@@ -216,47 +216,47 @@ SamiNewsLetter::asJsonObject() {
 }
 
 Boolean*
-SamiNewsLetter::getPIsSent() {
+SamiNewsletter::getPIsSent() {
     return pIs_sent;
 }
 void
-SamiNewsLetter::setPIsSent(Boolean* pIs_sent) {
+SamiNewsletter::setPIsSent(Boolean* pIs_sent) {
     this->pIs_sent = pIs_sent;
 }
 
 Boolean*
-SamiNewsLetter::getPIsDefault() {
+SamiNewsletter::getPIsDefault() {
     return pIs_default;
 }
 void
-SamiNewsLetter::setPIsDefault(Boolean* pIs_default) {
+SamiNewsletter::setPIsDefault(Boolean* pIs_default) {
     this->pIs_default = pIs_default;
 }
 
 Long*
-SamiNewsLetter::getPClickCount() {
+SamiNewsletter::getPClickCount() {
     return pClick_count;
 }
 void
-SamiNewsLetter::setPClickCount(Long* pClick_count) {
+SamiNewsletter::setPClickCount(Long* pClick_count) {
     this->pClick_count = pClick_count;
 }
 
 Long*
-SamiNewsLetter::getPUniqueClickCount() {
+SamiNewsletter::getPUniqueClickCount() {
     return pUnique_click_count;
 }
 void
-SamiNewsLetter::setPUniqueClickCount(Long* pUnique_click_count) {
+SamiNewsletter::setPUniqueClickCount(Long* pUnique_click_count) {
     this->pUnique_click_count = pUnique_click_count;
 }
 
 Long*
-SamiNewsLetter::getPTotalClickCount() {
+SamiNewsletter::getPTotalClickCount() {
     return pTotal_click_count;
 }
 void
-SamiNewsLetter::setPTotalClickCount(Long* pTotal_click_count) {
+SamiNewsletter::setPTotalClickCount(Long* pTotal_click_count) {
     this->pTotal_click_count = pTotal_click_count;
 }
 

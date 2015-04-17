@@ -4,13 +4,27 @@ import os
 
 # import models into package
 
+from .models.source import Source
+
+from .models.source_input import SourceInput
+
+from .models.sources import Sources
+
 from .models.advisor import Advisor
 
 from .models.article import Article
 
 from .models.articles import Articles
 
-from .models.news_letter import NewsLetter
+from .models.newsletter import Newsletter
+
+from .models.newsletter_input import NewsletterInput
+
+from .models.newsletters import Newsletters
+
+from .models.posts import Posts
+
+from .models.post import Post
 
 
 # import apis into package
@@ -18,6 +32,8 @@ from .models.news_letter import NewsLetter
 from .newslettters_api import NewsletttersApi
 
 from .articles_api import ArticlesApi
+
+from .article_api import ArticleApi
 
 from .posts_api import PostsApi
 

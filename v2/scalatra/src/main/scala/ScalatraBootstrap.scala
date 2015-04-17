@@ -12,6 +12,7 @@ class ScalatraBootstrap extends LifeCycle {
     try {
       context mount (new NewsletttersApi, "/Newslettters/*")
       context mount (new ArticlesApi, "/Articles/*")
+      context mount (new ArticleApi, "/Article/*")
       context mount (new PostsApi, "/Posts/*")
       context mount (new AdvisorApi, "/Advisor/*")
       context mount (new SourcesApi, "/Sources/*")

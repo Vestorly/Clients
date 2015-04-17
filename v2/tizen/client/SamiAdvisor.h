@@ -41,20 +41,12 @@ public:
     SamiAdvisor* fromJson(String* obj);
 
     
-    Boolean* getPClientOnly();
-    void setPClientOnly(Boolean* pClient_only);
-    
-    Boolean* getPImgCompressed();
-    void setPImgCompressed(Boolean* pImg_compressed);
-    
-    Boolean* getPImgChanged();
-    void setPImgChanged(Boolean* pImg_changed);
+    Boolean* getPNewUser();
+    void setPNewUser(Boolean* pNew_user);
     
 
 private:
-    Boolean* pClient_only;
-    Boolean* pImg_compressed;
-    Boolean* pImg_changed;
+    Boolean* pNew_user;
     
 };
 

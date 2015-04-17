@@ -32,12 +32,69 @@
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
+    <div class="return-type"><a href="#">Newsletters</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "newletters" : [ {\n    "is_sent" : true,\n    "click_count" : 123456789,\n    "unique_click_count" : 123456789,\n    "is_default" : true,\n    "total_click_count" : 123456789\n  } ]\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /newsletters/{id}</code></pre></div>
+    <div class="method-summary"><span class="nickname">getNewsletterByID</span> </div>
+    <div class="method-notes">Returns newsletter by ID</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of newsletter to fetch </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
     <div class="return-type"><a href="#">Newsletter</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>""</code></pre>
+    <pre class="example"><code>{\n  "is_sent" : true,\n  "click_count" : 123456789,\n  "unique_click_count" : 123456789,\n  "is_default" : true,\n  "total_click_count" : 123456789\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /newsletters/{id}</code></pre></div>
+    <div class="method-summary"><span class="nickname">updateNewsletter</span> </div>
+    <div class="method-notes">Update newsletter by ID</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of newsletter to fetch </div>
+      <div class="param">Newsletter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Newsletter </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Newsletter</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "is_sent" : true,\n  "click_count" : 123456789,\n  "unique_click_count" : 123456789,\n  "is_default" : true,\n  "total_click_count" : 123456789\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -60,17 +117,80 @@
       <div class="param">text_query (optional)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Search query parameter </div>
+      <div class="param">suitability_score (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Sort by suitability score (true or false) </div>
+      <div class="param">all_query (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Query all articles </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#"></a></div>
+    <div class="return-type"><a href="#">Articles</a></div>
 
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "articles" : [ { } ]\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
   
   
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /articles/{id}</code></pre></div>
+    <div class="method-summary"><span class="nickname">findArticleByID</span> </div>
+    <div class="method-notes">Returns a single article</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Article Id to fetch </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Article</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{ }</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /posts</code></pre></div>
+    <div class="method-summary"><span class="nickname">findPosts</span> </div>
+    <div class="method-notes">Query all posts</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">filter_by (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter post by parameters </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Posts</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "posts" : [ {\n    "client_only" : true,\n    "img_compressed" : true,\n    "img_changed" : true\n  } ]\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
   
   <div class="method">
     <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: /posts</code></pre></div>
@@ -79,6 +199,9 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">Post (required)</div>
 
       <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Post </div>
@@ -91,31 +214,32 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>""</code></pre>
+    <pre class="example"><code>{\n  "client_only" : true,\n  "img_compressed" : true,\n  "img_changed" : true\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
   
-  
-  
   <div class="method">
-    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /advisor/{id}</code></pre></div>
-    <div class="method-summary"><span class="nickname">findAdvisorByID</span> </div>
-    <div class="method-notes">Returns a single advisor if the user has access</div>
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /posts/{id}</code></pre></div>
+    <div class="method-summary"><span class="nickname">getPostByID</span> </div>
+    <div class="method-notes">Query all posts</div>
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of advisor to fetch </div>
       <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of post to fetch </div>
+      <div class="param">filter_by (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter post by parameters </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">Advisor</a></div>
+    <div class="return-type"><a href="#">Post</a></div>
 
     
     <h3 class="field-label">Example data</h3>
@@ -124,6 +248,38 @@
     
   </div> <!-- method -->
   <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /posts/{id}</code></pre></div>
+    <div class="method-summary"><span class="nickname">updatePostByID</span> </div>
+    <div class="method-notes">Update A Post</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of post to fetch </div>
+      <div class="param">Post (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Post </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Post</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "client_only" : true,\n  "img_compressed" : true,\n  "img_changed" : true\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  
   
   <div class="method">
     <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /advisors</code></pre></div>
@@ -145,6 +301,33 @@
   </div> <!-- method -->
   <hr>
   
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /advisors/{id}</code></pre></div>
+    <div class="method-summary"><span class="nickname">findAdvisorByID</span> </div>
+    <div class="method-notes">Returns a single advisor if the user has access</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of advisor to fetch </div>
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Advisor</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "new_user" : true\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
   
   
   <div class="method">
@@ -161,8 +344,96 @@
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#"></a></div>
+    <div class="return-type"><a href="#">Sources</a></div>
 
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "sources" : [ {\n    "logo_url" : "aeiou",\n    "rss_publisher" : "aeiou",\n    "name" : "aeiou",\n    "custom_rss_feed" : true,\n    "_id" : "aeiou",\n    "url" : "aeiou",\n    "enabled" : true\n  } ]\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: /sources/</code></pre></div>
+    <div class="method-summary"><span class="nickname">createSource</span> </div>
+    <div class="method-notes">Create source</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">Source (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Source </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Source</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "logo_url" : "aeiou",\n  "rss_publisher" : "aeiou",\n  "name" : "aeiou",\n  "custom_rss_feed" : true,\n  "_id" : "aeiou",\n  "url" : "aeiou",\n  "enabled" : true\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /sources/{id}</code></pre></div>
+    <div class="method-summary"><span class="nickname">getSourceByID</span> </div>
+    <div class="method-notes">Get Source By ID</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of source to fetch </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Source</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "logo_url" : "aeiou",\n  "rss_publisher" : "aeiou",\n  "name" : "aeiou",\n  "custom_rss_feed" : true,\n  "_id" : "aeiou",\n  "url" : "aeiou",\n  "enabled" : true\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /sources/{id}</code></pre></div>
+    <div class="method-summary"><span class="nickname">UpdateSourceByID</span> </div>
+    <div class="method-notes">Update Source By ID</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of source to fetch </div>
+      <div class="param">Source (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Source </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Source</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "logo_url" : "aeiou",\n  "rss_publisher" : "aeiou",\n  "name" : "aeiou",\n  "custom_rss_feed" : true,\n  "_id" : "aeiou",\n  "url" : "aeiou",\n  "enabled" : true\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -226,11 +497,50 @@
   
   
   <div class="model">
+    <h3 class="field-label"><a name="Source">Source</a></h3>
+    <div class="field-items">
+      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">logo_url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">enabled </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">custom_rss_feed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">rss_publisher </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="SourceInput">SourceInput</a></h3>
+    <div class="field-items">
+      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">logo_url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">enabled </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">custom_rss_feed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">rss_publisher </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Sources">Sources</a></h3>
+    <div class="field-items">
+      <div class="param">sources </div><div class="param-desc"><span class="param-type">array[Source]</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
     <h3 class="field-label"><a name="Advisor">Advisor</a></h3>
     <div class="field-items">
-      <div class="param">client_only </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
-      <div class="param">img_compressed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
-      <div class="param">img_changed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">new_user </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       
     </div>  <!-- field-items -->
   </div>
@@ -257,13 +567,59 @@
   
   
   <div class="model">
-    <h3 class="field-label"><a name="NewsLetter">NewsLetter</a></h3>
+    <h3 class="field-label"><a name="Newsletter">Newsletter</a></h3>
     <div class="field-items">
       <div class="param">is_sent </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       <div class="param">is_default </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       <div class="param">click_count </div><div class="param-desc"><span class="param-type">Long</span> </div>
       <div class="param">unique_click_count </div><div class="param-desc"><span class="param-type">Long</span> </div>
       <div class="param">total_click_count </div><div class="param-desc"><span class="param-type">Long</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="NewsletterInput">NewsletterInput</a></h3>
+    <div class="field-items">
+      <div class="param">is_sent </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">is_default </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">click_count </div><div class="param-desc"><span class="param-type">Long</span> </div>
+      <div class="param">unique_click_count </div><div class="param-desc"><span class="param-type">Long</span> </div>
+      <div class="param">total_click_count </div><div class="param-desc"><span class="param-type">Long</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Newsletters">Newsletters</a></h3>
+    <div class="field-items">
+      <div class="param">newletters </div><div class="param-desc"><span class="param-type">array[Newsletter]</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Posts">Posts</a></h3>
+    <div class="field-items">
+      <div class="param">posts </div><div class="param-desc"><span class="param-type">array[Post]</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Post">Post</a></h3>
+    <div class="field-items">
+      <div class="param">client_only </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">img_compressed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">img_changed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       
     </div>  <!-- field-items -->
   </div>

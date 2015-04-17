@@ -28,16 +28,9 @@ class AdvisorApi (implicit val swagger: Swagger) extends ScalatraServlet
   }
   
 
-  val findAdvisorByIDOperation = (apiOperation[Advisor]("findAdvisorByID")
+  val findAdvisorsOperation = (apiOperation[Unit]("findAdvisors")
       summary ""
       parameters(
-        
-        pathParam[String]("id").description("")
-        
-        
-        
-        
-        ,
         queryParam[String]("vestorly-auth").description("")
         
         
@@ -48,24 +41,8 @@ class AdvisorApi (implicit val swagger: Swagger) extends ScalatraServlet
         )
   )
 
-  get("/advisor/{id}",operation(findAdvisorByIDOperation)) {
+  get("/advisors",operation(findAdvisorsOperation)) {
     
-    
-    
-    
-      val id = params.getOrElse("id", halt(400))
-    
-
-    
-
-    
-
-    
-
-    
-    
-    println("id: " + id)
-  
     
     
     
@@ -88,9 +65,16 @@ class AdvisorApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   
 
-  val findAdvisorsOperation = (apiOperation[Unit]("findAdvisors")
+  val findAdvisorByIDOperation = (apiOperation[Advisor]("findAdvisorByID")
       summary ""
       parameters(
+        
+        pathParam[String]("id").description("")
+        
+        
+        
+        
+        ,
         queryParam[String]("vestorly-auth").description("")
         
         
@@ -101,8 +85,24 @@ class AdvisorApi (implicit val swagger: Swagger) extends ScalatraServlet
         )
   )
 
-  get("/advisors",operation(findAdvisorsOperation)) {
+  get("/advisors/{id}",operation(findAdvisorByIDOperation)) {
     
+    
+    
+    
+      val id = params.getOrElse("id", halt(400))
+    
+
+    
+
+    
+
+    
+
+    
+    
+    println("id: " + id)
+  
     
     
     

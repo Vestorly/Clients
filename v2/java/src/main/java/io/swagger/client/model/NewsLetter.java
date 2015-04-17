@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @ApiModel(description = "")
-public class NewsLetter  {
+public class Newsletter  {
   
   private Boolean isSent = null;
   private Boolean isDefault = null;
@@ -79,7 +79,7 @@ public class NewsLetter  {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NewsLetter {\n");
+    sb.append("class Newsletter {\n");
     
     sb.append("  isSent: ").append(isSent).append("\n");
     sb.append("  isDefault: ").append(isDefault).append("\n");

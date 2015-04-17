@@ -42,7 +42,7 @@ class NewsletttersApi(object):
             
             
         
-        Returns: Newsletter
+        Returns: Newsletters
         """
 
         allParams = ['vestorly_auth']
@@ -79,6 +79,160 @@ class NewsletttersApi(object):
 
         
 
+        
+
+        
+
+        postData = (formParams if formParams else bodyParam)
+
+        response = self.apiClient.callAPI(resourcePath, method, queryParams,
+                                          postData, headerParams, files=files)
+
+        
+        if not response:
+            return None
+
+        responseObject = self.apiClient.deserialize(response, 'Newsletters')
+        return responseObject
+        
+        
+        
+    
+    def getNewsletterByID(self, **kwargs):
+        """
+
+        Args:
+            
+            vestorly_auth, str: Vestorly Auth Token (required)
+            
+            
+            id, str: ID of newsletter to fetch (required)
+            
+            
+        
+        Returns: Newsletter
+        """
+
+        allParams = ['vestorly_auth', 'id']
+
+        params = locals()
+        for (key, val) in params['kwargs'].iteritems():
+            if key not in allParams:
+                raise TypeError("Got an unexpected keyword argument '%s' to method getNewsletterByID" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resourcePath = '/newsletters/{id}'
+        resourcePath = resourcePath.replace('{format}', 'json')
+        method = 'GET'
+
+        queryParams = {}
+        headerParams = {}
+        formParams = {}
+        files = {}
+        bodyParam = None
+
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
+
+        
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
+
+        
+
+        
+        if ('id' in params):
+            replacement = str(self.apiClient.toPathValue(params['id']))
+            replacement = urllib.quote(replacement)
+            resourcePath = resourcePath.replace('{' + 'id' + '}',
+                                                replacement)
+        
+
+        
+
+        
+
+        postData = (formParams if formParams else bodyParam)
+
+        response = self.apiClient.callAPI(resourcePath, method, queryParams,
+                                          postData, headerParams, files=files)
+
+        
+        if not response:
+            return None
+
+        responseObject = self.apiClient.deserialize(response, 'Newsletter')
+        return responseObject
+        
+        
+        
+    
+    def updateNewsletter(self, **kwargs):
+        """
+
+        Args:
+            
+            vestorly_auth, str: Vestorly Auth Token (required)
+            
+            
+            id, str: ID of newsletter to fetch (required)
+            
+            
+            newsletter, str: Newsletter (required)
+            
+            
+        
+        Returns: Newsletter
+        """
+
+        allParams = ['vestorly_auth', 'id', 'newsletter']
+
+        params = locals()
+        for (key, val) in params['kwargs'].iteritems():
+            if key not in allParams:
+                raise TypeError("Got an unexpected keyword argument '%s' to method updateNewsletter" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resourcePath = '/newsletters/{id}'
+        resourcePath = resourcePath.replace('{format}', 'json')
+        method = 'PUT'
+
+        queryParams = {}
+        headerParams = {}
+        formParams = {}
+        files = {}
+        bodyParam = None
+
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
+
+        
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
+
+        
+
+        
+        if ('id' in params):
+            replacement = str(self.apiClient.toPathValue(params['id']))
+            replacement = urllib.quote(replacement)
+            resourcePath = resourcePath.replace('{' + 'id' + '}',
+                                                replacement)
+        
+
+        
+        if ('newsletter' in params):
+            formParams['Newsletter'] = params['newsletter']
         
 
         

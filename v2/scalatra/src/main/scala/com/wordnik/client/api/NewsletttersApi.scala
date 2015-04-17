@@ -1,5 +1,6 @@
 package com.wordnik.client.api
 
+import com.wordnik.client.model.Newsletters
 import com.wordnik.client.model.Newsletter
 
 import java.io.File
@@ -28,7 +29,7 @@ class NewsletttersApi (implicit val swagger: Swagger) extends ScalatraServlet
   }
   
 
-  val findNewslettersOperation = (apiOperation[Newsletter]("findNewsletters")
+  val findNewslettersOperation = (apiOperation[Newsletters]("findNewsletters")
       summary ""
       parameters(
         queryParam[String]("vestorly-auth").description("")
@@ -60,6 +61,149 @@ class NewsletttersApi (implicit val swagger: Swagger) extends ScalatraServlet
     
     
     println("vestorly-auth: " + vestorly-auth)
+  
+  }
+
+  
+
+  val getNewsletterByIDOperation = (apiOperation[Newsletter]("getNewsletterByID")
+      summary ""
+      parameters(
+        queryParam[String]("vestorly-auth").description("")
+        
+        
+        
+        
+        
+        ,
+        
+        pathParam[String]("id").description("")
+        
+        
+        
+        
+        
+        )
+  )
+
+  get("/newsletters/{id}",operation(getNewsletterByIDOperation)) {
+    
+    
+    
+    
+
+    
+      
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("vestorly-auth: " + vestorly-auth)
+  
+    
+    
+    
+      val id = params.getOrElse("id", halt(400))
+    
+
+    
+
+    
+
+    
+
+    
+    
+    println("id: " + id)
+  
+  }
+
+  
+
+  val updateNewsletterOperation = (apiOperation[Newsletter]("updateNewsletter")
+      summary ""
+      parameters(
+        queryParam[String]("vestorly-auth").description("")
+        
+        
+        
+        
+        
+        ,
+        
+        pathParam[String]("id").description("")
+        
+        
+        
+        
+        ,
+        
+        
+        
+        
+        formParam[String]("Newsletter").description("")
+        
+        
+        )
+  )
+
+  put("/newsletters/{id}",operation(updateNewsletterOperation)) {
+    
+    
+    
+    
+
+    
+      
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("vestorly-auth: " + vestorly-auth)
+  
+    
+    
+    
+      val id = params.getOrElse("id", halt(400))
+    
+
+    
+
+    
+
+    
+
+    
+    
+    println("id: " + id)
+  
+    
+    
+    
+
+    
+
+    
+
+    
+      val Newsletter = params.getAs[String]("Newsletter")
+    
+
+    
+    
+    println("Newsletter: " + Newsletter)
   
   }
 

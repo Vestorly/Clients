@@ -3,7 +3,7 @@ package io.swagger.client.model
 
 
 
-case class NewsLetter (
+case class Newsletter (
   is_sent: Boolean,
   is_default: Boolean,
   click_count: Long,

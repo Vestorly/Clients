@@ -7,6 +7,7 @@ import io.swagger.client.model.*;
 
 import java.util.*;
 
+import io.swagger.client.model.Articles;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -37,7 +38,7 @@ public class ArticlesApi {
 
   
   
-  public void  findArticles (String vestorlyAuth, Long limit, String textQuery) throws ApiException {
+  public Articles  findArticles (String vestorlyAuth, Integer limit, String textQuery, String suitabilityScore, String allQuery) throws ApiException {
     Object postBody = null;
 
     
@@ -58,6 +59,10 @@ public class ArticlesApi {
       queryParams.put("limit", ApiInvoker.parameterToString(limit));
     if (textQuery != null)
       queryParams.put("text_query", ApiInvoker.parameterToString(textQuery));
+    if (suitabilityScore != null)
+      queryParams.put("suitability_score", ApiInvoker.parameterToString(suitabilityScore));
+    if (allQuery != null)
+      queryParams.put("all_query", ApiInvoker.parameterToString(allQuery));
     
 
     
@@ -82,10 +87,10 @@ public class ArticlesApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return ;
+        return (Articles) ApiInvoker.deserialize(response, "", Articles.class);
       }
       else {
-        return ;
+        return null;
       }
     } catch (ApiException ex) {
       throw ex;

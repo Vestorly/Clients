@@ -30,126 +30,33 @@ class Advisor(object):
         """
         self.swaggerTypes = {
             
-            '_id': 'str',
+            'client_only': 'bool',
             
             
-            'company': 'str',
+            'img_compressed': 'bool',
             
             
-            'address': 'str',
-            
-            
-            'city': 'str',
-            
-            
-            'state': 'str',
-            
-            
-            'zip': 'str',
-            
-            
-            'first_name': 'str',
-            
-            
-            'last_name': 'str',
-            
-            
-            'reg_number': 'str',
-            
-            
-            'account_type': 'str',
-            
-            
-            'advisor_employees': 'str',
-            
-            
-            'assets': 'str',
-            
-            
-            'num_clients': 'int'
+            'img_changed': 'bool'
             
         }
 
         self.attributeMap = {
             
-            '_id': '_id',
+            'client_only': 'client_only',
             
-            'company': 'company',
+            'img_compressed': 'img_compressed',
             
-            'address': 'address',
-            
-            'city': 'city',
-            
-            'state': 'state',
-            
-            'zip': 'zip',
-            
-            'first_name': 'first_name',
-            
-            'last_name': 'last_name',
-            
-            'reg_number': 'reg_number',
-            
-            'account_type': 'account_type',
-            
-            'advisor_employees': 'advisor_employees',
-            
-            'assets': 'assets',
-            
-            'num_clients': 'num_clients'
+            'img_changed': 'img_changed'
             
         }
 
         
-        #Id of object
         
-        self._id = None # str
+        self.client_only = None # bool
         
-        #Company of advisor
         
-        self.company = None # str
+        self.img_compressed = None # bool
         
-        #Address of advisor
         
-        self.address = None # str
-        
-        #City of advisor
-        
-        self.city = None # str
-        
-        #State of advisor
-        
-        self.state = None # str
-        
-        #Zip of advisor
-        
-        self.zip = None # str
-        
-        #First name of advisor
-        
-        self.first_name = None # str
-        
-        #Last name of advisor
-        
-        self.last_name = None # str
-        
-        #Registration number of advisor
-        
-        self.reg_number = None # str
-        
-        #Account type of advisor
-        
-        self.account_type = None # str
-        
-        #Employees of advisor
-        
-        self.advisor_employees = None # str
-        
-        #Assets of advisor
-        
-        self.assets = None # str
-        
-        #Number of clients the advisor has
-        
-        self.num_clients = None # int
+        self.img_changed = None # bool
         

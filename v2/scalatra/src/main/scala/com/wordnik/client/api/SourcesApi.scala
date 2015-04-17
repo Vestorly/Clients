@@ -1,5 +1,7 @@
 package com.wordnik.client.api
 
+import com.wordnik.client.model.Sources
+import com.wordnik.client.model.Source
 
 import java.io.File
 
@@ -27,7 +29,7 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
   }
   
 
-  val findSourcesOperation = (apiOperation[Unit]("findSources")
+  val findSourcesOperation = (apiOperation[Sources]("findSources")
       summary ""
       parameters(
         queryParam[String]("vestorly-auth").description("")
@@ -59,6 +61,209 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
     
     
     println("vestorly-auth: " + vestorly-auth)
+  
+  }
+
+  
+
+  val createSourceOperation = (apiOperation[Source]("createSource")
+      summary ""
+      parameters(
+        queryParam[String]("vestorly-auth").description("")
+        
+        
+        
+        
+        
+        ,
+        
+        
+        
+        
+        formParam[String]("Source").description("")
+        
+        
+        )
+  )
+
+  post("/sources/",operation(createSourceOperation)) {
+    
+    
+    
+    
+
+    
+      
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("vestorly-auth: " + vestorly-auth)
+  
+    
+    
+    
+
+    
+
+    
+
+    
+      val Source = params.getAs[String]("Source")
+    
+
+    
+    
+    println("Source: " + Source)
+  
+  }
+
+  
+
+  val getSourceByIDOperation = (apiOperation[Source]("getSourceByID")
+      summary ""
+      parameters(
+        queryParam[String]("vestorly-auth").description("")
+        
+        
+        
+        
+        
+        ,
+        
+        pathParam[String]("id").description("")
+        
+        
+        
+        
+        
+        )
+  )
+
+  get("/sources/{id}",operation(getSourceByIDOperation)) {
+    
+    
+    
+    
+
+    
+      
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("vestorly-auth: " + vestorly-auth)
+  
+    
+    
+    
+      val id = params.getOrElse("id", halt(400))
+    
+
+    
+
+    
+
+    
+
+    
+    
+    println("id: " + id)
+  
+  }
+
+  
+
+  val UpdateSourceByIDOperation = (apiOperation[Source]("UpdateSourceByID")
+      summary ""
+      parameters(
+        queryParam[String]("vestorly-auth").description("")
+        
+        
+        
+        
+        
+        ,
+        
+        pathParam[String]("id").description("")
+        
+        
+        
+        
+        ,
+        
+        
+        
+        
+        formParam[String]("Source").description("")
+        
+        
+        )
+  )
+
+  put("/sources/{id}",operation(UpdateSourceByIDOperation)) {
+    
+    
+    
+    
+
+    
+      
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("vestorly-auth: " + vestorly-auth)
+  
+    
+    
+    
+      val id = params.getOrElse("id", halt(400))
+    
+
+    
+
+    
+
+    
+
+    
+    
+    println("id: " + id)
+  
+    
+    
+    
+
+    
+
+    
+
+    
+      val Source = params.getAs[String]("Source")
+    
+
+    
+    
+    println("Source: " + Source)
   
   }
 

@@ -30,33 +30,17 @@ class Advisor(object):
         """
         self.swaggerTypes = {
             
-            'client_only': 'bool',
-            
-            
-            'img_compressed': 'bool',
-            
-            
-            'img_changed': 'bool'
+            'new_user': 'bool'
             
         }
 
         self.attributeMap = {
             
-            'client_only': 'client_only',
-            
-            'img_compressed': 'img_compressed',
-            
-            'img_changed': 'img_changed'
+            'new_user': 'new_user'
             
         }
 
         
         
-        self.client_only = None # bool
-        
-        
-        self.img_compressed = None # bool
-        
-        
-        self.img_changed = None # bool
+        self.new_user = None # bool
         

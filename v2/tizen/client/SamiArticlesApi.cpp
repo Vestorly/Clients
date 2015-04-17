@@ -21,17 +21,38 @@ findArticlesProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiE
   int code = pHttpResponse->GetHttpStatusCode();
 
   if(code >= 200 && code < 300) {
-    handler(null, null);
+    ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
+    IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
+
+    SamiArticles* out = new SamiArticles();
+    jsonToValue(out, pJson, L"SamiArticles*", L"SamiArticles");
+
+    if (pJson) {
+      if (pJson->GetType() == JSON_TYPE_OBJECT) {
+         JsonObject* pObject = static_cast< JsonObject* >(pJson);
+         pObject->RemoveAll(true);
+      }
+      else if (pJson->GetType() == JSON_TYPE_ARRAY) {
+         JsonArray* pArray = static_cast< JsonArray* >(pJson);
+         pArray->RemoveAll(true);
+      }
+      handler(out, null);
+    }
+    else {
+      SamiError* error = new SamiError(0, new String(L"No parsable response received"));
+      handler(null, error);
+    }
+    
   }
   else {
     SamiError* error = new SamiError(code, new String(pHttpResponse->GetStatusText()));
+    handler(null, error);
     
-    handler(error, null);
   }
 }
 
-void 
-SamiArticlesApi::findArticlesWithCompletion(String* vestorly-auth, Long* limit, String* text_query, void(*success)(SamiError*)) {
+SamiArticles* 
+SamiArticlesApi::findArticlesWithCompletion(String* vestorly-auth, Integer* limit, String* text_query, String* suitability_score, String* all_query, void (* success)(SamiArticles*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findArticlesProcessor, (void(*)(void*, SamiError*))success);
@@ -53,6 +74,12 @@ SamiArticlesApi::findArticlesWithCompletion(String* vestorly-auth, Long* limit, 
     queryParams->Add(new String("text_query"), text_query);
   
   
+    queryParams->Add(new String("suitability_score"), suitability_score);
+  
+  
+    queryParams->Add(new String("all_query"), all_query);
+  
+  
 
   String* mBody = null;
 
@@ -63,7 +90,7 @@ SamiArticlesApi::findArticlesWithCompletion(String* vestorly-auth, Long* limit, 
   
 
   client->execute(SamiArticlesApi::getBasePath(), url, "GET", (IMap*)queryParams, mBody, (IMap*)headerParams, null, L"application/json");
-  
+  return null;
 }
 
 

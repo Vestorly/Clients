@@ -4,7 +4,7 @@
   
 + (JSONKeyMapper *)keyMapper
 {
-  return [[JSONKeyMapper alloc] initWithDictionary:@{ @"client_only": @"client_only", @"img_compressed": @"img_compressed", @"img_changed": @"img_changed" }];
+  return [[JSONKeyMapper alloc] initWithDictionary:@{ @"new_user": @"_new_user" }];
 }
 
 @end

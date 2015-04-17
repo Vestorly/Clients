@@ -33,80 +33,6 @@ class AdvisorApi(object):
 
     
     
-    def findAdvisorByID(self, **kwargs):
-        """
-
-        Args:
-            
-            id, str: Mongo ID of advisor to fetch (required)
-            
-            
-            vestorly_auth, str: Vestorly Auth Token (required)
-            
-            
-        
-        Returns: Advisor
-        """
-
-        allParams = ['id', 'vestorly_auth']
-
-        params = locals()
-        for (key, val) in params['kwargs'].iteritems():
-            if key not in allParams:
-                raise TypeError("Got an unexpected keyword argument '%s' to method findAdvisorByID" % key)
-            params[key] = val
-        del params['kwargs']
-
-        resourcePath = '/advisor/{id}'
-        resourcePath = resourcePath.replace('{format}', 'json')
-        method = 'GET'
-
-        queryParams = {}
-        headerParams = {}
-        formParams = {}
-        files = {}
-        bodyParam = None
-
-        accepts = []
-        headerParams['Accept'] = ', '.join(accepts)
-
-        content_types = []
-        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
-
-        
-        if ('vestorly_auth' in params):
-            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
-        
-
-        
-
-        
-        if ('id' in params):
-            replacement = str(self.apiClient.toPathValue(params['id']))
-            replacement = urllib.quote(replacement)
-            resourcePath = resourcePath.replace('{' + 'id' + '}',
-                                                replacement)
-        
-
-        
-
-        
-
-        postData = (formParams if formParams else bodyParam)
-
-        response = self.apiClient.callAPI(resourcePath, method, queryParams,
-                                          postData, headerParams, files=files)
-
-        
-        if not response:
-            return None
-
-        responseObject = self.apiClient.deserialize(response, 'Advisor')
-        return responseObject
-        
-        
-        
-    
     def findAdvisors(self, **kwargs):
         """
 
@@ -162,6 +88,80 @@ class AdvisorApi(object):
         response = self.apiClient.callAPI(resourcePath, method, queryParams,
                                           postData, headerParams, files=files)
 
+        
+        
+        
+    
+    def findAdvisorByID(self, **kwargs):
+        """
+
+        Args:
+            
+            id, str: Mongo ID of advisor to fetch (required)
+            
+            
+            vestorly_auth, str: Vestorly Auth Token (required)
+            
+            
+        
+        Returns: Advisor
+        """
+
+        allParams = ['id', 'vestorly_auth']
+
+        params = locals()
+        for (key, val) in params['kwargs'].iteritems():
+            if key not in allParams:
+                raise TypeError("Got an unexpected keyword argument '%s' to method findAdvisorByID" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resourcePath = '/advisors/{id}'
+        resourcePath = resourcePath.replace('{format}', 'json')
+        method = 'GET'
+
+        queryParams = {}
+        headerParams = {}
+        formParams = {}
+        files = {}
+        bodyParam = None
+
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
+
+        
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
+
+        
+
+        
+        if ('id' in params):
+            replacement = str(self.apiClient.toPathValue(params['id']))
+            replacement = urllib.quote(replacement)
+            resourcePath = resourcePath.replace('{' + 'id' + '}',
+                                                replacement)
+        
+
+        
+
+        
+
+        postData = (formParams if formParams else bodyParam)
+
+        response = self.apiClient.callAPI(resourcePath, method, queryParams,
+                                          postData, headerParams, files=files)
+
+        
+        if not response:
+            return None
+
+        responseObject = self.apiClient.deserialize(response, 'Advisor')
+        return responseObject
         
         
         

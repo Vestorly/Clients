@@ -26,7 +26,7 @@ namespace SwaggerPetstore\models;
 
 use \ArrayAccess;
 
-class NewsLetter implements ArrayAccess {
+class Newsletter implements ArrayAccess {
   static $swaggerTypes = array(
       'is_sent' => 'boolean',
       'is_default' => 'boolean',

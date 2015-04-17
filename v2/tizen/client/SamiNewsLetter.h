@@ -1,11 +1,11 @@
 /*
- * SamiNewsLetter.h
+ * SamiNewsletter.h
  * 
  * 
  */
 
-#ifndef SamiNewsLetter_H_
-#define SamiNewsLetter_H_
+#ifndef SamiNewsletter_H_
+#define SamiNewsletter_H_
 
 #include <FApp.h>
 #include <FBase.h>
@@ -23,11 +23,11 @@ using Tizen::Base::Boolean;
 
 namespace Swagger {
 
-class SamiNewsLetter: public SamiObject {
+class SamiNewsletter: public SamiObject {
 public:
-    SamiNewsLetter();
-    SamiNewsLetter(String* json);
-    virtual ~SamiNewsLetter();
+    SamiNewsletter();
+    SamiNewsletter(String* json);
+    virtual ~SamiNewsletter();
 
     void init();
 
@@ -39,7 +39,7 @@ public:
 
     void fromJsonObject(IJsonValue* json);
 
-    SamiNewsLetter* fromJson(String* obj);
+    SamiNewsletter* fromJson(String* obj);
 
     
     Boolean* getPIsSent();
@@ -69,4 +69,4 @@ private:
 
 } /* namespace Swagger */
 
-#endif /* SamiNewsLetter_H_ */
+#endif /* SamiNewsletter_H_ */

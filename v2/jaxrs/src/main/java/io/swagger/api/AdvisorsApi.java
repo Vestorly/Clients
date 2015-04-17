@@ -6,6 +6,7 @@ import com.wordnik.swagger.annotations.ApiParam;
 
 import com.sun.jersey.multipart.FormDataParam;
 
+import io.swagger.model.Advisor;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -30,6 +31,22 @@ public class AdvisorsApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = {  })
 
   public Response findAdvisors(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
+      throws NotFoundException {
+      // do some magic!
+      return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+  }
+
+  
+  @GET
+  @Path("/{id}")
+  
+  
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns a single advisor if the user has access", response = Advisor.class)
+  @com.wordnik.swagger.annotations.ApiResponses(value = { 
+    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Advisor response") })
+
+  public Response findAdvisorByID(@ApiParam(value = "Mongo ID of advisor to fetch",required=true ) @PathParam("id") String id,
+    @ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

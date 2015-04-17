@@ -2,10 +2,10 @@
 #import "SWGObject.h"
 
 
-@protocol SWGNewsLetter
+@protocol SWGNewsletter
 @end
   
-@interface SWGNewsLetter : SWGObject
+@interface SWGNewsletter : SWGObject
 
 
 @property(nonatomic) NSNumber<Optional>* is_sent;

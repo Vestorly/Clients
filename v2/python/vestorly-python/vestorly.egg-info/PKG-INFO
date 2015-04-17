@@ -1,12 +1,12 @@
 Metadata-Version: 1.0
 Name: vestorly
-Version: 2.0
-Summary: Vestorly API v2
-Home-page: success@vestorly.com
+Version: 1.0.0
+Summary: Vestorly API
+Home-page: UNKNOWN
 Author: UNKNOWN
 Author-email: UNKNOWN
 License: UNKNOWN
-Description:     The Vestorly API provides an open REST API for developers to synchronize various data with Vestorly.
+Description:     Vestorly Developers API
             
-Keywords: Swagger,Vestorly API v2
+Keywords: Swagger,Vestorly API
 Platform: UNKNOWN

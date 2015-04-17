@@ -1,6 +1,6 @@
-#import "SWGNewsLetter.h"
+#import "SWGNewsletter.h"
 
-@implementation SWGNewsLetter
+@implementation SWGNewsletter
   
 + (JSONKeyMapper *)keyMapper
 {

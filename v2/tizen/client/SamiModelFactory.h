@@ -3,14 +3,30 @@
 
 #include "SamiObject.h"
 
+#include "SamiSource.h"
+#include "SamiSourceInput.h"
+#include "SamiSources.h"
 #include "SamiAdvisor.h"
 #include "SamiArticle.h"
 #include "SamiArticles.h"
-#include "SamiNewsLetter.h"
+#include "SamiNewsletter.h"
+#include "SamiNewsletterInput.h"
+#include "SamiNewsletters.h"
+#include "SamiPosts.h"
+#include "SamiPost.h"
 
 namespace Swagger {
   void*
   create(String type) {
+    if(type.Equals(L"SamiSource", true)) {
+      return new SamiSource();
+    }
+    if(type.Equals(L"SamiSourceInput", true)) {
+      return new SamiSourceInput();
+    }
+    if(type.Equals(L"SamiSources", true)) {
+      return new SamiSources();
+    }
     if(type.Equals(L"SamiAdvisor", true)) {
       return new SamiAdvisor();
     }
@@ -20,8 +36,20 @@ namespace Swagger {
     if(type.Equals(L"SamiArticles", true)) {
       return new SamiArticles();
     }
-    if(type.Equals(L"SamiNewsLetter", true)) {
-      return new SamiNewsLetter();
+    if(type.Equals(L"SamiNewsletter", true)) {
+      return new SamiNewsletter();
+    }
+    if(type.Equals(L"SamiNewsletterInput", true)) {
+      return new SamiNewsletterInput();
+    }
+    if(type.Equals(L"SamiNewsletters", true)) {
+      return new SamiNewsletters();
+    }
+    if(type.Equals(L"SamiPosts", true)) {
+      return new SamiPosts();
+    }
+    if(type.Equals(L"SamiPost", true)) {
+      return new SamiPost();
     }
     
     if(type.Equals(L"String", true)) {

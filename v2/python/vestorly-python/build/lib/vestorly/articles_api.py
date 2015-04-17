@@ -33,37 +33,34 @@ class ArticlesApi(object):
 
     
     
-    def index(self, **kwargs):
-        """Read a list of articles
+    def findArticles(self, **kwargs):
+        """
 
         Args:
             
-            vestorly_auth, str: Authentication token (required)
+            vestorly_auth, str: Vestorly Auth Token (required)
             
             
-            is_published, str: Filter by published articles (required)
+            limit, int: Limit on the number of articles to return (required)
             
             
-            external_url_source, str: Filter by posts with external URL source (required)
-            
-            
-            ids, str: Return posts with list of IDs provided (required)
+            text_query, str: Search query parameter (required)
             
             
         
-        Returns: Article
+        Returns: Articles
         """
 
-        allParams = ['vestorly_auth', 'is_published', 'external_url_source', 'ids']
+        allParams = ['vestorly_auth', 'limit', 'text_query']
 
         params = locals()
         for (key, val) in params['kwargs'].iteritems():
             if key not in allParams:
-                raise TypeError("Got an unexpected keyword argument '%s' to method index" % key)
+                raise TypeError("Got an unexpected keyword argument '%s' to method findArticles" % key)
             params[key] = val
         del params['kwargs']
 
-        resourcePath = 'api/v2/articles.json'
+        resourcePath = '/articles'
         resourcePath = resourcePath.replace('{format}', 'json')
         method = 'GET'
 
@@ -81,16 +78,13 @@ class ArticlesApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
-        if ('is_published' in params):
-            queryParams['is_published'] = self.apiClient.toPathValue(params['is_published'])
+        if ('limit' in params):
+            queryParams['limit'] = self.apiClient.toPathValue(params['limit'])
         
-        if ('external_url_source' in params):
-            queryParams['external_url_source'] = self.apiClient.toPathValue(params['external_url_source'])
-        
-        if ('ids' in params):
-            queryParams['ids'] = self.apiClient.toPathValue(params['ids'])
+        if ('text_query' in params):
+            queryParams['text_query'] = self.apiClient.toPathValue(params['text_query'])
         
 
         
@@ -110,152 +104,7 @@ class ArticlesApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'Article')
-        return responseObject
-        
-        
-        
-    
-    def show(self, **kwargs):
-        """Read a specific article
-
-        Args:
-            
-            vestorly_auth, str: Authentication token (required)
-            
-            
-            id, str: Id of article (required)
-            
-            
-        
-        Returns: Article
-        """
-
-        allParams = ['vestorly_auth', 'id']
-
-        params = locals()
-        for (key, val) in params['kwargs'].iteritems():
-            if key not in allParams:
-                raise TypeError("Got an unexpected keyword argument '%s' to method show" % key)
-            params[key] = val
-        del params['kwargs']
-
-        resourcePath = 'api/v2/articles/{id}.json'
-        resourcePath = resourcePath.replace('{format}', 'json')
-        method = 'GET'
-
-        queryParams = {}
-        headerParams = {}
-        formParams = {}
-        files = {}
-        bodyParam = None
-
-        accepts = []
-        headerParams['Accept'] = ', '.join(accepts)
-
-        content_types = []
-        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
-
-        
-        if ('vestorly_auth' in params):
-            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
-        
-
-        
-
-        
-        if ('id' in params):
-            replacement = str(self.apiClient.toPathValue(params['id']))
-            replacement = urllib.quote(replacement)
-            resourcePath = resourcePath.replace('{' + 'id' + '}',
-                                                replacement)
-        
-
-        
-
-        
-
-        postData = (formParams if formParams else bodyParam)
-
-        response = self.apiClient.callAPI(resourcePath, method, queryParams,
-                                          postData, headerParams, files=files)
-
-        
-        if not response:
-            return None
-
-        responseObject = self.apiClient.deserialize(response, 'Article')
-        return responseObject
-        
-        
-        
-    
-    def update(self, **kwargs):
-        """Update an article
-
-        Args:
-            
-            vestorly_auth, str: Authentication token (required)
-            
-            
-            article, str: JSON block of article data (required)
-            
-            
-        
-        Returns: Article
-        """
-
-        allParams = ['vestorly_auth', 'article']
-
-        params = locals()
-        for (key, val) in params['kwargs'].iteritems():
-            if key not in allParams:
-                raise TypeError("Got an unexpected keyword argument '%s' to method update" % key)
-            params[key] = val
-        del params['kwargs']
-
-        resourcePath = 'api/v2/articles/{id}.json'
-        resourcePath = resourcePath.replace('{format}', 'json')
-        method = 'PUT'
-
-        queryParams = {}
-        headerParams = {}
-        formParams = {}
-        files = {}
-        bodyParam = None
-
-        accepts = []
-        headerParams['Accept'] = ', '.join(accepts)
-
-        content_types = []
-        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
-
-        
-        if ('vestorly_auth' in params):
-            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
-        
-
-        
-
-        
-
-        
-        if ('article' in params):
-            formParams['article'] = params['article']
-        
-
-        
-
-        postData = (formParams if formParams else bodyParam)
-
-        response = self.apiClient.callAPI(resourcePath, method, queryParams,
-                                          postData, headerParams, files=files)
-
-        
-        if not response:
-            return None
-
-        responseObject = self.apiClient.deserialize(response, 'Article')
+        responseObject = self.apiClient.deserialize(response, 'Articles')
         return responseObject
         
         

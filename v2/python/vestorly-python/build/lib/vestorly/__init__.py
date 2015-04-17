@@ -4,36 +4,30 @@ import os
 
 # import models into package
 
-from .models.rss_feed import RSSFeed
-
-from .models.post import Post
-
-from .models.article import Article
-
-from .models.event import Event
+from .models.sources import Sources
 
 from .models.advisor import Advisor
 
-from .models.source import Source
+from .models.article import Article
 
-from .models.session import Session
+from .models.articles import Articles
+
+from .models.newsletter import Newsletter
 
 
 # import apis into package
 
-from .rssfeeds_api import RssfeedsApi
-
-from .events_api import EventsApi
+from .newslettters_api import NewsletttersApi
 
 from .articles_api import ArticlesApi
 
-from .advisors_api import AdvisorsApi
-
-from .sessions_api import SessionsApi
-
 from .posts_api import PostsApi
 
+from .advisor_api import AdvisorApi
+
 from .sources_api import SourcesApi
+
+from .session_api import SessionApi
 
 
 # import ApiClient

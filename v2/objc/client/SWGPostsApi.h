@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "SWGPosts.h"
 #import "SWGPost.h"
 #import "SWGObject.h"
 
@@ -13,14 +14,74 @@
 /**
 
  
+ Query all posts
+
+ @param vestorly-auth Vestorly Auth Token
+ @param filter_by Filter post by parameters
+ 
+
+ return type: SWGPosts*
+ */
+-(NSNumber*) findPostsWithCompletionBlock :(NSString*) vestorly-auth 
+     filter_by:(NSString*) filter_by 
+    
+    completionHandler: (void (^)(SWGPosts* output, NSError* error))completionBlock;
+    
+
+
+/**
+
+ 
  Create a new post in the Vestorly Platform
 
+ @param vestorly-auth Vestorly Auth Token
  @param Post Post
  
 
  return type: SWGPost*
  */
--(NSNumber*) createPostWithCompletionBlock :(NSString*) Post 
+-(NSNumber*) createPostWithCompletionBlock :(NSString*) vestorly-auth 
+     Post:(NSString*) Post 
+    
+    completionHandler: (void (^)(SWGPost* output, NSError* error))completionBlock;
+    
+
+
+/**
+
+ 
+ Query all posts
+
+ @param vestorly-auth Vestorly Auth Token
+ @param _id ID of post to fetch
+ @param filter_by Filter post by parameters
+ 
+
+ return type: SWGPost*
+ */
+-(NSNumber*) getPostByIDWithCompletionBlock :(NSString*) vestorly-auth 
+     _id:(NSString*) _id 
+     filter_by:(NSString*) filter_by 
+    
+    completionHandler: (void (^)(SWGPost* output, NSError* error))completionBlock;
+    
+
+
+/**
+
+ 
+ Update A Post
+
+ @param vestorly-auth Vestorly Auth Token
+ @param _id ID of post to fetch
+ @param Post Post
+ 
+
+ return type: SWGPost*
+ */
+-(NSNumber*) updatePostByIDWithCompletionBlock :(NSString*) vestorly-auth 
+     _id:(NSString*) _id 
+     Post:(NSString*) Post 
     
     completionHandler: (void (^)(SWGPost* output, NSError* error))completionBlock;
     

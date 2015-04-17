@@ -5,7 +5,8 @@
 #include "SamiApiClient.h"
 #include "SamiError.h"
 
-using Tizen::Base::Long;
+using Tizen::Base::Integer;
+#include "SamiArticles.h"
 using Tizen::Base::String;
 
 using namespace Tizen::Net::Http;
@@ -18,8 +19,8 @@ public:
   virtual ~SamiArticlesApi();
 
   
-  void 
-  findArticlesWithCompletion(String* vestorly-auth, Long* limit, String* text_query, void(* handler)(SamiError*));
+  SamiArticles* 
+  findArticlesWithCompletion(String* vestorly-auth, Integer* limit, String* text_query, String* suitability_score, String* all_query, void (* handler)(SamiArticles*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

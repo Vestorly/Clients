@@ -1,5 +1,6 @@
 package com.wordnik.client.api
 
+import com.wordnik.client.model.Posts
 import com.wordnik.client.model.Post
 
 import java.io.File
@@ -28,9 +29,78 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
   }
   
 
+  val findPostsOperation = (apiOperation[Posts]("findPosts")
+      summary ""
+      parameters(
+        queryParam[String]("vestorly-auth").description("")
+        
+        
+        
+        
+        
+        ,
+        queryParam[String]("filter_by").description("").optional
+        
+        
+        
+        
+        
+        
+        )
+  )
+
+  get("/posts",operation(findPostsOperation)) {
+    
+    
+    
+    
+
+    
+      
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("vestorly-auth: " + vestorly-auth)
+  
+    
+    
+    
+
+    
+      
+      val filter_by = params.getAs[String]("filter_by")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("filter_by: " + filter_by)
+  
+  }
+
+  
+
   val createPostOperation = (apiOperation[Post]("createPost")
       summary ""
       parameters(
+        queryParam[String]("vestorly-auth").description("")
+        
+        
+        
+        
+        
+        ,
         
         
         
@@ -43,6 +113,192 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   post("/posts",operation(createPostOperation)) {
     
+    
+    
+    
+
+    
+      
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("vestorly-auth: " + vestorly-auth)
+  
+    
+    
+    
+
+    
+
+    
+
+    
+      val Post = params.getAs[String]("Post")
+    
+
+    
+    
+    println("Post: " + Post)
+  
+  }
+
+  
+
+  val getPostByIDOperation = (apiOperation[Post]("getPostByID")
+      summary ""
+      parameters(
+        queryParam[String]("vestorly-auth").description("")
+        
+        
+        
+        
+        
+        ,
+        
+        pathParam[String]("id").description("")
+        
+        
+        
+        
+        ,
+        queryParam[String]("filter_by").description("").optional
+        
+        
+        
+        
+        
+        
+        )
+  )
+
+  get("/posts/{id}",operation(getPostByIDOperation)) {
+    
+    
+    
+    
+
+    
+      
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("vestorly-auth: " + vestorly-auth)
+  
+    
+    
+    
+      val id = params.getOrElse("id", halt(400))
+    
+
+    
+
+    
+
+    
+
+    
+    
+    println("id: " + id)
+  
+    
+    
+    
+
+    
+      
+      val filter_by = params.getAs[String]("filter_by")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("filter_by: " + filter_by)
+  
+  }
+
+  
+
+  val updatePostByIDOperation = (apiOperation[Post]("updatePostByID")
+      summary ""
+      parameters(
+        queryParam[String]("vestorly-auth").description("")
+        
+        
+        
+        
+        
+        ,
+        
+        pathParam[String]("id").description("")
+        
+        
+        
+        
+        ,
+        
+        
+        
+        
+        formParam[String]("Post").description("")
+        
+        
+        )
+  )
+
+  put("/posts/{id}",operation(updatePostByIDOperation)) {
+    
+    
+    
+    
+
+    
+      
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("vestorly-auth: " + vestorly-auth)
+  
+    
+    
+    
+      val id = params.getOrElse("id", halt(400))
+    
+
+    
+
+    
+
+    
+
+    
+    
+    println("id: " + id)
+  
     
     
     

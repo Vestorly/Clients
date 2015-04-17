@@ -22,28 +22,16 @@ SamiAdvisor::~SamiAdvisor() {
 
 void
 SamiAdvisor::init() {
-    pClient_only = null;
-    pImg_compressed = null;
-    pImg_changed = null;
+    pNew_user = null;
     
 }
 
 void
 SamiAdvisor::cleanup() {
-    if(pClient_only != null) {
+    if(pNew_user != null) {
         
-        delete pClient_only;
-        pClient_only = null;
-    }
-    if(pImg_compressed != null) {
-        
-        delete pImg_compressed;
-        pImg_compressed = null;
-    }
-    if(pImg_changed != null) {
-        
-        delete pImg_changed;
-        pImg_changed = null;
+        delete pNew_user;
+        pNew_user = null;
     }
     
 }
@@ -83,33 +71,15 @@ SamiAdvisor::fromJsonObject(IJsonValue* pJson) {
     JsonObject* pJsonObject = static_cast< JsonObject* >(pJson);
 
     if(pJsonObject != null) {
-        JsonString* pClient_onlyKey = new JsonString(L"client_only");
-        IJsonValue* pClient_onlyVal = null;
-        pJsonObject->GetValue(pClient_onlyKey, pClient_onlyVal);
-        if(pClient_onlyVal != null) {
+        JsonString* pNew_userKey = new JsonString(L"new_user");
+        IJsonValue* pNew_userVal = null;
+        pJsonObject->GetValue(pNew_userKey, pNew_userVal);
+        if(pNew_userVal != null) {
             
-            pClient_only = new Boolean(false);
-            jsonToValue(pClient_only, pClient_onlyVal, L"Boolean", L"Boolean");
+            pNew_user = new Boolean(false);
+            jsonToValue(pNew_user, pNew_userVal, L"Boolean", L"Boolean");
         }
-        delete pClient_onlyKey;
-        JsonString* pImg_compressedKey = new JsonString(L"img_compressed");
-        IJsonValue* pImg_compressedVal = null;
-        pJsonObject->GetValue(pImg_compressedKey, pImg_compressedVal);
-        if(pImg_compressedVal != null) {
-            
-            pImg_compressed = new Boolean(false);
-            jsonToValue(pImg_compressed, pImg_compressedVal, L"Boolean", L"Boolean");
-        }
-        delete pImg_compressedKey;
-        JsonString* pImg_changedKey = new JsonString(L"img_changed");
-        IJsonValue* pImg_changedVal = null;
-        pJsonObject->GetValue(pImg_changedKey, pImg_changedVal);
-        if(pImg_changedVal != null) {
-            
-            pImg_changed = new Boolean(false);
-            jsonToValue(pImg_changed, pImg_changedVal, L"Boolean", L"Boolean");
-        }
-        delete pImg_changedKey;
+        delete pNew_userKey;
         
     }
 }
@@ -162,46 +132,20 @@ SamiAdvisor::asJsonObject() {
     pJsonObject->Construct();
 
     
-    JsonString *pClient_onlyKey = new JsonString(L"client_only");
-    pJsonObject->Add(pClient_onlyKey, toJson(getPClientOnly(), "Boolean", ""));
-
-    
-    JsonString *pImg_compressedKey = new JsonString(L"img_compressed");
-    pJsonObject->Add(pImg_compressedKey, toJson(getPImgCompressed(), "Boolean", ""));
-
-    
-    JsonString *pImg_changedKey = new JsonString(L"img_changed");
-    pJsonObject->Add(pImg_changedKey, toJson(getPImgChanged(), "Boolean", ""));
+    JsonString *pNew_userKey = new JsonString(L"new_user");
+    pJsonObject->Add(pNew_userKey, toJson(getPNewUser(), "Boolean", ""));
 
     
     return pJsonObject;
 }
 
 Boolean*
-SamiAdvisor::getPClientOnly() {
-    return pClient_only;
+SamiAdvisor::getPNewUser() {
+    return pNew_user;
 }
 void
-SamiAdvisor::setPClientOnly(Boolean* pClient_only) {
-    this->pClient_only = pClient_only;
-}
-
-Boolean*
-SamiAdvisor::getPImgCompressed() {
-    return pImg_compressed;
-}
-void
-SamiAdvisor::setPImgCompressed(Boolean* pImg_compressed) {
-    this->pImg_compressed = pImg_compressed;
-}
-
-Boolean*
-SamiAdvisor::getPImgChanged() {
-    return pImg_changed;
-}
-void
-SamiAdvisor::setPImgChanged(Boolean* pImg_changed) {
-    this->pImg_changed = pImg_changed;
+SamiAdvisor::setPNewUser(Boolean* pNew_user) {
+    this->pNew_user = pNew_user;
 }
 
 

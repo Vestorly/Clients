@@ -1,0 +1,10 @@
+#import "SWGSource.h"
+
+@implementation SWGSource
+  
++ (JSONKeyMapper *)keyMapper
+{
+  return [[JSONKeyMapper alloc] initWithDictionary:@{ @"_id": @"_id", @"name": @"name", @"url": @"url", @"logo_url": @"logo_url", @"enabled": @"enabled", @"custom_rss_feed": @"custom_rss_feed", @"rss_publisher": @"rss_publisher" }];
+}
+
+@end

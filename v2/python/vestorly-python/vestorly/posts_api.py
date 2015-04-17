@@ -33,10 +33,84 @@ class PostsApi(object):
 
     
     
+    def findPosts(self, **kwargs):
+        """
+
+        Args:
+            
+            vestorly_auth, str: Vestorly Auth Token (required)
+            
+            
+            filter_by, str: Filter post by parameters (required)
+            
+            
+        
+        Returns: Posts
+        """
+
+        allParams = ['vestorly_auth', 'filter_by']
+
+        params = locals()
+        for (key, val) in params['kwargs'].iteritems():
+            if key not in allParams:
+                raise TypeError("Got an unexpected keyword argument '%s' to method findPosts" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resourcePath = '/posts'
+        resourcePath = resourcePath.replace('{format}', 'json')
+        method = 'GET'
+
+        queryParams = {}
+        headerParams = {}
+        formParams = {}
+        files = {}
+        bodyParam = None
+
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
+
+        
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
+        if ('filter_by' in params):
+            queryParams['filter_by'] = self.apiClient.toPathValue(params['filter_by'])
+        
+
+        
+
+        
+
+        
+
+        
+
+        postData = (formParams if formParams else bodyParam)
+
+        response = self.apiClient.callAPI(resourcePath, method, queryParams,
+                                          postData, headerParams, files=files)
+
+        
+        if not response:
+            return None
+
+        responseObject = self.apiClient.deserialize(response, 'Posts')
+        return responseObject
+        
+        
+        
+    
     def createPost(self, **kwargs):
         """
 
         Args:
+            
+            vestorly_auth, str: Vestorly Auth Token (required)
+            
             
             post, str: Post (required)
             
@@ -45,7 +119,7 @@ class PostsApi(object):
         Returns: Post
         """
 
-        allParams = ['post']
+        allParams = ['vestorly_auth', 'post']
 
         params = locals()
         for (key, val) in params['kwargs'].iteritems():
@@ -71,9 +145,172 @@ class PostsApi(object):
         headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
 
         
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
 
         
 
+        
+
+        
+        if ('post' in params):
+            formParams['Post'] = params['post']
+        
+
+        
+
+        postData = (formParams if formParams else bodyParam)
+
+        response = self.apiClient.callAPI(resourcePath, method, queryParams,
+                                          postData, headerParams, files=files)
+
+        
+        if not response:
+            return None
+
+        responseObject = self.apiClient.deserialize(response, 'Post')
+        return responseObject
+        
+        
+        
+    
+    def getPostByID(self, **kwargs):
+        """
+
+        Args:
+            
+            vestorly_auth, str: Vestorly Auth Token (required)
+            
+            
+            id, str: ID of post to fetch (required)
+            
+            
+            filter_by, str: Filter post by parameters (required)
+            
+            
+        
+        Returns: Post
+        """
+
+        allParams = ['vestorly_auth', 'id', 'filter_by']
+
+        params = locals()
+        for (key, val) in params['kwargs'].iteritems():
+            if key not in allParams:
+                raise TypeError("Got an unexpected keyword argument '%s' to method getPostByID" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resourcePath = '/posts/{id}'
+        resourcePath = resourcePath.replace('{format}', 'json')
+        method = 'GET'
+
+        queryParams = {}
+        headerParams = {}
+        formParams = {}
+        files = {}
+        bodyParam = None
+
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
+
+        
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
+        if ('filter_by' in params):
+            queryParams['filter_by'] = self.apiClient.toPathValue(params['filter_by'])
+        
+
+        
+
+        
+        if ('id' in params):
+            replacement = str(self.apiClient.toPathValue(params['id']))
+            replacement = urllib.quote(replacement)
+            resourcePath = resourcePath.replace('{' + 'id' + '}',
+                                                replacement)
+        
+
+        
+
+        
+
+        postData = (formParams if formParams else bodyParam)
+
+        response = self.apiClient.callAPI(resourcePath, method, queryParams,
+                                          postData, headerParams, files=files)
+
+        
+        if not response:
+            return None
+
+        responseObject = self.apiClient.deserialize(response, 'Post')
+        return responseObject
+        
+        
+        
+    
+    def updatePostByID(self, **kwargs):
+        """
+
+        Args:
+            
+            vestorly_auth, str: Vestorly Auth Token (required)
+            
+            
+            id, str: ID of post to fetch (required)
+            
+            
+            post, str: Post (required)
+            
+            
+        
+        Returns: Post
+        """
+
+        allParams = ['vestorly_auth', 'id', 'post']
+
+        params = locals()
+        for (key, val) in params['kwargs'].iteritems():
+            if key not in allParams:
+                raise TypeError("Got an unexpected keyword argument '%s' to method updatePostByID" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resourcePath = '/posts/{id}'
+        resourcePath = resourcePath.replace('{format}', 'json')
+        method = 'PUT'
+
+        queryParams = {}
+        headerParams = {}
+        formParams = {}
+        files = {}
+        bodyParam = None
+
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
+
+        
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
+
+        
+
+        
+        if ('id' in params):
+            replacement = str(self.apiClient.toPathValue(params['id']))
+            replacement = urllib.quote(replacement)
+            resourcePath = resourcePath.replace('{' + 'id' + '}',
+                                                replacement)
         
 
         

@@ -30,14 +30,77 @@ class PostsApi {
 
   
   /**
+   * findPosts
+   *
+   * 
+   *
+   * @param string $vestorly_auth Vestorly Auth Token (required)
+   * @param string $filter_by Filter post by parameters (required)
+   * @return Posts
+   */
+   public function findPosts($vestorly_auth, $filter_by) {
+
+      // parse inputs
+      $resourcePath = "/posts";
+      $resourcePath = str_replace("{format}", "json", $resourcePath);
+      $method = "GET";
+      $httpBody = '';
+      $queryParams = array();
+      $headerParams = array();
+      $formParams = array();
+      $_header_accept = '';
+      if ($_header_accept !== '') {
+        $headerParams['Accept'] = $_header_accept;
+      }
+      $_header_content_type = array();
+      $headerParams['Content-Type'] = count($_header_content_type) > 0 ? $_header_content_type[0] : 'application/json';
+
+      // query params
+      if($vestorly_auth !== null) {
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+      }// query params
+      if($filter_by !== null) {
+        $queryParams['filter_by'] = $this->apiClient->toQueryValue($filter_by);
+      }
+      
+      
+      
+      
+
+      // for model (json/xml)
+      if (isset($body)) {
+        $httpBody = $body; // $body is the method argument, if present
+      }
+      
+      // for HTTP post (form)
+      if (strpos($headerParams['Content-Type'], "application/x-www-form-urlencoded") !== FALSE) {
+        $httpBody = http_build_query($formParams);
+      }
+
+      // make the API Call
+      $response = $this->apiClient->callAPI($resourcePath, $method,
+                                            $queryParams, $httpBody,
+                                            $headerParams);
+
+      if(! $response) {
+        return null;
+      }
+
+  		$responseObject = $this->apiClient->deserialize($response,
+  		                                                'Posts');
+  		return $responseObject;
+  }
+  
+  /**
    * createPost
    *
    * 
    *
+   * @param string $vestorly_auth Vestorly Auth Token (required)
    * @param string $post Post (required)
    * @return Post
    */
-   public function createPost($post) {
+   public function createPost($vestorly_auth, $post) {
 
       // parse inputs
       $resourcePath = "/posts";
@@ -54,9 +117,146 @@ class PostsApi {
       $_header_content_type = array('application/x-www-form-urlencoded',);
       $headerParams['Content-Type'] = count($_header_content_type) > 0 ? $_header_content_type[0] : 'application/json';
 
+      // query params
+      if($vestorly_auth !== null) {
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+      }
       
       
+      // form params
+      if ($post !== null) {
+        $formParams['Post'] = $this->apiClient->toFormValue($post);
+      }
       
+
+      // for model (json/xml)
+      if (isset($body)) {
+        $httpBody = $body; // $body is the method argument, if present
+      }
+      
+      // for HTTP post (form)
+      if (strpos($headerParams['Content-Type'], "application/x-www-form-urlencoded") !== FALSE) {
+        $httpBody = http_build_query($formParams);
+      }
+
+      // make the API Call
+      $response = $this->apiClient->callAPI($resourcePath, $method,
+                                            $queryParams, $httpBody,
+                                            $headerParams);
+
+      if(! $response) {
+        return null;
+      }
+
+  		$responseObject = $this->apiClient->deserialize($response,
+  		                                                'Post');
+  		return $responseObject;
+  }
+  
+  /**
+   * getPostByID
+   *
+   * 
+   *
+   * @param string $vestorly_auth Vestorly Auth Token (required)
+   * @param string $id ID of post to fetch (required)
+   * @param string $filter_by Filter post by parameters (required)
+   * @return Post
+   */
+   public function getPostByID($vestorly_auth, $id, $filter_by) {
+
+      // parse inputs
+      $resourcePath = "/posts/{id}";
+      $resourcePath = str_replace("{format}", "json", $resourcePath);
+      $method = "GET";
+      $httpBody = '';
+      $queryParams = array();
+      $headerParams = array();
+      $formParams = array();
+      $_header_accept = '';
+      if ($_header_accept !== '') {
+        $headerParams['Accept'] = $_header_accept;
+      }
+      $_header_content_type = array();
+      $headerParams['Content-Type'] = count($_header_content_type) > 0 ? $_header_content_type[0] : 'application/json';
+
+      // query params
+      if($vestorly_auth !== null) {
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+      }// query params
+      if($filter_by !== null) {
+        $queryParams['filter_by'] = $this->apiClient->toQueryValue($filter_by);
+      }
+      
+      // path params
+      if($id !== null) {
+        $resourcePath = str_replace("{" . "id" . "}",
+                                    $this->apiClient->toPathValue($id), $resourcePath);
+      }
+      
+      
+
+      // for model (json/xml)
+      if (isset($body)) {
+        $httpBody = $body; // $body is the method argument, if present
+      }
+      
+      // for HTTP post (form)
+      if (strpos($headerParams['Content-Type'], "application/x-www-form-urlencoded") !== FALSE) {
+        $httpBody = http_build_query($formParams);
+      }
+
+      // make the API Call
+      $response = $this->apiClient->callAPI($resourcePath, $method,
+                                            $queryParams, $httpBody,
+                                            $headerParams);
+
+      if(! $response) {
+        return null;
+      }
+
+  		$responseObject = $this->apiClient->deserialize($response,
+  		                                                'Post');
+  		return $responseObject;
+  }
+  
+  /**
+   * updatePostByID
+   *
+   * 
+   *
+   * @param string $vestorly_auth Vestorly Auth Token (required)
+   * @param string $id ID of post to fetch (required)
+   * @param string $post Post (required)
+   * @return Post
+   */
+   public function updatePostByID($vestorly_auth, $id, $post) {
+
+      // parse inputs
+      $resourcePath = "/posts/{id}";
+      $resourcePath = str_replace("{format}", "json", $resourcePath);
+      $method = "PUT";
+      $httpBody = '';
+      $queryParams = array();
+      $headerParams = array();
+      $formParams = array();
+      $_header_accept = '';
+      if ($_header_accept !== '') {
+        $headerParams['Accept'] = $_header_accept;
+      }
+      $_header_content_type = array();
+      $headerParams['Content-Type'] = count($_header_content_type) > 0 ? $_header_content_type[0] : 'application/json';
+
+      // query params
+      if($vestorly_auth !== null) {
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+      }
+      
+      // path params
+      if($id !== null) {
+        $resourcePath = str_replace("{" . "id" . "}",
+                                    $this->apiClient->toPathValue($id), $resourcePath);
+      }
       // form params
       if ($post !== null) {
         $formParams['Post'] = $this->apiClient->toFormValue($post);

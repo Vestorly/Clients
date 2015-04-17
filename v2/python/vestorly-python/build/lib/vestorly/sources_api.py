@@ -33,31 +33,28 @@ class SourcesApi(object):
 
     
     
-    def index(self, **kwargs):
-        """Read a list of sources
+    def findSources(self, **kwargs):
+        """
 
         Args:
             
-            vestorly_auth, str: Authentication token (required)
-            
-            
-            ids, str: Return sources with list of IDs provided (required)
+            vestorly_auth, str: Vestorly Auth Token (required)
             
             
         
         Returns: 
         """
 
-        allParams = ['vestorly_auth', 'ids']
+        allParams = ['vestorly_auth']
 
         params = locals()
         for (key, val) in params['kwargs'].iteritems():
             if key not in allParams:
-                raise TypeError("Got an unexpected keyword argument '%s' to method index" % key)
+                raise TypeError("Got an unexpected keyword argument '%s' to method findSources" % key)
             params[key] = val
         del params['kwargs']
 
-        resourcePath = 'api/v2/sources.json'
+        resourcePath = '/sources'
         resourcePath = resourcePath.replace('{format}', 'json')
         method = 'GET'
 
@@ -75,10 +72,7 @@ class SourcesApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
-        
-        if ('ids' in params):
-            queryParams['ids'] = self.apiClient.toPathValue(params['ids'])
+            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         
@@ -94,148 +88,6 @@ class SourcesApi(object):
         response = self.apiClient.callAPI(resourcePath, method, queryParams,
                                           postData, headerParams, files=files)
 
-        
-        
-        
-    
-    def show(self, **kwargs):
-        """Read a specific source
-
-        Args:
-            
-            vestorly_auth, str: Authentication token (required)
-            
-            
-            id, str: Id of source (required)
-            
-            
-        
-        Returns: 
-        """
-
-        allParams = ['vestorly_auth', 'id']
-
-        params = locals()
-        for (key, val) in params['kwargs'].iteritems():
-            if key not in allParams:
-                raise TypeError("Got an unexpected keyword argument '%s' to method show" % key)
-            params[key] = val
-        del params['kwargs']
-
-        resourcePath = 'api/v2/sources/{id}.json'
-        resourcePath = resourcePath.replace('{format}', 'json')
-        method = 'GET'
-
-        queryParams = {}
-        headerParams = {}
-        formParams = {}
-        files = {}
-        bodyParam = None
-
-        accepts = []
-        headerParams['Accept'] = ', '.join(accepts)
-
-        content_types = []
-        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
-
-        
-        if ('vestorly_auth' in params):
-            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
-        
-
-        
-
-        
-        if ('id' in params):
-            replacement = str(self.apiClient.toPathValue(params['id']))
-            replacement = urllib.quote(replacement)
-            resourcePath = resourcePath.replace('{' + 'id' + '}',
-                                                replacement)
-        
-
-        
-
-        
-
-        postData = (formParams if formParams else bodyParam)
-
-        response = self.apiClient.callAPI(resourcePath, method, queryParams,
-                                          postData, headerParams, files=files)
-
-        
-        
-        
-    
-    def update(self, **kwargs):
-        """Create a source
-
-        Args:
-            
-            id, str: Id of g (required)
-            
-            
-            source, str: JSON block of source data (required)
-            
-            
-        
-        Returns: Source
-        """
-
-        allParams = ['id', 'source']
-
-        params = locals()
-        for (key, val) in params['kwargs'].iteritems():
-            if key not in allParams:
-                raise TypeError("Got an unexpected keyword argument '%s' to method update" % key)
-            params[key] = val
-        del params['kwargs']
-
-        resourcePath = 'api/v2/sources/{id}.json'
-        resourcePath = resourcePath.replace('{format}', 'json')
-        method = 'PUT'
-
-        queryParams = {}
-        headerParams = {}
-        formParams = {}
-        files = {}
-        bodyParam = None
-
-        accepts = []
-        headerParams['Accept'] = ', '.join(accepts)
-
-        content_types = []
-        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
-
-        
-
-        
-
-        
-        if ('id' in params):
-            replacement = str(self.apiClient.toPathValue(params['id']))
-            replacement = urllib.quote(replacement)
-            resourcePath = resourcePath.replace('{' + 'id' + '}',
-                                                replacement)
-        
-
-        
-        if ('source' in params):
-            formParams['source'] = params['source']
-        
-
-        
-
-        postData = (formParams if formParams else bodyParam)
-
-        response = self.apiClient.callAPI(resourcePath, method, queryParams,
-                                          postData, headerParams, files=files)
-
-        
-        if not response:
-            return None
-
-        responseObject = self.apiClient.deserialize(response, 'Source')
-        return responseObject
         
         
         
