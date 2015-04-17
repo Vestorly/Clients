@@ -1,0 +1,277 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Vestorly Developers API",
+    "version" : "1.0.0",
+    "title" : "Vestorly API",
+    "termsOfService" : "http://www.vestorly.com/terms/",
+    "contact" : {
+      "name" : "Vestorly Team"
+    },
+    "license" : {
+      "name" : "MIT"
+    }
+  },
+  "host" : "staging.vestorly.com",
+  "basePath" : "/api/v2",
+  "tags" : [ {
+    "name" : "api docs",
+    "description" : "Vestorly API docs",
+    "externalDocs" : {
+      "description" : "Find more info here",
+      "url" : "https://developers.vestorly.com"
+    }
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/advisor/{id}" : {
+      "get" : {
+        "tags" : [ "advisor" ],
+        "description" : "Returns a single advisor if the user has access",
+        "operationId" : "findAdvisorByID",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Mongo ID of advisor to fetch",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        }, {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Advisor response",
+            "schema" : {
+              "$ref" : "#/definitions/Advisor"
+            }
+          }
+        }
+      }
+    },
+    "/advisors" : {
+      "get" : {
+        "tags" : [ "advisor" ],
+        "description" : "Returns all advisors",
+        "operationId" : "findAdvisors",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        } ]
+      }
+    },
+    "/articles" : {
+      "get" : {
+        "tags" : [ "articles" ],
+        "description" : "Returns all articles",
+        "operationId" : "findArticles",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Limit on the number of articles to return",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "text_query",
+          "in" : "query",
+          "description" : "Search query parameter",
+          "required" : false,
+          "type" : "string",
+          "format" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Response"
+          }
+        }
+      }
+    },
+    "/newsletters" : {
+      "get" : {
+        "tags" : [ "newslettters" ],
+        "description" : "Returns all newsletters",
+        "operationId" : "findNewsletters",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Response",
+            "schema" : {
+              "$ref" : "#/definitions/Newsletter"
+            }
+          }
+        }
+      }
+    },
+    "/posts" : {
+      "post" : {
+        "tags" : [ "posts" ],
+        "description" : "Create a new post in the Vestorly Platform",
+        "operationId" : "createPost",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "Post",
+          "in" : "formData",
+          "description" : "Post",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Response",
+            "schema" : {
+              "$ref" : "#/definitions/Post"
+            }
+          }
+        }
+      }
+    },
+    "/sessions" : {
+      "post" : {
+        "tags" : [ "session" ],
+        "description" : "Login To Vestorly Platform",
+        "operationId" : "login",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "formData",
+          "description" : "Username in the vestorly platform",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "formData",
+          "description" : "Password in Vestorly Platform",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Response",
+            "schema" : {
+              "$ref" : "#/definitions/Session"
+            }
+          }
+        }
+      }
+    },
+    "/sessions/m" : {
+      "delete" : {
+        "tags" : [ "session" ],
+        "description" : "Logout",
+        "operationId" : "logout",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "formData",
+          "description" : "Authenication token",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Response",
+            "schema" : {
+              "$ref" : "#/definitions/Session"
+            }
+          }
+        }
+      }
+    },
+    "/sources" : {
+      "get" : {
+        "tags" : [ "sources" ],
+        "description" : "Returns all sources",
+        "operationId" : "findSources",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Response"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Advisor" : {
+      "properties" : {
+        "client_only" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "img_compressed" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "img_changed" : {
+          "type" : "boolean",
+          "default" : false
+        }
+      }
+    },
+    "Article" : { },
+    "Articles" : {
+      "properties" : {
+        "articles" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Article"
+          }
+        }
+      }
+    },
+    "NewsLetter" : {
+      "properties" : {
+        "is_sent" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "is_default" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "click_count" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "unique_click_count" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "total_click_count" : {
+          "type" : "integer",
+          "format" : "int64"
+        }
+      }
+    }
+  }
+}
