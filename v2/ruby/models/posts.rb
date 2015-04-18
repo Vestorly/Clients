@@ -1,10 +1,10 @@
 
-class Advisor
-  attr_accessor :new_user
+class Posts
+  attr_accessor :posts
   # :internal => :external
   def self.attribute_map
     {
-      :new_user => :'new_user'
+      :posts => :'posts'
       
     }
   end
@@ -13,8 +13,10 @@ class Advisor
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
     
-    if self.class.attribute_map[:"new_user"]
-      @new_user = attributes["new_user"]
+    if self.class.attribute_map[:"posts"]
+      if (value = attributes["posts"]).is_a?(Array)
+        @posts = value.map{ |v| Post.new(v) }
+      end
     end
     
   end

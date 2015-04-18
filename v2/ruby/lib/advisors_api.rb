@@ -1,32 +1,28 @@
 require "uri"
 
-class ArticlesApi
+class AdvisorsApi
   basePath = "https://staging.vestorly.com/api/v2"
   # apiInvoker = APIInvoker
 
 
   # 
-  # Returns all articles
+  # Returns all advisors
   # @param vestorly_auth Vestorly Auth Token
-  # @param limit Limit on the number of articles to return
-  # @param text_query Search query parameter
   # @return void
-  def self.findArticles (vestorly_auth, limit, text_query, opts={})
-    query_param_keys = [:vestorly_auth,:limit,:text_query]
+  def self.findAdvisors (vestorly_auth, opts={})
+    query_param_keys = [:vestorly_auth]
     headerParams = {}
 
     
     
     # set default values and merge with input
     options = {
-      :'vestorly_auth' => vestorly_auth,
-      :'limit' => limit,
-      :'text_query' => text_query
+      :'vestorly_auth' => vestorly_auth
       
     }.merge(opts)
 
     #resource path
-    path = "/articles".sub('{format}','json')
+    path = "/advisors".sub('{format}','json')
     
     # pull querystring keys from options
     queryopts = options.select do |key,value|
@@ -59,23 +55,25 @@ class ArticlesApi
   end
 
   # 
-  # Returns a single article
-  # @param id Article Id to fetch
-  # @return Article
-  def self.findArticleByID (id, opts={})
-    query_param_keys = []
+  # Returns a single advisor if the user has access
+  # @param id Mongo ID of advisor to fetch
+  # @param vestorly_auth Vestorly Auth Token
+  # @return Advisor
+  def self.findAdvisorByID (id, vestorly_auth, opts={})
+    query_param_keys = [:vestorly_auth]
     headerParams = {}
 
     
     
     # set default values and merge with input
     options = {
-      :'id' => id
+      :'id' => id,
+      :'vestorly_auth' => vestorly_auth
       
     }.merge(opts)
 
     #resource path
-    path = "/articles/{id}".sub('{format}','json').sub('{' + 'id' + '}', id.to_s)
+    path = "/advisors/{id}".sub('{format}','json').sub('{' + 'id' + '}', id.to_s)
     
     
     # pull querystring keys from options
@@ -103,7 +101,7 @@ class ArticlesApi
     
     
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Article.new(response)
+     Advisor.new(response)
     
     
   

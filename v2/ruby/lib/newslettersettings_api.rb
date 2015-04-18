@@ -1,30 +1,28 @@
 require "uri"
 
-class PostsApi
+class NewslettersettingsApi
   basePath = "https://staging.vestorly.com/api/v2"
   # apiInvoker = APIInvoker
 
 
   # 
-  # Query all posts
+  # Returns all newsletter settings
   # @param vestorly_auth Vestorly Auth Token
-  # @param filter_by Filter post by parameters
-  # @return Posts
-  def self.findPosts (vestorly_auth, filter_by, opts={})
-    query_param_keys = [:vestorly_auth,:filter_by]
+  # @return NewsletterSettings
+  def self.findNewsletterSettings (vestorly_auth, opts={})
+    query_param_keys = [:vestorly_auth]
     headerParams = {}
 
     
     
     # set default values and merge with input
     options = {
-      :'vestorly_auth' => vestorly_auth,
-      :'filter_by' => filter_by
+      :'vestorly_auth' => vestorly_auth
       
     }.merge(opts)
 
     #resource path
-    path = "/posts".sub('{format}','json')
+    path = "/newsletter_settings".sub('{format}','json')
     
     # pull querystring keys from options
     queryopts = options.select do |key,value|
@@ -51,18 +49,18 @@ class PostsApi
     
     
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Posts.new(response)
+     NewsletterSettings.new(response)
     
     
   
   end
 
   # 
-  # Create a new post in the Vestorly Platform
+  # Update a single newsletter setting by ID
   # @param vestorly_auth Vestorly Auth Token
-  # @param post Post
-  # @return Post
-  def self.createPost (vestorly_auth, post, opts={})
+  # @param newsletter_settings newsletter settings
+  # @return NewsletterSettings
+  def self.updateNewsletterSettingsByID (vestorly_auth, newsletter_settings, opts={})
     query_param_keys = [:vestorly_auth]
     headerParams = {}
 
@@ -71,68 +69,12 @@ class PostsApi
     # set default values and merge with input
     options = {
       :'vestorly_auth' => vestorly_auth,
-      :'post' => post
+      :'newsletter_settings' => newsletter_settings
       
     }.merge(opts)
 
     #resource path
-    path = "/posts".sub('{format}','json')
-    
-    # pull querystring keys from options
-    queryopts = options.select do |key,value|
-      query_param_keys.include? key
-    end
-
-    # header parameters
-    headers = {}
-
-    _header_accept = ''
-    if _header_accept != ''
-      headerParams['Accept'] = _header_accept
-    end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
-    headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
-
-    
-    
-    # http body (model)
-    post_body = nil
-    
-    # form parameters
-    form_parameter_hash = {}
-    
-    form_parameter_hash["Post"] = post
-    
-    response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Post.new(response)
-    
-    
-  
-  end
-
-  # 
-  # Query all posts
-  # @param vestorly_auth Vestorly Auth Token
-  # @param id ID of post to fetch
-  # @param filter_by Filter post by parameters
-  # @return Post
-  def self.getPostByID (vestorly_auth, id, filter_by, opts={})
-    query_param_keys = [:vestorly_auth,:filter_by]
-    headerParams = {}
-
-    
-    
-    # set default values and merge with input
-    options = {
-      :'vestorly_auth' => vestorly_auth,
-      :'id' => id,
-      :'filter_by' => filter_by
-      
-    }.merge(opts)
-
-    #resource path
-    path = "/posts/{id}".sub('{format}','json').sub('{' + 'id' + '}', id.to_s)
-    
+    path = "/newsletter_settings".sub('{format}','json')
     
     # pull querystring keys from options
     queryopts = options.select do |key,value|
@@ -157,65 +99,63 @@ class PostsApi
     # form parameters
     form_parameter_hash = {}
     
-    
-    response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Post.new(response)
-    
-    
-  
-  end
-
-  # 
-  # Update A Post
-  # @param vestorly_auth Vestorly Auth Token
-  # @param id ID of post to fetch
-  # @param post Post
-  # @return Post
-  def self.updatePostByID (vestorly_auth, id, post, opts={})
-    query_param_keys = [:vestorly_auth]
-    headerParams = {}
-
-    
-    
-    # set default values and merge with input
-    options = {
-      :'vestorly_auth' => vestorly_auth,
-      :'id' => id,
-      :'post' => post
-      
-    }.merge(opts)
-
-    #resource path
-    path = "/posts/{id}".sub('{format}','json').sub('{' + 'id' + '}', id.to_s)
-    
-    
-    # pull querystring keys from options
-    queryopts = options.select do |key,value|
-      query_param_keys.include? key
-    end
-
-    # header parameters
-    headers = {}
-
-    _header_accept = ''
-    if _header_accept != ''
-      headerParams['Accept'] = _header_accept
-    end 
-    _header_content_type = []
-    headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
-
-    
-    
-    # http body (model)
-    post_body = nil
-    
-    # form parameters
-    form_parameter_hash = {}
-    
-    form_parameter_hash["Post"] = post
+    form_parameter_hash["newsletter_settings"] = newsletter_settings
     
     response = Swagger::Request.new(:PUT, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Post.new(response)
+     NewsletterSettings.new(response)
+    
+    
+  
+  end
+
+  # 
+  # Returns a single newsletter settings if the user has access
+  # @param id Mongo ID of newsletter settings to fetch
+  # @param vestorly_auth Vestorly Auth Token
+  # @return NewsletterSettings
+  def self.findNewsletterSettingsByID (id, vestorly_auth, opts={})
+    query_param_keys = [:vestorly_auth]
+    headerParams = {}
+
+    
+    
+    # set default values and merge with input
+    options = {
+      :'id' => id,
+      :'vestorly_auth' => vestorly_auth
+      
+    }.merge(opts)
+
+    #resource path
+    path = "/newsletter_settings/{id}".sub('{format}','json').sub('{' + 'id' + '}', id.to_s)
+    
+    
+    # pull querystring keys from options
+    queryopts = options.select do |key,value|
+      query_param_keys.include? key
+    end
+
+    # header parameters
+    headers = {}
+
+    _header_accept = ''
+    if _header_accept != ''
+      headerParams['Accept'] = _header_accept
+    end 
+    _header_content_type = []
+    headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
+
+    
+    
+    # http body (model)
+    post_body = nil
+    
+    # form parameters
+    form_parameter_hash = {}
+    
+    
+    response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
+     NewsletterSettings.new(response)
     
     
   

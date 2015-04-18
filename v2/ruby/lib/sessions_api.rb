@@ -1,68 +1,16 @@
 require "uri"
 
-class ArticlesApi
+class SessionsApi
   basePath = "https://staging.vestorly.com/api/v2"
   # apiInvoker = APIInvoker
 
 
   # 
-  # Returns all articles
-  # @param vestorly_auth Vestorly Auth Token
-  # @param limit Limit on the number of articles to return
-  # @param text_query Search query parameter
-  # @return void
-  def self.findArticles (vestorly_auth, limit, text_query, opts={})
-    query_param_keys = [:vestorly_auth,:limit,:text_query]
-    headerParams = {}
-
-    
-    
-    # set default values and merge with input
-    options = {
-      :'vestorly_auth' => vestorly_auth,
-      :'limit' => limit,
-      :'text_query' => text_query
-      
-    }.merge(opts)
-
-    #resource path
-    path = "/articles".sub('{format}','json')
-    
-    # pull querystring keys from options
-    queryopts = options.select do |key,value|
-      query_param_keys.include? key
-    end
-
-    # header parameters
-    headers = {}
-
-    _header_accept = ''
-    if _header_accept != ''
-      headerParams['Accept'] = _header_accept
-    end 
-    _header_content_type = []
-    headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
-
-    
-    
-    # http body (model)
-    post_body = nil
-    
-    # form parameters
-    form_parameter_hash = {}
-    
-    
-    
-    Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
-    
-  
-  end
-
-  # 
-  # Returns a single article
-  # @param id Article Id to fetch
-  # @return Article
-  def self.findArticleByID (id, opts={})
+  # Login To Vestorly Platform
+  # @param username Username in the vestorly platform
+  # @param password Password in Vestorly Platform
+  # @return Session
+  def self.login (username, password, opts={})
     query_param_keys = []
     headerParams = {}
 
@@ -70,13 +18,13 @@ class ArticlesApi
     
     # set default values and merge with input
     options = {
-      :'id' => id
+      :'username' => username,
+      :'password' => password
       
     }.merge(opts)
 
     #resource path
-    path = "/articles/{id}".sub('{format}','json').sub('{' + 'id' + '}', id.to_s)
-    
+    path = "/sessions".sub('{format}','json')
     
     # pull querystring keys from options
     queryopts = options.select do |key,value|
@@ -90,7 +38,7 @@ class ArticlesApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = []
+    _header_content_type = ['application/x-www-form-urlencoded', ]
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -101,9 +49,62 @@ class ArticlesApi
     # form parameters
     form_parameter_hash = {}
     
+    form_parameter_hash["username"] = username
+    form_parameter_hash["password"] = password
     
-    response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Article.new(response)
+    response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
+     Session.new(response)
+    
+    
+  
+  end
+
+  # 
+  # Logout
+  # @param vestorly_auth Authenication token
+  # @return Session
+  def self.logout (vestorly_auth, opts={})
+    query_param_keys = []
+    headerParams = {}
+
+    
+    
+    # set default values and merge with input
+    options = {
+      :'vestorly_auth' => vestorly_auth
+      
+    }.merge(opts)
+
+    #resource path
+    path = "/sessions/{id}".sub('{format}','json')
+    
+    # pull querystring keys from options
+    queryopts = options.select do |key,value|
+      query_param_keys.include? key
+    end
+
+    # header parameters
+    headers = {}
+
+    _header_accept = ''
+    if _header_accept != ''
+      headerParams['Accept'] = _header_accept
+    end 
+    _header_content_type = ['application/x-www-form-urlencoded', ]
+    headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
+
+    
+    
+    # http body (model)
+    post_body = nil
+    
+    # form parameters
+    form_parameter_hash = {}
+    
+    form_parameter_hash["vestorly-auth"] = vestorly_auth
+    
+    response = Swagger::Request.new(:DELETE, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
+     Session.new(response)
     
     
   
