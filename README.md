@@ -1,45 +1,16 @@
-##### Generating the Clients
+# Vestorly Helper Libraries
 
-First, checkout swagger-codegen
+A handful of Vestorly libraries that are auto-generated.
 
-    git clone git@github.com:swagger-api/swagger-codegen.git
-	
-Next checkout branch `develop_2.0`
+* **Apple/IOS ObjectiveC** : [Clients/ObjC](https://github.com/Vestorly/Clients/tree/master/v2/objc)
+* **Android Java** : [Clients/Android](https://github.com/Vestorly/Clients/tree/master/v2/android)
+* **CSharp** : [Clients/CSharp](https://github.com/Vestorly/Clients/tree/master/v2/csharp)
+* **Vestorly CSharp** : [vestorly-csharp](https://github.com/vestorly/vestorly-csharp)
+* **Java** : [Clients/Java](https://github.com/Vestorly/Clients/tree/master/v2/java)
+* **NodeJS** : [Clients/NodeJS](https://github.com/Vestorly/Clients/tree/master/v2/nodejs)
+* **PHP** : [Clients/PHP](https://github.com/Vestorly/Clients/tree/master/v2/php)
+* **Python** : [Clients/NodeJS](https://github.com/Vestorly/Clients/tree/master/v2/python/vestorly-python)
+* **Ruby** : [Clients/NodeJS](https://github.com/Vestorly/Clients/tree/master/v2/python/vestorly-python)
+* **Vestorly Ruby** : [vestorly-ruby](https://github.com/vestorly/vestorly-ruby)
+* **Scala** : [Clients/Scala](https://github.com/Vestorly/Clients/tree/master/v2/scala)
 
-    git checkout -b develop_2.0
-
-Finally, rebuild it
-
-    mvn clean package
-	
-Now execute the following bash script:
-
-```bash
-
-#!/bin/sh
-
-#
-# This script will build all the clients
-#
-
-declare -a arr=('android'  'java'  'jaxrs' 'nodejs' 'objc' 'scalatra' 'scala' 'dynamic-html' 'html' 'swagger' 'tizen' 'php'  'python')
-
-for i in "${arr[@]}"
-do
-	java -jar modules/swagger-codegen-distribution/target/swagger-codegen-distribution-2.1.1-M1.jar  \
-		 -i http://developers.vestorly.com/v1/api-docs  \
-		 -l $i   -o <YOUR_OUTPUT_DIRECTORY>/clients/v1/$i
-	
-done
-
-
-for i in "${arr[@]}"
-do
-	java -jar modules/swagger-codegen-distribution/target/swagger-codegen-distribution-2.1.1-M1.jar  \
-		 -i http://developers.vestorly.com/v2/api-docs  \
-		 -l $i   -o <YOUR_OUTPUT_DIRECTORY>/clients/v2/$i
-	
-done
-
-
-```
