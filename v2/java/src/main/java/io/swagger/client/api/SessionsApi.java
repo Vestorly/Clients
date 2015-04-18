@@ -125,13 +125,13 @@ public class SessionsApi {
       FormDataMultiPart mp = new FormDataMultiPart();
       
       hasFields = true;
-      mp.field("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth), MediaType.MULTIPART_FORM_DATA_TYPE);
+      mp.field("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth), MediaType.MULTIPART_FORM_DATA_TYPE);
       
       if(hasFields)
         postBody = mp;
     }
     else {
-      formParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      formParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
       
     }
 

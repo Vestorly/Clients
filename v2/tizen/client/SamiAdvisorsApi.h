@@ -19,10 +19,10 @@ public:
 
   
   void 
-  findAdvisorsWithCompletion(String* vestorly-auth, void(* handler)(SamiError*));
+  findAdvisorsWithCompletion(String* vestorly_auth, void(* handler)(SamiError*));
   
   SamiAdvisor* 
-  findAdvisorByIDWithCompletion(String* _id, String* vestorly-auth, void (* handler)(SamiAdvisor*, SamiError*));
+  findAdvisorByIDWithCompletion(String* _id, String* vestorly_auth, void (* handler)(SamiAdvisor*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

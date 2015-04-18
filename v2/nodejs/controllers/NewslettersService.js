@@ -1,6 +1,6 @@
 'use strict';
 
-exports.findNewsletters = function(vestorly-auth) {
+exports.findNewsletters = function(vestorly_auth) {
 
   var examples = {};
   
@@ -20,7 +20,7 @@ exports.findNewsletters = function(vestorly-auth) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.getNewsletterByID = function(vestorly-auth, id) {
+exports.getNewsletterByID = function(vestorly_auth, id) {
 
   var examples = {};
   
@@ -38,7 +38,7 @@ exports.getNewsletterByID = function(vestorly-auth, id) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.updateNewsletter = function(vestorly-auth, id, Newsletter) {
+exports.updateNewsletter = function(vestorly_auth, id, Newsletter) {
 
   var examples = {};
   

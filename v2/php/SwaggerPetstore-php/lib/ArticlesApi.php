@@ -37,7 +37,7 @@ class ArticlesApi {
    * @param string $vestorly_auth Vestorly Auth Token (required)
    * @param int $limit Limit on the number of articles to return (required)
    * @param string $text_query Search query parameter (required)
-   * @return void
+   * @return Articles
    */
    public function findArticles($vestorly_auth, $limit, $text_query) {
 
@@ -58,7 +58,7 @@ class ArticlesApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
@@ -86,7 +86,13 @@ class ArticlesApi {
                                             $queryParams, $httpBody,
                                             $headerParams);
 
-      
+      if(! $response) {
+        return null;
+      }
+
+  		$responseObject = $this->apiClient->deserialize($response,
+  		                                                'Articles');
+  		return $responseObject;
   }
   
   /**

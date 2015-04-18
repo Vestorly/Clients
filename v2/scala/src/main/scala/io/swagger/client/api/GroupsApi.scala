@@ -20,7 +20,7 @@ class GroupsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
   def addHeader(key: String, value: String) = apiInvoker.defaultHeaders += key -> value 
 
   
-  def findGroups (vestorly-auth: String) : Option[Groups] = {
+  def findGroups (vestorly_auth: String) : Option[Groups] = {
     // create path and map variables
     val path = "/groups".replaceAll("\\{format\\}","json")
 
@@ -36,7 +36,7 @@ class GroupsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
     
     
     
@@ -54,7 +54,7 @@ class GroupsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
     }
   }
   
-  def findGroupByID (vestorly-auth: String, id: String) : Option[Group] = {
+  def findGroupByID (vestorly_auth: String, id: String) : Option[Group] = {
     // create path and map variables
     val path = "/groups/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -72,7 +72,7 @@ class GroupsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
     
     
     

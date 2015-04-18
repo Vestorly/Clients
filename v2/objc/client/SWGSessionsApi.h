@@ -33,12 +33,12 @@
  
  Logout
 
- @param vestorly-auth Authenication token
+ @param vestorly_auth Authenication token
  
 
  return type: SWGSession*
  */
--(NSNumber*) logoutWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) logoutWithCompletionBlock :(NSString*) vestorly_auth 
     
     completionHandler: (void (^)(SWGSession* output, NSError* error))completionBlock;
     

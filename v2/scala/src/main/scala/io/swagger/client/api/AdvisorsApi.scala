@@ -17,7 +17,7 @@ class AdvisorsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2
   def addHeader(key: String, value: String) = apiInvoker.defaultHeaders += key -> value 
 
   
-  def findAdvisors (vestorly-auth: String)  = {
+  def findAdvisors (vestorly_auth: String)  = {
     // create path and map variables
     val path = "/advisors".replaceAll("\\{format\\}","json")
 
@@ -33,7 +33,7 @@ class AdvisorsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
     
     
     
@@ -50,7 +50,7 @@ class AdvisorsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2
     }
   }
   
-  def findAdvisorByID (id: String, vestorly-auth: String) : Option[Advisor] = {
+  def findAdvisorByID (id: String, vestorly_auth: String) : Option[Advisor] = {
     // create path and map variables
     val path = "/advisors/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -68,7 +68,7 @@ class AdvisorsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
     
     
     

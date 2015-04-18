@@ -32,7 +32,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
   val findNewslettersOperation = (apiOperation[Newsletters]("findNewsletters")
       summary ""
       parameters(
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorly_auth").description("")
         
         
         
@@ -50,7 +50,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorly_auth = params.getAs[String]("vestorly_auth")
       
     
 
@@ -60,7 +60,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorly_auth: " + vestorly_auth)
   
   }
 
@@ -69,7 +69,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
   val getNewsletterByIDOperation = (apiOperation[Newsletter]("getNewsletterByID")
       summary ""
       parameters(
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorly_auth").description("")
         
         
         
@@ -94,7 +94,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorly_auth = params.getAs[String]("vestorly_auth")
       
     
 
@@ -104,7 +104,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorly_auth: " + vestorly_auth)
   
     
     
@@ -129,7 +129,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
   val updateNewsletterOperation = (apiOperation[Newsletter]("updateNewsletter")
       summary ""
       parameters(
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorly_auth").description("")
         
         
         
@@ -161,7 +161,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorly_auth = params.getAs[String]("vestorly_auth")
       
     
 
@@ -171,7 +171,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorly_auth: " + vestorly_auth)
   
     
     

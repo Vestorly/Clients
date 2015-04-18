@@ -31,7 +31,7 @@ class AdvisorsApi (implicit val swagger: Swagger) extends ScalatraServlet
   val findAdvisorsOperation = (apiOperation[Unit]("findAdvisors")
       summary ""
       parameters(
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorly_auth").description("")
         
         
         
@@ -49,7 +49,7 @@ class AdvisorsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorly_auth = params.getAs[String]("vestorly_auth")
       
     
 
@@ -59,7 +59,7 @@ class AdvisorsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorly_auth: " + vestorly_auth)
   
   }
 
@@ -75,7 +75,7 @@ class AdvisorsApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         ,
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorly_auth").description("")
         
         
         
@@ -109,7 +109,7 @@ class AdvisorsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorly_auth = params.getAs[String]("vestorly_auth")
       
     
 
@@ -119,7 +119,7 @@ class AdvisorsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorly_auth: " + vestorly_auth)
   
   }
 

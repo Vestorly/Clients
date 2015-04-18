@@ -52,7 +52,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 
--(NSNumber*) findPostsWithCompletionBlock: (NSString*) vestorly-auth
+-(NSNumber*) findPostsWithCompletionBlock: (NSString*) vestorly_auth
          filter_by: (NSString*) filter_by
         
         completionHandler: (void (^)(SWGPosts* output, NSError* error))completionBlock
@@ -73,9 +73,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
+    if(vestorly_auth != nil) {
         
-        queryParams[@"vestorly-auth"] = vestorly-auth;
+        queryParams[@"vestorly_auth"] = vestorly_auth;
     }
     if(filter_by != nil) {
         
@@ -136,7 +136,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     
 }
 
--(NSNumber*) createPostWithCompletionBlock: (NSString*) vestorly-auth
+-(NSNumber*) createPostWithCompletionBlock: (NSString*) vestorly_auth
          Post: (NSString*) Post
         
         completionHandler: (void (^)(SWGPost* output, NSError* error))completionBlock
@@ -157,9 +157,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
+    if(vestorly_auth != nil) {
         
-        queryParams[@"vestorly-auth"] = vestorly-auth;
+        queryParams[@"vestorly_auth"] = vestorly_auth;
     }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -224,7 +224,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     
 }
 
--(NSNumber*) getPostByIDWithCompletionBlock: (NSString*) vestorly-auth
+-(NSNumber*) getPostByIDWithCompletionBlock: (NSString*) vestorly_auth
          _id: (NSString*) _id
          filter_by: (NSString*) filter_by
         
@@ -247,9 +247,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
+    if(vestorly_auth != nil) {
         
-        queryParams[@"vestorly-auth"] = vestorly-auth;
+        queryParams[@"vestorly_auth"] = vestorly_auth;
     }
     if(filter_by != nil) {
         
@@ -310,7 +310,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     
 }
 
--(NSNumber*) updatePostByIDWithCompletionBlock: (NSString*) vestorly-auth
+-(NSNumber*) updatePostByIDWithCompletionBlock: (NSString*) vestorly_auth
          _id: (NSString*) _id
          Post: (NSString*) Post
         
@@ -333,9 +333,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
+    if(vestorly_auth != nil) {
         
-        queryParams[@"vestorly-auth"] = vestorly-auth;
+        queryParams[@"vestorly_auth"] = vestorly_auth;
     }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];

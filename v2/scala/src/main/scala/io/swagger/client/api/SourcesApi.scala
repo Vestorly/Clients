@@ -18,7 +18,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
   def addHeader(key: String, value: String) = apiInvoker.defaultHeaders += key -> value 
 
   
-  def findSources (vestorly-auth: String) : Option[Sources] = {
+  def findSources (vestorly_auth: String) : Option[Sources] = {
     // create path and map variables
     val path = "/sources".replaceAll("\\{format\\}","json")
 
@@ -34,7 +34,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
     
     
     
@@ -52,7 +52,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     }
   }
   
-  def createSource (vestorly-auth: String, Source: String) : Option[Source] = {
+  def createSource (vestorly_auth: String, Source: String) : Option[Source] = {
     // create path and map variables
     val path = "/sources/".replaceAll("\\{format\\}","json")
 
@@ -68,7 +68,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
     
     
     
@@ -86,7 +86,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     }
   }
   
-  def getSourceByID (vestorly-auth: String, id: String) : Option[Source] = {
+  def getSourceByID (vestorly_auth: String, id: String) : Option[Source] = {
     // create path and map variables
     val path = "/sources/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -104,7 +104,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
     
     
     
@@ -122,7 +122,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     }
   }
   
-  def UpdateSourceByID (vestorly-auth: String, id: String, Source: String) : Option[Source] = {
+  def UpdateSourceByID (vestorly_auth: String, id: String, Source: String) : Option[Source] = {
     // create path and map variables
     val path = "/sources/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -140,7 +140,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
     
     
     

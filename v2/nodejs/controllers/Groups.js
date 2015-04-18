@@ -7,10 +7,10 @@ var Groups = require('./GroupsService');
 
 
 module.exports.findGroups = function findGroups (req, res, next) {
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorly_auth = req.swagger.params['vestorly_auth'].value;
   
 
-  var result = Groups.findGroups(vestorly-auth);
+  var result = Groups.findGroups(vestorly_auth);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -21,11 +21,11 @@ module.exports.findGroups = function findGroups (req, res, next) {
 };
 
 module.exports.findGroupByID = function findGroupByID (req, res, next) {
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorly_auth = req.swagger.params['vestorly_auth'].value;
   var id = req.swagger.params['id'].value;
   
 
-  var result = Groups.findGroupByID(vestorly-auth, id);
+  var result = Groups.findGroupByID(vestorly_auth, id);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

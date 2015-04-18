@@ -121,7 +121,7 @@ class SessionsApi {
       
       // form params
       if ($vestorly_auth !== null) {
-        $formParams['vestorly-auth'] = $this->apiClient->toFormValue($vestorly_auth);
+        $formParams['vestorly_auth'] = $this->apiClient->toFormValue($vestorly_auth);
       }
       
 

@@ -4,7 +4,7 @@
   
 + (JSONKeyMapper *)keyMapper
 {
-  return [[JSONKeyMapper alloc] initWithDictionary:@{ @"members": @"members" }];
+  return [[JSONKeyMapper alloc] initWithDictionary:@{ @"articles": @"articles" }];
 }
 
 @end

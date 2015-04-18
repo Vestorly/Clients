@@ -18,7 +18,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -49,7 +49,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -96,7 +96,7 @@
 },
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -129,7 +129,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -169,7 +169,7 @@
 },
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -209,7 +209,7 @@
 },
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -249,7 +249,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -279,7 +279,10 @@
       "responses": {
         
         "200": {
-  "description" : "Response"
+  "description" : "Response",
+  "schema" : {
+    "$ref" : "#/definitions/Articles"
+  }
 }
         
         
@@ -328,7 +331,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -359,7 +362,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -521,7 +524,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -554,7 +557,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -586,7 +589,7 @@
 },
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -657,7 +660,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "formData",
   "description" : "Authenication token",
   "required" : true,
@@ -689,7 +692,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -720,7 +723,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -759,7 +762,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -807,7 +810,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -845,7 +848,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -883,7 +886,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -929,7 +932,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -977,7 +980,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -1008,7 +1011,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -1046,7 +1049,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -1085,7 +1088,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -1133,7 +1136,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -1173,7 +1176,7 @@
 },
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -1213,7 +1216,7 @@
 },
         
         {
-  "name" : "vestorly-auth",
+  "name" : "vestorly_auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -1300,7 +1303,7 @@
   }
 },"Members": {
   "properties" : {
-    "members" : {
+    "articles" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/definitions/Member"
@@ -1376,6 +1379,103 @@
       "items" : {
         "$ref" : "#/definitions/Newsletter"
       }
+    }
+  }
+},"Member": {
+  "required" : [ "_id", "email" ],
+  "properties" : {
+    "_id" : {
+      "type" : "string"
+    },
+    "email" : {
+      "type" : "string"
+    },
+    "first_name" : {
+      "type" : "string"
+    },
+    "last_name" : {
+      "type" : "string"
+    },
+    "phone" : {
+      "type" : "string"
+    },
+    "address" : {
+      "type" : "string"
+    },
+    "city" : {
+      "type" : "string"
+    },
+    "state" : {
+      "type" : "string"
+    },
+    "zip" : {
+      "type" : "string"
+    },
+    "gender" : {
+      "type" : "string"
+    },
+    "age" : {
+      "type" : "string"
+    },
+    "education" : {
+      "type" : "string"
+    },
+    "high_net_worth" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "home_market_value" : {
+      "type" : "string"
+    },
+    "home_owner_status" : {
+      "type" : "string"
+    },
+    "household_income" : {
+      "type" : "string"
+    },
+    "marital_status" : {
+      "type" : "string"
+    },
+    "occupation" : {
+      "type" : "string"
+    },
+    "hometown" : {
+      "type" : "string"
+    },
+    "family" : {
+      "type" : "string"
+    },
+    "tags" : {
+      "type" : "string"
+    },
+    "message" : {
+      "type" : "string"
+    },
+    "location" : {
+      "type" : "string"
+    },
+    "picture_url" : {
+      "type" : "string"
+    },
+    "profile_url" : {
+      "type" : "string"
+    },
+    "estimated_location" : {
+      "type" : "string"
+    },
+    "estimated_zip" : {
+      "type" : "string"
+    },
+    "register_ip_addr" : {
+      "type" : "string"
+    },
+    "data_estimated" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "genuine_email" : {
+      "type" : "boolean",
+      "default" : false
     }
   }
 },"Posts": {

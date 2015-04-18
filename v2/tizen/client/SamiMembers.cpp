@@ -22,16 +22,16 @@ SamiMembers::~SamiMembers() {
 
 void
 SamiMembers::init() {
-    pMembers = null;
+    pArticles = null;
     
 }
 
 void
 SamiMembers::cleanup() {
-    if(pMembers != null) {
-        pMembers->RemoveAll(true);
-        delete pMembers;
-        pMembers = null;
+    if(pArticles != null) {
+        pArticles->RemoveAll(true);
+        delete pArticles;
+        pArticles = null;
     }
     
 }
@@ -71,15 +71,15 @@ SamiMembers::fromJsonObject(IJsonValue* pJson) {
     JsonObject* pJsonObject = static_cast< JsonObject* >(pJson);
 
     if(pJsonObject != null) {
-        JsonString* pMembersKey = new JsonString(L"members");
-        IJsonValue* pMembersVal = null;
-        pJsonObject->GetValue(pMembersKey, pMembersVal);
-        if(pMembersVal != null) {
-            pMembers = new ArrayList();
+        JsonString* pArticlesKey = new JsonString(L"articles");
+        IJsonValue* pArticlesVal = null;
+        pJsonObject->GetValue(pArticlesKey, pArticlesVal);
+        if(pArticlesVal != null) {
+            pArticles = new ArrayList();
             
-            jsonToValue(pMembers, pMembersVal, L"IList", L"SamiMember");
+            jsonToValue(pArticles, pArticlesVal, L"IList", L"SamiMember");
         }
-        delete pMembersKey;
+        delete pArticlesKey;
         
     }
 }
@@ -132,20 +132,20 @@ SamiMembers::asJsonObject() {
     pJsonObject->Construct();
 
     
-    JsonString *pMembersKey = new JsonString(L"members");
-    pJsonObject->Add(pMembersKey, toJson(getPMembers(), "SamiMember", "array"));
+    JsonString *pArticlesKey = new JsonString(L"articles");
+    pJsonObject->Add(pArticlesKey, toJson(getPArticles(), "SamiMember", "array"));
 
     
     return pJsonObject;
 }
 
 IList*
-SamiMembers::getPMembers() {
-    return pMembers;
+SamiMembers::getPArticles() {
+    return pArticles;
 }
 void
-SamiMembers::setPMembers(IList* pMembers) {
-    this->pMembers = pMembers;
+SamiMembers::setPArticles(IList* pArticles) {
+    this->pArticles = pArticles;
 }
 
 

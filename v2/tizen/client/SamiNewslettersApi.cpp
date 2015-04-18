@@ -52,7 +52,7 @@ findNewslettersProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sa
 }
 
 SamiNewsletters* 
-SamiNewslettersApi::findNewslettersWithCompletion(String* vestorly-auth, void (* success)(SamiNewsletters*, SamiError*)) {
+SamiNewslettersApi::findNewslettersWithCompletion(String* vestorly_auth, void (* success)(SamiNewsletters*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findNewslettersProcessor, (void(*)(void*, SamiError*))success);
@@ -65,7 +65,7 @@ SamiNewslettersApi::findNewslettersWithCompletion(String* vestorly-auth, void (*
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
   
   
 
@@ -117,7 +117,7 @@ getNewsletterByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, 
 }
 
 SamiNewsletter* 
-SamiNewslettersApi::getNewsletterByIDWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiNewsletter*, SamiError*)) {
+SamiNewslettersApi::getNewsletterByIDWithCompletion(String* vestorly_auth, String* _id, void (* success)(SamiNewsletter*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&getNewsletterByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -130,7 +130,7 @@ SamiNewslettersApi::getNewsletterByIDWithCompletion(String* vestorly-auth, Strin
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
   
   
 
@@ -187,7 +187,7 @@ updateNewsletterProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, S
 }
 
 SamiNewsletter* 
-SamiNewslettersApi::updateNewsletterWithCompletion(String* vestorly-auth, String* _id, String* Newsletter, void (* success)(SamiNewsletter*, SamiError*)) {
+SamiNewslettersApi::updateNewsletterWithCompletion(String* vestorly_auth, String* _id, String* Newsletter, void (* success)(SamiNewsletter*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&updateNewsletterProcessor, (void(*)(void*, SamiError*))success);
@@ -200,7 +200,7 @@ SamiNewslettersApi::updateNewsletterWithCompletion(String* vestorly-auth, String
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
   
   
 

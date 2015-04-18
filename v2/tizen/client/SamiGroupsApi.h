@@ -22,10 +22,10 @@ public:
 
   
   SamiGroups* 
-  findGroupsWithCompletion(String* vestorly-auth, void (* handler)(SamiGroups*, SamiError*));
+  findGroupsWithCompletion(String* vestorly_auth, void (* handler)(SamiGroups*, SamiError*));
   
   SamiGroup* 
-  findGroupByIDWithCompletion(String* vestorly-auth, String* _id, void (* handler)(SamiGroup*, SamiError*));
+  findGroupByIDWithCompletion(String* vestorly_auth, String* _id, void (* handler)(SamiGroup*, SamiError*));
   
   SamiGroupInput* 
   addGroupWithCompletion(SamiGroup* group, void (* handler)(SamiGroupInput*, SamiError*));

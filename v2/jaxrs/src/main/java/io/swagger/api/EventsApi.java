@@ -32,7 +32,7 @@ public class EventsApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Event response") })
 
-  public Response findEvents(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
+  public Response findEvents(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -48,7 +48,7 @@ public class EventsApi {
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Event response") })
 
   public Response findEventByID(@ApiParam(value = "Mongo ID of event to fetch",required=true ) @PathParam("id") String id,
-    @ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
+    @ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -64,7 +64,7 @@ public class EventsApi {
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Event response") })
 
   public Response updateEventByID(@ApiParam(value = "Mongo ID of event to update",required=true ) @PathParam("id") String id,
-    @ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+    @ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth,
     @ApiParam(value = "Event", required=true )@FormParam("event")  String event)
       throws NotFoundException {
       // do some magic!

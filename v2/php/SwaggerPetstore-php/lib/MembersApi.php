@@ -56,7 +56,7 @@ class MembersApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       
@@ -115,7 +115,7 @@ class MembersApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       // path params
@@ -178,7 +178,7 @@ class MembersApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       // path params

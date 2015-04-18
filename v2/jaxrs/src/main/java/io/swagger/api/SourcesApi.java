@@ -32,7 +32,7 @@ public class SourcesApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "source response") })
 
-  public Response findSources(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
+  public Response findSources(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -47,7 +47,7 @@ public class SourcesApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "source response") })
 
-  public Response createSource(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+  public Response createSource(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth,
     @ApiParam(value = "Source", required=true )@FormParam("source")  String source)
       throws NotFoundException {
       // do some magic!
@@ -63,7 +63,7 @@ public class SourcesApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "source response") })
 
-  public Response getSourceByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+  public Response getSourceByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth,
     @ApiParam(value = "ID of source to fetch",required=true ) @PathParam("id") String id)
       throws NotFoundException {
       // do some magic!
@@ -79,7 +79,7 @@ public class SourcesApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "source response") })
 
-  public Response UpdateSourceByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+  public Response UpdateSourceByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth,
     @ApiParam(value = "ID of source to fetch",required=true ) @PathParam("id") String id,
     @ApiParam(value = "Source", required=true )@FormParam("source")  String source)
       throws NotFoundException {

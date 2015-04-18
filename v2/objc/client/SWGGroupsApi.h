@@ -18,12 +18,12 @@
  
  Returns all groups
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorly_auth Vestorly Auth Token
  
 
  return type: SWGGroups*
  */
--(NSNumber*) findGroupsWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) findGroupsWithCompletionBlock :(NSString*) vestorly_auth 
     
     completionHandler: (void (^)(SWGGroups* output, NSError* error))completionBlock;
     
@@ -34,13 +34,13 @@
  
  Returns a single group if user has access
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorly_auth Vestorly Auth Token
  @param _id Mongo ID of group to fetch
  
 
  return type: SWGGroup*
  */
--(NSNumber*) findGroupByIDWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) findGroupByIDWithCompletionBlock :(NSString*) vestorly_auth 
      _id:(NSString*) _id 
     
     completionHandler: (void (^)(SWGGroup* output, NSError* error))completionBlock;

@@ -1,13 +1,13 @@
 'use strict';
 
-exports.findAdvisors = function(vestorly-auth) {
+exports.findAdvisors = function(vestorly_auth) {
 
   var examples = {};
   
 
   
 }
-exports.findAdvisorByID = function(id, vestorly-auth) {
+exports.findAdvisorByID = function(id, vestorly_auth) {
 
   var examples = {};
   

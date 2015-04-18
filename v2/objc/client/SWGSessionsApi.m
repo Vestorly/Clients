@@ -143,7 +143,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     
 }
 
--(NSNumber*) logoutWithCompletionBlock: (NSString*) vestorly-auth
+-(NSNumber*) logoutWithCompletionBlock: (NSString*) vestorly_auth
         
         completionHandler: (void (^)(SWGSession* output, NSError* error))completionBlock
          {
@@ -175,7 +175,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
     
     
-    formParams[@"vestorly-auth"] = vestorly-auth;
+    formParams[@"vestorly_auth"] = vestorly_auth;
     
     if(bodyDictionary == nil) {
       bodyDictionary = [[NSMutableArray alloc] init];

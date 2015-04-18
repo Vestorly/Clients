@@ -17,7 +17,7 @@ class NewslettersettingsApi(val defBasePath: String = "https://staging.vestorly.
   def addHeader(key: String, value: String) = apiInvoker.defaultHeaders += key -> value 
 
   
-  def findNewsletterSettings (vestorly-auth: String) : Option[NewsletterSettings] = {
+  def findNewsletterSettings (vestorly_auth: String) : Option[NewsletterSettings] = {
     // create path and map variables
     val path = "/newsletter_settings".replaceAll("\\{format\\}","json")
 
@@ -33,7 +33,7 @@ class NewslettersettingsApi(val defBasePath: String = "https://staging.vestorly.
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
     
     
     
@@ -51,7 +51,7 @@ class NewslettersettingsApi(val defBasePath: String = "https://staging.vestorly.
     }
   }
   
-  def updateNewsletterSettingsByID (vestorly-auth: String, newsletter_settings: String) : Option[NewsletterSettings] = {
+  def updateNewsletterSettingsByID (vestorly_auth: String, newsletter_settings: String) : Option[NewsletterSettings] = {
     // create path and map variables
     val path = "/newsletter_settings".replaceAll("\\{format\\}","json")
 
@@ -67,7 +67,7 @@ class NewslettersettingsApi(val defBasePath: String = "https://staging.vestorly.
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
     
     
     
@@ -85,7 +85,7 @@ class NewslettersettingsApi(val defBasePath: String = "https://staging.vestorly.
     }
   }
   
-  def findNewsletterSettingsByID (id: String, vestorly-auth: String) : Option[NewsletterSettings] = {
+  def findNewsletterSettingsByID (id: String, vestorly_auth: String) : Option[NewsletterSettings] = {
     // create path and map variables
     val path = "/newsletter_settings/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -103,7 +103,7 @@ class NewslettersettingsApi(val defBasePath: String = "https://staging.vestorly.
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
     
     
     

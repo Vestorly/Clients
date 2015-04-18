@@ -12,7 +12,7 @@ exports.login = function(username, password) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.logout = function(vestorly-auth) {
+exports.logout = function(vestorly_auth) {
 
   var examples = {};
   

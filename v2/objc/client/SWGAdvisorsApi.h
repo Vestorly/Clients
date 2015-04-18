@@ -15,12 +15,12 @@
  
  Returns all advisors
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorly_auth Vestorly Auth Token
  
 
  return type: 
  */
--(NSNumber*) findAdvisorsWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) findAdvisorsWithCompletionBlock :(NSString*) vestorly_auth 
     
     
     completionHandler: (void (^)(NSError* error))completionBlock;
@@ -32,13 +32,13 @@
  Returns a single advisor if the user has access
 
  @param _id Mongo ID of advisor to fetch
- @param vestorly-auth Vestorly Auth Token
+ @param vestorly_auth Vestorly Auth Token
  
 
  return type: SWGAdvisor*
  */
 -(NSNumber*) findAdvisorByIDWithCompletionBlock :(NSString*) _id 
-     vestorly-auth:(NSString*) vestorly-auth 
+     vestorly_auth:(NSString*) vestorly_auth 
     
     completionHandler: (void (^)(SWGAdvisor* output, NSError* error))completionBlock;
     

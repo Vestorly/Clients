@@ -127,7 +127,7 @@ public class SessionsApi {
       MultipartEntityBuilder builder = MultipartEntityBuilder.create();
       
       if (vestorlyAuth != null) {
-        builder.addTextBody("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth), ApiInvoker.TEXT_PLAIN_UTF8);
+        builder.addTextBody("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth), ApiInvoker.TEXT_PLAIN_UTF8);
       }
       
 
@@ -135,7 +135,7 @@ public class SessionsApi {
       postBody = httpEntity;
     } else {
       // normal form params
-      formParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      formParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
       
     }
 

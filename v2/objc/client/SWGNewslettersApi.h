@@ -16,12 +16,12 @@
  
  Returns all newsletters
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorly_auth Vestorly Auth Token
  
 
  return type: SWGNewsletters*
  */
--(NSNumber*) findNewslettersWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) findNewslettersWithCompletionBlock :(NSString*) vestorly_auth 
     
     completionHandler: (void (^)(SWGNewsletters* output, NSError* error))completionBlock;
     
@@ -32,13 +32,13 @@
  
  Returns newsletter by ID
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorly_auth Vestorly Auth Token
  @param _id ID of newsletter to fetch
  
 
  return type: SWGNewsletter*
  */
--(NSNumber*) getNewsletterByIDWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) getNewsletterByIDWithCompletionBlock :(NSString*) vestorly_auth 
      _id:(NSString*) _id 
     
     completionHandler: (void (^)(SWGNewsletter* output, NSError* error))completionBlock;
@@ -50,14 +50,14 @@
  
  Update newsletter by ID
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorly_auth Vestorly Auth Token
  @param _id ID of newsletter to fetch
  @param Newsletter Newsletter
  
 
  return type: SWGNewsletter*
  */
--(NSNumber*) updateNewsletterWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) updateNewsletterWithCompletionBlock :(NSString*) vestorly_auth 
      _id:(NSString*) _id 
      Newsletter:(NSString*) Newsletter 
     

@@ -6,6 +6,7 @@
 #include "SamiError.h"
 
 using Tizen::Base::Integer;
+#include "SamiArticles.h"
 using Tizen::Base::String;
 #include "SamiArticle.h"
 
@@ -19,8 +20,8 @@ public:
   virtual ~SamiArticlesApi();
 
   
-  void 
-  findArticlesWithCompletion(String* vestorly-auth, Integer* limit, String* text_query, void(* handler)(SamiError*));
+  SamiArticles* 
+  findArticlesWithCompletion(String* vestorly_auth, Integer* limit, String* text_query, void (* handler)(SamiArticles*, SamiError*));
   
   SamiArticle* 
   findArticleByIDWithCompletion(String* _id, void (* handler)(SamiArticle*, SamiError*));

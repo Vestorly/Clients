@@ -52,7 +52,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 
--(NSNumber*) findMembersWithCompletionBlock: (NSString*) vestorly-auth
+-(NSNumber*) findMembersWithCompletionBlock: (NSString*) vestorly_auth
         
         completionHandler: (void (^)(SWGMembers* output, NSError* error))completionBlock
          {
@@ -72,9 +72,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
+    if(vestorly_auth != nil) {
         
-        queryParams[@"vestorly-auth"] = vestorly-auth;
+        queryParams[@"vestorly_auth"] = vestorly_auth;
     }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -132,7 +132,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 -(NSNumber*) findMemberByIDWithCompletionBlock: (NSString*) _id
-         vestorly-auth: (NSString*) vestorly-auth
+         vestorly_auth: (NSString*) vestorly_auth
         
         completionHandler: (void (^)(SWGMember* output, NSError* error))completionBlock
          {
@@ -153,9 +153,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
+    if(vestorly_auth != nil) {
         
-        queryParams[@"vestorly-auth"] = vestorly-auth;
+        queryParams[@"vestorly_auth"] = vestorly_auth;
     }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -213,7 +213,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 -(NSNumber*) findMemberByID_1WithCompletionBlock: (NSString*) _id
-         vestorly-auth: (NSString*) vestorly-auth
+         vestorly_auth: (NSString*) vestorly_auth
         
         completionHandler: (void (^)(SWGMember* output, NSError* error))completionBlock
          {
@@ -234,9 +234,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
+    if(vestorly_auth != nil) {
         
-        queryParams[@"vestorly-auth"] = vestorly-auth;
+        queryParams[@"vestorly_auth"] = vestorly_auth;
     }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];

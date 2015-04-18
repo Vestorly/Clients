@@ -18,7 +18,7 @@ class PostsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
   def addHeader(key: String, value: String) = apiInvoker.defaultHeaders += key -> value 
 
   
-  def findPosts (vestorly-auth: String, filter_by: String) : Option[Posts] = {
+  def findPosts (vestorly_auth: String, filter_by: String) : Option[Posts] = {
     // create path and map variables
     val path = "/posts".replaceAll("\\{format\\}","json")
 
@@ -34,7 +34,7 @@ class PostsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
     if(String.valueOf(filter_by) != "null") queryParams += "filter_by" -> filter_by.toString
     
     
@@ -53,7 +53,7 @@ class PostsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
     }
   }
   
-  def createPost (vestorly-auth: String, Post: String) : Option[Post] = {
+  def createPost (vestorly_auth: String, Post: String) : Option[Post] = {
     // create path and map variables
     val path = "/posts".replaceAll("\\{format\\}","json")
 
@@ -69,7 +69,7 @@ class PostsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
     
     
     
@@ -87,7 +87,7 @@ class PostsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
     }
   }
   
-  def getPostByID (vestorly-auth: String, id: String, filter_by: String) : Option[Post] = {
+  def getPostByID (vestorly_auth: String, id: String, filter_by: String) : Option[Post] = {
     // create path and map variables
     val path = "/posts/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -105,7 +105,7 @@ class PostsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
     if(String.valueOf(filter_by) != "null") queryParams += "filter_by" -> filter_by.toString
     
     
@@ -124,7 +124,7 @@ class PostsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
     }
   }
   
-  def updatePostByID (vestorly-auth: String, id: String, Post: String) : Option[Post] = {
+  def updatePostByID (vestorly_auth: String, id: String, Post: String) : Option[Post] = {
     // create path and map variables
     val path = "/posts/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -142,7 +142,7 @@ class PostsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
     
     
     

@@ -6,6 +6,7 @@ import com.wordnik.swagger.annotations.ApiParam;
 
 import com.sun.jersey.multipart.FormDataParam;
 
+import io.swagger.model.Articles;
 import io.swagger.model.Article;
 
 import java.util.List;
@@ -27,11 +28,11 @@ public class ArticlesApi {
   
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns all articles", response = Void.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns all articles", response = Articles.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Response") })
 
-  public Response findArticles(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+  public Response findArticles(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth,
     @ApiParam(value = "Limit on the number of articles to return") @QueryParam("limit") Integer limit,
     @ApiParam(value = "Search query parameter") @QueryParam("text_query") String textQuery)
       throws NotFoundException {

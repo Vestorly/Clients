@@ -48,7 +48,7 @@ class ArticlesApi(object):
             
             
         
-        Returns: 
+        Returns: Articles
         """
 
         allParams = ['vestorly_auth', 'limit', 'text_query']
@@ -78,7 +78,7 @@ class ArticlesApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
         if ('limit' in params):
             queryParams['limit'] = self.apiClient.toPathValue(params['limit'])
@@ -100,6 +100,12 @@ class ArticlesApi(object):
         response = self.apiClient.callAPI(resourcePath, method, queryParams,
                                           postData, headerParams, files=files)
 
+        
+        if not response:
+            return None
+
+        responseObject = self.apiClient.deserialize(response, 'Articles')
+        return responseObject
         
         
         

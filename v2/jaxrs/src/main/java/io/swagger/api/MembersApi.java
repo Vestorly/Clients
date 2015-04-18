@@ -32,7 +32,7 @@ public class MembersApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Member response") })
 
-  public Response findMembers(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
+  public Response findMembers(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -48,7 +48,7 @@ public class MembersApi {
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Member response") })
 
   public Response findMemberByID(@ApiParam(value = "Mongo ID of member to fetch",required=true ) @PathParam("id") String id,
-    @ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
+    @ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -64,7 +64,7 @@ public class MembersApi {
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Member response") })
 
   public Response findMemberByID_1(@ApiParam(value = "Mongo ID of member to fetch",required=true ) @PathParam("id") String id,
-    @ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
+    @ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

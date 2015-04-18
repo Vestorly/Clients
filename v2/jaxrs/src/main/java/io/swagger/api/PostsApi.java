@@ -32,7 +32,7 @@ public class PostsApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "posts response") })
 
-  public Response findPosts(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+  public Response findPosts(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth,
     @ApiParam(value = "Filter post by parameters") @QueryParam("filter_by") String filterBy)
       throws NotFoundException {
       // do some magic!
@@ -48,7 +48,7 @@ public class PostsApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "posts response") })
 
-  public Response createPost(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+  public Response createPost(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth,
     @ApiParam(value = "Post", required=true )@FormParam("post")  String post)
       throws NotFoundException {
       // do some magic!
@@ -64,7 +64,7 @@ public class PostsApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "post response") })
 
-  public Response getPostByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+  public Response getPostByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth,
     @ApiParam(value = "ID of post to fetch",required=true ) @PathParam("id") String id,
     @ApiParam(value = "Filter post by parameters") @QueryParam("filter_by") String filterBy)
       throws NotFoundException {
@@ -81,7 +81,7 @@ public class PostsApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "post response") })
 
-  public Response updatePostByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+  public Response updatePostByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth,
     @ApiParam(value = "ID of post to fetch",required=true ) @PathParam("id") String id,
     @ApiParam(value = "Post", required=true )@FormParam("post")  String post)
       throws NotFoundException {

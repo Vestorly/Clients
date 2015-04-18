@@ -52,7 +52,7 @@ findEventsProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiErr
 }
 
 SamiEvents* 
-SamiEventsApi::findEventsWithCompletion(String* vestorly-auth, void (* success)(SamiEvents*, SamiError*)) {
+SamiEventsApi::findEventsWithCompletion(String* vestorly_auth, void (* success)(SamiEvents*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findEventsProcessor, (void(*)(void*, SamiError*))success);
@@ -65,7 +65,7 @@ SamiEventsApi::findEventsWithCompletion(String* vestorly-auth, void (* success)(
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
   
   
 
@@ -117,7 +117,7 @@ findEventByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sami
 }
 
 SamiEvent* 
-SamiEventsApi::findEventByIDWithCompletion(String* _id, String* vestorly-auth, void (* success)(SamiEvent*, SamiError*)) {
+SamiEventsApi::findEventByIDWithCompletion(String* _id, String* vestorly_auth, void (* success)(SamiEvent*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findEventByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -130,7 +130,7 @@ SamiEventsApi::findEventByIDWithCompletion(String* _id, String* vestorly-auth, v
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
   
   
 
@@ -187,7 +187,7 @@ updateEventByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sa
 }
 
 SamiEvent* 
-SamiEventsApi::updateEventByIDWithCompletion(String* _id, String* vestorly-auth, String* Event, void (* success)(SamiEvent*, SamiError*)) {
+SamiEventsApi::updateEventByIDWithCompletion(String* _id, String* vestorly_auth, String* Event, void (* success)(SamiEvent*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&updateEventByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -200,7 +200,7 @@ SamiEventsApi::updateEventByIDWithCompletion(String* _id, String* vestorly-auth,
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
   
   
 

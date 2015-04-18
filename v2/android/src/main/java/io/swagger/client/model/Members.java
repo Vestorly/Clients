@@ -10,18 +10,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @ApiModel(description = "")
 public class Members  {
   
-  private List<Member> members = new ArrayList<Member>() ;
+  private List<Member> articles = new ArrayList<Member>() ;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("members")
-  public List<Member> getMembers() {
-    return members;
+  @JsonProperty("articles")
+  public List<Member> getArticles() {
+    return articles;
   }
-  public void setMembers(List<Member> members) {
-    this.members = members;
+  public void setArticles(List<Member> articles) {
+    this.articles = articles;
   }
 
   
@@ -31,7 +31,7 @@ public class Members  {
     StringBuilder sb = new StringBuilder();
     sb.append("class Members {\n");
     
-    sb.append("  members: ").append(members).append("\n");
+    sb.append("  articles: ").append(articles).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

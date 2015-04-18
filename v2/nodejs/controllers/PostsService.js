@@ -1,6 +1,6 @@
 'use strict';
 
-exports.findPosts = function(vestorly-auth, filter_by) {
+exports.findPosts = function(vestorly_auth, filter_by) {
 
   var examples = {};
   
@@ -18,7 +18,7 @@ exports.findPosts = function(vestorly-auth, filter_by) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.createPost = function(vestorly-auth, Post) {
+exports.createPost = function(vestorly_auth, Post) {
 
   var examples = {};
   
@@ -34,7 +34,7 @@ exports.createPost = function(vestorly-auth, Post) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.getPostByID = function(vestorly-auth, id, filter_by) {
+exports.getPostByID = function(vestorly_auth, id, filter_by) {
 
   var examples = {};
   
@@ -50,7 +50,7 @@ exports.getPostByID = function(vestorly-auth, id, filter_by) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.updatePostByID = function(vestorly-auth, id, Post) {
+exports.updatePostByID = function(vestorly_auth, id, Post) {
 
   var examples = {};
   

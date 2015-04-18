@@ -16,12 +16,12 @@
  
  Returns all members
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorly_auth Vestorly Auth Token
  
 
  return type: SWGMembers*
  */
--(NSNumber*) findMembersWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) findMembersWithCompletionBlock :(NSString*) vestorly_auth 
     
     completionHandler: (void (^)(SWGMembers* output, NSError* error))completionBlock;
     
@@ -33,13 +33,13 @@
  Returns a single member
 
  @param _id Mongo ID of member to fetch
- @param vestorly-auth Vestorly Auth Token
+ @param vestorly_auth Vestorly Auth Token
  
 
  return type: SWGMember*
  */
 -(NSNumber*) findMemberByIDWithCompletionBlock :(NSString*) _id 
-     vestorly-auth:(NSString*) vestorly-auth 
+     vestorly_auth:(NSString*) vestorly_auth 
     
     completionHandler: (void (^)(SWGMember* output, NSError* error))completionBlock;
     
@@ -51,13 +51,13 @@
  Returns a single member
 
  @param _id Mongo ID of member to fetch
- @param vestorly-auth Vestorly Auth Token
+ @param vestorly_auth Vestorly Auth Token
  
 
  return type: SWGMember*
  */
 -(NSNumber*) findMemberByID_1WithCompletionBlock :(NSString*) _id 
-     vestorly-auth:(NSString*) vestorly-auth 
+     vestorly_auth:(NSString*) vestorly_auth 
     
     completionHandler: (void (^)(SWGMember* output, NSError* error))completionBlock;
     

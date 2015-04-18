@@ -51,7 +51,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 
--(NSNumber*) findNewsletterSettingsWithCompletionBlock: (NSString*) vestorly-auth
+-(NSNumber*) findNewsletterSettingsWithCompletionBlock: (NSString*) vestorly_auth
         
         completionHandler: (void (^)(SWGNewsletterSettings* output, NSError* error))completionBlock
          {
@@ -71,9 +71,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
+    if(vestorly_auth != nil) {
         
-        queryParams[@"vestorly-auth"] = vestorly-auth;
+        queryParams[@"vestorly_auth"] = vestorly_auth;
     }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -130,7 +130,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     
 }
 
--(NSNumber*) updateNewsletterSettingsByIDWithCompletionBlock: (NSString*) vestorly-auth
+-(NSNumber*) updateNewsletterSettingsByIDWithCompletionBlock: (NSString*) vestorly_auth
          newsletter_settings: (NSString*) newsletter_settings
         
         completionHandler: (void (^)(SWGNewsletterSettings* output, NSError* error))completionBlock
@@ -151,9 +151,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
+    if(vestorly_auth != nil) {
         
-        queryParams[@"vestorly-auth"] = vestorly-auth;
+        queryParams[@"vestorly_auth"] = vestorly_auth;
     }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -219,7 +219,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 -(NSNumber*) findNewsletterSettingsByIDWithCompletionBlock: (NSString*) _id
-         vestorly-auth: (NSString*) vestorly-auth
+         vestorly_auth: (NSString*) vestorly_auth
         
         completionHandler: (void (^)(SWGNewsletterSettings* output, NSError* error))completionBlock
          {
@@ -240,9 +240,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
+    if(vestorly_auth != nil) {
         
-        queryParams[@"vestorly-auth"] = vestorly-auth;
+        queryParams[@"vestorly_auth"] = vestorly_auth;
     }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];

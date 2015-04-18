@@ -31,7 +31,7 @@ public class Newsletter_settingsApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "newsletter settings response") })
 
-  public Response findNewsletterSettings(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
+  public Response findNewsletterSettings(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -46,7 +46,7 @@ public class Newsletter_settingsApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "newsletter settings response") })
 
-  public Response updateNewsletterSettingsByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+  public Response updateNewsletterSettingsByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth,
     @ApiParam(value = "newsletter settings", required=true )@FormParam("newsletterSettings")  String newsletterSettings)
       throws NotFoundException {
       // do some magic!
@@ -63,7 +63,7 @@ public class Newsletter_settingsApi {
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "newsletting setting response") })
 
   public Response findNewsletterSettingsByID(@ApiParam(value = "Mongo ID of newsletter settings to fetch",required=true ) @PathParam("id") String id,
-    @ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
+    @ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

@@ -28,18 +28,18 @@ use \ArrayAccess;
 
 class Members implements ArrayAccess {
   static $swaggerTypes = array(
-      'members' => 'array[Member]'
+      'articles' => 'array[Member]'
   );
 
   static $attributeMap = array(
-      'members' => 'members'
+      'articles' => 'articles'
   );
 
   
-  public $members; /* array[Member] */
+  public $articles; /* array[Member] */
 
   public function __construct(array $data = null) {
-    $this->members = $data["members"];
+    $this->articles = $data["articles"];
   }
 
   public function offsetExists($offset) {

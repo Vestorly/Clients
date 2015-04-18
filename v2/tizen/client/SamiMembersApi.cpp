@@ -52,7 +52,7 @@ findMembersProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiEr
 }
 
 SamiMembers* 
-SamiMembersApi::findMembersWithCompletion(String* vestorly-auth, void (* success)(SamiMembers*, SamiError*)) {
+SamiMembersApi::findMembersWithCompletion(String* vestorly_auth, void (* success)(SamiMembers*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findMembersProcessor, (void(*)(void*, SamiError*))success);
@@ -65,7 +65,7 @@ SamiMembersApi::findMembersWithCompletion(String* vestorly-auth, void (* success
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
   
   
 
@@ -117,7 +117,7 @@ findMemberByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sam
 }
 
 SamiMember* 
-SamiMembersApi::findMemberByIDWithCompletion(String* _id, String* vestorly-auth, void (* success)(SamiMember*, SamiError*)) {
+SamiMembersApi::findMemberByIDWithCompletion(String* _id, String* vestorly_auth, void (* success)(SamiMember*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findMemberByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -130,7 +130,7 @@ SamiMembersApi::findMemberByIDWithCompletion(String* _id, String* vestorly-auth,
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
   
   
 
@@ -187,7 +187,7 @@ findMemberByID_1Processor(HttpResponse* pHttpResponse, void (* handler)(void*, S
 }
 
 SamiMember* 
-SamiMembersApi::findMemberByID_1WithCompletion(String* _id, String* vestorly-auth, void (* success)(SamiMember*, SamiError*)) {
+SamiMembersApi::findMemberByID_1WithCompletion(String* _id, String* vestorly_auth, void (* success)(SamiMember*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findMemberByID_1Processor, (void(*)(void*, SamiError*))success);
@@ -200,7 +200,7 @@ SamiMembersApi::findMemberByID_1WithCompletion(String* _id, String* vestorly-aut
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
   
   
 

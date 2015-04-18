@@ -101,7 +101,7 @@ class SessionsApi
     # form parameters
     form_parameter_hash = {}
     
-    form_parameter_hash["vestorly-auth"] = vestorly_auth
+    form_parameter_hash["vestorly_auth"] = vestorly_auth
     
     response = Swagger::Request.new(:DELETE, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
      Session.new(response)

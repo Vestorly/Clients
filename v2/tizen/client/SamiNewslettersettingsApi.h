@@ -19,13 +19,13 @@ public:
 
   
   SamiNewsletterSettings* 
-  findNewsletterSettingsWithCompletion(String* vestorly-auth, void (* handler)(SamiNewsletterSettings*, SamiError*));
+  findNewsletterSettingsWithCompletion(String* vestorly_auth, void (* handler)(SamiNewsletterSettings*, SamiError*));
   
   SamiNewsletterSettings* 
-  updateNewsletterSettingsByIDWithCompletion(String* vestorly-auth, String* newsletter_settings, void (* handler)(SamiNewsletterSettings*, SamiError*));
+  updateNewsletterSettingsByIDWithCompletion(String* vestorly_auth, String* newsletter_settings, void (* handler)(SamiNewsletterSettings*, SamiError*));
   
   SamiNewsletterSettings* 
-  findNewsletterSettingsByIDWithCompletion(String* _id, String* vestorly-auth, void (* handler)(SamiNewsletterSettings*, SamiError*));
+  findNewsletterSettingsByIDWithCompletion(String* _id, String* vestorly_auth, void (* handler)(SamiNewsletterSettings*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

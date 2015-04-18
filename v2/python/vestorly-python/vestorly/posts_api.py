@@ -75,7 +75,7 @@ class PostsApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
         if ('filter_by' in params):
             queryParams['filter_by'] = self.apiClient.toPathValue(params['filter_by'])
@@ -146,7 +146,7 @@ class PostsApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         
@@ -220,7 +220,7 @@ class PostsApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
         if ('filter_by' in params):
             queryParams['filter_by'] = self.apiClient.toPathValue(params['filter_by'])
@@ -300,7 +300,7 @@ class PostsApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         

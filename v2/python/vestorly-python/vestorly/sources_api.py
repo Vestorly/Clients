@@ -72,7 +72,7 @@ class SourcesApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         
@@ -140,7 +140,7 @@ class SourcesApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         
@@ -211,7 +211,7 @@ class SourcesApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         
@@ -288,7 +288,7 @@ class SourcesApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         

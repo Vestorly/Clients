@@ -24,6 +24,8 @@ from .models.newsletter_input import NewsletterInput
 
 from .models.newsletters import Newsletters
 
+from .models.member import Member
+
 from .models.posts import Posts
 
 from .models.post import Post

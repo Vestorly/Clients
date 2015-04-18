@@ -1,6 +1,6 @@
 'use strict';
 
-exports.findSources = function(vestorly-auth) {
+exports.findSources = function(vestorly_auth) {
 
   var examples = {};
   
@@ -22,7 +22,7 @@ exports.findSources = function(vestorly-auth) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.createSource = function(vestorly-auth, Source) {
+exports.createSource = function(vestorly_auth, Source) {
 
   var examples = {};
   
@@ -42,7 +42,7 @@ exports.createSource = function(vestorly-auth, Source) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.getSourceByID = function(vestorly-auth, id) {
+exports.getSourceByID = function(vestorly_auth, id) {
 
   var examples = {};
   
@@ -62,7 +62,7 @@ exports.getSourceByID = function(vestorly-auth, id) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.UpdateSourceByID = function(vestorly-auth, id, Source) {
+exports.UpdateSourceByID = function(vestorly_auth, id, Source) {
 
   var examples = {};
   

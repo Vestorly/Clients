@@ -32,7 +32,7 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
   val findPostsOperation = (apiOperation[Posts]("findPosts")
       summary ""
       parameters(
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorly_auth").description("")
         
         
         
@@ -57,7 +57,7 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorly_auth = params.getAs[String]("vestorly_auth")
       
     
 
@@ -67,7 +67,7 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorly_auth: " + vestorly_auth)
   
     
     
@@ -94,7 +94,7 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
   val createPostOperation = (apiOperation[Post]("createPost")
       summary ""
       parameters(
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorly_auth").description("")
         
         
         
@@ -119,7 +119,7 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorly_auth = params.getAs[String]("vestorly_auth")
       
     
 
@@ -129,7 +129,7 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorly_auth: " + vestorly_auth)
   
     
     
@@ -154,7 +154,7 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
   val getPostByIDOperation = (apiOperation[Post]("getPostByID")
       summary ""
       parameters(
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorly_auth").description("")
         
         
         
@@ -186,7 +186,7 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorly_auth = params.getAs[String]("vestorly_auth")
       
     
 
@@ -196,7 +196,7 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorly_auth: " + vestorly_auth)
   
     
     
@@ -239,7 +239,7 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
   val updatePostByIDOperation = (apiOperation[Post]("updatePostByID")
       summary ""
       parameters(
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorly_auth").description("")
         
         
         
@@ -271,7 +271,7 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorly_auth = params.getAs[String]("vestorly_auth")
       
     
 
@@ -281,7 +281,7 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorly_auth: " + vestorly_auth)
   
     
     

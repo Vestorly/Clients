@@ -114,7 +114,7 @@ logoutProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError*)
 }
 
 SamiSession* 
-SamiSessionsApi::logoutWithCompletion(String* vestorly-auth, void (* success)(SamiSession*, SamiError*)) {
+SamiSessionsApi::logoutWithCompletion(String* vestorly_auth, void (* success)(SamiSession*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&logoutProcessor, (void(*)(void*, SamiError*))success);

@@ -31,7 +31,7 @@ findAdvisorsProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiE
 }
 
 void 
-SamiAdvisorsApi::findAdvisorsWithCompletion(String* vestorly-auth, void(*success)(SamiError*)) {
+SamiAdvisorsApi::findAdvisorsWithCompletion(String* vestorly_auth, void(*success)(SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findAdvisorsProcessor, (void(*)(void*, SamiError*))success);
@@ -44,7 +44,7 @@ SamiAdvisorsApi::findAdvisorsWithCompletion(String* vestorly-auth, void(*success
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
   
   
 
@@ -96,7 +96,7 @@ findAdvisorByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sa
 }
 
 SamiAdvisor* 
-SamiAdvisorsApi::findAdvisorByIDWithCompletion(String* _id, String* vestorly-auth, void (* success)(SamiAdvisor*, SamiError*)) {
+SamiAdvisorsApi::findAdvisorByIDWithCompletion(String* _id, String* vestorly_auth, void (* success)(SamiAdvisor*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findAdvisorByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -109,7 +109,7 @@ SamiAdvisorsApi::findAdvisorByIDWithCompletion(String* _id, String* vestorly-aut
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
   
   
 

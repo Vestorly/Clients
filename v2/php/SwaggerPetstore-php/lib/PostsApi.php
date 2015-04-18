@@ -57,7 +57,7 @@ class PostsApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }// query params
       if($filter_by !== null) {
         $queryParams['filter_by'] = $this->apiClient->toQueryValue($filter_by);
@@ -119,7 +119,7 @@ class PostsApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       
@@ -182,7 +182,7 @@ class PostsApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }// query params
       if($filter_by !== null) {
         $queryParams['filter_by'] = $this->apiClient->toQueryValue($filter_by);
@@ -249,7 +249,7 @@ class PostsApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       // path params

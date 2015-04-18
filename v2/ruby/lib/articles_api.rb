@@ -10,7 +10,7 @@ class ArticlesApi
   # @param vestorly_auth Vestorly Auth Token
   # @param limit Limit on the number of articles to return
   # @param text_query Search query parameter
-  # @return void
+  # @return Articles
   def self.findArticles (vestorly_auth, limit, text_query, opts={})
     query_param_keys = [:vestorly_auth,:limit,:text_query]
     headerParams = {}
@@ -52,8 +52,9 @@ class ArticlesApi
     form_parameter_hash = {}
     
     
+    response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
+     Articles.new(response)
     
-    Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
     
   
   end

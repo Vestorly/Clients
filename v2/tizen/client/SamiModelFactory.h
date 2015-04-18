@@ -13,6 +13,7 @@
 #include "SamiNewsletter.h"
 #include "SamiNewsletterInput.h"
 #include "SamiNewsletters.h"
+#include "SamiMember.h"
 #include "SamiPosts.h"
 #include "SamiPost.h"
 #include "SamiEventInput.h"
@@ -56,6 +57,9 @@ namespace Swagger {
     }
     if(type.Equals(L"SamiNewsletters", true)) {
       return new SamiNewsletters();
+    }
+    if(type.Equals(L"SamiMember", true)) {
+      return new SamiMember();
     }
     if(type.Equals(L"SamiPosts", true)) {
       return new SamiPosts();

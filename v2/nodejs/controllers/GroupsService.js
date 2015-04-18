@@ -1,6 +1,6 @@
 'use strict';
 
-exports.findGroups = function(vestorly-auth) {
+exports.findGroups = function(vestorly_auth) {
 
   var examples = {};
   
@@ -24,7 +24,7 @@ exports.findGroups = function(vestorly-auth) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.findGroupByID = function(vestorly-auth, id) {
+exports.findGroupByID = function(vestorly_auth, id) {
 
   var examples = {};
   

@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "SWGArticles.h"
 #import "SWGArticle.h"
 #import "SWGObject.h"
 
@@ -15,19 +16,19 @@
  
  Returns all articles
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorly_auth Vestorly Auth Token
  @param limit Limit on the number of articles to return
  @param text_query Search query parameter
  
 
- return type: 
+ return type: SWGArticles*
  */
--(NSNumber*) findArticlesWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) findArticlesWithCompletionBlock :(NSString*) vestorly_auth 
      limit:(NSNumber*) limit 
      text_query:(NSString*) text_query 
     
+    completionHandler: (void (^)(SWGArticles* output, NSError* error))completionBlock;
     
-    completionHandler: (void (^)(NSError* error))completionBlock;
 
 
 /**

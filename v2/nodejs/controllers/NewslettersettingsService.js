@@ -1,6 +1,6 @@
 'use strict';
 
-exports.findNewsletterSettings = function(vestorly-auth) {
+exports.findNewsletterSettings = function(vestorly_auth) {
 
   var examples = {};
   
@@ -21,7 +21,7 @@ exports.findNewsletterSettings = function(vestorly-auth) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.updateNewsletterSettingsByID = function(vestorly-auth, newsletter_settings) {
+exports.updateNewsletterSettingsByID = function(vestorly_auth, newsletter_settings) {
 
   var examples = {};
   
@@ -42,7 +42,7 @@ exports.updateNewsletterSettingsByID = function(vestorly-auth, newsletter_settin
     return examples[Object.keys(examples)[0]];
   
 }
-exports.findNewsletterSettingsByID = function(id, vestorly-auth) {
+exports.findNewsletterSettingsByID = function(id, vestorly_auth) {
 
   var examples = {};
   

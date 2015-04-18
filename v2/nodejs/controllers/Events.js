@@ -7,10 +7,10 @@ var Events = require('./EventsService');
 
 
 module.exports.findEvents = function findEvents (req, res, next) {
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorly_auth = req.swagger.params['vestorly_auth'].value;
   
 
-  var result = Events.findEvents(vestorly-auth);
+  var result = Events.findEvents(vestorly_auth);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -22,10 +22,10 @@ module.exports.findEvents = function findEvents (req, res, next) {
 
 module.exports.findEventByID = function findEventByID (req, res, next) {
   var id = req.swagger.params['id'].value;
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorly_auth = req.swagger.params['vestorly_auth'].value;
   
 
-  var result = Events.findEventByID(id, vestorly-auth);
+  var result = Events.findEventByID(id, vestorly_auth);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -37,11 +37,11 @@ module.exports.findEventByID = function findEventByID (req, res, next) {
 
 module.exports.updateEventByID = function updateEventByID (req, res, next) {
   var id = req.swagger.params['id'].value;
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorly_auth = req.swagger.params['vestorly_auth'].value;
   var Event = req.swagger.params['Event'].value;
   
 
-  var result = Events.updateEventByID(id, vestorly-auth, Event);
+  var result = Events.updateEventByID(id, vestorly_auth, Event);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

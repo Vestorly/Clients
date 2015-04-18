@@ -1,10 +1,10 @@
 
 class Members
-  attr_accessor :members
+  attr_accessor :articles
   # :internal => :external
   def self.attribute_map
     {
-      :members => :'members'
+      :articles => :'articles'
       
     }
   end
@@ -13,9 +13,9 @@ class Members
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
     
-    if self.class.attribute_map[:"members"]
-      if (value = attributes["members"]).is_a?(Array)
-        @members = value.map{ |v| Member.new(v) }
+    if self.class.attribute_map[:"articles"]
+      if (value = attributes["articles"]).is_a?(Array)
+        @articles = value.map{ |v| Member.new(v) }
       end
     end
     
