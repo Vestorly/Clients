@@ -10,6 +10,8 @@ from .models.source_input import SourceInput
 
 from .models.sources import Sources
 
+from .models.members import Members
+
 from .models.advisor import Advisor
 
 from .models.article import Article
@@ -28,26 +30,44 @@ from .models.post import Post
 
 from .models.event_input import EventInput
 
+from .models.events import Events
+
 from .models.event import Event
 
-from .models.events import Events
+from .models.group import Group
+
+from .models.group_input import GroupInput
+
+from .models.groups import Groups
+
+from .models.newsletter_settings_input import NewsletterSettingsInput
+
+from .models.newsletter_settings import NewsletterSettings
 
 
 # import apis into package
 
-from .events_api import EventsApi
+from .newslettersettings_api import NewslettersettingsApi
 
-from .newslettters_api import NewsletttersApi
+from .events_api import EventsApi
 
 from .articles_api import ArticlesApi
 
-from .posts_api import PostsApi
+from .groups_api import GroupsApi
 
-from .advisor_api import AdvisorApi
+from .memberevents_api import MembereventsApi
+
+from .advisors_api import AdvisorsApi
+
+from .sessions_api import SessionsApi
+
+from .newsletters_api import NewslettersApi
+
+from .posts_api import PostsApi
 
 from .sources_api import SourcesApi
 
-from .session_api import SessionApi
+from .members_api import MembersApi
 
 
 # import ApiClient

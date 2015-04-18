@@ -26,7 +26,7 @@
   "paths" : {
     "/advisors" : {
       "get" : {
-        "tags" : [ "advisor" ],
+        "tags" : [ "advisors" ],
         "description" : "Returns all advisors",
         "operationId" : "findAdvisors",
         "parameters" : [ {
@@ -41,7 +41,7 @@
     },
     "/advisors/{id}" : {
       "get" : {
-        "tags" : [ "advisor" ],
+        "tags" : [ "advisors" ],
         "description" : "Returns a single advisor if the user has access",
         "operationId" : "findAdvisorByID",
         "parameters" : [ {
@@ -95,27 +95,10 @@
           "required" : false,
           "type" : "string",
           "format" : "string"
-        }, {
-          "name" : "suitability_score",
-          "in" : "query",
-          "description" : "Sort by suitability score (true or false)",
-          "required" : false,
-          "type" : "string",
-          "format" : "string"
-        }, {
-          "name" : "all_query",
-          "in" : "query",
-          "description" : "Query all articles",
-          "required" : false,
-          "type" : "string",
-          "format" : "string"
         } ],
         "responses" : {
           "200" : {
-            "description" : "article response",
-            "schema" : {
-              "$ref" : "#/definitions/Articles"
-            }
+            "description" : "Response"
           }
         }
       }
@@ -229,9 +212,332 @@
         }
       }
     },
+    "/groups" : {
+      "get" : {
+        "tags" : [ "groups" ],
+        "description" : "Returns all groups",
+        "operationId" : "findGroups",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Group response",
+            "schema" : {
+              "$ref" : "#/definitions/Groups"
+            }
+          }
+        }
+      }
+    },
+    "/groups/{id}" : {
+      "get" : {
+        "tags" : [ "groups" ],
+        "description" : "Returns a single group if user has access",
+        "operationId" : "findGroupByID",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Mongo ID of group to fetch",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Group response",
+            "schema" : {
+              "$ref" : "#/definitions/Group"
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "groups" ],
+        "description" : "Creates a new Group",
+        "operationId" : "addGroup",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "group",
+          "description" : "Group to add",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Group"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "group response",
+            "schema" : {
+              "$ref" : "#/definitions/GroupInput"
+            }
+          },
+          "default" : {
+            "description" : "unexpected error",
+            "schema" : {
+              "$ref" : "#/definitions/ErrorModel"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "groups" ],
+        "description" : "Creates a new Group",
+        "operationId" : "addGroup",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "group",
+          "description" : "Group to add",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Group"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "group response",
+            "schema" : {
+              "$ref" : "#/definitions/GroupInput"
+            }
+          },
+          "default" : {
+            "description" : "unexpected error",
+            "schema" : {
+              "$ref" : "#/definitions/ErrorModel"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "groups" ],
+        "description" : "Deletes a Group",
+        "operationId" : "deleteGroup",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "group",
+          "description" : "Group to remove",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Group"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "group response",
+            "schema" : {
+              "$ref" : "#/definitions/GroupInput"
+            }
+          },
+          "default" : {
+            "description" : "unexpected error",
+            "schema" : {
+              "$ref" : "#/definitions/ErrorModel"
+            }
+          }
+        }
+      }
+    },
+    "/member_events" : {
+      "get" : {
+        "tags" : [ "member_events" ],
+        "description" : "Returns all MemberEvents",
+        "operationId" : "findMemberEvents",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Member Eventsresponse",
+            "schema" : {
+              "$ref" : "#/definitions/MemberEvents"
+            }
+          }
+        }
+      }
+    },
+    "/members" : {
+      "get" : {
+        "tags" : [ "members" ],
+        "description" : "Returns all members",
+        "operationId" : "findMembers",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Member response",
+            "schema" : {
+              "$ref" : "#/definitions/Members"
+            }
+          }
+        }
+      }
+    },
+    "/members/{id}" : {
+      "get" : {
+        "tags" : [ "members" ],
+        "description" : "Returns a single member",
+        "operationId" : "findMemberByID",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Mongo ID of member to fetch",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        }, {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Member response",
+            "schema" : {
+              "$ref" : "#/definitions/Member"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "members" ],
+        "description" : "Returns a single member",
+        "operationId" : "findMemberByID",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Mongo ID of member to fetch",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        }, {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Member response",
+            "schema" : {
+              "$ref" : "#/definitions/Member"
+            }
+          }
+        }
+      }
+    },
+    "/newsletter_settings" : {
+      "get" : {
+        "tags" : [ "newsletter_settings" ],
+        "description" : "Returns all newsletter settings",
+        "operationId" : "findNewsletterSettings",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "newsletter settings response",
+            "schema" : {
+              "$ref" : "#/definitions/NewsletterSettings"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "newsletter_settings" ],
+        "description" : "Update a single newsletter setting by ID",
+        "operationId" : "updateNewsletterSettingsByID",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        }, {
+          "name" : "newsletter_settings",
+          "in" : "formData",
+          "description" : "newsletter settings",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "newsletter settings response",
+            "schema" : {
+              "$ref" : "#/definitions/NewsletterSettings"
+            }
+          }
+        }
+      }
+    },
+    "/newsletter_settings/{id}" : {
+      "get" : {
+        "tags" : [ "newsletter_settings" ],
+        "description" : "Returns a single newsletter settings if the user has access",
+        "operationId" : "findNewsletterSettingsByID",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Mongo ID of newsletter settings to fetch",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        }, {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "newsletting setting response",
+            "schema" : {
+              "$ref" : "#/definitions/NewsletterSettings"
+            }
+          }
+        }
+      }
+    },
     "/newsletters" : {
       "get" : {
-        "tags" : [ "newslettters" ],
+        "tags" : [ "newsletters" ],
         "description" : "Returns all newsletters",
         "operationId" : "findNewsletters",
         "parameters" : [ {
@@ -254,7 +560,7 @@
     },
     "/newsletters/{id}" : {
       "get" : {
-        "tags" : [ "newslettters" ],
+        "tags" : [ "newsletters" ],
         "description" : "Returns newsletter by ID",
         "operationId" : "getNewsletterByID",
         "parameters" : [ {
@@ -281,7 +587,7 @@
         }
       },
       "put" : {
-        "tags" : [ "newslettters" ],
+        "tags" : [ "newsletters" ],
         "description" : "Update newsletter by ID",
         "operationId" : "updateNewsletter",
         "parameters" : [ {
@@ -436,7 +742,7 @@
     },
     "/sessions" : {
       "post" : {
-        "tags" : [ "session" ],
+        "tags" : [ "sessions" ],
         "description" : "Login To Vestorly Platform",
         "operationId" : "login",
         "consumes" : [ "application/x-www-form-urlencoded" ],
@@ -463,9 +769,9 @@
         }
       }
     },
-    "/sessions/m" : {
+    "/sessions/{id}" : {
       "delete" : {
-        "tags" : [ "session" ],
+        "tags" : [ "sessions" ],
         "description" : "Logout",
         "operationId" : "logout",
         "consumes" : [ "application/x-www-form-urlencoded" ],
@@ -663,6 +969,16 @@
         }
       }
     },
+    "Members" : {
+      "properties" : {
+        "members" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Member"
+          }
+        }
+      }
+    },
     "Advisor" : {
       "properties" : {
         "new_user" : {
@@ -792,6 +1108,16 @@
         }
       }
     },
+    "Events" : {
+      "properties" : {
+        "events" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Event"
+          }
+        }
+      }
+    },
     "Event" : {
       "required" : [ "_id", "advisor_email", "newsletter", "original_url", "originator_group_name", "subject_email" ],
       "properties" : {
@@ -821,13 +1147,149 @@
         }
       }
     },
-    "Events" : {
+    "Group" : {
+      "required" : [ "_id" ],
       "properties" : {
-        "events" : {
+        "_id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "is_default" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "is_hidden" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "new_weekly_mailer_content" : {
+          "type" : "string"
+        },
+        "newsletter_subject" : {
+          "type" : "string"
+        },
+        "autopublish" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "number_articles_per_group" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "number_articles_per_newsletter" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "GroupInput" : {
+      "required" : [ "_id" ],
+      "properties" : {
+        "_id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "is_default" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "is_hidden" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "new_weekly_mailer_content" : {
+          "type" : "string"
+        },
+        "newsletter_subject" : {
+          "type" : "string"
+        },
+        "autopublish" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "number_articles_per_group" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "number_articles_per_newsletter" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "Groups" : {
+      "properties" : {
+        "groups" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/Event"
+            "$ref" : "#/definitions/Group"
           }
+        }
+      }
+    },
+    "NewsletterSettingsInput" : {
+      "properties" : {
+        "email_status" : {
+          "type" : "string"
+        },
+        "twitter_status" : {
+          "type" : "string"
+        },
+        "linkedin_status" : {
+          "type" : "string"
+        },
+        "email_hour" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "twitter_hour" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "linkedin_hour" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "facebook_hour" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "NewsletterSettings" : {
+      "required" : [ "_id" ],
+      "properties" : {
+        "_id" : {
+          "type" : "string"
+        },
+        "email_status" : {
+          "type" : "string"
+        },
+        "twitter_status" : {
+          "type" : "string"
+        },
+        "linkedin_status" : {
+          "type" : "string"
+        },
+        "email_hour" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "twitter_hour" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "linkedin_hour" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "facebook_hour" : {
+          "type" : "integer",
+          "format" : "int32"
         }
       }
     }

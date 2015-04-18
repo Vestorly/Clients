@@ -47,17 +47,11 @@ class ArticlesApi(object):
             text_query, str: Search query parameter (required)
             
             
-            suitability_score, str: Sort by suitability score (true or false) (required)
-            
-            
-            all_query, str: Query all articles (required)
-            
-            
         
-        Returns: Articles
+        Returns: 
         """
 
-        allParams = ['vestorly_auth', 'limit', 'text_query', 'suitability_score', 'all_query']
+        allParams = ['vestorly_auth', 'limit', 'text_query']
 
         params = locals()
         for (key, val) in params['kwargs'].iteritems():
@@ -92,12 +86,6 @@ class ArticlesApi(object):
         if ('text_query' in params):
             queryParams['text_query'] = self.apiClient.toPathValue(params['text_query'])
         
-        if ('suitability_score' in params):
-            queryParams['suitability_score'] = self.apiClient.toPathValue(params['suitability_score'])
-        
-        if ('all_query' in params):
-            queryParams['all_query'] = self.apiClient.toPathValue(params['all_query'])
-        
 
         
 
@@ -112,12 +100,6 @@ class ArticlesApi(object):
         response = self.apiClient.callAPI(resourcePath, method, queryParams,
                                           postData, headerParams, files=files)
 
-        
-        if not response:
-            return None
-
-        responseObject = self.apiClient.deserialize(response, 'Articles')
-        return responseObject
         
         
         

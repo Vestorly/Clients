@@ -40,7 +40,7 @@ public class SessionsApi {
 
   
   @DELETE
-  @Path("/m")
+  @Path("/{id}")
   @Consumes({ "application/x-www-form-urlencoded",  })
   
   @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Logout", response = Session.class)

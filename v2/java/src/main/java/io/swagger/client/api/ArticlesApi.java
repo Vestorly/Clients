@@ -7,7 +7,6 @@ import io.swagger.client.model.*;
 
 import java.util.*;
 
-import io.swagger.client.model.Articles;
 import io.swagger.client.model.Article;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
@@ -42,11 +41,9 @@ public class ArticlesApi {
    * @param vestorlyAuth Vestorly Auth Token
    * @param limit Limit on the number of articles to return
    * @param textQuery Search query parameter
-   * @param suitabilityScore Sort by suitability score (true or false)
-   * @param allQuery Query all articles
-   * @return Articles
+   * @return void
    */
-  public Articles findArticles (String vestorlyAuth, Integer limit, String textQuery, String suitabilityScore, String allQuery) throws ApiException {
+  public void findArticles (String vestorlyAuth, Integer limit, String textQuery) throws ApiException {
     Object postBody = null;
     
 
@@ -64,10 +61,6 @@ public class ArticlesApi {
       queryParams.put("limit", ApiInvoker.parameterToString(limit));
     if (textQuery != null)
       queryParams.put("text_query", ApiInvoker.parameterToString(textQuery));
-    if (suitabilityScore != null)
-      queryParams.put("suitability_score", ApiInvoker.parameterToString(suitabilityScore));
-    if (allQuery != null)
-      queryParams.put("all_query", ApiInvoker.parameterToString(allQuery));
     
     
     String[] contentTypes = {
@@ -90,10 +83,10 @@ public class ArticlesApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Articles) ApiInvoker.deserialize(response, "", Articles.class);
+        return ;
       }
       else {
-        return null;
+        return ;
       }
     } catch (ApiException ex) {
       throw ex;

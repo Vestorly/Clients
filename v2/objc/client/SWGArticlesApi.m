@@ -2,7 +2,6 @@
 #import "SWGFile.h"
 #import "SWGQueryParamCollection.h"
 #import "SWGApiClient.h"
-#import "SWGArticles.h"
 #import "SWGArticle.h"
 
 
@@ -55,11 +54,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 -(NSNumber*) findArticlesWithCompletionBlock: (NSString*) vestorly-auth
          limit: (NSNumber*) limit
          text_query: (NSString*) text_query
-         suitability_score: (NSString*) suitability_score
-         all_query: (NSString*) all_query
         
-        completionHandler: (void (^)(SWGArticles* output, NSError* error))completionBlock
-         {
+        
+        completionHandler: (void (^)(NSError* error))completionBlock {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/articles", basePath];
 
@@ -88,14 +85,6 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
         
         queryParams[@"text_query"] = text_query;
     }
-    if(suitability_score != nil) {
-        
-        queryParams[@"suitability_score"] = suitability_score;
-    }
-    if(all_query != nil) {
-        
-        queryParams[@"all_query"] = all_query;
-    }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
     
@@ -116,37 +105,23 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     
 
     
-    // non container response
 
     
-
-    
-    // complex response
-        
-    // comples response type
-    return [client dictionary: requestUrl
-                       method: @"GET"
-                  queryParams: queryParams
-                         body: bodyDictionary
-                 headerParams: headerParams
-           requestContentType: requestContentType
-          responseContentType: responseContentType
-              completionBlock: ^(NSDictionary *data, NSError *error) {
+    // it's void
+        return [client stringWithCompletionBlock: requestUrl 
+                                      method: @"GET" 
+                                 queryParams: queryParams 
+                                        body: bodyDictionary 
+                                headerParams: headerParams
+                          requestContentType: requestContentType
+                         responseContentType: responseContentType
+                             completionBlock: ^(NSString *data, NSError *error) {
                 if (error) {
-                    completionBlock(nil, error);
-                    
+                    completionBlock(error);
                     return;
                 }
-                SWGArticles* result = nil;
-                if (data) {
-                    result = [[SWGArticles  alloc]  initWithDictionary:data error:nil];
-                }
-                completionBlock(result , nil);
-                
-              }];
-    
-
-    
+                completionBlock(nil);
+                    }];
 
     
 }

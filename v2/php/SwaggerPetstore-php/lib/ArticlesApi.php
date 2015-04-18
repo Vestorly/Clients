@@ -37,11 +37,9 @@ class ArticlesApi {
    * @param string $vestorly_auth Vestorly Auth Token (required)
    * @param int $limit Limit on the number of articles to return (required)
    * @param string $text_query Search query parameter (required)
-   * @param string $suitability_score Sort by suitability score (true or false) (required)
-   * @param string $all_query Query all articles (required)
-   * @return Articles
+   * @return void
    */
-   public function findArticles($vestorly_auth, $limit, $text_query, $suitability_score, $all_query) {
+   public function findArticles($vestorly_auth, $limit, $text_query) {
 
       // parse inputs
       $resourcePath = "/articles";
@@ -67,12 +65,6 @@ class ArticlesApi {
       }// query params
       if($text_query !== null) {
         $queryParams['text_query'] = $this->apiClient->toQueryValue($text_query);
-      }// query params
-      if($suitability_score !== null) {
-        $queryParams['suitability_score'] = $this->apiClient->toQueryValue($suitability_score);
-      }// query params
-      if($all_query !== null) {
-        $queryParams['all_query'] = $this->apiClient->toQueryValue($all_query);
       }
       
       
@@ -94,13 +86,7 @@ class ArticlesApi {
                                             $queryParams, $httpBody,
                                             $headerParams);
 
-      if(! $response) {
-        return null;
-      }
-
-  		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Articles');
-  		return $responseObject;
+      
   }
   
   /**

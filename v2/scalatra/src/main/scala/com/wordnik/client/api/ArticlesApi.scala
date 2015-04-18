@@ -1,6 +1,5 @@
 package com.wordnik.client.api
 
-import com.wordnik.client.model.Articles
 import com.wordnik.client.model.Article
 
 import java.io.File
@@ -29,7 +28,7 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
   }
   
 
-  val findArticlesOperation = (apiOperation[Articles]("findArticles")
+  val findArticlesOperation = (apiOperation[Unit]("findArticles")
       summary ""
       parameters(
         queryParam[String]("vestorly-auth").description("")
@@ -47,20 +46,6 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         ,
         queryParam[String]("text_query").description("").optional
-        
-        
-        
-        
-        
-        ,
-        queryParam[String]("suitability_score").description("").optional
-        
-        
-        
-        
-        
-        ,
-        queryParam[String]("all_query").description("").optional
         
         
         
@@ -125,42 +110,6 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
     
     
     println("text_query: " + text_query)
-  
-    
-    
-    
-
-    
-      
-      val suitability_score = params.getAs[String]("suitability_score")
-      
-    
-
-    
-
-    
-
-    
-    
-    println("suitability_score: " + suitability_score)
-  
-    
-    
-    
-
-    
-      
-      val all_query = params.getAs[String]("all_query")
-      
-    
-
-    
-
-    
-
-    
-    
-    println("all_query: " + all_query)
   
   }
 
