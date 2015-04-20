@@ -42,12 +42,12 @@ public:
     SamiMembers* fromJson(String* obj);
 
     
-    IList* getPArticles();
-    void setPArticles(IList* pArticles);
+    IList* getPMembers();
+    void setPMembers(IList* pMembers);
     
 
 private:
-    IList* pArticles;
+    IList* pMembers;
     
 };
 

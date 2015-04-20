@@ -4,5 +4,5 @@ import com.wordnik.client.model.Member
 
 
 case class Members (
-  articles: List[Member]
+  members: List[Member]
 )

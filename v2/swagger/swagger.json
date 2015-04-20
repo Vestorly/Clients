@@ -974,7 +974,7 @@
     },
     "Members" : {
       "properties" : {
-        "articles" : {
+        "members" : {
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/Member"

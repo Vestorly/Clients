@@ -5,7 +5,7 @@ exports.findMembers = function(vestorly_auth) {
   var examples = {};
   
   examples['application/json'] = {
-  "articles" : [ {
+  "members" : [ {
     "education" : "aeiou",
     "occupation" : "aeiou",
     "gender" : "aeiou",

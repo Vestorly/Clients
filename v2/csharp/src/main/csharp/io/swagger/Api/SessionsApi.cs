@@ -5,11 +5,11 @@ using io.swagger.Model;
 
 namespace io.swagger.Api {
   
-  public class ArticlesApi {
+  public class SessionsApi {
     string basePath;
     private readonly ApiInvoker apiInvoker = ApiInvoker.GetInstance();
 
-    public ArticlesApi(String basePath = "https://staging.vestorly.com/api/v2")
+    public SessionsApi(String basePath = "https://staging.vestorly.com/api/v2")
     {
       this.basePath = basePath;
     }
@@ -31,16 +31,15 @@ namespace io.swagger.Api {
     
 
     /// <summary>
-    ///  Returns all articles
+    ///  Login To Vestorly Platform
     /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-     /// <param name="Limit">Limit on the number of articles to return</param>
-     /// <param name="TextQuery">Search query parameter</param>
+    /// <param name="Username">Username in the vestorly platform</param>
+     /// <param name="Password">Password in Vestorly Platform</param>
     
     /// <returns></returns>
-    public Articles  findArticles (string VestorlyAuth, int? Limit, string TextQuery) {
+    public Session  login (string Username, string Password) {
       // create path and map variables
-      var path = "/articles".Replace("{format}","json");
+      var path = "/sessions".Replace("{format}","json");
 
       // query params
       var queryParams = new Dictionary<String, String>();
@@ -49,33 +48,38 @@ namespace io.swagger.Api {
 
       
 
-      if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
-      }
-      if (Limit != null){
-        queryParams.Add("limit", apiInvoker.ParameterToString(Limit));
-      }
-      if (TextQuery != null){
-        queryParams.Add("text_query", apiInvoker.ParameterToString(TextQuery));
-      }
       
 
       
 
+      if (Username != null){
+        if(Username is byte[]) {
+          formParams.Add("username", Username);
+        } else {
+          formParams.Add("username", apiInvoker.ParameterToString(Username));
+        }
+      }
+      if (Password != null){
+        if(Password is byte[]) {
+          formParams.Add("password", Password);
+        } else {
+          formParams.Add("password", apiInvoker.ParameterToString(Password));
+        }
+      }
       
 
       try {
-        if (typeof(Articles) == typeof(byte[])) {
+        if (typeof(Session) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Articles;
+          return ((object)response) as Session;
           
           
         } else {
           
-          var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
+          var response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, null, headerParams, formParams);
           if (response != null){
-             return (Articles) ApiInvoker.deserialize(response, typeof(Articles));
+             return (Session) ApiInvoker.deserialize(response, typeof(Session));
           }
           else {
             return null;
@@ -95,14 +99,14 @@ namespace io.swagger.Api {
     
 
     /// <summary>
-    ///  Returns a single article
+    ///  Logout
     /// </summary>
-    /// <param name="Id">Article Id to fetch</param>
+    /// <param name="VestorlyAuth">Authenication token</param>
     
     /// <returns></returns>
-    public Article  findArticleByID (string Id) {
+    public Session  logout (string VestorlyAuth) {
       // create path and map variables
-      var path = "/articles/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
+      var path = "/sessions/{id}".Replace("{format}","json");
 
       // query params
       var queryParams = new Dictionary<String, String>();
@@ -115,20 +119,27 @@ namespace io.swagger.Api {
 
       
 
+      if (VestorlyAuth != null){
+        if(VestorlyAuth is byte[]) {
+          formParams.Add("vestorly_auth", VestorlyAuth);
+        } else {
+          formParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        }
+      }
       
 
       try {
-        if (typeof(Article) == typeof(byte[])) {
+        if (typeof(Session) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Article;
+          return ((object)response) as Session;
           
           
         } else {
           
-          var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
+          var response = apiInvoker.invokeAPI(basePath, path, "DELETE", queryParams, null, headerParams, formParams);
           if (response != null){
-             return (Article) ApiInvoker.deserialize(response, typeof(Article));
+             return (Session) ApiInvoker.deserialize(response, typeof(Session));
           }
           else {
             return null;

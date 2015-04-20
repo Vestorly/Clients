@@ -4,19 +4,19 @@ using System.Collections;
 using System.Collections.Generic;
 
 namespace io.swagger.Model {
-  public class Advisor {
+  public class Posts {
     
 
     
-    public bool? NewUser { get; set; }
+    public List<Post> Posts { get; set; }
 
     
 
     public override string ToString()  {
       var sb = new StringBuilder();
-      sb.Append("class Advisor {\n");
+      sb.Append("class Posts {\n");
       
-      sb.Append("  NewUser: ").Append(NewUser).Append("\n");
+      sb.Append("  Posts: ").Append(Posts).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();

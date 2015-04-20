@@ -36,7 +36,7 @@ namespace io.swagger.Api {
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
     
     /// <returns></returns>
-    public void  findSources (string VestorlyAuth) {
+    public Sources  findSources (string VestorlyAuth) {
       // create path and map variables
       var path = "/sources".Replace("{format}","json");
 
@@ -48,7 +48,7 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       
 
@@ -57,22 +57,213 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(void) == typeof(byte[])) {
+        if (typeof(Sources) == typeof(byte[])) {
           
+          var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
+          return ((object)response) as Sources;
           
-          apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return;
           
         } else {
           
+          var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
+          if (response != null){
+             return (Sources) ApiInvoker.deserialize(response, typeof(Sources));
+          }
+          else {
+            return null;
+          }
           
-          apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return;
           
         }
       } catch (ApiException ex) {
         if(ex.ErrorCode == 404) {
-          return ;
+          return null;
+        }
+        else {
+          throw ex;
+        }
+      }
+    }
+    
+
+    /// <summary>
+    ///  Create source
+    /// </summary>
+    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+     /// <param name="Source">Source</param>
+    
+    /// <returns></returns>
+    public Source  createSource (string VestorlyAuth, string Source) {
+      // create path and map variables
+      var path = "/sources/".Replace("{format}","json");
+
+      // query params
+      var queryParams = new Dictionary<String, String>();
+      var headerParams = new Dictionary<String, String>();
+      var formParams = new Dictionary<String, object>();
+
+      
+
+      if (VestorlyAuth != null){
+        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+      }
+      
+
+      
+
+      if (Source != null){
+        if(Source is byte[]) {
+          formParams.Add("Source", Source);
+        } else {
+          formParams.Add("Source", apiInvoker.ParameterToString(Source));
+        }
+      }
+      
+
+      try {
+        if (typeof(Source) == typeof(byte[])) {
+          
+          var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
+          return ((object)response) as Source;
+          
+          
+        } else {
+          
+          var response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, null, headerParams, formParams);
+          if (response != null){
+             return (Source) ApiInvoker.deserialize(response, typeof(Source));
+          }
+          else {
+            return null;
+          }
+          
+          
+        }
+      } catch (ApiException ex) {
+        if(ex.ErrorCode == 404) {
+          return null;
+        }
+        else {
+          throw ex;
+        }
+      }
+    }
+    
+
+    /// <summary>
+    ///  Get Source By ID
+    /// </summary>
+    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+     /// <param name="Id">ID of source to fetch</param>
+    
+    /// <returns></returns>
+    public Source  getSourceByID (string VestorlyAuth, string Id) {
+      // create path and map variables
+      var path = "/sources/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
+
+      // query params
+      var queryParams = new Dictionary<String, String>();
+      var headerParams = new Dictionary<String, String>();
+      var formParams = new Dictionary<String, object>();
+
+      
+
+      if (VestorlyAuth != null){
+        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+      }
+      
+
+      
+
+      
+
+      try {
+        if (typeof(Source) == typeof(byte[])) {
+          
+          var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
+          return ((object)response) as Source;
+          
+          
+        } else {
+          
+          var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
+          if (response != null){
+             return (Source) ApiInvoker.deserialize(response, typeof(Source));
+          }
+          else {
+            return null;
+          }
+          
+          
+        }
+      } catch (ApiException ex) {
+        if(ex.ErrorCode == 404) {
+          return null;
+        }
+        else {
+          throw ex;
+        }
+      }
+    }
+    
+
+    /// <summary>
+    ///  Update Source By ID
+    /// </summary>
+    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+     /// <param name="Id">ID of source to fetch</param>
+     /// <param name="Source">Source</param>
+    
+    /// <returns></returns>
+    public Source  UpdateSourceByID (string VestorlyAuth, string Id, string Source) {
+      // create path and map variables
+      var path = "/sources/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
+
+      // query params
+      var queryParams = new Dictionary<String, String>();
+      var headerParams = new Dictionary<String, String>();
+      var formParams = new Dictionary<String, object>();
+
+      
+
+      if (VestorlyAuth != null){
+        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+      }
+      
+
+      
+
+      if (Source != null){
+        if(Source is byte[]) {
+          formParams.Add("Source", Source);
+        } else {
+          formParams.Add("Source", apiInvoker.ParameterToString(Source));
+        }
+      }
+      
+
+      try {
+        if (typeof(Source) == typeof(byte[])) {
+          
+          var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
+          return ((object)response) as Source;
+          
+          
+        } else {
+          
+          var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, null, headerParams, formParams);
+          if (response != null){
+             return (Source) ApiInvoker.deserialize(response, typeof(Source));
+          }
+          else {
+            return null;
+          }
+          
+          
+        }
+      } catch (ApiException ex) {
+        if(ex.ErrorCode == 404) {
+          return null;
         }
         else {
           throw ex;

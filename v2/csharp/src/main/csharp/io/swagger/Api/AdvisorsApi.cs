@@ -5,11 +5,11 @@ using io.swagger.Model;
 
 namespace io.swagger.Api {
   
-  public class ArticlesApi {
+  public class AdvisorsApi {
     string basePath;
     private readonly ApiInvoker apiInvoker = ApiInvoker.GetInstance();
 
-    public ArticlesApi(String basePath = "https://staging.vestorly.com/api/v2")
+    public AdvisorsApi(String basePath = "https://staging.vestorly.com/api/v2")
     {
       this.basePath = basePath;
     }
@@ -31,16 +31,14 @@ namespace io.swagger.Api {
     
 
     /// <summary>
-    ///  Returns all articles
+    ///  Returns all advisors
     /// </summary>
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-     /// <param name="Limit">Limit on the number of articles to return</param>
-     /// <param name="TextQuery">Search query parameter</param>
     
     /// <returns></returns>
-    public Articles  findArticles (string VestorlyAuth, int? Limit, string TextQuery) {
+    public void  findAdvisors (string VestorlyAuth) {
       // create path and map variables
-      var path = "/articles".Replace("{format}","json");
+      var path = "/advisors".Replace("{format}","json");
 
       // query params
       var queryParams = new Dictionary<String, String>();
@@ -52,12 +50,6 @@ namespace io.swagger.Api {
       if (VestorlyAuth != null){
         queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
-      if (Limit != null){
-        queryParams.Add("limit", apiInvoker.ParameterToString(Limit));
-      }
-      if (TextQuery != null){
-        queryParams.Add("text_query", apiInvoker.ParameterToString(TextQuery));
-      }
       
 
       
@@ -65,27 +57,22 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Articles) == typeof(byte[])) {
+        if (typeof(void) == typeof(byte[])) {
           
-          var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Articles;
           
+          apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
+          return;
           
         } else {
           
-          var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          if (response != null){
-             return (Articles) ApiInvoker.deserialize(response, typeof(Articles));
-          }
-          else {
-            return null;
-          }
           
+          apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
+          return;
           
         }
       } catch (ApiException ex) {
         if(ex.ErrorCode == 404) {
-          return null;
+          return ;
         }
         else {
           throw ex;
@@ -95,14 +82,15 @@ namespace io.swagger.Api {
     
 
     /// <summary>
-    ///  Returns a single article
+    ///  Returns a single advisor if the user has access
     /// </summary>
-    /// <param name="Id">Article Id to fetch</param>
+    /// <param name="Id">Mongo ID of advisor to fetch</param>
+     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
     
     /// <returns></returns>
-    public Article  findArticleByID (string Id) {
+    public Advisor  findAdvisorByID (string Id, string VestorlyAuth) {
       // create path and map variables
-      var path = "/articles/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
+      var path = "/advisors/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
       // query params
       var queryParams = new Dictionary<String, String>();
@@ -111,6 +99,9 @@ namespace io.swagger.Api {
 
       
 
+      if (VestorlyAuth != null){
+        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+      }
       
 
       
@@ -118,17 +109,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Article) == typeof(byte[])) {
+        if (typeof(Advisor) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Article;
+          return ((object)response) as Advisor;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
           if (response != null){
-             return (Article) ApiInvoker.deserialize(response, typeof(Article));
+             return (Advisor) ApiInvoker.deserialize(response, typeof(Advisor));
           }
           else {
             return null;

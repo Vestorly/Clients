@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 namespace io.swagger.Model {
-  public class Newsletter {
+  public class NewsletterInput {
     
 
     
@@ -34,7 +34,7 @@ namespace io.swagger.Model {
 
     public override string ToString()  {
       var sb = new StringBuilder();
-      sb.Append("class Newsletter {\n");
+      sb.Append("class NewsletterInput {\n");
       
       sb.Append("  IsSent: ").Append(IsSent).Append("\n");
       

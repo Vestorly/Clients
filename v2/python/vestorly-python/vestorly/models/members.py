@@ -30,17 +30,17 @@ class Members(object):
         """
         self.swaggerTypes = {
             
-            'articles': 'list[Member]'
+            'members': 'list[Member]'
             
         }
 
         self.attributeMap = {
             
-            'articles': 'articles'
+            'members': 'members'
             
         }
 
         
         
-        self.articles = None # list[Member]
+        self.members = None # list[Member]
         

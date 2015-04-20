@@ -5,11 +5,11 @@ using io.swagger.Model;
 
 namespace io.swagger.Api {
   
-  public class PostsApi {
+  public class NewslettersApi {
     string basePath;
     private readonly ApiInvoker apiInvoker = ApiInvoker.GetInstance();
 
-    public PostsApi(String basePath = "https://staging.vestorly.com/api/v2")
+    public NewslettersApi(String basePath = "https://staging.vestorly.com/api/v2")
     {
       this.basePath = basePath;
     }
@@ -31,15 +31,14 @@ namespace io.swagger.Api {
     
 
     /// <summary>
-    ///  Query all posts
+    ///  Returns all newsletters
     /// </summary>
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-     /// <param name="FilterBy">Filter post by parameters</param>
     
     /// <returns></returns>
-    public Posts  findPosts (string VestorlyAuth, string FilterBy) {
+    public Newsletters  findNewsletters (string VestorlyAuth) {
       // create path and map variables
-      var path = "/posts".Replace("{format}","json");
+      var path = "/newsletters".Replace("{format}","json");
 
       // query params
       var queryParams = new Dictionary<String, String>();
@@ -51,9 +50,6 @@ namespace io.swagger.Api {
       if (VestorlyAuth != null){
         queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
-      if (FilterBy != null){
-        queryParams.Add("filter_by", apiInvoker.ParameterToString(FilterBy));
-      }
       
 
       
@@ -61,17 +57,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Posts) == typeof(byte[])) {
+        if (typeof(Newsletters) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Posts;
+          return ((object)response) as Newsletters;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
           if (response != null){
-             return (Posts) ApiInvoker.deserialize(response, typeof(Posts));
+             return (Newsletters) ApiInvoker.deserialize(response, typeof(Newsletters));
           }
           else {
             return null;
@@ -91,15 +87,15 @@ namespace io.swagger.Api {
     
 
     /// <summary>
-    ///  Create a new post in the Vestorly Platform
+    ///  Returns newsletter by ID
     /// </summary>
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-     /// <param name="Post">Post</param>
+     /// <param name="Id">ID of newsletter to fetch</param>
     
     /// <returns></returns>
-    public Post  createPost (string VestorlyAuth, string Post) {
+    public Newsletter  getNewsletterByID (string VestorlyAuth, string Id) {
       // create path and map variables
-      var path = "/posts".Replace("{format}","json");
+      var path = "/newsletters/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
       // query params
       var queryParams = new Dictionary<String, String>();
@@ -115,88 +111,20 @@ namespace io.swagger.Api {
 
       
 
-      if (Post != null){
-        if(Post is byte[]) {
-          formParams.Add("Post", Post);
-        } else {
-          formParams.Add("Post", apiInvoker.ParameterToString(Post));
-        }
-      }
       
 
       try {
-        if (typeof(Post) == typeof(byte[])) {
+        if (typeof(Newsletter) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Post;
-          
-          
-        } else {
-          
-          var response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, null, headerParams, formParams);
-          if (response != null){
-             return (Post) ApiInvoker.deserialize(response, typeof(Post));
-          }
-          else {
-            return null;
-          }
-          
-          
-        }
-      } catch (ApiException ex) {
-        if(ex.ErrorCode == 404) {
-          return null;
-        }
-        else {
-          throw ex;
-        }
-      }
-    }
-    
-
-    /// <summary>
-    ///  Query all posts
-    /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-     /// <param name="Id">ID of post to fetch</param>
-     /// <param name="FilterBy">Filter post by parameters</param>
-    
-    /// <returns></returns>
-    public Post  getPostByID (string VestorlyAuth, string Id, string FilterBy) {
-      // create path and map variables
-      var path = "/posts/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
-
-      // query params
-      var queryParams = new Dictionary<String, String>();
-      var headerParams = new Dictionary<String, String>();
-      var formParams = new Dictionary<String, object>();
-
-      
-
-      if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
-      }
-      if (FilterBy != null){
-        queryParams.Add("filter_by", apiInvoker.ParameterToString(FilterBy));
-      }
-      
-
-      
-
-      
-
-      try {
-        if (typeof(Post) == typeof(byte[])) {
-          
-          var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Post;
+          return ((object)response) as Newsletter;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
           if (response != null){
-             return (Post) ApiInvoker.deserialize(response, typeof(Post));
+             return (Newsletter) ApiInvoker.deserialize(response, typeof(Newsletter));
           }
           else {
             return null;
@@ -216,16 +144,16 @@ namespace io.swagger.Api {
     
 
     /// <summary>
-    ///  Update A Post
+    ///  Update newsletter by ID
     /// </summary>
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-     /// <param name="Id">ID of post to fetch</param>
-     /// <param name="Post">Post</param>
+     /// <param name="Id">ID of newsletter to fetch</param>
+     /// <param name="Newsletter">Newsletter</param>
     
     /// <returns></returns>
-    public Post  updatePostByID (string VestorlyAuth, string Id, string Post) {
+    public Newsletter  updateNewsletter (string VestorlyAuth, string Id, string Newsletter) {
       // create path and map variables
-      var path = "/posts/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
+      var path = "/newsletters/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
       // query params
       var queryParams = new Dictionary<String, String>();
@@ -241,27 +169,27 @@ namespace io.swagger.Api {
 
       
 
-      if (Post != null){
-        if(Post is byte[]) {
-          formParams.Add("Post", Post);
+      if (Newsletter != null){
+        if(Newsletter is byte[]) {
+          formParams.Add("Newsletter", Newsletter);
         } else {
-          formParams.Add("Post", apiInvoker.ParameterToString(Post));
+          formParams.Add("Newsletter", apiInvoker.ParameterToString(Newsletter));
         }
       }
       
 
       try {
-        if (typeof(Post) == typeof(byte[])) {
+        if (typeof(Newsletter) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Post;
+          return ((object)response) as Newsletter;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, null, headerParams, formParams);
           if (response != null){
-             return (Post) ApiInvoker.deserialize(response, typeof(Post));
+             return (Newsletter) ApiInvoker.deserialize(response, typeof(Newsletter));
           }
           else {
             return null;
