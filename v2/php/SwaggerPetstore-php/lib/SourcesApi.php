@@ -56,7 +56,7 @@ class SourcesApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       
@@ -93,7 +93,7 @@ class SourcesApi {
    * 
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @param string $source Source (required)
+   * @param SourceInput $source Source (required)
    * @return Source
    */
    public function createSource($vestorly_auth, $source) {
@@ -115,15 +115,16 @@ class SourcesApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       
-      // form params
-      if ($source !== null) {
-        $formParams['Source'] = $this->apiClient->toFormValue($source);
-      }
       
+      // body params
+      $body = null;
+      if (isset($source)) {
+        $body = $source;
+      }
 
       // for model (json/xml)
       if (isset($body)) {
@@ -177,7 +178,7 @@ class SourcesApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       // path params
@@ -219,7 +220,7 @@ class SourcesApi {
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
    * @param string $id ID of source to fetch (required)
-   * @param string $source Source (required)
+   * @param SourceInput $source Source (required)
    * @return Source
    */
    public function UpdateSourceByID($vestorly_auth, $id, $source) {
@@ -241,7 +242,7 @@ class SourcesApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       // path params
@@ -249,11 +250,12 @@ class SourcesApi {
         $resourcePath = str_replace("{" . "id" . "}",
                                     $this->apiClient->toPathValue($id), $resourcePath);
       }
-      // form params
-      if ($source !== null) {
-        $formParams['Source'] = $this->apiClient->toFormValue($source);
-      }
       
+      // body params
+      $body = null;
+      if (isset($source)) {
+        $body = $source;
+      }
 
       // for model (json/xml)
       if (isset($body)) {

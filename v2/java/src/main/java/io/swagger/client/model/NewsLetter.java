@@ -8,11 +8,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @ApiModel(description = "")
 public class Newsletter  {
   
+  private String id = null;
   private Boolean isSent = null;
   private Boolean isDefault = null;
   private Long clickCount = null;
   private Long uniqueClickCount = null;
   private Long totalClickCount = null;
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("_id")
+  public String getId() {
+    return id;
+  }
+  public void setId(String id) {
+    this.id = id;
+  }
 
   
   /**
@@ -81,6 +94,7 @@ public class Newsletter  {
     StringBuilder sb = new StringBuilder();
     sb.append("class Newsletter {\n");
     
+    sb.append("  id: ").append(id).append("\n");
     sb.append("  isSent: ").append(isSent).append("\n");
     sb.append("  isDefault: ").append(isDefault).append("\n");
     sb.append("  clickCount: ").append(clickCount).append("\n");

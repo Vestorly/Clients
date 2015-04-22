@@ -22,7 +22,7 @@ public:
   loginWithCompletion(String* username, String* password, void (* handler)(SamiSession*, SamiError*));
   
   SamiSession* 
-  logoutWithCompletion(String* vestorly_auth, void (* handler)(SamiSession*, SamiError*));
+  logoutWithCompletion(String* vestorly-auth, String* _id, void (* handler)(SamiSession*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

@@ -97,9 +97,10 @@ class SessionsApi {
    * 
    *
    * @param string $vestorly_auth Authenication token (required)
+   * @param string $id ID of pet to session (required)
    * @return Session
    */
-   public function logout($vestorly_auth) {
+   public function logout($vestorly_auth, $id) {
 
       // parse inputs
       $resourcePath = "/sessions/{id}";
@@ -113,15 +114,19 @@ class SessionsApi {
       if ($_header_accept !== '') {
         $headerParams['Accept'] = $_header_accept;
       }
-      $_header_content_type = array('application/x-www-form-urlencoded',);
+      $_header_content_type = array();
       $headerParams['Content-Type'] = count($_header_content_type) > 0 ? $_header_content_type[0] : 'application/json';
 
       
       
-      
+      // path params
+      if($id !== null) {
+        $resourcePath = str_replace("{" . "id" . "}",
+                                    $this->apiClient->toPathValue($id), $resourcePath);
+      }
       // form params
       if ($vestorly_auth !== null) {
-        $formParams['vestorly_auth'] = $this->apiClient->toFormValue($vestorly_auth);
+        $formParams['vestorly-auth'] = $this->apiClient->toFormValue($vestorly_auth);
       }
       
 

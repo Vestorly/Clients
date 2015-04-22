@@ -1,16 +1,12 @@
 
 class NewsletterSettingsInput
-  attr_accessor :email_status, :twitter_status, :linkedin_status, :email_hour, :twitter_hour, :linkedin_hour, :facebook_hour
+  attr_accessor :email_status, :twitter_status, :linkedin_status
   # :internal => :external
   def self.attribute_map
     {
       :email_status => :'email_status',
       :twitter_status => :'twitter_status',
-      :linkedin_status => :'linkedin_status',
-      :email_hour => :'email_hour',
-      :twitter_hour => :'twitter_hour',
-      :linkedin_hour => :'linkedin_hour',
-      :facebook_hour => :'facebook_hour'
+      :linkedin_status => :'linkedin_status'
       
     }
   end
@@ -29,22 +25,6 @@ class NewsletterSettingsInput
     
     if self.class.attribute_map[:"linkedin_status"]
       @linkedin_status = attributes["linkedin_status"]
-    end
-    
-    if self.class.attribute_map[:"email_hour"]
-      @email_hour = attributes["email_hour"]
-    end
-    
-    if self.class.attribute_map[:"twitter_hour"]
-      @twitter_hour = attributes["twitter_hour"]
-    end
-    
-    if self.class.attribute_map[:"linkedin_hour"]
-      @linkedin_hour = attributes["linkedin_hour"]
-    end
-    
-    if self.class.attribute_map[:"facebook_hour"]
-      @facebook_hour = attributes["facebook_hour"]
     end
     
   end

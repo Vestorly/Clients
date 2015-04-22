@@ -8,6 +8,8 @@
 @interface SWGNewsletter : SWGObject
 
 
+@property(nonatomic) NSString<Optional>* _id;
+
 @property(nonatomic) NSNumber<Optional>* is_sent;
 
 @property(nonatomic) NSNumber<Optional>* is_default;

@@ -8,6 +8,7 @@ import com.sun.jersey.multipart.FormDataParam;
 
 import io.swagger.model.Posts;
 import io.swagger.model.Post;
+import io.swagger.model.PostInput;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -32,7 +33,7 @@ public class PostsApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "posts response") })
 
-  public Response findPosts(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth,
+  public Response findPosts(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
     @ApiParam(value = "Filter post by parameters") @QueryParam("filter_by") String filterBy)
       throws NotFoundException {
       // do some magic!
@@ -48,8 +49,8 @@ public class PostsApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "posts response") })
 
-  public Response createPost(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth,
-    @ApiParam(value = "Post", required=true )@FormParam("post")  String post)
+  public Response createPost(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+    @ApiParam(value = "Post you want to create" ,required=true ) PostInput post)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -64,9 +65,8 @@ public class PostsApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "post response") })
 
-  public Response getPostByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth,
-    @ApiParam(value = "ID of post to fetch",required=true ) @PathParam("id") String id,
-    @ApiParam(value = "Filter post by parameters") @QueryParam("filter_by") String filterBy)
+  public Response getPostByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+    @ApiParam(value = "ID of post to fetch",required=true ) @PathParam("id") String id)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -81,9 +81,9 @@ public class PostsApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "post response") })
 
-  public Response updatePostByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth,
-    @ApiParam(value = "ID of post to fetch",required=true ) @PathParam("id") String id,
-    @ApiParam(value = "Post", required=true )@FormParam("post")  String post)
+  public Response updatePostByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+    @ApiParam(value = "id of post to fetch",required=true ) @PathParam("id") String id,
+    @ApiParam(value = "Post you want to update" ,required=true ) PostInput post)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

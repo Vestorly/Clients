@@ -50,7 +50,7 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       if (Limit != null){
         queryParams.Add("limit", apiInvoker.ParameterToString(Limit));

@@ -4,6 +4,7 @@
 #import "SWGApiClient.h"
 #import "SWGEvents.h"
 #import "SWGEvent.h"
+#import "SWGEventInput.h"
 
 
 
@@ -52,7 +53,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 
--(NSNumber*) findEventsWithCompletionBlock: (NSString*) vestorly_auth
+-(NSNumber*) findEventsWithCompletionBlock: (NSString*) vestorly-auth
         
         completionHandler: (void (^)(SWGEvents* output, NSError* error))completionBlock
          {
@@ -72,9 +73,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly_auth != nil) {
+    if(vestorly-auth != nil) {
         
-        queryParams[@"vestorly_auth"] = vestorly_auth;
+        queryParams[@"vestorly-auth"] = vestorly-auth;
     }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -132,7 +133,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 -(NSNumber*) findEventByIDWithCompletionBlock: (NSString*) _id
-         vestorly_auth: (NSString*) vestorly_auth
+         vestorly-auth: (NSString*) vestorly-auth
         
         completionHandler: (void (^)(SWGEvent* output, NSError* error))completionBlock
          {
@@ -153,9 +154,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly_auth != nil) {
+    if(vestorly-auth != nil) {
         
-        queryParams[@"vestorly_auth"] = vestorly_auth;
+        queryParams[@"vestorly-auth"] = vestorly-auth;
     }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -213,8 +214,8 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 -(NSNumber*) updateEventByIDWithCompletionBlock: (NSString*) _id
-         vestorly_auth: (NSString*) vestorly_auth
-         Event: (NSString*) Event
+         vestorly-auth: (NSString*) vestorly-auth
+         Event: (SWGEventInput*) Event
         
         completionHandler: (void (^)(SWGEvent* output, NSError* error))completionBlock
          {
@@ -235,9 +236,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly_auth != nil) {
+    if(vestorly-auth != nil) {
         
-        queryParams[@"vestorly_auth"] = vestorly_auth;
+        queryParams[@"vestorly-auth"] = vestorly-auth;
     }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -245,18 +246,33 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
     id bodyDictionary = nil;
     
-    
+    id __body = Event;
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
-
-    
-    
-    formParams[@"Event"] = Event;
-    
-    if(bodyDictionary == nil) {
-      bodyDictionary = [[NSMutableArray alloc] init];
+    if(__body != nil && [__body isKindOfClass:[NSArray class]]){
+        NSMutableArray * objs = [[NSMutableArray alloc] init];
+        for (id dict in (NSArray*)__body) {
+            if([dict respondsToSelector:@selector(toDictionary)]) {
+                [objs addObject:[(SWGObject*)dict toDictionary]];
+            }
+            else{
+                [objs addObject:dict];
+            }
+        }
+        bodyDictionary = objs;
     }
-    [bodyDictionary addObject:formParams];
+    else if([__body respondsToSelector:@selector(toDictionary)]) {
+        bodyDictionary = [(SWGObject*)__body toDictionary];
+    }
+    else if([__body isKindOfClass:[NSString class]]) {
+        // convert it to a dictionary
+        NSError * error;
+        NSString * str = (NSString*)__body;
+        NSDictionary *JSON =
+            [NSJSONSerialization JSONObjectWithData: [str dataUsingEncoding: NSUTF8StringEncoding]
+                                            options: NSJSONReadingMutableContainers
+                                              error: &error];
+        bodyDictionary = JSON;
+    }
     
     
 

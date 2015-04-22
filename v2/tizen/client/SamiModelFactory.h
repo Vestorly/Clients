@@ -3,19 +3,19 @@
 
 #include "SamiObject.h"
 
-#include "SamiSource.h"
-#include "SamiSourceInput.h"
-#include "SamiSources.h"
 #include "SamiMembers.h"
 #include "SamiAdvisor.h"
+#include "SamiAdvisors.h"
+#include "SamiPosts.h"
+#include "SamiPost.h"
+#include "SamiPostInput.h"
+#include "SamiAdvsior.h"
 #include "SamiArticle.h"
 #include "SamiArticles.h"
 #include "SamiNewsletter.h"
 #include "SamiNewsletterInput.h"
 #include "SamiNewsletters.h"
 #include "SamiMember.h"
-#include "SamiPosts.h"
-#include "SamiPost.h"
 #include "SamiEventInput.h"
 #include "SamiEvents.h"
 #include "SamiEvent.h"
@@ -24,24 +24,33 @@
 #include "SamiGroups.h"
 #include "SamiNewsletterSettingsInput.h"
 #include "SamiNewsletterSettings.h"
+#include "SamiSource.h"
+#include "SamiSourceInput.h"
+#include "SamiSources.h"
 
 namespace Swagger {
   void*
   create(String type) {
-    if(type.Equals(L"SamiSource", true)) {
-      return new SamiSource();
-    }
-    if(type.Equals(L"SamiSourceInput", true)) {
-      return new SamiSourceInput();
-    }
-    if(type.Equals(L"SamiSources", true)) {
-      return new SamiSources();
-    }
     if(type.Equals(L"SamiMembers", true)) {
       return new SamiMembers();
     }
     if(type.Equals(L"SamiAdvisor", true)) {
       return new SamiAdvisor();
+    }
+    if(type.Equals(L"SamiAdvisors", true)) {
+      return new SamiAdvisors();
+    }
+    if(type.Equals(L"SamiPosts", true)) {
+      return new SamiPosts();
+    }
+    if(type.Equals(L"SamiPost", true)) {
+      return new SamiPost();
+    }
+    if(type.Equals(L"SamiPostInput", true)) {
+      return new SamiPostInput();
+    }
+    if(type.Equals(L"SamiAdvsior", true)) {
+      return new SamiAdvsior();
     }
     if(type.Equals(L"SamiArticle", true)) {
       return new SamiArticle();
@@ -60,12 +69,6 @@ namespace Swagger {
     }
     if(type.Equals(L"SamiMember", true)) {
       return new SamiMember();
-    }
-    if(type.Equals(L"SamiPosts", true)) {
-      return new SamiPosts();
-    }
-    if(type.Equals(L"SamiPost", true)) {
-      return new SamiPost();
     }
     if(type.Equals(L"SamiEventInput", true)) {
       return new SamiEventInput();
@@ -90,6 +93,15 @@ namespace Swagger {
     }
     if(type.Equals(L"SamiNewsletterSettings", true)) {
       return new SamiNewsletterSettings();
+    }
+    if(type.Equals(L"SamiSource", true)) {
+      return new SamiSource();
+    }
+    if(type.Equals(L"SamiSourceInput", true)) {
+      return new SamiSourceInput();
+    }
+    if(type.Equals(L"SamiSources", true)) {
+      return new SamiSources();
     }
     
     if(type.Equals(L"String", true)) {

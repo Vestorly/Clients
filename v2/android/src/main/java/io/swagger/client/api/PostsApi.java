@@ -9,6 +9,7 @@ import java.util.*;
 
 import io.swagger.client.model.Posts;
 import io.swagger.client.model.Post;
+import io.swagger.client.model.PostInput;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -55,7 +56,7 @@ public class PostsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     if (filterBy != null)
       queryParams.put("filter_by", ApiInvoker.parameterToString(filterBy));
     
@@ -93,8 +94,8 @@ public class PostsApi {
   }
   
   
-  public Post  createPost (String vestorlyAuth, String post) throws ApiException {
-    Object postBody = null;
+  public Post  createPost (String vestorlyAuth, PostInput post) throws ApiException {
+    Object postBody = post;
 
     
 
@@ -109,7 +110,7 @@ public class PostsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -123,16 +124,11 @@ public class PostsApi {
       // file uploading
       MultipartEntityBuilder builder = MultipartEntityBuilder.create();
       
-      if (post != null) {
-        builder.addTextBody("Post", ApiInvoker.parameterToString(post), ApiInvoker.TEXT_PLAIN_UTF8);
-      }
-      
 
       HttpEntity httpEntity = builder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-      formParams.put("Post", ApiInvoker.parameterToString(post));
       
     }
 
@@ -150,7 +146,7 @@ public class PostsApi {
   }
   
   
-  public Post  getPostByID (String vestorlyAuth, String id, String filterBy) throws ApiException {
+  public Post  getPostByID (String vestorlyAuth, String id) throws ApiException {
     Object postBody = null;
 
     
@@ -166,9 +162,7 @@ public class PostsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
-    if (filterBy != null)
-      queryParams.put("filter_by", ApiInvoker.parameterToString(filterBy));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -204,8 +198,8 @@ public class PostsApi {
   }
   
   
-  public Post  updatePostByID (String vestorlyAuth, String id, String post) throws ApiException {
-    Object postBody = null;
+  public Post  updatePostByID (String vestorlyAuth, String id, PostInput post) throws ApiException {
+    Object postBody = post;
 
     
 
@@ -220,7 +214,7 @@ public class PostsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -234,16 +228,11 @@ public class PostsApi {
       // file uploading
       MultipartEntityBuilder builder = MultipartEntityBuilder.create();
       
-      if (post != null) {
-        builder.addTextBody("Post", ApiInvoker.parameterToString(post), ApiInvoker.TEXT_PLAIN_UTF8);
-      }
-      
 
       HttpEntity httpEntity = builder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-      formParams.put("Post", ApiInvoker.parameterToString(post));
       
     }
 

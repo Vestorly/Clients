@@ -114,7 +114,7 @@ logoutProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError*)
 }
 
 SamiSession* 
-SamiSessionsApi::logoutWithCompletion(String* vestorly_auth, void (* success)(SamiSession*, SamiError*)) {
+SamiSessionsApi::logoutWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiSession*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&logoutProcessor, (void(*)(void*, SamiError*))success);
@@ -134,6 +134,11 @@ SamiSessionsApi::logoutWithCompletion(String* vestorly_auth, void (* success)(Sa
 
   String url(L"/sessions/{id}");
 
+  
+  String s__id(L"{");
+  s__id.Append(L"id");
+  s__id.Append(L"}");
+  url.Replace(s__id, stringify(_id, L"String*"));
   
 
   client->execute(SamiSessionsApi::getBasePath(), url, "DELETE", (IMap*)queryParams, mBody, (IMap*)headerParams, null, L"application/json");

@@ -30,33 +30,113 @@ class Post(object):
         """
         self.swaggerTypes = {
             
+            '_id': 'str',
+            
+            
+            'title': 'str',
+            
+            
+            'post_date': 'str',
+            
+            
+            'body': 'str',
+            
+            
+            'comment': 'str',
+            
+            
             'client_only': 'bool',
+            
+            
+            'attachment': 'str',
+            
+            
+            'video': 'str',
+            
+            
+            'img': 'str',
+            
+            
+            'image_url': 'str',
             
             
             'img_compressed': 'bool',
             
             
-            'img_changed': 'bool'
+            'img_changed': 'bool',
+            
+            
+            'topic': 'str'
             
         }
 
         self.attributeMap = {
             
+            '_id': '_id',
+            
+            'title': 'title',
+            
+            'post_date': 'post_date',
+            
+            'body': 'body',
+            
+            'comment': 'comment',
+            
             'client_only': 'client_only',
+            
+            'attachment': 'attachment',
+            
+            'video': 'video',
+            
+            'img': 'img',
+            
+            'image_url': 'image_url',
             
             'img_compressed': 'img_compressed',
             
-            'img_changed': 'img_changed'
+            'img_changed': 'img_changed',
+            
+            'topic': 'topic'
             
         }
 
         
         
+        self._id = None # str
+        
+        
+        self.title = None # str
+        
+        
+        self.post_date = None # str
+        
+        
+        self.body = None # str
+        
+        
+        self.comment = None # str
+        
+        
         self.client_only = None # bool
+        
+        
+        self.attachment = None # str
+        
+        
+        self.video = None # str
+        
+        
+        self.img = None # str
+        
+        
+        self.image_url = None # str
         
         
         self.img_compressed = None # bool
         
         
         self.img_changed = None # bool
+        
+        
+        self.topic = None # str
         

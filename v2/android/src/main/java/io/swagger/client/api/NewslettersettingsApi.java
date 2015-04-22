@@ -8,6 +8,7 @@ import io.swagger.client.model.*;
 import java.util.*;
 
 import io.swagger.client.model.NewsletterSettings;
+import io.swagger.client.model.NewsletterSettingsInput;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -54,7 +55,7 @@ public class NewslettersettingsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -90,8 +91,8 @@ public class NewslettersettingsApi {
   }
   
   
-  public NewsletterSettings  updateNewsletterSettingsByID (String vestorlyAuth, String newsletterSettings) throws ApiException {
-    Object postBody = null;
+  public NewsletterSettings  updateNewsletterSettingsByID (String vestorlyAuth, NewsletterSettingsInput newsletterSettings) throws ApiException {
+    Object postBody = newsletterSettings;
 
     
 
@@ -106,7 +107,7 @@ public class NewslettersettingsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -120,16 +121,11 @@ public class NewslettersettingsApi {
       // file uploading
       MultipartEntityBuilder builder = MultipartEntityBuilder.create();
       
-      if (newsletterSettings != null) {
-        builder.addTextBody("newsletter_settings", ApiInvoker.parameterToString(newsletterSettings), ApiInvoker.TEXT_PLAIN_UTF8);
-      }
-      
 
       HttpEntity httpEntity = builder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-      formParams.put("newsletter_settings", ApiInvoker.parameterToString(newsletterSettings));
       
     }
 
@@ -163,7 +159,7 @@ public class NewslettersettingsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     

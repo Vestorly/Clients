@@ -17,7 +17,7 @@
 using namespace Tizen::Web::Json;
 
 
-using Tizen::Base::Boolean;
+using Tizen::Base::String;
 
 
 namespace Swagger {
@@ -41,12 +41,20 @@ public:
     SamiAdvisor* fromJson(String* obj);
 
     
-    Boolean* getPNewUser();
-    void setPNewUser(Boolean* pNew_user);
+    String* getPId();
+    void setPId(String* pId);
+    
+    String* getPName();
+    void setPName(String* pName);
+    
+    String* getPTag();
+    void setPTag(String* pTag);
     
 
 private:
-    Boolean* pNew_user;
+    String* pId;
+    String* pName;
+    String* pTag;
     
 };
 

@@ -18,7 +18,7 @@ class ArticlesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2
   def addHeader(key: String, value: String) = apiInvoker.defaultHeaders += key -> value 
 
   
-  def findArticles (vestorly_auth: String, limit: Integer, text_query: String) : Option[Articles] = {
+  def findArticles (vestorly-auth: String, limit: Integer, text_query: String) : Option[Articles] = {
     // create path and map variables
     val path = "/articles".replaceAll("\\{format\\}","json")
 
@@ -34,7 +34,7 @@ class ArticlesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2
 
     
 
-    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
     if(String.valueOf(limit) != "null") queryParams += "limit" -> limit.toString
     if(String.valueOf(text_query) != "null") queryParams += "text_query" -> text_query.toString
     

@@ -8,6 +8,10 @@
 @interface SWGAdvisor : SWGObject
 
 
-@property(nonatomic) NSNumber<Optional>* _new_user;
+@property(nonatomic) NSString* _id;
+
+@property(nonatomic) NSString* name;
+
+@property(nonatomic) NSString<Optional>* tag;
 
 @end

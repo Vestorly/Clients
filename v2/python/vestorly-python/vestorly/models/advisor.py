@@ -30,17 +30,33 @@ class Advisor(object):
         """
         self.swaggerTypes = {
             
-            'new_user': 'bool'
+            'id': 'str',
+            
+            
+            'name': 'str',
+            
+            
+            'tag': 'str'
             
         }
 
         self.attributeMap = {
             
-            'new_user': 'new_user'
+            'id': 'id',
+            
+            'name': 'name',
+            
+            'tag': 'tag'
             
         }
 
         
         
-        self.new_user = None # bool
+        self.id = None # str
+        
+        
+        self.name = None # str
+        
+        
+        self.tag = None # str
         

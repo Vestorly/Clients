@@ -28,6 +28,7 @@ use \ArrayAccess;
 
 class Newsletter implements ArrayAccess {
   static $swaggerTypes = array(
+      '_id' => 'string',
       'is_sent' => 'boolean',
       'is_default' => 'boolean',
       'click_count' => 'int',
@@ -36,6 +37,7 @@ class Newsletter implements ArrayAccess {
   );
 
   static $attributeMap = array(
+      '_id' => '_id',
       'is_sent' => 'is_sent',
       'is_default' => 'is_default',
       'click_count' => 'click_count',
@@ -44,6 +46,7 @@ class Newsletter implements ArrayAccess {
   );
 
   
+  public $_id; /* string */
   public $is_sent; /* boolean */
   public $is_default; /* boolean */
   public $click_count; /* int */
@@ -51,6 +54,7 @@ class Newsletter implements ArrayAccess {
   public $total_click_count; /* int */
 
   public function __construct(array $data = null) {
+    $this->_id = $data["_id"];
     $this->is_sent = $data["is_sent"];
     $this->is_default = $data["is_default"];
     $this->click_count = $data["click_count"];

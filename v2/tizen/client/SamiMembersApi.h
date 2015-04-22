@@ -20,13 +20,13 @@ public:
 
   
   SamiMembers* 
-  findMembersWithCompletion(String* vestorly_auth, void (* handler)(SamiMembers*, SamiError*));
+  findMembersWithCompletion(String* vestorly-auth, void (* handler)(SamiMembers*, SamiError*));
   
   SamiMember* 
-  findMemberByIDWithCompletion(String* _id, String* vestorly_auth, void (* handler)(SamiMember*, SamiError*));
+  findMemberByIDWithCompletion(String* _id, String* vestorly-auth, void (* handler)(SamiMember*, SamiError*));
   
   SamiMember* 
-  findMemberByID_1WithCompletion(String* _id, String* vestorly_auth, void (* handler)(SamiMember*, SamiError*));
+  findMemberByID_1WithCompletion(String* _id, String* vestorly-auth, void (* handler)(SamiMember*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

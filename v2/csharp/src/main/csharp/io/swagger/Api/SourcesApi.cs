@@ -48,7 +48,7 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       
 
@@ -93,7 +93,7 @@ namespace io.swagger.Api {
      /// <param name="Source">Source</param>
     
     /// <returns></returns>
-    public Source  createSource (string VestorlyAuth, string Source) {
+    public Source  createSource (string VestorlyAuth, SourceInput Source) {
       // create path and map variables
       var path = "/sources/".Replace("{format}","json");
 
@@ -105,19 +105,12 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       
 
       
 
-      if (Source != null){
-        if(Source is byte[]) {
-          formParams.Add("Source", Source);
-        } else {
-          formParams.Add("Source", apiInvoker.ParameterToString(Source));
-        }
-      }
       
 
       try {
@@ -129,7 +122,7 @@ namespace io.swagger.Api {
           
         } else {
           
-          var response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, null, headerParams, formParams);
+          var response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, Source, headerParams, formParams);
           if (response != null){
              return (Source) ApiInvoker.deserialize(response, typeof(Source));
           }
@@ -169,7 +162,7 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       
 
@@ -215,7 +208,7 @@ namespace io.swagger.Api {
      /// <param name="Source">Source</param>
     
     /// <returns></returns>
-    public Source  UpdateSourceByID (string VestorlyAuth, string Id, string Source) {
+    public Source  UpdateSourceByID (string VestorlyAuth, string Id, SourceInput Source) {
       // create path and map variables
       var path = "/sources/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -227,19 +220,12 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       
 
       
 
-      if (Source != null){
-        if(Source is byte[]) {
-          formParams.Add("Source", Source);
-        } else {
-          formParams.Add("Source", apiInvoker.ParameterToString(Source));
-        }
-      }
       
 
       try {
@@ -251,7 +237,7 @@ namespace io.swagger.Api {
           
         } else {
           
-          var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, null, headerParams, formParams);
+          var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, Source, headerParams, formParams);
           if (response != null){
              return (Source) ApiInvoker.deserialize(response, typeof(Source));
           }

@@ -28,18 +28,26 @@ use \ArrayAccess;
 
 class Advisor implements ArrayAccess {
   static $swaggerTypes = array(
-      'new_user' => 'boolean'
+      'id' => 'string',
+      'name' => 'string',
+      'tag' => 'string'
   );
 
   static $attributeMap = array(
-      'new_user' => 'new_user'
+      'id' => 'id',
+      'name' => 'name',
+      'tag' => 'tag'
   );
 
   
-  public $new_user; /* boolean */
+  public $id; /* string */
+  public $name; /* string */
+  public $tag; /* string */
 
   public function __construct(array $data = null) {
-    $this->new_user = $data["new_user"];
+    $this->id = $data["id"];
+    $this->name = $data["name"];
+    $this->tag = $data["tag"];
   }
 
   public function offsetExists($offset) {

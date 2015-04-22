@@ -72,7 +72,7 @@ class EventsApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         
@@ -140,7 +140,7 @@ class EventsApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         
@@ -183,7 +183,7 @@ class EventsApi(object):
             vestorly_auth, str: Vestorly Auth Token (required)
             
             
-            event, str: Event (required)
+            event, EventInput: Event (required)
             
             
         
@@ -217,7 +217,7 @@ class EventsApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         
@@ -231,10 +231,10 @@ class EventsApi(object):
         
 
         
-        if ('event' in params):
-            formParams['Event'] = params['event']
-        
 
+        
+        if ('event' in params):
+            bodyParam = params['event']
         
 
         postData = (formParams if formParams else bodyParam)

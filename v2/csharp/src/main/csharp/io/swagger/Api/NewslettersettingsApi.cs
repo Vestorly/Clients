@@ -48,7 +48,7 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       
 
@@ -93,7 +93,7 @@ namespace io.swagger.Api {
      /// <param name="NewsletterSettings">newsletter settings</param>
     
     /// <returns></returns>
-    public NewsletterSettings  updateNewsletterSettingsByID (string VestorlyAuth, string NewsletterSettings) {
+    public NewsletterSettings  updateNewsletterSettingsByID (string VestorlyAuth, NewsletterSettingsInput NewsletterSettings) {
       // create path and map variables
       var path = "/newsletter_settings".Replace("{format}","json");
 
@@ -105,19 +105,12 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       
 
       
 
-      if (NewsletterSettings != null){
-        if(NewsletterSettings is byte[]) {
-          formParams.Add("newsletter_settings", NewsletterSettings);
-        } else {
-          formParams.Add("newsletter_settings", apiInvoker.ParameterToString(NewsletterSettings));
-        }
-      }
       
 
       try {
@@ -129,7 +122,7 @@ namespace io.swagger.Api {
           
         } else {
           
-          var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, null, headerParams, formParams);
+          var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, NewsletterSettings, headerParams, formParams);
           if (response != null){
              return (NewsletterSettings) ApiInvoker.deserialize(response, typeof(NewsletterSettings));
           }
@@ -169,7 +162,7 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       
 

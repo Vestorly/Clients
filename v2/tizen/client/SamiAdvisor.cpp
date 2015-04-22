@@ -22,16 +22,28 @@ SamiAdvisor::~SamiAdvisor() {
 
 void
 SamiAdvisor::init() {
-    pNew_user = null;
+    pId = null;
+    pName = null;
+    pTag = null;
     
 }
 
 void
 SamiAdvisor::cleanup() {
-    if(pNew_user != null) {
+    if(pId != null) {
         
-        delete pNew_user;
-        pNew_user = null;
+        delete pId;
+        pId = null;
+    }
+    if(pName != null) {
+        
+        delete pName;
+        pName = null;
+    }
+    if(pTag != null) {
+        
+        delete pTag;
+        pTag = null;
     }
     
 }
@@ -71,15 +83,33 @@ SamiAdvisor::fromJsonObject(IJsonValue* pJson) {
     JsonObject* pJsonObject = static_cast< JsonObject* >(pJson);
 
     if(pJsonObject != null) {
-        JsonString* pNew_userKey = new JsonString(L"new_user");
-        IJsonValue* pNew_userVal = null;
-        pJsonObject->GetValue(pNew_userKey, pNew_userVal);
-        if(pNew_userVal != null) {
+        JsonString* pIdKey = new JsonString(L"id");
+        IJsonValue* pIdVal = null;
+        pJsonObject->GetValue(pIdKey, pIdVal);
+        if(pIdVal != null) {
             
-            pNew_user = new Boolean(false);
-            jsonToValue(pNew_user, pNew_userVal, L"Boolean", L"Boolean");
+            pId = new String();
+            jsonToValue(pId, pIdVal, L"String", L"String");
         }
-        delete pNew_userKey;
+        delete pIdKey;
+        JsonString* pNameKey = new JsonString(L"name");
+        IJsonValue* pNameVal = null;
+        pJsonObject->GetValue(pNameKey, pNameVal);
+        if(pNameVal != null) {
+            
+            pName = new String();
+            jsonToValue(pName, pNameVal, L"String", L"String");
+        }
+        delete pNameKey;
+        JsonString* pTagKey = new JsonString(L"tag");
+        IJsonValue* pTagVal = null;
+        pJsonObject->GetValue(pTagKey, pTagVal);
+        if(pTagVal != null) {
+            
+            pTag = new String();
+            jsonToValue(pTag, pTagVal, L"String", L"String");
+        }
+        delete pTagKey;
         
     }
 }
@@ -132,20 +162,46 @@ SamiAdvisor::asJsonObject() {
     pJsonObject->Construct();
 
     
-    JsonString *pNew_userKey = new JsonString(L"new_user");
-    pJsonObject->Add(pNew_userKey, toJson(getPNewUser(), "Boolean", ""));
+    JsonString *pIdKey = new JsonString(L"id");
+    pJsonObject->Add(pIdKey, toJson(getPId(), "String", ""));
+
+    
+    JsonString *pNameKey = new JsonString(L"name");
+    pJsonObject->Add(pNameKey, toJson(getPName(), "String", ""));
+
+    
+    JsonString *pTagKey = new JsonString(L"tag");
+    pJsonObject->Add(pTagKey, toJson(getPTag(), "String", ""));
 
     
     return pJsonObject;
 }
 
-Boolean*
-SamiAdvisor::getPNewUser() {
-    return pNew_user;
+String*
+SamiAdvisor::getPId() {
+    return pId;
 }
 void
-SamiAdvisor::setPNewUser(Boolean* pNew_user) {
-    this->pNew_user = pNew_user;
+SamiAdvisor::setPId(String* pId) {
+    this->pId = pId;
+}
+
+String*
+SamiAdvisor::getPName() {
+    return pName;
+}
+void
+SamiAdvisor::setPName(String* pName) {
+    this->pName = pName;
+}
+
+String*
+SamiAdvisor::getPTag() {
+    return pTag;
+}
+void
+SamiAdvisor::setPTag(String* pTag) {
+    this->pTag = pTag;
 }
 
 

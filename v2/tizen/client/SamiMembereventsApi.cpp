@@ -52,7 +52,7 @@ findMemberEventsProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, S
 }
 
 SamiMemberEvents* 
-SamiMembereventsApi::findMemberEventsWithCompletion(String* vestorly_auth, void (* success)(SamiMemberEvents*, SamiError*)) {
+SamiMembereventsApi::findMemberEventsWithCompletion(String* vestorly-auth, void (* success)(SamiMemberEvents*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findMemberEventsProcessor, (void(*)(void*, SamiError*))success);
@@ -65,7 +65,7 @@ SamiMembereventsApi::findMemberEventsWithCompletion(String* vestorly_auth, void 
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
+    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
   
   
 

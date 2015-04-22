@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGNewsletterSettings.h"
+#import "SWGNewsletterSettingsInput.h"
 #import "SWGObject.h"
 
 
@@ -15,12 +16,12 @@
  
  Returns all newsletter settings
 
- @param vestorly_auth Vestorly Auth Token
+ @param vestorly-auth Vestorly Auth Token
  
 
  return type: SWGNewsletterSettings*
  */
--(NSNumber*) findNewsletterSettingsWithCompletionBlock :(NSString*) vestorly_auth 
+-(NSNumber*) findNewsletterSettingsWithCompletionBlock :(NSString*) vestorly-auth 
     
     completionHandler: (void (^)(SWGNewsletterSettings* output, NSError* error))completionBlock;
     
@@ -31,14 +32,14 @@
  
  Update a single newsletter setting by ID
 
- @param vestorly_auth Vestorly Auth Token
+ @param vestorly-auth Vestorly Auth Token
  @param newsletter_settings newsletter settings
  
 
  return type: SWGNewsletterSettings*
  */
--(NSNumber*) updateNewsletterSettingsByIDWithCompletionBlock :(NSString*) vestorly_auth 
-     newsletter_settings:(NSString*) newsletter_settings 
+-(NSNumber*) updateNewsletterSettingsByIDWithCompletionBlock :(NSString*) vestorly-auth 
+     newsletter_settings:(SWGNewsletterSettingsInput*) newsletter_settings 
     
     completionHandler: (void (^)(SWGNewsletterSettings* output, NSError* error))completionBlock;
     
@@ -50,13 +51,13 @@
  Returns a single newsletter settings if the user has access
 
  @param _id Mongo ID of newsletter settings to fetch
- @param vestorly_auth Vestorly Auth Token
+ @param vestorly-auth Vestorly Auth Token
  
 
  return type: SWGNewsletterSettings*
  */
 -(NSNumber*) findNewsletterSettingsByIDWithCompletionBlock :(NSString*) _id 
-     vestorly_auth:(NSString*) vestorly_auth 
+     vestorly-auth:(NSString*) vestorly-auth 
     
     completionHandler: (void (^)(SWGNewsletterSettings* output, NSError* error))completionBlock;
     

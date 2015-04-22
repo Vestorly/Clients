@@ -1,6 +1,6 @@
 'use strict';
 
-exports.findMemberEvents = function(vestorly_auth) {
+exports.findMemberEvents = function(vestorly-auth) {
 
   var examples = {};
   

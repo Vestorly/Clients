@@ -60,7 +60,7 @@ class PostsApi
   # 
   # Create a new post in the Vestorly Platform
   # @param vestorly_auth Vestorly Auth Token
-  # @param post Post
+  # @param post Post you want to create
   # @return Post
   def self.createPost (vestorly_auth, post, opts={})
     query_param_keys = [:vestorly_auth]
@@ -98,10 +98,29 @@ class PostsApi
     # http body (model)
     post_body = nil
     
+    if body != nil
+      if body.is_a?(Array)
+        array = Array.new
+        body.each do |item|
+          if item.respond_to?("to_body".to_sym)
+            array.push item.to_body
+          else
+            array.push item
+          end
+        end
+        post_body = array
+      else 
+        if body.respond_to?("to_body".to_sym)
+          post_body = body.to_body
+        else
+          post_body = body
+        end
+      end
+    end
+    
     # form parameters
     form_parameter_hash = {}
     
-    form_parameter_hash["Post"] = post
     
     response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
      Post.new(response)
@@ -114,10 +133,9 @@ class PostsApi
   # Query all posts
   # @param vestorly_auth Vestorly Auth Token
   # @param id ID of post to fetch
-  # @param filter_by Filter post by parameters
   # @return Post
-  def self.getPostByID (vestorly_auth, id, filter_by, opts={})
-    query_param_keys = [:vestorly_auth,:filter_by]
+  def self.getPostByID (vestorly_auth, id, opts={})
+    query_param_keys = [:vestorly_auth]
     headerParams = {}
 
     
@@ -125,8 +143,7 @@ class PostsApi
     # set default values and merge with input
     options = {
       :'vestorly_auth' => vestorly_auth,
-      :'id' => id,
-      :'filter_by' => filter_by
+      :'id' => id
       
     }.merge(opts)
 
@@ -168,8 +185,8 @@ class PostsApi
   # 
   # Update A Post
   # @param vestorly_auth Vestorly Auth Token
-  # @param id ID of post to fetch
-  # @param post Post
+  # @param id id of post to fetch
+  # @param post Post you want to update
   # @return Post
   def self.updatePostByID (vestorly_auth, id, post, opts={})
     query_param_keys = [:vestorly_auth]
@@ -209,10 +226,29 @@ class PostsApi
     # http body (model)
     post_body = nil
     
+    if body != nil
+      if body.is_a?(Array)
+        array = Array.new
+        body.each do |item|
+          if item.respond_to?("to_body".to_sym)
+            array.push item.to_body
+          else
+            array.push item
+          end
+        end
+        post_body = array
+      else 
+        if body.respond_to?("to_body".to_sym)
+          post_body = body.to_body
+        else
+          post_body = body
+        end
+      end
+    end
+    
     # form parameters
     form_parameter_hash = {}
     
-    form_parameter_hash["Post"] = post
     
     response = Swagger::Request.new(:PUT, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
      Post.new(response)

@@ -48,7 +48,7 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       
 
@@ -105,7 +105,7 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       
 
@@ -151,7 +151,7 @@ namespace io.swagger.Api {
      /// <param name="Event">Event</param>
     
     /// <returns></returns>
-    public Event  updateEventByID (string Id, string VestorlyAuth, string Event) {
+    public Event  updateEventByID (string Id, string VestorlyAuth, EventInput Event) {
       // create path and map variables
       var path = "/events/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -163,19 +163,12 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       
 
       
 
-      if (Event != null){
-        if(Event is byte[]) {
-          formParams.Add("Event", Event);
-        } else {
-          formParams.Add("Event", apiInvoker.ParameterToString(Event));
-        }
-      }
       
 
       try {
@@ -187,7 +180,7 @@ namespace io.swagger.Api {
           
         } else {
           
-          var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, null, headerParams, formParams);
+          var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, Event, headerParams, formParams);
           if (response != null){
              return (Event) ApiInvoker.deserialize(response, typeof(Event));
           }

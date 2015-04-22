@@ -52,7 +52,7 @@ findArticlesProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiE
 }
 
 SamiArticles* 
-SamiArticlesApi::findArticlesWithCompletion(String* vestorly_auth, Integer* limit, String* text_query, void (* success)(SamiArticles*, SamiError*)) {
+SamiArticlesApi::findArticlesWithCompletion(String* vestorly-auth, Integer* limit, String* text_query, void (* success)(SamiArticles*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findArticlesProcessor, (void(*)(void*, SamiError*))success);
@@ -65,7 +65,7 @@ SamiArticlesApi::findArticlesWithCompletion(String* vestorly_auth, Integer* limi
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
+    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
   
   
     queryParams->Add(new String("limit"), limit);

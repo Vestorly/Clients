@@ -56,7 +56,7 @@ class NewslettersettingsApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       
@@ -93,7 +93,7 @@ class NewslettersettingsApi {
    * 
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @param string $newsletter_settings newsletter settings (required)
+   * @param NewsletterSettingsInput $newsletter_settings newsletter settings (required)
    * @return NewsletterSettings
    */
    public function updateNewsletterSettingsByID($vestorly_auth, $newsletter_settings) {
@@ -115,15 +115,16 @@ class NewslettersettingsApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       
-      // form params
-      if ($newsletter_settings !== null) {
-        $formParams['newsletter_settings'] = $this->apiClient->toFormValue($newsletter_settings);
-      }
       
+      // body params
+      $body = null;
+      if (isset($newsletter_settings)) {
+        $body = $newsletter_settings;
+      }
 
       // for model (json/xml)
       if (isset($body)) {
@@ -177,7 +178,7 @@ class NewslettersettingsApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       // path params

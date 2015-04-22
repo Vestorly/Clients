@@ -2,6 +2,7 @@ package com.wordnik.client.api
 
 import com.wordnik.client.model.Events
 import com.wordnik.client.model.Event
+import com.wordnik.client.model.EventInput
 
 import java.io.File
 
@@ -32,7 +33,7 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
   val findEventsOperation = (apiOperation[Events]("findEvents")
       summary ""
       parameters(
-        queryParam[String]("vestorly_auth").description("")
+        queryParam[String]("vestorly-auth").description("")
         
         
         
@@ -50,7 +51,7 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly_auth = params.getAs[String]("vestorly_auth")
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
       
     
 
@@ -60,7 +61,7 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly_auth: " + vestorly_auth)
+    println("vestorly-auth: " + vestorly-auth)
   
   }
 
@@ -76,7 +77,7 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         ,
-        queryParam[String]("vestorly_auth").description("")
+        queryParam[String]("vestorly-auth").description("")
         
         
         
@@ -110,7 +111,7 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly_auth = params.getAs[String]("vestorly_auth")
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
       
     
 
@@ -120,7 +121,7 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly_auth: " + vestorly_auth)
+    println("vestorly-auth: " + vestorly-auth)
   
   }
 
@@ -136,7 +137,7 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         ,
-        queryParam[String]("vestorly_auth").description("")
+        queryParam[String]("vestorly-auth").description("")
         
         
         
@@ -146,8 +147,8 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         
+        bodyParam[EventInput]("Event").description("")
         
-        formParam[String]("Event").description("")
         
         
         )
@@ -177,7 +178,7 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly_auth = params.getAs[String]("vestorly_auth")
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
       
     
 
@@ -187,7 +188,7 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly_auth: " + vestorly_auth)
+    println("vestorly-auth: " + vestorly-auth)
   
     
     
@@ -198,9 +199,9 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
     
 
     
-      val Event = params.getAs[String]("Event")
-    
 
+    
+      val Event = parsedBody.extract[EventInput]
     
     
     println("Event: " + Event)

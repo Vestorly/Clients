@@ -31,7 +31,7 @@ class MembereventsApi (implicit val swagger: Swagger) extends ScalatraServlet
   val findMemberEventsOperation = (apiOperation[MemberEvents]("findMemberEvents")
       summary ""
       parameters(
-        queryParam[String]("vestorly_auth").description("")
+        queryParam[String]("vestorly-auth").description("")
         
         
         
@@ -49,7 +49,7 @@ class MembereventsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly_auth = params.getAs[String]("vestorly_auth")
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
       
     
 
@@ -59,7 +59,7 @@ class MembereventsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly_auth: " + vestorly_auth)
+    println("vestorly-auth: " + vestorly-auth)
   
   }
 

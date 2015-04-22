@@ -15,12 +15,12 @@
  
  Returns all MemberEvents
 
- @param vestorly_auth Vestorly Auth Token
+ @param vestorly-auth Vestorly Auth Token
  
 
  return type: SWGMemberEvents*
  */
--(NSNumber*) findMemberEventsWithCompletionBlock :(NSString*) vestorly_auth 
+-(NSNumber*) findMemberEventsWithCompletionBlock :(NSString*) vestorly-auth 
     
     completionHandler: (void (^)(SWGMemberEvents* output, NSError* error))completionBlock;
     

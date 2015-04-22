@@ -22,6 +22,7 @@ SamiNewsletter::~SamiNewsletter() {
 
 void
 SamiNewsletter::init() {
+    p_id = null;
     pIs_sent = null;
     pIs_default = null;
     pClick_count = null;
@@ -32,6 +33,11 @@ SamiNewsletter::init() {
 
 void
 SamiNewsletter::cleanup() {
+    if(p_id != null) {
+        
+        delete p_id;
+        p_id = null;
+    }
     if(pIs_sent != null) {
         
         delete pIs_sent;
@@ -95,6 +101,15 @@ SamiNewsletter::fromJsonObject(IJsonValue* pJson) {
     JsonObject* pJsonObject = static_cast< JsonObject* >(pJson);
 
     if(pJsonObject != null) {
+        JsonString* p_idKey = new JsonString(L"_id");
+        IJsonValue* p_idVal = null;
+        pJsonObject->GetValue(p_idKey, p_idVal);
+        if(p_idVal != null) {
+            
+            p_id = new String();
+            jsonToValue(p_id, p_idVal, L"String", L"String");
+        }
+        delete p_idKey;
         JsonString* pIs_sentKey = new JsonString(L"is_sent");
         IJsonValue* pIs_sentVal = null;
         pJsonObject->GetValue(pIs_sentKey, pIs_sentVal);
@@ -192,6 +207,10 @@ SamiNewsletter::asJsonObject() {
     pJsonObject->Construct();
 
     
+    JsonString *p_idKey = new JsonString(L"_id");
+    pJsonObject->Add(p_idKey, toJson(getPId(), "String", ""));
+
+    
     JsonString *pIs_sentKey = new JsonString(L"is_sent");
     pJsonObject->Add(pIs_sentKey, toJson(getPIsSent(), "Boolean", ""));
 
@@ -213,6 +232,15 @@ SamiNewsletter::asJsonObject() {
 
     
     return pJsonObject;
+}
+
+String*
+SamiNewsletter::getPId() {
+    return p_id;
+}
+void
+SamiNewsletter::setPId(String* p_id) {
+    this->p_id = p_id;
 }
 
 Boolean*

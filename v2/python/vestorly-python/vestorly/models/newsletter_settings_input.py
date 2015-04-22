@@ -36,19 +36,7 @@ class NewsletterSettingsInput(object):
             'twitter_status': 'str',
             
             
-            'linkedin_status': 'str',
-            
-            
-            'email_hour': 'int',
-            
-            
-            'twitter_hour': 'int',
-            
-            
-            'linkedin_hour': 'int',
-            
-            
-            'facebook_hour': 'int'
+            'linkedin_status': 'str'
             
         }
 
@@ -58,15 +46,7 @@ class NewsletterSettingsInput(object):
             
             'twitter_status': 'twitter_status',
             
-            'linkedin_status': 'linkedin_status',
-            
-            'email_hour': 'email_hour',
-            
-            'twitter_hour': 'twitter_hour',
-            
-            'linkedin_hour': 'linkedin_hour',
-            
-            'facebook_hour': 'facebook_hour'
+            'linkedin_status': 'linkedin_status'
             
         }
 
@@ -79,16 +59,4 @@ class NewsletterSettingsInput(object):
         
         
         self.linkedin_status = None # str
-        
-        
-        self.email_hour = None # int
-        
-        
-        self.twitter_hour = None # int
-        
-        
-        self.linkedin_hour = None # int
-        
-        
-        self.facebook_hour = None # int
         

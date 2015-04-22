@@ -30,40 +30,24 @@ class NewsletterSettingsInput implements ArrayAccess {
   static $swaggerTypes = array(
       'email_status' => 'string',
       'twitter_status' => 'string',
-      'linkedin_status' => 'string',
-      'email_hour' => 'int',
-      'twitter_hour' => 'int',
-      'linkedin_hour' => 'int',
-      'facebook_hour' => 'int'
+      'linkedin_status' => 'string'
   );
 
   static $attributeMap = array(
       'email_status' => 'email_status',
       'twitter_status' => 'twitter_status',
-      'linkedin_status' => 'linkedin_status',
-      'email_hour' => 'email_hour',
-      'twitter_hour' => 'twitter_hour',
-      'linkedin_hour' => 'linkedin_hour',
-      'facebook_hour' => 'facebook_hour'
+      'linkedin_status' => 'linkedin_status'
   );
 
   
   public $email_status; /* string */
   public $twitter_status; /* string */
   public $linkedin_status; /* string */
-  public $email_hour; /* int */
-  public $twitter_hour; /* int */
-  public $linkedin_hour; /* int */
-  public $facebook_hour; /* int */
 
   public function __construct(array $data = null) {
     $this->email_status = $data["email_status"];
     $this->twitter_status = $data["twitter_status"];
     $this->linkedin_status = $data["linkedin_status"];
-    $this->email_hour = $data["email_hour"];
-    $this->twitter_hour = $data["twitter_hour"];
-    $this->linkedin_hour = $data["linkedin_hour"];
-    $this->facebook_hour = $data["facebook_hour"];
   }
 
   public function offsetExists($offset) {

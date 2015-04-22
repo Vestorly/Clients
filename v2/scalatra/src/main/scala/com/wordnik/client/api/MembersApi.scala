@@ -32,7 +32,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
   val findMembersOperation = (apiOperation[Members]("findMembers")
       summary ""
       parameters(
-        queryParam[String]("vestorly_auth").description("")
+        queryParam[String]("vestorly-auth").description("")
         
         
         
@@ -50,7 +50,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly_auth = params.getAs[String]("vestorly_auth")
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
       
     
 
@@ -60,7 +60,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly_auth: " + vestorly_auth)
+    println("vestorly-auth: " + vestorly-auth)
   
   }
 
@@ -76,7 +76,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         ,
-        queryParam[String]("vestorly_auth").description("")
+        queryParam[String]("vestorly-auth").description("")
         
         
         
@@ -110,7 +110,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly_auth = params.getAs[String]("vestorly_auth")
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
       
     
 
@@ -120,7 +120,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly_auth: " + vestorly_auth)
+    println("vestorly-auth: " + vestorly-auth)
   
   }
 
@@ -136,7 +136,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         ,
-        queryParam[String]("vestorly_auth").description("")
+        queryParam[String]("vestorly-auth").description("")
         
         
         
@@ -170,7 +170,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly_auth = params.getAs[String]("vestorly_auth")
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
       
     
 
@@ -180,7 +180,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly_auth: " + vestorly_auth)
+    println("vestorly-auth: " + vestorly-auth)
   
   }
 

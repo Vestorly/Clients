@@ -1,6 +1,6 @@
 'use strict';
 
-exports.findEvents = function(vestorly_auth) {
+exports.findEvents = function(vestorly-auth) {
 
   var examples = {};
   
@@ -23,7 +23,7 @@ exports.findEvents = function(vestorly_auth) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.findEventByID = function(id, vestorly_auth) {
+exports.findEventByID = function(id, vestorly-auth) {
 
   var examples = {};
   
@@ -44,7 +44,7 @@ exports.findEventByID = function(id, vestorly_auth) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.updateEventByID = function(id, vestorly_auth, Event) {
+exports.updateEventByID = function(id, vestorly-auth, Event) {
 
   var examples = {};
   

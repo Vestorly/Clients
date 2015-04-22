@@ -9,6 +9,7 @@ import java.util.*;
 
 import io.swagger.client.model.Posts;
 import io.swagger.client.model.Post;
+import io.swagger.client.model.PostInput;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.file.FileDataBodyPart;
@@ -56,7 +57,7 @@ public class PostsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     if (filterBy != null)
       queryParams.put("filter_by", ApiInvoker.parameterToString(filterBy));
     
@@ -95,11 +96,11 @@ public class PostsApi {
    * 
    * Create a new post in the Vestorly Platform
    * @param vestorlyAuth Vestorly Auth Token
-   * @param post Post
+   * @param post Post you want to create
    * @return Post
    */
-  public Post createPost (String vestorlyAuth, String post) throws ApiException {
-    Object postBody = null;
+  public Post createPost (String vestorlyAuth, PostInput post) throws ApiException {
+    Object postBody = post;
     
 
     // create path and map variables
@@ -111,7 +112,7 @@ public class PostsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
     
     String[] contentTypes = {
@@ -124,14 +125,10 @@ public class PostsApi {
       boolean hasFields = false;
       FormDataMultiPart mp = new FormDataMultiPart();
       
-      hasFields = true;
-      mp.field("Post", ApiInvoker.parameterToString(post), MediaType.MULTIPART_FORM_DATA_TYPE);
-      
       if(hasFields)
         postBody = mp;
     }
     else {
-      formParams.put("Post", ApiInvoker.parameterToString(post));
       
     }
 
@@ -153,10 +150,9 @@ public class PostsApi {
    * Query all posts
    * @param vestorlyAuth Vestorly Auth Token
    * @param id ID of post to fetch
-   * @param filterBy Filter post by parameters
    * @return Post
    */
-  public Post getPostByID (String vestorlyAuth, String id, String filterBy) throws ApiException {
+  public Post getPostByID (String vestorlyAuth, String id) throws ApiException {
     Object postBody = null;
     
 
@@ -170,9 +166,7 @@ public class PostsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
-    if (filterBy != null)
-      queryParams.put("filter_by", ApiInvoker.parameterToString(filterBy));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
     
     String[] contentTypes = {
@@ -209,12 +203,12 @@ public class PostsApi {
    * 
    * Update A Post
    * @param vestorlyAuth Vestorly Auth Token
-   * @param id ID of post to fetch
-   * @param post Post
+   * @param id id of post to fetch
+   * @param post Post you want to update
    * @return Post
    */
-  public Post updatePostByID (String vestorlyAuth, String id, String post) throws ApiException {
-    Object postBody = null;
+  public Post updatePostByID (String vestorlyAuth, String id, PostInput post) throws ApiException {
+    Object postBody = post;
     
 
     // create path and map variables
@@ -227,7 +221,7 @@ public class PostsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
     
     String[] contentTypes = {
@@ -240,14 +234,10 @@ public class PostsApi {
       boolean hasFields = false;
       FormDataMultiPart mp = new FormDataMultiPart();
       
-      hasFields = true;
-      mp.field("Post", ApiInvoker.parameterToString(post), MediaType.MULTIPART_FORM_DATA_TYPE);
-      
       if(hasFields)
         postBody = mp;
     }
     else {
-      formParams.put("Post", ApiInvoker.parameterToString(post));
       
     }
 

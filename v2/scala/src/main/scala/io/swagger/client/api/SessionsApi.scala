@@ -50,9 +50,11 @@ class SessionsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2
     }
   }
   
-  def logout (vestorly_auth: String) : Option[Session] = {
+  def logout (vestorly-auth: String, id: String) : Option[Session] = {
     // create path and map variables
-    val path = "/sessions/{id}".replaceAll("\\{format\\}","json")
+    val path = "/sessions/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
+
+    
 
     
     val contentType = {

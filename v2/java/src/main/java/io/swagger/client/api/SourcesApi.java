@@ -8,6 +8,7 @@ import io.swagger.client.model.*;
 import java.util.*;
 
 import io.swagger.client.model.Sources;
+import io.swagger.client.model.SourceInput;
 import io.swagger.client.model.Source;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
@@ -55,7 +56,7 @@ public class SourcesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
     
     String[] contentTypes = {
@@ -95,8 +96,8 @@ public class SourcesApi {
    * @param source Source
    * @return Source
    */
-  public Source createSource (String vestorlyAuth, String source) throws ApiException {
-    Object postBody = null;
+  public Source createSource (String vestorlyAuth, SourceInput source) throws ApiException {
+    Object postBody = source;
     
 
     // create path and map variables
@@ -108,7 +109,7 @@ public class SourcesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
     
     String[] contentTypes = {
@@ -121,14 +122,10 @@ public class SourcesApi {
       boolean hasFields = false;
       FormDataMultiPart mp = new FormDataMultiPart();
       
-      hasFields = true;
-      mp.field("Source", ApiInvoker.parameterToString(source), MediaType.MULTIPART_FORM_DATA_TYPE);
-      
       if(hasFields)
         postBody = mp;
     }
     else {
-      formParams.put("Source", ApiInvoker.parameterToString(source));
       
     }
 
@@ -166,7 +163,7 @@ public class SourcesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
     
     String[] contentTypes = {
@@ -207,8 +204,8 @@ public class SourcesApi {
    * @param source Source
    * @return Source
    */
-  public Source UpdateSourceByID (String vestorlyAuth, String id, String source) throws ApiException {
-    Object postBody = null;
+  public Source UpdateSourceByID (String vestorlyAuth, String id, SourceInput source) throws ApiException {
+    Object postBody = source;
     
 
     // create path and map variables
@@ -221,7 +218,7 @@ public class SourcesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
     
     String[] contentTypes = {
@@ -234,14 +231,10 @@ public class SourcesApi {
       boolean hasFields = false;
       FormDataMultiPart mp = new FormDataMultiPart();
       
-      hasFields = true;
-      mp.field("Source", ApiInvoker.parameterToString(source), MediaType.MULTIPART_FORM_DATA_TYPE);
-      
       if(hasFields)
         postBody = mp;
     }
     else {
-      formParams.put("Source", ApiInvoker.parameterToString(source));
       
     }
 

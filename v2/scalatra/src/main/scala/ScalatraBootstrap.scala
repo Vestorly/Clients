@@ -17,7 +17,6 @@ class ScalatraBootstrap extends LifeCycle {
       context mount (new MembereventsApi, "/Memberevents/*")
       context mount (new AdvisorsApi, "/Advisors/*")
       context mount (new SessionsApi, "/Sessions/*")
-      context mount (new NewslettersApi, "/Newsletters/*")
       context mount (new PostsApi, "/Posts/*")
       context mount (new SourcesApi, "/Sources/*")
       context mount (new MembersApi, "/Members/*")

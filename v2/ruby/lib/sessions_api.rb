@@ -60,10 +60,11 @@ class SessionsApi
   end
 
   # 
-  # Logout
+  # Logout of the vestorly platform
   # @param vestorly_auth Authenication token
+  # @param id ID of pet to session
   # @return Session
-  def self.logout (vestorly_auth, opts={})
+  def self.logout (vestorly_auth, id, opts={})
     query_param_keys = []
     headerParams = {}
 
@@ -71,12 +72,14 @@ class SessionsApi
     
     # set default values and merge with input
     options = {
-      :'vestorly_auth' => vestorly_auth
+      :'vestorly_auth' => vestorly_auth,
+      :'id' => id
       
     }.merge(opts)
 
     #resource path
-    path = "/sessions/{id}".sub('{format}','json')
+    path = "/sessions/{id}".sub('{format}','json').sub('{' + 'id' + '}', id.to_s)
+    
     
     # pull querystring keys from options
     queryopts = options.select do |key,value|
@@ -90,7 +93,7 @@ class SessionsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = []
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -101,7 +104,7 @@ class SessionsApi
     # form parameters
     form_parameter_hash = {}
     
-    form_parameter_hash["vestorly_auth"] = vestorly_auth
+    form_parameter_hash["vestorly-auth"] = vestorly_auth
     
     response = Swagger::Request.new(:DELETE, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
      Session.new(response)

@@ -72,7 +72,7 @@ class SourcesApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         
@@ -106,7 +106,7 @@ class SourcesApi(object):
             vestorly_auth, str: Vestorly Auth Token (required)
             
             
-            source, str: Source (required)
+            source, SourceInput: Source (required)
             
             
         
@@ -140,7 +140,9 @@ class SourcesApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
+
         
 
         
@@ -149,9 +151,7 @@ class SourcesApi(object):
 
         
         if ('source' in params):
-            formParams['Source'] = params['source']
-        
-
+            bodyParam = params['source']
         
 
         postData = (formParams if formParams else bodyParam)
@@ -211,7 +211,7 @@ class SourcesApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         
@@ -254,7 +254,7 @@ class SourcesApi(object):
             id, str: ID of source to fetch (required)
             
             
-            source, str: Source (required)
+            source, SourceInput: Source (required)
             
             
         
@@ -288,7 +288,7 @@ class SourcesApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         
@@ -302,10 +302,10 @@ class SourcesApi(object):
         
 
         
-        if ('source' in params):
-            formParams['Source'] = params['source']
-        
 
+        
+        if ('source' in params):
+            bodyParam = params['source']
         
 
         postData = (formParams if formParams else bodyParam)

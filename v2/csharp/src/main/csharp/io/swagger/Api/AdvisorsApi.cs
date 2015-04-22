@@ -36,7 +36,7 @@ namespace io.swagger.Api {
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
     
     /// <returns></returns>
-    public void  findAdvisors (string VestorlyAuth) {
+    public Advisors  findAdvisors (string VestorlyAuth) {
       // create path and map variables
       var path = "/advisors".Replace("{format}","json");
 
@@ -48,7 +48,7 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       
 
@@ -57,22 +57,27 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(void) == typeof(byte[])) {
+        if (typeof(Advisors) == typeof(byte[])) {
           
+          var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
+          return ((object)response) as Advisors;
           
-          apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return;
           
         } else {
           
+          var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
+          if (response != null){
+             return (Advisors) ApiInvoker.deserialize(response, typeof(Advisors));
+          }
+          else {
+            return null;
+          }
           
-          apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return;
           
         }
       } catch (ApiException ex) {
         if(ex.ErrorCode == 404) {
-          return ;
+          return null;
         }
         else {
           throw ex;
@@ -100,7 +105,7 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       
 

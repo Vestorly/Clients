@@ -25,10 +25,6 @@ SamiNewsletterSettingsInput::init() {
     pEmail_status = null;
     pTwitter_status = null;
     pLinkedin_status = null;
-    pEmail_hour = null;
-    pTwitter_hour = null;
-    pLinkedin_hour = null;
-    pFacebook_hour = null;
     
 }
 
@@ -48,26 +44,6 @@ SamiNewsletterSettingsInput::cleanup() {
         
         delete pLinkedin_status;
         pLinkedin_status = null;
-    }
-    if(pEmail_hour != null) {
-        
-        delete pEmail_hour;
-        pEmail_hour = null;
-    }
-    if(pTwitter_hour != null) {
-        
-        delete pTwitter_hour;
-        pTwitter_hour = null;
-    }
-    if(pLinkedin_hour != null) {
-        
-        delete pLinkedin_hour;
-        pLinkedin_hour = null;
-    }
-    if(pFacebook_hour != null) {
-        
-        delete pFacebook_hour;
-        pFacebook_hour = null;
     }
     
 }
@@ -134,42 +110,6 @@ SamiNewsletterSettingsInput::fromJsonObject(IJsonValue* pJson) {
             jsonToValue(pLinkedin_status, pLinkedin_statusVal, L"String", L"String");
         }
         delete pLinkedin_statusKey;
-        JsonString* pEmail_hourKey = new JsonString(L"email_hour");
-        IJsonValue* pEmail_hourVal = null;
-        pJsonObject->GetValue(pEmail_hourKey, pEmail_hourVal);
-        if(pEmail_hourVal != null) {
-            
-            pEmail_hour = new Integer();
-            jsonToValue(pEmail_hour, pEmail_hourVal, L"Integer", L"Integer");
-        }
-        delete pEmail_hourKey;
-        JsonString* pTwitter_hourKey = new JsonString(L"twitter_hour");
-        IJsonValue* pTwitter_hourVal = null;
-        pJsonObject->GetValue(pTwitter_hourKey, pTwitter_hourVal);
-        if(pTwitter_hourVal != null) {
-            
-            pTwitter_hour = new Integer();
-            jsonToValue(pTwitter_hour, pTwitter_hourVal, L"Integer", L"Integer");
-        }
-        delete pTwitter_hourKey;
-        JsonString* pLinkedin_hourKey = new JsonString(L"linkedin_hour");
-        IJsonValue* pLinkedin_hourVal = null;
-        pJsonObject->GetValue(pLinkedin_hourKey, pLinkedin_hourVal);
-        if(pLinkedin_hourVal != null) {
-            
-            pLinkedin_hour = new Integer();
-            jsonToValue(pLinkedin_hour, pLinkedin_hourVal, L"Integer", L"Integer");
-        }
-        delete pLinkedin_hourKey;
-        JsonString* pFacebook_hourKey = new JsonString(L"facebook_hour");
-        IJsonValue* pFacebook_hourVal = null;
-        pJsonObject->GetValue(pFacebook_hourKey, pFacebook_hourVal);
-        if(pFacebook_hourVal != null) {
-            
-            pFacebook_hour = new Integer();
-            jsonToValue(pFacebook_hour, pFacebook_hourVal, L"Integer", L"Integer");
-        }
-        delete pFacebook_hourKey;
         
     }
 }
@@ -234,22 +174,6 @@ SamiNewsletterSettingsInput::asJsonObject() {
     pJsonObject->Add(pLinkedin_statusKey, toJson(getPLinkedinStatus(), "String", ""));
 
     
-    JsonString *pEmail_hourKey = new JsonString(L"email_hour");
-    pJsonObject->Add(pEmail_hourKey, toJson(getPEmailHour(), "Integer", ""));
-
-    
-    JsonString *pTwitter_hourKey = new JsonString(L"twitter_hour");
-    pJsonObject->Add(pTwitter_hourKey, toJson(getPTwitterHour(), "Integer", ""));
-
-    
-    JsonString *pLinkedin_hourKey = new JsonString(L"linkedin_hour");
-    pJsonObject->Add(pLinkedin_hourKey, toJson(getPLinkedinHour(), "Integer", ""));
-
-    
-    JsonString *pFacebook_hourKey = new JsonString(L"facebook_hour");
-    pJsonObject->Add(pFacebook_hourKey, toJson(getPFacebookHour(), "Integer", ""));
-
-    
     return pJsonObject;
 }
 
@@ -278,42 +202,6 @@ SamiNewsletterSettingsInput::getPLinkedinStatus() {
 void
 SamiNewsletterSettingsInput::setPLinkedinStatus(String* pLinkedin_status) {
     this->pLinkedin_status = pLinkedin_status;
-}
-
-Integer*
-SamiNewsletterSettingsInput::getPEmailHour() {
-    return pEmail_hour;
-}
-void
-SamiNewsletterSettingsInput::setPEmailHour(Integer* pEmail_hour) {
-    this->pEmail_hour = pEmail_hour;
-}
-
-Integer*
-SamiNewsletterSettingsInput::getPTwitterHour() {
-    return pTwitter_hour;
-}
-void
-SamiNewsletterSettingsInput::setPTwitterHour(Integer* pTwitter_hour) {
-    this->pTwitter_hour = pTwitter_hour;
-}
-
-Integer*
-SamiNewsletterSettingsInput::getPLinkedinHour() {
-    return pLinkedin_hour;
-}
-void
-SamiNewsletterSettingsInput::setPLinkedinHour(Integer* pLinkedin_hour) {
-    this->pLinkedin_hour = pLinkedin_hour;
-}
-
-Integer*
-SamiNewsletterSettingsInput::getPFacebookHour() {
-    return pFacebook_hour;
-}
-void
-SamiNewsletterSettingsInput::setPFacebookHour(Integer* pFacebook_hour) {
-    this->pFacebook_hour = pFacebook_hour;
 }
 
 

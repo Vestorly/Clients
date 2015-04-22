@@ -8,6 +8,7 @@ import io.swagger.client.model.*;
 import java.util.*;
 
 import io.swagger.client.model.NewsletterSettings;
+import io.swagger.client.model.NewsletterSettingsInput;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.file.FileDataBodyPart;
@@ -54,7 +55,7 @@ public class NewslettersettingsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
     
     String[] contentTypes = {
@@ -94,8 +95,8 @@ public class NewslettersettingsApi {
    * @param newsletterSettings newsletter settings
    * @return NewsletterSettings
    */
-  public NewsletterSettings updateNewsletterSettingsByID (String vestorlyAuth, String newsletterSettings) throws ApiException {
-    Object postBody = null;
+  public NewsletterSettings updateNewsletterSettingsByID (String vestorlyAuth, NewsletterSettingsInput newsletterSettings) throws ApiException {
+    Object postBody = newsletterSettings;
     
 
     // create path and map variables
@@ -107,7 +108,7 @@ public class NewslettersettingsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
     
     String[] contentTypes = {
@@ -120,14 +121,10 @@ public class NewslettersettingsApi {
       boolean hasFields = false;
       FormDataMultiPart mp = new FormDataMultiPart();
       
-      hasFields = true;
-      mp.field("newsletter_settings", ApiInvoker.parameterToString(newsletterSettings), MediaType.MULTIPART_FORM_DATA_TYPE);
-      
       if(hasFields)
         postBody = mp;
     }
     else {
-      formParams.put("newsletter_settings", ApiInvoker.parameterToString(newsletterSettings));
       
     }
 
@@ -165,7 +162,7 @@ public class NewslettersettingsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
     
     String[] contentTypes = {

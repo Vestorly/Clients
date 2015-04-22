@@ -32,7 +32,7 @@ public class ArticlesApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Response") })
 
-  public Response findArticles(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth,
+  public Response findArticles(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
     @ApiParam(value = "Limit on the number of articles to return") @QueryParam("limit") Integer limit,
     @ApiParam(value = "Search query parameter") @QueryParam("text_query") String textQuery)
       throws NotFoundException {

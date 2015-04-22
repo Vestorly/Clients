@@ -18,7 +18,7 @@ class MembersApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
   def addHeader(key: String, value: String) = apiInvoker.defaultHeaders += key -> value 
 
   
-  def findMembers (vestorly_auth: String) : Option[Members] = {
+  def findMembers (vestorly-auth: String) : Option[Members] = {
     // create path and map variables
     val path = "/members".replaceAll("\\{format\\}","json")
 
@@ -34,7 +34,7 @@ class MembersApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
 
     
 
-    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
     
     
     
@@ -52,7 +52,7 @@ class MembersApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     }
   }
   
-  def findMemberByID (id: String, vestorly_auth: String) : Option[Member] = {
+  def findMemberByID (id: String, vestorly-auth: String) : Option[Member] = {
     // create path and map variables
     val path = "/members/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -70,7 +70,7 @@ class MembersApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
 
     
 
-    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
     
     
     
@@ -88,7 +88,7 @@ class MembersApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     }
   }
   
-  def findMemberByID_1 (id: String, vestorly_auth: String) : Option[Member] = {
+  def findMemberByID_1 (id: String, vestorly-auth: String) : Option[Member] = {
     // create path and map variables
     val path = "/members/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -106,7 +106,7 @@ class MembersApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
 
     
 
-    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
     
     
     

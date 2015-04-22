@@ -4,15 +4,19 @@ import os
 
 # import models into package
 
-from .models.source import Source
-
-from .models.source_input import SourceInput
-
-from .models.sources import Sources
-
 from .models.members import Members
 
 from .models.advisor import Advisor
+
+from .models.advisors import Advisors
+
+from .models.posts import Posts
+
+from .models.post import Post
+
+from .models.post_input import PostInput
+
+from .models.advsior import Advsior
 
 from .models.article import Article
 
@@ -25,10 +29,6 @@ from .models.newsletter_input import NewsletterInput
 from .models.newsletters import Newsletters
 
 from .models.member import Member
-
-from .models.posts import Posts
-
-from .models.post import Post
 
 from .models.event_input import EventInput
 
@@ -46,6 +46,12 @@ from .models.newsletter_settings_input import NewsletterSettingsInput
 
 from .models.newsletter_settings import NewsletterSettings
 
+from .models.source import Source
+
+from .models.source_input import SourceInput
+
+from .models.sources import Sources
+
 
 # import apis into package
 
@@ -62,8 +68,6 @@ from .memberevents_api import MembereventsApi
 from .advisors_api import AdvisorsApi
 
 from .sessions_api import SessionsApi
-
-from .newsletters_api import NewslettersApi
 
 from .posts_api import PostsApi
 

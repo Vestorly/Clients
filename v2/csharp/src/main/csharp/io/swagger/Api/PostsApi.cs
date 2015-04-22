@@ -49,7 +49,7 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       if (FilterBy != null){
         queryParams.Add("filter_by", apiInvoker.ParameterToString(FilterBy));
@@ -94,10 +94,10 @@ namespace io.swagger.Api {
     ///  Create a new post in the Vestorly Platform
     /// </summary>
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-     /// <param name="Post">Post</param>
+     /// <param name="Post">Post you want to create</param>
     
     /// <returns></returns>
-    public Post  createPost (string VestorlyAuth, string Post) {
+    public Post  createPost (string VestorlyAuth, PostInput Post) {
       // create path and map variables
       var path = "/posts".Replace("{format}","json");
 
@@ -109,19 +109,12 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       
 
       
 
-      if (Post != null){
-        if(Post is byte[]) {
-          formParams.Add("Post", Post);
-        } else {
-          formParams.Add("Post", apiInvoker.ParameterToString(Post));
-        }
-      }
       
 
       try {
@@ -133,7 +126,7 @@ namespace io.swagger.Api {
           
         } else {
           
-          var response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, null, headerParams, formParams);
+          var response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, Post, headerParams, formParams);
           if (response != null){
              return (Post) ApiInvoker.deserialize(response, typeof(Post));
           }
@@ -159,10 +152,9 @@ namespace io.swagger.Api {
     /// </summary>
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
      /// <param name="Id">ID of post to fetch</param>
-     /// <param name="FilterBy">Filter post by parameters</param>
     
     /// <returns></returns>
-    public Post  getPostByID (string VestorlyAuth, string Id, string FilterBy) {
+    public Post  getPostByID (string VestorlyAuth, string Id) {
       // create path and map variables
       var path = "/posts/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -174,10 +166,7 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
-      }
-      if (FilterBy != null){
-        queryParams.Add("filter_by", apiInvoker.ParameterToString(FilterBy));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       
 
@@ -219,11 +208,11 @@ namespace io.swagger.Api {
     ///  Update A Post
     /// </summary>
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-     /// <param name="Id">ID of post to fetch</param>
-     /// <param name="Post">Post</param>
+     /// <param name="Id">id of post to fetch</param>
+     /// <param name="Post">Post you want to update</param>
     
     /// <returns></returns>
-    public Post  updatePostByID (string VestorlyAuth, string Id, string Post) {
+    public Post  updatePostByID (string VestorlyAuth, string Id, PostInput Post) {
       // create path and map variables
       var path = "/posts/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -235,19 +224,12 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       
 
       
 
-      if (Post != null){
-        if(Post is byte[]) {
-          formParams.Add("Post", Post);
-        } else {
-          formParams.Add("Post", apiInvoker.ParameterToString(Post));
-        }
-      }
       
 
       try {
@@ -259,7 +241,7 @@ namespace io.swagger.Api {
           
         } else {
           
-          var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, null, headerParams, formParams);
+          var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, Post, headerParams, formParams);
           if (response != null){
              return (Post) ApiInvoker.deserialize(response, typeof(Post));
           }

@@ -22,18 +22,73 @@ SamiPost::~SamiPost() {
 
 void
 SamiPost::init() {
+    p_id = null;
+    pTitle = null;
+    pPost_date = null;
+    pBody = null;
+    pComment = null;
     pClient_only = null;
+    pAttachment = null;
+    pVideo = null;
+    pImg = null;
+    pImage_url = null;
     pImg_compressed = null;
     pImg_changed = null;
+    pTopic = null;
     
 }
 
 void
 SamiPost::cleanup() {
+    if(p_id != null) {
+        
+        delete p_id;
+        p_id = null;
+    }
+    if(pTitle != null) {
+        
+        delete pTitle;
+        pTitle = null;
+    }
+    if(pPost_date != null) {
+        
+        delete pPost_date;
+        pPost_date = null;
+    }
+    if(pBody != null) {
+        
+        delete pBody;
+        pBody = null;
+    }
+    if(pComment != null) {
+        
+        delete pComment;
+        pComment = null;
+    }
     if(pClient_only != null) {
         
         delete pClient_only;
         pClient_only = null;
+    }
+    if(pAttachment != null) {
+        
+        delete pAttachment;
+        pAttachment = null;
+    }
+    if(pVideo != null) {
+        
+        delete pVideo;
+        pVideo = null;
+    }
+    if(pImg != null) {
+        
+        delete pImg;
+        pImg = null;
+    }
+    if(pImage_url != null) {
+        
+        delete pImage_url;
+        pImage_url = null;
     }
     if(pImg_compressed != null) {
         
@@ -44,6 +99,11 @@ SamiPost::cleanup() {
         
         delete pImg_changed;
         pImg_changed = null;
+    }
+    if(pTopic != null) {
+        
+        delete pTopic;
+        pTopic = null;
     }
     
 }
@@ -83,6 +143,51 @@ SamiPost::fromJsonObject(IJsonValue* pJson) {
     JsonObject* pJsonObject = static_cast< JsonObject* >(pJson);
 
     if(pJsonObject != null) {
+        JsonString* p_idKey = new JsonString(L"_id");
+        IJsonValue* p_idVal = null;
+        pJsonObject->GetValue(p_idKey, p_idVal);
+        if(p_idVal != null) {
+            
+            p_id = new String();
+            jsonToValue(p_id, p_idVal, L"String", L"String");
+        }
+        delete p_idKey;
+        JsonString* pTitleKey = new JsonString(L"title");
+        IJsonValue* pTitleVal = null;
+        pJsonObject->GetValue(pTitleKey, pTitleVal);
+        if(pTitleVal != null) {
+            
+            pTitle = new String();
+            jsonToValue(pTitle, pTitleVal, L"String", L"String");
+        }
+        delete pTitleKey;
+        JsonString* pPost_dateKey = new JsonString(L"post_date");
+        IJsonValue* pPost_dateVal = null;
+        pJsonObject->GetValue(pPost_dateKey, pPost_dateVal);
+        if(pPost_dateVal != null) {
+            
+            pPost_date = new String();
+            jsonToValue(pPost_date, pPost_dateVal, L"String", L"String");
+        }
+        delete pPost_dateKey;
+        JsonString* pBodyKey = new JsonString(L"body");
+        IJsonValue* pBodyVal = null;
+        pJsonObject->GetValue(pBodyKey, pBodyVal);
+        if(pBodyVal != null) {
+            
+            pBody = new String();
+            jsonToValue(pBody, pBodyVal, L"String", L"String");
+        }
+        delete pBodyKey;
+        JsonString* pCommentKey = new JsonString(L"comment");
+        IJsonValue* pCommentVal = null;
+        pJsonObject->GetValue(pCommentKey, pCommentVal);
+        if(pCommentVal != null) {
+            
+            pComment = new String();
+            jsonToValue(pComment, pCommentVal, L"String", L"String");
+        }
+        delete pCommentKey;
         JsonString* pClient_onlyKey = new JsonString(L"client_only");
         IJsonValue* pClient_onlyVal = null;
         pJsonObject->GetValue(pClient_onlyKey, pClient_onlyVal);
@@ -92,6 +197,42 @@ SamiPost::fromJsonObject(IJsonValue* pJson) {
             jsonToValue(pClient_only, pClient_onlyVal, L"Boolean", L"Boolean");
         }
         delete pClient_onlyKey;
+        JsonString* pAttachmentKey = new JsonString(L"attachment");
+        IJsonValue* pAttachmentVal = null;
+        pJsonObject->GetValue(pAttachmentKey, pAttachmentVal);
+        if(pAttachmentVal != null) {
+            
+            pAttachment = new String();
+            jsonToValue(pAttachment, pAttachmentVal, L"String", L"String");
+        }
+        delete pAttachmentKey;
+        JsonString* pVideoKey = new JsonString(L"video");
+        IJsonValue* pVideoVal = null;
+        pJsonObject->GetValue(pVideoKey, pVideoVal);
+        if(pVideoVal != null) {
+            
+            pVideo = new String();
+            jsonToValue(pVideo, pVideoVal, L"String", L"String");
+        }
+        delete pVideoKey;
+        JsonString* pImgKey = new JsonString(L"img");
+        IJsonValue* pImgVal = null;
+        pJsonObject->GetValue(pImgKey, pImgVal);
+        if(pImgVal != null) {
+            
+            pImg = new String();
+            jsonToValue(pImg, pImgVal, L"String", L"String");
+        }
+        delete pImgKey;
+        JsonString* pImage_urlKey = new JsonString(L"image_url");
+        IJsonValue* pImage_urlVal = null;
+        pJsonObject->GetValue(pImage_urlKey, pImage_urlVal);
+        if(pImage_urlVal != null) {
+            
+            pImage_url = new String();
+            jsonToValue(pImage_url, pImage_urlVal, L"String", L"String");
+        }
+        delete pImage_urlKey;
         JsonString* pImg_compressedKey = new JsonString(L"img_compressed");
         IJsonValue* pImg_compressedVal = null;
         pJsonObject->GetValue(pImg_compressedKey, pImg_compressedVal);
@@ -110,6 +251,15 @@ SamiPost::fromJsonObject(IJsonValue* pJson) {
             jsonToValue(pImg_changed, pImg_changedVal, L"Boolean", L"Boolean");
         }
         delete pImg_changedKey;
+        JsonString* pTopicKey = new JsonString(L"topic");
+        IJsonValue* pTopicVal = null;
+        pJsonObject->GetValue(pTopicKey, pTopicVal);
+        if(pTopicVal != null) {
+            
+            pTopic = new String();
+            jsonToValue(pTopic, pTopicVal, L"String", L"String");
+        }
+        delete pTopicKey;
         
     }
 }
@@ -162,8 +312,44 @@ SamiPost::asJsonObject() {
     pJsonObject->Construct();
 
     
+    JsonString *p_idKey = new JsonString(L"_id");
+    pJsonObject->Add(p_idKey, toJson(getPId(), "String", ""));
+
+    
+    JsonString *pTitleKey = new JsonString(L"title");
+    pJsonObject->Add(pTitleKey, toJson(getPTitle(), "String", ""));
+
+    
+    JsonString *pPost_dateKey = new JsonString(L"post_date");
+    pJsonObject->Add(pPost_dateKey, toJson(getPPostDate(), "String", ""));
+
+    
+    JsonString *pBodyKey = new JsonString(L"body");
+    pJsonObject->Add(pBodyKey, toJson(getPBody(), "String", ""));
+
+    
+    JsonString *pCommentKey = new JsonString(L"comment");
+    pJsonObject->Add(pCommentKey, toJson(getPComment(), "String", ""));
+
+    
     JsonString *pClient_onlyKey = new JsonString(L"client_only");
     pJsonObject->Add(pClient_onlyKey, toJson(getPClientOnly(), "Boolean", ""));
+
+    
+    JsonString *pAttachmentKey = new JsonString(L"attachment");
+    pJsonObject->Add(pAttachmentKey, toJson(getPAttachment(), "String", ""));
+
+    
+    JsonString *pVideoKey = new JsonString(L"video");
+    pJsonObject->Add(pVideoKey, toJson(getPVideo(), "String", ""));
+
+    
+    JsonString *pImgKey = new JsonString(L"img");
+    pJsonObject->Add(pImgKey, toJson(getPImg(), "String", ""));
+
+    
+    JsonString *pImage_urlKey = new JsonString(L"image_url");
+    pJsonObject->Add(pImage_urlKey, toJson(getPImageUrl(), "String", ""));
 
     
     JsonString *pImg_compressedKey = new JsonString(L"img_compressed");
@@ -174,7 +360,56 @@ SamiPost::asJsonObject() {
     pJsonObject->Add(pImg_changedKey, toJson(getPImgChanged(), "Boolean", ""));
 
     
+    JsonString *pTopicKey = new JsonString(L"topic");
+    pJsonObject->Add(pTopicKey, toJson(getPTopic(), "String", ""));
+
+    
     return pJsonObject;
+}
+
+String*
+SamiPost::getPId() {
+    return p_id;
+}
+void
+SamiPost::setPId(String* p_id) {
+    this->p_id = p_id;
+}
+
+String*
+SamiPost::getPTitle() {
+    return pTitle;
+}
+void
+SamiPost::setPTitle(String* pTitle) {
+    this->pTitle = pTitle;
+}
+
+String*
+SamiPost::getPPostDate() {
+    return pPost_date;
+}
+void
+SamiPost::setPPostDate(String* pPost_date) {
+    this->pPost_date = pPost_date;
+}
+
+String*
+SamiPost::getPBody() {
+    return pBody;
+}
+void
+SamiPost::setPBody(String* pBody) {
+    this->pBody = pBody;
+}
+
+String*
+SamiPost::getPComment() {
+    return pComment;
+}
+void
+SamiPost::setPComment(String* pComment) {
+    this->pComment = pComment;
 }
 
 Boolean*
@@ -184,6 +419,42 @@ SamiPost::getPClientOnly() {
 void
 SamiPost::setPClientOnly(Boolean* pClient_only) {
     this->pClient_only = pClient_only;
+}
+
+String*
+SamiPost::getPAttachment() {
+    return pAttachment;
+}
+void
+SamiPost::setPAttachment(String* pAttachment) {
+    this->pAttachment = pAttachment;
+}
+
+String*
+SamiPost::getPVideo() {
+    return pVideo;
+}
+void
+SamiPost::setPVideo(String* pVideo) {
+    this->pVideo = pVideo;
+}
+
+String*
+SamiPost::getPImg() {
+    return pImg;
+}
+void
+SamiPost::setPImg(String* pImg) {
+    this->pImg = pImg;
+}
+
+String*
+SamiPost::getPImageUrl() {
+    return pImage_url;
+}
+void
+SamiPost::setPImageUrl(String* pImage_url) {
+    this->pImage_url = pImage_url;
 }
 
 Boolean*
@@ -202,6 +473,15 @@ SamiPost::getPImgChanged() {
 void
 SamiPost::setPImgChanged(Boolean* pImg_changed) {
     this->pImg_changed = pImg_changed;
+}
+
+String*
+SamiPost::getPTopic() {
+    return pTopic;
+}
+void
+SamiPost::setPTopic(String* pTopic) {
+    this->pTopic = pTopic;
 }
 
 

@@ -57,7 +57,7 @@ class PostsApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }// query params
       if($filter_by !== null) {
         $queryParams['filter_by'] = $this->apiClient->toQueryValue($filter_by);
@@ -97,7 +97,7 @@ class PostsApi {
    * 
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @param string $post Post (required)
+   * @param PostInput $post Post you want to create (required)
    * @return Post
    */
    public function createPost($vestorly_auth, $post) {
@@ -119,15 +119,16 @@ class PostsApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       
-      // form params
-      if ($post !== null) {
-        $formParams['Post'] = $this->apiClient->toFormValue($post);
-      }
       
+      // body params
+      $body = null;
+      if (isset($post)) {
+        $body = $post;
+      }
 
       // for model (json/xml)
       if (isset($body)) {
@@ -160,10 +161,9 @@ class PostsApi {
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
    * @param string $id ID of post to fetch (required)
-   * @param string $filter_by Filter post by parameters (required)
    * @return Post
    */
-   public function getPostByID($vestorly_auth, $id, $filter_by) {
+   public function getPostByID($vestorly_auth, $id) {
 
       // parse inputs
       $resourcePath = "/posts/{id}";
@@ -182,10 +182,7 @@ class PostsApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
-      }// query params
-      if($filter_by !== null) {
-        $queryParams['filter_by'] = $this->apiClient->toQueryValue($filter_by);
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       // path params
@@ -226,8 +223,8 @@ class PostsApi {
    * 
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @param string $id ID of post to fetch (required)
-   * @param string $post Post (required)
+   * @param string $id id of post to fetch (required)
+   * @param PostInput $post Post you want to update (required)
    * @return Post
    */
    public function updatePostByID($vestorly_auth, $id, $post) {
@@ -249,7 +246,7 @@ class PostsApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       // path params
@@ -257,11 +254,12 @@ class PostsApi {
         $resourcePath = str_replace("{" . "id" . "}",
                                     $this->apiClient->toPathValue($id), $resourcePath);
       }
-      // form params
-      if ($post !== null) {
-        $formParams['Post'] = $this->apiClient->toFormValue($post);
-      }
       
+      // body params
+      $body = null;
+      if (isset($post)) {
+        $body = $post;
+      }
 
       // for model (json/xml)
       if (isset($body)) {

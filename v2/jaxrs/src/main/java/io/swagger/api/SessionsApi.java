@@ -41,13 +41,14 @@ public class SessionsApi {
   
   @DELETE
   @Path("/{id}")
-  @Consumes({ "application/x-www-form-urlencoded",  })
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Logout", response = Session.class)
+  
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Logout of the vestorly platform", response = Session.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Response") })
 
-  public Response logout(@ApiParam(value = "Authenication token", required=true )@FormParam("vestorlyAuth")  String vestorlyAuth)
+  public Response logout(@ApiParam(value = "Authenication token", required=true )@FormParam("vestorlyAuth")  String vestorlyAuth,
+    @ApiParam(value = "ID of pet to session",required=true ) @PathParam("id") String id)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

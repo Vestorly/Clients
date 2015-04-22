@@ -1,9 +1,10 @@
 
 class Newsletter
-  attr_accessor :is_sent, :is_default, :click_count, :unique_click_count, :total_click_count
+  attr_accessor :_id, :is_sent, :is_default, :click_count, :unique_click_count, :total_click_count
   # :internal => :external
   def self.attribute_map
     {
+      :_id => :'_id',
       :is_sent => :'is_sent',
       :is_default => :'is_default',
       :click_count => :'click_count',
@@ -16,6 +17,10 @@ class Newsletter
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
+    
+    if self.class.attribute_map[:"_id"]
+      @_id = attributes["_id"]
+    end
     
     if self.class.attribute_map[:"is_sent"]
       @is_sent = attributes["is_sent"]

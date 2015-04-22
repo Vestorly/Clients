@@ -72,7 +72,7 @@ class NewslettersApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         
@@ -140,7 +140,7 @@ class NewslettersApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         
@@ -217,7 +217,7 @@ class NewslettersApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         

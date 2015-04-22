@@ -28,26 +28,66 @@ use \ArrayAccess;
 
 class Post implements ArrayAccess {
   static $swaggerTypes = array(
+      '_id' => 'string',
+      'title' => 'string',
+      'post_date' => 'string',
+      'body' => 'string',
+      'comment' => 'string',
       'client_only' => 'boolean',
+      'attachment' => 'string',
+      'video' => 'string',
+      'img' => 'string',
+      'image_url' => 'string',
       'img_compressed' => 'boolean',
-      'img_changed' => 'boolean'
+      'img_changed' => 'boolean',
+      'topic' => 'string'
   );
 
   static $attributeMap = array(
+      '_id' => '_id',
+      'title' => 'title',
+      'post_date' => 'post_date',
+      'body' => 'body',
+      'comment' => 'comment',
       'client_only' => 'client_only',
+      'attachment' => 'attachment',
+      'video' => 'video',
+      'img' => 'img',
+      'image_url' => 'image_url',
       'img_compressed' => 'img_compressed',
-      'img_changed' => 'img_changed'
+      'img_changed' => 'img_changed',
+      'topic' => 'topic'
   );
 
   
+  public $_id; /* string */
+  public $title; /* string */
+  public $post_date; /* string */
+  public $body; /* string */
+  public $comment; /* string */
   public $client_only; /* boolean */
+  public $attachment; /* string */
+  public $video; /* string */
+  public $img; /* string */
+  public $image_url; /* string */
   public $img_compressed; /* boolean */
   public $img_changed; /* boolean */
+  public $topic; /* string */
 
   public function __construct(array $data = null) {
+    $this->_id = $data["_id"];
+    $this->title = $data["title"];
+    $this->post_date = $data["post_date"];
+    $this->body = $data["body"];
+    $this->comment = $data["comment"];
     $this->client_only = $data["client_only"];
+    $this->attachment = $data["attachment"];
+    $this->video = $data["video"];
+    $this->img = $data["img"];
+    $this->image_url = $data["image_url"];
     $this->img_compressed = $data["img_compressed"];
     $this->img_changed = $data["img_changed"];
+    $this->topic = $data["topic"];
   }
 
   public function offsetExists($offset) {

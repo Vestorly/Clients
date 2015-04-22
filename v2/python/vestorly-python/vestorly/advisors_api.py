@@ -42,7 +42,7 @@ class AdvisorsApi(object):
             
             
         
-        Returns: 
+        Returns: Advisors
         """
 
         allParams = ['vestorly_auth']
@@ -72,7 +72,7 @@ class AdvisorsApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         
@@ -88,6 +88,12 @@ class AdvisorsApi(object):
         response = self.apiClient.callAPI(resourcePath, method, queryParams,
                                           postData, headerParams, files=files)
 
+        
+        if not response:
+            return None
+
+        responseObject = self.apiClient.deserialize(response, 'Advisors')
+        return responseObject
         
         
         
@@ -134,7 +140,7 @@ class AdvisorsApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         

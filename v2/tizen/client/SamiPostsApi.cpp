@@ -52,7 +52,7 @@ findPostsProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiErro
 }
 
 SamiPosts* 
-SamiPostsApi::findPostsWithCompletion(String* vestorly_auth, String* filter_by, void (* success)(SamiPosts*, SamiError*)) {
+SamiPostsApi::findPostsWithCompletion(String* vestorly-auth, String* filter_by, void (* success)(SamiPosts*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findPostsProcessor, (void(*)(void*, SamiError*))success);
@@ -65,7 +65,7 @@ SamiPostsApi::findPostsWithCompletion(String* vestorly_auth, String* filter_by, 
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
+    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
   
   
     queryParams->Add(new String("filter_by"), filter_by);
@@ -120,7 +120,7 @@ createPostProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiErr
 }
 
 SamiPost* 
-SamiPostsApi::createPostWithCompletion(String* vestorly_auth, String* Post, void (* success)(SamiPost*, SamiError*)) {
+SamiPostsApi::createPostWithCompletion(String* vestorly-auth, SamiPostInput* post, void (* success)(SamiPost*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&createPostProcessor, (void(*)(void*, SamiError*))success);
@@ -133,12 +133,20 @@ SamiPostsApi::createPostWithCompletion(String* vestorly_auth, String* Post, void
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
+    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
   
   
 
   String* mBody = null;
 
+  
+  
+  
+  if(post != null) {
+    mBody = new String(post->asJson());
+    headerParams->Add(new String("Content-Type"), new String("application/json"));
+  }
+  
   
 
   String url(L"/posts");
@@ -185,7 +193,7 @@ getPostByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiEr
 }
 
 SamiPost* 
-SamiPostsApi::getPostByIDWithCompletion(String* vestorly_auth, String* _id, String* filter_by, void (* success)(SamiPost*, SamiError*)) {
+SamiPostsApi::getPostByIDWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiPost*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&getPostByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -198,10 +206,7 @@ SamiPostsApi::getPostByIDWithCompletion(String* vestorly_auth, String* _id, Stri
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
-  
-  
-    queryParams->Add(new String("filter_by"), filter_by);
+    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
   
   
 
@@ -258,7 +263,7 @@ updatePostByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sam
 }
 
 SamiPost* 
-SamiPostsApi::updatePostByIDWithCompletion(String* vestorly_auth, String* _id, String* Post, void (* success)(SamiPost*, SamiError*)) {
+SamiPostsApi::updatePostByIDWithCompletion(String* vestorly-auth, String* _id, SamiPostInput* post, void (* success)(SamiPost*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&updatePostByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -271,12 +276,20 @@ SamiPostsApi::updatePostByIDWithCompletion(String* vestorly_auth, String* _id, S
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
+    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
   
   
 
   String* mBody = null;
 
+  
+  
+  
+  if(post != null) {
+    mBody = new String(post->asJson());
+    headerParams->Add(new String("Content-Type"), new String("application/json"));
+  }
+  
   
 
   String url(L"/posts/{id}");

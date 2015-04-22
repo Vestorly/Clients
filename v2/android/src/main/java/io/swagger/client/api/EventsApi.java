@@ -9,6 +9,7 @@ import java.util.*;
 
 import io.swagger.client.model.Events;
 import io.swagger.client.model.Event;
+import io.swagger.client.model.EventInput;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -55,7 +56,7 @@ public class EventsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -107,7 +108,7 @@ public class EventsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -143,8 +144,8 @@ public class EventsApi {
   }
   
   
-  public Event  updateEventByID (String id, String vestorlyAuth, String event) throws ApiException {
-    Object postBody = null;
+  public Event  updateEventByID (String id, String vestorlyAuth, EventInput event) throws ApiException {
+    Object postBody = event;
 
     
 
@@ -159,7 +160,7 @@ public class EventsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -173,16 +174,11 @@ public class EventsApi {
       // file uploading
       MultipartEntityBuilder builder = MultipartEntityBuilder.create();
       
-      if (event != null) {
-        builder.addTextBody("Event", ApiInvoker.parameterToString(event), ApiInvoker.TEXT_PLAIN_UTF8);
-      }
-      
 
       HttpEntity httpEntity = builder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-      formParams.put("Event", ApiInvoker.parameterToString(event));
       
     }
 

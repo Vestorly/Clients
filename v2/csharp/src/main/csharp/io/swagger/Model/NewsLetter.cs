@@ -8,6 +8,11 @@ namespace io.swagger.Model {
     
 
     
+    public string Id { get; set; }
+
+    
+
+    
     public bool? IsSent { get; set; }
 
     
@@ -35,6 +40,8 @@ namespace io.swagger.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class Newsletter {\n");
+      
+      sb.Append("  Id: ").Append(Id).Append("\n");
       
       sb.Append("  IsSent: ").Append(IsSent).Append("\n");
       

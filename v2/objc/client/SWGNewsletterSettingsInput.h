@@ -14,12 +14,4 @@
 
 @property(nonatomic) NSString<Optional>* linkedin_status;
 
-@property(nonatomic) NSNumber<Optional>* email_hour;
-
-@property(nonatomic) NSNumber<Optional>* twitter_hour;
-
-@property(nonatomic) NSNumber<Optional>* linkedin_hour;
-
-@property(nonatomic) NSNumber<Optional>* facebook_hour;
-
 @end

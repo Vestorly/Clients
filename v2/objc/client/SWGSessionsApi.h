@@ -31,14 +31,16 @@
 /**
 
  
- Logout
+ Logout of the vestorly platform
 
- @param vestorly_auth Authenication token
+ @param vestorly-auth Authenication token
+ @param _id ID of pet to session
  
 
  return type: SWGSession*
  */
--(NSNumber*) logoutWithCompletionBlock :(NSString*) vestorly_auth 
+-(NSNumber*) logoutWithCompletionBlock :(NSString*) vestorly-auth 
+     _id:(NSString*) _id 
     
     completionHandler: (void (^)(SWGSession* output, NSError* error))completionBlock;
     

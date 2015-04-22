@@ -52,7 +52,7 @@ findSourcesProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiEr
 }
 
 SamiSources* 
-SamiSourcesApi::findSourcesWithCompletion(String* vestorly_auth, void (* success)(SamiSources*, SamiError*)) {
+SamiSourcesApi::findSourcesWithCompletion(String* vestorly-auth, void (* success)(SamiSources*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findSourcesProcessor, (void(*)(void*, SamiError*))success);
@@ -65,7 +65,7 @@ SamiSourcesApi::findSourcesWithCompletion(String* vestorly_auth, void (* success
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
+    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
   
   
 
@@ -117,7 +117,7 @@ createSourceProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiE
 }
 
 SamiSource* 
-SamiSourcesApi::createSourceWithCompletion(String* vestorly_auth, String* Source, void (* success)(SamiSource*, SamiError*)) {
+SamiSourcesApi::createSourceWithCompletion(String* vestorly-auth, SamiSourceInput* source, void (* success)(SamiSource*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&createSourceProcessor, (void(*)(void*, SamiError*))success);
@@ -130,12 +130,20 @@ SamiSourcesApi::createSourceWithCompletion(String* vestorly_auth, String* Source
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
+    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
   
   
 
   String* mBody = null;
 
+  
+  
+  
+  if(source != null) {
+    mBody = new String(source->asJson());
+    headerParams->Add(new String("Content-Type"), new String("application/json"));
+  }
+  
   
 
   String url(L"/sources/");
@@ -182,7 +190,7 @@ getSourceByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sami
 }
 
 SamiSource* 
-SamiSourcesApi::getSourceByIDWithCompletion(String* vestorly_auth, String* _id, void (* success)(SamiSource*, SamiError*)) {
+SamiSourcesApi::getSourceByIDWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiSource*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&getSourceByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -195,7 +203,7 @@ SamiSourcesApi::getSourceByIDWithCompletion(String* vestorly_auth, String* _id, 
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
+    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
   
   
 
@@ -252,7 +260,7 @@ UpdateSourceByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, S
 }
 
 SamiSource* 
-SamiSourcesApi::UpdateSourceByIDWithCompletion(String* vestorly_auth, String* _id, String* Source, void (* success)(SamiSource*, SamiError*)) {
+SamiSourcesApi::UpdateSourceByIDWithCompletion(String* vestorly-auth, String* _id, SamiSourceInput* source, void (* success)(SamiSource*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&UpdateSourceByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -265,12 +273,20 @@ SamiSourcesApi::UpdateSourceByIDWithCompletion(String* vestorly_auth, String* _i
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
+    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
   
   
 
   String* mBody = null;
 
+  
+  
+  
+  if(source != null) {
+    mBody = new String(source->asJson());
+    headerParams->Add(new String("Content-Type"), new String("application/json"));
+  }
+  
   
 
   String url(L"/sources/{id}");

@@ -75,7 +75,7 @@ class PostsApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
         if ('filter_by' in params):
             queryParams['filter_by'] = self.apiClient.toPathValue(params['filter_by'])
@@ -112,7 +112,7 @@ class PostsApi(object):
             vestorly_auth, str: Vestorly Auth Token (required)
             
             
-            post, str: Post (required)
+            post, PostInput: Post you want to create (required)
             
             
         
@@ -146,7 +146,9 @@ class PostsApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
+
         
 
         
@@ -155,9 +157,7 @@ class PostsApi(object):
 
         
         if ('post' in params):
-            formParams['Post'] = params['post']
-        
-
+            bodyParam = params['post']
         
 
         postData = (formParams if formParams else bodyParam)
@@ -186,14 +186,11 @@ class PostsApi(object):
             id, str: ID of post to fetch (required)
             
             
-            filter_by, str: Filter post by parameters (required)
-            
-            
         
         Returns: Post
         """
 
-        allParams = ['vestorly_auth', 'id', 'filter_by']
+        allParams = ['vestorly_auth', 'id']
 
         params = locals()
         for (key, val) in params['kwargs'].iteritems():
@@ -220,10 +217,7 @@ class PostsApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
-        
-        if ('filter_by' in params):
-            queryParams['filter_by'] = self.apiClient.toPathValue(params['filter_by'])
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         
@@ -263,10 +257,10 @@ class PostsApi(object):
             vestorly_auth, str: Vestorly Auth Token (required)
             
             
-            id, str: ID of post to fetch (required)
+            id, str: id of post to fetch (required)
             
             
-            post, str: Post (required)
+            post, PostInput: Post you want to update (required)
             
             
         
@@ -300,7 +294,7 @@ class PostsApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         
@@ -314,10 +308,10 @@ class PostsApi(object):
         
 
         
-        if ('post' in params):
-            formParams['Post'] = params['post']
-        
 
+        
+        if ('post' in params):
+            bodyParam = params['post']
         
 
         postData = (formParams if formParams else bodyParam)

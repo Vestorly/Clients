@@ -1,6 +1,7 @@
 package io.swagger.client.api
 
 import io.swagger.client.model.NewsletterSettings
+import io.swagger.client.model.NewsletterSettingsInput
 import io.swagger.client.ApiInvoker
 import io.swagger.client.ApiException
 
@@ -17,7 +18,7 @@ class NewslettersettingsApi(val defBasePath: String = "https://staging.vestorly.
   def addHeader(key: String, value: String) = apiInvoker.defaultHeaders += key -> value 
 
   
-  def findNewsletterSettings (vestorly_auth: String) : Option[NewsletterSettings] = {
+  def findNewsletterSettings (vestorly-auth: String) : Option[NewsletterSettings] = {
     // create path and map variables
     val path = "/newsletter_settings".replaceAll("\\{format\\}","json")
 
@@ -33,7 +34,7 @@ class NewslettersettingsApi(val defBasePath: String = "https://staging.vestorly.
 
     
 
-    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
     
     
     
@@ -51,14 +52,17 @@ class NewslettersettingsApi(val defBasePath: String = "https://staging.vestorly.
     }
   }
   
-  def updateNewsletterSettingsByID (vestorly_auth: String, newsletter_settings: String) : Option[NewsletterSettings] = {
+  def updateNewsletterSettingsByID (vestorly-auth: String, newsletter_settings: NewsletterSettingsInput) : Option[NewsletterSettings] = {
     // create path and map variables
     val path = "/newsletter_settings".replaceAll("\\{format\\}","json")
 
     
     val contentType = {
+      if(newsletter_settings != null && newsletter_settings.isInstanceOf[File] )
+        "multipart/form-data"
+      else "application/json"
       
-      "application/json"
+      
     }
 
     // query params
@@ -67,13 +71,13 @@ class NewslettersettingsApi(val defBasePath: String = "https://staging.vestorly.
 
     
 
-    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
     
     
     
 
     try {
-      apiInvoker.invokeApi(basePath, path, "PUT", queryParams.toMap, None, headerParams.toMap, contentType) match {
+      apiInvoker.invokeApi(basePath, path, "PUT", queryParams.toMap, newsletter_settings, headerParams.toMap, contentType) match {
         case s: String =>
            Some(ApiInvoker.deserialize(s, "", classOf[NewsletterSettings]).asInstanceOf[NewsletterSettings])
          
@@ -85,7 +89,7 @@ class NewslettersettingsApi(val defBasePath: String = "https://staging.vestorly.
     }
   }
   
-  def findNewsletterSettingsByID (id: String, vestorly_auth: String) : Option[NewsletterSettings] = {
+  def findNewsletterSettingsByID (id: String, vestorly-auth: String) : Option[NewsletterSettings] = {
     // create path and map variables
     val path = "/newsletter_settings/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -103,7 +107,7 @@ class NewslettersettingsApi(val defBasePath: String = "https://staging.vestorly.
 
     
 
-    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
     
     
     

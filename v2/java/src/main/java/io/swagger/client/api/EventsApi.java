@@ -9,6 +9,7 @@ import java.util.*;
 
 import io.swagger.client.model.Events;
 import io.swagger.client.model.Event;
+import io.swagger.client.model.EventInput;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.file.FileDataBodyPart;
@@ -55,7 +56,7 @@ public class EventsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
     
     String[] contentTypes = {
@@ -109,7 +110,7 @@ public class EventsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
     
     String[] contentTypes = {
@@ -150,8 +151,8 @@ public class EventsApi {
    * @param event Event
    * @return Event
    */
-  public Event updateEventByID (String id, String vestorlyAuth, String event) throws ApiException {
-    Object postBody = null;
+  public Event updateEventByID (String id, String vestorlyAuth, EventInput event) throws ApiException {
+    Object postBody = event;
     
 
     // create path and map variables
@@ -164,7 +165,7 @@ public class EventsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
     
     String[] contentTypes = {
@@ -177,14 +178,10 @@ public class EventsApi {
       boolean hasFields = false;
       FormDataMultiPart mp = new FormDataMultiPart();
       
-      hasFields = true;
-      mp.field("Event", ApiInvoker.parameterToString(event), MediaType.MULTIPART_FORM_DATA_TYPE);
-      
       if(hasFields)
         postBody = mp;
     }
     else {
-      formParams.put("Event", ApiInvoker.parameterToString(event));
       
     }
 

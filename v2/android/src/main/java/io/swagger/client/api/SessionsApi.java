@@ -98,13 +98,13 @@ public class SessionsApi {
   }
   
   
-  public Session  logout (String vestorlyAuth) throws ApiException {
+  public Session  logout (String vestorlyAuth, String id) throws ApiException {
     Object postBody = null;
 
     
 
     // create path and map variables
-    String path = "/sessions/{id}".replaceAll("\\{format\\}","json");
+    String path = "/sessions/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     Map<String, String> queryParams = new HashMap<String, String>();
@@ -118,7 +118,7 @@ public class SessionsApi {
     
 
     String[] contentTypes = {
-      "application/x-www-form-urlencoded",
+      
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -127,7 +127,7 @@ public class SessionsApi {
       MultipartEntityBuilder builder = MultipartEntityBuilder.create();
       
       if (vestorlyAuth != null) {
-        builder.addTextBody("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth), ApiInvoker.TEXT_PLAIN_UTF8);
+        builder.addTextBody("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth), ApiInvoker.TEXT_PLAIN_UTF8);
       }
       
 
@@ -135,7 +135,7 @@ public class SessionsApi {
       postBody = httpEntity;
     } else {
       // normal form params
-      formParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      formParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
       
     }
 

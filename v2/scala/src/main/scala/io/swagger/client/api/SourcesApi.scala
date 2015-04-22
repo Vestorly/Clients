@@ -1,6 +1,7 @@
 package io.swagger.client.api
 
 import io.swagger.client.model.Sources
+import io.swagger.client.model.SourceInput
 import io.swagger.client.model.Source
 import io.swagger.client.ApiInvoker
 import io.swagger.client.ApiException
@@ -18,7 +19,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
   def addHeader(key: String, value: String) = apiInvoker.defaultHeaders += key -> value 
 
   
-  def findSources (vestorly_auth: String) : Option[Sources] = {
+  def findSources (vestorly-auth: String) : Option[Sources] = {
     // create path and map variables
     val path = "/sources".replaceAll("\\{format\\}","json")
 
@@ -34,7 +35,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
 
     
 
-    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
     
     
     
@@ -52,14 +53,17 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     }
   }
   
-  def createSource (vestorly_auth: String, Source: String) : Option[Source] = {
+  def createSource (vestorly-auth: String, source: SourceInput) : Option[Source] = {
     // create path and map variables
     val path = "/sources/".replaceAll("\\{format\\}","json")
 
     
     val contentType = {
+      if(source != null && source.isInstanceOf[File] )
+        "multipart/form-data"
+      else "application/json"
       
-      "application/json"
+      
     }
 
     // query params
@@ -68,13 +72,13 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
 
     
 
-    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
     
     
     
 
     try {
-      apiInvoker.invokeApi(basePath, path, "POST", queryParams.toMap, None, headerParams.toMap, contentType) match {
+      apiInvoker.invokeApi(basePath, path, "POST", queryParams.toMap, source, headerParams.toMap, contentType) match {
         case s: String =>
            Some(ApiInvoker.deserialize(s, "", classOf[Source]).asInstanceOf[Source])
          
@@ -86,7 +90,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     }
   }
   
-  def getSourceByID (vestorly_auth: String, id: String) : Option[Source] = {
+  def getSourceByID (vestorly-auth: String, id: String) : Option[Source] = {
     // create path and map variables
     val path = "/sources/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -104,7 +108,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
 
     
 
-    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
     
     
     
@@ -122,7 +126,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     }
   }
   
-  def UpdateSourceByID (vestorly_auth: String, id: String, Source: String) : Option[Source] = {
+  def UpdateSourceByID (vestorly-auth: String, id: String, source: SourceInput) : Option[Source] = {
     // create path and map variables
     val path = "/sources/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -130,8 +134,11 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
 
     
     val contentType = {
+      if(source != null && source.isInstanceOf[File] )
+        "multipart/form-data"
+      else "application/json"
       
-      "application/json"
+      
     }
 
     // query params
@@ -140,13 +147,13 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
 
     
 
-    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
     
     
     
 
     try {
-      apiInvoker.invokeApi(basePath, path, "PUT", queryParams.toMap, None, headerParams.toMap, contentType) match {
+      apiInvoker.invokeApi(basePath, path, "PUT", queryParams.toMap, source, headerParams.toMap, contentType) match {
         case s: String =>
            Some(ApiInvoker.deserialize(s, "", classOf[Source]).asInstanceOf[Source])
          

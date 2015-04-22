@@ -7,6 +7,7 @@ import io.swagger.client.model.*;
 
 import java.util.*;
 
+import io.swagger.client.model.Advisors;
 import io.swagger.client.model.Advisor;
 
 import org.apache.http.HttpEntity;
@@ -38,7 +39,7 @@ public class AdvisorsApi {
 
   
   
-  public void  findAdvisors (String vestorlyAuth) throws ApiException {
+  public Advisors  findAdvisors (String vestorlyAuth) throws ApiException {
     Object postBody = null;
 
     
@@ -54,7 +55,7 @@ public class AdvisorsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -79,10 +80,10 @@ public class AdvisorsApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return ;
+        return (Advisors) ApiInvoker.deserialize(response, "", Advisors.class);
       }
       else {
-        return ;
+        return null;
       }
     } catch (ApiException ex) {
       throw ex;
@@ -106,7 +107,7 @@ public class AdvisorsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     

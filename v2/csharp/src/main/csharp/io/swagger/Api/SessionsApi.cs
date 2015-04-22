@@ -99,14 +99,15 @@ namespace io.swagger.Api {
     
 
     /// <summary>
-    ///  Logout
+    ///  Logout of the vestorly platform
     /// </summary>
     /// <param name="VestorlyAuth">Authenication token</param>
+     /// <param name="Id">ID of pet to session</param>
     
     /// <returns></returns>
-    public Session  logout (string VestorlyAuth) {
+    public Session  logout (string VestorlyAuth, string Id) {
       // create path and map variables
-      var path = "/sessions/{id}".Replace("{format}","json");
+      var path = "/sessions/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
       // query params
       var queryParams = new Dictionary<String, String>();
@@ -121,9 +122,9 @@ namespace io.swagger.Api {
 
       if (VestorlyAuth != null){
         if(VestorlyAuth is byte[]) {
-          formParams.Add("vestorly_auth", VestorlyAuth);
+          formParams.Add("vestorly-auth", VestorlyAuth);
         } else {
-          formParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+          formParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
         }
       }
       

@@ -78,7 +78,7 @@ class ArticlesApi(object):
 
         
         if ('vestorly_auth' in params):
-            queryParams['vestorly_auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
         if ('limit' in params):
             queryParams['limit'] = self.apiClient.toPathValue(params['limit'])

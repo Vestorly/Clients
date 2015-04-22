@@ -56,7 +56,7 @@ class EventsApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       
@@ -115,7 +115,7 @@ class EventsApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       // path params
@@ -157,7 +157,7 @@ class EventsApi {
    *
    * @param string $id Mongo ID of event to update (required)
    * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @param string $event Event (required)
+   * @param EventInput $event Event (required)
    * @return Event
    */
    public function updateEventByID($id, $vestorly_auth, $event) {
@@ -179,7 +179,7 @@ class EventsApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       // path params
@@ -187,11 +187,12 @@ class EventsApi {
         $resourcePath = str_replace("{" . "id" . "}",
                                     $this->apiClient->toPathValue($id), $resourcePath);
       }
-      // form params
-      if ($event !== null) {
-        $formParams['Event'] = $this->apiClient->toFormValue($event);
-      }
       
+      // body params
+      $body = null;
+      if (isset($event)) {
+        $body = $event;
+      }
 
       // for model (json/xml)
       if (isset($body)) {

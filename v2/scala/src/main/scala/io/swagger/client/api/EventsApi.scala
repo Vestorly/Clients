@@ -2,6 +2,7 @@ package io.swagger.client.api
 
 import io.swagger.client.model.Events
 import io.swagger.client.model.Event
+import io.swagger.client.model.EventInput
 import io.swagger.client.ApiInvoker
 import io.swagger.client.ApiException
 
@@ -18,7 +19,7 @@ class EventsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
   def addHeader(key: String, value: String) = apiInvoker.defaultHeaders += key -> value 
 
   
-  def findEvents (vestorly_auth: String) : Option[Events] = {
+  def findEvents (vestorly-auth: String) : Option[Events] = {
     // create path and map variables
     val path = "/events".replaceAll("\\{format\\}","json")
 
@@ -34,7 +35,7 @@ class EventsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
 
     
 
-    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
     
     
     
@@ -52,7 +53,7 @@ class EventsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
     }
   }
   
-  def findEventByID (id: String, vestorly_auth: String) : Option[Event] = {
+  def findEventByID (id: String, vestorly-auth: String) : Option[Event] = {
     // create path and map variables
     val path = "/events/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -70,7 +71,7 @@ class EventsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
 
     
 
-    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
     
     
     
@@ -88,7 +89,7 @@ class EventsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
     }
   }
   
-  def updateEventByID (id: String, vestorly_auth: String, Event: String) : Option[Event] = {
+  def updateEventByID (id: String, vestorly-auth: String, Event: EventInput) : Option[Event] = {
     // create path and map variables
     val path = "/events/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -96,8 +97,11 @@ class EventsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
 
     
     val contentType = {
+      if(Event != null && Event.isInstanceOf[File] )
+        "multipart/form-data"
+      else "application/json"
       
-      "application/json"
+      
     }
 
     // query params
@@ -106,13 +110,13 @@ class EventsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
 
     
 
-    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
     
     
     
 
     try {
-      apiInvoker.invokeApi(basePath, path, "PUT", queryParams.toMap, None, headerParams.toMap, contentType) match {
+      apiInvoker.invokeApi(basePath, path, "PUT", queryParams.toMap, Event, headerParams.toMap, contentType) match {
         case s: String =>
            Some(ApiInvoker.deserialize(s, "", classOf[Event]).asInstanceOf[Event])
          

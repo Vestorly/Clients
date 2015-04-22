@@ -1,14 +1,24 @@
 'use strict';
 
-exports.findPosts = function(vestorly_auth, filter_by) {
+exports.findPosts = function(vestorly-auth, filter_by) {
 
   var examples = {};
   
   examples['application/json'] = {
   "posts" : [ {
+    "img" : "aeiou",
     "client_only" : true,
+    "image_url" : "aeiou",
+    "video" : "aeiou",
+    "title" : "aeiou",
+    "body" : "aeiou",
     "img_compressed" : true,
-    "img_changed" : true
+    "img_changed" : true,
+    "attachment" : "aeiou",
+    "post_date" : "aeiou",
+    "topic" : "aeiou",
+    "comment" : "aeiou",
+    "_id" : "aeiou"
   } ]
 };
   
@@ -18,14 +28,24 @@ exports.findPosts = function(vestorly_auth, filter_by) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.createPost = function(vestorly_auth, Post) {
+exports.createPost = function(vestorly-auth, post) {
 
   var examples = {};
   
   examples['application/json'] = {
+  "img" : "aeiou",
   "client_only" : true,
+  "image_url" : "aeiou",
+  "video" : "aeiou",
+  "title" : "aeiou",
+  "body" : "aeiou",
   "img_compressed" : true,
-  "img_changed" : true
+  "img_changed" : true,
+  "attachment" : "aeiou",
+  "post_date" : "aeiou",
+  "topic" : "aeiou",
+  "comment" : "aeiou",
+  "_id" : "aeiou"
 };
   
 
@@ -34,14 +54,24 @@ exports.createPost = function(vestorly_auth, Post) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.getPostByID = function(vestorly_auth, id, filter_by) {
+exports.getPostByID = function(vestorly-auth, id) {
 
   var examples = {};
   
   examples['application/json'] = {
+  "img" : "aeiou",
   "client_only" : true,
+  "image_url" : "aeiou",
+  "video" : "aeiou",
+  "title" : "aeiou",
+  "body" : "aeiou",
   "img_compressed" : true,
-  "img_changed" : true
+  "img_changed" : true,
+  "attachment" : "aeiou",
+  "post_date" : "aeiou",
+  "topic" : "aeiou",
+  "comment" : "aeiou",
+  "_id" : "aeiou"
 };
   
 
@@ -50,14 +80,24 @@ exports.getPostByID = function(vestorly_auth, id, filter_by) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.updatePostByID = function(vestorly_auth, id, Post) {
+exports.updatePostByID = function(vestorly-auth, id, post) {
 
   var examples = {};
   
   examples['application/json'] = {
+  "img" : "aeiou",
   "client_only" : true,
+  "image_url" : "aeiou",
+  "video" : "aeiou",
+  "title" : "aeiou",
+  "body" : "aeiou",
   "img_compressed" : true,
-  "img_changed" : true
+  "img_changed" : true,
+  "attachment" : "aeiou",
+  "post_date" : "aeiou",
+  "topic" : "aeiou",
+  "comment" : "aeiou",
+  "_id" : "aeiou"
 };
   
 

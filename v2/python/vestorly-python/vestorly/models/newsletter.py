@@ -30,6 +30,9 @@ class Newsletter(object):
         """
         self.swaggerTypes = {
             
+            '_id': 'str',
+            
+            
             'is_sent': 'bool',
             
             
@@ -48,6 +51,8 @@ class Newsletter(object):
 
         self.attributeMap = {
             
+            '_id': '_id',
+            
             'is_sent': 'is_sent',
             
             'is_default': 'is_default',
@@ -60,6 +65,9 @@ class Newsletter(object):
             
         }
 
+        
+        
+        self._id = None # str
         
         
         self.is_sent = None # bool

@@ -57,7 +57,7 @@ public class ArticlesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     if (limit != null)
       queryParams.put("limit", ApiInvoker.parameterToString(limit));
     if (textQuery != null)

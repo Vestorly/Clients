@@ -56,7 +56,7 @@ class MembereventsApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       

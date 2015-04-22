@@ -35,7 +35,7 @@ class AdvisorsApi {
    * 
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @return void
+   * @return Advisors
    */
    public function findAdvisors($vestorly_auth) {
 
@@ -56,7 +56,7 @@ class AdvisorsApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       
@@ -78,7 +78,13 @@ class AdvisorsApi {
                                             $queryParams, $httpBody,
                                             $headerParams);
 
-      
+      if(! $response) {
+        return null;
+      }
+
+  		$responseObject = $this->apiClient->deserialize($response,
+  		                                                'Advisors');
+  		return $responseObject;
   }
   
   /**
@@ -109,7 +115,7 @@ class AdvisorsApi {
 
       // query params
       if($vestorly_auth !== null) {
-        $queryParams['vestorly_auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }
       
       // path params

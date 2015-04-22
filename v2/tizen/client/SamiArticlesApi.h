@@ -21,7 +21,7 @@ public:
 
   
   SamiArticles* 
-  findArticlesWithCompletion(String* vestorly_auth, Integer* limit, String* text_query, void (* handler)(SamiArticles*, SamiError*));
+  findArticlesWithCompletion(String* vestorly-auth, Integer* limit, String* text_query, void (* handler)(SamiArticles*, SamiError*));
   
   SamiArticle* 
   findArticleByIDWithCompletion(String* _id, void (* handler)(SamiArticle*, SamiError*));

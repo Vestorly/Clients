@@ -18,12 +18,11 @@
       "parameters": [
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 }
         
       ],
@@ -49,19 +48,21 @@
       "parameters": [
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 },
         
         {
+  "in" : "body",
   "name" : "newsletter_settings",
-  "in" : "formData",
   "description" : "newsletter settings",
-  "required" : true
+  "required" : true,
+  "schema" : {
+    "$ref" : "#/definitions/NewsletterSettingsInput"
+  }
 }
         
       ],
@@ -91,17 +92,15 @@
   "in" : "path",
   "description" : "Mongo ID of newsletter settings to fetch",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 },
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 }
         
       ],
@@ -129,12 +128,11 @@
       "parameters": [
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 }
         
       ],
@@ -164,17 +162,15 @@
   "in" : "path",
   "description" : "Mongo ID of event to fetch",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 },
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 }
         
       ],
@@ -204,24 +200,25 @@
   "in" : "path",
   "description" : "Mongo ID of event to update",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 },
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 },
         
         {
+  "in" : "body",
   "name" : "Event",
-  "in" : "formData",
   "description" : "Event",
-  "required" : true
+  "required" : true,
+  "schema" : {
+    "$ref" : "#/definitions/EventInput"
+  }
 }
         
       ],
@@ -249,12 +246,11 @@
       "parameters": [
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 },
         
         {
@@ -331,7 +327,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -362,7 +358,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -524,7 +520,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -557,16 +553,23 @@
       "parameters": [
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 }
         
       ],
       "responses": {
+        
+        "200": {
+  "description" : "advisors response",
+  "schema" : {
+    "$ref" : "#/definitions/Advisors"
+  }
+}
+        
         
       }
     }
@@ -584,17 +587,15 @@
   "in" : "path",
   "description" : "Mongo ID of advisor to fetch",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 },
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 }
         
       ],
@@ -634,7 +635,7 @@
   "in" : "formData",
   "description" : "Password in Vestorly Platform",
   "required" : true,
-  "type" : "password"
+  "type" : "string"
 }
         
       ],
@@ -660,9 +661,17 @@
       "parameters": [
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "formData",
   "description" : "Authenication token",
+  "required" : true,
+  "type" : "string"
+},
+        
+        {
+  "name" : "id",
+  "in" : "path",
+  "description" : "ID of pet to session",
   "required" : true,
   "type" : "string"
 }
@@ -684,124 +693,6 @@
   
    ,
   
-  "/newsletters": {
-    "get": {
-      "x-swagger-router-controller": "Newsletters",
-      "tags": ["Newsletters"],
-      "operationId": "findNewsletters",
-      "parameters": [
-        
-        {
-  "name" : "vestorly_auth",
-  "in" : "query",
-  "description" : "Vestorly Auth Token",
-  "required" : true,
-  "type" : "string",
-  "format" : "string"
-}
-        
-      ],
-      "responses": {
-        
-        "200": {
-  "description" : "Response",
-  "schema" : {
-    "$ref" : "#/definitions/Newsletters"
-  }
-}
-        
-        
-      }
-    }
-  } ,
-  
-  "/newsletters/{id}": {
-    "get": {
-      "x-swagger-router-controller": "Newsletters",
-      "tags": ["Newsletters"],
-      "operationId": "getNewsletterByID",
-      "parameters": [
-        
-        {
-  "name" : "vestorly_auth",
-  "in" : "query",
-  "description" : "Vestorly Auth Token",
-  "required" : true,
-  "type" : "string",
-  "format" : "string"
-},
-        
-        {
-  "name" : "id",
-  "in" : "path",
-  "description" : "ID of newsletter to fetch",
-  "required" : true,
-  "type" : "string"
-}
-        
-      ],
-      "responses": {
-        
-        "200": {
-  "description" : "Response",
-  "schema" : {
-    "$ref" : "#/definitions/Newsletter"
-  }
-}
-        
-        
-      }
-    }
-  } ,
-  
-  "/newsletters/{id}": {
-    "put": {
-      "x-swagger-router-controller": "Newsletters",
-      "tags": ["Newsletters"],
-      "operationId": "updateNewsletter",
-      "parameters": [
-        
-        {
-  "name" : "vestorly_auth",
-  "in" : "query",
-  "description" : "Vestorly Auth Token",
-  "required" : true,
-  "type" : "string",
-  "format" : "string"
-},
-        
-        {
-  "name" : "id",
-  "in" : "path",
-  "description" : "ID of newsletter to fetch",
-  "required" : true,
-  "type" : "string"
-},
-        
-        {
-  "name" : "Newsletter",
-  "in" : "formData",
-  "description" : "Newsletter",
-  "required" : true
-}
-        
-      ],
-      "responses": {
-        
-        "200": {
-  "description" : "Response",
-  "schema" : {
-    "$ref" : "#/definitions/Newsletter"
-  }
-}
-        
-        
-      }
-    }
-  } 
-  
-   ,
-  
   "/posts": {
     "get": {
       "x-swagger-router-controller": "Posts",
@@ -810,19 +701,19 @@
       "parameters": [
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 },
         
         {
   "name" : "filter_by",
   "in" : "query",
   "description" : "Filter post by parameters",
-  "required" : false
+  "required" : false,
+  "type" : "string"
 }
         
       ],
@@ -848,19 +739,21 @@
       "parameters": [
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 },
         
         {
-  "name" : "Post",
-  "in" : "formData",
-  "description" : "Post",
-  "required" : true
+  "in" : "body",
+  "name" : "post",
+  "description" : "Post you want to create",
+  "required" : true,
+  "schema" : {
+    "$ref" : "#/definitions/PostInput"
+  }
 }
         
       ],
@@ -886,12 +779,11 @@
       "parameters": [
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 },
         
         {
@@ -900,13 +792,6 @@
   "description" : "ID of post to fetch",
   "required" : true,
   "type" : "string"
-},
-        
-        {
-  "name" : "filter_by",
-  "in" : "query",
-  "description" : "Filter post by parameters",
-  "required" : false
 }
         
       ],
@@ -932,27 +817,29 @@
       "parameters": [
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
-  "required" : true,
-  "type" : "string",
-  "format" : "string"
-},
-        
-        {
-  "name" : "id",
-  "in" : "path",
-  "description" : "ID of post to fetch",
   "required" : true,
   "type" : "string"
 },
         
         {
-  "name" : "Post",
-  "in" : "formData",
-  "description" : "Post",
-  "required" : true
+  "name" : "id",
+  "in" : "path",
+  "description" : "id of post to fetch",
+  "required" : true,
+  "type" : "string"
+},
+        
+        {
+  "in" : "body",
+  "name" : "post",
+  "description" : "Post you want to update",
+  "required" : true,
+  "schema" : {
+    "$ref" : "#/definitions/PostInput"
+  }
 }
         
       ],
@@ -980,12 +867,11 @@
       "parameters": [
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 }
         
       ],
@@ -1011,19 +897,21 @@
       "parameters": [
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 },
         
         {
-  "name" : "Source",
-  "in" : "formData",
+  "in" : "body",
+  "name" : "source",
   "description" : "Source",
-  "required" : true
+  "required" : true,
+  "schema" : {
+    "$ref" : "#/definitions/SourceInput"
+  }
 }
         
       ],
@@ -1049,12 +937,11 @@
       "parameters": [
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 },
         
         {
@@ -1088,12 +975,11 @@
       "parameters": [
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 },
         
         {
@@ -1105,10 +991,13 @@
 },
         
         {
-  "name" : "Source",
-  "in" : "formData",
+  "in" : "body",
+  "name" : "source",
   "description" : "Source",
-  "required" : true
+  "required" : true,
+  "schema" : {
+    "$ref" : "#/definitions/SourceInput"
+  }
 }
         
       ],
@@ -1136,7 +1025,7 @@
       "parameters": [
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -1176,7 +1065,7 @@
 },
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -1216,7 +1105,7 @@
 },
         
         {
-  "name" : "vestorly_auth",
+  "name" : "vestorly-auth",
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
@@ -1241,67 +1130,7 @@
   
    
   }, "definitions": {
-  "Source": {
-  "required" : [ "_id", "custom_rss_feed", "enabled", "logo_url", "name", "rss_publisher" ],
-  "properties" : {
-    "_id" : {
-      "type" : "string"
-    },
-    "name" : {
-      "type" : "string"
-    },
-    "url" : {
-      "type" : "string"
-    },
-    "logo_url" : {
-      "type" : "string"
-    },
-    "enabled" : {
-      "type" : "boolean",
-      "default" : false
-    },
-    "custom_rss_feed" : {
-      "type" : "boolean",
-      "default" : false
-    },
-    "rss_publisher" : {
-      "type" : "string"
-    }
-  }
-},"SourceInput": {
-  "required" : [ "custom_rss_feed", "enabled", "logo_url", "name", "rss_publisher" ],
-  "properties" : {
-    "name" : {
-      "type" : "string"
-    },
-    "url" : {
-      "type" : "string"
-    },
-    "logo_url" : {
-      "type" : "string"
-    },
-    "enabled" : {
-      "type" : "boolean",
-      "default" : false
-    },
-    "custom_rss_feed" : {
-      "type" : "boolean",
-      "default" : false
-    },
-    "rss_publisher" : {
-      "type" : "string"
-    }
-  }
-},"Sources": {
-  "properties" : {
-    "sources" : {
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/Source"
-      }
-    }
-  }
-},"Members": {
+  "Members": {
   "properties" : {
     "members" : {
       "type" : "array",
@@ -1311,7 +1140,135 @@
     }
   }
 },"Advisor": {
+  "required" : [ "id", "name" ],
   "properties" : {
+    "id" : {
+      "type" : "string"
+    },
+    "name" : {
+      "type" : "string"
+    },
+    "tag" : {
+      "type" : "string"
+    }
+  }
+},"Advisors": {
+  "properties" : {
+    "advisors" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Advisor"
+      }
+    }
+  }
+},"Posts": {
+  "properties" : {
+    "posts" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Post"
+      }
+    }
+  }
+},"Post": {
+  "properties" : {
+    "_id" : {
+      "type" : "string"
+    },
+    "title" : {
+      "type" : "string"
+    },
+    "post_date" : {
+      "type" : "string"
+    },
+    "body" : {
+      "type" : "string"
+    },
+    "comment" : {
+      "type" : "string"
+    },
+    "client_only" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "attachment" : {
+      "type" : "string"
+    },
+    "video" : {
+      "type" : "string"
+    },
+    "img" : {
+      "type" : "string"
+    },
+    "image_url" : {
+      "type" : "string"
+    },
+    "img_compressed" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "img_changed" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "topic" : {
+      "type" : "string"
+    }
+  }
+},"PostInput": {
+  "required" : [ "title" ],
+  "properties" : {
+    "_id" : {
+      "type" : "string"
+    },
+    "title" : {
+      "type" : "string"
+    },
+    "post_date" : {
+      "type" : "string"
+    },
+    "body" : {
+      "type" : "string"
+    },
+    "comment" : {
+      "type" : "string"
+    },
+    "client_only" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "attachment" : {
+      "type" : "string"
+    },
+    "video" : {
+      "type" : "string"
+    },
+    "img" : {
+      "type" : "string"
+    },
+    "image_url" : {
+      "type" : "string"
+    },
+    "img_compressed" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "img_changed" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "topic" : {
+      "type" : "string"
+    }
+  }
+},"Advsior": {
+  "properties" : {
+    "_id" : {
+      "type" : "string"
+    },
+    "vestorly-auth" : {
+      "type" : "string"
+    },
     "new_user" : {
       "type" : "boolean",
       "default" : false
@@ -1328,6 +1285,9 @@
   }
 },"Newsletter": {
   "properties" : {
+    "_id" : {
+      "type" : "string"
+    },
     "is_sent" : {
       "type" : "boolean",
       "default" : false
@@ -1474,30 +1434,6 @@
       "default" : false
     },
     "genuine_email" : {
-      "type" : "boolean",
-      "default" : false
-    }
-  }
-},"Posts": {
-  "properties" : {
-    "posts" : {
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/Post"
-      }
-    }
-  }
-},"Post": {
-  "properties" : {
-    "client_only" : {
-      "type" : "boolean",
-      "default" : false
-    },
-    "img_compressed" : {
-      "type" : "boolean",
-      "default" : false
-    },
-    "img_changed" : {
       "type" : "boolean",
       "default" : false
     }
@@ -1655,22 +1591,6 @@
     },
     "linkedin_status" : {
       "type" : "string"
-    },
-    "email_hour" : {
-      "type" : "integer",
-      "format" : "int32"
-    },
-    "twitter_hour" : {
-      "type" : "integer",
-      "format" : "int32"
-    },
-    "linkedin_hour" : {
-      "type" : "integer",
-      "format" : "int32"
-    },
-    "facebook_hour" : {
-      "type" : "integer",
-      "format" : "int32"
     }
   }
 },"NewsletterSettings": {
@@ -1703,6 +1623,66 @@
     "facebook_hour" : {
       "type" : "integer",
       "format" : "int32"
+    }
+  }
+},"Source": {
+  "required" : [ "_id", "custom_rss_feed", "enabled", "logo_url", "name", "rss_publisher" ],
+  "properties" : {
+    "_id" : {
+      "type" : "string"
+    },
+    "name" : {
+      "type" : "string"
+    },
+    "url" : {
+      "type" : "string"
+    },
+    "logo_url" : {
+      "type" : "string"
+    },
+    "enabled" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "custom_rss_feed" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "rss_publisher" : {
+      "type" : "string"
+    }
+  }
+},"SourceInput": {
+  "required" : [ "custom_rss_feed", "enabled", "logo_url", "name", "rss_publisher" ],
+  "properties" : {
+    "name" : {
+      "type" : "string"
+    },
+    "url" : {
+      "type" : "string"
+    },
+    "logo_url" : {
+      "type" : "string"
+    },
+    "enabled" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "custom_rss_feed" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "rss_publisher" : {
+      "type" : "string"
+    }
+  }
+},"Sources": {
+  "properties" : {
+    "sources" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Source"
+      }
     }
   }
 }

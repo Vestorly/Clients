@@ -8,7 +8,7 @@ class AdvisorsApi
   # 
   # Returns all advisors
   # @param vestorly_auth Vestorly Auth Token
-  # @return void
+  # @return Advisors
   def self.findAdvisors (vestorly_auth, opts={})
     query_param_keys = [:vestorly_auth]
     headerParams = {}
@@ -48,8 +48,9 @@ class AdvisorsApi
     form_parameter_hash = {}
     
     
+    response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
+     Advisors.new(response)
     
-    Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
     
   
   end

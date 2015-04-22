@@ -52,7 +52,7 @@ findGroupsProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiErr
 }
 
 SamiGroups* 
-SamiGroupsApi::findGroupsWithCompletion(String* vestorly_auth, void (* success)(SamiGroups*, SamiError*)) {
+SamiGroupsApi::findGroupsWithCompletion(String* vestorly-auth, void (* success)(SamiGroups*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findGroupsProcessor, (void(*)(void*, SamiError*))success);
@@ -65,7 +65,7 @@ SamiGroupsApi::findGroupsWithCompletion(String* vestorly_auth, void (* success)(
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
+    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
   
   
 
@@ -117,7 +117,7 @@ findGroupByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sami
 }
 
 SamiGroup* 
-SamiGroupsApi::findGroupByIDWithCompletion(String* vestorly_auth, String* _id, void (* success)(SamiGroup*, SamiError*)) {
+SamiGroupsApi::findGroupByIDWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiGroup*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findGroupByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -130,7 +130,7 @@ SamiGroupsApi::findGroupByIDWithCompletion(String* vestorly_auth, String* _id, v
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly_auth"), vestorly_auth);
+    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
   
   
 

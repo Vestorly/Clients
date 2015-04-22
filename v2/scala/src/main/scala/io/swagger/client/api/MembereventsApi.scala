@@ -17,7 +17,7 @@ class MembereventsApi(val defBasePath: String = "https://staging.vestorly.com/ap
   def addHeader(key: String, value: String) = apiInvoker.defaultHeaders += key -> value 
 
   
-  def findMemberEvents (vestorly_auth: String) : Option[MemberEvents] = {
+  def findMemberEvents (vestorly-auth: String) : Option[MemberEvents] = {
     // create path and map variables
     val path = "/member_events".replaceAll("\\{format\\}","json")
 
@@ -33,7 +33,7 @@ class MembereventsApi(val defBasePath: String = "https://staging.vestorly.com/ap
 
     
 
-    if(String.valueOf(vestorly_auth) != "null") queryParams += "vestorly_auth" -> vestorly_auth.toString
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
     
     
     

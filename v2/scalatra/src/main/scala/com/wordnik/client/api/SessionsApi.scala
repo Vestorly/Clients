@@ -93,7 +93,14 @@ class SessionsApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         
-        formParam[String]("vestorly_auth").description("")
+        formParam[String]("vestorly-auth").description("")
+        
+        ,
+        
+        pathParam[String]("id").description("")
+        
+        
+        
         
         
         )
@@ -110,12 +117,28 @@ class SessionsApi (implicit val swagger: Swagger) extends ScalatraServlet
     
 
     
-      val vestorly_auth = params.getAs[String]("vestorly_auth")
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
     
 
     
     
-    println("vestorly_auth: " + vestorly_auth)
+    println("vestorly-auth: " + vestorly-auth)
+  
+    
+    
+    
+      val id = params.getOrElse("id", halt(400))
+    
+
+    
+
+    
+
+    
+
+    
+    
+    println("id: " + id)
   
   }
 

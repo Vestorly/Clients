@@ -17,7 +17,6 @@
 using namespace Tizen::Web::Json;
 
 
-using Tizen::Base::Integer;
 using Tizen::Base::String;
 
 
@@ -51,27 +50,11 @@ public:
     String* getPLinkedinStatus();
     void setPLinkedinStatus(String* pLinkedin_status);
     
-    Integer* getPEmailHour();
-    void setPEmailHour(Integer* pEmail_hour);
-    
-    Integer* getPTwitterHour();
-    void setPTwitterHour(Integer* pTwitter_hour);
-    
-    Integer* getPLinkedinHour();
-    void setPLinkedinHour(Integer* pLinkedin_hour);
-    
-    Integer* getPFacebookHour();
-    void setPFacebookHour(Integer* pFacebook_hour);
-    
 
 private:
     String* pEmail_status;
     String* pTwitter_status;
     String* pLinkedin_status;
-    Integer* pEmail_hour;
-    Integer* pTwitter_hour;
-    Integer* pLinkedin_hour;
-    Integer* pFacebook_hour;
     
 };
 

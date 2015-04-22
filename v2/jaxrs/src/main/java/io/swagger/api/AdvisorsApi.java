@@ -6,6 +6,7 @@ import com.wordnik.swagger.annotations.ApiParam;
 
 import com.sun.jersey.multipart.FormDataParam;
 
+import io.swagger.model.Advisors;
 import io.swagger.model.Advisor;
 
 import java.util.List;
@@ -27,10 +28,11 @@ public class AdvisorsApi {
   
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns all advisors", response = Void.class)
-  @com.wordnik.swagger.annotations.ApiResponses(value = {  })
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns all advisors", response = Advisors.class)
+  @com.wordnik.swagger.annotations.ApiResponses(value = { 
+    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "advisors response") })
 
-  public Response findAdvisors(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth)
+  public Response findAdvisors(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -46,7 +48,7 @@ public class AdvisorsApi {
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Advisor response") })
 
   public Response findAdvisorByID(@ApiParam(value = "Mongo ID of advisor to fetch",required=true ) @PathParam("id") String id,
-    @ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth)
+    @ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

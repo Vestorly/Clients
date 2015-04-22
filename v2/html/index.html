@@ -25,7 +25,7 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       
@@ -49,12 +49,12 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">newsletter_settings (required)</div>
 
-      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; newsletter settings </div>
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; newsletter settings </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
@@ -79,7 +79,7 @@
       <div class="param">id (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of newsletter settings to fetch </div>
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       
@@ -105,7 +105,7 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       
@@ -132,7 +132,7 @@
       <div class="param">id (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of event to fetch </div>
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       
@@ -159,12 +159,12 @@
       <div class="param">id (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of event to update </div>
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">Event (required)</div>
 
-      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Event </div>
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Event </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
@@ -188,7 +188,7 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">limit (optional)</div>
@@ -244,7 +244,7 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       
@@ -268,7 +268,7 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">id (required)</div>
@@ -369,7 +369,7 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       
@@ -395,15 +395,19 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#"></a></div>
+    <div class="return-type"><a href="#">Advisors</a></div>
 
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "advisors" : [ {\n    "name" : "aeiou",\n    "id" : "aeiou",\n    "tag" : "aeiou"\n  } ]\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -418,7 +422,7 @@
       <div class="param">id (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of advisor to fetch </div>
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       
@@ -430,7 +434,7 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "new_user" : true\n}</code></pre>
+    <pre class="example"><code>{\n  "name" : "aeiou",\n  "id" : "aeiou",\n  "tag" : "aeiou"\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -467,13 +471,16 @@
   <div class="method">
     <div class="method-path"><pre class="delete"><code class="huge"><span>delete</span>: /sessions/{id}</code></pre></div>
     <div class="method-summary"><span class="nickname">logout</span> </div>
-    <div class="method-notes">Logout</div>
+    <div class="method-notes">Logout of the vestorly platform</div>
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Authenication token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of pet to session </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
@@ -491,96 +498,13 @@
   
   
   <div class="method">
-    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /newsletters</code></pre></div>
-    <div class="method-summary"><span class="nickname">findNewsletters</span> </div>
-    <div class="method-notes">Returns all newsletters</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Newsletters</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "newletters" : [ {\n    "is_sent" : true,\n    "click_count" : 123456789,\n    "unique_click_count" : 123456789,\n    "is_default" : true,\n    "total_click_count" : 123456789\n  } ]\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /newsletters/{id}</code></pre></div>
-    <div class="method-summary"><span class="nickname">getNewsletterByID</span> </div>
-    <div class="method-notes">Returns newsletter by ID</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of newsletter to fetch </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Newsletter</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "is_sent" : true,\n  "click_count" : 123456789,\n  "unique_click_count" : 123456789,\n  "is_default" : true,\n  "total_click_count" : 123456789\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /newsletters/{id}</code></pre></div>
-    <div class="method-summary"><span class="nickname">updateNewsletter</span> </div>
-    <div class="method-notes">Update newsletter by ID</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of newsletter to fetch </div>
-      <div class="param">Newsletter (required)</div>
-
-      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Newsletter </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Newsletter</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "is_sent" : true,\n  "click_count" : 123456789,\n  "unique_click_count" : 123456789,\n  "is_default" : true,\n  "total_click_count" : 123456789\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  
-  
-  <div class="method">
     <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /posts</code></pre></div>
     <div class="method-summary"><span class="nickname">findPosts</span> </div>
     <div class="method-notes">Query all posts</div>
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">filter_by (optional)</div>
@@ -595,7 +519,7 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "posts" : [ {\n    "client_only" : true,\n    "img_compressed" : true,\n    "img_changed" : true\n  } ]\n}</code></pre>
+    <pre class="example"><code>{\n  "posts" : [ {\n    "img" : "aeiou",\n    "client_only" : true,\n    "image_url" : "aeiou",\n    "video" : "aeiou",\n    "title" : "aeiou",\n    "body" : "aeiou",\n    "img_compressed" : true,\n    "img_changed" : true,\n    "attachment" : "aeiou",\n    "post_date" : "aeiou",\n    "topic" : "aeiou",\n    "comment" : "aeiou",\n    "_id" : "aeiou"\n  } ]\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -607,12 +531,12 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">Post (required)</div>
+      <div class="param">post (required)</div>
 
-      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Post </div>
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Post you want to create </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
@@ -622,7 +546,7 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "client_only" : true,\n  "img_compressed" : true,\n  "img_changed" : true\n}</code></pre>
+    <pre class="example"><code>{\n  "img" : "aeiou",\n  "client_only" : true,\n  "image_url" : "aeiou",\n  "video" : "aeiou",\n  "title" : "aeiou",\n  "body" : "aeiou",\n  "img_compressed" : true,\n  "img_changed" : true,\n  "attachment" : "aeiou",\n  "post_date" : "aeiou",\n  "topic" : "aeiou",\n  "comment" : "aeiou",\n  "_id" : "aeiou"\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -634,15 +558,12 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">id (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of post to fetch </div>
-      <div class="param">filter_by (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter post by parameters </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
@@ -652,7 +573,7 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "client_only" : true,\n  "img_compressed" : true,\n  "img_changed" : true\n}</code></pre>
+    <pre class="example"><code>{\n  "img" : "aeiou",\n  "client_only" : true,\n  "image_url" : "aeiou",\n  "video" : "aeiou",\n  "title" : "aeiou",\n  "body" : "aeiou",\n  "img_compressed" : true,\n  "img_changed" : true,\n  "attachment" : "aeiou",\n  "post_date" : "aeiou",\n  "topic" : "aeiou",\n  "comment" : "aeiou",\n  "_id" : "aeiou"\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -664,15 +585,15 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">id (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of post to fetch </div>
-      <div class="param">Post (required)</div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id of post to fetch </div>
+      <div class="param">post (required)</div>
 
-      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Post </div>
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Post you want to update </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
@@ -682,7 +603,7 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "client_only" : true,\n  "img_compressed" : true,\n  "img_changed" : true\n}</code></pre>
+    <pre class="example"><code>{\n  "img" : "aeiou",\n  "client_only" : true,\n  "image_url" : "aeiou",\n  "video" : "aeiou",\n  "title" : "aeiou",\n  "body" : "aeiou",\n  "img_compressed" : true,\n  "img_changed" : true,\n  "attachment" : "aeiou",\n  "post_date" : "aeiou",\n  "topic" : "aeiou",\n  "comment" : "aeiou",\n  "_id" : "aeiou"\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -696,7 +617,7 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       
@@ -720,12 +641,12 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">Source (required)</div>
+      <div class="param">source (required)</div>
 
-      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Source </div>
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Source </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
@@ -747,7 +668,7 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">id (required)</div>
@@ -774,15 +695,15 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">id (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of source to fetch </div>
-      <div class="param">Source (required)</div>
+      <div class="param">source (required)</div>
 
-      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Source </div>
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Source </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
@@ -806,7 +727,7 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       
@@ -833,7 +754,7 @@
       <div class="param">id (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of member to fetch </div>
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       
@@ -860,7 +781,7 @@
       <div class="param">id (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of member to fetch </div>
-      <div class="param">vestorly_auth (required)</div>
+      <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       
@@ -883,47 +804,6 @@
   
   
   <div class="model">
-    <h3 class="field-label"><a name="Source">Source</a></h3>
-    <div class="field-items">
-      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> </div>
-      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> </div>
-      <div class="param">url </div><div class="param-desc"><span class="param-type">String</span> </div>
-      <div class="param">logo_url </div><div class="param-desc"><span class="param-type">String</span> </div>
-      <div class="param">enabled </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
-      <div class="param">custom_rss_feed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
-      <div class="param">rss_publisher </div><div class="param-desc"><span class="param-type">String</span> </div>
-      
-    </div>  <!-- field-items -->
-  </div>
-  
-  
-  
-  <div class="model">
-    <h3 class="field-label"><a name="SourceInput">SourceInput</a></h3>
-    <div class="field-items">
-      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> </div>
-      <div class="param">url </div><div class="param-desc"><span class="param-type">String</span> </div>
-      <div class="param">logo_url </div><div class="param-desc"><span class="param-type">String</span> </div>
-      <div class="param">enabled </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
-      <div class="param">custom_rss_feed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
-      <div class="param">rss_publisher </div><div class="param-desc"><span class="param-type">String</span> </div>
-      
-    </div>  <!-- field-items -->
-  </div>
-  
-  
-  
-  <div class="model">
-    <h3 class="field-label"><a name="Sources">Sources</a></h3>
-    <div class="field-items">
-      <div class="param">sources </div><div class="param-desc"><span class="param-type">array[Source]</span> </div>
-      
-    </div>  <!-- field-items -->
-  </div>
-  
-  
-  
-  <div class="model">
     <h3 class="field-label"><a name="Members">Members</a></h3>
     <div class="field-items">
       <div class="param">members </div><div class="param-desc"><span class="param-type">array[Member]</span> </div>
@@ -936,6 +816,84 @@
   <div class="model">
     <h3 class="field-label"><a name="Advisor">Advisor</a></h3>
     <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">tag </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Advisors">Advisors</a></h3>
+    <div class="field-items">
+      <div class="param">advisors </div><div class="param-desc"><span class="param-type">array[Advisor]</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Posts">Posts</a></h3>
+    <div class="field-items">
+      <div class="param">posts </div><div class="param-desc"><span class="param-type">array[Post]</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Post">Post</a></h3>
+    <div class="field-items">
+      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">title </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">post_date </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">body </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">comment </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">client_only </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">attachment </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">video </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">img </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">image_url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">img_compressed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">img_changed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">topic </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="PostInput">PostInput</a></h3>
+    <div class="field-items">
+      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">title </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">post_date </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">body </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">comment </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">client_only </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">attachment </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">video </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">img </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">image_url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">img_compressed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">img_changed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">topic </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Advsior">Advsior</a></h3>
+    <div class="field-items">
+      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">vestorly-auth </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">new_user </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       
     </div>  <!-- field-items -->
@@ -965,6 +923,7 @@
   <div class="model">
     <h3 class="field-label"><a name="Newsletter">Newsletter</a></h3>
     <div class="field-items">
+      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">is_sent </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       <div class="param">is_default </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       <div class="param">click_count </div><div class="param-desc"><span class="param-type">Long</span> </div>
@@ -1033,28 +992,6 @@
       <div class="param">register_ip_addr </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">data_estimated </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       <div class="param">genuine_email </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
-      
-    </div>  <!-- field-items -->
-  </div>
-  
-  
-  
-  <div class="model">
-    <h3 class="field-label"><a name="Posts">Posts</a></h3>
-    <div class="field-items">
-      <div class="param">posts </div><div class="param-desc"><span class="param-type">array[Post]</span> </div>
-      
-    </div>  <!-- field-items -->
-  </div>
-  
-  
-  
-  <div class="model">
-    <h3 class="field-label"><a name="Post">Post</a></h3>
-    <div class="field-items">
-      <div class="param">client_only </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
-      <div class="param">img_compressed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
-      <div class="param">img_changed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       
     </div>  <!-- field-items -->
   </div>
@@ -1156,10 +1093,6 @@
       <div class="param">email_status </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">twitter_status </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">linkedin_status </div><div class="param-desc"><span class="param-type">String</span> </div>
-      <div class="param">email_hour </div><div class="param-desc"><span class="param-type">Integer</span> </div>
-      <div class="param">twitter_hour </div><div class="param-desc"><span class="param-type">Integer</span> </div>
-      <div class="param">linkedin_hour </div><div class="param-desc"><span class="param-type">Integer</span> </div>
-      <div class="param">facebook_hour </div><div class="param-desc"><span class="param-type">Integer</span> </div>
       
     </div>  <!-- field-items -->
   </div>
@@ -1177,6 +1110,47 @@
       <div class="param">twitter_hour </div><div class="param-desc"><span class="param-type">Integer</span> </div>
       <div class="param">linkedin_hour </div><div class="param-desc"><span class="param-type">Integer</span> </div>
       <div class="param">facebook_hour </div><div class="param-desc"><span class="param-type">Integer</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Source">Source</a></h3>
+    <div class="field-items">
+      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">logo_url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">enabled </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">custom_rss_feed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">rss_publisher </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="SourceInput">SourceInput</a></h3>
+    <div class="field-items">
+      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">logo_url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">enabled </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">custom_rss_feed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">rss_publisher </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Sources">Sources</a></h3>
+    <div class="field-items">
+      <div class="param">sources </div><div class="param-desc"><span class="param-type">array[Source]</span> </div>
       
     </div>  <!-- field-items -->
   </div>

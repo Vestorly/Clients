@@ -8,6 +8,7 @@ import io.swagger.client.model.*;
 import java.util.*;
 
 import io.swagger.client.model.Sources;
+import io.swagger.client.model.SourceInput;
 import io.swagger.client.model.Source;
 
 import org.apache.http.HttpEntity;
@@ -55,7 +56,7 @@ public class SourcesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -91,8 +92,8 @@ public class SourcesApi {
   }
   
   
-  public Source  createSource (String vestorlyAuth, String source) throws ApiException {
-    Object postBody = null;
+  public Source  createSource (String vestorlyAuth, SourceInput source) throws ApiException {
+    Object postBody = source;
 
     
 
@@ -107,7 +108,7 @@ public class SourcesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -121,16 +122,11 @@ public class SourcesApi {
       // file uploading
       MultipartEntityBuilder builder = MultipartEntityBuilder.create();
       
-      if (source != null) {
-        builder.addTextBody("Source", ApiInvoker.parameterToString(source), ApiInvoker.TEXT_PLAIN_UTF8);
-      }
-      
 
       HttpEntity httpEntity = builder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-      formParams.put("Source", ApiInvoker.parameterToString(source));
       
     }
 
@@ -164,7 +160,7 @@ public class SourcesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -200,8 +196,8 @@ public class SourcesApi {
   }
   
   
-  public Source  UpdateSourceByID (String vestorlyAuth, String id, String source) throws ApiException {
-    Object postBody = null;
+  public Source  UpdateSourceByID (String vestorlyAuth, String id, SourceInput source) throws ApiException {
+    Object postBody = source;
 
     
 
@@ -216,7 +212,7 @@ public class SourcesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -230,16 +226,11 @@ public class SourcesApi {
       // file uploading
       MultipartEntityBuilder builder = MultipartEntityBuilder.create();
       
-      if (source != null) {
-        builder.addTextBody("Source", ApiInvoker.parameterToString(source), ApiInvoker.TEXT_PLAIN_UTF8);
-      }
-      
 
       HttpEntity httpEntity = builder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-      formParams.put("Source", ApiInvoker.parameterToString(source));
       
     }
 

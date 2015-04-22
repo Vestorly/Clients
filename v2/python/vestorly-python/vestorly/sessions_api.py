@@ -112,11 +112,14 @@ class SessionsApi(object):
             vestorly_auth, str: Authenication token (required)
             
             
+            id, str: ID of pet to session (required)
+            
+            
         
         Returns: Session
         """
 
-        allParams = ['vestorly_auth']
+        allParams = ['vestorly_auth', 'id']
 
         params = locals()
         for (key, val) in params['kwargs'].iteritems():
@@ -138,7 +141,7 @@ class SessionsApi(object):
         accepts = []
         headerParams['Accept'] = ', '.join(accepts)
 
-        content_types = ['application/x-www-form-urlencoded', ]
+        content_types = []
         headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
 
         
@@ -146,10 +149,16 @@ class SessionsApi(object):
         
 
         
+        if ('id' in params):
+            replacement = str(self.apiClient.toPathValue(params['id']))
+            replacement = urllib.quote(replacement)
+            resourcePath = resourcePath.replace('{' + 'id' + '}',
+                                                replacement)
+        
 
         
         if ('vestorly_auth' in params):
-            formParams['vestorly_auth'] = params['vestorly_auth']
+            formParams['vestorly-auth'] = params['vestorly_auth']
         
 
         

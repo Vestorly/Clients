@@ -18,6 +18,7 @@ using namespace Tizen::Web::Json;
 
 
 using Tizen::Base::Long;
+using Tizen::Base::String;
 using Tizen::Base::Boolean;
 
 
@@ -42,6 +43,9 @@ public:
     SamiNewsletter* fromJson(String* obj);
 
     
+    String* getPId();
+    void setPId(String* p_id);
+    
     Boolean* getPIsSent();
     void setPIsSent(Boolean* pIs_sent);
     
@@ -59,6 +63,7 @@ public:
     
 
 private:
+    String* p_id;
     Boolean* pIs_sent;
     Boolean* pIs_default;
     Long* pClick_count;

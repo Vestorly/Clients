@@ -1,6 +1,7 @@
 package com.wordnik.client.api
 
 import com.wordnik.client.model.Sources
+import com.wordnik.client.model.SourceInput
 import com.wordnik.client.model.Source
 
 import java.io.File
@@ -32,7 +33,7 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
   val findSourcesOperation = (apiOperation[Sources]("findSources")
       summary ""
       parameters(
-        queryParam[String]("vestorly_auth").description("")
+        queryParam[String]("vestorly-auth").description("")
         
         
         
@@ -50,7 +51,7 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly_auth = params.getAs[String]("vestorly_auth")
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
       
     
 
@@ -60,7 +61,7 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly_auth: " + vestorly_auth)
+    println("vestorly-auth: " + vestorly-auth)
   
   }
 
@@ -69,7 +70,7 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
   val createSourceOperation = (apiOperation[Source]("createSource")
       summary ""
       parameters(
-        queryParam[String]("vestorly_auth").description("")
+        queryParam[String]("vestorly-auth").description("")
         
         
         
@@ -79,8 +80,8 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         
+        bodyParam[SourceInput]("source").description("")
         
-        formParam[String]("Source").description("")
         
         
         )
@@ -94,7 +95,7 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly_auth = params.getAs[String]("vestorly_auth")
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
       
     
 
@@ -104,7 +105,7 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly_auth: " + vestorly_auth)
+    println("vestorly-auth: " + vestorly-auth)
   
     
     
@@ -115,12 +116,12 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
     
 
     
-      val Source = params.getAs[String]("Source")
-    
 
     
+      val source = parsedBody.extract[SourceInput]
     
-    println("Source: " + Source)
+    
+    println("source: " + source)
   
   }
 
@@ -129,7 +130,7 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
   val getSourceByIDOperation = (apiOperation[Source]("getSourceByID")
       summary ""
       parameters(
-        queryParam[String]("vestorly_auth").description("")
+        queryParam[String]("vestorly-auth").description("")
         
         
         
@@ -154,7 +155,7 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly_auth = params.getAs[String]("vestorly_auth")
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
       
     
 
@@ -164,7 +165,7 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly_auth: " + vestorly_auth)
+    println("vestorly-auth: " + vestorly-auth)
   
     
     
@@ -189,7 +190,7 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
   val UpdateSourceByIDOperation = (apiOperation[Source]("UpdateSourceByID")
       summary ""
       parameters(
-        queryParam[String]("vestorly_auth").description("")
+        queryParam[String]("vestorly-auth").description("")
         
         
         
@@ -206,8 +207,8 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         
+        bodyParam[SourceInput]("source").description("")
         
-        formParam[String]("Source").description("")
         
         
         )
@@ -221,7 +222,7 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly_auth = params.getAs[String]("vestorly_auth")
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
       
     
 
@@ -231,7 +232,7 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly_auth: " + vestorly_auth)
+    println("vestorly-auth: " + vestorly-auth)
   
     
     
@@ -258,12 +259,12 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
     
 
     
-      val Source = params.getAs[String]("Source")
-    
 
     
+      val source = parsedBody.extract[SourceInput]
     
-    println("Source: " + Source)
+    
+    println("source: " + source)
   
   }
 
