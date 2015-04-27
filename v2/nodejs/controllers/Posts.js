@@ -8,10 +8,12 @@ var Posts = require('./PostsService');
 
 module.exports.findPosts = function findPosts (req, res, next) {
   var vestorly-auth = req.swagger.params['vestorly-auth'].value;
-  var filter_by = req.swagger.params['filter_by'].value;
+  var text_query = req.swagger.params['text_query'].value;
+  var external_url = req.swagger.params['external_url'].value;
+  var is_published = req.swagger.params['is_published'].value;
   
 
-  var result = Posts.findPosts(vestorly-auth, filter_by);
+  var result = Posts.findPosts(vestorly-auth, text_query, external_url, is_published);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

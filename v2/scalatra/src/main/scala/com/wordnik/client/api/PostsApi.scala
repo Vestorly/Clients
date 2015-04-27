@@ -40,7 +40,21 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         ,
-        queryParam[String]("filter_by").description("").optional
+        queryParam[String]("text_query").description("").optional
+        
+        
+        
+        
+        
+        ,
+        queryParam[String]("external_url").description("").optional
+        
+        
+        
+        
+        
+        ,
+        queryParam[String]("is_published").description("").optional
         
         
         
@@ -76,7 +90,7 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val filter_by = params.getAs[String]("filter_by")
+      val text_query = params.getAs[String]("text_query")
       
     
 
@@ -86,7 +100,43 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("filter_by: " + filter_by)
+    println("text_query: " + text_query)
+  
+    
+    
+    
+
+    
+      
+      val external_url = params.getAs[String]("external_url")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("external_url: " + external_url)
+  
+    
+    
+    
+
+    
+      
+      val is_published = params.getAs[String]("is_published")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("is_published: " + is_published)
   
   }
 

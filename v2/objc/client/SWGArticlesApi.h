@@ -19,6 +19,8 @@
  @param vestorly-auth Vestorly Auth Token
  @param limit Limit on the number of articles to return
  @param text_query Search query parameter
+ @param sort_direction Direction of sort (used with sort_by parameter)
+ @param sort_by Field on model to sort by
  
 
  return type: SWGArticles*
@@ -26,6 +28,8 @@
 -(NSNumber*) findArticlesWithCompletionBlock :(NSString*) vestorly-auth 
      limit:(NSNumber*) limit 
      text_query:(NSString*) text_query 
+     sort_direction:(NSString*) sort_direction 
+     sort_by:(NSString*) sort_by 
     
     completionHandler: (void (^)(SWGArticles* output, NSError* error))completionBlock;
     

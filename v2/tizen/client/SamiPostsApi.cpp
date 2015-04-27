@@ -52,7 +52,7 @@ findPostsProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiErro
 }
 
 SamiPosts* 
-SamiPostsApi::findPostsWithCompletion(String* vestorly-auth, String* filter_by, void (* success)(SamiPosts*, SamiError*)) {
+SamiPostsApi::findPostsWithCompletion(String* vestorly-auth, String* text_query, String* external_url, String* is_published, void (* success)(SamiPosts*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findPostsProcessor, (void(*)(void*, SamiError*))success);
@@ -68,7 +68,13 @@ SamiPostsApi::findPostsWithCompletion(String* vestorly-auth, String* filter_by, 
     queryParams->Add(new String("vestorly-auth"), vestorly-auth);
   
   
-    queryParams->Add(new String("filter_by"), filter_by);
+    queryParams->Add(new String("text_query"), text_query);
+  
+  
+    queryParams->Add(new String("external_url"), external_url);
+  
+  
+    queryParams->Add(new String("is_published"), is_published);
   
   
 

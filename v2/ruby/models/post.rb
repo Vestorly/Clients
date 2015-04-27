@@ -1,6 +1,6 @@
 
 class Post
-  attr_accessor :_id, :title, :post_date, :body, :comment, :client_only, :attachment, :video, :img, :image_url, :img_compressed, :img_changed, :topic
+  attr_accessor :_id, :title, :post_date, :body, :comment, :client_only, :attachment, :video, :img, :image_url, :img_compressed, :img_changed, :topic, :vestorly_url
   # :internal => :external
   def self.attribute_map
     {
@@ -16,7 +16,8 @@ class Post
       :image_url => :'image_url',
       :img_compressed => :'img_compressed',
       :img_changed => :'img_changed',
-      :topic => :'topic'
+      :topic => :'topic',
+      :vestorly_url => :'vestorly_url'
       
     }
   end
@@ -75,6 +76,10 @@ class Post
     
     if self.class.attribute_map[:"topic"]
       @topic = attributes["topic"]
+    end
+    
+    if self.class.attribute_map[:"vestorly_url"]
+      @vestorly_url = attributes["vestorly_url"]
     end
     
   end

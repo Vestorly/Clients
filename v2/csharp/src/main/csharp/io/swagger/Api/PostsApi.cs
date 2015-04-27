@@ -34,10 +34,12 @@ namespace io.swagger.Api {
     ///  Query all posts
     /// </summary>
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-     /// <param name="FilterBy">Filter post by parameters</param>
+     /// <param name="TextQuery">Filter post by parameters</param>
+     /// <param name="ExternalUrl">Filter by External URL</param>
+     /// <param name="IsPublished">Filter by is_published boolean</param>
     
     /// <returns></returns>
-    public Posts  findPosts (string VestorlyAuth, string FilterBy) {
+    public Posts  findPosts (string VestorlyAuth, string TextQuery, string ExternalUrl, string IsPublished) {
       // create path and map variables
       var path = "/posts".Replace("{format}","json");
 
@@ -51,8 +53,14 @@ namespace io.swagger.Api {
       if (VestorlyAuth != null){
         queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
-      if (FilterBy != null){
-        queryParams.Add("filter_by", apiInvoker.ParameterToString(FilterBy));
+      if (TextQuery != null){
+        queryParams.Add("text_query", apiInvoker.ParameterToString(TextQuery));
+      }
+      if (ExternalUrl != null){
+        queryParams.Add("external_url", apiInvoker.ParameterToString(ExternalUrl));
+      }
+      if (IsPublished != null){
+        queryParams.Add("is_published", apiInvoker.ParameterToString(IsPublished));
       }
       
 

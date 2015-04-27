@@ -41,10 +41,12 @@ public class PostsApi {
    * 
    * Query all posts
    * @param vestorlyAuth Vestorly Auth Token
-   * @param filterBy Filter post by parameters
+   * @param textQuery Filter post by parameters
+   * @param externalUrl Filter by External URL
+   * @param isPublished Filter by is_published boolean
    * @return Posts
    */
-  public Posts findPosts (String vestorlyAuth, String filterBy) throws ApiException {
+  public Posts findPosts (String vestorlyAuth, String textQuery, String externalUrl, String isPublished) throws ApiException {
     Object postBody = null;
     
 
@@ -58,8 +60,12 @@ public class PostsApi {
 
     if (vestorlyAuth != null)
       queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
-    if (filterBy != null)
-      queryParams.put("filter_by", ApiInvoker.parameterToString(filterBy));
+    if (textQuery != null)
+      queryParams.put("text_query", ApiInvoker.parameterToString(textQuery));
+    if (externalUrl != null)
+      queryParams.put("external_url", ApiInvoker.parameterToString(externalUrl));
+    if (isPublished != null)
+      queryParams.put("is_published", ApiInvoker.parameterToString(isPublished));
     
     
     String[] contentTypes = {

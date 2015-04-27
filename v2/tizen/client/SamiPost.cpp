@@ -35,6 +35,7 @@ SamiPost::init() {
     pImg_compressed = null;
     pImg_changed = null;
     pTopic = null;
+    pVestorly_url = null;
     
 }
 
@@ -104,6 +105,11 @@ SamiPost::cleanup() {
         
         delete pTopic;
         pTopic = null;
+    }
+    if(pVestorly_url != null) {
+        
+        delete pVestorly_url;
+        pVestorly_url = null;
     }
     
 }
@@ -260,6 +266,15 @@ SamiPost::fromJsonObject(IJsonValue* pJson) {
             jsonToValue(pTopic, pTopicVal, L"String", L"String");
         }
         delete pTopicKey;
+        JsonString* pVestorly_urlKey = new JsonString(L"vestorly_url");
+        IJsonValue* pVestorly_urlVal = null;
+        pJsonObject->GetValue(pVestorly_urlKey, pVestorly_urlVal);
+        if(pVestorly_urlVal != null) {
+            
+            pVestorly_url = new String();
+            jsonToValue(pVestorly_url, pVestorly_urlVal, L"String", L"String");
+        }
+        delete pVestorly_urlKey;
         
     }
 }
@@ -362,6 +377,10 @@ SamiPost::asJsonObject() {
     
     JsonString *pTopicKey = new JsonString(L"topic");
     pJsonObject->Add(pTopicKey, toJson(getPTopic(), "String", ""));
+
+    
+    JsonString *pVestorly_urlKey = new JsonString(L"vestorly_url");
+    pJsonObject->Add(pVestorly_urlKey, toJson(getPVestorlyUrl(), "String", ""));
 
     
     return pJsonObject;
@@ -482,6 +501,15 @@ SamiPost::getPTopic() {
 void
 SamiPost::setPTopic(String* pTopic) {
     this->pTopic = pTopic;
+}
+
+String*
+SamiPost::getPVestorlyUrl() {
+    return pVestorly_url;
+}
+void
+SamiPost::setPVestorlyUrl(String* pVestorly_url) {
+    this->pVestorly_url = pVestorly_url;
 }
 
 

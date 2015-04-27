@@ -1,6 +1,6 @@
 'use strict';
 
-exports.findPosts = function(vestorly-auth, filter_by) {
+exports.findPosts = function(vestorly-auth, text_query, external_url, is_published) {
 
   var examples = {};
   
@@ -16,6 +16,7 @@ exports.findPosts = function(vestorly-auth, filter_by) {
     "img_changed" : true,
     "attachment" : "aeiou",
     "post_date" : "aeiou",
+    "vestorly_url" : "aeiou",
     "topic" : "aeiou",
     "comment" : "aeiou",
     "_id" : "aeiou"
@@ -43,6 +44,7 @@ exports.createPost = function(vestorly-auth, post) {
   "img_changed" : true,
   "attachment" : "aeiou",
   "post_date" : "aeiou",
+  "vestorly_url" : "aeiou",
   "topic" : "aeiou",
   "comment" : "aeiou",
   "_id" : "aeiou"
@@ -69,6 +71,7 @@ exports.getPostByID = function(vestorly-auth, id) {
   "img_changed" : true,
   "attachment" : "aeiou",
   "post_date" : "aeiou",
+  "vestorly_url" : "aeiou",
   "topic" : "aeiou",
   "comment" : "aeiou",
   "_id" : "aeiou"
@@ -95,6 +98,7 @@ exports.updatePostByID = function(vestorly-auth, id, post) {
   "img_changed" : true,
   "attachment" : "aeiou",
   "post_date" : "aeiou",
+  "vestorly_url" : "aeiou",
   "topic" : "aeiou",
   "comment" : "aeiou",
   "_id" : "aeiou"

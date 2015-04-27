@@ -39,7 +39,7 @@ public class ArticlesApi {
 
   
   
-  public Articles  findArticles (String vestorlyAuth, Integer limit, String textQuery) throws ApiException {
+  public Articles  findArticles (String vestorlyAuth, Integer limit, String textQuery, String sortDirection, String sortBy) throws ApiException {
     Object postBody = null;
 
     
@@ -60,6 +60,10 @@ public class ArticlesApi {
       queryParams.put("limit", ApiInvoker.parameterToString(limit));
     if (textQuery != null)
       queryParams.put("text_query", ApiInvoker.parameterToString(textQuery));
+    if (sortDirection != null)
+      queryParams.put("sort_direction", ApiInvoker.parameterToString(sortDirection));
+    if (sortBy != null)
+      queryParams.put("sort_by", ApiInvoker.parameterToString(sortBy));
     
 
     

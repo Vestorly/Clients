@@ -54,7 +54,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
 
 -(NSNumber*) findPostsWithCompletionBlock: (NSString*) vestorly-auth
-         filter_by: (NSString*) filter_by
+         text_query: (NSString*) text_query
+         external_url: (NSString*) external_url
+         is_published: (NSString*) is_published
         
         completionHandler: (void (^)(SWGPosts* output, NSError* error))completionBlock
          {
@@ -78,9 +80,17 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
         
         queryParams[@"vestorly-auth"] = vestorly-auth;
     }
-    if(filter_by != nil) {
+    if(text_query != nil) {
         
-        queryParams[@"filter_by"] = filter_by;
+        queryParams[@"text_query"] = text_query;
+    }
+    if(external_url != nil) {
+        
+        queryParams[@"external_url"] = external_url;
+    }
+    if(is_published != nil) {
+        
+        queryParams[@"is_published"] = is_published;
     }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];

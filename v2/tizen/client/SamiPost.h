@@ -81,6 +81,9 @@ public:
     String* getPTopic();
     void setPTopic(String* pTopic);
     
+    String* getPVestorlyUrl();
+    void setPVestorlyUrl(String* pVestorly_url);
+    
 
 private:
     String* p_id;
@@ -96,6 +99,7 @@ private:
     Boolean* pImg_compressed;
     Boolean* pImg_changed;
     String* pTopic;
+    String* pVestorly_url;
     
 };
 

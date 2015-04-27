@@ -9,7 +9,12 @@
 #include "SamiPosts.h"
 #include "SamiPost.h"
 #include "SamiPostInput.h"
-#include "SamiAdvsior.h"
+#include "SamiSession.h"
+#include "SamiSettings.h"
+#include "SamiOrgSetting.h"
+#include "SamiFeatures.h"
+#include "SamiPersonalSettings.h"
+#include "SamiUser.h"
 #include "SamiArticle.h"
 #include "SamiArticles.h"
 #include "SamiNewsletter.h"
@@ -49,8 +54,23 @@ namespace Swagger {
     if(type.Equals(L"SamiPostInput", true)) {
       return new SamiPostInput();
     }
-    if(type.Equals(L"SamiAdvsior", true)) {
-      return new SamiAdvsior();
+    if(type.Equals(L"SamiSession", true)) {
+      return new SamiSession();
+    }
+    if(type.Equals(L"SamiSettings", true)) {
+      return new SamiSettings();
+    }
+    if(type.Equals(L"SamiOrgSetting", true)) {
+      return new SamiOrgSetting();
+    }
+    if(type.Equals(L"SamiFeatures", true)) {
+      return new SamiFeatures();
+    }
+    if(type.Equals(L"SamiPersonalSettings", true)) {
+      return new SamiPersonalSettings();
+    }
+    if(type.Equals(L"SamiUser", true)) {
+      return new SamiUser();
     }
     if(type.Equals(L"SamiArticle", true)) {
       return new SamiArticle();

@@ -34,4 +34,6 @@
 
 @property(nonatomic) NSString<Optional>* topic;
 
+@property(nonatomic) NSString<Optional>* vestorly_url;
+
 @end

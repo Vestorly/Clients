@@ -10,9 +10,11 @@ class ArticlesApi
   # @param vestorly_auth Vestorly Auth Token
   # @param limit Limit on the number of articles to return
   # @param text_query Search query parameter
+  # @param sort_direction Direction of sort (used with sort_by parameter)
+  # @param sort_by Field on model to sort by
   # @return Articles
-  def self.findArticles (vestorly_auth, limit, text_query, opts={})
-    query_param_keys = [:vestorly_auth,:limit,:text_query]
+  def self.findArticles (vestorly_auth, limit, text_query, sort_direction, sort_by, opts={})
+    query_param_keys = [:vestorly_auth,:limit,:text_query,:sort_direction,:sort_by]
     headerParams = {}
 
     
@@ -21,7 +23,9 @@ class ArticlesApi
     options = {
       :'vestorly_auth' => vestorly_auth,
       :'limit' => limit,
-      :'text_query' => text_query
+      :'text_query' => text_query,
+      :'sort_direction' => sort_direction,
+      :'sort_by' => sort_by
       
     }.merge(opts)
 

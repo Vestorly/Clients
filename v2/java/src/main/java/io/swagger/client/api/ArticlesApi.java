@@ -42,9 +42,11 @@ public class ArticlesApi {
    * @param vestorlyAuth Vestorly Auth Token
    * @param limit Limit on the number of articles to return
    * @param textQuery Search query parameter
+   * @param sortDirection Direction of sort (used with sort_by parameter)
+   * @param sortBy Field on model to sort by
    * @return Articles
    */
-  public Articles findArticles (String vestorlyAuth, Integer limit, String textQuery) throws ApiException {
+  public Articles findArticles (String vestorlyAuth, Integer limit, String textQuery, String sortDirection, String sortBy) throws ApiException {
     Object postBody = null;
     
 
@@ -62,6 +64,10 @@ public class ArticlesApi {
       queryParams.put("limit", ApiInvoker.parameterToString(limit));
     if (textQuery != null)
       queryParams.put("text_query", ApiInvoker.parameterToString(textQuery));
+    if (sortDirection != null)
+      queryParams.put("sort_direction", ApiInvoker.parameterToString(sortDirection));
+    if (sortBy != null)
+      queryParams.put("sort_by", ApiInvoker.parameterToString(sortBy));
     
     
     String[] contentTypes = {

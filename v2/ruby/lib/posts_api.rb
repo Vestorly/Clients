@@ -8,10 +8,12 @@ class PostsApi
   # 
   # Query all posts
   # @param vestorly_auth Vestorly Auth Token
-  # @param filter_by Filter post by parameters
+  # @param text_query Filter post by parameters
+  # @param external_url Filter by External URL
+  # @param is_published Filter by is_published boolean
   # @return Posts
-  def self.findPosts (vestorly_auth, filter_by, opts={})
-    query_param_keys = [:vestorly_auth,:filter_by]
+  def self.findPosts (vestorly_auth, text_query, external_url, is_published, opts={})
+    query_param_keys = [:vestorly_auth,:text_query,:external_url,:is_published]
     headerParams = {}
 
     
@@ -19,7 +21,9 @@ class PostsApi
     # set default values and merge with input
     options = {
       :'vestorly_auth' => vestorly_auth,
-      :'filter_by' => filter_by
+      :'text_query' => text_query,
+      :'external_url' => external_url,
+      :'is_published' => is_published
       
     }.merge(opts)
 

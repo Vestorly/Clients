@@ -21,7 +21,7 @@ public:
 
   
   SamiPosts* 
-  findPostsWithCompletion(String* vestorly-auth, String* filter_by, void (* handler)(SamiPosts*, SamiError*));
+  findPostsWithCompletion(String* vestorly-auth, String* text_query, String* external_url, String* is_published, void (* handler)(SamiPosts*, SamiError*));
   
   SamiPost* 
   createPostWithCompletion(String* vestorly-auth, SamiPostInput* post, void (* handler)(SamiPost*, SamiError*));

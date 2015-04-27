@@ -52,6 +52,20 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         
+        ,
+        queryParam[String]("sort_direction").description("").optional
+        
+        
+        
+        
+        
+        ,
+        queryParam[String]("sort_by").description("").optional
+        
+        
+        
+        
+        
         
         )
   )
@@ -111,6 +125,42 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
     
     
     println("text_query: " + text_query)
+  
+    
+    
+    
+
+    
+      
+      val sort_direction = params.getAs[String]("sort_direction")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("sort_direction: " + sort_direction)
+  
+    
+    
+    
+
+    
+      
+      val sort_by = params.getAs[String]("sort_by")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("sort_by: " + sort_by)
   
   }
 

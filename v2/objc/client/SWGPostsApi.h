@@ -18,13 +18,17 @@
  Query all posts
 
  @param vestorly-auth Vestorly Auth Token
- @param filter_by Filter post by parameters
+ @param text_query Filter post by parameters
+ @param external_url Filter by External URL
+ @param is_published Filter by is_published boolean
  
 
  return type: SWGPosts*
  */
 -(NSNumber*) findPostsWithCompletionBlock :(NSString*) vestorly-auth 
-     filter_by:(NSString*) filter_by 
+     text_query:(NSString*) text_query 
+     external_url:(NSString*) external_url 
+     is_published:(NSString*) is_published 
     
     completionHandler: (void (^)(SWGPosts* output, NSError* error))completionBlock;
     

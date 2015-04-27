@@ -36,9 +36,11 @@ namespace io.swagger.Api {
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
      /// <param name="Limit">Limit on the number of articles to return</param>
      /// <param name="TextQuery">Search query parameter</param>
+     /// <param name="SortDirection">Direction of sort (used with sort_by parameter)</param>
+     /// <param name="SortBy">Field on model to sort by</param>
     
     /// <returns></returns>
-    public Articles  findArticles (string VestorlyAuth, int? Limit, string TextQuery) {
+    public Articles  findArticles (string VestorlyAuth, int? Limit, string TextQuery, string SortDirection, string SortBy) {
       // create path and map variables
       var path = "/articles".Replace("{format}","json");
 
@@ -57,6 +59,12 @@ namespace io.swagger.Api {
       }
       if (TextQuery != null){
         queryParams.Add("text_query", apiInvoker.ParameterToString(TextQuery));
+      }
+      if (SortDirection != null){
+        queryParams.Add("sort_direction", apiInvoker.ParameterToString(SortDirection));
+      }
+      if (SortBy != null){
+        queryParams.Add("sort_by", apiInvoker.ParameterToString(SortBy));
       }
       
 

@@ -10,9 +10,11 @@ module.exports.findArticles = function findArticles (req, res, next) {
   var vestorly-auth = req.swagger.params['vestorly-auth'].value;
   var limit = req.swagger.params['limit'].value;
   var text_query = req.swagger.params['text_query'].value;
+  var sort_direction = req.swagger.params['sort_direction'].value;
+  var sort_by = req.swagger.params['sort_by'].value;
   
 
-  var result = Articles.findArticles(vestorly-auth, limit, text_query);
+  var result = Articles.findArticles(vestorly-auth, limit, text_query, sort_direction, sort_by);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

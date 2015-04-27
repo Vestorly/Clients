@@ -34,7 +34,9 @@ public class ArticlesApi {
 
   public Response findArticles(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
     @ApiParam(value = "Limit on the number of articles to return") @QueryParam("limit") Integer limit,
-    @ApiParam(value = "Search query parameter") @QueryParam("text_query") String textQuery)
+    @ApiParam(value = "Search query parameter") @QueryParam("text_query") String textQuery,
+    @ApiParam(value = "Direction of sort (used with sort_by parameter)") @QueryParam("sort_direction") String sortDirection,
+    @ApiParam(value = "Field on model to sort by") @QueryParam("sort_by") String sortBy)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

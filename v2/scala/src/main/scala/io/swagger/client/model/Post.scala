@@ -16,5 +16,6 @@ case class Post (
   image_url: String,
   img_compressed: Boolean,
   img_changed: Boolean,
-  topic: String)
+  topic: String,
+  vestorly_url: String)
   

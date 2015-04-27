@@ -19,7 +19,7 @@ class PostsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
   def addHeader(key: String, value: String) = apiInvoker.defaultHeaders += key -> value 
 
   
-  def findPosts (vestorly-auth: String, filter_by: String) : Option[Posts] = {
+  def findPosts (vestorly-auth: String, text_query: String, external_url: String, is_published: String) : Option[Posts] = {
     // create path and map variables
     val path = "/posts".replaceAll("\\{format\\}","json")
 
@@ -36,7 +36,9 @@ class PostsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
     
 
     if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
-    if(String.valueOf(filter_by) != "null") queryParams += "filter_by" -> filter_by.toString
+    if(String.valueOf(text_query) != "null") queryParams += "text_query" -> text_query.toString
+    if(String.valueOf(external_url) != "null") queryParams += "external_url" -> external_url.toString
+    if(String.valueOf(is_published) != "null") queryParams += "is_published" -> is_published.toString
     
     
     

@@ -34,7 +34,9 @@ public class PostsApi {
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "posts response") })
 
   public Response findPosts(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
-    @ApiParam(value = "Filter post by parameters") @QueryParam("filter_by") String filterBy)
+    @ApiParam(value = "Filter post by parameters") @QueryParam("text_query") String textQuery,
+    @ApiParam(value = "Filter by External URL") @QueryParam("external_url") String externalUrl,
+    @ApiParam(value = "Filter by is_published boolean") @QueryParam("is_published") String isPublished)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

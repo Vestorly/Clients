@@ -30,24 +30,32 @@ class Session implements ArrayAccess {
   static $swaggerTypes = array(
       '_id' => 'string',
       'vestorly_auth' => 'string',
-      'new_user' => 'boolean'
+      'new_user' => 'boolean',
+      'current_user' => 'User',
+      'settings' => 'Settings'
   );
 
   static $attributeMap = array(
       '_id' => '_id',
       'vestorly_auth' => 'vestorly-auth',
-      'new_user' => 'new_user'
+      'new_user' => 'new_user',
+      'current_user' => 'current_user',
+      'settings' => 'settings'
   );
 
   
   public $_id; /* string */
   public $vestorly_auth; /* string */
   public $new_user; /* boolean */
+  public $current_user; /* User */
+  public $settings; /* Settings */
 
   public function __construct(array $data = null) {
     $this->_id = $data["_id"];
     $this->vestorly_auth = $data["vestorly_auth"];
     $this->new_user = $data["new_user"];
+    $this->current_user = $data["current_user"];
+    $this->settings = $data["settings"];
   }
 
   public function offsetExists($offset) {

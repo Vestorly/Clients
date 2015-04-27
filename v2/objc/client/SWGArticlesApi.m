@@ -55,6 +55,8 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 -(NSNumber*) findArticlesWithCompletionBlock: (NSString*) vestorly-auth
          limit: (NSNumber*) limit
          text_query: (NSString*) text_query
+         sort_direction: (NSString*) sort_direction
+         sort_by: (NSString*) sort_by
         
         completionHandler: (void (^)(SWGArticles* output, NSError* error))completionBlock
          {
@@ -85,6 +87,14 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     if(text_query != nil) {
         
         queryParams[@"text_query"] = text_query;
+    }
+    if(sort_direction != nil) {
+        
+        queryParams[@"sort_direction"] = sort_direction;
+    }
+    if(sort_by != nil) {
+        
+        queryParams[@"sort_by"] = sort_by;
     }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];

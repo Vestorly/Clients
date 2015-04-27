@@ -21,6 +21,7 @@ public class Post  {
   private Boolean imgCompressed = null;
   private Boolean imgChanged = null;
   private String topic = null;
+  private String vestorlyUrl = null;
 
   
   /**
@@ -179,6 +180,18 @@ public class Post  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("vestorlyUrl")
+  public String getVestorlyUrl() {
+    return vestorlyUrl;
+  }
+  public void setVestorlyUrl(String vestorlyUrl) {
+    this.vestorlyUrl = vestorlyUrl;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -198,6 +211,7 @@ public class Post  {
     sb.append("  imgCompressed: ").append(imgCompressed).append("\n");
     sb.append("  imgChanged: ").append(imgChanged).append("\n");
     sb.append("  topic: ").append(topic).append("\n");
+    sb.append("  vestorlyUrl: ").append(vestorlyUrl).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

@@ -197,6 +197,12 @@
       <div class="param">text_query (optional)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Search query parameter </div>
+      <div class="param">sort_direction (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Direction of sort (used with sort_by parameter) </div>
+      <div class="param">sort_by (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Field on model to sort by </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
@@ -389,59 +395,6 @@
   
   
   <div class="method">
-    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /advisors</code></pre></div>
-    <div class="method-summary"><span class="nickname">findAdvisors</span> </div>
-    <div class="method-notes">Returns all advisors</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Advisors</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "advisors" : [ {\n    "name" : "aeiou",\n    "id" : "aeiou",\n    "tag" : "aeiou"\n  } ]\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /advisors/{id}</code></pre></div>
-    <div class="method-summary"><span class="nickname">findAdvisorByID</span> </div>
-    <div class="method-notes">Returns a single advisor if the user has access</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of advisor to fetch </div>
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Advisor</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "name" : "aeiou",\n  "id" : "aeiou",\n  "tag" : "aeiou"\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  
-  
-  <div class="method">
     <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: /sessions</code></pre></div>
     <div class="method-summary"><span class="nickname">login</span> </div>
     <div class="method-notes">Login To Vestorly Platform</div>
@@ -463,7 +416,7 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>""</code></pre>
+    <pre class="example"><code>{\n  "vestorly-auth" : "aeiou",\n  "settings" : {\n    "website" : "aeiou",\n    "disclosure" : "aeiou",\n    "picture_url" : "aeiou",\n    "feature" : {\n      "_id" : "aeiou"\n    },\n    "orgsetting" : {\n      "privacy_policy_url" : "aeiou",\n      "site_url" : "aeiou",\n      "name" : "aeiou",\n      "company_contact_email" : "aeiou",\n      "_id" : "aeiou",\n      "terms_and_conditions_url" : "aeiou",\n      "is_default" : true,\n      "email_theme_name" : "aeiou",\n      "company_address" : "aeiou",\n      "company_homepage_url" : "aeiou"\n    },\n    "name" : "aeiou",\n    "personalsetting" : {\n      "_id" : "aeiou"\n    },\n    "company" : "aeiou",\n    "_id" : "aeiou",\n    "adv_brochure" : "aeiou",\n    "slug" : "aeiou"\n  },\n  "new_user" : true,\n  "_id" : "aeiou",\n  "current_user" : {\n    "website" : "aeiou",\n    "picture_url" : "aeiou",\n    "plan_setup" : true,\n    "last_name" : "aeiou",\n    "new_user" : true,\n    "user_type" : "aeiou",\n    "show_tour" : true,\n    "name" : "aeiou",\n    "company" : "aeiou",\n    "plan_expired" : true,\n    "_id" : "aeiou",\n    "first_name" : "aeiou",\n    "plan_stripe" : true,\n    "slug" : "aeiou",\n    "plan_id" : "aeiou",\n    "username" : "aeiou",\n    "plan_status" : "aeiou"\n  }\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -490,7 +443,7 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>""</code></pre>
+    <pre class="example"><code>{\n  "vestorly-auth" : "aeiou",\n  "settings" : {\n    "website" : "aeiou",\n    "disclosure" : "aeiou",\n    "picture_url" : "aeiou",\n    "feature" : {\n      "_id" : "aeiou"\n    },\n    "orgsetting" : {\n      "privacy_policy_url" : "aeiou",\n      "site_url" : "aeiou",\n      "name" : "aeiou",\n      "company_contact_email" : "aeiou",\n      "_id" : "aeiou",\n      "terms_and_conditions_url" : "aeiou",\n      "is_default" : true,\n      "email_theme_name" : "aeiou",\n      "company_address" : "aeiou",\n      "company_homepage_url" : "aeiou"\n    },\n    "name" : "aeiou",\n    "personalsetting" : {\n      "_id" : "aeiou"\n    },\n    "company" : "aeiou",\n    "_id" : "aeiou",\n    "adv_brochure" : "aeiou",\n    "slug" : "aeiou"\n  },\n  "new_user" : true,\n  "_id" : "aeiou",\n  "current_user" : {\n    "website" : "aeiou",\n    "picture_url" : "aeiou",\n    "plan_setup" : true,\n    "last_name" : "aeiou",\n    "new_user" : true,\n    "user_type" : "aeiou",\n    "show_tour" : true,\n    "name" : "aeiou",\n    "company" : "aeiou",\n    "plan_expired" : true,\n    "_id" : "aeiou",\n    "first_name" : "aeiou",\n    "plan_stripe" : true,\n    "slug" : "aeiou",\n    "plan_id" : "aeiou",\n    "username" : "aeiou",\n    "plan_status" : "aeiou"\n  }\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -507,9 +460,15 @@
       <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">filter_by (optional)</div>
+      <div class="param">text_query (optional)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter post by parameters </div>
+      <div class="param">external_url (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter by External URL </div>
+      <div class="param">is_published (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter by is_published boolean </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
@@ -519,7 +478,7 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "posts" : [ {\n    "img" : "aeiou",\n    "client_only" : true,\n    "image_url" : "aeiou",\n    "video" : "aeiou",\n    "title" : "aeiou",\n    "body" : "aeiou",\n    "img_compressed" : true,\n    "img_changed" : true,\n    "attachment" : "aeiou",\n    "post_date" : "aeiou",\n    "topic" : "aeiou",\n    "comment" : "aeiou",\n    "_id" : "aeiou"\n  } ]\n}</code></pre>
+    <pre class="example"><code>{\n  "posts" : [ {\n    "img" : "aeiou",\n    "client_only" : true,\n    "image_url" : "aeiou",\n    "video" : "aeiou",\n    "title" : "aeiou",\n    "body" : "aeiou",\n    "img_compressed" : true,\n    "img_changed" : true,\n    "attachment" : "aeiou",\n    "post_date" : "aeiou",\n    "vestorly_url" : "aeiou",\n    "topic" : "aeiou",\n    "comment" : "aeiou",\n    "_id" : "aeiou"\n  } ]\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -546,7 +505,7 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "img" : "aeiou",\n  "client_only" : true,\n  "image_url" : "aeiou",\n  "video" : "aeiou",\n  "title" : "aeiou",\n  "body" : "aeiou",\n  "img_compressed" : true,\n  "img_changed" : true,\n  "attachment" : "aeiou",\n  "post_date" : "aeiou",\n  "topic" : "aeiou",\n  "comment" : "aeiou",\n  "_id" : "aeiou"\n}</code></pre>
+    <pre class="example"><code>{\n  "img" : "aeiou",\n  "client_only" : true,\n  "image_url" : "aeiou",\n  "video" : "aeiou",\n  "title" : "aeiou",\n  "body" : "aeiou",\n  "img_compressed" : true,\n  "img_changed" : true,\n  "attachment" : "aeiou",\n  "post_date" : "aeiou",\n  "vestorly_url" : "aeiou",\n  "topic" : "aeiou",\n  "comment" : "aeiou",\n  "_id" : "aeiou"\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -573,7 +532,7 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "img" : "aeiou",\n  "client_only" : true,\n  "image_url" : "aeiou",\n  "video" : "aeiou",\n  "title" : "aeiou",\n  "body" : "aeiou",\n  "img_compressed" : true,\n  "img_changed" : true,\n  "attachment" : "aeiou",\n  "post_date" : "aeiou",\n  "topic" : "aeiou",\n  "comment" : "aeiou",\n  "_id" : "aeiou"\n}</code></pre>
+    <pre class="example"><code>{\n  "img" : "aeiou",\n  "client_only" : true,\n  "image_url" : "aeiou",\n  "video" : "aeiou",\n  "title" : "aeiou",\n  "body" : "aeiou",\n  "img_compressed" : true,\n  "img_changed" : true,\n  "attachment" : "aeiou",\n  "post_date" : "aeiou",\n  "vestorly_url" : "aeiou",\n  "topic" : "aeiou",\n  "comment" : "aeiou",\n  "_id" : "aeiou"\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -603,7 +562,7 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "img" : "aeiou",\n  "client_only" : true,\n  "image_url" : "aeiou",\n  "video" : "aeiou",\n  "title" : "aeiou",\n  "body" : "aeiou",\n  "img_compressed" : true,\n  "img_changed" : true,\n  "attachment" : "aeiou",\n  "post_date" : "aeiou",\n  "topic" : "aeiou",\n  "comment" : "aeiou",\n  "_id" : "aeiou"\n}</code></pre>
+    <pre class="example"><code>{\n  "img" : "aeiou",\n  "client_only" : true,\n  "image_url" : "aeiou",\n  "video" : "aeiou",\n  "title" : "aeiou",\n  "body" : "aeiou",\n  "img_compressed" : true,\n  "img_changed" : true,\n  "attachment" : "aeiou",\n  "post_date" : "aeiou",\n  "vestorly_url" : "aeiou",\n  "topic" : "aeiou",\n  "comment" : "aeiou",\n  "_id" : "aeiou"\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -861,6 +820,7 @@
       <div class="param">img_compressed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       <div class="param">img_changed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       <div class="param">topic </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">vestorly_url </div><div class="param-desc"><span class="param-type">String</span> </div>
       
     </div>  <!-- field-items -->
   </div>
@@ -890,11 +850,98 @@
   
   
   <div class="model">
-    <h3 class="field-label"><a name="Advsior">Advsior</a></h3>
+    <h3 class="field-label"><a name="Session">Session</a></h3>
     <div class="field-items">
       <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">vestorly-auth </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">new_user </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">current_user </div><div class="param-desc"><span class="param-type">User</span> </div>
+      <div class="param">settings </div><div class="param-desc"><span class="param-type">Settings</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Settings">Settings</a></h3>
+    <div class="field-items">
+      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">company </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">picture_url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">website </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">disclosure </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">adv_brochure </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">slug </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">orgsetting </div><div class="param-desc"><span class="param-type">OrgSetting</span> </div>
+      <div class="param">feature </div><div class="param-desc"><span class="param-type">Features</span> </div>
+      <div class="param">personalsetting </div><div class="param-desc"><span class="param-type">PersonalSettings</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="OrgSetting">OrgSetting</a></h3>
+    <div class="field-items">
+      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">is_default </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">email_theme_name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">company_address </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">company_contact_email </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">site_url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">company_homepage_url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">privacy_policy_url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">terms_and_conditions_url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Features">Features</a></h3>
+    <div class="field-items">
+      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="PersonalSettings">PersonalSettings</a></h3>
+    <div class="field-items">
+      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="User">User</a></h3>
+    <div class="field-items">
+      <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">company </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">picture_url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">website </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">user_type </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">slug </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">username </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">first_name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">last_name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">new_user </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">show_tour </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">plan_setup </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">plan_expired </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">plan_status </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">plan_id </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">plan_stripe </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       
     </div>  <!-- field-items -->
   </div>

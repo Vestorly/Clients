@@ -24,56 +24,6 @@
   } ],
   "schemes" : [ "https" ],
   "paths" : {
-    "/advisors" : {
-      "get" : {
-        "tags" : [ "advisors" ],
-        "description" : "Returns all advisors",
-        "operationId" : "findAdvisors",
-        "parameters" : [ {
-          "name" : "vestorly-auth",
-          "in" : "query",
-          "description" : "Vestorly Auth Token",
-          "required" : true,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "advisors response",
-            "schema" : {
-              "$ref" : "#/definitions/Advisors"
-            }
-          }
-        }
-      }
-    },
-    "/advisors/{id}" : {
-      "get" : {
-        "tags" : [ "advisors" ],
-        "description" : "Returns a single advisor if the user has access",
-        "operationId" : "findAdvisorByID",
-        "parameters" : [ {
-          "name" : "id",
-          "in" : "path",
-          "description" : "Mongo ID of advisor to fetch",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "vestorly-auth",
-          "in" : "query",
-          "description" : "Vestorly Auth Token",
-          "required" : true,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Advisor response",
-            "schema" : {
-              "$ref" : "#/definitions/Advisor"
-            }
-          }
-        }
-      }
-    },
     "/articles" : {
       "get" : {
         "tags" : [ "articles" ],
@@ -97,8 +47,19 @@
           "in" : "query",
           "description" : "Search query parameter",
           "required" : false,
-          "type" : "string",
-          "format" : "string"
+          "type" : "string"
+        }, {
+          "name" : "sort_direction",
+          "in" : "query",
+          "description" : "Direction of sort (used with sort_by parameter)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sort_by",
+          "in" : "query",
+          "description" : "Field on model to sort by",
+          "required" : false,
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {
@@ -551,9 +512,21 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "filter_by",
+          "name" : "text_query",
           "in" : "query",
           "description" : "Filter post by parameters",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "external_url",
+          "in" : "query",
+          "description" : "Filter by External URL",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "is_published",
+          "in" : "query",
+          "description" : "Filter by is_published boolean",
           "required" : false,
           "type" : "string"
         } ],
@@ -918,6 +891,9 @@
         },
         "topic" : {
           "type" : "string"
+        },
+        "vestorly_url" : {
+          "type" : "string"
         }
       }
     },
@@ -968,7 +944,7 @@
         }
       }
     },
-    "Advsior" : {
+    "Session" : {
       "properties" : {
         "_id" : {
           "type" : "string"
@@ -977,6 +953,163 @@
           "type" : "string"
         },
         "new_user" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "current_user" : {
+          "$ref" : "#/definitions/User"
+        },
+        "settings" : {
+          "$ref" : "#/definitions/Settings"
+        }
+      }
+    },
+    "Settings" : {
+      "required" : [ "_id" ],
+      "properties" : {
+        "_id" : {
+          "type" : "string"
+        },
+        "company" : {
+          "type" : "string"
+        },
+        "picture_url" : {
+          "type" : "string"
+        },
+        "website" : {
+          "type" : "string"
+        },
+        "disclosure" : {
+          "type" : "string"
+        },
+        "adv_brochure" : {
+          "type" : "string"
+        },
+        "slug" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "orgsetting" : {
+          "$ref" : "#/definitions/OrgSetting"
+        },
+        "feature" : {
+          "$ref" : "#/definitions/Features"
+        },
+        "personalsetting" : {
+          "$ref" : "#/definitions/PersonalSettings"
+        }
+      }
+    },
+    "OrgSetting" : {
+      "required" : [ "_id" ],
+      "properties" : {
+        "_id" : {
+          "type" : "string"
+        },
+        "is_default" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "email_theme_name" : {
+          "type" : "string"
+        },
+        "company_address" : {
+          "type" : "string"
+        },
+        "company_contact_email" : {
+          "type" : "string"
+        },
+        "site_url" : {
+          "type" : "string"
+        },
+        "company_homepage_url" : {
+          "type" : "string"
+        },
+        "privacy_policy_url" : {
+          "type" : "string"
+        },
+        "terms_and_conditions_url" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Features" : {
+      "required" : [ "_id" ],
+      "properties" : {
+        "_id" : {
+          "type" : "string"
+        }
+      }
+    },
+    "PersonalSettings" : {
+      "required" : [ "_id" ],
+      "properties" : {
+        "_id" : {
+          "type" : "string"
+        }
+      }
+    },
+    "User" : {
+      "required" : [ "_id" ],
+      "properties" : {
+        "_id" : {
+          "type" : "string"
+        },
+        "company" : {
+          "type" : "string"
+        },
+        "picture_url" : {
+          "type" : "string"
+        },
+        "website" : {
+          "type" : "string"
+        },
+        "user_type" : {
+          "type" : "string"
+        },
+        "slug" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "username" : {
+          "type" : "string"
+        },
+        "first_name" : {
+          "type" : "string"
+        },
+        "last_name" : {
+          "type" : "string"
+        },
+        "new_user" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "show_tour" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "plan_setup" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "plan_expired" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "plan_status" : {
+          "type" : "string"
+        },
+        "plan_id" : {
+          "type" : "string"
+        },
+        "plan_stripe" : {
           "type" : "boolean",
           "default" : false
         }

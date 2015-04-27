@@ -72,6 +72,11 @@ namespace io.swagger.Model {
 
     
 
+    
+    public string VestorlyUrl { get; set; }
+
+    
+
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class Post {\n");
@@ -101,6 +106,8 @@ namespace io.swagger.Model {
       sb.Append("  ImgChanged: ").Append(ImgChanged).Append("\n");
       
       sb.Append("  Topic: ").Append(Topic).Append("\n");
+      
+      sb.Append("  VestorlyUrl: ").Append(VestorlyUrl).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();

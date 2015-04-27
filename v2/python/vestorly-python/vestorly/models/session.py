@@ -36,7 +36,13 @@ class Session(object):
             'vestorly_auth': 'str',
             
             
-            'new_user': 'bool'
+            'new_user': 'bool',
+            
+            
+            'current_user': 'User',
+            
+            
+            'settings': 'Settings'
             
         }
 
@@ -46,7 +52,11 @@ class Session(object):
             
             'vestorly_auth': 'vestorly-auth',
             
-            'new_user': 'new_user'
+            'new_user': 'new_user',
+            
+            'current_user': 'current_user',
+            
+            'settings': 'settings'
             
         }
 
@@ -59,4 +69,10 @@ class Session(object):
         
         
         self.new_user = None # bool
+        
+        
+        self.current_user = None # User
+        
+        
+        self.settings = None # Settings
         

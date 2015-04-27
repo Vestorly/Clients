@@ -1,6 +1,6 @@
 'use strict';
 
-exports.findArticles = function(vestorly-auth, limit, text_query) {
+exports.findArticles = function(vestorly-auth, limit, text_query, sort_direction, sort_by) {
 
   var examples = {};
   
