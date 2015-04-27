@@ -19,6 +19,8 @@ class test_sessions_api(unittest.TestCase):
 		self.assertTrue(isinstance(posts.posts,list))
 		self.assertTrue(isinstance(posts.posts[0],vestorly.models.post.Post))
 
+	def test_post_text_query_works(self):
+		""" test text_query parameter"""
 	 
   		 
 if __name__ == '__main__':
