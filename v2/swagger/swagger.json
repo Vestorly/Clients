@@ -114,6 +114,34 @@
             }
           }
         }
+      },
+      "post" : {
+        "tags" : [ "events" ],
+        "description" : "Creates a new event in the system",
+        "operationId" : "createEvent",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "Event",
+          "description" : "Event",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/EventInput"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Event response",
+            "schema" : {
+              "$ref" : "#/definitions/Event"
+            }
+          }
+        }
       }
     },
     "/events/{id}" : {

@@ -150,6 +150,46 @@
     }
   } ,
   
+  "/events": {
+    "post": {
+      "x-swagger-router-controller": "Events",
+      "tags": ["Events"],
+      "operationId": "createEvent",
+      "parameters": [
+        
+        {
+  "name" : "vestorly-auth",
+  "in" : "query",
+  "description" : "Vestorly Auth Token",
+  "required" : true,
+  "type" : "string"
+},
+        
+        {
+  "in" : "body",
+  "name" : "Event",
+  "description" : "Event",
+  "required" : true,
+  "schema" : {
+    "$ref" : "#/definitions/EventInput"
+  }
+}
+        
+      ],
+      "responses": {
+        
+        "200": {
+  "description" : "Event response",
+  "schema" : {
+    "$ref" : "#/definitions/Event"
+  }
+}
+        
+        
+      }
+    }
+  } ,
+  
   "/events/{id}": {
     "get": {
       "x-swagger-router-controller": "Events",

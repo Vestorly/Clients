@@ -7,8 +7,8 @@ import com.wordnik.swagger.annotations.ApiParam;
 import com.sun.jersey.multipart.FormDataParam;
 
 import io.swagger.model.Events;
-import io.swagger.model.Event;
 import io.swagger.model.EventInput;
+import io.swagger.model.Event;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -34,6 +34,22 @@ public class EventsApi {
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Event response") })
 
   public Response findEvents(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
+      throws NotFoundException {
+      // do some magic!
+      return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+  }
+
+  
+  @POST
+  
+  
+  
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Creates a new event in the system", response = Event.class)
+  @com.wordnik.swagger.annotations.ApiResponses(value = { 
+    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Event response") })
+
+  public Response createEvent(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+    @ApiParam(value = "Event" ,required=true ) EventInput event)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

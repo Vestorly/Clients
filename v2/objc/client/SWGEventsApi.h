@@ -31,6 +31,24 @@
 /**
 
  
+ Creates a new event in the system
+
+ @param vestorly-auth Vestorly Auth Token
+ @param Event Event
+ 
+
+ return type: SWGEvent*
+ */
+-(NSNumber*) createEventWithCompletionBlock :(NSString*) vestorly-auth 
+     Event:(SWGEventInput*) Event 
+    
+    completionHandler: (void (^)(SWGEvent* output, NSError* error))completionBlock;
+    
+
+
+/**
+
+ 
  Returns a single event if the user has access
 
  @param _id Mongo ID of event to fetch

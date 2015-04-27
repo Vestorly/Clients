@@ -1,8 +1,8 @@
 package com.wordnik.client.api
 
 import com.wordnik.client.model.Events
-import com.wordnik.client.model.Event
 import com.wordnik.client.model.EventInput
+import com.wordnik.client.model.Event
 
 import java.io.File
 
@@ -62,6 +62,66 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
     
     
     println("vestorly-auth: " + vestorly-auth)
+  
+  }
+
+  
+
+  val createEventOperation = (apiOperation[Event]("createEvent")
+      summary ""
+      parameters(
+        queryParam[String]("vestorly-auth").description("")
+        
+        
+        
+        
+        
+        ,
+        
+        
+        
+        bodyParam[EventInput]("Event").description("")
+        
+        
+        
+        )
+  )
+
+  post("/events",operation(createEventOperation)) {
+    
+    
+    
+    
+
+    
+      
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("vestorly-auth: " + vestorly-auth)
+  
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+      val Event = parsedBody.extract[EventInput]
+    
+    
+    println("Event: " + Event)
   
   }
 

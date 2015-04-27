@@ -123,6 +123,33 @@
   <hr>
   
   <div class="method">
+    <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: /events</code></pre></div>
+    <div class="method-summary"><span class="nickname">createEvent</span> </div>
+    <div class="method-notes">Creates a new event in the system</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">Event (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Event </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Event</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "referrer" : "aeiou",\n  "newsletter" : "aeiou",\n  "originator_group_name" : "aeiou",\n  "advisor_email" : "aeiou",\n  "original_url" : "aeiou",\n  "originator_email" : "aeiou",\n  "_id" : "aeiou",\n  "subject_email" : "aeiou"\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
     <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /events/{id}</code></pre></div>
     <div class="method-summary"><span class="nickname">findEventByID</span> </div>
     <div class="method-notes">Returns a single event if the user has access</div>

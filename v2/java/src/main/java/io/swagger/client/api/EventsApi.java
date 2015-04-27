@@ -8,8 +8,8 @@ import io.swagger.client.model.*;
 import java.util.*;
 
 import io.swagger.client.model.Events;
-import io.swagger.client.model.Event;
 import io.swagger.client.model.EventInput;
+import io.swagger.client.model.Event;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.file.FileDataBodyPart;
@@ -80,6 +80,59 @@ public class EventsApi {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
         return (Events) ApiInvoker.deserialize(response, "", Events.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  
+  /**
+   * 
+   * Creates a new event in the system
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param event Event
+   * @return Event
+   */
+  public Event createEvent (String vestorlyAuth, EventInput event) throws ApiException {
+    Object postBody = event;
+    
+
+    // create path and map variables
+    String path = "/events".replaceAll("\\{format\\}","json");
+
+    // query params
+    Map<String, String> queryParams = new HashMap<String, String>();
+    Map<String, String> headerParams = new HashMap<String, String>();
+    Map<String, String> formParams = new HashMap<String, String>();
+
+    if (vestorlyAuth != null)
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+    
+    
+    String[] contentTypes = {
+      
+    };
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if(contentType.startsWith("multipart/form-data")) {
+      boolean hasFields = false;
+      FormDataMultiPart mp = new FormDataMultiPart();
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+      
+    }
+
+    try {
+      String response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType);
+      if(response != null){
+        return (Event) ApiInvoker.deserialize(response, "", Event.class);
       }
       else {
         return null;

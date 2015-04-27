@@ -24,6 +24,9 @@ public:
   findEventsWithCompletion(String* vestorly-auth, void (* handler)(SamiEvents*, SamiError*));
   
   SamiEvent* 
+  createEventWithCompletion(String* vestorly-auth, SamiEventInput* Event, void (* handler)(SamiEvent*, SamiError*));
+  
+  SamiEvent* 
   findEventByIDWithCompletion(String* _id, String* vestorly-auth, void (* handler)(SamiEvent*, SamiError*));
   
   SamiEvent* 

@@ -87,6 +87,63 @@ namespace io.swagger.Api {
     
 
     /// <summary>
+    ///  Creates a new event in the system
+    /// </summary>
+    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+     /// <param name="Event">Event</param>
+    
+    /// <returns></returns>
+    public Event  createEvent (string VestorlyAuth, EventInput Event) {
+      // create path and map variables
+      var path = "/events".Replace("{format}","json");
+
+      // query params
+      var queryParams = new Dictionary<String, String>();
+      var headerParams = new Dictionary<String, String>();
+      var formParams = new Dictionary<String, object>();
+
+      
+
+      if (VestorlyAuth != null){
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
+      }
+      
+
+      
+
+      
+
+      try {
+        if (typeof(Event) == typeof(byte[])) {
+          
+          var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
+          return ((object)response) as Event;
+          
+          
+        } else {
+          
+          var response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, Event, headerParams, formParams);
+          if (response != null){
+             return (Event) ApiInvoker.deserialize(response, typeof(Event));
+          }
+          else {
+            return null;
+          }
+          
+          
+        }
+      } catch (ApiException ex) {
+        if(ex.ErrorCode == 404) {
+          return null;
+        }
+        else {
+          throw ex;
+        }
+      }
+    }
+    
+
+    /// <summary>
     ///  Returns a single event if the user has access
     /// </summary>
     /// <param name="Id">Mongo ID of event to fetch</param>
