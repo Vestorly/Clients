@@ -41,14 +41,20 @@ class PostsApi(object):
             vestorly_auth, str: Vestorly Auth Token (required)
             
             
-            filter_by, str: Filter post by parameters (required)
+            text_query, str: Filter post by parameters (required)
+            
+            
+            external_url, str: Filter by External URL (required)
+            
+            
+            is_published, str: Filter by is_published boolean (required)
             
             
         
         Returns: Posts
         """
 
-        allParams = ['vestorly_auth', 'filter_by']
+        allParams = ['vestorly_auth', 'text_query', 'external_url', 'is_published']
 
         params = locals()
         for (key, val) in params['kwargs'].iteritems():
@@ -77,8 +83,14 @@ class PostsApi(object):
         if ('vestorly_auth' in params):
             queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
-        if ('filter_by' in params):
-            queryParams['filter_by'] = self.apiClient.toPathValue(params['filter_by'])
+        if ('text_query' in params):
+            queryParams['text_query'] = self.apiClient.toPathValue(params['text_query'])
+        
+        if ('external_url' in params):
+            queryParams['external_url'] = self.apiClient.toPathValue(params['external_url'])
+        
+        if ('is_published' in params):
+            queryParams['is_published'] = self.apiClient.toPathValue(params['is_published'])
         
 
         

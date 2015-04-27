@@ -66,7 +66,10 @@ class Post(object):
             'img_changed': 'bool',
             
             
-            'topic': 'str'
+            'topic': 'str',
+            
+            
+            'vestorly_url': 'str'
             
         }
 
@@ -96,7 +99,9 @@ class Post(object):
             
             'img_changed': 'img_changed',
             
-            'topic': 'topic'
+            'topic': 'topic',
+            
+            'vestorly_url': 'vestorly_url'
             
         }
 
@@ -139,4 +144,7 @@ class Post(object):
         
         
         self.topic = None # str
+        
+        
+        self.vestorly_url = None # str
         

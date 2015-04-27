@@ -47,11 +47,17 @@ class ArticlesApi(object):
             text_query, str: Search query parameter (required)
             
             
+            sort_direction, str: Direction of sort (used with sort_by parameter) (required)
+            
+            
+            sort_by, str: Field on model to sort by (required)
+            
+            
         
         Returns: Articles
         """
 
-        allParams = ['vestorly_auth', 'limit', 'text_query']
+        allParams = ['vestorly_auth', 'limit', 'text_query', 'sort_direction', 'sort_by']
 
         params = locals()
         for (key, val) in params['kwargs'].iteritems():
@@ -85,6 +91,12 @@ class ArticlesApi(object):
         
         if ('text_query' in params):
             queryParams['text_query'] = self.apiClient.toPathValue(params['text_query'])
+        
+        if ('sort_direction' in params):
+            queryParams['sort_direction'] = self.apiClient.toPathValue(params['sort_direction'])
+        
+        if ('sort_by' in params):
+            queryParams['sort_by'] = self.apiClient.toPathValue(params['sort_by'])
         
 
         

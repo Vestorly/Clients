@@ -40,7 +40,8 @@ class Post implements ArrayAccess {
       'image_url' => 'string',
       'img_compressed' => 'boolean',
       'img_changed' => 'boolean',
-      'topic' => 'string'
+      'topic' => 'string',
+      'vestorly_url' => 'string'
   );
 
   static $attributeMap = array(
@@ -56,7 +57,8 @@ class Post implements ArrayAccess {
       'image_url' => 'image_url',
       'img_compressed' => 'img_compressed',
       'img_changed' => 'img_changed',
-      'topic' => 'topic'
+      'topic' => 'topic',
+      'vestorly_url' => 'vestorly_url'
   );
 
   
@@ -73,6 +75,7 @@ class Post implements ArrayAccess {
   public $img_compressed; /* boolean */
   public $img_changed; /* boolean */
   public $topic; /* string */
+  public $vestorly_url; /* string */
 
   public function __construct(array $data = null) {
     $this->_id = $data["_id"];
@@ -88,6 +91,7 @@ class Post implements ArrayAccess {
     $this->img_compressed = $data["img_compressed"];
     $this->img_changed = $data["img_changed"];
     $this->topic = $data["topic"];
+    $this->vestorly_url = $data["vestorly_url"];
   }
 
   public function offsetExists($offset) {

@@ -37,9 +37,11 @@ class ArticlesApi {
    * @param string $vestorly_auth Vestorly Auth Token (required)
    * @param int $limit Limit on the number of articles to return (required)
    * @param string $text_query Search query parameter (required)
+   * @param string $sort_direction Direction of sort (used with sort_by parameter) (required)
+   * @param string $sort_by Field on model to sort by (required)
    * @return Articles
    */
-   public function findArticles($vestorly_auth, $limit, $text_query) {
+   public function findArticles($vestorly_auth, $limit, $text_query, $sort_direction, $sort_by) {
 
       // parse inputs
       $resourcePath = "/articles";
@@ -65,6 +67,12 @@ class ArticlesApi {
       }// query params
       if($text_query !== null) {
         $queryParams['text_query'] = $this->apiClient->toQueryValue($text_query);
+      }// query params
+      if($sort_direction !== null) {
+        $queryParams['sort_direction'] = $this->apiClient->toQueryValue($sort_direction);
+      }// query params
+      if($sort_by !== null) {
+        $queryParams['sort_by'] = $this->apiClient->toQueryValue($sort_by);
       }
       
       

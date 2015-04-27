@@ -35,10 +35,12 @@ class PostsApi {
    * 
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @param string $filter_by Filter post by parameters (required)
+   * @param string $text_query Filter post by parameters (required)
+   * @param string $external_url Filter by External URL (required)
+   * @param string $is_published Filter by is_published boolean (required)
    * @return Posts
    */
-   public function findPosts($vestorly_auth, $filter_by) {
+   public function findPosts($vestorly_auth, $text_query, $external_url, $is_published) {
 
       // parse inputs
       $resourcePath = "/posts";
@@ -59,8 +61,14 @@ class PostsApi {
       if($vestorly_auth !== null) {
         $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
       }// query params
-      if($filter_by !== null) {
-        $queryParams['filter_by'] = $this->apiClient->toQueryValue($filter_by);
+      if($text_query !== null) {
+        $queryParams['text_query'] = $this->apiClient->toQueryValue($text_query);
+      }// query params
+      if($external_url !== null) {
+        $queryParams['external_url'] = $this->apiClient->toQueryValue($external_url);
+      }// query params
+      if($is_published !== null) {
+        $queryParams['is_published'] = $this->apiClient->toQueryValue($is_published);
       }
       
       

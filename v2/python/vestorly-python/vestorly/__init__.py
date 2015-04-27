@@ -16,7 +16,7 @@ from .models.post import Post
 
 from .models.post_input import PostInput
 
-from .models.advsior import Advsior
+from .models.session import Session
 
 from .models.article import Article
 
@@ -64,8 +64,6 @@ from .articles_api import ArticlesApi
 from .groups_api import GroupsApi
 
 from .memberevents_api import MembereventsApi
-
-from .advisors_api import AdvisorsApi
 
 from .sessions_api import SessionsApi
 
