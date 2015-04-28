@@ -74,17 +74,17 @@ class SessionsApi(object):
         headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
 
         
-
-        
-
-        
-
-        
         if ('username' in params):
-            formParams['username'] = params['username']
+            queryParams['username'] = self.apiClient.toPathValue(params['username'])
         
         if ('password' in params):
-            formParams['password'] = params['password']
+            queryParams['password'] = self.apiClient.toPathValue(params['password'])
+        
+
+        
+
+        
+
         
 
         
@@ -145,6 +145,9 @@ class SessionsApi(object):
         headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
 
         
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
 
         
 
@@ -156,9 +159,6 @@ class SessionsApi(object):
                                                 replacement)
         
 
-        
-        if ('vestorly_auth' in params):
-            formParams['vestorly-auth'] = params['vestorly_auth']
         
 
         

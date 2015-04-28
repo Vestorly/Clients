@@ -88,20 +88,22 @@ exports.updatePostByID = function(vestorly-auth, id, post) {
   var examples = {};
   
   examples['application/json'] = {
-  "img" : "aeiou",
-  "client_only" : true,
-  "image_url" : "aeiou",
-  "video" : "aeiou",
-  "title" : "aeiou",
-  "body" : "aeiou",
-  "img_compressed" : true,
-  "img_changed" : true,
-  "attachment" : "aeiou",
-  "post_date" : "aeiou",
-  "vestorly_url" : "aeiou",
-  "topic" : "aeiou",
-  "comment" : "aeiou",
-  "_id" : "aeiou"
+  "post" : {
+    "img" : "aeiou",
+    "client_only" : true,
+    "image_url" : "aeiou",
+    "video" : "aeiou",
+    "title" : "aeiou",
+    "body" : "aeiou",
+    "img_compressed" : true,
+    "img_changed" : true,
+    "attachment" : "aeiou",
+    "post_date" : "aeiou",
+    "vestorly_url" : "aeiou",
+    "topic" : "aeiou",
+    "comment" : "aeiou",
+    "_id" : "aeiou"
+  }
 };
   
 

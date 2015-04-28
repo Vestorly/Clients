@@ -220,7 +220,7 @@ namespace io.swagger.Api {
      /// <param name="Post">Post you want to update</param>
     
     /// <returns></returns>
-    public Post  updatePostByID (string VestorlyAuth, string Id, PostInput Post) {
+    public PostResponse  updatePostByID (string VestorlyAuth, string Id, PostInput Post) {
       // create path and map variables
       var path = "/posts/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -241,17 +241,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Post) == typeof(byte[])) {
+        if (typeof(PostResponse) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Post;
+          return ((object)response) as PostResponse;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, Post, headerParams, formParams);
           if (response != null){
-             return (Post) ApiInvoker.deserialize(response, typeof(Post));
+             return (PostResponse) ApiInvoker.deserialize(response, typeof(PostResponse));
           }
           else {
             return null;

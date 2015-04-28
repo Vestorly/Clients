@@ -1007,7 +1007,7 @@
         "200": {
   "description" : "post response",
   "schema" : {
-    "$ref" : "#/definitions/Post"
+    "$ref" : "#/definitions/PostResponse"
   }
 }
         
@@ -1318,6 +1318,12 @@
       "items" : {
         "$ref" : "#/definitions/Advisor"
       }
+    }
+  }
+},"PostResponse": {
+  "properties" : {
+    "post" : {
+      "$ref" : "#/definitions/Post"
     }
   }
 },"Posts": {

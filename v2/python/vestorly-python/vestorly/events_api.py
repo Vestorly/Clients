@@ -98,6 +98,77 @@ class EventsApi(object):
         
         
     
+    def createEvent(self, **kwargs):
+        """
+
+        Args:
+            
+            vestorly_auth, str: Vestorly Auth Token (required)
+            
+            
+            event, EventInput: Event (required)
+            
+            
+        
+        Returns: Event
+        """
+
+        allParams = ['vestorly_auth', 'event']
+
+        params = locals()
+        for (key, val) in params['kwargs'].iteritems():
+            if key not in allParams:
+                raise TypeError("Got an unexpected keyword argument '%s' to method createEvent" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resourcePath = '/events'
+        resourcePath = resourcePath.replace('{format}', 'json')
+        method = 'POST'
+
+        queryParams = {}
+        headerParams = {}
+        formParams = {}
+        files = {}
+        bodyParam = None
+
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
+
+        
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
+
+        
+
+        
+
+        
+
+        
+        if ('event' in params):
+            bodyParam = params['event']
+        
+
+        postData = (formParams if formParams else bodyParam)
+
+        response = self.apiClient.callAPI(resourcePath, method, queryParams,
+                                          postData, headerParams, files=files)
+
+        
+        if not response:
+            return None
+
+        responseObject = self.apiClient.deserialize(response, 'Event')
+        return responseObject
+        
+        
+        
+    
     def findEventByID(self, **kwargs):
         """
 

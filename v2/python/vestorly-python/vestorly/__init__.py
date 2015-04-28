@@ -10,6 +10,8 @@ from .models.advisor import Advisor
 
 from .models.advisors import Advisors
 
+from .models.postresponse import Postresponse
+
 from .models.posts import Posts
 
 from .models.post import Post
@@ -76,6 +78,8 @@ from .groups_api import GroupsApi
 from .memberevents_api import MembereventsApi
 
 from .sessions_api import SessionsApi
+
+from .newsletters_api import NewslettersApi
 
 from .posts_api import PostsApi
 

@@ -191,7 +191,7 @@ class PostsApi
   # @param vestorly_auth Vestorly Auth Token
   # @param id id of post to fetch
   # @param post Post you want to update
-  # @return Post
+  # @return PostResponse
   def self.updatePostByID (vestorly_auth, id, post, opts={})
     query_param_keys = [:vestorly_auth]
     headerParams = {}
@@ -255,7 +255,7 @@ class PostsApi
     
     
     response = Swagger::Request.new(:PUT, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Post.new(response)
+     PostResponse.new(response)
     
     
   

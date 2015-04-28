@@ -233,7 +233,7 @@ class PostsApi {
    * @param string $vestorly_auth Vestorly Auth Token (required)
    * @param string $id id of post to fetch (required)
    * @param PostInput $post Post you want to update (required)
-   * @return Post
+   * @return PostResponse
    */
    public function updatePostByID($vestorly_auth, $id, $post) {
 
@@ -289,7 +289,7 @@ class PostsApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Post');
+  		                                                'PostResponse');
   		return $responseObject;
   }
   

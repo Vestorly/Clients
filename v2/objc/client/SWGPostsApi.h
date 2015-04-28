@@ -2,6 +2,7 @@
 #import "SWGPosts.h"
 #import "SWGPost.h"
 #import "SWGPostInput.h"
+#import "SWGPostResponse.h"
 #import "SWGObject.h"
 
 
@@ -80,13 +81,13 @@
  @param post Post you want to update
  
 
- return type: SWGPost*
+ return type: SWGPostResponse*
  */
 -(NSNumber*) updatePostByIDWithCompletionBlock :(NSString*) vestorly-auth 
      _id:(NSString*) _id 
      post:(SWGPostInput*) post 
     
-    completionHandler: (void (^)(SWGPost* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGPostResponse* output, NSError* error))completionBlock;
     
 
 

@@ -42,7 +42,7 @@ class NewslettersApi(object):
             
             
         
-        Returns: Newsletters
+        Returns: Newsletter
         """
 
         allParams = ['vestorly_auth']
@@ -92,7 +92,78 @@ class NewslettersApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'Newsletters')
+        responseObject = self.apiClient.deserialize(response, 'Newsletter')
+        return responseObject
+        
+        
+        
+    
+    def createNewsletter(self, **kwargs):
+        """
+
+        Args:
+            
+            vestorly_auth, str: Vestorly Auth Token (required)
+            
+            
+            event, NewsletterInput: Newsletter (required)
+            
+            
+        
+        Returns: Newsletter
+        """
+
+        allParams = ['vestorly_auth', 'event']
+
+        params = locals()
+        for (key, val) in params['kwargs'].iteritems():
+            if key not in allParams:
+                raise TypeError("Got an unexpected keyword argument '%s' to method createNewsletter" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resourcePath = '/newsletters'
+        resourcePath = resourcePath.replace('{format}', 'json')
+        method = 'POST'
+
+        queryParams = {}
+        headerParams = {}
+        formParams = {}
+        files = {}
+        bodyParam = None
+
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
+
+        
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
+
+        
+
+        
+
+        
+
+        
+        if ('event' in params):
+            bodyParam = params['event']
+        
+
+        postData = (formParams if formParams else bodyParam)
+
+        response = self.apiClient.callAPI(resourcePath, method, queryParams,
+                                          postData, headerParams, files=files)
+
+        
+        if not response:
+            return None
+
+        responseObject = self.apiClient.deserialize(response, 'Newsletter')
         return responseObject
         
         
@@ -106,7 +177,7 @@ class NewslettersApi(object):
             vestorly_auth, str: Vestorly Auth Token (required)
             
             
-            id, str: ID of newsletter to fetch (required)
+            id, str: Mongo ID of event to get (required)
             
             
         
@@ -172,7 +243,7 @@ class NewslettersApi(object):
         
         
     
-    def updateNewsletter(self, **kwargs):
+    def updateNewsletterByID(self, **kwargs):
         """
 
         Args:
@@ -180,22 +251,22 @@ class NewslettersApi(object):
             vestorly_auth, str: Vestorly Auth Token (required)
             
             
-            id, str: ID of newsletter to fetch (required)
+            id, str: Mongo ID of event to update (required)
             
             
-            newsletter, str: Newsletter (required)
+            event, NewsletterInput: Newsletter (required)
             
             
         
         Returns: Newsletter
         """
 
-        allParams = ['vestorly_auth', 'id', 'newsletter']
+        allParams = ['vestorly_auth', 'id', 'event']
 
         params = locals()
         for (key, val) in params['kwargs'].iteritems():
             if key not in allParams:
-                raise TypeError("Got an unexpected keyword argument '%s' to method updateNewsletter" % key)
+                raise TypeError("Got an unexpected keyword argument '%s' to method updateNewsletterByID" % key)
             params[key] = val
         del params['kwargs']
 
@@ -231,10 +302,10 @@ class NewslettersApi(object):
         
 
         
-        if ('newsletter' in params):
-            formParams['Newsletter'] = params['newsletter']
-        
 
+        
+        if ('event' in params):
+            bodyParam = params['event']
         
 
         postData = (formParams if formParams else bodyParam)

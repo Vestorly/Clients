@@ -9,6 +9,7 @@ import com.sun.jersey.multipart.FormDataParam;
 import io.swagger.model.Posts;
 import io.swagger.model.Post;
 import io.swagger.model.PostInput;
+import io.swagger.model.PostResponse;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -79,7 +80,7 @@ public class PostsApi {
   @Path("/{id}")
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Update A Post", response = Post.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Update A Post", response = PostResponse.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "post response") })
 

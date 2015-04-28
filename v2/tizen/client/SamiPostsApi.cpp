@@ -241,8 +241,8 @@ updatePostByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sam
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiPost* out = new SamiPost();
-    jsonToValue(out, pJson, L"SamiPost*", L"SamiPost");
+    SamiPostResponse* out = new SamiPostResponse();
+    jsonToValue(out, pJson, L"SamiPostResponse*", L"SamiPostResponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -268,8 +268,8 @@ updatePostByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sam
   }
 }
 
-SamiPost* 
-SamiPostsApi::updatePostByIDWithCompletion(String* vestorly-auth, String* _id, SamiPostInput* post, void (* success)(SamiPost*, SamiError*)) {
+SamiPostResponse* 
+SamiPostsApi::updatePostByIDWithCompletion(String* vestorly-auth, String* _id, SamiPostInput* post, void (* success)(SamiPostResponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&updatePostByIDProcessor, (void(*)(void*, SamiError*))success);

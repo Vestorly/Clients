@@ -10,6 +10,7 @@ import java.util.*;
 import io.swagger.client.model.Posts;
 import io.swagger.client.model.Post;
 import io.swagger.client.model.PostInput;
+import io.swagger.client.model.PostResponse;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.file.FileDataBodyPart;
@@ -211,9 +212,9 @@ public class PostsApi {
    * @param vestorlyAuth Vestorly Auth Token
    * @param id id of post to fetch
    * @param post Post you want to update
-   * @return Post
+   * @return PostResponse
    */
-  public Post updatePostByID (String vestorlyAuth, String id, PostInput post) throws ApiException {
+  public PostResponse updatePostByID (String vestorlyAuth, String id, PostInput post) throws ApiException {
     Object postBody = post;
     
 
@@ -250,7 +251,7 @@ public class PostsApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Post) ApiInvoker.deserialize(response, "", Post.class);
+        return (PostResponse) ApiInvoker.deserialize(response, "", PostResponse.class);
       }
       else {
         return null;

@@ -3,6 +3,7 @@ package io.swagger.client.api
 import io.swagger.client.model.Posts
 import io.swagger.client.model.Post
 import io.swagger.client.model.PostInput
+import io.swagger.client.model.PostResponse
 import io.swagger.client.ApiInvoker
 import io.swagger.client.ApiException
 
@@ -129,7 +130,7 @@ class PostsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
     }
   }
   
-  def updatePostByID (vestorly-auth: String, id: String, post: PostInput) : Option[Post] = {
+  def updatePostByID (vestorly-auth: String, id: String, post: PostInput) : Option[PostResponse] = {
     // create path and map variables
     val path = "/posts/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -158,7 +159,7 @@ class PostsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
     try {
       apiInvoker.invokeApi(basePath, path, "PUT", queryParams.toMap, post, headerParams.toMap, contentType) match {
         case s: String =>
-           Some(ApiInvoker.deserialize(s, "", classOf[Post]).asInstanceOf[Post])
+           Some(ApiInvoker.deserialize(s, "", classOf[PostResponse]).asInstanceOf[PostResponse])
          
         case _ => None
       }

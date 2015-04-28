@@ -5,6 +5,7 @@
 #import "SWGPosts.h"
 #import "SWGPost.h"
 #import "SWGPostInput.h"
+#import "SWGPostResponse.h"
 
 
 
@@ -335,7 +336,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
          _id: (NSString*) _id
          post: (SWGPostInput*) post
         
-        completionHandler: (void (^)(SWGPost* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGPostResponse* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/posts/{id}", basePath];
@@ -422,9 +423,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGPost* result = nil;
+                SWGPostResponse* result = nil;
                 if (data) {
-                    result = [[SWGPost  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGPostResponse  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 

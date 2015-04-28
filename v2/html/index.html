@@ -694,12 +694,12 @@
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">Post</a></div>
+    <div class="return-type"><a href="#">PostResponse</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "img" : "aeiou",\n  "client_only" : true,\n  "image_url" : "aeiou",\n  "video" : "aeiou",\n  "title" : "aeiou",\n  "body" : "aeiou",\n  "img_compressed" : true,\n  "img_changed" : true,\n  "attachment" : "aeiou",\n  "post_date" : "aeiou",\n  "vestorly_url" : "aeiou",\n  "topic" : "aeiou",\n  "comment" : "aeiou",\n  "_id" : "aeiou"\n}</code></pre>
+    <pre class="example"><code>{\n  "post" : {\n    "img" : "aeiou",\n    "client_only" : true,\n    "image_url" : "aeiou",\n    "video" : "aeiou",\n    "title" : "aeiou",\n    "body" : "aeiou",\n    "img_compressed" : true,\n    "img_changed" : true,\n    "attachment" : "aeiou",\n    "post_date" : "aeiou",\n    "vestorly_url" : "aeiou",\n    "topic" : "aeiou",\n    "comment" : "aeiou",\n    "_id" : "aeiou"\n  }\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -925,6 +925,16 @@
     <h3 class="field-label"><a name="Advisors">Advisors</a></h3>
     <div class="field-items">
       <div class="param">advisors </div><div class="param-desc"><span class="param-type">array[Advisor]</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="PostResponse">PostResponse</a></h3>
+    <div class="field-items">
+      <div class="param">post </div><div class="param-desc"><span class="param-type">Post</span> </div>
       
     </div>  <!-- field-items -->
   </div>
