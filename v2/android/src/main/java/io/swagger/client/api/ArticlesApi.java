@@ -8,7 +8,7 @@ import io.swagger.client.model.*;
 import java.util.*;
 
 import io.swagger.client.model.Articles;
-import io.swagger.client.model.Article;
+import io.swagger.client.model.Articleresponse;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -99,7 +99,7 @@ public class ArticlesApi {
   }
   
   
-  public Article  findArticleByID (String id) throws ApiException {
+  public Articleresponse  findArticleByID (String id) throws ApiException {
     Object postBody = null;
 
     
@@ -138,7 +138,7 @@ public class ArticlesApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Article) ApiInvoker.deserialize(response, "", Article.class);
+        return (Articleresponse) ApiInvoker.deserialize(response, "", Articleresponse.class);
       }
       else {
         return null;

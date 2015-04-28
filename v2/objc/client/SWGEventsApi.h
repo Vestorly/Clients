@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGEvents.h"
-#import "SWGEvent.h"
+#import "SWGEventresponse.h"
 #import "SWGEventInput.h"
 #import "SWGObject.h"
 
@@ -37,12 +37,12 @@
  @param Event Event
  
 
- return type: SWGEvent*
+ return type: SWGEventresponse*
  */
 -(NSNumber*) createEventWithCompletionBlock :(NSString*) vestorly-auth 
      Event:(SWGEventInput*) Event 
     
-    completionHandler: (void (^)(SWGEvent* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGEventresponse* output, NSError* error))completionBlock;
     
 
 
@@ -55,12 +55,12 @@
  @param vestorly-auth Vestorly Auth Token
  
 
- return type: SWGEvent*
+ return type: SWGEventresponse*
  */
 -(NSNumber*) findEventByIDWithCompletionBlock :(NSString*) _id 
      vestorly-auth:(NSString*) vestorly-auth 
     
-    completionHandler: (void (^)(SWGEvent* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGEventresponse* output, NSError* error))completionBlock;
     
 
 
@@ -74,13 +74,13 @@
  @param Event Event
  
 
- return type: SWGEvent*
+ return type: SWGEventresponse*
  */
 -(NSNumber*) updateEventByIDWithCompletionBlock :(NSString*) _id 
      vestorly-auth:(NSString*) vestorly-auth 
      Event:(SWGEventInput*) Event 
     
-    completionHandler: (void (^)(SWGEvent* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGEventresponse* output, NSError* error))completionBlock;
     
 
 

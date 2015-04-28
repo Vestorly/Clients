@@ -3,7 +3,7 @@
 #import "SWGQueryParamCollection.h"
 #import "SWGApiClient.h"
 #import "SWGEvents.h"
-#import "SWGEvent.h"
+#import "SWGEventresponse.h"
 #import "SWGEventInput.h"
 
 
@@ -135,7 +135,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 -(NSNumber*) createEventWithCompletionBlock: (NSString*) vestorly-auth
          Event: (SWGEventInput*) Event
         
-        completionHandler: (void (^)(SWGEvent* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGEventresponse* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/events", basePath];
@@ -221,9 +221,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGEvent* result = nil;
+                SWGEventresponse* result = nil;
                 if (data) {
-                    result = [[SWGEvent  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGEventresponse  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 
@@ -238,7 +238,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 -(NSNumber*) findEventByIDWithCompletionBlock: (NSString*) _id
          vestorly-auth: (NSString*) vestorly-auth
         
-        completionHandler: (void (^)(SWGEvent* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGEventresponse* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/events/{id}", basePath];
@@ -302,9 +302,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGEvent* result = nil;
+                SWGEventresponse* result = nil;
                 if (data) {
-                    result = [[SWGEvent  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGEventresponse  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 
@@ -320,7 +320,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
          vestorly-auth: (NSString*) vestorly-auth
          Event: (SWGEventInput*) Event
         
-        completionHandler: (void (^)(SWGEvent* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGEventresponse* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/events/{id}", basePath];
@@ -407,9 +407,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGEvent* result = nil;
+                SWGEventresponse* result = nil;
                 if (data) {
-                    result = [[SWGEvent  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGEventresponse  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 

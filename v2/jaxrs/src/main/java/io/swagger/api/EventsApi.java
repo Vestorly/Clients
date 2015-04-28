@@ -8,7 +8,7 @@ import com.sun.jersey.multipart.FormDataParam;
 
 import io.swagger.model.Events;
 import io.swagger.model.EventInput;
-import io.swagger.model.Event;
+import io.swagger.model.Eventresponse;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -44,7 +44,7 @@ public class EventsApi {
   
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Creates a new event in the system", response = Event.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Creates a new event in the system", response = Eventresponse.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Event response") })
 
@@ -60,7 +60,7 @@ public class EventsApi {
   @Path("/{id}")
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns a single event if the user has access", response = Event.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns a single event if the user has access", response = Eventresponse.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Event response") })
 
@@ -76,7 +76,7 @@ public class EventsApi {
   @Path("/{id}")
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Updates a single event by mongo id", response = Event.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Updates a single event by mongo id", response = Eventresponse.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Event response") })
 

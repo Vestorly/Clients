@@ -36,10 +36,12 @@ module.exports.findGroupByID = function findGroupByID (req, res, next) {
 };
 
 module.exports.addGroup = function addGroup (req, res, next) {
+  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var id = req.swagger.params['id'].value;
   var group = req.swagger.params['group'].value;
   
 
-  var result = Groups.addGroup(group);
+  var result = Groups.addGroup(vestorly-auth, id, group);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

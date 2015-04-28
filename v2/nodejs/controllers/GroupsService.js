@@ -46,7 +46,7 @@ exports.findGroupByID = function(vestorly-auth, id) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.addGroup = function(group) {
+exports.addGroup = function(vestorly-auth, id, group) {
 
   var examples = {};
   

@@ -2,7 +2,7 @@
 #import "SWGPosts.h"
 #import "SWGPost.h"
 #import "SWGPostInput.h"
-#import "SWGPostResponse.h"
+#import "SWGPostresponse.h"
 #import "SWGObject.h"
 
 
@@ -62,12 +62,12 @@
  @param _id ID of post to fetch
  
 
- return type: SWGPost*
+ return type: SWGPostresponse*
  */
 -(NSNumber*) getPostByIDWithCompletionBlock :(NSString*) vestorly-auth 
      _id:(NSString*) _id 
     
-    completionHandler: (void (^)(SWGPost* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGPostresponse* output, NSError* error))completionBlock;
     
 
 
@@ -77,17 +77,17 @@
  Update A Post
 
  @param vestorly-auth Vestorly Auth Token
- @param _id id of post to fetch
+ @param _id id of post to update
  @param post Post you want to update
  
 
- return type: SWGPostResponse*
+ return type: SWGPostresponse*
  */
 -(NSNumber*) updatePostByIDWithCompletionBlock :(NSString*) vestorly-auth 
      _id:(NSString*) _id 
      post:(SWGPostInput*) post 
     
-    completionHandler: (void (^)(SWGPostResponse* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGPostresponse* output, NSError* error))completionBlock;
     
 
 

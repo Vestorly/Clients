@@ -22,10 +22,10 @@ module.exports.findNewsletters = function findNewsletters (req, res, next) {
 
 module.exports.createNewsletter = function createNewsletter (req, res, next) {
   var vestorly-auth = req.swagger.params['vestorly-auth'].value;
-  var Event = req.swagger.params['Event'].value;
+  var newsletter = req.swagger.params['newsletter'].value;
   
 
-  var result = Newsletters.createNewsletter(vestorly-auth, Event);
+  var result = Newsletters.createNewsletter(vestorly-auth, newsletter);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -53,10 +53,10 @@ module.exports.getNewsletterByID = function getNewsletterByID (req, res, next) {
 module.exports.updateNewsletterByID = function updateNewsletterByID (req, res, next) {
   var vestorly-auth = req.swagger.params['vestorly-auth'].value;
   var id = req.swagger.params['id'].value;
-  var Event = req.swagger.params['Event'].value;
+  var newsletter = req.swagger.params['newsletter'].value;
   
 
-  var result = Newsletters.updateNewsletterByID(vestorly-auth, id, Event);
+  var result = Newsletters.updateNewsletterByID(vestorly-auth, id, newsletter);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

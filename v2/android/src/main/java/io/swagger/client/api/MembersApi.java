@@ -8,7 +8,7 @@ import io.swagger.client.model.*;
 import java.util.*;
 
 import io.swagger.client.model.Members;
-import io.swagger.client.model.Member;
+import io.swagger.client.model.Memberresponse;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -91,7 +91,7 @@ public class MembersApi {
   }
   
   
-  public Member  findMemberByID (String id, String vestorlyAuth) throws ApiException {
+  public Memberresponse  findMemberByID (String id, String vestorlyAuth) throws ApiException {
     Object postBody = null;
 
     
@@ -132,7 +132,7 @@ public class MembersApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Member) ApiInvoker.deserialize(response, "", Member.class);
+        return (Memberresponse) ApiInvoker.deserialize(response, "", Memberresponse.class);
       }
       else {
         return null;
@@ -143,7 +143,7 @@ public class MembersApi {
   }
   
   
-  public Member  findMemberByID_1 (String id, String vestorlyAuth) throws ApiException {
+  public Memberresponse  findMemberByID_1 (String id, String vestorlyAuth) throws ApiException {
     Object postBody = null;
 
     
@@ -184,7 +184,7 @@ public class MembersApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Member) ApiInvoker.deserialize(response, "", Member.class);
+        return (Memberresponse) ApiInvoker.deserialize(response, "", Memberresponse.class);
       }
       else {
         return null;

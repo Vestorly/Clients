@@ -162,7 +162,7 @@ namespace io.swagger.Api {
      /// <param name="Id">ID of post to fetch</param>
     
     /// <returns></returns>
-    public Post  getPostByID (string VestorlyAuth, string Id) {
+    public Postresponse  getPostByID (string VestorlyAuth, string Id) {
       // create path and map variables
       var path = "/posts/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -183,17 +183,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Post) == typeof(byte[])) {
+        if (typeof(Postresponse) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Post;
+          return ((object)response) as Postresponse;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
           if (response != null){
-             return (Post) ApiInvoker.deserialize(response, typeof(Post));
+             return (Postresponse) ApiInvoker.deserialize(response, typeof(Postresponse));
           }
           else {
             return null;
@@ -216,11 +216,11 @@ namespace io.swagger.Api {
     ///  Update A Post
     /// </summary>
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-     /// <param name="Id">id of post to fetch</param>
+     /// <param name="Id">id of post to update</param>
      /// <param name="Post">Post you want to update</param>
     
     /// <returns></returns>
-    public PostResponse  updatePostByID (string VestorlyAuth, string Id, PostInput Post) {
+    public Postresponse  updatePostByID (string VestorlyAuth, string Id, PostInput Post) {
       // create path and map variables
       var path = "/posts/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -241,17 +241,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(PostResponse) == typeof(byte[])) {
+        if (typeof(Postresponse) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as PostResponse;
+          return ((object)response) as Postresponse;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, Post, headerParams, formParams);
           if (response != null){
-             return (PostResponse) ApiInvoker.deserialize(response, typeof(PostResponse));
+             return (Postresponse) ApiInvoker.deserialize(response, typeof(Postresponse));
           }
           else {
             return null;

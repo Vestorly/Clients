@@ -7,7 +7,7 @@ import com.wordnik.swagger.annotations.ApiParam;
 import com.sun.jersey.multipart.FormDataParam;
 
 import io.swagger.model.Articles;
-import io.swagger.model.Article;
+import io.swagger.model.Articleresponse;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -47,7 +47,7 @@ public class ArticlesApi {
   @Path("/{id}")
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns a single article", response = Article.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns a single article", response = Articleresponse.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Article response") })
 

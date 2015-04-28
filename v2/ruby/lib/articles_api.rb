@@ -66,7 +66,7 @@ class ArticlesApi
   # 
   # Returns a single article
   # @param id Article Id to fetch
-  # @return Article
+  # @return Articleresponse
   def self.findArticleByID (id, opts={})
     query_param_keys = []
     headerParams = {}
@@ -108,7 +108,7 @@ class ArticlesApi
     
     
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Article.new(response)
+     Articleresponse.new(response)
     
     
   

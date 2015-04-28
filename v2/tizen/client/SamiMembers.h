@@ -18,6 +18,7 @@ using namespace Tizen::Web::Json;
 
 
 #include "SamiMember.h"
+using Tizen::Base::Boolean;
 using Tizen::Base::Collection::IList;
 
 
@@ -42,12 +43,16 @@ public:
     SamiMembers* fromJson(String* obj);
 
     
-    IList* getPMembers();
-    void setPMembers(IList* pMembers);
+    IList* getPPosts();
+    void setPPosts(IList* pPosts);
+    
+    Boolean* getPMoreResults();
+    void setPMoreResults(Boolean* pMore_results);
     
 
 private:
-    IList* pMembers;
+    IList* pPosts;
+    Boolean* pMore_results;
     
 };
 

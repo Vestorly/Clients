@@ -2,6 +2,7 @@ package com.wordnik.client.api
 
 import com.wordnik.client.model.Newsletter
 import com.wordnik.client.model.NewsletterInput
+import com.wordnik.client.model.Newsletterresponse
 
 import java.io.File
 
@@ -66,7 +67,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   
 
-  val createNewsletterOperation = (apiOperation[Newsletter]("createNewsletter")
+  val createNewsletterOperation = (apiOperation[Newsletterresponse]("createNewsletter")
       summary ""
       parameters(
         queryParam[String]("vestorly-auth").description("")
@@ -79,7 +80,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         
-        bodyParam[NewsletterInput]("Event").description("")
+        bodyParam[NewsletterInput]("newsletter").description("")
         
         
         
@@ -117,16 +118,16 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
     
 
     
-      val Event = parsedBody.extract[NewsletterInput]
+      val newsletter = parsedBody.extract[NewsletterInput]
     
     
-    println("Event: " + Event)
+    println("newsletter: " + newsletter)
   
   }
 
   
 
-  val getNewsletterByIDOperation = (apiOperation[Newsletter]("getNewsletterByID")
+  val getNewsletterByIDOperation = (apiOperation[Newsletterresponse]("getNewsletterByID")
       summary ""
       parameters(
         queryParam[String]("vestorly-auth").description("")
@@ -186,7 +187,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   
 
-  val updateNewsletterByIDOperation = (apiOperation[Newsletter]("updateNewsletterByID")
+  val updateNewsletterByIDOperation = (apiOperation[Newsletterresponse]("updateNewsletterByID")
       summary ""
       parameters(
         queryParam[String]("vestorly-auth").description("")
@@ -206,7 +207,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         
-        bodyParam[NewsletterInput]("Event").description("")
+        bodyParam[NewsletterInput]("newsletter").description("")
         
         
         
@@ -260,10 +261,10 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
     
 
     
-      val Event = parsedBody.extract[NewsletterInput]
+      val newsletter = parsedBody.extract[NewsletterInput]
     
     
-    println("Event: " + Event)
+    println("newsletter: " + newsletter)
   
   }
 

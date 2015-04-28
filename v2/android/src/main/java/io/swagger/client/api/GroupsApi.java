@@ -145,13 +145,13 @@ public class GroupsApi {
   }
   
   
-  public GroupInput  addGroup (Group group) throws ApiException {
+  public GroupInput  addGroup (String vestorlyAuth, String id, Group group) throws ApiException {
     Object postBody = group;
 
     
 
     // create path and map variables
-    String path = "/groups/{id}".replaceAll("\\{format\\}","json");
+    String path = "/groups/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     Map<String, String> queryParams = new HashMap<String, String>();
@@ -160,6 +160,8 @@ public class GroupsApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
+    if (vestorlyAuth != null)
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     

@@ -10,7 +10,7 @@ import java.util.*;
 import io.swagger.client.model.Posts;
 import io.swagger.client.model.Post;
 import io.swagger.client.model.PostInput;
-import io.swagger.client.model.PostResponse;
+import io.swagger.client.model.Postresponse;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.file.FileDataBodyPart;
@@ -123,7 +123,7 @@ public class PostsApi {
     
     
     String[] contentTypes = {
-      "application/x-www-form-urlencoded",
+      
     };
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -157,9 +157,9 @@ public class PostsApi {
    * Query all posts
    * @param vestorlyAuth Vestorly Auth Token
    * @param id ID of post to fetch
-   * @return Post
+   * @return Postresponse
    */
-  public Post getPostByID (String vestorlyAuth, String id) throws ApiException {
+  public Postresponse getPostByID (String vestorlyAuth, String id) throws ApiException {
     Object postBody = null;
     
 
@@ -196,7 +196,7 @@ public class PostsApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Post) ApiInvoker.deserialize(response, "", Post.class);
+        return (Postresponse) ApiInvoker.deserialize(response, "", Postresponse.class);
       }
       else {
         return null;
@@ -210,11 +210,11 @@ public class PostsApi {
    * 
    * Update A Post
    * @param vestorlyAuth Vestorly Auth Token
-   * @param id id of post to fetch
+   * @param id id of post to update
    * @param post Post you want to update
-   * @return PostResponse
+   * @return Postresponse
    */
-  public PostResponse updatePostByID (String vestorlyAuth, String id, PostInput post) throws ApiException {
+  public Postresponse updatePostByID (String vestorlyAuth, String id, PostInput post) throws ApiException {
     Object postBody = post;
     
 
@@ -251,7 +251,7 @@ public class PostsApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (PostResponse) ApiInvoker.deserialize(response, "", PostResponse.class);
+        return (Postresponse) ApiInvoker.deserialize(response, "", Postresponse.class);
       }
       else {
         return null;

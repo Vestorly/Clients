@@ -9,7 +9,7 @@ import java.util.*;
 
 import io.swagger.client.model.Events;
 import io.swagger.client.model.EventInput;
-import io.swagger.client.model.Event;
+import io.swagger.client.model.Eventresponse;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -92,7 +92,7 @@ public class EventsApi {
   }
   
   
-  public Event  createEvent (String vestorlyAuth, EventInput event) throws ApiException {
+  public Eventresponse  createEvent (String vestorlyAuth, EventInput event) throws ApiException {
     Object postBody = event;
 
     
@@ -133,7 +133,7 @@ public class EventsApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Event) ApiInvoker.deserialize(response, "", Event.class);
+        return (Eventresponse) ApiInvoker.deserialize(response, "", Eventresponse.class);
       }
       else {
         return null;
@@ -144,7 +144,7 @@ public class EventsApi {
   }
   
   
-  public Event  findEventByID (String id, String vestorlyAuth) throws ApiException {
+  public Eventresponse  findEventByID (String id, String vestorlyAuth) throws ApiException {
     Object postBody = null;
 
     
@@ -185,7 +185,7 @@ public class EventsApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Event) ApiInvoker.deserialize(response, "", Event.class);
+        return (Eventresponse) ApiInvoker.deserialize(response, "", Eventresponse.class);
       }
       else {
         return null;
@@ -196,7 +196,7 @@ public class EventsApi {
   }
   
   
-  public Event  updateEventByID (String id, String vestorlyAuth, EventInput event) throws ApiException {
+  public Eventresponse  updateEventByID (String id, String vestorlyAuth, EventInput event) throws ApiException {
     Object postBody = event;
 
     
@@ -237,7 +237,7 @@ public class EventsApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Event) ApiInvoker.deserialize(response, "", Event.class);
+        return (Eventresponse) ApiInvoker.deserialize(response, "", Eventresponse.class);
       }
       else {
         return null;

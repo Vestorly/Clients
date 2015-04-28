@@ -147,21 +147,26 @@ public class GroupsApi {
   /**
    * 
    * Creates a new Group
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param id id of group to update
    * @param group Group to add
    * @return GroupInput
    */
-  public GroupInput addGroup (Group group) throws ApiException {
+  public GroupInput addGroup (String vestorlyAuth, String id, Group group) throws ApiException {
     Object postBody = group;
     
 
     // create path and map variables
-    String path = "/groups/{id}".replaceAll("\\{format\\}","json");
+    String path = "/groups/{id}".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     Map<String, String> queryParams = new HashMap<String, String>();
     Map<String, String> headerParams = new HashMap<String, String>();
     Map<String, String> formParams = new HashMap<String, String>();
 
+    if (vestorlyAuth != null)
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
     
     String[] contentTypes = {

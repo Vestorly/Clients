@@ -108,7 +108,7 @@ namespace io.swagger.Api {
     /// <param name="Id">Article Id to fetch</param>
     
     /// <returns></returns>
-    public Article  findArticleByID (string Id) {
+    public Articleresponse  findArticleByID (string Id) {
       // create path and map variables
       var path = "/articles/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -126,17 +126,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Article) == typeof(byte[])) {
+        if (typeof(Articleresponse) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Article;
+          return ((object)response) as Articleresponse;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
           if (response != null){
-             return (Article) ApiInvoker.deserialize(response, typeof(Article));
+             return (Articleresponse) ApiInvoker.deserialize(response, typeof(Articleresponse));
           }
           else {
             return null;

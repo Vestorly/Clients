@@ -13,7 +13,7 @@
   <h3 class="section">HTTP Method</h3>
   <code>GET</code>
   <h3 class="section">Response Type</h3>
-  <div class="model" id="NewsletterSettings"><a href="#">NewsletterSettings</a></div>
+  <div class="model" id="Newslettersettings"><a href="#">Newslettersettings</a></div>
   <h3 class="section">Parameters</h3>
   <ul>
   	
@@ -23,37 +23,6 @@
 
       
 	    <p class="param-description">Vestorly Auth Token</p>
-	  </div>
-    
-  </ul>
-  
-  <h2><a name="updateNewsletterSettingsByID"></a>updateNewsletterSettingsByID</h2>
-  <hr>
-  <p></p>
-  <p>Update a single newsletter setting by ID</p>
-  <h3 class="section">URL</h3>
-  <code>https://staging.vestorly.com/api/v2/newsletter_settings</code>
-  <h3 class="section">HTTP Method</h3>
-  <code>PUT</code>
-  <h3 class="section">Response Type</h3>
-  <div class="model" id="NewsletterSettings"><a href="#">NewsletterSettings</a></div>
-  <h3 class="section">Parameters</h3>
-  <ul>
-  	
-	  <div class="parameter">
-      
-      
-
-      
-	    <p class="param-description">Vestorly Auth Token</p>
-	  </div>
-    
-	  <div class="parameter">
-      
-      
-
-      
-	    <p class="param-description">newsletter settings</p>
 	  </div>
     
   </ul>
@@ -67,7 +36,7 @@
   <h3 class="section">HTTP Method</h3>
   <code>GET</code>
   <h3 class="section">Response Type</h3>
-  <div class="model" id="NewsletterSettings"><a href="#">NewsletterSettings</a></div>
+  <div class="model" id="Newslettersettingresponse"><a href="#">Newslettersettingresponse</a></div>
   <h3 class="section">Parameters</h3>
   <ul>
   	
@@ -85,6 +54,45 @@
 
       
 	    <p class="param-description">Vestorly Auth Token</p>
+	  </div>
+    
+  </ul>
+  
+  <h2><a name="updateNewsletterSettingsByID"></a>updateNewsletterSettingsByID</h2>
+  <hr>
+  <p></p>
+  <p>Update a single newsletter setting by ID</p>
+  <h3 class="section">URL</h3>
+  <code>https://staging.vestorly.com/api/v2/newsletter_settings/{id}</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>PUT</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" id="Newslettersettingresponse"><a href="#">Newslettersettingresponse</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+  	
+	  <div class="parameter">
+      
+      
+
+      
+	    <p class="param-description">Mongo ID of newsletter settings to update</p>
+	  </div>
+    
+	  <div class="parameter">
+      
+      
+
+      
+	    <p class="param-description">Vestorly Auth Token</p>
+	  </div>
+    
+	  <div class="parameter">
+      
+      
+
+      
+	    <p class="param-description">newsletter settings</p>
 	  </div>
     
   </ul>

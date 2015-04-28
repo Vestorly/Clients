@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGNewsletter.h"
+#import "SWGNewsletterresponse.h"
 #import "SWGNewsletterInput.h"
 #import "SWGObject.h"
 
@@ -33,15 +34,15 @@
  Creates a newsletter
 
  @param vestorly-auth Vestorly Auth Token
- @param Event Newsletter
+ @param newsletter Newsletter
  
 
- return type: SWGNewsletter*
+ return type: SWGNewsletterresponse*
  */
 -(NSNumber*) createNewsletterWithCompletionBlock :(NSString*) vestorly-auth 
-     Event:(SWGNewsletterInput*) Event 
+     newsletter:(SWGNewsletterInput*) newsletter 
     
-    completionHandler: (void (^)(SWGNewsletter* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGNewsletterresponse* output, NSError* error))completionBlock;
     
 
 
@@ -54,12 +55,12 @@
  @param _id Mongo ID of event to get
  
 
- return type: SWGNewsletter*
+ return type: SWGNewsletterresponse*
  */
 -(NSNumber*) getNewsletterByIDWithCompletionBlock :(NSString*) vestorly-auth 
      _id:(NSString*) _id 
     
-    completionHandler: (void (^)(SWGNewsletter* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGNewsletterresponse* output, NSError* error))completionBlock;
     
 
 
@@ -70,16 +71,16 @@
 
  @param vestorly-auth Vestorly Auth Token
  @param _id Mongo ID of event to update
- @param Event Newsletter
+ @param newsletter Newsletter
  
 
- return type: SWGNewsletter*
+ return type: SWGNewsletterresponse*
  */
 -(NSNumber*) updateNewsletterByIDWithCompletionBlock :(NSString*) vestorly-auth 
      _id:(NSString*) _id 
-     Event:(SWGNewsletterInput*) Event 
+     newsletter:(SWGNewsletterInput*) newsletter 
     
-    completionHandler: (void (^)(SWGNewsletter* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGNewsletterresponse* output, NSError* error))completionBlock;
     
 
 

@@ -2,6 +2,7 @@ package io.swagger.client.api
 
 import io.swagger.client.model.Newsletter
 import io.swagger.client.model.NewsletterInput
+import io.swagger.client.model.Newsletterresponse
 import io.swagger.client.ApiInvoker
 import io.swagger.client.ApiException
 
@@ -52,13 +53,13 @@ class NewslettersApi(val defBasePath: String = "https://staging.vestorly.com/api
     }
   }
   
-  def createNewsletter (vestorly-auth: String, Event: NewsletterInput) : Option[Newsletter] = {
+  def createNewsletter (vestorly-auth: String, newsletter: NewsletterInput) : Option[Newsletterresponse] = {
     // create path and map variables
     val path = "/newsletters".replaceAll("\\{format\\}","json")
 
     
     val contentType = {
-      if(Event != null && Event.isInstanceOf[File] )
+      if(newsletter != null && newsletter.isInstanceOf[File] )
         "multipart/form-data"
       else "application/json"
       
@@ -77,9 +78,9 @@ class NewslettersApi(val defBasePath: String = "https://staging.vestorly.com/api
     
 
     try {
-      apiInvoker.invokeApi(basePath, path, "POST", queryParams.toMap, Event, headerParams.toMap, contentType) match {
+      apiInvoker.invokeApi(basePath, path, "POST", queryParams.toMap, newsletter, headerParams.toMap, contentType) match {
         case s: String =>
-           Some(ApiInvoker.deserialize(s, "", classOf[Newsletter]).asInstanceOf[Newsletter])
+           Some(ApiInvoker.deserialize(s, "", classOf[Newsletterresponse]).asInstanceOf[Newsletterresponse])
          
         case _ => None
       }
@@ -89,7 +90,7 @@ class NewslettersApi(val defBasePath: String = "https://staging.vestorly.com/api
     }
   }
   
-  def getNewsletterByID (vestorly-auth: String, id: String) : Option[Newsletter] = {
+  def getNewsletterByID (vestorly-auth: String, id: String) : Option[Newsletterresponse] = {
     // create path and map variables
     val path = "/newsletters/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -115,7 +116,7 @@ class NewslettersApi(val defBasePath: String = "https://staging.vestorly.com/api
     try {
       apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, None, headerParams.toMap, contentType) match {
         case s: String =>
-           Some(ApiInvoker.deserialize(s, "", classOf[Newsletter]).asInstanceOf[Newsletter])
+           Some(ApiInvoker.deserialize(s, "", classOf[Newsletterresponse]).asInstanceOf[Newsletterresponse])
          
         case _ => None
       }
@@ -125,7 +126,7 @@ class NewslettersApi(val defBasePath: String = "https://staging.vestorly.com/api
     }
   }
   
-  def updateNewsletterByID (vestorly-auth: String, id: String, Event: NewsletterInput) : Option[Newsletter] = {
+  def updateNewsletterByID (vestorly-auth: String, id: String, newsletter: NewsletterInput) : Option[Newsletterresponse] = {
     // create path and map variables
     val path = "/newsletters/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -133,7 +134,7 @@ class NewslettersApi(val defBasePath: String = "https://staging.vestorly.com/api
 
     
     val contentType = {
-      if(Event != null && Event.isInstanceOf[File] )
+      if(newsletter != null && newsletter.isInstanceOf[File] )
         "multipart/form-data"
       else "application/json"
       
@@ -152,9 +153,9 @@ class NewslettersApi(val defBasePath: String = "https://staging.vestorly.com/api
     
 
     try {
-      apiInvoker.invokeApi(basePath, path, "PUT", queryParams.toMap, Event, headerParams.toMap, contentType) match {
+      apiInvoker.invokeApi(basePath, path, "PUT", queryParams.toMap, newsletter, headerParams.toMap, contentType) match {
         case s: String =>
-           Some(ApiInvoker.deserialize(s, "", classOf[Newsletter]).asInstanceOf[Newsletter])
+           Some(ApiInvoker.deserialize(s, "", classOf[Newsletterresponse]).asInstanceOf[Newsletterresponse])
          
         case _ => None
       }

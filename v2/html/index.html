@@ -32,39 +32,12 @@
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">NewsletterSettings</a></div>
+    <div class="return-type"><a href="#">Newslettersettings</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "twitter_hour" : 123,\n  "linkedin_status" : "aeiou",\n  "email_hour" : 123,\n  "facebook_hour" : 123,\n  "linkedin_hour" : 123,\n  "_id" : "aeiou",\n  "email_status" : "aeiou",\n  "twitter_status" : "aeiou"\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /newsletter_settings</code></pre></div>
-    <div class="method-summary"><span class="nickname">updateNewsletterSettingsByID</span> </div>
-    <div class="method-notes">Update a single newsletter setting by ID</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">newsletter_settings (required)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; newsletter settings </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">NewsletterSettings</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "twitter_hour" : 123,\n  "linkedin_status" : "aeiou",\n  "email_hour" : 123,\n  "facebook_hour" : 123,\n  "linkedin_hour" : 123,\n  "_id" : "aeiou",\n  "email_status" : "aeiou",\n  "twitter_status" : "aeiou"\n}</code></pre>
+    <pre class="example"><code>{\n  "newletter_settings" : [ {\n    "twitter_hour" : 123,\n    "linkedin_status" : "aeiou",\n    "email_hour" : 123,\n    "facebook_hour" : 123,\n    "linkedin_hour" : 123,\n    "_id" : "aeiou",\n    "email_status" : "aeiou",\n    "twitter_status" : "aeiou"\n  } ]\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -86,12 +59,42 @@
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">NewsletterSettings</a></div>
+    <div class="return-type"><a href="#">Newslettersettingresponse</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "twitter_hour" : 123,\n  "linkedin_status" : "aeiou",\n  "email_hour" : 123,\n  "facebook_hour" : 123,\n  "linkedin_hour" : 123,\n  "_id" : "aeiou",\n  "email_status" : "aeiou",\n  "twitter_status" : "aeiou"\n}</code></pre>
+    <pre class="example"><code>{\n  "newsletter_setting" : {\n    "twitter_hour" : 123,\n    "linkedin_status" : "aeiou",\n    "email_hour" : 123,\n    "facebook_hour" : 123,\n    "linkedin_hour" : 123,\n    "_id" : "aeiou",\n    "email_status" : "aeiou",\n    "twitter_status" : "aeiou"\n  }\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /newsletter_settings/{id}</code></pre></div>
+    <div class="method-summary"><span class="nickname">updateNewsletterSettingsByID</span> </div>
+    <div class="method-notes">Update a single newsletter setting by ID</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of newsletter settings to update </div>
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">newsletter_setting (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; newsletter settings </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Newslettersettingresponse</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "newsletter_setting" : {\n    "twitter_hour" : 123,\n    "linkedin_status" : "aeiou",\n    "email_hour" : 123,\n    "facebook_hour" : 123,\n    "linkedin_hour" : 123,\n    "_id" : "aeiou",\n    "email_status" : "aeiou",\n    "twitter_status" : "aeiou"\n  }\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -139,12 +142,12 @@
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">Event</a></div>
+    <div class="return-type"><a href="#">Eventresponse</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "referrer" : "aeiou",\n  "newsletter" : "aeiou",\n  "originator_group_name" : "aeiou",\n  "advisor_email" : "aeiou",\n  "original_url" : "aeiou",\n  "originator_email" : "aeiou",\n  "_id" : "aeiou",\n  "subject_email" : "aeiou"\n}</code></pre>
+    <pre class="example"><code>{\n  "event" : {\n    "referrer" : "aeiou",\n    "newsletter" : "aeiou",\n    "originator_group_name" : "aeiou",\n    "advisor_email" : "aeiou",\n    "original_url" : "aeiou",\n    "originator_email" : "aeiou",\n    "_id" : "aeiou",\n    "subject_email" : "aeiou"\n  }\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -166,12 +169,12 @@
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">Event</a></div>
+    <div class="return-type"><a href="#">Eventresponse</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "referrer" : "aeiou",\n  "newsletter" : "aeiou",\n  "originator_group_name" : "aeiou",\n  "advisor_email" : "aeiou",\n  "original_url" : "aeiou",\n  "originator_email" : "aeiou",\n  "_id" : "aeiou",\n  "subject_email" : "aeiou"\n}</code></pre>
+    <pre class="example"><code>{\n  "event" : {\n    "referrer" : "aeiou",\n    "newsletter" : "aeiou",\n    "originator_group_name" : "aeiou",\n    "advisor_email" : "aeiou",\n    "original_url" : "aeiou",\n    "originator_email" : "aeiou",\n    "_id" : "aeiou",\n    "subject_email" : "aeiou"\n  }\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -196,12 +199,12 @@
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">Event</a></div>
+    <div class="return-type"><a href="#">Eventresponse</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "referrer" : "aeiou",\n  "newsletter" : "aeiou",\n  "originator_group_name" : "aeiou",\n  "advisor_email" : "aeiou",\n  "original_url" : "aeiou",\n  "originator_email" : "aeiou",\n  "_id" : "aeiou",\n  "subject_email" : "aeiou"\n}</code></pre>
+    <pre class="example"><code>{\n  "event" : {\n    "referrer" : "aeiou",\n    "newsletter" : "aeiou",\n    "originator_group_name" : "aeiou",\n    "advisor_email" : "aeiou",\n    "original_url" : "aeiou",\n    "originator_email" : "aeiou",\n    "_id" : "aeiou",\n    "subject_email" : "aeiou"\n  }\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -258,12 +261,12 @@
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">Article</a></div>
+    <div class="return-type"><a href="#">Articleresponse</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{ }</code></pre>
+    <pre class="example"><code>{\n  "article" : { }\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -328,6 +331,12 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id of group to update </div>
       <div class="param">group (required)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Group to add </div>
@@ -511,19 +520,19 @@
       <div class="param">vestorly-auth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">Event (required)</div>
+      <div class="param">newsletter (required)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Newsletter </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">Newsletter</a></div>
+    <div class="return-type"><a href="#">Newsletterresponse</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "is_sent" : true,\n  "click_count" : 123456789,\n  "unique_click_count" : 123456789,\n  "_id" : "aeiou",\n  "is_default" : true,\n  "total_click_count" : 123456789\n}</code></pre>
+    <pre class="example"><code>{\n  "newsletter" : {\n    "img" : "aeiou",\n    "client_only" : true,\n    "image_url" : "aeiou",\n    "video" : "aeiou",\n    "title" : "aeiou",\n    "body" : "aeiou",\n    "img_compressed" : true,\n    "img_changed" : true,\n    "attachment" : "aeiou",\n    "post_date" : "aeiou",\n    "vestorly_url" : "aeiou",\n    "topic" : "aeiou",\n    "comment" : "aeiou",\n    "_id" : "aeiou"\n  }\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -545,12 +554,12 @@
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">Newsletter</a></div>
+    <div class="return-type"><a href="#">Newsletterresponse</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "is_sent" : true,\n  "click_count" : 123456789,\n  "unique_click_count" : 123456789,\n  "_id" : "aeiou",\n  "is_default" : true,\n  "total_click_count" : 123456789\n}</code></pre>
+    <pre class="example"><code>{\n  "newsletter" : {\n    "img" : "aeiou",\n    "client_only" : true,\n    "image_url" : "aeiou",\n    "video" : "aeiou",\n    "title" : "aeiou",\n    "body" : "aeiou",\n    "img_compressed" : true,\n    "img_changed" : true,\n    "attachment" : "aeiou",\n    "post_date" : "aeiou",\n    "vestorly_url" : "aeiou",\n    "topic" : "aeiou",\n    "comment" : "aeiou",\n    "_id" : "aeiou"\n  }\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -568,19 +577,19 @@
       <div class="param">id (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of event to update </div>
-      <div class="param">Event (required)</div>
+      <div class="param">newsletter (required)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Newsletter </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">Newsletter</a></div>
+    <div class="return-type"><a href="#">Newsletterresponse</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "is_sent" : true,\n  "click_count" : 123456789,\n  "unique_click_count" : 123456789,\n  "_id" : "aeiou",\n  "is_default" : true,\n  "total_click_count" : 123456789\n}</code></pre>
+    <pre class="example"><code>{\n  "newsletter" : {\n    "img" : "aeiou",\n    "client_only" : true,\n    "image_url" : "aeiou",\n    "video" : "aeiou",\n    "title" : "aeiou",\n    "body" : "aeiou",\n    "img_compressed" : true,\n    "img_changed" : true,\n    "attachment" : "aeiou",\n    "post_date" : "aeiou",\n    "vestorly_url" : "aeiou",\n    "topic" : "aeiou",\n    "comment" : "aeiou",\n    "_id" : "aeiou"\n  }\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -664,12 +673,12 @@
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">Post</a></div>
+    <div class="return-type"><a href="#">Postresponse</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "img" : "aeiou",\n  "client_only" : true,\n  "image_url" : "aeiou",\n  "video" : "aeiou",\n  "title" : "aeiou",\n  "body" : "aeiou",\n  "img_compressed" : true,\n  "img_changed" : true,\n  "attachment" : "aeiou",\n  "post_date" : "aeiou",\n  "vestorly_url" : "aeiou",\n  "topic" : "aeiou",\n  "comment" : "aeiou",\n  "_id" : "aeiou"\n}</code></pre>
+    <pre class="example"><code>{\n  "post" : {\n    "img" : "aeiou",\n    "client_only" : true,\n    "image_url" : "aeiou",\n    "video" : "aeiou",\n    "title" : "aeiou",\n    "body" : "aeiou",\n    "img_compressed" : true,\n    "img_changed" : true,\n    "attachment" : "aeiou",\n    "post_date" : "aeiou",\n    "vestorly_url" : "aeiou",\n    "topic" : "aeiou",\n    "comment" : "aeiou",\n    "_id" : "aeiou"\n  }\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -686,7 +695,7 @@
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">id (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id of post to fetch </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id of post to update </div>
       <div class="param">post (required)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Post you want to update </div>
@@ -694,7 +703,7 @@
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">PostResponse</a></div>
+    <div class="return-type"><a href="#">Postresponse</a></div>
 
     
     <h3 class="field-label">Example data</h3>
@@ -835,7 +844,7 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "members" : [ {\n    "education" : "aeiou",\n    "occupation" : "aeiou",\n    "gender" : "aeiou",\n    "picture_url" : "aeiou",\n    "city" : "aeiou",\n    "profile_url" : "aeiou",\n    "register_ip_addr" : "aeiou",\n    "estimated_zip" : "aeiou",\n    "genuine_email" : true,\n    "home_market_value" : "aeiou",\n    "state" : "aeiou",\n    "first_name" : "aeiou",\n    "email" : "aeiou",\n    "zip" : "aeiou",\n    "hometown" : "aeiou",\n    "address" : "aeiou",\n    "data_estimated" : true,\n    "high_net_worth" : true,\n    "last_name" : "aeiou",\n    "household_income" : "aeiou",\n    "home_owner_status" : "aeiou",\n    "message" : "aeiou",\n    "tags" : "aeiou",\n    "marital_status" : "aeiou",\n    "phone" : "aeiou",\n    "location" : "aeiou",\n    "_id" : "aeiou",\n    "family" : "aeiou",\n    "age" : "aeiou",\n    "estimated_location" : "aeiou"\n  } ]\n}</code></pre>
+    <pre class="example"><code>{\n  "more_results" : true,\n  "posts" : [ {\n    "education" : "aeiou",\n    "occupation" : "aeiou",\n    "gender" : "aeiou",\n    "picture_url" : "aeiou",\n    "city" : "aeiou",\n    "profile_url" : "aeiou",\n    "register_ip_addr" : "aeiou",\n    "estimated_zip" : "aeiou",\n    "genuine_email" : true,\n    "home_market_value" : "aeiou",\n    "state" : "aeiou",\n    "first_name" : "aeiou",\n    "email" : "aeiou",\n    "zip" : "aeiou",\n    "hometown" : "aeiou",\n    "address" : "aeiou",\n    "data_estimated" : true,\n    "high_net_worth" : true,\n    "last_name" : "aeiou",\n    "household_income" : "aeiou",\n    "home_owner_status" : "aeiou",\n    "message" : "aeiou",\n    "tags" : "aeiou",\n    "marital_status" : "aeiou",\n    "phone" : "aeiou",\n    "location" : "aeiou",\n    "_id" : "aeiou",\n    "family" : "aeiou",\n    "age" : "aeiou",\n    "estimated_location" : "aeiou"\n  } ]\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -857,12 +866,12 @@
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">Member</a></div>
+    <div class="return-type"><a href="#">Memberresponse</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "education" : "aeiou",\n  "occupation" : "aeiou",\n  "gender" : "aeiou",\n  "picture_url" : "aeiou",\n  "city" : "aeiou",\n  "profile_url" : "aeiou",\n  "register_ip_addr" : "aeiou",\n  "estimated_zip" : "aeiou",\n  "genuine_email" : true,\n  "home_market_value" : "aeiou",\n  "state" : "aeiou",\n  "first_name" : "aeiou",\n  "email" : "aeiou",\n  "zip" : "aeiou",\n  "hometown" : "aeiou",\n  "address" : "aeiou",\n  "data_estimated" : true,\n  "high_net_worth" : true,\n  "last_name" : "aeiou",\n  "household_income" : "aeiou",\n  "home_owner_status" : "aeiou",\n  "message" : "aeiou",\n  "tags" : "aeiou",\n  "marital_status" : "aeiou",\n  "phone" : "aeiou",\n  "location" : "aeiou",\n  "_id" : "aeiou",\n  "family" : "aeiou",\n  "age" : "aeiou",\n  "estimated_location" : "aeiou"\n}</code></pre>
+    <pre class="example"><code>{\n  "post" : {\n    "education" : "aeiou",\n    "occupation" : "aeiou",\n    "gender" : "aeiou",\n    "picture_url" : "aeiou",\n    "city" : "aeiou",\n    "profile_url" : "aeiou",\n    "register_ip_addr" : "aeiou",\n    "estimated_zip" : "aeiou",\n    "genuine_email" : true,\n    "home_market_value" : "aeiou",\n    "state" : "aeiou",\n    "first_name" : "aeiou",\n    "email" : "aeiou",\n    "zip" : "aeiou",\n    "hometown" : "aeiou",\n    "address" : "aeiou",\n    "data_estimated" : true,\n    "high_net_worth" : true,\n    "last_name" : "aeiou",\n    "household_income" : "aeiou",\n    "home_owner_status" : "aeiou",\n    "message" : "aeiou",\n    "tags" : "aeiou",\n    "marital_status" : "aeiou",\n    "phone" : "aeiou",\n    "location" : "aeiou",\n    "_id" : "aeiou",\n    "family" : "aeiou",\n    "age" : "aeiou",\n    "estimated_location" : "aeiou"\n  }\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -884,12 +893,12 @@
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">Member</a></div>
+    <div class="return-type"><a href="#">Memberresponse</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "education" : "aeiou",\n  "occupation" : "aeiou",\n  "gender" : "aeiou",\n  "picture_url" : "aeiou",\n  "city" : "aeiou",\n  "profile_url" : "aeiou",\n  "register_ip_addr" : "aeiou",\n  "estimated_zip" : "aeiou",\n  "genuine_email" : true,\n  "home_market_value" : "aeiou",\n  "state" : "aeiou",\n  "first_name" : "aeiou",\n  "email" : "aeiou",\n  "zip" : "aeiou",\n  "hometown" : "aeiou",\n  "address" : "aeiou",\n  "data_estimated" : true,\n  "high_net_worth" : true,\n  "last_name" : "aeiou",\n  "household_income" : "aeiou",\n  "home_owner_status" : "aeiou",\n  "message" : "aeiou",\n  "tags" : "aeiou",\n  "marital_status" : "aeiou",\n  "phone" : "aeiou",\n  "location" : "aeiou",\n  "_id" : "aeiou",\n  "family" : "aeiou",\n  "age" : "aeiou",\n  "estimated_location" : "aeiou"\n}</code></pre>
+    <pre class="example"><code>{\n  "post" : {\n    "education" : "aeiou",\n    "occupation" : "aeiou",\n    "gender" : "aeiou",\n    "picture_url" : "aeiou",\n    "city" : "aeiou",\n    "profile_url" : "aeiou",\n    "register_ip_addr" : "aeiou",\n    "estimated_zip" : "aeiou",\n    "genuine_email" : true,\n    "home_market_value" : "aeiou",\n    "state" : "aeiou",\n    "first_name" : "aeiou",\n    "email" : "aeiou",\n    "zip" : "aeiou",\n    "hometown" : "aeiou",\n    "address" : "aeiou",\n    "data_estimated" : true,\n    "high_net_worth" : true,\n    "last_name" : "aeiou",\n    "household_income" : "aeiou",\n    "home_owner_status" : "aeiou",\n    "message" : "aeiou",\n    "tags" : "aeiou",\n    "marital_status" : "aeiou",\n    "phone" : "aeiou",\n    "location" : "aeiou",\n    "_id" : "aeiou",\n    "family" : "aeiou",\n    "age" : "aeiou",\n    "estimated_location" : "aeiou"\n  }\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -897,16 +906,6 @@
   
 
   <h2>Models</h2>
-  
-  
-  <div class="model">
-    <h3 class="field-label"><a name="Members">Members</a></h3>
-    <div class="field-items">
-      <div class="param">members </div><div class="param-desc"><span class="param-type">array[Member]</span> </div>
-      
-    </div>  <!-- field-items -->
-  </div>
-  
   
   
   <div class="model">
@@ -932,7 +931,7 @@
   
   
   <div class="model">
-    <h3 class="field-label"><a name="PostResponse">PostResponse</a></h3>
+    <h3 class="field-label"><a name="Postresponse">Postresponse</a></h3>
     <div class="field-items">
       <div class="param">post </div><div class="param-desc"><span class="param-type">Post</span> </div>
       
@@ -1105,9 +1104,29 @@
   
   
   <div class="model">
+    <h3 class="field-label"><a name="Articleresponse">Articleresponse</a></h3>
+    <div class="field-items">
+      <div class="param">article </div><div class="param-desc"><span class="param-type">Article</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
     <h3 class="field-label"><a name="Articles">Articles</a></h3>
     <div class="field-items">
       <div class="param">articles </div><div class="param-desc"><span class="param-type">array[Article]</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Newsletterresponse">Newsletterresponse</a></h3>
+    <div class="field-items">
+      <div class="param">newsletter </div><div class="param-desc"><span class="param-type">Post</span> </div>
       
     </div>  <!-- field-items -->
   </div>
@@ -1154,6 +1173,27 @@
   
   
   <div class="model">
+    <h3 class="field-label"><a name="Memberresponse">Memberresponse</a></h3>
+    <div class="field-items">
+      <div class="param">post </div><div class="param-desc"><span class="param-type">Member</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Members">Members</a></h3>
+    <div class="field-items">
+      <div class="param">posts </div><div class="param-desc"><span class="param-type">array[Member]</span> </div>
+      <div class="param">more_results </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
     <h3 class="field-label"><a name="Member">Member</a></h3>
     <div class="field-items">
       <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> </div>
@@ -1186,6 +1226,16 @@
       <div class="param">register_ip_addr </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">data_estimated </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       <div class="param">genuine_email </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Eventresponse">Eventresponse</a></h3>
+    <div class="field-items">
+      <div class="param">event </div><div class="param-desc"><span class="param-type">Event</span> </div>
       
     </div>  <!-- field-items -->
   </div>
@@ -1282,6 +1332,26 @@
   
   
   <div class="model">
+    <h3 class="field-label"><a name="Newslettersettingresponse">Newslettersettingresponse</a></h3>
+    <div class="field-items">
+      <div class="param">newsletter_setting </div><div class="param-desc"><span class="param-type">NewsletterSetting</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Newslettersettings">Newslettersettings</a></h3>
+    <div class="field-items">
+      <div class="param">newletter_settings </div><div class="param-desc"><span class="param-type">array[NewsletterSetting]</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
     <h3 class="field-label"><a name="NewsletterSettingsInput">NewsletterSettingsInput</a></h3>
     <div class="field-items">
       <div class="param">email_status </div><div class="param-desc"><span class="param-type">String</span> </div>
@@ -1294,7 +1364,7 @@
   
   
   <div class="model">
-    <h3 class="field-label"><a name="NewsletterSettings">NewsletterSettings</a></h3>
+    <h3 class="field-label"><a name="NewsletterSetting">NewsletterSetting</a></h3>
     <div class="field-items">
       <div class="param">_id </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">email_status </div><div class="param-desc"><span class="param-type">String</span> </div>

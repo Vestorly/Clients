@@ -5,7 +5,7 @@
 #import "SWGPosts.h"
 #import "SWGPost.h"
 #import "SWGPostInput.h"
-#import "SWGPostResponse.h"
+#import "SWGPostresponse.h"
 
 
 
@@ -162,7 +162,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
     
 
-    NSArray* requestContentTypes = @[@"application/x-www-form-urlencoded", ];
+    NSArray* requestContentTypes = @[];
     NSString* requestContentType = [requestContentTypes count] > 0 ? requestContentTypes[0] : @"application/json";
 
     NSArray* responseContentTypes = @[];
@@ -254,7 +254,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 -(NSNumber*) getPostByIDWithCompletionBlock: (NSString*) vestorly-auth
          _id: (NSString*) _id
         
-        completionHandler: (void (^)(SWGPost* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGPostresponse* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/posts/{id}", basePath];
@@ -318,9 +318,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGPost* result = nil;
+                SWGPostresponse* result = nil;
                 if (data) {
-                    result = [[SWGPost  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGPostresponse  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 
@@ -336,7 +336,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
          _id: (NSString*) _id
          post: (SWGPostInput*) post
         
-        completionHandler: (void (^)(SWGPostResponse* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGPostresponse* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/posts/{id}", basePath];
@@ -423,9 +423,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGPostResponse* result = nil;
+                SWGPostresponse* result = nil;
                 if (data) {
-                    result = [[SWGPostResponse  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGPostresponse  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 

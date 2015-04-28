@@ -101,8 +101,8 @@ findArticleByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sa
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiArticle* out = new SamiArticle();
-    jsonToValue(out, pJson, L"SamiArticle*", L"SamiArticle");
+    SamiArticleresponse* out = new SamiArticleresponse();
+    jsonToValue(out, pJson, L"SamiArticleresponse*", L"SamiArticleresponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -128,8 +128,8 @@ findArticleByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sa
   }
 }
 
-SamiArticle* 
-SamiArticlesApi::findArticleByIDWithCompletion(String* _id, void (* success)(SamiArticle*, SamiError*)) {
+SamiArticleresponse* 
+SamiArticlesApi::findArticleByIDWithCompletion(String* _id, void (* success)(SamiArticleresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findArticleByIDProcessor, (void(*)(void*, SamiError*))success);

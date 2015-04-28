@@ -7,7 +7,8 @@ import io.swagger.client.model.*;
 
 import java.util.*;
 
-import io.swagger.client.model.NewsletterSettings;
+import io.swagger.client.model.Newslettersettings;
+import io.swagger.client.model.Newslettersettingresponse;
 import io.swagger.client.model.NewsletterSettingsInput;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
@@ -40,9 +41,9 @@ public class NewslettersettingsApi {
    * 
    * Returns all newsletter settings
    * @param vestorlyAuth Vestorly Auth Token
-   * @return NewsletterSettings
+   * @return Newslettersettings
    */
-  public NewsletterSettings findNewsletterSettings (String vestorlyAuth) throws ApiException {
+  public Newslettersettings findNewsletterSettings (String vestorlyAuth) throws ApiException {
     Object postBody = null;
     
 
@@ -78,60 +79,7 @@ public class NewslettersettingsApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (NewsletterSettings) ApiInvoker.deserialize(response, "", NewsletterSettings.class);
-      }
-      else {
-        return null;
-      }
-    } catch (ApiException ex) {
-      throw ex;
-    }
-  }
-  
-  /**
-   * 
-   * Update a single newsletter setting by ID
-   * @param vestorlyAuth Vestorly Auth Token
-   * @param newsletterSettings newsletter settings
-   * @return NewsletterSettings
-   */
-  public NewsletterSettings updateNewsletterSettingsByID (String vestorlyAuth, NewsletterSettingsInput newsletterSettings) throws ApiException {
-    Object postBody = newsletterSettings;
-    
-
-    // create path and map variables
-    String path = "/newsletter_settings".replaceAll("\\{format\\}","json");
-
-    // query params
-    Map<String, String> queryParams = new HashMap<String, String>();
-    Map<String, String> headerParams = new HashMap<String, String>();
-    Map<String, String> formParams = new HashMap<String, String>();
-
-    if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
-    
-    
-    String[] contentTypes = {
-      
-    };
-
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-
-    if(contentType.startsWith("multipart/form-data")) {
-      boolean hasFields = false;
-      FormDataMultiPart mp = new FormDataMultiPart();
-      
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-      
-    }
-
-    try {
-      String response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, postBody, headerParams, formParams, contentType);
-      if(response != null){
-        return (NewsletterSettings) ApiInvoker.deserialize(response, "", NewsletterSettings.class);
+        return (Newslettersettings) ApiInvoker.deserialize(response, "", Newslettersettings.class);
       }
       else {
         return null;
@@ -146,9 +94,9 @@ public class NewslettersettingsApi {
    * Returns a single newsletter settings if the user has access
    * @param id Mongo ID of newsletter settings to fetch
    * @param vestorlyAuth Vestorly Auth Token
-   * @return NewsletterSettings
+   * @return Newslettersettingresponse
    */
-  public NewsletterSettings findNewsletterSettingsByID (String id, String vestorlyAuth) throws ApiException {
+  public Newslettersettingresponse findNewsletterSettingsByID (String id, String vestorlyAuth) throws ApiException {
     Object postBody = null;
     
 
@@ -185,7 +133,62 @@ public class NewslettersettingsApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (NewsletterSettings) ApiInvoker.deserialize(response, "", NewsletterSettings.class);
+        return (Newslettersettingresponse) ApiInvoker.deserialize(response, "", Newslettersettingresponse.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  
+  /**
+   * 
+   * Update a single newsletter setting by ID
+   * @param id Mongo ID of newsletter settings to update
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param newsletterSetting newsletter settings
+   * @return Newslettersettingresponse
+   */
+  public Newslettersettingresponse updateNewsletterSettingsByID (String id, String vestorlyAuth, NewsletterSettingsInput newsletterSetting) throws ApiException {
+    Object postBody = newsletterSetting;
+    
+
+    // create path and map variables
+    String path = "/newsletter_settings/{id}".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+
+    // query params
+    Map<String, String> queryParams = new HashMap<String, String>();
+    Map<String, String> headerParams = new HashMap<String, String>();
+    Map<String, String> formParams = new HashMap<String, String>();
+
+    if (vestorlyAuth != null)
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+    
+    
+    String[] contentTypes = {
+      
+    };
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if(contentType.startsWith("multipart/form-data")) {
+      boolean hasFields = false;
+      FormDataMultiPart mp = new FormDataMultiPart();
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+      
+    }
+
+    try {
+      String response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, postBody, headerParams, formParams, contentType);
+      if(response != null){
+        return (Newslettersettingresponse) ApiInvoker.deserialize(response, "", Newslettersettingresponse.class);
       }
       else {
         return null;

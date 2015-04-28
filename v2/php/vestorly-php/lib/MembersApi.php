@@ -94,7 +94,7 @@ class MembersApi {
    *
    * @param string $id Mongo ID of member to fetch (required)
    * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @return Member
+   * @return Memberresponse
    */
    public function findMemberByID($id, $vestorly_auth) {
 
@@ -146,7 +146,7 @@ class MembersApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Member');
+  		                                                'Memberresponse');
   		return $responseObject;
   }
   
@@ -157,7 +157,7 @@ class MembersApi {
    *
    * @param string $id Mongo ID of member to fetch (required)
    * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @return Member
+   * @return Memberresponse
    */
    public function findMemberByID_1($id, $vestorly_auth) {
 
@@ -209,7 +209,7 @@ class MembersApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Member');
+  		                                                'Memberresponse');
   		return $responseObject;
   }
   

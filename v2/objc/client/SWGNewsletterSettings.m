@@ -1,10 +1,10 @@
-#import "SWGNewsletterSettings.h"
+#import "SWGNewslettersettings.h"
 
-@implementation SWGNewsletterSettings
+@implementation SWGNewslettersettings
   
 + (JSONKeyMapper *)keyMapper
 {
-  return [[JSONKeyMapper alloc] initWithDictionary:@{ @"_id": @"_id", @"email_status": @"email_status", @"twitter_status": @"twitter_status", @"linkedin_status": @"linkedin_status", @"email_hour": @"email_hour", @"twitter_hour": @"twitter_hour", @"linkedin_hour": @"linkedin_hour", @"facebook_hour": @"facebook_hour" }];
+  return [[JSONKeyMapper alloc] initWithDictionary:@{ @"newletter_settings": @"_newletter_settings" }];
 }
 
 @end

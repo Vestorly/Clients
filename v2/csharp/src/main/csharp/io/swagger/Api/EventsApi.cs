@@ -93,7 +93,7 @@ namespace io.swagger.Api {
      /// <param name="Event">Event</param>
     
     /// <returns></returns>
-    public Event  createEvent (string VestorlyAuth, EventInput Event) {
+    public Eventresponse  createEvent (string VestorlyAuth, EventInput Event) {
       // create path and map variables
       var path = "/events".Replace("{format}","json");
 
@@ -114,17 +114,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Event) == typeof(byte[])) {
+        if (typeof(Eventresponse) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Event;
+          return ((object)response) as Eventresponse;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, Event, headerParams, formParams);
           if (response != null){
-             return (Event) ApiInvoker.deserialize(response, typeof(Event));
+             return (Eventresponse) ApiInvoker.deserialize(response, typeof(Eventresponse));
           }
           else {
             return null;
@@ -150,7 +150,7 @@ namespace io.swagger.Api {
      /// <param name="VestorlyAuth">Vestorly Auth Token</param>
     
     /// <returns></returns>
-    public Event  findEventByID (string Id, string VestorlyAuth) {
+    public Eventresponse  findEventByID (string Id, string VestorlyAuth) {
       // create path and map variables
       var path = "/events/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -171,17 +171,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Event) == typeof(byte[])) {
+        if (typeof(Eventresponse) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Event;
+          return ((object)response) as Eventresponse;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
           if (response != null){
-             return (Event) ApiInvoker.deserialize(response, typeof(Event));
+             return (Eventresponse) ApiInvoker.deserialize(response, typeof(Eventresponse));
           }
           else {
             return null;
@@ -208,7 +208,7 @@ namespace io.swagger.Api {
      /// <param name="Event">Event</param>
     
     /// <returns></returns>
-    public Event  updateEventByID (string Id, string VestorlyAuth, EventInput Event) {
+    public Eventresponse  updateEventByID (string Id, string VestorlyAuth, EventInput Event) {
       // create path and map variables
       var path = "/events/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -229,17 +229,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Event) == typeof(byte[])) {
+        if (typeof(Eventresponse) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Event;
+          return ((object)response) as Eventresponse;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, Event, headerParams, formParams);
           if (response != null){
-             return (Event) ApiInvoker.deserialize(response, typeof(Event));
+             return (Eventresponse) ApiInvoker.deserialize(response, typeof(Eventresponse));
           }
           else {
             return null;

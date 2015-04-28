@@ -20,12 +20,12 @@ module.exports.findNewsletterSettings = function findNewsletterSettings (req, re
     res.end();
 };
 
-module.exports.updateNewsletterSettingsByID = function updateNewsletterSettingsByID (req, res, next) {
+module.exports.findNewsletterSettingsByID = function findNewsletterSettingsByID (req, res, next) {
+  var id = req.swagger.params['id'].value;
   var vestorly-auth = req.swagger.params['vestorly-auth'].value;
-  var newsletter_settings = req.swagger.params['newsletter_settings'].value;
   
 
-  var result = Newslettersettings.updateNewsletterSettingsByID(vestorly-auth, newsletter_settings);
+  var result = Newslettersettings.findNewsletterSettingsByID(id, vestorly-auth);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -35,12 +35,13 @@ module.exports.updateNewsletterSettingsByID = function updateNewsletterSettingsB
     res.end();
 };
 
-module.exports.findNewsletterSettingsByID = function findNewsletterSettingsByID (req, res, next) {
+module.exports.updateNewsletterSettingsByID = function updateNewsletterSettingsByID (req, res, next) {
   var id = req.swagger.params['id'].value;
   var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var newsletter_setting = req.swagger.params['newsletter_setting'].value;
   
 
-  var result = Newslettersettings.findNewsletterSettingsByID(id, vestorly-auth);
+  var result = Newslettersettings.updateNewsletterSettingsByID(id, vestorly-auth, newsletter_setting);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

@@ -11,8 +11,8 @@ class test_posts_api(unittest.TestCase):
 	def setUp(self):
 		self.client = vestorly.ApiClient(host=HOST, headerName='x-vestorly-auth', headerValue=API_KEY)
 
-	def test_sessions_http_get(self):
-		""" """
+	def test_post_http_get(self):
+		""" test http GET rest call"""
 		api = vestorly.PostsApi(apiClient=self.client)
 		posts = api.findPosts()
 		self.assertTrue(len(posts.posts) > 0)
@@ -20,7 +20,7 @@ class test_posts_api(unittest.TestCase):
 		self.assertTrue(isinstance(posts.posts[0],vestorly.models.post.Post))
 		
 	def test_post_text_query_works(self):
-		""" test text_query """
+		""" test text_query parameter """
 		api = vestorly.PostsApi(apiClient=self.client)
 		posts = api.findPosts(**{'text_query' : "666"})
 		self.assertEquals(len(posts.posts),0)
@@ -30,12 +30,22 @@ class test_posts_api(unittest.TestCase):
 		self.assertEquals(len(posts.posts),1)
 	
 	def test_get_post_by_id(self):
-		"""""" 
+		""" test HTTP PUT test call """ 
 		api = vestorly.PostsApi(apiClient=self.client)
-		post = api.getPostByID(**{
+		response = api.getPostByID(**{
 			'id' : "551ed15e90a0ece318000020"
 		})
-		print post
+		self.assertEquals(type(response), vestorly.models.postresponse.Postresponse)
+		self.assertEquals(type(response.post), vestorly.models.post.Post)
+		self.assertIsNotNone(response.post.title)
+	
+	def test_http_post_rest_call(self):
+		""" test HTTP POST rest call """
+		api = vestorly.PostsApi(apiClient=self.client)
+		new_post = vestorly.PostInput()
+		response = api.getPostByID(**{
+			'id' : "551ed15e90a0ece318000020"
+		})
 		
 	# def test_update_post(self):
 	# 	""" """

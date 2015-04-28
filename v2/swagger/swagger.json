@@ -88,7 +88,7 @@
           "200" : {
             "description" : "Article response",
             "schema" : {
-              "$ref" : "#/definitions/Article"
+              "$ref" : "#/definitions/Articleresponse"
             }
           }
         }
@@ -138,7 +138,7 @@
           "200" : {
             "description" : "Event response",
             "schema" : {
-              "$ref" : "#/definitions/Event"
+              "$ref" : "#/definitions/Eventresponse"
             }
           }
         }
@@ -166,7 +166,7 @@
           "200" : {
             "description" : "Event response",
             "schema" : {
-              "$ref" : "#/definitions/Event"
+              "$ref" : "#/definitions/Eventresponse"
             }
           }
         }
@@ -200,7 +200,7 @@
           "200" : {
             "description" : "Event response",
             "schema" : {
-              "$ref" : "#/definitions/Event"
+              "$ref" : "#/definitions/Eventresponse"
             }
           }
         }
@@ -293,6 +293,18 @@
         "operationId" : "addGroup",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id of group to update",
+          "required" : true,
+          "type" : "string"
+        }, {
           "in" : "body",
           "name" : "group",
           "description" : "Group to add",
@@ -416,7 +428,7 @@
           "200" : {
             "description" : "Member response",
             "schema" : {
-              "$ref" : "#/definitions/Member"
+              "$ref" : "#/definitions/Memberresponse"
             }
           }
         }
@@ -444,7 +456,7 @@
           "200" : {
             "description" : "Member response",
             "schema" : {
-              "$ref" : "#/definitions/Member"
+              "$ref" : "#/definitions/Memberresponse"
             }
           }
         }
@@ -466,35 +478,7 @@
           "200" : {
             "description" : "newsletter settings response",
             "schema" : {
-              "$ref" : "#/definitions/NewsletterSettings"
-            }
-          }
-        }
-      },
-      "put" : {
-        "tags" : [ "newsletter_settings" ],
-        "description" : "Update a single newsletter setting by ID",
-        "operationId" : "updateNewsletterSettingsByID",
-        "parameters" : [ {
-          "name" : "vestorly-auth",
-          "in" : "query",
-          "description" : "Vestorly Auth Token",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "newsletter_settings",
-          "description" : "newsletter settings",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/NewsletterSettingsInput"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "newsletter settings response",
-            "schema" : {
-              "$ref" : "#/definitions/NewsletterSettings"
+              "$ref" : "#/definitions/Newslettersettings"
             }
           }
         }
@@ -522,7 +506,41 @@
           "200" : {
             "description" : "newsletting setting response",
             "schema" : {
-              "$ref" : "#/definitions/NewsletterSettings"
+              "$ref" : "#/definitions/Newslettersettingresponse"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "newsletter_settings" ],
+        "description" : "Update a single newsletter setting by ID",
+        "operationId" : "updateNewsletterSettingsByID",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Mongo ID of newsletter settings to update",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "newsletter_setting",
+          "description" : "newsletter settings",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/NewsletterSettingsInput"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "newsletter settings response",
+            "schema" : {
+              "$ref" : "#/definitions/Newslettersettingresponse"
             }
           }
         }
@@ -561,7 +579,7 @@
           "type" : "string"
         }, {
           "in" : "body",
-          "name" : "Event",
+          "name" : "newsletter",
           "description" : "Newsletter",
           "required" : true,
           "schema" : {
@@ -572,7 +590,7 @@
           "200" : {
             "description" : "Newsletter response",
             "schema" : {
-              "$ref" : "#/definitions/Newsletter"
+              "$ref" : "#/definitions/Newsletterresponse"
             }
           }
         }
@@ -600,7 +618,7 @@
           "200" : {
             "description" : "Newsletter response",
             "schema" : {
-              "$ref" : "#/definitions/Newsletter"
+              "$ref" : "#/definitions/Newsletterresponse"
             }
           }
         }
@@ -623,7 +641,7 @@
           "type" : "string"
         }, {
           "in" : "body",
-          "name" : "Event",
+          "name" : "newsletter",
           "description" : "Newsletter",
           "required" : true,
           "schema" : {
@@ -634,7 +652,7 @@
           "200" : {
             "description" : "Newsletter response",
             "schema" : {
-              "$ref" : "#/definitions/Newsletter"
+              "$ref" : "#/definitions/Newsletterresponse"
             }
           }
         }
@@ -683,7 +701,6 @@
         "tags" : [ "posts" ],
         "description" : "Create a new post in the Vestorly Platform",
         "operationId" : "createPost",
-        "consumes" : [ "application/x-www-form-urlencoded" ],
         "parameters" : [ {
           "name" : "vestorly-auth",
           "in" : "query",
@@ -731,7 +748,7 @@
           "200" : {
             "description" : "post response",
             "schema" : {
-              "$ref" : "#/definitions/Post"
+              "$ref" : "#/definitions/Postresponse"
             }
           }
         }
@@ -749,7 +766,7 @@
         }, {
           "name" : "id",
           "in" : "path",
-          "description" : "id of post to fetch",
+          "description" : "id of post to update",
           "required" : true,
           "type" : "string"
         }, {
@@ -765,7 +782,7 @@
           "200" : {
             "description" : "post response",
             "schema" : {
-              "$ref" : "#/definitions/PostResponse"
+              "$ref" : "#/definitions/Postresponse"
             }
           }
         }
@@ -944,16 +961,6 @@
     }
   },
   "definitions" : {
-    "Members" : {
-      "properties" : {
-        "members" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/Member"
-          }
-        }
-      }
-    },
     "Advisor" : {
       "required" : [ "id", "name" ],
       "properties" : {
@@ -978,7 +985,7 @@
         }
       }
     },
-    "PostResponse" : {
+    "Postresponse" : {
       "properties" : {
         "post" : {
           "$ref" : "#/definitions/Post"
@@ -1263,6 +1270,13 @@
       }
     },
     "Article" : { },
+    "Articleresponse" : {
+      "properties" : {
+        "article" : {
+          "$ref" : "#/definitions/Article"
+        }
+      }
+    },
     "Articles" : {
       "properties" : {
         "articles" : {
@@ -1270,6 +1284,13 @@
           "items" : {
             "$ref" : "#/definitions/Article"
           }
+        }
+      }
+    },
+    "Newsletterresponse" : {
+      "properties" : {
+        "newsletter" : {
+          "$ref" : "#/definitions/Post"
         }
       }
     },
@@ -1331,6 +1352,27 @@
           "items" : {
             "$ref" : "#/definitions/Newsletter"
           }
+        }
+      }
+    },
+    "Memberresponse" : {
+      "properties" : {
+        "post" : {
+          "$ref" : "#/definitions/Member"
+        }
+      }
+    },
+    "Members" : {
+      "properties" : {
+        "posts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Member"
+          }
+        },
+        "more_results" : {
+          "type" : "boolean",
+          "default" : false
         }
       }
     },
@@ -1429,6 +1471,13 @@
         "genuine_email" : {
           "type" : "boolean",
           "default" : false
+        }
+      }
+    },
+    "Eventresponse" : {
+      "properties" : {
+        "event" : {
+          "$ref" : "#/definitions/Event"
         }
       }
     },
@@ -1581,6 +1630,23 @@
         }
       }
     },
+    "Newslettersettingresponse" : {
+      "properties" : {
+        "newsletter_setting" : {
+          "$ref" : "#/definitions/NewsletterSetting"
+        }
+      }
+    },
+    "Newslettersettings" : {
+      "properties" : {
+        "newletter_settings" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/NewsletterSetting"
+          }
+        }
+      }
+    },
     "NewsletterSettingsInput" : {
       "properties" : {
         "email_status" : {
@@ -1594,7 +1660,7 @@
         }
       }
     },
-    "NewsletterSettings" : {
+    "NewsletterSetting" : {
       "required" : [ "_id" ],
       "properties" : {
         "_id" : {

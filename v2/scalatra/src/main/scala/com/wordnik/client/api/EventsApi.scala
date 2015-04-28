@@ -2,7 +2,7 @@ package com.wordnik.client.api
 
 import com.wordnik.client.model.Events
 import com.wordnik.client.model.EventInput
-import com.wordnik.client.model.Event
+import com.wordnik.client.model.Eventresponse
 
 import java.io.File
 
@@ -67,7 +67,7 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   
 
-  val createEventOperation = (apiOperation[Event]("createEvent")
+  val createEventOperation = (apiOperation[Eventresponse]("createEvent")
       summary ""
       parameters(
         queryParam[String]("vestorly-auth").description("")
@@ -127,7 +127,7 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   
 
-  val findEventByIDOperation = (apiOperation[Event]("findEventByID")
+  val findEventByIDOperation = (apiOperation[Eventresponse]("findEventByID")
       summary ""
       parameters(
         
@@ -187,7 +187,7 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   
 
-  val updateEventByIDOperation = (apiOperation[Event]("updateEventByID")
+  val updateEventByIDOperation = (apiOperation[Eventresponse]("updateEventByID")
       summary ""
       parameters(
         

@@ -35,7 +35,7 @@ class NewslettersettingsApi {
    * 
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @return NewsletterSettings
+   * @return Newslettersettings
    */
    public function findNewsletterSettings($vestorly_auth) {
 
@@ -83,70 +83,7 @@ class NewslettersettingsApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'NewsletterSettings');
-  		return $responseObject;
-  }
-  
-  /**
-   * updateNewsletterSettingsByID
-   *
-   * 
-   *
-   * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @param NewsletterSettingsInput $newsletter_settings newsletter settings (required)
-   * @return NewsletterSettings
-   */
-   public function updateNewsletterSettingsByID($vestorly_auth, $newsletter_settings) {
-
-      // parse inputs
-      $resourcePath = "/newsletter_settings";
-      $resourcePath = str_replace("{format}", "json", $resourcePath);
-      $method = "PUT";
-      $httpBody = '';
-      $queryParams = array();
-      $headerParams = array();
-      $formParams = array();
-      $_header_accept = '';
-      if ($_header_accept !== '') {
-        $headerParams['Accept'] = $_header_accept;
-      }
-      $_header_content_type = array();
-      $headerParams['Content-Type'] = count($_header_content_type) > 0 ? $_header_content_type[0] : 'application/json';
-
-      // query params
-      if($vestorly_auth !== null) {
-        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
-      }
-      
-      
-      
-      // body params
-      $body = null;
-      if (isset($newsletter_settings)) {
-        $body = $newsletter_settings;
-      }
-
-      // for model (json/xml)
-      if (isset($body)) {
-        $httpBody = $body; // $body is the method argument, if present
-      }
-      
-      // for HTTP post (form)
-      if (strpos($headerParams['Content-Type'], "application/x-www-form-urlencoded") !== FALSE) {
-        $httpBody = http_build_query($formParams);
-      }
-
-      // make the API Call
-      $response = $this->apiClient->callAPI($resourcePath, $method,
-                                            $queryParams, $httpBody,
-                                            $headerParams);
-
-      if(! $response) {
-        return null;
-      }
-
-  		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'NewsletterSettings');
+  		                                                'Newslettersettings');
   		return $responseObject;
   }
   
@@ -157,7 +94,7 @@ class NewslettersettingsApi {
    *
    * @param string $id Mongo ID of newsletter settings to fetch (required)
    * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @return NewsletterSettings
+   * @return Newslettersettingresponse
    */
    public function findNewsletterSettingsByID($id, $vestorly_auth) {
 
@@ -209,7 +146,75 @@ class NewslettersettingsApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'NewsletterSettings');
+  		                                                'Newslettersettingresponse');
+  		return $responseObject;
+  }
+  
+  /**
+   * updateNewsletterSettingsByID
+   *
+   * 
+   *
+   * @param string $id Mongo ID of newsletter settings to update (required)
+   * @param string $vestorly_auth Vestorly Auth Token (required)
+   * @param NewsletterSettingsInput $newsletter_setting newsletter settings (required)
+   * @return Newslettersettingresponse
+   */
+   public function updateNewsletterSettingsByID($id, $vestorly_auth, $newsletter_setting) {
+
+      // parse inputs
+      $resourcePath = "/newsletter_settings/{id}";
+      $resourcePath = str_replace("{format}", "json", $resourcePath);
+      $method = "PUT";
+      $httpBody = '';
+      $queryParams = array();
+      $headerParams = array();
+      $formParams = array();
+      $_header_accept = '';
+      if ($_header_accept !== '') {
+        $headerParams['Accept'] = $_header_accept;
+      }
+      $_header_content_type = array();
+      $headerParams['Content-Type'] = count($_header_content_type) > 0 ? $_header_content_type[0] : 'application/json';
+
+      // query params
+      if($vestorly_auth !== null) {
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+      }
+      
+      // path params
+      if($id !== null) {
+        $resourcePath = str_replace("{" . "id" . "}",
+                                    $this->apiClient->toPathValue($id), $resourcePath);
+      }
+      
+      // body params
+      $body = null;
+      if (isset($newsletter_setting)) {
+        $body = $newsletter_setting;
+      }
+
+      // for model (json/xml)
+      if (isset($body)) {
+        $httpBody = $body; // $body is the method argument, if present
+      }
+      
+      // for HTTP post (form)
+      if (strpos($headerParams['Content-Type'], "application/x-www-form-urlencoded") !== FALSE) {
+        $httpBody = http_build_query($formParams);
+      }
+
+      // make the API Call
+      $response = $this->apiClient->callAPI($resourcePath, $method,
+                                            $queryParams, $httpBody,
+                                            $headerParams);
+
+      if(! $response) {
+        return null;
+      }
+
+  		$responseObject = $this->apiClient->deserialize($response,
+  		                                                'Newslettersettingresponse');
   		return $responseObject;
   }
   

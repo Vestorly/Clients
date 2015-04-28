@@ -7,7 +7,7 @@ import com.wordnik.swagger.annotations.ApiParam;
 import com.sun.jersey.multipart.FormDataParam;
 
 import io.swagger.model.Members;
-import io.swagger.model.Member;
+import io.swagger.model.Memberresponse;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -43,7 +43,7 @@ public class MembersApi {
   @Path("/{id}")
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns a single member", response = Member.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns a single member", response = Memberresponse.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Member response") })
 
@@ -59,7 +59,7 @@ public class MembersApi {
   @Path("/{id}")
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns a single member", response = Member.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns a single member", response = Memberresponse.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Member response") })
 

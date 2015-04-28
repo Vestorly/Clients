@@ -6,7 +6,8 @@ import com.wordnik.swagger.annotations.ApiParam;
 
 import com.sun.jersey.multipart.FormDataParam;
 
-import io.swagger.model.NewsletterSettings;
+import io.swagger.model.Newslettersettings;
+import io.swagger.model.Newslettersettingresponse;
 import io.swagger.model.NewsletterSettingsInput;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public class Newsletter_settingsApi {
   
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns all newsletter settings", response = NewsletterSettings.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns all newsletter settings", response = Newslettersettings.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "newsletter settings response") })
 
@@ -39,32 +40,33 @@ public class Newsletter_settingsApi {
   }
 
   
-  @PUT
+  @GET
+  @Path("/{id}")
   
   
-  
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Update a single newsletter setting by ID", response = NewsletterSettings.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns a single newsletter settings if the user has access", response = Newslettersettingresponse.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
-    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "newsletter settings response") })
+    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "newsletting setting response") })
 
-  public Response updateNewsletterSettingsByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
-    @ApiParam(value = "newsletter settings" ,required=true ) NewsletterSettingsInput newsletterSettings)
+  public Response findNewsletterSettingsByID(@ApiParam(value = "Mongo ID of newsletter settings to fetch",required=true ) @PathParam("id") String id,
+    @ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
   }
 
   
-  @GET
+  @PUT
   @Path("/{id}")
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns a single newsletter settings if the user has access", response = NewsletterSettings.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Update a single newsletter setting by ID", response = Newslettersettingresponse.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
-    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "newsletting setting response") })
+    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "newsletter settings response") })
 
-  public Response findNewsletterSettingsByID(@ApiParam(value = "Mongo ID of newsletter settings to fetch",required=true ) @PathParam("id") String id,
-    @ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
+  public Response updateNewsletterSettingsByID(@ApiParam(value = "Mongo ID of newsletter settings to update",required=true ) @PathParam("id") String id,
+    @ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+    @ApiParam(value = "newsletter settings" ,required=true ) NewsletterSettingsInput newsletterSetting)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

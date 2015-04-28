@@ -109,7 +109,7 @@ class ArticlesApi {
    * 
    *
    * @param string $id Article Id to fetch (required)
-   * @return Article
+   * @return Articleresponse
    */
    public function findArticleByID($id) {
 
@@ -158,7 +158,7 @@ class ArticlesApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Article');
+  		                                                'Articleresponse');
   		return $responseObject;
   }
   

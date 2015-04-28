@@ -187,7 +187,7 @@ addGroupProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError
 }
 
 SamiGroupInput* 
-SamiGroupsApi::addGroupWithCompletion(SamiGroup* group, void (* success)(SamiGroupInput*, SamiError*)) {
+SamiGroupsApi::addGroupWithCompletion(String* vestorly-auth, String* _id, SamiGroup* group, void (* success)(SamiGroupInput*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&addGroupProcessor, (void(*)(void*, SamiError*))success);
@@ -199,6 +199,9 @@ SamiGroupsApi::addGroupWithCompletion(SamiGroup* group, void (* success)(SamiGro
   HashMap* queryParams = new HashMap(SingleObjectDeleter);
   queryParams->Construct();
 
+  
+    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+  
   
 
   String* mBody = null;
@@ -215,6 +218,11 @@ SamiGroupsApi::addGroupWithCompletion(SamiGroup* group, void (* success)(SamiGro
 
   String url(L"/groups/{id}");
 
+  
+  String s__id(L"{");
+  s__id.Append(L"id");
+  s__id.Append(L"}");
+  url.Replace(s__id, stringify(_id, L"String*"));
   
 
   client->execute(SamiGroupsApi::getBasePath(), url, "PUT", (IMap*)queryParams, mBody, (IMap*)headerParams, null, L"application/json");

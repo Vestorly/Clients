@@ -9,6 +9,8 @@
 @interface SWGMembers : SWGObject
 
 
-@property(nonatomic) NSArray<Optional, SWGMember>* members;
+@property(nonatomic) NSArray<Optional, SWGMember>* posts;
+
+@property(nonatomic) NSNumber<Optional>* more_results;
 
 @end

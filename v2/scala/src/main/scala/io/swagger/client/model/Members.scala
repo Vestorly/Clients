@@ -5,5 +5,6 @@ import io.swagger.client.model.Member
 
 
 case class Members (
-  members: List[Member])
+  posts: List[Member],
+  more_results: Boolean)
   

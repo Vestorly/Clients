@@ -89,8 +89,8 @@ createNewsletterProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, S
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiNewsletter* out = new SamiNewsletter();
-    jsonToValue(out, pJson, L"SamiNewsletter*", L"SamiNewsletter");
+    SamiNewsletterresponse* out = new SamiNewsletterresponse();
+    jsonToValue(out, pJson, L"SamiNewsletterresponse*", L"SamiNewsletterresponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -116,8 +116,8 @@ createNewsletterProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, S
   }
 }
 
-SamiNewsletter* 
-SamiNewslettersApi::createNewsletterWithCompletion(String* vestorly-auth, SamiNewsletterInput* Event, void (* success)(SamiNewsletter*, SamiError*)) {
+SamiNewsletterresponse* 
+SamiNewslettersApi::createNewsletterWithCompletion(String* vestorly-auth, SamiNewsletterInput* newsletter, void (* success)(SamiNewsletterresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&createNewsletterProcessor, (void(*)(void*, SamiError*))success);
@@ -139,8 +139,8 @@ SamiNewslettersApi::createNewsletterWithCompletion(String* vestorly-auth, SamiNe
   
   
   
-  if(Event != null) {
-    mBody = new String(Event->asJson());
+  if(newsletter != null) {
+    mBody = new String(newsletter->asJson());
     headerParams->Add(new String("Content-Type"), new String("application/json"));
   }
   
@@ -162,8 +162,8 @@ getNewsletterByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, 
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiNewsletter* out = new SamiNewsletter();
-    jsonToValue(out, pJson, L"SamiNewsletter*", L"SamiNewsletter");
+    SamiNewsletterresponse* out = new SamiNewsletterresponse();
+    jsonToValue(out, pJson, L"SamiNewsletterresponse*", L"SamiNewsletterresponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -189,8 +189,8 @@ getNewsletterByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, 
   }
 }
 
-SamiNewsletter* 
-SamiNewslettersApi::getNewsletterByIDWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiNewsletter*, SamiError*)) {
+SamiNewsletterresponse* 
+SamiNewslettersApi::getNewsletterByIDWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiNewsletterresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&getNewsletterByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -232,8 +232,8 @@ updateNewsletterByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiNewsletter* out = new SamiNewsletter();
-    jsonToValue(out, pJson, L"SamiNewsletter*", L"SamiNewsletter");
+    SamiNewsletterresponse* out = new SamiNewsletterresponse();
+    jsonToValue(out, pJson, L"SamiNewsletterresponse*", L"SamiNewsletterresponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -259,8 +259,8 @@ updateNewsletterByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void
   }
 }
 
-SamiNewsletter* 
-SamiNewslettersApi::updateNewsletterByIDWithCompletion(String* vestorly-auth, String* _id, SamiNewsletterInput* Event, void (* success)(SamiNewsletter*, SamiError*)) {
+SamiNewsletterresponse* 
+SamiNewslettersApi::updateNewsletterByIDWithCompletion(String* vestorly-auth, String* _id, SamiNewsletterInput* newsletter, void (* success)(SamiNewsletterresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&updateNewsletterByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -282,8 +282,8 @@ SamiNewslettersApi::updateNewsletterByIDWithCompletion(String* vestorly-auth, St
   
   
   
-  if(Event != null) {
-    mBody = new String(Event->asJson());
+  if(newsletter != null) {
+    mBody = new String(newsletter->asJson());
     headerParams->Add(new String("Content-Type"), new String("application/json"));
   }
   

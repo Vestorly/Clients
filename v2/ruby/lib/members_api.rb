@@ -59,7 +59,7 @@ class MembersApi
   # Returns a single member
   # @param id Mongo ID of member to fetch
   # @param vestorly_auth Vestorly Auth Token
-  # @return Member
+  # @return Memberresponse
   def self.findMemberByID (id, vestorly_auth, opts={})
     query_param_keys = [:vestorly_auth]
     headerParams = {}
@@ -102,7 +102,7 @@ class MembersApi
     
     
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Member.new(response)
+     Memberresponse.new(response)
     
     
   
@@ -112,7 +112,7 @@ class MembersApi
   # Returns a single member
   # @param id Mongo ID of member to fetch
   # @param vestorly_auth Vestorly Auth Token
-  # @return Member
+  # @return Memberresponse
   def self.findMemberByID_1 (id, vestorly_auth, opts={})
     query_param_keys = [:vestorly_auth]
     headerParams = {}
@@ -155,7 +155,7 @@ class MembersApi
     
     
     response = Swagger::Request.new(:PUT, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Member.new(response)
+     Memberresponse.new(response)
     
     
   

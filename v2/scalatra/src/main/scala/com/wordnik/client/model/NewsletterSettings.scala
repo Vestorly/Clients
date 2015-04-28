@@ -1,14 +1,8 @@
 package com.wordnik.client.model
 
+import com.wordnik.client.model.NewsletterSetting
 
 
-case class NewsletterSettings (
-  _id: String,
-  email_status: String,
-  twitter_status: String,
-  linkedin_status: String,
-  email_hour: Int,
-  twitter_hour: Int,
-  linkedin_hour: Int,
-  facebook_hour: Int
+case class Newslettersettings (
+  newletter_settings: List[NewsletterSetting]
 )

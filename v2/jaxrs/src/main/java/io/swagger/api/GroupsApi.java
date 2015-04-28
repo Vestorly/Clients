@@ -67,7 +67,9 @@ public class GroupsApi {
     
     @com.wordnik.swagger.annotations.ApiResponse(code = 0, message = "unexpected error") })
 
-  public Response addGroup(@ApiParam(value = "Group to add" ,required=true ) Group group)
+  public Response addGroup(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+    @ApiParam(value = "id of group to update",required=true ) @PathParam("id") String id,
+    @ApiParam(value = "Group to add" ,required=true ) Group group)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

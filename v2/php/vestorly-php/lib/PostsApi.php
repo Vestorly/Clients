@@ -122,7 +122,7 @@ class PostsApi {
       if ($_header_accept !== '') {
         $headerParams['Accept'] = $_header_accept;
       }
-      $_header_content_type = array('application/x-www-form-urlencoded',);
+      $_header_content_type = array();
       $headerParams['Content-Type'] = count($_header_content_type) > 0 ? $_header_content_type[0] : 'application/json';
 
       // query params
@@ -169,7 +169,7 @@ class PostsApi {
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
    * @param string $id ID of post to fetch (required)
-   * @return Post
+   * @return Postresponse
    */
    public function getPostByID($vestorly_auth, $id) {
 
@@ -221,7 +221,7 @@ class PostsApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Post');
+  		                                                'Postresponse');
   		return $responseObject;
   }
   
@@ -231,9 +231,9 @@ class PostsApi {
    * 
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @param string $id id of post to fetch (required)
+   * @param string $id id of post to update (required)
    * @param PostInput $post Post you want to update (required)
-   * @return PostResponse
+   * @return Postresponse
    */
    public function updatePostByID($vestorly_auth, $id, $post) {
 
@@ -289,7 +289,7 @@ class PostsApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'PostResponse');
+  		                                                'Postresponse');
   		return $responseObject;
   }
   

@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGMembers.h"
-#import "SWGMember.h"
+#import "SWGMemberresponse.h"
 #import "SWGObject.h"
 
 
@@ -36,12 +36,12 @@
  @param vestorly-auth Vestorly Auth Token
  
 
- return type: SWGMember*
+ return type: SWGMemberresponse*
  */
 -(NSNumber*) findMemberByIDWithCompletionBlock :(NSString*) _id 
      vestorly-auth:(NSString*) vestorly-auth 
     
-    completionHandler: (void (^)(SWGMember* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGMemberresponse* output, NSError* error))completionBlock;
     
 
 
@@ -54,12 +54,12 @@
  @param vestorly-auth Vestorly Auth Token
  
 
- return type: SWGMember*
+ return type: SWGMemberresponse*
  */
 -(NSNumber*) findMemberByID_1WithCompletionBlock :(NSString*) _id 
      vestorly-auth:(NSString*) vestorly-auth 
     
-    completionHandler: (void (^)(SWGMember* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGMemberresponse* output, NSError* error))completionBlock;
     
 
 

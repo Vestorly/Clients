@@ -199,7 +199,7 @@ class PostsApi(object):
             
             
         
-        Returns: PostResponse
+        Returns: Postresponse
         """
 
         allParams = ['vestorly_auth', 'id']
@@ -255,7 +255,7 @@ class PostsApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'PostResponse')
+        responseObject = self.apiClient.deserialize(response, 'Postresponse')
         return responseObject
         
         
@@ -276,7 +276,7 @@ class PostsApi(object):
             
             
         
-        Returns: PostResponse
+        Returns: Postresponse
         """
 
         allParams = ['vestorly_auth', 'id', 'post']
@@ -335,7 +335,7 @@ class PostsApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'PostResponse')
+        responseObject = self.apiClient.deserialize(response, 'Postresponse')
         return responseObject
         
         

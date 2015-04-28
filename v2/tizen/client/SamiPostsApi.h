@@ -9,7 +9,7 @@
 using Tizen::Base::String;
 #include "SamiPost.h"
 #include "SamiPostInput.h"
-#include "SamiPostResponse.h"
+#include "SamiPostresponse.h"
 
 using namespace Tizen::Net::Http;
 
@@ -27,11 +27,11 @@ public:
   SamiPost* 
   createPostWithCompletion(String* vestorly-auth, SamiPostInput* post, void (* handler)(SamiPost*, SamiError*));
   
-  SamiPost* 
-  getPostByIDWithCompletion(String* vestorly-auth, String* _id, void (* handler)(SamiPost*, SamiError*));
+  SamiPostresponse* 
+  getPostByIDWithCompletion(String* vestorly-auth, String* _id, void (* handler)(SamiPostresponse*, SamiError*));
   
-  SamiPostResponse* 
-  updatePostByIDWithCompletion(String* vestorly-auth, String* _id, SamiPostInput* post, void (* handler)(SamiPostResponse*, SamiError*));
+  SamiPostresponse* 
+  updatePostByIDWithCompletion(String* vestorly-auth, String* _id, SamiPostInput* post, void (* handler)(SamiPostresponse*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

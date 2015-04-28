@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
-#import "SWGNewsletterSettings.h"
+#import "SWGNewslettersettings.h"
+#import "SWGNewslettersettingresponse.h"
 #import "SWGNewsletterSettingsInput.h"
 #import "SWGObject.h"
 
@@ -19,29 +20,11 @@
  @param vestorly-auth Vestorly Auth Token
  
 
- return type: SWGNewsletterSettings*
+ return type: SWGNewslettersettings*
  */
 -(NSNumber*) findNewsletterSettingsWithCompletionBlock :(NSString*) vestorly-auth 
     
-    completionHandler: (void (^)(SWGNewsletterSettings* output, NSError* error))completionBlock;
-    
-
-
-/**
-
- 
- Update a single newsletter setting by ID
-
- @param vestorly-auth Vestorly Auth Token
- @param newsletter_settings newsletter settings
- 
-
- return type: SWGNewsletterSettings*
- */
--(NSNumber*) updateNewsletterSettingsByIDWithCompletionBlock :(NSString*) vestorly-auth 
-     newsletter_settings:(SWGNewsletterSettingsInput*) newsletter_settings 
-    
-    completionHandler: (void (^)(SWGNewsletterSettings* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGNewslettersettings* output, NSError* error))completionBlock;
     
 
 
@@ -54,12 +37,32 @@
  @param vestorly-auth Vestorly Auth Token
  
 
- return type: SWGNewsletterSettings*
+ return type: SWGNewslettersettingresponse*
  */
 -(NSNumber*) findNewsletterSettingsByIDWithCompletionBlock :(NSString*) _id 
      vestorly-auth:(NSString*) vestorly-auth 
     
-    completionHandler: (void (^)(SWGNewsletterSettings* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGNewslettersettingresponse* output, NSError* error))completionBlock;
+    
+
+
+/**
+
+ 
+ Update a single newsletter setting by ID
+
+ @param _id Mongo ID of newsletter settings to update
+ @param vestorly-auth Vestorly Auth Token
+ @param newsletter_setting newsletter settings
+ 
+
+ return type: SWGNewslettersettingresponse*
+ */
+-(NSNumber*) updateNewsletterSettingsByIDWithCompletionBlock :(NSString*) _id 
+     vestorly-auth:(NSString*) vestorly-auth 
+     newsletter_setting:(SWGNewsletterSettingsInput*) newsletter_setting 
+    
+    completionHandler: (void (^)(SWGNewslettersettingresponse* output, NSError* error))completionBlock;
     
 
 

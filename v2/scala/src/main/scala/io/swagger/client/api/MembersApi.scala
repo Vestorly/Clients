@@ -1,7 +1,7 @@
 package io.swagger.client.api
 
 import io.swagger.client.model.Members
-import io.swagger.client.model.Member
+import io.swagger.client.model.Memberresponse
 import io.swagger.client.ApiInvoker
 import io.swagger.client.ApiException
 
@@ -52,7 +52,7 @@ class MembersApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     }
   }
   
-  def findMemberByID (id: String, vestorly-auth: String) : Option[Member] = {
+  def findMemberByID (id: String, vestorly-auth: String) : Option[Memberresponse] = {
     // create path and map variables
     val path = "/members/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -78,7 +78,7 @@ class MembersApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     try {
       apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, None, headerParams.toMap, contentType) match {
         case s: String =>
-           Some(ApiInvoker.deserialize(s, "", classOf[Member]).asInstanceOf[Member])
+           Some(ApiInvoker.deserialize(s, "", classOf[Memberresponse]).asInstanceOf[Memberresponse])
          
         case _ => None
       }
@@ -88,7 +88,7 @@ class MembersApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     }
   }
   
-  def findMemberByID_1 (id: String, vestorly-auth: String) : Option[Member] = {
+  def findMemberByID_1 (id: String, vestorly-auth: String) : Option[Memberresponse] = {
     // create path and map variables
     val path = "/members/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -114,7 +114,7 @@ class MembersApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     try {
       apiInvoker.invokeApi(basePath, path, "PUT", queryParams.toMap, None, headerParams.toMap, contentType) match {
         case s: String =>
-           Some(ApiInvoker.deserialize(s, "", classOf[Member]).asInstanceOf[Member])
+           Some(ApiInvoker.deserialize(s, "", classOf[Memberresponse]).asInstanceOf[Memberresponse])
          
         case _ => None
       }

@@ -93,10 +93,10 @@ class NewslettersApi {
    * 
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @param NewsletterInput $event Newsletter (required)
-   * @return Newsletter
+   * @param NewsletterInput $newsletter Newsletter (required)
+   * @return Newsletterresponse
    */
-   public function createNewsletter($vestorly_auth, $event) {
+   public function createNewsletter($vestorly_auth, $newsletter) {
 
       // parse inputs
       $resourcePath = "/newsletters";
@@ -122,8 +122,8 @@ class NewslettersApi {
       
       // body params
       $body = null;
-      if (isset($event)) {
-        $body = $event;
+      if (isset($newsletter)) {
+        $body = $newsletter;
       }
 
       // for model (json/xml)
@@ -146,7 +146,7 @@ class NewslettersApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Newsletter');
+  		                                                'Newsletterresponse');
   		return $responseObject;
   }
   
@@ -157,7 +157,7 @@ class NewslettersApi {
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
    * @param string $id Mongo ID of event to get (required)
-   * @return Newsletter
+   * @return Newsletterresponse
    */
    public function getNewsletterByID($vestorly_auth, $id) {
 
@@ -209,7 +209,7 @@ class NewslettersApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Newsletter');
+  		                                                'Newsletterresponse');
   		return $responseObject;
   }
   
@@ -220,10 +220,10 @@ class NewslettersApi {
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
    * @param string $id Mongo ID of event to update (required)
-   * @param NewsletterInput $event Newsletter (required)
-   * @return Newsletter
+   * @param NewsletterInput $newsletter Newsletter (required)
+   * @return Newsletterresponse
    */
-   public function updateNewsletterByID($vestorly_auth, $id, $event) {
+   public function updateNewsletterByID($vestorly_auth, $id, $newsletter) {
 
       // parse inputs
       $resourcePath = "/newsletters/{id}";
@@ -253,8 +253,8 @@ class NewslettersApi {
       
       // body params
       $body = null;
-      if (isset($event)) {
-        $body = $event;
+      if (isset($newsletter)) {
+        $body = $newsletter;
       }
 
       // for model (json/xml)
@@ -277,7 +277,7 @@ class NewslettersApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Newsletter');
+  		                                                'Newsletterresponse');
   		return $responseObject;
   }
   

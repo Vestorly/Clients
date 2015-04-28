@@ -1,7 +1,7 @@
 package com.wordnik.client.api
 
 import com.wordnik.client.model.Articles
-import com.wordnik.client.model.Article
+import com.wordnik.client.model.Articleresponse
 
 import java.io.File
 
@@ -166,7 +166,7 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   
 
-  val findArticleByIDOperation = (apiOperation[Article]("findArticleByID")
+  val findArticleByIDOperation = (apiOperation[Articleresponse]("findArticleByID")
       summary ""
       parameters(
         

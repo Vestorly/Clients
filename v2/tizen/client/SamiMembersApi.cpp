@@ -89,8 +89,8 @@ findMemberByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sam
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiMember* out = new SamiMember();
-    jsonToValue(out, pJson, L"SamiMember*", L"SamiMember");
+    SamiMemberresponse* out = new SamiMemberresponse();
+    jsonToValue(out, pJson, L"SamiMemberresponse*", L"SamiMemberresponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -116,8 +116,8 @@ findMemberByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sam
   }
 }
 
-SamiMember* 
-SamiMembersApi::findMemberByIDWithCompletion(String* _id, String* vestorly-auth, void (* success)(SamiMember*, SamiError*)) {
+SamiMemberresponse* 
+SamiMembersApi::findMemberByIDWithCompletion(String* _id, String* vestorly-auth, void (* success)(SamiMemberresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findMemberByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -159,8 +159,8 @@ findMemberByID_1Processor(HttpResponse* pHttpResponse, void (* handler)(void*, S
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiMember* out = new SamiMember();
-    jsonToValue(out, pJson, L"SamiMember*", L"SamiMember");
+    SamiMemberresponse* out = new SamiMemberresponse();
+    jsonToValue(out, pJson, L"SamiMemberresponse*", L"SamiMemberresponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -186,8 +186,8 @@ findMemberByID_1Processor(HttpResponse* pHttpResponse, void (* handler)(void*, S
   }
 }
 
-SamiMember* 
-SamiMembersApi::findMemberByID_1WithCompletion(String* _id, String* vestorly-auth, void (* success)(SamiMember*, SamiError*)) {
+SamiMemberresponse* 
+SamiMembersApi::findMemberByID_1WithCompletion(String* _id, String* vestorly-auth, void (* success)(SamiMemberresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findMemberByID_1Processor, (void(*)(void*, SamiError*))success);

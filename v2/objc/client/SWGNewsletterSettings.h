@@ -1,27 +1,14 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
+#import "SWGNewsletterSetting.h"
 
 
-@protocol SWGNewsletterSettings
+@protocol SWGNewslettersettings
 @end
   
-@interface SWGNewsletterSettings : SWGObject
+@interface SWGNewslettersettings : SWGObject
 
 
-@property(nonatomic) NSString* _id;
-
-@property(nonatomic) NSString<Optional>* email_status;
-
-@property(nonatomic) NSString<Optional>* twitter_status;
-
-@property(nonatomic) NSString<Optional>* linkedin_status;
-
-@property(nonatomic) NSNumber<Optional>* email_hour;
-
-@property(nonatomic) NSNumber<Optional>* twitter_hour;
-
-@property(nonatomic) NSNumber<Optional>* linkedin_hour;
-
-@property(nonatomic) NSNumber<Optional>* facebook_hour;
+@property(nonatomic) NSArray<Optional, SWGNewsletterSetting>* _newletter_settings;
 
 @end

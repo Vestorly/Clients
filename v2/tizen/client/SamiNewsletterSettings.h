@@ -1,11 +1,11 @@
 /*
- * SamiNewsletterSettings.h
+ * SamiNewslettersettings.h
  * 
  * 
  */
 
-#ifndef SamiNewsletterSettings_H_
-#define SamiNewsletterSettings_H_
+#ifndef SamiNewslettersettings_H_
+#define SamiNewslettersettings_H_
 
 #include <FApp.h>
 #include <FBase.h>
@@ -17,17 +17,17 @@
 using namespace Tizen::Web::Json;
 
 
-using Tizen::Base::Integer;
-using Tizen::Base::String;
+#include "SamiNewsletterSetting.h"
+using Tizen::Base::Collection::IList;
 
 
 namespace Swagger {
 
-class SamiNewsletterSettings: public SamiObject {
+class SamiNewslettersettings: public SamiObject {
 public:
-    SamiNewsletterSettings();
-    SamiNewsletterSettings(String* json);
-    virtual ~SamiNewsletterSettings();
+    SamiNewslettersettings();
+    SamiNewslettersettings(String* json);
+    virtual ~SamiNewslettersettings();
 
     void init();
 
@@ -39,46 +39,18 @@ public:
 
     void fromJsonObject(IJsonValue* json);
 
-    SamiNewsletterSettings* fromJson(String* obj);
+    SamiNewslettersettings* fromJson(String* obj);
 
     
-    String* getPId();
-    void setPId(String* p_id);
-    
-    String* getPEmailStatus();
-    void setPEmailStatus(String* pEmail_status);
-    
-    String* getPTwitterStatus();
-    void setPTwitterStatus(String* pTwitter_status);
-    
-    String* getPLinkedinStatus();
-    void setPLinkedinStatus(String* pLinkedin_status);
-    
-    Integer* getPEmailHour();
-    void setPEmailHour(Integer* pEmail_hour);
-    
-    Integer* getPTwitterHour();
-    void setPTwitterHour(Integer* pTwitter_hour);
-    
-    Integer* getPLinkedinHour();
-    void setPLinkedinHour(Integer* pLinkedin_hour);
-    
-    Integer* getPFacebookHour();
-    void setPFacebookHour(Integer* pFacebook_hour);
+    IList* getPNewletterSettings();
+    void setPNewletterSettings(IList* pNewletter_settings);
     
 
 private:
-    String* p_id;
-    String* pEmail_status;
-    String* pTwitter_status;
-    String* pLinkedin_status;
-    Integer* pEmail_hour;
-    Integer* pTwitter_hour;
-    Integer* pLinkedin_hour;
-    Integer* pFacebook_hour;
+    IList* pNewletter_settings;
     
 };
 
 } /* namespace Swagger */
 
-#endif /* SamiNewsletterSettings_H_ */
+#endif /* SamiNewslettersettings_H_ */

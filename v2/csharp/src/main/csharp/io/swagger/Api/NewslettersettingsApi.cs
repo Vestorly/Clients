@@ -36,7 +36,7 @@ namespace io.swagger.Api {
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
     
     /// <returns></returns>
-    public NewsletterSettings  findNewsletterSettings (string VestorlyAuth) {
+    public Newslettersettings  findNewsletterSettings (string VestorlyAuth) {
       // create path and map variables
       var path = "/newsletter_settings".Replace("{format}","json");
 
@@ -57,74 +57,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(NewsletterSettings) == typeof(byte[])) {
+        if (typeof(Newslettersettings) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as NewsletterSettings;
+          return ((object)response) as Newslettersettings;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
           if (response != null){
-             return (NewsletterSettings) ApiInvoker.deserialize(response, typeof(NewsletterSettings));
-          }
-          else {
-            return null;
-          }
-          
-          
-        }
-      } catch (ApiException ex) {
-        if(ex.ErrorCode == 404) {
-          return null;
-        }
-        else {
-          throw ex;
-        }
-      }
-    }
-    
-
-    /// <summary>
-    ///  Update a single newsletter setting by ID
-    /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-     /// <param name="NewsletterSettings">newsletter settings</param>
-    
-    /// <returns></returns>
-    public NewsletterSettings  updateNewsletterSettingsByID (string VestorlyAuth, NewsletterSettingsInput NewsletterSettings) {
-      // create path and map variables
-      var path = "/newsletter_settings".Replace("{format}","json");
-
-      // query params
-      var queryParams = new Dictionary<String, String>();
-      var headerParams = new Dictionary<String, String>();
-      var formParams = new Dictionary<String, object>();
-
-      
-
-      if (VestorlyAuth != null){
-        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
-      }
-      
-
-      
-
-      
-
-      try {
-        if (typeof(NewsletterSettings) == typeof(byte[])) {
-          
-          var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as NewsletterSettings;
-          
-          
-        } else {
-          
-          var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, NewsletterSettings, headerParams, formParams);
-          if (response != null){
-             return (NewsletterSettings) ApiInvoker.deserialize(response, typeof(NewsletterSettings));
+             return (Newslettersettings) ApiInvoker.deserialize(response, typeof(Newslettersettings));
           }
           else {
             return null;
@@ -150,7 +93,7 @@ namespace io.swagger.Api {
      /// <param name="VestorlyAuth">Vestorly Auth Token</param>
     
     /// <returns></returns>
-    public NewsletterSettings  findNewsletterSettingsByID (string Id, string VestorlyAuth) {
+    public Newslettersettingresponse  findNewsletterSettingsByID (string Id, string VestorlyAuth) {
       // create path and map variables
       var path = "/newsletter_settings/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -171,17 +114,75 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(NewsletterSettings) == typeof(byte[])) {
+        if (typeof(Newslettersettingresponse) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as NewsletterSettings;
+          return ((object)response) as Newslettersettingresponse;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
           if (response != null){
-             return (NewsletterSettings) ApiInvoker.deserialize(response, typeof(NewsletterSettings));
+             return (Newslettersettingresponse) ApiInvoker.deserialize(response, typeof(Newslettersettingresponse));
+          }
+          else {
+            return null;
+          }
+          
+          
+        }
+      } catch (ApiException ex) {
+        if(ex.ErrorCode == 404) {
+          return null;
+        }
+        else {
+          throw ex;
+        }
+      }
+    }
+    
+
+    /// <summary>
+    ///  Update a single newsletter setting by ID
+    /// </summary>
+    /// <param name="Id">Mongo ID of newsletter settings to update</param>
+     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+     /// <param name="NewsletterSetting">newsletter settings</param>
+    
+    /// <returns></returns>
+    public Newslettersettingresponse  updateNewsletterSettingsByID (string Id, string VestorlyAuth, NewsletterSettingsInput NewsletterSetting) {
+      // create path and map variables
+      var path = "/newsletter_settings/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
+
+      // query params
+      var queryParams = new Dictionary<String, String>();
+      var headerParams = new Dictionary<String, String>();
+      var formParams = new Dictionary<String, object>();
+
+      
+
+      if (VestorlyAuth != null){
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
+      }
+      
+
+      
+
+      
+
+      try {
+        if (typeof(Newslettersettingresponse) == typeof(byte[])) {
+          
+          var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
+          return ((object)response) as Newslettersettingresponse;
+          
+          
+        } else {
+          
+          var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, NewsletterSetting, headerParams, formParams);
+          if (response != null){
+             return (Newslettersettingresponse) ApiInvoker.deserialize(response, typeof(Newslettersettingresponse));
           }
           else {
             return null;

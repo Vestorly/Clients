@@ -3,6 +3,7 @@
 #import "SWGQueryParamCollection.h"
 #import "SWGApiClient.h"
 #import "SWGNewsletter.h"
+#import "SWGNewsletterresponse.h"
 #import "SWGNewsletterInput.h"
 
 
@@ -132,9 +133,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 -(NSNumber*) createNewsletterWithCompletionBlock: (NSString*) vestorly-auth
-         Event: (SWGNewsletterInput*) Event
+         newsletter: (SWGNewsletterInput*) newsletter
         
-        completionHandler: (void (^)(SWGNewsletter* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGNewsletterresponse* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/newsletters", basePath];
@@ -162,7 +163,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
     id bodyDictionary = nil;
     
-    id __body = Event;
+    id __body = newsletter;
 
     if(__body != nil && [__body isKindOfClass:[NSArray class]]){
         NSMutableArray * objs = [[NSMutableArray alloc] init];
@@ -220,9 +221,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGNewsletter* result = nil;
+                SWGNewsletterresponse* result = nil;
                 if (data) {
-                    result = [[SWGNewsletter  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGNewsletterresponse  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 
@@ -237,7 +238,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 -(NSNumber*) getNewsletterByIDWithCompletionBlock: (NSString*) vestorly-auth
          _id: (NSString*) _id
         
-        completionHandler: (void (^)(SWGNewsletter* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGNewsletterresponse* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/newsletters/{id}", basePath];
@@ -301,9 +302,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGNewsletter* result = nil;
+                SWGNewsletterresponse* result = nil;
                 if (data) {
-                    result = [[SWGNewsletter  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGNewsletterresponse  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 
@@ -317,9 +318,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
 -(NSNumber*) updateNewsletterByIDWithCompletionBlock: (NSString*) vestorly-auth
          _id: (NSString*) _id
-         Event: (SWGNewsletterInput*) Event
+         newsletter: (SWGNewsletterInput*) newsletter
         
-        completionHandler: (void (^)(SWGNewsletter* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGNewsletterresponse* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/newsletters/{id}", basePath];
@@ -348,7 +349,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
     id bodyDictionary = nil;
     
-    id __body = Event;
+    id __body = newsletter;
 
     if(__body != nil && [__body isKindOfClass:[NSArray class]]){
         NSMutableArray * objs = [[NSMutableArray alloc] init];
@@ -406,9 +407,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGNewsletter* result = nil;
+                SWGNewsletterresponse* result = nil;
                 if (data) {
-                    result = [[SWGNewsletter  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGNewsletterresponse  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 

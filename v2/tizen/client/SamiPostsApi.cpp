@@ -171,8 +171,8 @@ getPostByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiEr
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiPost* out = new SamiPost();
-    jsonToValue(out, pJson, L"SamiPost*", L"SamiPost");
+    SamiPostresponse* out = new SamiPostresponse();
+    jsonToValue(out, pJson, L"SamiPostresponse*", L"SamiPostresponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -198,8 +198,8 @@ getPostByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiEr
   }
 }
 
-SamiPost* 
-SamiPostsApi::getPostByIDWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiPost*, SamiError*)) {
+SamiPostresponse* 
+SamiPostsApi::getPostByIDWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiPostresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&getPostByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -241,8 +241,8 @@ updatePostByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sam
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiPostResponse* out = new SamiPostResponse();
-    jsonToValue(out, pJson, L"SamiPostResponse*", L"SamiPostResponse");
+    SamiPostresponse* out = new SamiPostresponse();
+    jsonToValue(out, pJson, L"SamiPostresponse*", L"SamiPostresponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -268,8 +268,8 @@ updatePostByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sam
   }
 }
 
-SamiPostResponse* 
-SamiPostsApi::updatePostByIDWithCompletion(String* vestorly-auth, String* _id, SamiPostInput* post, void (* success)(SamiPostResponse*, SamiError*)) {
+SamiPostresponse* 
+SamiPostsApi::updatePostByIDWithCompletion(String* vestorly-auth, String* _id, SamiPostInput* post, void (* success)(SamiPostresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&updatePostByIDProcessor, (void(*)(void*, SamiError*))success);

@@ -19,17 +19,27 @@ exports.findNewsletters = function(vestorly-auth) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.createNewsletter = function(vestorly-auth, Event) {
+exports.createNewsletter = function(vestorly-auth, newsletter) {
 
   var examples = {};
   
   examples['application/json'] = {
-  "is_sent" : true,
-  "click_count" : 123456789,
-  "unique_click_count" : 123456789,
-  "_id" : "aeiou",
-  "is_default" : true,
-  "total_click_count" : 123456789
+  "newsletter" : {
+    "img" : "aeiou",
+    "client_only" : true,
+    "image_url" : "aeiou",
+    "video" : "aeiou",
+    "title" : "aeiou",
+    "body" : "aeiou",
+    "img_compressed" : true,
+    "img_changed" : true,
+    "attachment" : "aeiou",
+    "post_date" : "aeiou",
+    "vestorly_url" : "aeiou",
+    "topic" : "aeiou",
+    "comment" : "aeiou",
+    "_id" : "aeiou"
+  }
 };
   
 
@@ -43,12 +53,22 @@ exports.getNewsletterByID = function(vestorly-auth, id) {
   var examples = {};
   
   examples['application/json'] = {
-  "is_sent" : true,
-  "click_count" : 123456789,
-  "unique_click_count" : 123456789,
-  "_id" : "aeiou",
-  "is_default" : true,
-  "total_click_count" : 123456789
+  "newsletter" : {
+    "img" : "aeiou",
+    "client_only" : true,
+    "image_url" : "aeiou",
+    "video" : "aeiou",
+    "title" : "aeiou",
+    "body" : "aeiou",
+    "img_compressed" : true,
+    "img_changed" : true,
+    "attachment" : "aeiou",
+    "post_date" : "aeiou",
+    "vestorly_url" : "aeiou",
+    "topic" : "aeiou",
+    "comment" : "aeiou",
+    "_id" : "aeiou"
+  }
 };
   
 
@@ -57,17 +77,27 @@ exports.getNewsletterByID = function(vestorly-auth, id) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.updateNewsletterByID = function(vestorly-auth, id, Event) {
+exports.updateNewsletterByID = function(vestorly-auth, id, newsletter) {
 
   var examples = {};
   
   examples['application/json'] = {
-  "is_sent" : true,
-  "click_count" : 123456789,
-  "unique_click_count" : 123456789,
-  "_id" : "aeiou",
-  "is_default" : true,
-  "total_click_count" : 123456789
+  "newsletter" : {
+    "img" : "aeiou",
+    "client_only" : true,
+    "image_url" : "aeiou",
+    "video" : "aeiou",
+    "title" : "aeiou",
+    "body" : "aeiou",
+    "img_compressed" : true,
+    "img_changed" : true,
+    "attachment" : "aeiou",
+    "post_date" : "aeiou",
+    "vestorly_url" : "aeiou",
+    "topic" : "aeiou",
+    "comment" : "aeiou",
+    "_id" : "aeiou"
+  }
 };
   
 

@@ -3,7 +3,7 @@ package com.wordnik.client.api
 import com.wordnik.client.model.Posts
 import com.wordnik.client.model.Post
 import com.wordnik.client.model.PostInput
-import com.wordnik.client.model.PostResponse
+import com.wordnik.client.model.Postresponse
 
 import java.io.File
 
@@ -203,7 +203,7 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   
 
-  val getPostByIDOperation = (apiOperation[Post]("getPostByID")
+  val getPostByIDOperation = (apiOperation[Postresponse]("getPostByID")
       summary ""
       parameters(
         queryParam[String]("vestorly-auth").description("")
@@ -263,7 +263,7 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   
 
-  val updatePostByIDOperation = (apiOperation[PostResponse]("updatePostByID")
+  val updatePostByIDOperation = (apiOperation[Postresponse]("updatePostByID")
       summary ""
       parameters(
         queryParam[String]("vestorly-auth").description("")

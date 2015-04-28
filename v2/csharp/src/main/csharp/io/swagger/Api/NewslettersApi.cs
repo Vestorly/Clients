@@ -90,10 +90,10 @@ namespace io.swagger.Api {
     ///  Creates a newsletter
     /// </summary>
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-     /// <param name="Event">Newsletter</param>
+     /// <param name="Newsletter">Newsletter</param>
     
     /// <returns></returns>
-    public Newsletter  createNewsletter (string VestorlyAuth, NewsletterInput Event) {
+    public Newsletterresponse  createNewsletter (string VestorlyAuth, NewsletterInput Newsletter) {
       // create path and map variables
       var path = "/newsletters".Replace("{format}","json");
 
@@ -114,17 +114,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Newsletter) == typeof(byte[])) {
+        if (typeof(Newsletterresponse) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Newsletter;
+          return ((object)response) as Newsletterresponse;
           
           
         } else {
           
-          var response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, Event, headerParams, formParams);
+          var response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, Newsletter, headerParams, formParams);
           if (response != null){
-             return (Newsletter) ApiInvoker.deserialize(response, typeof(Newsletter));
+             return (Newsletterresponse) ApiInvoker.deserialize(response, typeof(Newsletterresponse));
           }
           else {
             return null;
@@ -150,7 +150,7 @@ namespace io.swagger.Api {
      /// <param name="Id">Mongo ID of event to get</param>
     
     /// <returns></returns>
-    public Newsletter  getNewsletterByID (string VestorlyAuth, string Id) {
+    public Newsletterresponse  getNewsletterByID (string VestorlyAuth, string Id) {
       // create path and map variables
       var path = "/newsletters/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -171,17 +171,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Newsletter) == typeof(byte[])) {
+        if (typeof(Newsletterresponse) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Newsletter;
+          return ((object)response) as Newsletterresponse;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
           if (response != null){
-             return (Newsletter) ApiInvoker.deserialize(response, typeof(Newsletter));
+             return (Newsletterresponse) ApiInvoker.deserialize(response, typeof(Newsletterresponse));
           }
           else {
             return null;
@@ -205,10 +205,10 @@ namespace io.swagger.Api {
     /// </summary>
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
      /// <param name="Id">Mongo ID of event to update</param>
-     /// <param name="Event">Newsletter</param>
+     /// <param name="Newsletter">Newsletter</param>
     
     /// <returns></returns>
-    public Newsletter  updateNewsletterByID (string VestorlyAuth, string Id, NewsletterInput Event) {
+    public Newsletterresponse  updateNewsletterByID (string VestorlyAuth, string Id, NewsletterInput Newsletter) {
       // create path and map variables
       var path = "/newsletters/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -229,17 +229,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Newsletter) == typeof(byte[])) {
+        if (typeof(Newsletterresponse) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Newsletter;
+          return ((object)response) as Newsletterresponse;
           
           
         } else {
           
-          var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, Event, headerParams, formParams);
+          var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, Newsletter, headerParams, formParams);
           if (response != null){
-             return (Newsletter) ApiInvoker.deserialize(response, typeof(Newsletter));
+             return (Newsletterresponse) ApiInvoker.deserialize(response, typeof(Newsletterresponse));
           }
           else {
             return null;

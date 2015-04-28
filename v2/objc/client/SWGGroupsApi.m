@@ -214,7 +214,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     
 }
 
--(NSNumber*) addGroupWithCompletionBlock: (SWGGroup*) group
+-(NSNumber*) addGroupWithCompletionBlock: (NSString*) vestorly-auth
+         _id: (NSString*) _id
+         group: (SWGGroup*) group
         
         completionHandler: (void (^)(SWGGroupInput* output, NSError* error))completionBlock
          {
@@ -225,6 +227,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound)
         [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
 
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"id", @"}"]] withString: [SWGApiClient escape:_id]];
     
 
     NSArray* requestContentTypes = @[];
@@ -234,6 +237,10 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if(vestorly-auth != nil) {
+        
+        queryParams[@"vestorly-auth"] = vestorly-auth;
+    }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
     

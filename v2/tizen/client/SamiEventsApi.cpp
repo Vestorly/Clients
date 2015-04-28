@@ -89,8 +89,8 @@ createEventProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiEr
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiEvent* out = new SamiEvent();
-    jsonToValue(out, pJson, L"SamiEvent*", L"SamiEvent");
+    SamiEventresponse* out = new SamiEventresponse();
+    jsonToValue(out, pJson, L"SamiEventresponse*", L"SamiEventresponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -116,8 +116,8 @@ createEventProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiEr
   }
 }
 
-SamiEvent* 
-SamiEventsApi::createEventWithCompletion(String* vestorly-auth, SamiEventInput* Event, void (* success)(SamiEvent*, SamiError*)) {
+SamiEventresponse* 
+SamiEventsApi::createEventWithCompletion(String* vestorly-auth, SamiEventInput* Event, void (* success)(SamiEventresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&createEventProcessor, (void(*)(void*, SamiError*))success);
@@ -162,8 +162,8 @@ findEventByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sami
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiEvent* out = new SamiEvent();
-    jsonToValue(out, pJson, L"SamiEvent*", L"SamiEvent");
+    SamiEventresponse* out = new SamiEventresponse();
+    jsonToValue(out, pJson, L"SamiEventresponse*", L"SamiEventresponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -189,8 +189,8 @@ findEventByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sami
   }
 }
 
-SamiEvent* 
-SamiEventsApi::findEventByIDWithCompletion(String* _id, String* vestorly-auth, void (* success)(SamiEvent*, SamiError*)) {
+SamiEventresponse* 
+SamiEventsApi::findEventByIDWithCompletion(String* _id, String* vestorly-auth, void (* success)(SamiEventresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findEventByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -232,8 +232,8 @@ updateEventByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sa
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiEvent* out = new SamiEvent();
-    jsonToValue(out, pJson, L"SamiEvent*", L"SamiEvent");
+    SamiEventresponse* out = new SamiEventresponse();
+    jsonToValue(out, pJson, L"SamiEventresponse*", L"SamiEventresponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -259,8 +259,8 @@ updateEventByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sa
   }
 }
 
-SamiEvent* 
-SamiEventsApi::updateEventByIDWithCompletion(String* _id, String* vestorly-auth, SamiEventInput* Event, void (* success)(SamiEvent*, SamiError*)) {
+SamiEventresponse* 
+SamiEventsApi::updateEventByIDWithCompletion(String* _id, String* vestorly-auth, SamiEventInput* Event, void (* success)(SamiEventresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&updateEventByIDProcessor, (void(*)(void*, SamiError*))success);

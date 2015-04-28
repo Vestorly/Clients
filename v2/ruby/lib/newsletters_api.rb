@@ -58,9 +58,9 @@ class NewslettersApi
   # 
   # Creates a newsletter
   # @param vestorly_auth Vestorly Auth Token
-  # @param event Newsletter
-  # @return Newsletter
-  def self.createNewsletter (vestorly_auth, event, opts={})
+  # @param newsletter Newsletter
+  # @return Newsletterresponse
+  def self.createNewsletter (vestorly_auth, newsletter, opts={})
     query_param_keys = [:vestorly_auth]
     headerParams = {}
 
@@ -69,7 +69,7 @@ class NewslettersApi
     # set default values and merge with input
     options = {
       :'vestorly_auth' => vestorly_auth,
-      :'event' => event
+      :'newsletter' => newsletter
       
     }.merge(opts)
 
@@ -121,7 +121,7 @@ class NewslettersApi
     
     
     response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Newsletter.new(response)
+     Newsletterresponse.new(response)
     
     
   
@@ -131,7 +131,7 @@ class NewslettersApi
   # Get a newsletter by ID
   # @param vestorly_auth Vestorly Auth Token
   # @param id Mongo ID of event to get
-  # @return Newsletter
+  # @return Newsletterresponse
   def self.getNewsletterByID (vestorly_auth, id, opts={})
     query_param_keys = [:vestorly_auth]
     headerParams = {}
@@ -174,7 +174,7 @@ class NewslettersApi
     
     
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Newsletter.new(response)
+     Newsletterresponse.new(response)
     
     
   
@@ -184,9 +184,9 @@ class NewslettersApi
   # Updates a newsletter
   # @param vestorly_auth Vestorly Auth Token
   # @param id Mongo ID of event to update
-  # @param event Newsletter
-  # @return Newsletter
-  def self.updateNewsletterByID (vestorly_auth, id, event, opts={})
+  # @param newsletter Newsletter
+  # @return Newsletterresponse
+  def self.updateNewsletterByID (vestorly_auth, id, newsletter, opts={})
     query_param_keys = [:vestorly_auth]
     headerParams = {}
 
@@ -196,7 +196,7 @@ class NewslettersApi
     options = {
       :'vestorly_auth' => vestorly_auth,
       :'id' => id,
-      :'event' => event
+      :'newsletter' => newsletter
       
     }.merge(opts)
 
@@ -249,7 +249,7 @@ class NewslettersApi
     
     
     response = Swagger::Request.new(:PUT, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Newsletter.new(response)
+     Newsletterresponse.new(response)
     
     
   

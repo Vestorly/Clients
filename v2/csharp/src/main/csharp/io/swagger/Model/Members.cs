@@ -8,7 +8,12 @@ namespace io.swagger.Model {
     
 
     
-    public List<Member> Members { get; set; }
+    public List<Member> Posts { get; set; }
+
+    
+
+    
+    public bool? MoreResults { get; set; }
 
     
 
@@ -16,7 +21,9 @@ namespace io.swagger.Model {
       var sb = new StringBuilder();
       sb.Append("class Members {\n");
       
-      sb.Append("  Members: ").Append(Members).Append("\n");
+      sb.Append("  Posts: ").Append(Posts).Append("\n");
+      
+      sb.Append("  MoreResults: ").Append(MoreResults).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();

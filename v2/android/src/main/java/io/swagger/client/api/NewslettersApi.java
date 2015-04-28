@@ -9,6 +9,7 @@ import java.util.*;
 
 import io.swagger.client.model.Newsletter;
 import io.swagger.client.model.NewsletterInput;
+import io.swagger.client.model.Newsletterresponse;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -91,8 +92,8 @@ public class NewslettersApi {
   }
   
   
-  public Newsletter  createNewsletter (String vestorlyAuth, NewsletterInput event) throws ApiException {
-    Object postBody = event;
+  public Newsletterresponse  createNewsletter (String vestorlyAuth, NewsletterInput newsletter) throws ApiException {
+    Object postBody = newsletter;
 
     
 
@@ -132,7 +133,7 @@ public class NewslettersApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Newsletter) ApiInvoker.deserialize(response, "", Newsletter.class);
+        return (Newsletterresponse) ApiInvoker.deserialize(response, "", Newsletterresponse.class);
       }
       else {
         return null;
@@ -143,7 +144,7 @@ public class NewslettersApi {
   }
   
   
-  public Newsletter  getNewsletterByID (String vestorlyAuth, String id) throws ApiException {
+  public Newsletterresponse  getNewsletterByID (String vestorlyAuth, String id) throws ApiException {
     Object postBody = null;
 
     
@@ -184,7 +185,7 @@ public class NewslettersApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Newsletter) ApiInvoker.deserialize(response, "", Newsletter.class);
+        return (Newsletterresponse) ApiInvoker.deserialize(response, "", Newsletterresponse.class);
       }
       else {
         return null;
@@ -195,8 +196,8 @@ public class NewslettersApi {
   }
   
   
-  public Newsletter  updateNewsletterByID (String vestorlyAuth, String id, NewsletterInput event) throws ApiException {
-    Object postBody = event;
+  public Newsletterresponse  updateNewsletterByID (String vestorlyAuth, String id, NewsletterInput newsletter) throws ApiException {
+    Object postBody = newsletter;
 
     
 
@@ -236,7 +237,7 @@ public class NewslettersApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Newsletter) ApiInvoker.deserialize(response, "", Newsletter.class);
+        return (Newsletterresponse) ApiInvoker.deserialize(response, "", Newsletterresponse.class);
       }
       else {
         return null;

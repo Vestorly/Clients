@@ -1,7 +1,7 @@
 package com.wordnik.client.api
 
 import com.wordnik.client.model.Members
-import com.wordnik.client.model.Member
+import com.wordnik.client.model.Memberresponse
 
 import java.io.File
 
@@ -66,7 +66,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   
 
-  val findMemberByIDOperation = (apiOperation[Member]("findMemberByID")
+  val findMemberByIDOperation = (apiOperation[Memberresponse]("findMemberByID")
       summary ""
       parameters(
         
@@ -126,7 +126,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   
 
-  val findMemberByID_1Operation = (apiOperation[Member]("findMemberByID_1")
+  val findMemberByID_1Operation = (apiOperation[Memberresponse]("findMemberByID_1")
       summary ""
       parameters(
         

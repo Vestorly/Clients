@@ -18,7 +18,9 @@ exports.findArticleByID = function(id) {
 
   var examples = {};
   
-  examples['application/json'] = { };
+  examples['application/json'] = {
+  "article" : { }
+};
   
 
   

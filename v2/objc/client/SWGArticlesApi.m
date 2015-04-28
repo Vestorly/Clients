@@ -3,7 +3,7 @@
 #import "SWGQueryParamCollection.h"
 #import "SWGApiClient.h"
 #import "SWGArticles.h"
-#import "SWGArticle.h"
+#import "SWGArticleresponse.h"
 
 
 
@@ -153,7 +153,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
 -(NSNumber*) findArticleByIDWithCompletionBlock: (NSString*) _id
         
-        completionHandler: (void (^)(SWGArticle* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGArticleresponse* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/articles/{id}", basePath];
@@ -213,9 +213,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGArticle* result = nil;
+                SWGArticleresponse* result = nil;
                 if (data) {
-                    result = [[SWGArticle  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGArticleresponse  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 

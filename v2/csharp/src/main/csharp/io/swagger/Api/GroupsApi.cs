@@ -146,12 +146,14 @@ namespace io.swagger.Api {
     /// <summary>
     ///  Creates a new Group
     /// </summary>
-    /// <param name="Group">Group to add</param>
+    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+     /// <param name="Id">id of group to update</param>
+     /// <param name="Group">Group to add</param>
     
     /// <returns></returns>
-    public GroupInput  addGroup (Group Group) {
+    public GroupInput  addGroup (string VestorlyAuth, string Id, Group Group) {
       // create path and map variables
-      var path = "/groups/{id}".Replace("{format}","json");
+      var path = "/groups/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
       // query params
       var queryParams = new Dictionary<String, String>();
@@ -160,6 +162,9 @@ namespace io.swagger.Api {
 
       
 
+      if (VestorlyAuth != null){
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
+      }
       
 
       

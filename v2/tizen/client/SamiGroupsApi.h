@@ -28,7 +28,7 @@ public:
   findGroupByIDWithCompletion(String* vestorly-auth, String* _id, void (* handler)(SamiGroup*, SamiError*));
   
   SamiGroupInput* 
-  addGroupWithCompletion(SamiGroup* group, void (* handler)(SamiGroupInput*, SamiError*));
+  addGroupWithCompletion(String* vestorly-auth, String* _id, SamiGroup* group, void (* handler)(SamiGroupInput*, SamiError*));
   
   SamiGroupInput* 
   addGroup_1WithCompletion(SamiGroup* group, void (* handler)(SamiGroupInput*, SamiError*));

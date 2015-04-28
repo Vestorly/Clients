@@ -90,9 +90,11 @@ class GroupsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
     }
   }
   
-  def addGroup (group: Group) : Option[GroupInput] = {
+  def addGroup (vestorly-auth: String, id: String, group: Group) : Option[GroupInput] = {
     // create path and map variables
-    val path = "/groups/{id}".replaceAll("\\{format\\}","json")
+    val path = "/groups/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
+
+    
 
     
     val contentType = {
@@ -109,6 +111,7 @@ class GroupsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
 
     
 
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
     
     
     

@@ -110,22 +110,27 @@ class GroupsApi
 
   # 
   # Creates a new Group
+  # @param vestorly_auth Vestorly Auth Token
+  # @param id id of group to update
   # @param group Group to add
   # @return GroupInput
-  def self.addGroup (group, opts={})
-    query_param_keys = []
+  def self.addGroup (vestorly_auth, id, group, opts={})
+    query_param_keys = [:vestorly_auth]
     headerParams = {}
 
     
     
     # set default values and merge with input
     options = {
+      :'vestorly_auth' => vestorly_auth,
+      :'id' => id,
       :'group' => group
       
     }.merge(opts)
 
     #resource path
-    path = "/groups/{id}".sub('{format}','json')
+    path = "/groups/{id}".sub('{format}','json').sub('{' + 'id' + '}', id.to_s)
+    
     
     # pull querystring keys from options
     queryopts = options.select do |key,value|

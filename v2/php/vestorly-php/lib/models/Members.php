@@ -28,18 +28,22 @@ use \ArrayAccess;
 
 class Members implements ArrayAccess {
   static $swaggerTypes = array(
-      'members' => 'array[Member]'
+      'posts' => 'array[Member]',
+      'more_results' => 'boolean'
   );
 
   static $attributeMap = array(
-      'members' => 'members'
+      'posts' => 'posts',
+      'more_results' => 'more_results'
   );
 
   
-  public $members; /* array[Member] */
+  public $posts; /* array[Member] */
+  public $more_results; /* boolean */
 
   public function __construct(array $data = null) {
-    $this->members = $data["members"];
+    $this->posts = $data["posts"];
+    $this->more_results = $data["more_results"];
   }
 
   public function offsetExists($offset) {

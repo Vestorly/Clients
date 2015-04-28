@@ -94,7 +94,7 @@ class EventsApi {
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
    * @param EventInput $event Event (required)
-   * @return Event
+   * @return Eventresponse
    */
    public function createEvent($vestorly_auth, $event) {
 
@@ -146,7 +146,7 @@ class EventsApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Event');
+  		                                                'Eventresponse');
   		return $responseObject;
   }
   
@@ -157,7 +157,7 @@ class EventsApi {
    *
    * @param string $id Mongo ID of event to fetch (required)
    * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @return Event
+   * @return Eventresponse
    */
    public function findEventByID($id, $vestorly_auth) {
 
@@ -209,7 +209,7 @@ class EventsApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Event');
+  		                                                'Eventresponse');
   		return $responseObject;
   }
   
@@ -221,7 +221,7 @@ class EventsApi {
    * @param string $id Mongo ID of event to update (required)
    * @param string $vestorly_auth Vestorly Auth Token (required)
    * @param EventInput $event Event (required)
-   * @return Event
+   * @return Eventresponse
    */
    public function updateEventByID($id, $vestorly_auth, $event) {
 
@@ -277,7 +277,7 @@ class EventsApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Event');
+  		                                                'Eventresponse');
   		return $responseObject;
   }
   

@@ -52,12 +52,16 @@
  
  Creates a new Group
 
+ @param vestorly-auth Vestorly Auth Token
+ @param _id id of group to update
  @param group Group to add
  
 
  return type: SWGGroupInput*
  */
--(NSNumber*) addGroupWithCompletionBlock :(SWGGroup*) group 
+-(NSNumber*) addGroupWithCompletionBlock :(NSString*) vestorly-auth 
+     _id:(NSString*) _id 
+     group:(SWGGroup*) group 
     
     completionHandler: (void (^)(SWGGroupInput* output, NSError* error))completionBlock;
     

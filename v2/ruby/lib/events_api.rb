@@ -59,7 +59,7 @@ class EventsApi
   # Creates a new event in the system
   # @param vestorly_auth Vestorly Auth Token
   # @param event Event
-  # @return Event
+  # @return Eventresponse
   def self.createEvent (vestorly_auth, event, opts={})
     query_param_keys = [:vestorly_auth]
     headerParams = {}
@@ -121,7 +121,7 @@ class EventsApi
     
     
     response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Event.new(response)
+     Eventresponse.new(response)
     
     
   
@@ -131,7 +131,7 @@ class EventsApi
   # Returns a single event if the user has access
   # @param id Mongo ID of event to fetch
   # @param vestorly_auth Vestorly Auth Token
-  # @return Event
+  # @return Eventresponse
   def self.findEventByID (id, vestorly_auth, opts={})
     query_param_keys = [:vestorly_auth]
     headerParams = {}
@@ -174,7 +174,7 @@ class EventsApi
     
     
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Event.new(response)
+     Eventresponse.new(response)
     
     
   
@@ -185,7 +185,7 @@ class EventsApi
   # @param id Mongo ID of event to update
   # @param vestorly_auth Vestorly Auth Token
   # @param event Event
-  # @return Event
+  # @return Eventresponse
   def self.updateEventByID (id, vestorly_auth, event, opts={})
     query_param_keys = [:vestorly_auth]
     headerParams = {}
@@ -249,7 +249,7 @@ class EventsApi
     
     
     response = Swagger::Request.new(:PUT, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Event.new(response)
+     Eventresponse.new(response)
     
     
   

@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGArticles.h"
-#import "SWGArticle.h"
+#import "SWGArticleresponse.h"
 #import "SWGObject.h"
 
 
@@ -43,11 +43,11 @@
  @param _id Article Id to fetch
  
 
- return type: SWGArticle*
+ return type: SWGArticleresponse*
  */
 -(NSNumber*) findArticleByIDWithCompletionBlock :(NSString*) _id 
     
-    completionHandler: (void (^)(SWGArticle* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGArticleresponse* output, NSError* error))completionBlock;
     
 
 

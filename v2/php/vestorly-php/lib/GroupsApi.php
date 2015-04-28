@@ -155,10 +155,12 @@ class GroupsApi {
    *
    * 
    *
+   * @param string $vestorly_auth Vestorly Auth Token (required)
+   * @param string $id id of group to update (required)
    * @param Group $group Group to add (required)
    * @return GroupInput
    */
-   public function addGroup($group) {
+   public function addGroup($vestorly_auth, $id, $group) {
 
       // parse inputs
       $resourcePath = "/groups/{id}";
@@ -175,9 +177,16 @@ class GroupsApi {
       $_header_content_type = array();
       $headerParams['Content-Type'] = count($_header_content_type) > 0 ? $_header_content_type[0] : 'application/json';
 
+      // query params
+      if($vestorly_auth !== null) {
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+      }
       
-      
-      
+      // path params
+      if($id !== null) {
+        $resourcePath = str_replace("{" . "id" . "}",
+                                    $this->apiClient->toPathValue($id), $resourcePath);
+      }
       
       // body params
       $body = null;

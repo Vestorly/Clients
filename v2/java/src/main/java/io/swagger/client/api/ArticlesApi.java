@@ -8,7 +8,7 @@ import io.swagger.client.model.*;
 import java.util.*;
 
 import io.swagger.client.model.Articles;
-import io.swagger.client.model.Article;
+import io.swagger.client.model.Articleresponse;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.file.FileDataBodyPart;
@@ -104,9 +104,9 @@ public class ArticlesApi {
    * 
    * Returns a single article
    * @param id Article Id to fetch
-   * @return Article
+   * @return Articleresponse
    */
-  public Article findArticleByID (String id) throws ApiException {
+  public Articleresponse findArticleByID (String id) throws ApiException {
     Object postBody = null;
     
 
@@ -141,7 +141,7 @@ public class ArticlesApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Article) ApiInvoker.deserialize(response, "", Article.class);
+        return (Articleresponse) ApiInvoker.deserialize(response, "", Articleresponse.class);
       }
       else {
         return null;

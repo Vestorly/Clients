@@ -93,7 +93,7 @@ namespace io.swagger.Api {
      /// <param name="VestorlyAuth">Vestorly Auth Token</param>
     
     /// <returns></returns>
-    public Member  findMemberByID (string Id, string VestorlyAuth) {
+    public Memberresponse  findMemberByID (string Id, string VestorlyAuth) {
       // create path and map variables
       var path = "/members/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -114,17 +114,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Member) == typeof(byte[])) {
+        if (typeof(Memberresponse) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Member;
+          return ((object)response) as Memberresponse;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
           if (response != null){
-             return (Member) ApiInvoker.deserialize(response, typeof(Member));
+             return (Memberresponse) ApiInvoker.deserialize(response, typeof(Memberresponse));
           }
           else {
             return null;
@@ -150,7 +150,7 @@ namespace io.swagger.Api {
      /// <param name="VestorlyAuth">Vestorly Auth Token</param>
     
     /// <returns></returns>
-    public Member  findMemberByID_1 (string Id, string VestorlyAuth) {
+    public Memberresponse  findMemberByID_1 (string Id, string VestorlyAuth) {
       // create path and map variables
       var path = "/members/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -171,17 +171,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Member) == typeof(byte[])) {
+        if (typeof(Memberresponse) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Member;
+          return ((object)response) as Memberresponse;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, null, headerParams, formParams);
           if (response != null){
-             return (Member) ApiInvoker.deserialize(response, typeof(Member));
+             return (Memberresponse) ApiInvoker.deserialize(response, typeof(Memberresponse));
           }
           else {
             return null;

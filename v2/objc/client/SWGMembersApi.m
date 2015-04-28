@@ -3,7 +3,7 @@
 #import "SWGQueryParamCollection.h"
 #import "SWGApiClient.h"
 #import "SWGMembers.h"
-#import "SWGMember.h"
+#import "SWGMemberresponse.h"
 
 
 
@@ -134,7 +134,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 -(NSNumber*) findMemberByIDWithCompletionBlock: (NSString*) _id
          vestorly-auth: (NSString*) vestorly-auth
         
-        completionHandler: (void (^)(SWGMember* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGMemberresponse* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/members/{id}", basePath];
@@ -198,9 +198,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGMember* result = nil;
+                SWGMemberresponse* result = nil;
                 if (data) {
-                    result = [[SWGMember  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGMemberresponse  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 
@@ -215,7 +215,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 -(NSNumber*) findMemberByID_1WithCompletionBlock: (NSString*) _id
          vestorly-auth: (NSString*) vestorly-auth
         
-        completionHandler: (void (^)(SWGMember* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGMemberresponse* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/members/{id}", basePath];
@@ -279,9 +279,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGMember* result = nil;
+                SWGMemberresponse* result = nil;
                 if (data) {
-                    result = [[SWGMember  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGMemberresponse  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 

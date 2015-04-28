@@ -9,7 +9,7 @@ import com.sun.jersey.multipart.FormDataParam;
 import io.swagger.model.Posts;
 import io.swagger.model.Post;
 import io.swagger.model.PostInput;
-import io.swagger.model.PostResponse;
+import io.swagger.model.Postresponse;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -46,7 +46,7 @@ public class PostsApi {
   
   @POST
   
-  @Consumes({ "application/x-www-form-urlencoded",  })
+  
   
   @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Create a new post in the Vestorly Platform", response = Post.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
@@ -64,7 +64,7 @@ public class PostsApi {
   @Path("/{id}")
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Query all posts", response = Post.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Query all posts", response = Postresponse.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "post response") })
 
@@ -80,12 +80,12 @@ public class PostsApi {
   @Path("/{id}")
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Update A Post", response = PostResponse.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Update A Post", response = Postresponse.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "post response") })
 
   public Response updatePostByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
-    @ApiParam(value = "id of post to fetch",required=true ) @PathParam("id") String id,
+    @ApiParam(value = "id of post to update",required=true ) @PathParam("id") String id,
     @ApiParam(value = "Post you want to update" ,required=true ) PostInput post)
       throws NotFoundException {
       // do some magic!

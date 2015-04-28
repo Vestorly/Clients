@@ -131,6 +131,20 @@ class GroupsApi (implicit val swagger: Swagger) extends ScalatraServlet
   val addGroupOperation = (apiOperation[GroupInput]("addGroup")
       summary ""
       parameters(
+        queryParam[String]("vestorly-auth").description("")
+        
+        
+        
+        
+        
+        ,
+        
+        pathParam[String]("id").description("")
+        
+        
+        
+        
+        ,
         
         
         
@@ -143,6 +157,40 @@ class GroupsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   put("/groups/{id}",operation(addGroupOperation)) {
     
+    
+    
+    
+
+    
+      
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("vestorly-auth: " + vestorly-auth)
+  
+    
+    
+    
+      val id = params.getOrElse("id", halt(400))
+    
+
+    
+
+    
+
+    
+
+    
+    
+    println("id: " + id)
+  
     
     
     

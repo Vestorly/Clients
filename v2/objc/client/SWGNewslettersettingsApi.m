@@ -2,7 +2,8 @@
 #import "SWGFile.h"
 #import "SWGQueryParamCollection.h"
 #import "SWGApiClient.h"
-#import "SWGNewsletterSettings.h"
+#import "SWGNewslettersettings.h"
+#import "SWGNewslettersettingresponse.h"
 #import "SWGNewsletterSettingsInput.h"
 
 
@@ -54,7 +55,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
 -(NSNumber*) findNewsletterSettingsWithCompletionBlock: (NSString*) vestorly-auth
         
-        completionHandler: (void (^)(SWGNewsletterSettings* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGNewslettersettings* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/newsletter_settings", basePath];
@@ -117,112 +118,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGNewsletterSettings* result = nil;
+                SWGNewslettersettings* result = nil;
                 if (data) {
-                    result = [[SWGNewsletterSettings  alloc]  initWithDictionary:data error:nil];
-                }
-                completionBlock(result , nil);
-                
-              }];
-    
-
-    
-
-    
-}
-
--(NSNumber*) updateNewsletterSettingsByIDWithCompletionBlock: (NSString*) vestorly-auth
-         newsletter_settings: (SWGNewsletterSettingsInput*) newsletter_settings
-        
-        completionHandler: (void (^)(SWGNewsletterSettings* output, NSError* error))completionBlock
-         {
-
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/newsletter_settings", basePath];
-
-    // remove format in URL if needed
-    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound)
-        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
-
-    
-
-    NSArray* requestContentTypes = @[];
-    NSString* requestContentType = [requestContentTypes count] > 0 ? requestContentTypes[0] : @"application/json";
-
-    NSArray* responseContentTypes = @[];
-    NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
-
-    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
-        
-        queryParams[@"vestorly-auth"] = vestorly-auth;
-    }
-    
-    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
-    
-
-    id bodyDictionary = nil;
-    
-    id __body = newsletter_settings;
-
-    if(__body != nil && [__body isKindOfClass:[NSArray class]]){
-        NSMutableArray * objs = [[NSMutableArray alloc] init];
-        for (id dict in (NSArray*)__body) {
-            if([dict respondsToSelector:@selector(toDictionary)]) {
-                [objs addObject:[(SWGObject*)dict toDictionary]];
-            }
-            else{
-                [objs addObject:dict];
-            }
-        }
-        bodyDictionary = objs;
-    }
-    else if([__body respondsToSelector:@selector(toDictionary)]) {
-        bodyDictionary = [(SWGObject*)__body toDictionary];
-    }
-    else if([__body isKindOfClass:[NSString class]]) {
-        // convert it to a dictionary
-        NSError * error;
-        NSString * str = (NSString*)__body;
-        NSDictionary *JSON =
-            [NSJSONSerialization JSONObjectWithData: [str dataUsingEncoding: NSUTF8StringEncoding]
-                                            options: NSJSONReadingMutableContainers
-                                              error: &error];
-        bodyDictionary = JSON;
-    }
-    
-    
-
-    
-
-    SWGApiClient* client = [SWGApiClient sharedClientFromPool:basePath];
-
-    
-
-    
-    // non container response
-
-    
-
-    
-    // complex response
-        
-    // comples response type
-    return [client dictionary: requestUrl
-                       method: @"PUT"
-                  queryParams: queryParams
-                         body: bodyDictionary
-                 headerParams: headerParams
-           requestContentType: requestContentType
-          responseContentType: responseContentType
-              completionBlock: ^(NSDictionary *data, NSError *error) {
-                if (error) {
-                    completionBlock(nil, error);
-                    
-                    return;
-                }
-                SWGNewsletterSettings* result = nil;
-                if (data) {
-                    result = [[SWGNewsletterSettings  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGNewslettersettings  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 
@@ -237,7 +135,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 -(NSNumber*) findNewsletterSettingsByIDWithCompletionBlock: (NSString*) _id
          vestorly-auth: (NSString*) vestorly-auth
         
-        completionHandler: (void (^)(SWGNewsletterSettings* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGNewslettersettingresponse* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/newsletter_settings/{id}", basePath];
@@ -301,9 +199,114 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGNewsletterSettings* result = nil;
+                SWGNewslettersettingresponse* result = nil;
                 if (data) {
-                    result = [[SWGNewsletterSettings  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGNewslettersettingresponse  alloc]  initWithDictionary:data error:nil];
+                }
+                completionBlock(result , nil);
+                
+              }];
+    
+
+    
+
+    
+}
+
+-(NSNumber*) updateNewsletterSettingsByIDWithCompletionBlock: (NSString*) _id
+         vestorly-auth: (NSString*) vestorly-auth
+         newsletter_setting: (SWGNewsletterSettingsInput*) newsletter_setting
+        
+        completionHandler: (void (^)(SWGNewslettersettingresponse* output, NSError* error))completionBlock
+         {
+
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/newsletter_settings/{id}", basePath];
+
+    // remove format in URL if needed
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound)
+        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"id", @"}"]] withString: [SWGApiClient escape:_id]];
+    
+
+    NSArray* requestContentTypes = @[];
+    NSString* requestContentType = [requestContentTypes count] > 0 ? requestContentTypes[0] : @"application/json";
+
+    NSArray* responseContentTypes = @[];
+    NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if(vestorly-auth != nil) {
+        
+        queryParams[@"vestorly-auth"] = vestorly-auth;
+    }
+    
+    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    
+
+    id bodyDictionary = nil;
+    
+    id __body = newsletter_setting;
+
+    if(__body != nil && [__body isKindOfClass:[NSArray class]]){
+        NSMutableArray * objs = [[NSMutableArray alloc] init];
+        for (id dict in (NSArray*)__body) {
+            if([dict respondsToSelector:@selector(toDictionary)]) {
+                [objs addObject:[(SWGObject*)dict toDictionary]];
+            }
+            else{
+                [objs addObject:dict];
+            }
+        }
+        bodyDictionary = objs;
+    }
+    else if([__body respondsToSelector:@selector(toDictionary)]) {
+        bodyDictionary = [(SWGObject*)__body toDictionary];
+    }
+    else if([__body isKindOfClass:[NSString class]]) {
+        // convert it to a dictionary
+        NSError * error;
+        NSString * str = (NSString*)__body;
+        NSDictionary *JSON =
+            [NSJSONSerialization JSONObjectWithData: [str dataUsingEncoding: NSUTF8StringEncoding]
+                                            options: NSJSONReadingMutableContainers
+                                              error: &error];
+        bodyDictionary = JSON;
+    }
+    
+    
+
+    
+
+    SWGApiClient* client = [SWGApiClient sharedClientFromPool:basePath];
+
+    
+
+    
+    // non container response
+
+    
+
+    
+    // complex response
+        
+    // comples response type
+    return [client dictionary: requestUrl
+                       method: @"PUT"
+                  queryParams: queryParams
+                         body: bodyDictionary
+                 headerParams: headerParams
+           requestContentType: requestContentType
+          responseContentType: responseContentType
+              completionBlock: ^(NSDictionary *data, NSError *error) {
+                if (error) {
+                    completionBlock(nil, error);
+                    
+                    return;
+                }
+                SWGNewslettersettingresponse* result = nil;
+                if (data) {
+                    result = [[SWGNewslettersettingresponse  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 

@@ -1,6 +1,7 @@
 package com.wordnik.client.api
 
-import com.wordnik.client.model.NewsletterSettings
+import com.wordnik.client.model.Newslettersettings
+import com.wordnik.client.model.Newslettersettingresponse
 import com.wordnik.client.model.NewsletterSettingsInput
 
 import java.io.File
@@ -29,7 +30,7 @@ class NewslettersettingsApi (implicit val swagger: Swagger) extends ScalatraServ
   }
   
 
-  val findNewsletterSettingsOperation = (apiOperation[NewsletterSettings]("findNewsletterSettings")
+  val findNewsletterSettingsOperation = (apiOperation[Newslettersettings]("findNewsletterSettings")
       summary ""
       parameters(
         queryParam[String]("vestorly-auth").description("")
@@ -66,67 +67,7 @@ class NewslettersettingsApi (implicit val swagger: Swagger) extends ScalatraServ
 
   
 
-  val updateNewsletterSettingsByIDOperation = (apiOperation[NewsletterSettings]("updateNewsletterSettingsByID")
-      summary ""
-      parameters(
-        queryParam[String]("vestorly-auth").description("")
-        
-        
-        
-        
-        
-        ,
-        
-        
-        
-        bodyParam[NewsletterSettingsInput]("newsletter_settings").description("")
-        
-        
-        
-        )
-  )
-
-  put("/newsletter_settings",operation(updateNewsletterSettingsByIDOperation)) {
-    
-    
-    
-    
-
-    
-      
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
-      
-    
-
-    
-
-    
-
-    
-    
-    println("vestorly-auth: " + vestorly-auth)
-  
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-      val newsletter_settings = parsedBody.extract[NewsletterSettingsInput]
-    
-    
-    println("newsletter_settings: " + newsletter_settings)
-  
-  }
-
-  
-
-  val findNewsletterSettingsByIDOperation = (apiOperation[NewsletterSettings]("findNewsletterSettingsByID")
+  val findNewsletterSettingsByIDOperation = (apiOperation[Newslettersettingresponse]("findNewsletterSettingsByID")
       summary ""
       parameters(
         
@@ -181,6 +122,89 @@ class NewslettersettingsApi (implicit val swagger: Swagger) extends ScalatraServ
     
     
     println("vestorly-auth: " + vestorly-auth)
+  
+  }
+
+  
+
+  val updateNewsletterSettingsByIDOperation = (apiOperation[Newslettersettingresponse]("updateNewsletterSettingsByID")
+      summary ""
+      parameters(
+        
+        pathParam[String]("id").description("")
+        
+        
+        
+        
+        ,
+        queryParam[String]("vestorly-auth").description("")
+        
+        
+        
+        
+        
+        ,
+        
+        
+        
+        bodyParam[NewsletterSettingsInput]("newsletter_setting").description("")
+        
+        
+        
+        )
+  )
+
+  put("/newsletter_settings/{id}",operation(updateNewsletterSettingsByIDOperation)) {
+    
+    
+    
+    
+      val id = params.getOrElse("id", halt(400))
+    
+
+    
+
+    
+
+    
+
+    
+    
+    println("id: " + id)
+  
+    
+    
+    
+
+    
+      
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("vestorly-auth: " + vestorly-auth)
+  
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+      val newsletter_setting = parsedBody.extract[NewsletterSettingsInput]
+    
+    
+    println("newsletter_setting: " + newsletter_setting)
   
   }
 

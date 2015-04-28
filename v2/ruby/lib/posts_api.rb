@@ -94,7 +94,7 @@ class PostsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = []
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -137,7 +137,7 @@ class PostsApi
   # Query all posts
   # @param vestorly_auth Vestorly Auth Token
   # @param id ID of post to fetch
-  # @return Post
+  # @return Postresponse
   def self.getPostByID (vestorly_auth, id, opts={})
     query_param_keys = [:vestorly_auth]
     headerParams = {}
@@ -180,7 +180,7 @@ class PostsApi
     
     
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Post.new(response)
+     Postresponse.new(response)
     
     
   
@@ -189,9 +189,9 @@ class PostsApi
   # 
   # Update A Post
   # @param vestorly_auth Vestorly Auth Token
-  # @param id id of post to fetch
+  # @param id id of post to update
   # @param post Post you want to update
-  # @return PostResponse
+  # @return Postresponse
   def self.updatePostByID (vestorly_auth, id, post, opts={})
     query_param_keys = [:vestorly_auth]
     headerParams = {}
@@ -255,7 +255,7 @@ class PostsApi
     
     
     response = Swagger::Request.new(:PUT, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     PostResponse.new(response)
+     Postresponse.new(response)
     
     
   
