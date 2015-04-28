@@ -430,10 +430,10 @@
     <div class="field-items">
       <div class="param">username (required)</div>
 
-      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Username in the vestorly platform </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Username in the vestorly platform </div>
       <div class="param">password (required)</div>
 
-      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Password in Vestorly Platform </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Password in Vestorly Platform </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
@@ -457,7 +457,7 @@
     <div class="field-items">
       <div class="param">vestorly-auth (required)</div>
 
-      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Authenication token </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Authenication token </div>
       <div class="param">id (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of pet to session </div>
@@ -471,6 +471,116 @@
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{\n  "vestorly-auth" : "aeiou",\n  "settings" : {\n    "website" : "aeiou",\n    "disclosure" : "aeiou",\n    "picture_url" : "aeiou",\n    "feature" : {\n      "_id" : "aeiou"\n    },\n    "orgsetting" : {\n      "privacy_policy_url" : "aeiou",\n      "site_url" : "aeiou",\n      "name" : "aeiou",\n      "company_contact_email" : "aeiou",\n      "_id" : "aeiou",\n      "terms_and_conditions_url" : "aeiou",\n      "is_default" : true,\n      "email_theme_name" : "aeiou",\n      "company_address" : "aeiou",\n      "company_homepage_url" : "aeiou"\n    },\n    "name" : "aeiou",\n    "personalsetting" : {\n      "_id" : "aeiou"\n    },\n    "company" : "aeiou",\n    "_id" : "aeiou",\n    "adv_brochure" : "aeiou",\n    "slug" : "aeiou"\n  },\n  "new_user" : true,\n  "_id" : "aeiou",\n  "current_user" : {\n    "website" : "aeiou",\n    "picture_url" : "aeiou",\n    "plan_setup" : true,\n    "last_name" : "aeiou",\n    "new_user" : true,\n    "user_type" : "aeiou",\n    "show_tour" : true,\n    "name" : "aeiou",\n    "company" : "aeiou",\n    "plan_expired" : true,\n    "_id" : "aeiou",\n    "first_name" : "aeiou",\n    "plan_stripe" : true,\n    "slug" : "aeiou",\n    "plan_id" : "aeiou",\n    "username" : "aeiou",\n    "plan_status" : "aeiou"\n  }\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /newsletters</code></pre></div>
+    <div class="method-summary"><span class="nickname">findNewsletters</span> </div>
+    <div class="method-notes">Returns all events</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Newsletter</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "is_sent" : true,\n  "click_count" : 123456789,\n  "unique_click_count" : 123456789,\n  "_id" : "aeiou",\n  "is_default" : true,\n  "total_click_count" : 123456789\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: /newsletters</code></pre></div>
+    <div class="method-summary"><span class="nickname">createNewsletter</span> </div>
+    <div class="method-notes">Creates a newsletter</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">Event (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Newsletter </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Newsletter</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "is_sent" : true,\n  "click_count" : 123456789,\n  "unique_click_count" : 123456789,\n  "_id" : "aeiou",\n  "is_default" : true,\n  "total_click_count" : 123456789\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /newsletters/{id}</code></pre></div>
+    <div class="method-summary"><span class="nickname">getNewsletterByID</span> </div>
+    <div class="method-notes">Get a newsletter by ID</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of event to get </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Newsletter</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "is_sent" : true,\n  "click_count" : 123456789,\n  "unique_click_count" : 123456789,\n  "_id" : "aeiou",\n  "is_default" : true,\n  "total_click_count" : 123456789\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /newsletters/{id}</code></pre></div>
+    <div class="method-summary"><span class="nickname">updateNewsletterByID</span> </div>
+    <div class="method-notes">Updates a newsletter</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of event to update </div>
+      <div class="param">Event (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Newsletter </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Newsletter</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "is_sent" : true,\n  "click_count" : 123456789,\n  "unique_click_count" : 123456789,\n  "_id" : "aeiou",\n  "is_default" : true,\n  "total_click_count" : 123456789\n}</code></pre>
     
   </div> <!-- method -->
   <hr>

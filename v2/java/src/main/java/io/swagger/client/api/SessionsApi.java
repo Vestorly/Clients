@@ -54,6 +54,10 @@ public class SessionsApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     Map<String, String> formParams = new HashMap<String, String>();
 
+    if (username != null)
+      queryParams.put("username", ApiInvoker.parameterToString(username));
+    if (password != null)
+      queryParams.put("password", ApiInvoker.parameterToString(password));
     
     
     String[] contentTypes = {
@@ -66,18 +70,10 @@ public class SessionsApi {
       boolean hasFields = false;
       FormDataMultiPart mp = new FormDataMultiPart();
       
-      hasFields = true;
-      mp.field("username", ApiInvoker.parameterToString(username), MediaType.MULTIPART_FORM_DATA_TYPE);
-      
-      hasFields = true;
-      mp.field("password", ApiInvoker.parameterToString(password), MediaType.MULTIPART_FORM_DATA_TYPE);
-      
       if(hasFields)
         postBody = mp;
     }
     else {
-      formParams.put("username", ApiInvoker.parameterToString(username));
-      formParams.put("password", ApiInvoker.parameterToString(password));
       
     }
 
@@ -114,6 +110,8 @@ public class SessionsApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     Map<String, String> formParams = new HashMap<String, String>();
 
+    if (vestorlyAuth != null)
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
     
     String[] contentTypes = {
@@ -126,14 +124,10 @@ public class SessionsApi {
       boolean hasFields = false;
       FormDataMultiPart mp = new FormDataMultiPart();
       
-      hasFields = true;
-      mp.field("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth), MediaType.MULTIPART_FORM_DATA_TYPE);
-      
       if(hasFields)
         postBody = mp;
     }
     else {
-      formParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
       
     }
 

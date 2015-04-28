@@ -528,6 +528,118 @@
         }
       }
     },
+    "/newsletters" : {
+      "get" : {
+        "tags" : [ "newsletters" ],
+        "description" : "Returns all events",
+        "operationId" : "findNewsletters",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Newsletter response",
+            "schema" : {
+              "$ref" : "#/definitions/Newsletter"
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "newsletters" ],
+        "description" : "Creates a newsletter",
+        "operationId" : "createNewsletter",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "Event",
+          "description" : "Newsletter",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/NewsletterInput"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Newsletter response",
+            "schema" : {
+              "$ref" : "#/definitions/Newsletter"
+            }
+          }
+        }
+      }
+    },
+    "/newsletters/{id}" : {
+      "get" : {
+        "tags" : [ "newsletters" ],
+        "description" : "Get a newsletter by ID",
+        "operationId" : "getNewsletterByID",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Mongo ID of event to get",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Newsletter response",
+            "schema" : {
+              "$ref" : "#/definitions/Newsletter"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "newsletters" ],
+        "description" : "Updates a newsletter",
+        "operationId" : "updateNewsletterByID",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Mongo ID of event to update",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "Event",
+          "description" : "Newsletter",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/NewsletterInput"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Newsletter response",
+            "schema" : {
+              "$ref" : "#/definitions/Newsletter"
+            }
+          }
+        }
+      }
+    },
     "/posts" : {
       "get" : {
         "tags" : [ "posts" ],
@@ -667,13 +779,13 @@
         "consumes" : [ "application/x-www-form-urlencoded" ],
         "parameters" : [ {
           "name" : "username",
-          "in" : "formData",
+          "in" : "query",
           "description" : "Username in the vestorly platform",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "password",
-          "in" : "formData",
+          "in" : "query",
           "description" : "Password in Vestorly Platform",
           "required" : true,
           "type" : "string"
@@ -695,7 +807,7 @@
         "operationId" : "logout",
         "parameters" : [ {
           "name" : "vestorly-auth",
-          "in" : "formData",
+          "in" : "query",
           "description" : "Authenication token",
           "required" : true,
           "type" : "string"

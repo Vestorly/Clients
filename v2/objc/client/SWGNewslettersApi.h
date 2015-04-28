@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
-#import "SWGNewsletters.h"
 #import "SWGNewsletter.h"
+#import "SWGNewsletterInput.h"
 #import "SWGObject.h"
 
 
@@ -14,31 +14,49 @@
 /**
 
  
- Returns all newsletters
+ Returns all events
 
- @param vestorly_auth Vestorly Auth Token
+ @param vestorly-auth Vestorly Auth Token
  
 
- return type: SWGNewsletters*
+ return type: SWGNewsletter*
  */
--(NSNumber*) findNewslettersWithCompletionBlock :(NSString*) vestorly_auth 
+-(NSNumber*) findNewslettersWithCompletionBlock :(NSString*) vestorly-auth 
     
-    completionHandler: (void (^)(SWGNewsletters* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGNewsletter* output, NSError* error))completionBlock;
     
 
 
 /**
 
  
- Returns newsletter by ID
+ Creates a newsletter
 
- @param vestorly_auth Vestorly Auth Token
- @param _id ID of newsletter to fetch
+ @param vestorly-auth Vestorly Auth Token
+ @param Event Newsletter
  
 
  return type: SWGNewsletter*
  */
--(NSNumber*) getNewsletterByIDWithCompletionBlock :(NSString*) vestorly_auth 
+-(NSNumber*) createNewsletterWithCompletionBlock :(NSString*) vestorly-auth 
+     Event:(SWGNewsletterInput*) Event 
+    
+    completionHandler: (void (^)(SWGNewsletter* output, NSError* error))completionBlock;
+    
+
+
+/**
+
+ 
+ Get a newsletter by ID
+
+ @param vestorly-auth Vestorly Auth Token
+ @param _id Mongo ID of event to get
+ 
+
+ return type: SWGNewsletter*
+ */
+-(NSNumber*) getNewsletterByIDWithCompletionBlock :(NSString*) vestorly-auth 
      _id:(NSString*) _id 
     
     completionHandler: (void (^)(SWGNewsletter* output, NSError* error))completionBlock;
@@ -48,18 +66,18 @@
 /**
 
  
- Update newsletter by ID
+ Updates a newsletter
 
- @param vestorly_auth Vestorly Auth Token
- @param _id ID of newsletter to fetch
- @param Newsletter Newsletter
+ @param vestorly-auth Vestorly Auth Token
+ @param _id Mongo ID of event to update
+ @param Event Newsletter
  
 
  return type: SWGNewsletter*
  */
--(NSNumber*) updateNewsletterWithCompletionBlock :(NSString*) vestorly_auth 
+-(NSNumber*) updateNewsletterByIDWithCompletionBlock :(NSString*) vestorly-auth 
      _id:(NSString*) _id 
-     Newsletter:(NSString*) Newsletter 
+     Event:(SWGNewsletterInput*) Event 
     
     completionHandler: (void (^)(SWGNewsletter* output, NSError* error))completionBlock;
     

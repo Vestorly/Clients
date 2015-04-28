@@ -31,12 +31,12 @@ namespace io.swagger.Api {
     
 
     /// <summary>
-    ///  Returns all newsletters
+    ///  Returns all events
     /// </summary>
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
     
     /// <returns></returns>
-    public Newsletters  findNewsletters (string VestorlyAuth) {
+    public Newsletter  findNewsletters (string VestorlyAuth) {
       // create path and map variables
       var path = "/newsletters".Replace("{format}","json");
 
@@ -48,64 +48,7 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
-      }
-      
-
-      
-
-      
-
-      try {
-        if (typeof(Newsletters) == typeof(byte[])) {
-          
-          var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Newsletters;
-          
-          
-        } else {
-          
-          var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          if (response != null){
-             return (Newsletters) ApiInvoker.deserialize(response, typeof(Newsletters));
-          }
-          else {
-            return null;
-          }
-          
-          
-        }
-      } catch (ApiException ex) {
-        if(ex.ErrorCode == 404) {
-          return null;
-        }
-        else {
-          throw ex;
-        }
-      }
-    }
-    
-
-    /// <summary>
-    ///  Returns newsletter by ID
-    /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-     /// <param name="Id">ID of newsletter to fetch</param>
-    
-    /// <returns></returns>
-    public Newsletter  getNewsletterByID (string VestorlyAuth, string Id) {
-      // create path and map variables
-      var path = "/newsletters/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
-
-      // query params
-      var queryParams = new Dictionary<String, String>();
-      var headerParams = new Dictionary<String, String>();
-      var formParams = new Dictionary<String, object>();
-
-      
-
-      if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       
 
@@ -144,16 +87,15 @@ namespace io.swagger.Api {
     
 
     /// <summary>
-    ///  Update newsletter by ID
+    ///  Creates a newsletter
     /// </summary>
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-     /// <param name="Id">ID of newsletter to fetch</param>
-     /// <param name="Newsletter">Newsletter</param>
+     /// <param name="Event">Newsletter</param>
     
     /// <returns></returns>
-    public Newsletter  updateNewsletter (string VestorlyAuth, string Id, string Newsletter) {
+    public Newsletter  createNewsletter (string VestorlyAuth, NewsletterInput Event) {
       // create path and map variables
-      var path = "/newsletters/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
+      var path = "/newsletters".Replace("{format}","json");
 
       // query params
       var queryParams = new Dictionary<String, String>();
@@ -163,19 +105,12 @@ namespace io.swagger.Api {
       
 
       if (VestorlyAuth != null){
-        queryParams.Add("vestorly_auth", apiInvoker.ParameterToString(VestorlyAuth));
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
       
 
       
 
-      if (Newsletter != null){
-        if(Newsletter is byte[]) {
-          formParams.Add("Newsletter", Newsletter);
-        } else {
-          formParams.Add("Newsletter", apiInvoker.ParameterToString(Newsletter));
-        }
-      }
       
 
       try {
@@ -187,7 +122,122 @@ namespace io.swagger.Api {
           
         } else {
           
-          var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, null, headerParams, formParams);
+          var response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, Event, headerParams, formParams);
+          if (response != null){
+             return (Newsletter) ApiInvoker.deserialize(response, typeof(Newsletter));
+          }
+          else {
+            return null;
+          }
+          
+          
+        }
+      } catch (ApiException ex) {
+        if(ex.ErrorCode == 404) {
+          return null;
+        }
+        else {
+          throw ex;
+        }
+      }
+    }
+    
+
+    /// <summary>
+    ///  Get a newsletter by ID
+    /// </summary>
+    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+     /// <param name="Id">Mongo ID of event to get</param>
+    
+    /// <returns></returns>
+    public Newsletter  getNewsletterByID (string VestorlyAuth, string Id) {
+      // create path and map variables
+      var path = "/newsletters/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
+
+      // query params
+      var queryParams = new Dictionary<String, String>();
+      var headerParams = new Dictionary<String, String>();
+      var formParams = new Dictionary<String, object>();
+
+      
+
+      if (VestorlyAuth != null){
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
+      }
+      
+
+      
+
+      
+
+      try {
+        if (typeof(Newsletter) == typeof(byte[])) {
+          
+          var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
+          return ((object)response) as Newsletter;
+          
+          
+        } else {
+          
+          var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
+          if (response != null){
+             return (Newsletter) ApiInvoker.deserialize(response, typeof(Newsletter));
+          }
+          else {
+            return null;
+          }
+          
+          
+        }
+      } catch (ApiException ex) {
+        if(ex.ErrorCode == 404) {
+          return null;
+        }
+        else {
+          throw ex;
+        }
+      }
+    }
+    
+
+    /// <summary>
+    ///  Updates a newsletter
+    /// </summary>
+    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+     /// <param name="Id">Mongo ID of event to update</param>
+     /// <param name="Event">Newsletter</param>
+    
+    /// <returns></returns>
+    public Newsletter  updateNewsletterByID (string VestorlyAuth, string Id, NewsletterInput Event) {
+      // create path and map variables
+      var path = "/newsletters/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
+
+      // query params
+      var queryParams = new Dictionary<String, String>();
+      var headerParams = new Dictionary<String, String>();
+      var formParams = new Dictionary<String, object>();
+
+      
+
+      if (VestorlyAuth != null){
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
+      }
+      
+
+      
+
+      
+
+      try {
+        if (typeof(Newsletter) == typeof(byte[])) {
+          
+          var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
+          return ((object)response) as Newsletter;
+          
+          
+        } else {
+          
+          var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, Event, headerParams, formParams);
           if (response != null){
              return (Newsletter) ApiInvoker.deserialize(response, typeof(Newsletter));
           }

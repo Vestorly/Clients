@@ -7,10 +7,25 @@ var Newsletters = require('./NewslettersService');
 
 
 module.exports.findNewsletters = function findNewsletters (req, res, next) {
-  var vestorly_auth = req.swagger.params['vestorly_auth'].value;
+  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
   
 
-  var result = Newsletters.findNewsletters(vestorly_auth);
+  var result = Newsletters.findNewsletters(vestorly-auth);
+
+  if(typeof result !== 'undefined') {
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(result || {}, null, 2));
+  }
+  else
+    res.end();
+};
+
+module.exports.createNewsletter = function createNewsletter (req, res, next) {
+  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var Event = req.swagger.params['Event'].value;
+  
+
+  var result = Newsletters.createNewsletter(vestorly-auth, Event);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -21,11 +36,11 @@ module.exports.findNewsletters = function findNewsletters (req, res, next) {
 };
 
 module.exports.getNewsletterByID = function getNewsletterByID (req, res, next) {
-  var vestorly_auth = req.swagger.params['vestorly_auth'].value;
+  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
   var id = req.swagger.params['id'].value;
   
 
-  var result = Newsletters.getNewsletterByID(vestorly_auth, id);
+  var result = Newsletters.getNewsletterByID(vestorly-auth, id);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -35,13 +50,13 @@ module.exports.getNewsletterByID = function getNewsletterByID (req, res, next) {
     res.end();
 };
 
-module.exports.updateNewsletter = function updateNewsletter (req, res, next) {
-  var vestorly_auth = req.swagger.params['vestorly_auth'].value;
+module.exports.updateNewsletterByID = function updateNewsletterByID (req, res, next) {
+  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
   var id = req.swagger.params['id'].value;
-  var Newsletter = req.swagger.params['Newsletter'].value;
+  var Event = req.swagger.params['Event'].value;
   
 
-  var result = Newsletters.updateNewsletter(vestorly_auth, id, Newsletter);
+  var result = Newsletters.updateNewsletterByID(vestorly-auth, id, Event);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

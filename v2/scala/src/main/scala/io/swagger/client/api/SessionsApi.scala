@@ -33,6 +33,8 @@ class SessionsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2
 
     
 
+    if(String.valueOf(username) != "null") queryParams += "username" -> username.toString
+    if(String.valueOf(password) != "null") queryParams += "password" -> password.toString
     
     
     
@@ -68,6 +70,7 @@ class SessionsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2
 
     
 
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
     
     
     

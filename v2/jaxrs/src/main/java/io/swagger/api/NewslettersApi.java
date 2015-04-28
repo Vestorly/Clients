@@ -6,8 +6,8 @@ import com.wordnik.swagger.annotations.ApiParam;
 
 import com.sun.jersey.multipart.FormDataParam;
 
-import io.swagger.model.Newsletters;
 import io.swagger.model.Newsletter;
+import io.swagger.model.NewsletterInput;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -28,11 +28,27 @@ public class NewslettersApi {
   
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns all newsletters", response = Newsletters.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns all events", response = Newsletter.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
-    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Response") })
+    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Newsletter response") })
 
-  public Response findNewsletters(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth)
+  public Response findNewsletters(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
+      throws NotFoundException {
+      // do some magic!
+      return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+  }
+
+  
+  @POST
+  
+  
+  
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Creates a newsletter", response = Newsletter.class)
+  @com.wordnik.swagger.annotations.ApiResponses(value = { 
+    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Newsletter response") })
+
+  public Response createNewsletter(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+    @ApiParam(value = "Newsletter" ,required=true ) NewsletterInput event)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -43,12 +59,12 @@ public class NewslettersApi {
   @Path("/{id}")
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns newsletter by ID", response = Newsletter.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Get a newsletter by ID", response = Newsletter.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
-    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Response") })
+    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Newsletter response") })
 
-  public Response getNewsletterByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth,
-    @ApiParam(value = "ID of newsletter to fetch",required=true ) @PathParam("id") String id)
+  public Response getNewsletterByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+    @ApiParam(value = "Mongo ID of event to get",required=true ) @PathParam("id") String id)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -59,13 +75,13 @@ public class NewslettersApi {
   @Path("/{id}")
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Update newsletter by ID", response = Newsletter.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Updates a newsletter", response = Newsletter.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
-    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Response") })
+    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Newsletter response") })
 
-  public Response updateNewsletter(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly_auth") String vestorlyAuth,
-    @ApiParam(value = "ID of newsletter to fetch",required=true ) @PathParam("id") String id,
-    @ApiParam(value = "Newsletter", required=true )@FormParam("newsletter")  String newsletter)
+  public Response updateNewsletterByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+    @ApiParam(value = "Mongo ID of event to update",required=true ) @PathParam("id") String id,
+    @ApiParam(value = "Newsletter" ,required=true ) NewsletterInput event)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

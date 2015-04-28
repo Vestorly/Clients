@@ -11,7 +11,7 @@ class SessionsApi
   # @param password Password in Vestorly Platform
   # @return Session
   def self.login (username, password, opts={})
-    query_param_keys = []
+    query_param_keys = [:username,:password]
     headerParams = {}
 
     
@@ -49,8 +49,6 @@ class SessionsApi
     # form parameters
     form_parameter_hash = {}
     
-    form_parameter_hash["username"] = username
-    form_parameter_hash["password"] = password
     
     response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
      Session.new(response)
@@ -65,7 +63,7 @@ class SessionsApi
   # @param id ID of pet to session
   # @return Session
   def self.logout (vestorly_auth, id, opts={})
-    query_param_keys = []
+    query_param_keys = [:vestorly_auth]
     headerParams = {}
 
     
@@ -104,7 +102,6 @@ class SessionsApi
     # form parameters
     form_parameter_hash = {}
     
-    form_parameter_hash["vestorly-auth"] = vestorly_auth
     
     response = Swagger::Request.new(:DELETE, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
      Session.new(response)

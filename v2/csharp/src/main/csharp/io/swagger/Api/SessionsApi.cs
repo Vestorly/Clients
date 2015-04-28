@@ -48,24 +48,16 @@ namespace io.swagger.Api {
 
       
 
-      
-
-      
-
       if (Username != null){
-        if(Username is byte[]) {
-          formParams.Add("username", Username);
-        } else {
-          formParams.Add("username", apiInvoker.ParameterToString(Username));
-        }
+        queryParams.Add("username", apiInvoker.ParameterToString(Username));
       }
       if (Password != null){
-        if(Password is byte[]) {
-          formParams.Add("password", Password);
-        } else {
-          formParams.Add("password", apiInvoker.ParameterToString(Password));
-        }
+        queryParams.Add("password", apiInvoker.ParameterToString(Password));
       }
+      
+
+      
+
       
 
       try {
@@ -116,17 +108,13 @@ namespace io.swagger.Api {
 
       
 
-      
-
-      
-
       if (VestorlyAuth != null){
-        if(VestorlyAuth is byte[]) {
-          formParams.Add("vestorly-auth", VestorlyAuth);
-        } else {
-          formParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
-        }
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
       }
+      
+
+      
+
       
 
       try {

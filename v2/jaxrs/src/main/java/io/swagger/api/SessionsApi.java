@@ -31,8 +31,8 @@ public class SessionsApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Response") })
 
-  public Response login(@ApiParam(value = "Username in the vestorly platform", required=true )@FormParam("username")  String username,
-    @ApiParam(value = "Password in Vestorly Platform", required=true )@FormParam("password")  String password)
+  public Response login(@ApiParam(value = "Username in the vestorly platform",required=true) @QueryParam("username") String username,
+    @ApiParam(value = "Password in Vestorly Platform",required=true) @QueryParam("password") String password)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -47,7 +47,7 @@ public class SessionsApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Response") })
 
-  public Response logout(@ApiParam(value = "Authenication token", required=true )@FormParam("vestorlyAuth")  String vestorlyAuth,
+  public Response logout(@ApiParam(value = "Authenication token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
     @ApiParam(value = "ID of pet to session",required=true ) @PathParam("id") String id)
       throws NotFoundException {
       // do some magic!

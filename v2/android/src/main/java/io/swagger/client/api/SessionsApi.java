@@ -53,6 +53,10 @@ public class SessionsApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
+    if (username != null)
+      queryParams.put("username", ApiInvoker.parameterToString(username));
+    if (password != null)
+      queryParams.put("password", ApiInvoker.parameterToString(password));
     
 
     
@@ -66,21 +70,11 @@ public class SessionsApi {
       // file uploading
       MultipartEntityBuilder builder = MultipartEntityBuilder.create();
       
-      if (username != null) {
-        builder.addTextBody("username", ApiInvoker.parameterToString(username), ApiInvoker.TEXT_PLAIN_UTF8);
-      }
-      
-      if (password != null) {
-        builder.addTextBody("password", ApiInvoker.parameterToString(password), ApiInvoker.TEXT_PLAIN_UTF8);
-      }
-      
 
       HttpEntity httpEntity = builder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-      formParams.put("username", ApiInvoker.parameterToString(username));
-      formParams.put("password", ApiInvoker.parameterToString(password));
       
     }
 
@@ -113,6 +107,8 @@ public class SessionsApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
+    if (vestorlyAuth != null)
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -126,16 +122,11 @@ public class SessionsApi {
       // file uploading
       MultipartEntityBuilder builder = MultipartEntityBuilder.create();
       
-      if (vestorlyAuth != null) {
-        builder.addTextBody("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth), ApiInvoker.TEXT_PLAIN_UTF8);
-      }
-      
 
       HttpEntity httpEntity = builder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-      formParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
       
     }
 

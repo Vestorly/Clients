@@ -609,7 +609,7 @@
         
         {
   "name" : "username",
-  "in" : "formData",
+  "in" : "query",
   "description" : "Username in the vestorly platform",
   "required" : true,
   "type" : "string"
@@ -617,7 +617,7 @@
         
         {
   "name" : "password",
-  "in" : "formData",
+  "in" : "query",
   "description" : "Password in Vestorly Platform",
   "required" : true,
   "type" : "string"
@@ -647,7 +647,7 @@
         
         {
   "name" : "vestorly-auth",
-  "in" : "formData",
+  "in" : "query",
   "description" : "Authenication token",
   "required" : true,
   "type" : "string"
@@ -668,6 +668,164 @@
   "description" : "Response",
   "schema" : {
     "$ref" : "#/definitions/Session"
+  }
+}
+        
+        
+      }
+    }
+  } 
+  
+   ,
+  
+  "/newsletters": {
+    "get": {
+      "x-swagger-router-controller": "Newsletters",
+      "tags": ["Newsletters"],
+      "operationId": "findNewsletters",
+      "parameters": [
+        
+        {
+  "name" : "vestorly-auth",
+  "in" : "query",
+  "description" : "Vestorly Auth Token",
+  "required" : true,
+  "type" : "string"
+}
+        
+      ],
+      "responses": {
+        
+        "200": {
+  "description" : "Newsletter response",
+  "schema" : {
+    "$ref" : "#/definitions/Newsletter"
+  }
+}
+        
+        
+      }
+    }
+  } ,
+  
+  "/newsletters": {
+    "post": {
+      "x-swagger-router-controller": "Newsletters",
+      "tags": ["Newsletters"],
+      "operationId": "createNewsletter",
+      "parameters": [
+        
+        {
+  "name" : "vestorly-auth",
+  "in" : "query",
+  "description" : "Vestorly Auth Token",
+  "required" : true,
+  "type" : "string"
+},
+        
+        {
+  "in" : "body",
+  "name" : "Event",
+  "description" : "Newsletter",
+  "required" : true,
+  "schema" : {
+    "$ref" : "#/definitions/NewsletterInput"
+  }
+}
+        
+      ],
+      "responses": {
+        
+        "200": {
+  "description" : "Newsletter response",
+  "schema" : {
+    "$ref" : "#/definitions/Newsletter"
+  }
+}
+        
+        
+      }
+    }
+  } ,
+  
+  "/newsletters/{id}": {
+    "get": {
+      "x-swagger-router-controller": "Newsletters",
+      "tags": ["Newsletters"],
+      "operationId": "getNewsletterByID",
+      "parameters": [
+        
+        {
+  "name" : "vestorly-auth",
+  "in" : "query",
+  "description" : "Vestorly Auth Token",
+  "required" : true,
+  "type" : "string"
+},
+        
+        {
+  "name" : "id",
+  "in" : "path",
+  "description" : "Mongo ID of event to get",
+  "required" : true,
+  "type" : "string"
+}
+        
+      ],
+      "responses": {
+        
+        "200": {
+  "description" : "Newsletter response",
+  "schema" : {
+    "$ref" : "#/definitions/Newsletter"
+  }
+}
+        
+        
+      }
+    }
+  } ,
+  
+  "/newsletters/{id}": {
+    "put": {
+      "x-swagger-router-controller": "Newsletters",
+      "tags": ["Newsletters"],
+      "operationId": "updateNewsletterByID",
+      "parameters": [
+        
+        {
+  "name" : "vestorly-auth",
+  "in" : "query",
+  "description" : "Vestorly Auth Token",
+  "required" : true,
+  "type" : "string"
+},
+        
+        {
+  "name" : "id",
+  "in" : "path",
+  "description" : "Mongo ID of event to update",
+  "required" : true,
+  "type" : "string"
+},
+        
+        {
+  "in" : "body",
+  "name" : "Event",
+  "description" : "Newsletter",
+  "required" : true,
+  "schema" : {
+    "$ref" : "#/definitions/NewsletterInput"
+  }
+}
+        
+      ],
+      "responses": {
+        
+        "200": {
+  "description" : "Newsletter response",
+  "schema" : {
+    "$ref" : "#/definitions/Newsletter"
   }
 }
         

@@ -65,6 +65,12 @@ SamiSessionsApi::loginWithCompletion(String* username, String* password, void (*
   queryParams->Construct();
 
   
+    queryParams->Add(new String("username"), username);
+  
+  
+    queryParams->Add(new String("password"), password);
+  
+  
 
   String* mBody = null;
 
@@ -126,6 +132,9 @@ SamiSessionsApi::logoutWithCompletion(String* vestorly-auth, String* _id, void (
   HashMap* queryParams = new HashMap(SingleObjectDeleter);
   queryParams->Construct();
 
+  
+    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+  
   
 
   String* mBody = null;

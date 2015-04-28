@@ -72,6 +72,14 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if(username != nil) {
+        
+        queryParams[@"username"] = username;
+    }
+    if(password != nil) {
+        
+        queryParams[@"password"] = password;
+    }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
     
@@ -82,22 +90,6 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
     NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
 
-    
-    
-    formParams[@"username"] = username;
-    
-    if(bodyDictionary == nil) {
-      bodyDictionary = [[NSMutableArray alloc] init];
-    }
-    [bodyDictionary addObject:formParams];
-    
-    
-    formParams[@"password"] = password;
-    
-    if(bodyDictionary == nil) {
-      bodyDictionary = [[NSMutableArray alloc] init];
-    }
-    [bodyDictionary addObject:formParams];
     
     
 
@@ -165,6 +157,10 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if(vestorly-auth != nil) {
+        
+        queryParams[@"vestorly-auth"] = vestorly-auth;
+    }
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
     
@@ -175,14 +171,6 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
     NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
 
-    
-    
-    formParams[@"vestorly-auth"] = vestorly-auth;
-    
-    if(bodyDictionary == nil) {
-      bodyDictionary = [[NSMutableArray alloc] init];
-    }
-    [bodyDictionary addObject:formParams];
     
     
 

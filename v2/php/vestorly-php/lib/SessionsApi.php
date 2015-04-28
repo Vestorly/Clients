@@ -55,16 +55,16 @@ class SessionsApi {
       $_header_content_type = array('application/x-www-form-urlencoded',);
       $headerParams['Content-Type'] = count($_header_content_type) > 0 ? $_header_content_type[0] : 'application/json';
 
-      
-      
-      
-      // form params
-      if ($username !== null) {
-        $formParams['username'] = $this->apiClient->toFormValue($username);
-      }// form params
-      if ($password !== null) {
-        $formParams['password'] = $this->apiClient->toFormValue($password);
+      // query params
+      if($username !== null) {
+        $queryParams['username'] = $this->apiClient->toQueryValue($username);
+      }// query params
+      if($password !== null) {
+        $queryParams['password'] = $this->apiClient->toQueryValue($password);
       }
+      
+      
+      
       
 
       // for model (json/xml)
@@ -117,17 +117,17 @@ class SessionsApi {
       $_header_content_type = array();
       $headerParams['Content-Type'] = count($_header_content_type) > 0 ? $_header_content_type[0] : 'application/json';
 
-      
+      // query params
+      if($vestorly_auth !== null) {
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+      }
       
       // path params
       if($id !== null) {
         $resourcePath = str_replace("{" . "id" . "}",
                                     $this->apiClient->toPathValue($id), $resourcePath);
       }
-      // form params
-      if ($vestorly_auth !== null) {
-        $formParams['vestorly-auth'] = $this->apiClient->toFormValue($vestorly_auth);
-      }
+      
       
 
       // for model (json/xml)
