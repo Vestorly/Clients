@@ -106,14 +106,14 @@ class NewslettersApi(object):
             vestorly_auth, str: Vestorly Auth Token (required)
             
             
-            event, NewsletterInput: Newsletter (required)
+            newsletter, NewsletterInput: Newsletter (required)
             
             
         
-        Returns: Newsletter
+        Returns: Newsletterresponse
         """
 
-        allParams = ['vestorly_auth', 'event']
+        allParams = ['vestorly_auth', 'newsletter']
 
         params = locals()
         for (key, val) in params['kwargs'].iteritems():
@@ -150,8 +150,8 @@ class NewslettersApi(object):
         
 
         
-        if ('event' in params):
-            bodyParam = params['event']
+        if ('newsletter' in params):
+            bodyParam = params['newsletter']
         
 
         postData = (formParams if formParams else bodyParam)
@@ -163,7 +163,7 @@ class NewslettersApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'Newsletter')
+        responseObject = self.apiClient.deserialize(response, 'Newsletterresponse')
         return responseObject
         
         
@@ -181,7 +181,7 @@ class NewslettersApi(object):
             
             
         
-        Returns: Newsletter
+        Returns: Newsletterresponse
         """
 
         allParams = ['vestorly_auth', 'id']
@@ -237,7 +237,7 @@ class NewslettersApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'Newsletter')
+        responseObject = self.apiClient.deserialize(response, 'Newsletterresponse')
         return responseObject
         
         
@@ -254,14 +254,14 @@ class NewslettersApi(object):
             id, str: Mongo ID of event to update (required)
             
             
-            event, NewsletterInput: Newsletter (required)
+            newsletter, NewsletterInput: Newsletter (required)
             
             
         
-        Returns: Newsletter
+        Returns: Newsletterresponse
         """
 
-        allParams = ['vestorly_auth', 'id', 'event']
+        allParams = ['vestorly_auth', 'id', 'newsletter']
 
         params = locals()
         for (key, val) in params['kwargs'].iteritems():
@@ -304,8 +304,8 @@ class NewslettersApi(object):
         
 
         
-        if ('event' in params):
-            bodyParam = params['event']
+        if ('newsletter' in params):
+            bodyParam = params['newsletter']
         
 
         postData = (formParams if formParams else bodyParam)
@@ -317,7 +317,7 @@ class NewslettersApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'Newsletter')
+        responseObject = self.apiClient.deserialize(response, 'Newsletterresponse')
         return responseObject
         
         

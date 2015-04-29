@@ -6,6 +6,7 @@
 #include "SamiAdvisor.h"
 #include "SamiAdvisors.h"
 #include "SamiPostresponse.h"
+#include "SamiPostRequest.h"
 #include "SamiPosts.h"
 #include "SamiPost.h"
 #include "SamiPostInput.h"
@@ -51,6 +52,9 @@ namespace Swagger {
     }
     if(type.Equals(L"SamiPostresponse", true)) {
       return new SamiPostresponse();
+    }
+    if(type.Equals(L"SamiPostRequest", true)) {
+      return new SamiPostRequest();
     }
     if(type.Equals(L"SamiPosts", true)) {
       return new SamiPosts();

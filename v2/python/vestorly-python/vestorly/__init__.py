@@ -4,15 +4,13 @@ import os
 
 # import models into package
 
-from .models.members import Members
-
 from .models.advisor import Advisor
 
 from .models.advisors import Advisors
 
 from .models.postresponse import Postresponse
 
-from .models.posts import Posts
+from .models.postrequest import Postrequest
 
 from .models.post import Post
 
@@ -32,7 +30,11 @@ from .models.user import User
 
 from .models.article import Article
 
+from .models.articleresponse import Articleresponse
+
 from .models.articles import Articles
+
+from .models.newsletterresponse import Newsletterresponse
 
 from .models.newsletter import Newsletter
 
@@ -40,7 +42,13 @@ from .models.newsletter_input import NewsletterInput
 
 from .models.newsletters import Newsletters
 
+from .models.memberresponse import Memberresponse
+
+from .models.members import Members
+
 from .models.member import Member
+
+from .models.eventresponse import Eventresponse
 
 from .models.event_input import EventInput
 
@@ -54,9 +62,13 @@ from .models.group_input import GroupInput
 
 from .models.groups import Groups
 
+from .models.newslettersettingresponse import Newslettersettingresponse
+
+from .models.newslettersettings import Newslettersettings
+
 from .models.newsletter_settings_input import NewsletterSettingsInput
 
-from .models.newsletter_settings import NewsletterSettings
+from .models.newsletter_setting import NewsletterSetting
 
 from .models.source import Source
 

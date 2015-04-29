@@ -110,7 +110,7 @@ class EventsApi(object):
             
             
         
-        Returns: Event
+        Returns: Eventresponse
         """
 
         allParams = ['vestorly_auth', 'event']
@@ -163,7 +163,7 @@ class EventsApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'Event')
+        responseObject = self.apiClient.deserialize(response, 'Eventresponse')
         return responseObject
         
         
@@ -181,7 +181,7 @@ class EventsApi(object):
             
             
         
-        Returns: Event
+        Returns: Eventresponse
         """
 
         allParams = ['id', 'vestorly_auth']
@@ -237,7 +237,7 @@ class EventsApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'Event')
+        responseObject = self.apiClient.deserialize(response, 'Eventresponse')
         return responseObject
         
         
@@ -258,7 +258,7 @@ class EventsApi(object):
             
             
         
-        Returns: Event
+        Returns: Eventresponse
         """
 
         allParams = ['id', 'vestorly_auth', 'event']
@@ -317,7 +317,7 @@ class EventsApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'Event')
+        responseObject = self.apiClient.deserialize(response, 'Eventresponse')
         return responseObject
         
         

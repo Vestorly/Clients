@@ -110,7 +110,7 @@ class MembersApi(object):
             
             
         
-        Returns: Member
+        Returns: Memberresponse
         """
 
         allParams = ['id', 'vestorly_auth']
@@ -166,7 +166,7 @@ class MembersApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'Member')
+        responseObject = self.apiClient.deserialize(response, 'Memberresponse')
         return responseObject
         
         
@@ -184,7 +184,7 @@ class MembersApi(object):
             
             
         
-        Returns: Member
+        Returns: Memberresponse
         """
 
         allParams = ['id', 'vestorly_auth']
@@ -240,7 +240,7 @@ class MembersApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'Member')
+        responseObject = self.apiClient.deserialize(response, 'Memberresponse')
         return responseObject
         
         

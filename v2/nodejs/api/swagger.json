@@ -1341,6 +1341,12 @@
       "$ref" : "#/definitions/Post"
     }
   }
+},"PostRequest": {
+  "properties" : {
+    "post" : {
+      "$ref" : "#/definitions/PostInput"
+    }
+  }
 },"Posts": {
   "properties" : {
     "posts" : {

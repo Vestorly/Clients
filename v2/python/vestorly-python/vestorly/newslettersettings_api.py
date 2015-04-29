@@ -42,7 +42,7 @@ class NewslettersettingsApi(object):
             
             
         
-        Returns: NewsletterSettings
+        Returns: Newslettersettings
         """
 
         allParams = ['vestorly_auth']
@@ -92,78 +92,7 @@ class NewslettersettingsApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'NewsletterSettings')
-        return responseObject
-        
-        
-        
-    
-    def updateNewsletterSettingsByID(self, **kwargs):
-        """
-
-        Args:
-            
-            vestorly_auth, str: Vestorly Auth Token (required)
-            
-            
-            newsletter_settings, NewsletterSettingsInput: newsletter settings (required)
-            
-            
-        
-        Returns: NewsletterSettings
-        """
-
-        allParams = ['vestorly_auth', 'newsletter_settings']
-
-        params = locals()
-        for (key, val) in params['kwargs'].iteritems():
-            if key not in allParams:
-                raise TypeError("Got an unexpected keyword argument '%s' to method updateNewsletterSettingsByID" % key)
-            params[key] = val
-        del params['kwargs']
-
-        resourcePath = '/newsletter_settings'
-        resourcePath = resourcePath.replace('{format}', 'json')
-        method = 'PUT'
-
-        queryParams = {}
-        headerParams = {}
-        formParams = {}
-        files = {}
-        bodyParam = None
-
-        accepts = []
-        headerParams['Accept'] = ', '.join(accepts)
-
-        content_types = []
-        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
-
-        
-        if ('vestorly_auth' in params):
-            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
-        
-
-        
-
-        
-
-        
-
-        
-        if ('newsletter_settings' in params):
-            bodyParam = params['newsletter_settings']
-        
-
-        postData = (formParams if formParams else bodyParam)
-
-        response = self.apiClient.callAPI(resourcePath, method, queryParams,
-                                          postData, headerParams, files=files)
-
-        
-        if not response:
-            return None
-
-        responseObject = self.apiClient.deserialize(response, 'NewsletterSettings')
+        responseObject = self.apiClient.deserialize(response, 'Newslettersettings')
         return responseObject
         
         
@@ -181,7 +110,7 @@ class NewslettersettingsApi(object):
             
             
         
-        Returns: NewsletterSettings
+        Returns: Newslettersettingresponse
         """
 
         allParams = ['id', 'vestorly_auth']
@@ -237,7 +166,87 @@ class NewslettersettingsApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'NewsletterSettings')
+        responseObject = self.apiClient.deserialize(response, 'Newslettersettingresponse')
+        return responseObject
+        
+        
+        
+    
+    def updateNewsletterSettingsByID(self, **kwargs):
+        """
+
+        Args:
+            
+            id, str: Mongo ID of newsletter settings to update (required)
+            
+            
+            vestorly_auth, str: Vestorly Auth Token (required)
+            
+            
+            newsletter_setting, NewsletterSettingsInput: newsletter settings (required)
+            
+            
+        
+        Returns: Newslettersettingresponse
+        """
+
+        allParams = ['id', 'vestorly_auth', 'newsletter_setting']
+
+        params = locals()
+        for (key, val) in params['kwargs'].iteritems():
+            if key not in allParams:
+                raise TypeError("Got an unexpected keyword argument '%s' to method updateNewsletterSettingsByID" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resourcePath = '/newsletter_settings/{id}'
+        resourcePath = resourcePath.replace('{format}', 'json')
+        method = 'PUT'
+
+        queryParams = {}
+        headerParams = {}
+        formParams = {}
+        files = {}
+        bodyParam = None
+
+        accepts = []
+        headerParams['Accept'] = ', '.join(accepts)
+
+        content_types = []
+        headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
+
+        
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
+
+        
+
+        
+        if ('id' in params):
+            replacement = str(self.apiClient.toPathValue(params['id']))
+            replacement = urllib.quote(replacement)
+            resourcePath = resourcePath.replace('{' + 'id' + '}',
+                                                replacement)
+        
+
+        
+
+        
+        if ('newsletter_setting' in params):
+            bodyParam = params['newsletter_setting']
+        
+
+        postData = (formParams if formParams else bodyParam)
+
+        response = self.apiClient.callAPI(resourcePath, method, queryParams,
+                                          postData, headerParams, files=files)
+
+        
+        if not response:
+            return None
+
+        responseObject = self.apiClient.deserialize(response, 'Newslettersettingresponse')
         return responseObject
         
         

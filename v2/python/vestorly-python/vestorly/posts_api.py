@@ -153,7 +153,7 @@ class PostsApi(object):
         accepts = []
         headerParams['Accept'] = ', '.join(accepts)
 
-        content_types = ['application/x-www-form-urlencoded', ]
+        content_types = []
         headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
 
         
@@ -269,10 +269,10 @@ class PostsApi(object):
             vestorly_auth, str: Vestorly Auth Token (required)
             
             
-            id, str: id of post to fetch (required)
+            id, str: id of post to update (required)
             
             
-            post, PostInput: Post you want to update (required)
+            post, PostRequest: Post you want to update (required)
             
             
         

@@ -992,6 +992,13 @@
         }
       }
     },
+    "PostRequest" : {
+      "properties" : {
+        "post" : {
+          "$ref" : "#/definitions/PostInput"
+        }
+      }
+    },
     "Posts" : {
       "properties" : {
         "posts" : {

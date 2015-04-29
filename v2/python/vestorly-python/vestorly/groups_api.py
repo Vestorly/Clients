@@ -177,6 +177,12 @@ class GroupsApi(object):
 
         Args:
             
+            vestorly_auth, str: Vestorly Auth Token (required)
+            
+            
+            id, str: id of group to update (required)
+            
+            
             group, Group: Group to add (required)
             
             
@@ -184,7 +190,7 @@ class GroupsApi(object):
         Returns: GroupInput
         """
 
-        allParams = ['group']
+        allParams = ['vestorly_auth', 'id', 'group']
 
         params = locals()
         for (key, val) in params['kwargs'].iteritems():
@@ -210,9 +216,18 @@ class GroupsApi(object):
         headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
 
         
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
+        
 
         
 
+        
+        if ('id' in params):
+            replacement = str(self.apiClient.toPathValue(params['id']))
+            replacement = urllib.quote(replacement)
+            resourcePath = resourcePath.replace('{' + 'id' + '}',
+                                                replacement)
         
 
         

@@ -131,7 +131,7 @@ class ArticlesApi(object):
             
             
         
-        Returns: Article
+        Returns: Articleresponse
         """
 
         allParams = ['id']
@@ -184,7 +184,7 @@ class ArticlesApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'Article')
+        responseObject = self.apiClient.deserialize(response, 'Articleresponse')
         return responseObject
         
         
