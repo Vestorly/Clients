@@ -3,6 +3,7 @@ package io.swagger.client.api
 import io.swagger.client.model.Sources
 import io.swagger.client.model.SourceInput
 import io.swagger.client.model.Source
+import io.swagger.client.model.Sourceresponse
 import io.swagger.client.ApiInvoker
 import io.swagger.client.ApiException
 
@@ -55,7 +56,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
   
   def createSource (vestorly-auth: String, source: SourceInput) : Option[Source] = {
     // create path and map variables
-    val path = "/sources/".replaceAll("\\{format\\}","json")
+    val path = "/sources".replaceAll("\\{format\\}","json")
 
     
     val contentType = {
@@ -90,7 +91,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     }
   }
   
-  def getSourceByID (vestorly-auth: String, id: String) : Option[Source] = {
+  def getSourceByID (vestorly-auth: String, id: String) : Option[Sourceresponse] = {
     // create path and map variables
     val path = "/sources/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -116,7 +117,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     try {
       apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, None, headerParams.toMap, contentType) match {
         case s: String =>
-           Some(ApiInvoker.deserialize(s, "", classOf[Source]).asInstanceOf[Source])
+           Some(ApiInvoker.deserialize(s, "", classOf[Sourceresponse]).asInstanceOf[Sourceresponse])
          
         case _ => None
       }
@@ -126,7 +127,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     }
   }
   
-  def UpdateSourceByID (vestorly-auth: String, id: String, source: SourceInput) : Option[Source] = {
+  def updateSourceByID (vestorly-auth: String, id: String, source: SourceInput) : Option[Sourceresponse] = {
     // create path and map variables
     val path = "/sources/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -155,7 +156,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     try {
       apiInvoker.invokeApi(basePath, path, "PUT", queryParams.toMap, source, headerParams.toMap, contentType) match {
         case s: String =>
-           Some(ApiInvoker.deserialize(s, "", classOf[Source]).asInstanceOf[Source])
+           Some(ApiInvoker.deserialize(s, "", classOf[Sourceresponse]).asInstanceOf[Sourceresponse])
          
         case _ => None
       }

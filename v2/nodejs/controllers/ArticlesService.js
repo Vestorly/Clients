@@ -29,7 +29,7 @@ exports.findArticles = function(vestorly-auth, limit, text_query, sort_direction
     return examples[Object.keys(examples)[0]];
   
 }
-exports.findArticleByID = function(id) {
+exports.findArticleByID = function(vestorly-auth, id) {
 
   var examples = {};
   

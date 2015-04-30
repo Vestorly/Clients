@@ -1,4 +1,15 @@
-{
+import json,sys
+sys.path.append("../../v2/python/vestorly-python/")
+
+import unittest
+from urllib2 import HTTPError
+import vestorly
+
+from test_settings import *
+from helpers import MockResponse
+from mock import patch
+
+HTTP_GET = {
   "sources": [
     {
       "_id": "551ad380c98f132913000056",
@@ -307,3 +318,60 @@
       "custom_rss_feed": False
     }]
 }
+
+HTTP_GET_BY_ID=  {
+  "source": {
+    "_id": "551ad380c98f132913000056",
+    "name": "BD_HOE",
+    "url": "/LuceneFeed/PershingCatalog1.txt",
+    "enabled": True,
+    "rss_publisher": "Pershing",
+    "has_paywall": False,
+    "custom_rss_feed": True
+  }
+}
+
+class test_sources_api(unittest.TestCase):
+
+	def setUp(self):
+		self.client = vestorly.ApiClient(host=HOST, headerName='x-vestorly-auth', headerValue=API_KEY)
+		self.api = vestorly.SessionsApi(apiClient=self.client)
+		self.patcher = patch('urllib2.urlopen')
+		self.urlopen_mock = self.patcher.start()
+		
+	def test_sources_HTTP_get(self):
+		""" test /api/v2/sources GET call """ 
+		self.urlopen_mock.return_value =  MockResponse(json.dumps(HTTP_GET))
+		api = vestorly.SourcesApi(apiClient=self.client)
+		sources = api.findSources()
+		self.assertTrue(isinstance(sources,vestorly.models.sources.Sources))
+		self.assertEquals(len(sources.sources),34)
+		self.assertTrue(isinstance(sources.sources[0],vestorly.models.source.Source))
+		
+	def test_sources_HTTP_get_by_id(self):
+		""" test /api/v2/sources/{id} GET call """ 
+		self.urlopen_mock.return_value =  MockResponse(json.dumps(HTTP_GET_BY_ID))
+		api = vestorly.SourcesApi(apiClient=self.client)
+		source = api.getSourceByID(**{
+			'id' : "551ad380c98f132913000056"
+		})
+		self.assertTrue(isinstance(source,vestorly.models.sourceresponse.Sourceresponse))
+		self.assertEquals(source.source._id, "551ad380c98f132913000056")
+		
+	def test_sources_HTTP_update_by_id(self):
+		""" """
+		self.urlopen_mock.return_value =  MockResponse(json.dumps(HTTP_GET_BY_ID))
+		api = vestorly.SourcesApi(apiClient=self.client)
+		source = api.getSourceByID(**{
+			'id' : "551ad380c98f132913000056"
+		})
+		self.assertTrue(isinstance(source,vestorly.models.sourceresponse.Sourceresponse))
+		self.assertEquals(source.source._id, "551ad380c98f132913000056")
+		
+		
+	def test_sources_HTTP_post_create_source(self):
+		""" """
+		
+if __name__ == '__main__':
+	unittest.main()
+	

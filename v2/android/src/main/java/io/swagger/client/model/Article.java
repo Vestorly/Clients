@@ -26,7 +26,7 @@ public class Article  {
   
   /**
    **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty("_id")
   public String getId() {
     return id;

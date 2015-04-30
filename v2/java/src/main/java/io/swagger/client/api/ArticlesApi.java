@@ -103,10 +103,11 @@ public class ArticlesApi {
   /**
    * 
    * Returns a single article
+   * @param vestorlyAuth Vestorly Auth Token
    * @param id Article Id to fetch
    * @return Articleresponse
    */
-  public Articleresponse findArticleByID (String id) throws ApiException {
+  public Articleresponse findArticleByID (String vestorlyAuth, String id) throws ApiException {
     Object postBody = null;
     
 
@@ -119,6 +120,8 @@ public class ArticlesApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     Map<String, String> formParams = new HashMap<String, String>();
 
+    if (vestorlyAuth != null)
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
     
     
     String[] contentTypes = {

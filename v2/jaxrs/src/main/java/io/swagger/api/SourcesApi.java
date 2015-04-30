@@ -9,6 +9,7 @@ import com.sun.jersey.multipart.FormDataParam;
 import io.swagger.model.Sources;
 import io.swagger.model.SourceInput;
 import io.swagger.model.Source;
+import io.swagger.model.Sourceresponse;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -41,7 +42,7 @@ public class SourcesApi {
 
   
   @POST
-  @Path("/")
+  
   
   
   @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Create source", response = Source.class)
@@ -60,7 +61,7 @@ public class SourcesApi {
   @Path("/{id}")
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Get Source By ID", response = Source.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Get Source By ID", response = Sourceresponse.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "source response") })
 
@@ -76,11 +77,11 @@ public class SourcesApi {
   @Path("/{id}")
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Update Source By ID", response = Source.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Update Source By ID", response = Sourceresponse.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "source response") })
 
-  public Response UpdateSourceByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+  public Response updateSourceByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
     @ApiParam(value = "ID of source to fetch",required=true ) @PathParam("id") String id,
     @ApiParam(value = "Source" ,required=true ) SourceInput source)
       throws NotFoundException {

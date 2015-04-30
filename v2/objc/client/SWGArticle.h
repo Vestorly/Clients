@@ -8,7 +8,7 @@
 @interface SWGArticle : SWGObject
 
 
-@property(nonatomic) NSString<Optional>* _id;
+@property(nonatomic) NSString* _id;
 
 @property(nonatomic) NSString<Optional>* created_at;
 

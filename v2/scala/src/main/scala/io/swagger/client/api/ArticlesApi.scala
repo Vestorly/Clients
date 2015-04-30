@@ -56,7 +56,7 @@ class ArticlesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2
     }
   }
   
-  def findArticleByID (id: String) : Option[Articleresponse] = {
+  def findArticleByID (vestorly-auth: String, id: String) : Option[Articleresponse] = {
     // create path and map variables
     val path = "/articles/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -74,6 +74,7 @@ class ArticlesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2
 
     
 
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
     
     
     

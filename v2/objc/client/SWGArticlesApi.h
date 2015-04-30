@@ -40,12 +40,14 @@
  
  Returns a single article
 
+ @param vestorly-auth Vestorly Auth Token
  @param _id Article Id to fetch
  
 
  return type: SWGArticleresponse*
  */
--(NSNumber*) findArticleByIDWithCompletionBlock :(NSString*) _id 
+-(NSNumber*) findArticleByIDWithCompletionBlock :(NSString*) vestorly-auth 
+     _id:(NSString*) _id 
     
     completionHandler: (void (^)(SWGArticleresponse* output, NSError* error))completionBlock;
     

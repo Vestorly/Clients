@@ -146,7 +146,7 @@ SamiSourcesApi::createSourceWithCompletion(String* vestorly-auth, SamiSourceInpu
   
   
 
-  String url(L"/sources/");
+  String url(L"/sources");
 
   
 
@@ -162,8 +162,8 @@ getSourceByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sami
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiSource* out = new SamiSource();
-    jsonToValue(out, pJson, L"SamiSource*", L"SamiSource");
+    SamiSourceresponse* out = new SamiSourceresponse();
+    jsonToValue(out, pJson, L"SamiSourceresponse*", L"SamiSourceresponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -189,8 +189,8 @@ getSourceByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sami
   }
 }
 
-SamiSource* 
-SamiSourcesApi::getSourceByIDWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiSource*, SamiError*)) {
+SamiSourceresponse* 
+SamiSourcesApi::getSourceByIDWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiSourceresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&getSourceByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -225,15 +225,15 @@ SamiSourcesApi::getSourceByIDWithCompletion(String* vestorly-auth, String* _id, 
 }
 
 void
-UpdateSourceByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError*)) {
+updateSourceByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError*)) {
   int code = pHttpResponse->GetHttpStatusCode();
 
   if(code >= 200 && code < 300) {
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiSource* out = new SamiSource();
-    jsonToValue(out, pJson, L"SamiSource*", L"SamiSource");
+    SamiSourceresponse* out = new SamiSourceresponse();
+    jsonToValue(out, pJson, L"SamiSourceresponse*", L"SamiSourceresponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -259,11 +259,11 @@ UpdateSourceByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, S
   }
 }
 
-SamiSource* 
-SamiSourcesApi::UpdateSourceByIDWithCompletion(String* vestorly-auth, String* _id, SamiSourceInput* source, void (* success)(SamiSource*, SamiError*)) {
+SamiSourceresponse* 
+SamiSourcesApi::updateSourceByIDWithCompletion(String* vestorly-auth, String* _id, SamiSourceInput* source, void (* success)(SamiSourceresponse*, SamiError*)) {
   client = new SamiApiClient();
 
-  client->success(&UpdateSourceByIDProcessor, (void(*)(void*, SamiError*))success);
+  client->success(&updateSourceByIDProcessor, (void(*)(void*, SamiError*))success);
   HashMap* headerParams = new HashMap(SingleObjectDeleter);
   headerParams->Construct();
 

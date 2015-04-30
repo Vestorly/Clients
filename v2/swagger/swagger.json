@@ -77,6 +77,12 @@
         "description" : "Returns a single article",
         "operationId" : "findArticleByID",
         "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "id",
           "in" : "path",
           "description" : "Article Id to fetch",
@@ -865,9 +871,7 @@
             }
           }
         }
-      }
-    },
-    "/sources/" : {
+      },
       "post" : {
         "tags" : [ "sources" ],
         "description" : "Create source",
@@ -919,7 +923,7 @@
           "200" : {
             "description" : "source response",
             "schema" : {
-              "$ref" : "#/definitions/Source"
+              "$ref" : "#/definitions/Sourceresponse"
             }
           }
         }
@@ -927,7 +931,7 @@
       "put" : {
         "tags" : [ "sources" ],
         "description" : "Update Source By ID",
-        "operationId" : "UpdateSourceByID",
+        "operationId" : "updateSourceByID",
         "parameters" : [ {
           "name" : "vestorly-auth",
           "in" : "query",
@@ -953,7 +957,7 @@
           "200" : {
             "description" : "source response",
             "schema" : {
-              "$ref" : "#/definitions/Source"
+              "$ref" : "#/definitions/Sourceresponse"
             }
           }
         }
@@ -1264,6 +1268,7 @@
       }
     },
     "Article" : {
+      "required" : [ "_id" ],
       "properties" : {
         "_id" : {
           "type" : "string"
@@ -1729,6 +1734,13 @@
         "facebook_hour" : {
           "type" : "integer",
           "format" : "int32"
+        }
+      }
+    },
+    "Sourceresponse" : {
+      "properties" : {
+        "source" : {
+          "$ref" : "#/definitions/Source"
         }
       }
     },

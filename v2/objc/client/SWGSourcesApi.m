@@ -5,6 +5,7 @@
 #import "SWGSources.h"
 #import "SWGSourceInput.h"
 #import "SWGSource.h"
+#import "SWGSourceresponse.h"
 
 
 
@@ -138,7 +139,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
         completionHandler: (void (^)(SWGSource* output, NSError* error))completionBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/sources/", basePath];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/sources", basePath];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound)
@@ -238,7 +239,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 -(NSNumber*) getSourceByIDWithCompletionBlock: (NSString*) vestorly-auth
          _id: (NSString*) _id
         
-        completionHandler: (void (^)(SWGSource* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGSourceresponse* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/sources/{id}", basePath];
@@ -302,9 +303,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGSource* result = nil;
+                SWGSourceresponse* result = nil;
                 if (data) {
-                    result = [[SWGSource  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGSourceresponse  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 
@@ -316,11 +317,11 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     
 }
 
--(NSNumber*) UpdateSourceByIDWithCompletionBlock: (NSString*) vestorly-auth
+-(NSNumber*) updateSourceByIDWithCompletionBlock: (NSString*) vestorly-auth
          _id: (NSString*) _id
          source: (SWGSourceInput*) source
         
-        completionHandler: (void (^)(SWGSource* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGSourceresponse* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/sources/{id}", basePath];
@@ -407,9 +408,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGSource* result = nil;
+                SWGSourceresponse* result = nil;
                 if (data) {
-                    result = [[SWGSource  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGSourceresponse  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 

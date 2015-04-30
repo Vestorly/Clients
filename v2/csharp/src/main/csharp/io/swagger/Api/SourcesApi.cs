@@ -95,7 +95,7 @@ namespace io.swagger.Api {
     /// <returns></returns>
     public Source  createSource (string VestorlyAuth, SourceInput Source) {
       // create path and map variables
-      var path = "/sources/".Replace("{format}","json");
+      var path = "/sources".Replace("{format}","json");
 
       // query params
       var queryParams = new Dictionary<String, String>();
@@ -150,7 +150,7 @@ namespace io.swagger.Api {
      /// <param name="Id">ID of source to fetch</param>
     
     /// <returns></returns>
-    public Source  getSourceByID (string VestorlyAuth, string Id) {
+    public Sourceresponse  getSourceByID (string VestorlyAuth, string Id) {
       // create path and map variables
       var path = "/sources/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -171,17 +171,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Source) == typeof(byte[])) {
+        if (typeof(Sourceresponse) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Source;
+          return ((object)response) as Sourceresponse;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
           if (response != null){
-             return (Source) ApiInvoker.deserialize(response, typeof(Source));
+             return (Sourceresponse) ApiInvoker.deserialize(response, typeof(Sourceresponse));
           }
           else {
             return null;
@@ -208,7 +208,7 @@ namespace io.swagger.Api {
      /// <param name="Source">Source</param>
     
     /// <returns></returns>
-    public Source  UpdateSourceByID (string VestorlyAuth, string Id, SourceInput Source) {
+    public Sourceresponse  updateSourceByID (string VestorlyAuth, string Id, SourceInput Source) {
       // create path and map variables
       var path = "/sources/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -229,17 +229,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Source) == typeof(byte[])) {
+        if (typeof(Sourceresponse) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Source;
+          return ((object)response) as Sourceresponse;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, Source, headerParams, formParams);
           if (response != null){
-             return (Source) ApiInvoker.deserialize(response, typeof(Source));
+             return (Sourceresponse) ApiInvoker.deserialize(response, typeof(Sourceresponse));
           }
           else {
             return null;

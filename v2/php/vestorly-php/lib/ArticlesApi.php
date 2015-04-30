@@ -108,10 +108,11 @@ class ArticlesApi {
    *
    * 
    *
+   * @param string $vestorly_auth Vestorly Auth Token (required)
    * @param string $id Article Id to fetch (required)
    * @return Articleresponse
    */
-   public function findArticleByID($id) {
+   public function findArticleByID($vestorly_auth, $id) {
 
       // parse inputs
       $resourcePath = "/articles/{id}";
@@ -128,7 +129,10 @@ class ArticlesApi {
       $_header_content_type = array();
       $headerParams['Content-Type'] = count($_header_content_type) > 0 ? $_header_content_type[0] : 'application/json';
 
-      
+      // query params
+      if($vestorly_auth !== null) {
+        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
+      }
       
       // path params
       if($id !== null) {

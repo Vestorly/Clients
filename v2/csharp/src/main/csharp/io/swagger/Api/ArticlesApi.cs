@@ -105,10 +105,11 @@ namespace io.swagger.Api {
     /// <summary>
     ///  Returns a single article
     /// </summary>
-    /// <param name="Id">Article Id to fetch</param>
+    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+     /// <param name="Id">Article Id to fetch</param>
     
     /// <returns></returns>
-    public Articleresponse  findArticleByID (string Id) {
+    public Articleresponse  findArticleByID (string VestorlyAuth, string Id) {
       // create path and map variables
       var path = "/articles/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -119,6 +120,9 @@ namespace io.swagger.Api {
 
       
 
+      if (VestorlyAuth != null){
+        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
+      }
       
 
       

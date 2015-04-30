@@ -129,7 +129,7 @@ findArticleByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sa
 }
 
 SamiArticleresponse* 
-SamiArticlesApi::findArticleByIDWithCompletion(String* _id, void (* success)(SamiArticleresponse*, SamiError*)) {
+SamiArticlesApi::findArticleByIDWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiArticleresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findArticleByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -141,6 +141,9 @@ SamiArticlesApi::findArticleByIDWithCompletion(String* _id, void (* success)(Sam
   HashMap* queryParams = new HashMap(SingleObjectDeleter);
   queryParams->Construct();
 
+  
+    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+  
   
 
   String* mBody = null;

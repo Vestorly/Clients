@@ -70,6 +70,8 @@ from .models.newsletter_settings_input import NewsletterSettingsInput
 
 from .models.newsletter_setting import NewsletterSetting
 
+from .models.sourceresponse import Sourceresponse
+
 from .models.source import Source
 
 from .models.source_input import SourceInput

@@ -122,7 +122,7 @@ class SourcesApi(object):
             params[key] = val
         del params['kwargs']
 
-        resourcePath = '/sources/'
+        resourcePath = '/sources'
         resourcePath = resourcePath.replace('{format}', 'json')
         method = 'POST'
 
@@ -181,7 +181,7 @@ class SourcesApi(object):
             
             
         
-        Returns: Source
+        Returns: Sourceresponse
         """
 
         allParams = ['vestorly_auth', 'id']
@@ -237,13 +237,13 @@ class SourcesApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'Source')
+        responseObject = self.apiClient.deserialize(response, 'Sourceresponse')
         return responseObject
         
         
         
     
-    def UpdateSourceByID(self, **kwargs):
+    def updateSourceByID(self, **kwargs):
         """
 
         Args:
@@ -258,7 +258,7 @@ class SourcesApi(object):
             
             
         
-        Returns: Source
+        Returns: Sourceresponse
         """
 
         allParams = ['vestorly_auth', 'id', 'source']
@@ -266,7 +266,7 @@ class SourcesApi(object):
         params = locals()
         for (key, val) in params['kwargs'].iteritems():
             if key not in allParams:
-                raise TypeError("Got an unexpected keyword argument '%s' to method UpdateSourceByID" % key)
+                raise TypeError("Got an unexpected keyword argument '%s' to method updateSourceByID" % key)
             params[key] = val
         del params['kwargs']
 
@@ -317,7 +317,7 @@ class SourcesApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'Source')
+        responseObject = self.apiClient.deserialize(response, 'Sourceresponse')
         return responseObject
         
         

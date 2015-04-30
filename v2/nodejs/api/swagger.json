@@ -357,6 +357,14 @@
       "parameters": [
         
         {
+  "name" : "vestorly-auth",
+  "in" : "query",
+  "description" : "Vestorly Auth Token",
+  "required" : true,
+  "type" : "string"
+},
+        
+        {
   "name" : "id",
   "in" : "path",
   "description" : "Article Id to fetch",
@@ -1072,7 +1080,7 @@
     }
   } ,
   
-  "/sources/": {
+  "/sources": {
     "post": {
       "x-swagger-router-controller": "Sources",
       "tags": ["Sources"],
@@ -1141,7 +1149,7 @@
         "200": {
   "description" : "source response",
   "schema" : {
-    "$ref" : "#/definitions/Source"
+    "$ref" : "#/definitions/Sourceresponse"
   }
 }
         
@@ -1154,7 +1162,7 @@
     "put": {
       "x-swagger-router-controller": "Sources",
       "tags": ["Sources"],
-      "operationId": "UpdateSourceByID",
+      "operationId": "updateSourceByID",
       "parameters": [
         
         {
@@ -1189,7 +1197,7 @@
         "200": {
   "description" : "source response",
   "schema" : {
-    "$ref" : "#/definitions/Source"
+    "$ref" : "#/definitions/Sourceresponse"
   }
 }
         
@@ -1604,6 +1612,7 @@
     }
   }
 },"Article": {
+  "required" : [ "_id" ],
   "properties" : {
     "_id" : {
       "type" : "string"
@@ -2049,6 +2058,12 @@
     "facebook_hour" : {
       "type" : "integer",
       "format" : "int32"
+    }
+  }
+},"Sourceresponse": {
+  "properties" : {
+    "source" : {
+      "$ref" : "#/definitions/Source"
     }
   }
 },"Source": {

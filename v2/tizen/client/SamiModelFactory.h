@@ -36,6 +36,7 @@
 #include "SamiNewslettersettings.h"
 #include "SamiNewsletterSettingsInput.h"
 #include "SamiNewsletterSetting.h"
+#include "SamiSourceresponse.h"
 #include "SamiSource.h"
 #include "SamiSourceInput.h"
 #include "SamiSources.h"
@@ -141,6 +142,9 @@ namespace Swagger {
     }
     if(type.Equals(L"SamiNewsletterSetting", true)) {
       return new SamiNewsletterSetting();
+    }
+    if(type.Equals(L"SamiSourceresponse", true)) {
+      return new SamiSourceresponse();
     }
     if(type.Equals(L"SamiSource", true)) {
       return new SamiSource();

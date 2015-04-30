@@ -2,6 +2,7 @@
 #import "SWGSources.h"
 #import "SWGSourceInput.h"
 #import "SWGSource.h"
+#import "SWGSourceresponse.h"
 #import "SWGObject.h"
 
 
@@ -55,12 +56,12 @@
  @param _id ID of source to fetch
  
 
- return type: SWGSource*
+ return type: SWGSourceresponse*
  */
 -(NSNumber*) getSourceByIDWithCompletionBlock :(NSString*) vestorly-auth 
      _id:(NSString*) _id 
     
-    completionHandler: (void (^)(SWGSource* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGSourceresponse* output, NSError* error))completionBlock;
     
 
 
@@ -74,13 +75,13 @@
  @param source Source
  
 
- return type: SWGSource*
+ return type: SWGSourceresponse*
  */
--(NSNumber*) UpdateSourceByIDWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) updateSourceByIDWithCompletionBlock :(NSString*) vestorly-auth 
      _id:(NSString*) _id 
      source:(SWGSourceInput*) source 
     
-    completionHandler: (void (^)(SWGSource* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGSourceresponse* output, NSError* error))completionBlock;
     
 
 

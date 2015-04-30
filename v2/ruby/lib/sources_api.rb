@@ -74,7 +74,7 @@ class SourcesApi
     }.merge(opts)
 
     #resource path
-    path = "/sources/".sub('{format}','json')
+    path = "/sources".sub('{format}','json')
     
     # pull querystring keys from options
     queryopts = options.select do |key,value|
@@ -131,7 +131,7 @@ class SourcesApi
   # Get Source By ID
   # @param vestorly_auth Vestorly Auth Token
   # @param id ID of source to fetch
-  # @return Source
+  # @return Sourceresponse
   def self.getSourceByID (vestorly_auth, id, opts={})
     query_param_keys = [:vestorly_auth]
     headerParams = {}
@@ -174,7 +174,7 @@ class SourcesApi
     
     
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Source.new(response)
+     Sourceresponse.new(response)
     
     
   
@@ -185,8 +185,8 @@ class SourcesApi
   # @param vestorly_auth Vestorly Auth Token
   # @param id ID of source to fetch
   # @param source Source
-  # @return Source
-  def self.UpdateSourceByID (vestorly_auth, id, source, opts={})
+  # @return Sourceresponse
+  def self.updateSourceByID (vestorly_auth, id, source, opts={})
     query_param_keys = [:vestorly_auth]
     headerParams = {}
 
@@ -249,7 +249,7 @@ class SourcesApi
     
     
     response = Swagger::Request.new(:PUT, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Source.new(response)
+     Sourceresponse.new(response)
     
     
   

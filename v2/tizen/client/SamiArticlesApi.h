@@ -24,7 +24,7 @@ public:
   findArticlesWithCompletion(String* vestorly-auth, Integer* limit, String* text_query, String* sort_direction, String* sort_by, void (* handler)(SamiArticles*, SamiError*));
   
   SamiArticleresponse* 
-  findArticleByIDWithCompletion(String* _id, void (* handler)(SamiArticleresponse*, SamiError*));
+  findArticleByIDWithCompletion(String* vestorly-auth, String* _id, void (* handler)(SamiArticleresponse*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

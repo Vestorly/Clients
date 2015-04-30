@@ -50,13 +50,13 @@ module.exports.getSourceByID = function getSourceByID (req, res, next) {
     res.end();
 };
 
-module.exports.UpdateSourceByID = function UpdateSourceByID (req, res, next) {
+module.exports.updateSourceByID = function updateSourceByID (req, res, next) {
   var vestorly-auth = req.swagger.params['vestorly-auth'].value;
   var id = req.swagger.params['id'].value;
   var source = req.swagger.params['source'].value;
   
 
-  var result = Sources.UpdateSourceByID(vestorly-auth, id, source);
+  var result = Sources.updateSourceByID(vestorly-auth, id, source);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

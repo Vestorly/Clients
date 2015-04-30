@@ -65,16 +65,18 @@ class ArticlesApi
 
   # 
   # Returns a single article
+  # @param vestorly_auth Vestorly Auth Token
   # @param id Article Id to fetch
   # @return Articleresponse
-  def self.findArticleByID (id, opts={})
-    query_param_keys = []
+  def self.findArticleByID (vestorly_auth, id, opts={})
+    query_param_keys = [:vestorly_auth]
     headerParams = {}
 
     
     
     # set default values and merge with input
     options = {
+      :'vestorly_auth' => vestorly_auth,
       :'id' => id
       
     }.merge(opts)

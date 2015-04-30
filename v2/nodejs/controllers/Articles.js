@@ -25,10 +25,11 @@ module.exports.findArticles = function findArticles (req, res, next) {
 };
 
 module.exports.findArticleByID = function findArticleByID (req, res, next) {
+  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
   var id = req.swagger.params['id'].value;
   
 
-  var result = Articles.findArticleByID(id);
+  var result = Articles.findArticleByID(vestorly-auth, id);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

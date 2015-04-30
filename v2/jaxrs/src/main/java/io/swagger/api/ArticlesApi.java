@@ -51,7 +51,8 @@ public class ArticlesApi {
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Article response") })
 
-  public Response findArticleByID(@ApiParam(value = "Article Id to fetch",required=true ) @PathParam("id") String id)
+  public Response findArticleByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+    @ApiParam(value = "Article Id to fetch",required=true ) @PathParam("id") String id)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

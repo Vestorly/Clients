@@ -3,6 +3,7 @@ package com.wordnik.client.api
 import com.wordnik.client.model.Sources
 import com.wordnik.client.model.SourceInput
 import com.wordnik.client.model.Source
+import com.wordnik.client.model.Sourceresponse
 
 import java.io.File
 
@@ -87,7 +88,7 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
         )
   )
 
-  post("/sources/",operation(createSourceOperation)) {
+  post("/sources",operation(createSourceOperation)) {
     
     
     
@@ -127,7 +128,7 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   
 
-  val getSourceByIDOperation = (apiOperation[Source]("getSourceByID")
+  val getSourceByIDOperation = (apiOperation[Sourceresponse]("getSourceByID")
       summary ""
       parameters(
         queryParam[String]("vestorly-auth").description("")
@@ -187,7 +188,7 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   
 
-  val UpdateSourceByIDOperation = (apiOperation[Source]("UpdateSourceByID")
+  val updateSourceByIDOperation = (apiOperation[Sourceresponse]("updateSourceByID")
       summary ""
       parameters(
         queryParam[String]("vestorly-auth").description("")
@@ -214,7 +215,7 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
         )
   )
 
-  put("/sources/{id}",operation(UpdateSourceByIDOperation)) {
+  put("/sources/{id}",operation(updateSourceByIDOperation)) {
     
     
     

@@ -99,7 +99,7 @@ class SourcesApi {
    public function createSource($vestorly_auth, $source) {
 
       // parse inputs
-      $resourcePath = "/sources/";
+      $resourcePath = "/sources";
       $resourcePath = str_replace("{format}", "json", $resourcePath);
       $method = "POST";
       $httpBody = '';
@@ -157,7 +157,7 @@ class SourcesApi {
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
    * @param string $id ID of source to fetch (required)
-   * @return Source
+   * @return Sourceresponse
    */
    public function getSourceByID($vestorly_auth, $id) {
 
@@ -209,21 +209,21 @@ class SourcesApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Source');
+  		                                                'Sourceresponse');
   		return $responseObject;
   }
   
   /**
-   * UpdateSourceByID
+   * updateSourceByID
    *
    * 
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
    * @param string $id ID of source to fetch (required)
    * @param SourceInput $source Source (required)
-   * @return Source
+   * @return Sourceresponse
    */
-   public function UpdateSourceByID($vestorly_auth, $id, $source) {
+   public function updateSourceByID($vestorly_auth, $id, $source) {
 
       // parse inputs
       $resourcePath = "/sources/{id}";
@@ -277,7 +277,7 @@ class SourcesApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Source');
+  		                                                'Sourceresponse');
   		return $responseObject;
   }
   

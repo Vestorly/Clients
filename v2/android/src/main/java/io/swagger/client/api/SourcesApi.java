@@ -10,6 +10,7 @@ import java.util.*;
 import io.swagger.client.model.Sources;
 import io.swagger.client.model.SourceInput;
 import io.swagger.client.model.Source;
+import io.swagger.client.model.Sourceresponse;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -98,7 +99,7 @@ public class SourcesApi {
     
 
     // create path and map variables
-    String path = "/sources/".replaceAll("\\{format\\}","json");
+    String path = "/sources".replaceAll("\\{format\\}","json");
 
     // query params
     Map<String, String> queryParams = new HashMap<String, String>();
@@ -144,7 +145,7 @@ public class SourcesApi {
   }
   
   
-  public Source  getSourceByID (String vestorlyAuth, String id) throws ApiException {
+  public Sourceresponse  getSourceByID (String vestorlyAuth, String id) throws ApiException {
     Object postBody = null;
 
     
@@ -185,7 +186,7 @@ public class SourcesApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Source) ApiInvoker.deserialize(response, "", Source.class);
+        return (Sourceresponse) ApiInvoker.deserialize(response, "", Sourceresponse.class);
       }
       else {
         return null;
@@ -196,7 +197,7 @@ public class SourcesApi {
   }
   
   
-  public Source  UpdateSourceByID (String vestorlyAuth, String id, SourceInput source) throws ApiException {
+  public Sourceresponse  updateSourceByID (String vestorlyAuth, String id, SourceInput source) throws ApiException {
     Object postBody = source;
 
     
@@ -237,7 +238,7 @@ public class SourcesApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Source) ApiInvoker.deserialize(response, "", Source.class);
+        return (Sourceresponse) ApiInvoker.deserialize(response, "", Sourceresponse.class);
       }
       else {
         return null;

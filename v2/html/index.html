@@ -254,6 +254,9 @@
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
+      <div class="param">vestorly-auth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">id (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Article Id to fetch </div>
@@ -740,7 +743,7 @@
   <hr>
   
   <div class="method">
-    <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: /sources/</code></pre></div>
+    <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: /sources</code></pre></div>
     <div class="method-summary"><span class="nickname">createSource</span> </div>
     <div class="method-notes">Create source</div>
 
@@ -783,19 +786,19 @@
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">Source</a></div>
+    <div class="return-type"><a href="#">Sourceresponse</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "logo_url" : "aeiou",\n  "rss_publisher" : "aeiou",\n  "name" : "aeiou",\n  "custom_rss_feed" : true,\n  "_id" : "aeiou",\n  "url" : "aeiou",\n  "enabled" : true\n}</code></pre>
+    <pre class="example"><code>{\n  "source" : {\n    "logo_url" : "aeiou",\n    "rss_publisher" : "aeiou",\n    "name" : "aeiou",\n    "custom_rss_feed" : true,\n    "_id" : "aeiou",\n    "url" : "aeiou",\n    "enabled" : true\n  }\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
   
   <div class="method">
     <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /sources/{id}</code></pre></div>
-    <div class="method-summary"><span class="nickname">UpdateSourceByID</span> </div>
+    <div class="method-summary"><span class="nickname">updateSourceByID</span> </div>
     <div class="method-notes">Update Source By ID</div>
 
     <h3 class="field-label">Parameters</h3>
@@ -813,12 +816,12 @@
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">Source</a></div>
+    <div class="return-type"><a href="#">Sourceresponse</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "logo_url" : "aeiou",\n  "rss_publisher" : "aeiou",\n  "name" : "aeiou",\n  "custom_rss_feed" : true,\n  "_id" : "aeiou",\n  "url" : "aeiou",\n  "enabled" : true\n}</code></pre>
+    <pre class="example"><code>{\n  "source" : {\n    "logo_url" : "aeiou",\n    "rss_publisher" : "aeiou",\n    "name" : "aeiou",\n    "custom_rss_feed" : true,\n    "_id" : "aeiou",\n    "url" : "aeiou",\n    "enabled" : true\n  }\n}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -1387,6 +1390,16 @@
       <div class="param">twitter_hour </div><div class="param-desc"><span class="param-type">Integer</span> </div>
       <div class="param">linkedin_hour </div><div class="param-desc"><span class="param-type">Integer</span> </div>
       <div class="param">facebook_hour </div><div class="param-desc"><span class="param-type">Integer</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Sourceresponse">Sourceresponse</a></h3>
+    <div class="field-items">
+      <div class="param">source </div><div class="param-desc"><span class="param-type">Source</span> </div>
       
     </div>  <!-- field-items -->
   </div>

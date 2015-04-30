@@ -169,6 +169,13 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
   val findArticleByIDOperation = (apiOperation[Articleresponse]("findArticleByID")
       summary ""
       parameters(
+        queryParam[String]("vestorly-auth").description("")
+        
+        
+        
+        
+        
+        ,
         
         pathParam[String]("id").description("")
         
@@ -181,6 +188,24 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   get("/articles/{id}",operation(findArticleByIDOperation)) {
     
+    
+    
+    
+
+    
+      
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("vestorly-auth: " + vestorly-auth)
+  
     
     
     
