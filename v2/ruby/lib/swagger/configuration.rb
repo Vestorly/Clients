@@ -9,7 +9,7 @@ module Swagger
     def initialize
       @format = 'json'
       @scheme = 'http'
-      @host = 'petstore.swagger.io'
+      @host = 'staging.vestorly.com'
       @base_path = '/v2'
       @user_agent = "ruby-swagger-#{Swagger::VERSION}"
       @inject_format = false

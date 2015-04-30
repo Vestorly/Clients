@@ -341,15 +341,30 @@ class test_posts_api(unittest.TestCase):
 	def test_posts_HTTP_post_create(self):
 		""" """
 		api = vestorly.PostsApi(apiClient=self.client)
-		new_post = vestorly.PostInput()
-		new_post.title = "NE"
-		new_post._id = '551ed15e90a0ece318000020'
-
-		
-		print self.client.sanitizeForSerialization(new_post)
-		response = api.updatePostByID(**{
+		new_post = vestorly.Post()
+		new_post.body = "NE"
+		d = {
+			'id' : '551ed15e90a0ece318000020',
 			'post' : self.client.sanitizeForSerialization(new_post)
-		})
-  		 
+		}
+		response = api.updatePostByID(**d)
+		
+		
+	def test_posts_HTTP_post_create(self):
+		""" """
+		api = vestorly.PostsApi(apiClient=self.client)
+		new_post = vestorly.Post()
+		new_post.body = "NE"
+		new_post.title = "Hello"
+		new_post.post_date = "1/2/2016"
+		
+		
+		d = {
+			'post' : self.client.sanitizeForSerialization(new_post)
+		}
+		response = api.createPost(**d)
+		
+		
+  		# 
 if __name__ == '__main__':
 	unittest.main()

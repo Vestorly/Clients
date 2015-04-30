@@ -4,7 +4,6 @@ package io.swagger.client.model
 
 
 case class PostInput (
-  _id: String,
   title: String,
   post_date: String,
   body: String,

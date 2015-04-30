@@ -30,9 +30,6 @@ class PostInput(object):
         """
         self.swaggerTypes = {
             
-            '_id': 'str',
-            
-            
             'title': 'str',
             
             
@@ -72,8 +69,6 @@ class PostInput(object):
 
         self.attributeMap = {
             
-            '_id': '_id',
-            
             'title': 'title',
             
             'post_date': 'post_date',
@@ -100,9 +95,6 @@ class PostInput(object):
             
         }
 
-        
-        
-        self._id = None # str
         
         
         self.title = None # str

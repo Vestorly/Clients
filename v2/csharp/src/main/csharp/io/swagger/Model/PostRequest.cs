@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 namespace io.swagger.Model {
-  public class PostRequest {
+  public class Postrequest {
     
 
     
@@ -14,7 +14,7 @@ namespace io.swagger.Model {
 
     public override string ToString()  {
       var sb = new StringBuilder();
-      sb.Append("class PostRequest {\n");
+      sb.Append("class Postrequest {\n");
       
       sb.Append("  Post: ").Append(Post).Append("\n");
       

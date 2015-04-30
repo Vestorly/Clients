@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @ApiModel(description = "")
-public class PostRequest  {
+public class Postrequest  {
   
   private PostInput post = null;
 
@@ -28,7 +28,7 @@ public class PostRequest  {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PostRequest {\n");
+    sb.append("class Postrequest {\n");
     
     sb.append("  post: ").append(post).append("\n");
     sb.append("}\n");

@@ -220,7 +220,7 @@ namespace io.swagger.Api {
      /// <param name="Post">Post you want to update</param>
     
     /// <returns></returns>
-    public Postresponse  updatePostByID (string VestorlyAuth, string Id, PostInput Post) {
+    public Postresponse  updatePostByID (string VestorlyAuth, string Id, Post Post) {
       // create path and map variables
       var path = "/posts/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 

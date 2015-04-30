@@ -334,7 +334,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
 -(NSNumber*) updatePostByIDWithCompletionBlock: (NSString*) vestorly-auth
          _id: (NSString*) _id
-         post: (SWGPostInput*) post
+         post: (SWGPost*) post
         
         completionHandler: (void (^)(SWGPostresponse* output, NSError* error))completionBlock
          {

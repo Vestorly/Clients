@@ -8,8 +8,6 @@
 @interface SWGPostInput : SWGObject
 
 
-@property(nonatomic) NSString<Optional>* _id;
-
 @property(nonatomic) NSString* title;
 
 @property(nonatomic) NSString<Optional>* post_date;

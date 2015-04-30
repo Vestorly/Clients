@@ -22,7 +22,6 @@ SamiPostInput::~SamiPostInput() {
 
 void
 SamiPostInput::init() {
-    p_id = null;
     pTitle = null;
     pPost_date = null;
     pBody = null;
@@ -40,11 +39,6 @@ SamiPostInput::init() {
 
 void
 SamiPostInput::cleanup() {
-    if(p_id != null) {
-        
-        delete p_id;
-        p_id = null;
-    }
     if(pTitle != null) {
         
         delete pTitle;
@@ -143,15 +137,6 @@ SamiPostInput::fromJsonObject(IJsonValue* pJson) {
     JsonObject* pJsonObject = static_cast< JsonObject* >(pJson);
 
     if(pJsonObject != null) {
-        JsonString* p_idKey = new JsonString(L"_id");
-        IJsonValue* p_idVal = null;
-        pJsonObject->GetValue(p_idKey, p_idVal);
-        if(p_idVal != null) {
-            
-            p_id = new String();
-            jsonToValue(p_id, p_idVal, L"String", L"String");
-        }
-        delete p_idKey;
         JsonString* pTitleKey = new JsonString(L"title");
         IJsonValue* pTitleVal = null;
         pJsonObject->GetValue(pTitleKey, pTitleVal);
@@ -312,10 +297,6 @@ SamiPostInput::asJsonObject() {
     pJsonObject->Construct();
 
     
-    JsonString *p_idKey = new JsonString(L"_id");
-    pJsonObject->Add(p_idKey, toJson(getPId(), "String", ""));
-
-    
     JsonString *pTitleKey = new JsonString(L"title");
     pJsonObject->Add(pTitleKey, toJson(getPTitle(), "String", ""));
 
@@ -365,15 +346,6 @@ SamiPostInput::asJsonObject() {
 
     
     return pJsonObject;
-}
-
-String*
-SamiPostInput::getPId() {
-    return p_id;
-}
-void
-SamiPostInput::setPId(String* p_id) {
-    this->p_id = p_id;
 }
 
 String*

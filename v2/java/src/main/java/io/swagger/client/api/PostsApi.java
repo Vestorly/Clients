@@ -214,7 +214,7 @@ public class PostsApi {
    * @param post Post you want to update
    * @return Postresponse
    */
-  public Postresponse updatePostByID (String vestorlyAuth, String id, PostInput post) throws ApiException {
+  public Postresponse updatePostByID (String vestorlyAuth, String id, Post post) throws ApiException {
     Object postBody = post;
     
 

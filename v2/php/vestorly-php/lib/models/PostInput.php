@@ -28,7 +28,6 @@ use \ArrayAccess;
 
 class PostInput implements ArrayAccess {
   static $swaggerTypes = array(
-      '_id' => 'string',
       'title' => 'string',
       'post_date' => 'string',
       'body' => 'string',
@@ -44,7 +43,6 @@ class PostInput implements ArrayAccess {
   );
 
   static $attributeMap = array(
-      '_id' => '_id',
       'title' => 'title',
       'post_date' => 'post_date',
       'body' => 'body',
@@ -60,7 +58,6 @@ class PostInput implements ArrayAccess {
   );
 
   
-  public $_id; /* string */
   public $title; /* string */
   public $post_date; /* string */
   public $body; /* string */
@@ -75,7 +72,6 @@ class PostInput implements ArrayAccess {
   public $topic; /* string */
 
   public function __construct(array $data = null) {
-    $this->_id = $data["_id"];
     $this->title = $data["title"];
     $this->post_date = $data["post_date"];
     $this->body = $data["body"];

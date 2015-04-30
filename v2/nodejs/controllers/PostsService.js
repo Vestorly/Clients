@@ -4,24 +4,7 @@ exports.findPosts = function(vestorly-auth, text_query, external_url, is_publish
 
   var examples = {};
   
-  examples['application/json'] = {
-  "posts" : [ {
-    "img" : "aeiou",
-    "client_only" : true,
-    "image_url" : "aeiou",
-    "video" : "aeiou",
-    "title" : "aeiou",
-    "body" : "aeiou",
-    "img_compressed" : true,
-    "img_changed" : true,
-    "attachment" : "aeiou",
-    "post_date" : "aeiou",
-    "vestorly_url" : "aeiou",
-    "topic" : "aeiou",
-    "comment" : "aeiou",
-    "_id" : "aeiou"
-  } ]
-};
+  examples['application/json'] = "";
   
 
   

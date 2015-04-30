@@ -1,6 +1,6 @@
-#import "SWGPostRequest.h"
+#import "SWGPostrequest.h"
 
-@implementation SWGPostRequest
+@implementation SWGPostrequest
   
 + (JSONKeyMapper *)keyMapper
 {

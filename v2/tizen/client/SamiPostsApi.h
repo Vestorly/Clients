@@ -31,7 +31,7 @@ public:
   getPostByIDWithCompletion(String* vestorly-auth, String* _id, void (* handler)(SamiPostresponse*, SamiError*));
   
   SamiPostresponse* 
-  updatePostByIDWithCompletion(String* vestorly-auth, String* _id, SamiPostInput* post, void (* handler)(SamiPostresponse*, SamiError*));
+  updatePostByIDWithCompletion(String* vestorly-auth, String* _id, SamiPost* post, void (* handler)(SamiPostresponse*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

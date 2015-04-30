@@ -86,7 +86,7 @@ public class PostsApi {
 
   public Response updatePostByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
     @ApiParam(value = "id of post to update",required=true ) @PathParam("id") String id,
-    @ApiParam(value = "Post you want to update" ,required=true ) PostInput post)
+    @ApiParam(value = "Post you want to update" ,required=true ) Post post)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

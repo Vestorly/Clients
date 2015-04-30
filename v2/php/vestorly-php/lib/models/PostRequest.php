@@ -26,7 +26,7 @@ namespace Vestorly\models;
 
 use \ArrayAccess;
 
-class PostRequest implements ArrayAccess {
+class Postrequest implements ArrayAccess {
   static $swaggerTypes = array(
       'post' => 'PostInput'
   );

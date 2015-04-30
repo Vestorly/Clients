@@ -3,6 +3,6 @@ package com.wordnik.client.model
 import com.wordnik.client.model.PostInput
 
 
-case class PostRequest (
+case class Postrequest (
   post: PostInput
 )

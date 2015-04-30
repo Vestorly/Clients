@@ -8,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @ApiModel(description = "")
 public class PostInput  {
   
-  private String id = null;
   private String title = null;
   private String postDate = null;
   private String body = null;
@@ -21,18 +20,6 @@ public class PostInput  {
   private Boolean imgCompressed = null;
   private Boolean imgChanged = null;
   private String topic = null;
-
-  
-  /**
-   **/
-  @ApiModelProperty(value = "")
-  @JsonProperty("_id")
-  public String getId() {
-    return id;
-  }
-  public void setId(String id) {
-    this.id = id;
-  }
 
   
   /**
@@ -185,7 +172,6 @@ public class PostInput  {
     StringBuilder sb = new StringBuilder();
     sb.append("class PostInput {\n");
     
-    sb.append("  id: ").append(id).append("\n");
     sb.append("  title: ").append(title).append("\n");
     sb.append("  postDate: ").append(postDate).append("\n");
     sb.append("  body: ").append(body).append("\n");

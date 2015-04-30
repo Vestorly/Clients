@@ -130,7 +130,7 @@ class PostsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
     }
   }
   
-  def updatePostByID (vestorly-auth: String, id: String, post: PostInput) : Option[Postresponse] = {
+  def updatePostByID (vestorly-auth: String, id: String, post: Post) : Option[Postresponse] = {
     // create path and map variables
     val path = "/posts/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 

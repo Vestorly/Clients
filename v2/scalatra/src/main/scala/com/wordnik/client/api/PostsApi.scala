@@ -283,7 +283,7 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         
-        bodyParam[PostInput]("post").description("")
+        bodyParam[Post]("post").description("")
         
         
         
@@ -337,7 +337,7 @@ class PostsApi (implicit val swagger: Swagger) extends ScalatraServlet
     
 
     
-      val post = parsedBody.extract[PostInput]
+      val post = parsedBody.extract[Post]
     
     
     println("post: " + post)

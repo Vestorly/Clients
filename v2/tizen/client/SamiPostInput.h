@@ -42,9 +42,6 @@ public:
     SamiPostInput* fromJson(String* obj);
 
     
-    String* getPId();
-    void setPId(String* p_id);
-    
     String* getPTitle();
     void setPTitle(String* pTitle);
     
@@ -83,7 +80,6 @@ public:
     
 
 private:
-    String* p_id;
     String* pTitle;
     String* pPost_date;
     String* pBody;

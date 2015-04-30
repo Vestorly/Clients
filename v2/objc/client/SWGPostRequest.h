@@ -3,10 +3,10 @@
 #import "SWGPostInput.h"
 
 
-@protocol SWGPostRequest
+@protocol SWGPostrequest
 @end
   
-@interface SWGPostRequest : SWGObject
+@interface SWGPostrequest : SWGObject
 
 
 @property(nonatomic) SWGPostInput<Optional, SWGPostInput>* post;

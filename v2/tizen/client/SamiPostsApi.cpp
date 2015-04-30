@@ -269,7 +269,7 @@ updatePostByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sam
 }
 
 SamiPostresponse* 
-SamiPostsApi::updatePostByIDWithCompletion(String* vestorly-auth, String* _id, SamiPostInput* post, void (* success)(SamiPostresponse*, SamiError*)) {
+SamiPostsApi::updatePostByIDWithCompletion(String* vestorly-auth, String* _id, SamiPost* post, void (* success)(SamiPostresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&updatePostByIDProcessor, (void(*)(void*, SamiError*))success);

@@ -272,7 +272,7 @@ class PostsApi(object):
             id, str: id of post to update (required)
             
             
-            post, PostRequest: Post you want to update (required)
+            post, Post: Post you want to update (required)
             
             
         

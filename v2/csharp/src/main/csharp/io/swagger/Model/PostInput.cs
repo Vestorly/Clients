@@ -8,11 +8,6 @@ namespace io.swagger.Model {
     
 
     
-    public string Id { get; set; }
-
-    
-
-    
     public string Title { get; set; }
 
     
@@ -75,8 +70,6 @@ namespace io.swagger.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class PostInput {\n");
-      
-      sb.Append("  Id: ").Append(Id).Append("\n");
       
       sb.Append("  Title: ").Append(Title).Append("\n");
       

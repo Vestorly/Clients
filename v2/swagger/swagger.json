@@ -775,7 +775,7 @@
           "description" : "Post you want to update",
           "required" : true,
           "schema" : {
-            "$ref" : "#/definitions/PostInput"
+            "$ref" : "#/definitions/Post"
           }
         } ],
         "responses" : {
@@ -992,20 +992,10 @@
         }
       }
     },
-    "PostRequest" : {
+    "Postrequest" : {
       "properties" : {
         "post" : {
           "$ref" : "#/definitions/PostInput"
-        }
-      }
-    },
-    "Posts" : {
-      "properties" : {
-        "posts" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/Post"
-          }
         }
       }
     },
@@ -1061,9 +1051,6 @@
     "PostInput" : {
       "required" : [ "title" ],
       "properties" : {
-        "_id" : {
-          "type" : "string"
-        },
         "title" : {
           "type" : "string"
         },

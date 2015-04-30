@@ -1,5 +1,5 @@
 
-#include "SamiPostRequest.h"
+#include "SamiPostrequest.h"
 #include <FLocales.h>
 
 using namespace Tizen::Base;
@@ -12,22 +12,22 @@ using namespace Tizen::Locales;
 
 namespace Swagger {
 
-SamiPostRequest::SamiPostRequest() {
+SamiPostrequest::SamiPostrequest() {
     init();
 }
 
-SamiPostRequest::~SamiPostRequest() {
+SamiPostrequest::~SamiPostrequest() {
     this->cleanup();
 }
 
 void
-SamiPostRequest::init() {
+SamiPostrequest::init() {
     pPost = null;
     
 }
 
 void
-SamiPostRequest::cleanup() {
+SamiPostrequest::cleanup() {
     if(pPost != null) {
         
         delete pPost;
@@ -37,8 +37,8 @@ SamiPostRequest::cleanup() {
 }
 
 
-SamiPostRequest*
-SamiPostRequest::fromJson(String* json) {
+SamiPostrequest*
+SamiPostrequest::fromJson(String* json) {
     this->cleanup();
     String str(json->GetPointer());
     int length = str.GetLength();
@@ -67,7 +67,7 @@ SamiPostRequest::fromJson(String* json) {
 
 
 void
-SamiPostRequest::fromJsonObject(IJsonValue* pJson) {
+SamiPostrequest::fromJsonObject(IJsonValue* pJson) {
     JsonObject* pJsonObject = static_cast< JsonObject* >(pJson);
 
     if(pJsonObject != null) {
@@ -84,7 +84,7 @@ SamiPostRequest::fromJsonObject(IJsonValue* pJson) {
     }
 }
 
-SamiPostRequest::SamiPostRequest(String* json) {
+SamiPostrequest::SamiPostrequest(String* json) {
     init();
     String str(json->GetPointer());
     int length = str.GetLength();
@@ -111,7 +111,7 @@ SamiPostRequest::SamiPostRequest(String* json) {
 }
 
 String
-SamiPostRequest::asJson ()
+SamiPostrequest::asJson ()
 {
     JsonObject* pJsonObject = asJsonObject();
 
@@ -127,7 +127,7 @@ SamiPostRequest::asJson ()
 }
 
 JsonObject*
-SamiPostRequest::asJsonObject() {
+SamiPostrequest::asJsonObject() {
     JsonObject *pJsonObject = new JsonObject();
     pJsonObject->Construct();
 
@@ -140,11 +140,11 @@ SamiPostRequest::asJsonObject() {
 }
 
 SamiPostInput*
-SamiPostRequest::getPPost() {
+SamiPostrequest::getPPost() {
     return pPost;
 }
 void
-SamiPostRequest::setPPost(SamiPostInput* pPost) {
+SamiPostrequest::setPPost(SamiPostInput* pPost) {
     this->pPost = pPost;
 }
 

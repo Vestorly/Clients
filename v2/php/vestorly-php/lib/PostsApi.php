@@ -232,7 +232,7 @@ class PostsApi {
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
    * @param string $id id of post to update (required)
-   * @param PostInput $post Post you want to update (required)
+   * @param Post $post Post you want to update (required)
    * @return Postresponse
    */
    public function updatePostByID($vestorly_auth, $id, $post) {

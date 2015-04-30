@@ -1,11 +1,11 @@
 /*
- * SamiPostRequest.h
+ * SamiPostrequest.h
  * 
  * 
  */
 
-#ifndef SamiPostRequest_H_
-#define SamiPostRequest_H_
+#ifndef SamiPostrequest_H_
+#define SamiPostrequest_H_
 
 #include <FApp.h>
 #include <FBase.h>
@@ -22,11 +22,11 @@ using namespace Tizen::Web::Json;
 
 namespace Swagger {
 
-class SamiPostRequest: public SamiObject {
+class SamiPostrequest: public SamiObject {
 public:
-    SamiPostRequest();
-    SamiPostRequest(String* json);
-    virtual ~SamiPostRequest();
+    SamiPostrequest();
+    SamiPostrequest(String* json);
+    virtual ~SamiPostrequest();
 
     void init();
 
@@ -38,7 +38,7 @@ public:
 
     void fromJsonObject(IJsonValue* json);
 
-    SamiPostRequest* fromJson(String* obj);
+    SamiPostrequest* fromJson(String* obj);
 
     
     SamiPostInput* getPPost();
@@ -52,4 +52,4 @@ private:
 
 } /* namespace Swagger */
 
-#endif /* SamiPostRequest_H_ */
+#endif /* SamiPostrequest_H_ */

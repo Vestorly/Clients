@@ -1,10 +1,9 @@
 
 class PostInput
-  attr_accessor :_id, :title, :post_date, :body, :comment, :client_only, :attachment, :video, :img, :image_url, :img_compressed, :img_changed, :topic
+  attr_accessor :title, :post_date, :body, :comment, :client_only, :attachment, :video, :img, :image_url, :img_compressed, :img_changed, :topic
   # :internal => :external
   def self.attribute_map
     {
-      :_id => :'_id',
       :title => :'title',
       :post_date => :'post_date',
       :body => :'body',
@@ -24,10 +23,6 @@ class PostInput
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    
-    if self.class.attribute_map[:"_id"]
-      @_id = attributes["_id"]
-    end
     
     if self.class.attribute_map[:"title"]
       @title = attributes["title"]
