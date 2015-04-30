@@ -3,9 +3,8 @@
 #import "SWGQueryParamCollection.h"
 #import "SWGApiClient.h"
 #import "SWGSources.h"
-#import "SWGSourceInput.h"
-#import "SWGSource.h"
 #import "SWGSourceresponse.h"
+#import "SWGSourceInput.h"
 
 
 
@@ -136,7 +135,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 -(NSNumber*) createSourceWithCompletionBlock: (NSString*) vestorly-auth
          source: (SWGSourceInput*) source
         
-        completionHandler: (void (^)(SWGSource* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGSourceresponse* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/sources", basePath];
@@ -222,9 +221,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGSource* result = nil;
+                SWGSourceresponse* result = nil;
                 if (data) {
-                    result = [[SWGSource  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGSourceresponse  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 

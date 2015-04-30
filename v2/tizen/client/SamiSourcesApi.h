@@ -7,9 +7,8 @@
 
 #include "SamiSources.h"
 using Tizen::Base::String;
-#include "SamiSource.h"
-#include "SamiSourceInput.h"
 #include "SamiSourceresponse.h"
+#include "SamiSourceInput.h"
 
 using namespace Tizen::Net::Http;
 
@@ -24,8 +23,8 @@ public:
   SamiSources* 
   findSourcesWithCompletion(String* vestorly-auth, void (* handler)(SamiSources*, SamiError*));
   
-  SamiSource* 
-  createSourceWithCompletion(String* vestorly-auth, SamiSourceInput* source, void (* handler)(SamiSource*, SamiError*));
+  SamiSourceresponse* 
+  createSourceWithCompletion(String* vestorly-auth, SamiSourceInput* source, void (* handler)(SamiSourceresponse*, SamiError*));
   
   SamiSourceresponse* 
   getSourceByIDWithCompletion(String* vestorly-auth, String* _id, void (* handler)(SamiSourceresponse*, SamiError*));

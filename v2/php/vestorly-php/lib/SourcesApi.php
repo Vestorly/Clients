@@ -94,7 +94,7 @@ class SourcesApi {
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
    * @param SourceInput $source Source (required)
-   * @return Source
+   * @return Sourceresponse
    */
    public function createSource($vestorly_auth, $source) {
 
@@ -146,7 +146,7 @@ class SourcesApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Source');
+  		                                                'Sourceresponse');
   		return $responseObject;
   }
   

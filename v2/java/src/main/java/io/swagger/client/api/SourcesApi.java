@@ -8,9 +8,8 @@ import io.swagger.client.model.*;
 import java.util.*;
 
 import io.swagger.client.model.Sources;
-import io.swagger.client.model.SourceInput;
-import io.swagger.client.model.Source;
 import io.swagger.client.model.Sourceresponse;
+import io.swagger.client.model.SourceInput;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.file.FileDataBodyPart;
@@ -95,9 +94,9 @@ public class SourcesApi {
    * Create source
    * @param vestorlyAuth Vestorly Auth Token
    * @param source Source
-   * @return Source
+   * @return Sourceresponse
    */
-  public Source createSource (String vestorlyAuth, SourceInput source) throws ApiException {
+  public Sourceresponse createSource (String vestorlyAuth, SourceInput source) throws ApiException {
     Object postBody = source;
     
 
@@ -133,7 +132,7 @@ public class SourcesApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Source) ApiInvoker.deserialize(response, "", Source.class);
+        return (Sourceresponse) ApiInvoker.deserialize(response, "", Sourceresponse.class);
       }
       else {
         return null;

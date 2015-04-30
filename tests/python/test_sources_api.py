@@ -338,18 +338,18 @@ class test_sources_api(unittest.TestCase):
 		self.api = vestorly.SessionsApi(apiClient=self.client)
 		self.patcher = patch('urllib2.urlopen')
 		self.urlopen_mock = self.patcher.start()
-		
+
 	def test_sources_HTTP_get(self):
-		""" test /api/v2/sources GET call """ 
+		""" test /api/v2/sources GET call """
 		self.urlopen_mock.return_value =  MockResponse(json.dumps(HTTP_GET))
 		api = vestorly.SourcesApi(apiClient=self.client)
 		sources = api.findSources()
 		self.assertTrue(isinstance(sources,vestorly.models.sources.Sources))
 		self.assertEquals(len(sources.sources),34)
 		self.assertTrue(isinstance(sources.sources[0],vestorly.models.source.Source))
-		
+
 	def test_sources_HTTP_get_by_id(self):
-		""" test /api/v2/sources/{id} GET call """ 
+		""" test /api/v2/sources/{id} GET call """
 		self.urlopen_mock.return_value =  MockResponse(json.dumps(HTTP_GET_BY_ID))
 		api = vestorly.SourcesApi(apiClient=self.client)
 		source = api.getSourceByID(**{
@@ -357,13 +357,16 @@ class test_sources_api(unittest.TestCase):
 		})
 		self.assertTrue(isinstance(source,vestorly.models.sourceresponse.Sourceresponse))
 		self.assertEquals(source.source._id, "551ad380c98f132913000056")
-		
+
 	def test_sources_HTTP_update_by_id(self):
 		""" """
 		self.urlopen_mock.return_value =  MockResponse(json.dumps(HTTP_GET_BY_ID))
 		api = vestorly.SourcesApi(apiClient=self.client)
-		source = api.getSourceByID(**{
-			'id' : "551ad380c98f132913000056"
+		new_source = vestorly.Source()
+		new_source.enabled = False
+		source = api.updateSourceByID(**{
+			'id' : "551ad380c98f132913000056",
+			'source' : new_source,
 		})
 		self.assertTrue(isinstance(source,vestorly.models.sourceresponse.Sourceresponse))
 		self.assertEquals(source.source._id, "551ad380c98f132913000056")
@@ -371,6 +374,20 @@ class test_sources_api(unittest.TestCase):
 		
 	def test_sources_HTTP_post_create_source(self):
 		""" """
+		self.urlopen_mock.return_value =  MockResponse(json.dumps(HTTP_GET_BY_ID))
+		api = vestorly.SourcesApi(apiClient=self.client)
+		new_source = vestorly.Source()
+		new_source.enabled = False
+		new_source.name = "BD_HOE"
+		new_source.url = "http://www.asdfadfasdf.com/taxonomy/term/6/all/taxonomy-articles-rss.xml"
+		new_source.rss_publisher = "XXXX"
+		new_source.logo_url = "http://www.asdfadfasdfasdf.com/taxonomy/term/6/all/taxonomy-articles-rss.xml"
+		source = api.createSource(**{
+			'source' : new_source,
+		})
+		self.assertTrue(isinstance(source,vestorly.models.sourceresponse.Sourceresponse))
+		self.assertEquals(source.source._id, "551ad380c98f132913000056")
+		
 		
 if __name__ == '__main__':
 	unittest.main()

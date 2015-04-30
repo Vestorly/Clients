@@ -1,9 +1,8 @@
 package com.wordnik.client.api
 
 import com.wordnik.client.model.Sources
-import com.wordnik.client.model.SourceInput
-import com.wordnik.client.model.Source
 import com.wordnik.client.model.Sourceresponse
+import com.wordnik.client.model.SourceInput
 
 import java.io.File
 
@@ -68,7 +67,7 @@ class SourcesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   
 
-  val createSourceOperation = (apiOperation[Source]("createSource")
+  val createSourceOperation = (apiOperation[Sourceresponse]("createSource")
       summary ""
       parameters(
         queryParam[String]("vestorly-auth").description("")

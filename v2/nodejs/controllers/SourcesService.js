@@ -27,13 +27,15 @@ exports.createSource = function(vestorly-auth, source) {
   var examples = {};
   
   examples['application/json'] = {
-  "logo_url" : "aeiou",
-  "rss_publisher" : "aeiou",
-  "name" : "aeiou",
-  "custom_rss_feed" : true,
-  "_id" : "aeiou",
-  "url" : "aeiou",
-  "enabled" : true
+  "source" : {
+    "logo_url" : "aeiou",
+    "rss_publisher" : "aeiou",
+    "name" : "aeiou",
+    "custom_rss_feed" : true,
+    "_id" : "aeiou",
+    "url" : "aeiou",
+    "enabled" : true
+  }
 };
   
 

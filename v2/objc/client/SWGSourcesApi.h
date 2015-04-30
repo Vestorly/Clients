@@ -1,8 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGSources.h"
-#import "SWGSourceInput.h"
-#import "SWGSource.h"
 #import "SWGSourceresponse.h"
+#import "SWGSourceInput.h"
 #import "SWGObject.h"
 
 
@@ -38,12 +37,12 @@
  @param source Source
  
 
- return type: SWGSource*
+ return type: SWGSourceresponse*
  */
 -(NSNumber*) createSourceWithCompletionBlock :(NSString*) vestorly-auth 
      source:(SWGSourceInput*) source 
     
-    completionHandler: (void (^)(SWGSource* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGSourceresponse* output, NSError* error))completionBlock;
     
 
 

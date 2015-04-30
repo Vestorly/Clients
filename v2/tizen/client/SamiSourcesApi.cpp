@@ -89,8 +89,8 @@ createSourceProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiE
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiSource* out = new SamiSource();
-    jsonToValue(out, pJson, L"SamiSource*", L"SamiSource");
+    SamiSourceresponse* out = new SamiSourceresponse();
+    jsonToValue(out, pJson, L"SamiSourceresponse*", L"SamiSourceresponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -116,8 +116,8 @@ createSourceProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiE
   }
 }
 
-SamiSource* 
-SamiSourcesApi::createSourceWithCompletion(String* vestorly-auth, SamiSourceInput* source, void (* success)(SamiSource*, SamiError*)) {
+SamiSourceresponse* 
+SamiSourcesApi::createSourceWithCompletion(String* vestorly-auth, SamiSourceInput* source, void (* success)(SamiSourceresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&createSourceProcessor, (void(*)(void*, SamiError*))success);

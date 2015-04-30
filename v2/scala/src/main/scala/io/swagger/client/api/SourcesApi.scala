@@ -1,9 +1,8 @@
 package io.swagger.client.api
 
 import io.swagger.client.model.Sources
-import io.swagger.client.model.SourceInput
-import io.swagger.client.model.Source
 import io.swagger.client.model.Sourceresponse
+import io.swagger.client.model.SourceInput
 import io.swagger.client.ApiInvoker
 import io.swagger.client.ApiException
 
@@ -54,7 +53,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     }
   }
   
-  def createSource (vestorly-auth: String, source: SourceInput) : Option[Source] = {
+  def createSource (vestorly-auth: String, source: SourceInput) : Option[Sourceresponse] = {
     // create path and map variables
     val path = "/sources".replaceAll("\\{format\\}","json")
 
@@ -81,7 +80,7 @@ class SourcesApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     try {
       apiInvoker.invokeApi(basePath, path, "POST", queryParams.toMap, source, headerParams.toMap, contentType) match {
         case s: String =>
-           Some(ApiInvoker.deserialize(s, "", classOf[Source]).asInstanceOf[Source])
+           Some(ApiInvoker.deserialize(s, "", classOf[Sourceresponse]).asInstanceOf[Sourceresponse])
          
         case _ => None
       }

@@ -59,7 +59,7 @@ class SourcesApi
   # Create source
   # @param vestorly_auth Vestorly Auth Token
   # @param source Source
-  # @return Source
+  # @return Sourceresponse
   def self.createSource (vestorly_auth, source, opts={})
     query_param_keys = [:vestorly_auth]
     headerParams = {}
@@ -121,7 +121,7 @@ class SourcesApi
     
     
     response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Source.new(response)
+     Sourceresponse.new(response)
     
     
   

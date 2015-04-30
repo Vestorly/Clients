@@ -332,8 +332,11 @@ class test_posts_api(unittest.TestCase):
 		""" """
 		self.urlopen_mock.return_value =  MockResponse(json.dumps(HTTP_GET_BY_ID))
 		api = vestorly.PostsApi(apiClient=self.client)
+		new_post = vestorly.Post()
+		new_post.body = "NE"
 		post = api.updatePostByID(**{
-			'id' :  '551ed15e90a0ece318000020'
+			'id' :  '551ed15e90a0ece318000020',
+			'post' : new_post,
 		})
 		self.assertTrue(isinstance(post,vestorly.models.postresponse.Postresponse))
 		self.assertEquals(post.post._id,'551ed15e90a0ece318000020')

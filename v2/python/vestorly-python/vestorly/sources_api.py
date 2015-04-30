@@ -110,7 +110,7 @@ class SourcesApi(object):
             
             
         
-        Returns: Source
+        Returns: Sourceresponse
         """
 
         allParams = ['vestorly_auth', 'source']
@@ -163,7 +163,7 @@ class SourcesApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'Source')
+        responseObject = self.apiClient.deserialize(response, 'Sourceresponse')
         return responseObject
         
         

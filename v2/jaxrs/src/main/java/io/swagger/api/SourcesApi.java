@@ -7,9 +7,8 @@ import com.wordnik.swagger.annotations.ApiParam;
 import com.sun.jersey.multipart.FormDataParam;
 
 import io.swagger.model.Sources;
-import io.swagger.model.SourceInput;
-import io.swagger.model.Source;
 import io.swagger.model.Sourceresponse;
+import io.swagger.model.SourceInput;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -45,7 +44,7 @@ public class SourcesApi {
   
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Create source", response = Source.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Create source", response = Sourceresponse.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "source response") })
 

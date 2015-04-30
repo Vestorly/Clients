@@ -93,7 +93,7 @@ namespace io.swagger.Api {
      /// <param name="Source">Source</param>
     
     /// <returns></returns>
-    public Source  createSource (string VestorlyAuth, SourceInput Source) {
+    public Sourceresponse  createSource (string VestorlyAuth, SourceInput Source) {
       // create path and map variables
       var path = "/sources".Replace("{format}","json");
 
@@ -114,17 +114,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Source) == typeof(byte[])) {
+        if (typeof(Sourceresponse) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Source;
+          return ((object)response) as Sourceresponse;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, Source, headerParams, formParams);
           if (response != null){
-             return (Source) ApiInvoker.deserialize(response, typeof(Source));
+             return (Sourceresponse) ApiInvoker.deserialize(response, typeof(Sourceresponse));
           }
           else {
             return null;
