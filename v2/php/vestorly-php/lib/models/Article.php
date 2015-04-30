@@ -28,17 +28,70 @@ use \ArrayAccess;
 
 class Article implements ArrayAccess {
   static $swaggerTypes = array(
-      
+      '_id' => 'string',
+      'created_at' => 'string',
+      'title' => 'string',
+      'open_calais_topics' => 'string',
+      'open_calais_keywords' => 'string',
+      'vestorly_topics' => 'string',
+      'categories' => 'string',
+      'summary' => 'string',
+      'unparsed_html' => 'string',
+      'logo_url' => 'string',
+      'image_url' => 'string',
+      'url' => 'string',
+      'external_url' => 'string',
+      'tags' => 'string'
   );
 
   static $attributeMap = array(
-      
+      '_id' => '_id',
+      'created_at' => 'created_at',
+      'title' => 'title',
+      'open_calais_topics' => 'open_calais_topics',
+      'open_calais_keywords' => 'open_calais_keywords',
+      'vestorly_topics' => 'vestorly_topics',
+      'categories' => 'categories',
+      'summary' => 'summary',
+      'unparsed_html' => 'unparsed_html',
+      'logo_url' => 'logo_url',
+      'image_url' => 'image_url',
+      'url' => 'url',
+      'external_url' => 'external_url',
+      'tags' => 'tags'
   );
 
   
+  public $_id; /* string */
+  public $created_at; /* string */
+  public $title; /* string */
+  public $open_calais_topics; /* string */
+  public $open_calais_keywords; /* string */
+  public $vestorly_topics; /* string */
+  public $categories; /* string */
+  public $summary; /* string */
+  public $unparsed_html; /* string */
+  public $logo_url; /* string */
+  public $image_url; /* string */
+  public $url; /* string */
+  public $external_url; /* string */
+  public $tags; /* string */
 
   public function __construct(array $data = null) {
-    
+    $this->_id = $data["_id"];
+    $this->created_at = $data["created_at"];
+    $this->title = $data["title"];
+    $this->open_calais_topics = $data["open_calais_topics"];
+    $this->open_calais_keywords = $data["open_calais_keywords"];
+    $this->vestorly_topics = $data["vestorly_topics"];
+    $this->categories = $data["categories"];
+    $this->summary = $data["summary"];
+    $this->unparsed_html = $data["unparsed_html"];
+    $this->logo_url = $data["logo_url"];
+    $this->image_url = $data["image_url"];
+    $this->url = $data["url"];
+    $this->external_url = $data["external_url"];
+    $this->tags = $data["tags"];
   }
 
   public function offsetExists($offset) {

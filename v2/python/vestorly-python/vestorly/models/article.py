@@ -30,10 +30,121 @@ class Article(object):
         """
         self.swaggerTypes = {
             
+            '_id': 'str',
+            
+            
+            'created_at': 'str',
+            
+            
+            'title': 'str',
+            
+            
+            'open_calais_topics': 'str',
+            
+            
+            'open_calais_keywords': 'str',
+            
+            
+            'vestorly_topics': 'str',
+            
+            
+            'categories': 'str',
+            
+            
+            'summary': 'str',
+            
+            
+            'unparsed_html': 'str',
+            
+            
+            'logo_url': 'str',
+            
+            
+            'image_url': 'str',
+            
+            
+            'url': 'str',
+            
+            
+            'external_url': 'str',
+            
+            
+            'tags': 'str'
+            
         }
 
         self.attributeMap = {
             
+            '_id': '_id',
+            
+            'created_at': 'created_at',
+            
+            'title': 'title',
+            
+            'open_calais_topics': 'open_calais_topics',
+            
+            'open_calais_keywords': 'open_calais_keywords',
+            
+            'vestorly_topics': 'vestorly_topics',
+            
+            'categories': 'categories',
+            
+            'summary': 'summary',
+            
+            'unparsed_html': 'unparsed_html',
+            
+            'logo_url': 'logo_url',
+            
+            'image_url': 'image_url',
+            
+            'url': 'url',
+            
+            'external_url': 'external_url',
+            
+            'tags': 'tags'
+            
         }
 
+        
+        
+        self._id = None # str
+        
+        
+        self.created_at = None # str
+        
+        
+        self.title = None # str
+        
+        
+        self.open_calais_topics = None # str
+        
+        
+        self.open_calais_keywords = None # str
+        
+        
+        self.vestorly_topics = None # str
+        
+        
+        self.categories = None # str
+        
+        
+        self.summary = None # str
+        
+        
+        self.unparsed_html = None # str
+        
+        
+        self.logo_url = None # str
+        
+        
+        self.image_url = None # str
+        
+        
+        self.url = None # str
+        
+        
+        self.external_url = None # str
+        
+        
+        self.tags = None # str
         

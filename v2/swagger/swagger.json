@@ -1263,7 +1263,52 @@
         }
       }
     },
-    "Article" : { },
+    "Article" : {
+      "properties" : {
+        "_id" : {
+          "type" : "string"
+        },
+        "created_at" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "open_calais_topics" : {
+          "type" : "string"
+        },
+        "open_calais_keywords" : {
+          "type" : "string"
+        },
+        "vestorly_topics" : {
+          "type" : "string"
+        },
+        "categories" : {
+          "type" : "string"
+        },
+        "summary" : {
+          "type" : "string"
+        },
+        "unparsed_html" : {
+          "type" : "string"
+        },
+        "logo_url" : {
+          "type" : "string"
+        },
+        "image_url" : {
+          "type" : "string"
+        },
+        "url" : {
+          "type" : "string"
+        },
+        "external_url" : {
+          "type" : "string"
+        },
+        "tags" : {
+          "type" : "string"
+        }
+      }
+    },
     "Articleresponse" : {
       "properties" : {
         "article" : {

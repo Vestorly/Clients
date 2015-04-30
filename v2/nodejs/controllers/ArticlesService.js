@@ -5,7 +5,22 @@ exports.findArticles = function(vestorly-auth, limit, text_query, sort_direction
   var examples = {};
   
   examples['application/json'] = {
-  "articles" : [ { } ]
+  "articles" : [ {
+    "summary" : "aeiou",
+    "logo_url" : "aeiou",
+    "image_url" : "aeiou",
+    "created_at" : "aeiou",
+    "open_calais_keywords" : "aeiou",
+    "title" : "aeiou",
+    "url" : "aeiou",
+    "tags" : "aeiou",
+    "external_url" : "aeiou",
+    "_id" : "aeiou",
+    "open_calais_topics" : "aeiou",
+    "categories" : "aeiou",
+    "vestorly_topics" : "aeiou",
+    "unparsed_html" : "aeiou"
+  } ]
 };
   
 
@@ -19,7 +34,22 @@ exports.findArticleByID = function(id) {
   var examples = {};
   
   examples['application/json'] = {
-  "article" : { }
+  "article" : {
+    "summary" : "aeiou",
+    "logo_url" : "aeiou",
+    "image_url" : "aeiou",
+    "created_at" : "aeiou",
+    "open_calais_keywords" : "aeiou",
+    "title" : "aeiou",
+    "url" : "aeiou",
+    "tags" : "aeiou",
+    "external_url" : "aeiou",
+    "_id" : "aeiou",
+    "open_calais_topics" : "aeiou",
+    "categories" : "aeiou",
+    "vestorly_topics" : "aeiou",
+    "unparsed_html" : "aeiou"
+  }
 };
   
 

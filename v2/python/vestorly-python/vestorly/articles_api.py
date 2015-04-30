@@ -127,6 +127,9 @@ class ArticlesApi(object):
 
         Args:
             
+            vestorly_auth, str: Vestorly Auth Token (required)
+            
+            
             id, str: Article Id to fetch (required)
             
             
@@ -134,7 +137,7 @@ class ArticlesApi(object):
         Returns: Articleresponse
         """
 
-        allParams = ['id']
+        allParams = ['vestorly_auth', 'id']
 
         params = locals()
         for (key, val) in params['kwargs'].iteritems():
@@ -159,6 +162,9 @@ class ArticlesApi(object):
         content_types = []
         headerParams['Content-Type'] = content_types[0] if len(content_types) > 0 else 'application/json'
 
+        
+        if ('vestorly_auth' in params):
+            queryParams['vestorly-auth'] = self.apiClient.toPathValue(params['vestorly_auth'])
         
 
         

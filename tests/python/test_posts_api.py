@@ -307,62 +307,60 @@ class test_posts_api(unittest.TestCase):
 
 	def setUp(self):
 		self.client = vestorly.ApiClient(host=HOST, headerName='x-vestorly-auth', headerValue=API_KEY)
-	# 	self.patcher = patch('urllib2.urlopen')
-	# 	self.urlopen_mock = self.patcher.start()
-	#
-	# def test_posts_HTTP_get(self):
-	# 	""" """
-	# 	self.urlopen_mock.return_value =  MockResponse(json.dumps(HTTP_GET))
-	# 	api = vestorly.PostsApi(apiClient=self.client)
-	# 	posts = api.findPosts()
-	# 	self.assertEquals(len(posts.posts),6)
-	# 	self.assertTrue(isinstance(posts.posts[0],vestorly.models.post.Post))
-	#
-	# def test_posts_HTTP_get_by_id(self):
-	# 	""" """
-	# 	self.urlopen_mock.return_value =  MockResponse(json.dumps(HTTP_GET_BY_ID))
-	# 	api = vestorly.PostsApi(apiClient=self.client)
-	# 	post = api.getPostByID(**{
-	# 		'id' :  '551ed15e90a0ece318000020'
-	# 	})
-	# 	self.assertTrue(isinstance(post,vestorly.models.postresponse.Postresponse))
-	# 	self.assertEquals(post.post._id,'551ed15e90a0ece318000020')
-	#
-	# def test_posts_HTTP_put_update(self):
-	# 	""" """
-	# 	self.urlopen_mock.return_value =  MockResponse(json.dumps(HTTP_GET_BY_ID))
-	# 	api = vestorly.PostsApi(apiClient=self.client)
-	# 	post = api.updatePostByID(**{
-	# 		'id' :  '551ed15e90a0ece318000020'
-	# 	})
-	# 	self.assertTrue(isinstance(post,vestorly.models.postresponse.Postresponse))
-	# 	self.assertEquals(post.post._id,'551ed15e90a0ece318000020')
-		
-	def test_posts_HTTP_post_create(self):
+		self.patcher = patch('urllib2.urlopen')
+		self.urlopen_mock = self.patcher.start()
+
+	def test_posts_HTTP_get(self):
 		""" """
+		self.urlopen_mock.return_value =  MockResponse(json.dumps(HTTP_GET))
 		api = vestorly.PostsApi(apiClient=self.client)
-		new_post = vestorly.Post()
-		new_post.body = "NE"
-		d = {
-			'id' : '551ed15e90a0ece318000020',
-			'post' : self.client.sanitizeForSerialization(new_post)
-		}
-		response = api.updatePostByID(**d)
-		
-		
-	def test_posts_HTTP_post_create(self):
+		posts = api.findPosts()
+		self.assertEquals(len(posts.posts),6)
+		self.assertTrue(isinstance(posts.posts[0],vestorly.models.post.Post))
+
+	def test_posts_HTTP_get_by_id(self):
 		""" """
+		self.urlopen_mock.return_value =  MockResponse(json.dumps(HTTP_GET_BY_ID))
 		api = vestorly.PostsApi(apiClient=self.client)
-		new_post = vestorly.Post()
-		new_post.body = "NE"
-		new_post.title = "Hello"
-		new_post.post_date = "1/2/2016"
+		post = api.getPostByID(**{
+			'id' :  '551ed15e90a0ece318000020'
+		})
+		self.assertTrue(isinstance(post,vestorly.models.postresponse.Postresponse))
+		self.assertEquals(post.post._id,'551ed15e90a0ece318000020')
+
+	def test_posts_HTTP_put_update(self):
+		""" """
+		self.urlopen_mock.return_value =  MockResponse(json.dumps(HTTP_GET_BY_ID))
+		api = vestorly.PostsApi(apiClient=self.client)
+		post = api.updatePostByID(**{
+			'id' :  '551ed15e90a0ece318000020'
+		})
+		self.assertTrue(isinstance(post,vestorly.models.postresponse.Postresponse))
+		self.assertEquals(post.post._id,'551ed15e90a0ece318000020')
 		
-		
-		d = {
-			'post' : self.client.sanitizeForSerialization(new_post)
-		}
-		response = api.createPost(**d)
+	# def test_posts_HTTP_post_create(self):
+	# 	""" """
+	# 	api = vestorly.PostsApi(apiClient=self.client)
+	# 	new_post = vestorly.Post()
+	# 	new_post.body = "NE"
+	# 	d = {
+	# 		'id' : '551ed15e90a0ece318000020',
+	# 		'post' : self.client.sanitizeForSerialization(new_post)
+	# 	}
+	# 	response = api.updatePostByID(**d)
+	#
+	#
+	# def test_posts_HTTP_post_create(self):
+	# 	""" """
+	# 	api = vestorly.PostsApi(apiClient=self.client)
+	# 	new_post = vestorly.Post()
+	# 	new_post.body = "NE"
+	# 	new_post.title = "Hello"
+	# 	new_post.post_date = "1/2/2016"
+	# 	data = {
+	# 		'post' : self.client.sanitizeForSerialization(new_post)
+	# 	}
+	# 	response = api.createPost(**data)
 		
 		
   		# 
