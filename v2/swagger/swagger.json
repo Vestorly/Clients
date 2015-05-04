@@ -133,8 +133,8 @@
           "type" : "string"
         }, {
           "in" : "body",
-          "name" : "Event",
-          "description" : "Event",
+          "name" : "event",
+          "description" : "The event object to be created",
           "required" : true,
           "schema" : {
             "$ref" : "#/definitions/EventInput"
@@ -439,14 +439,48 @@
           }
         }
       },
+      "post" : {
+        "tags" : [ "members" ],
+        "description" : "Create a new member (aka reader or subscriber)",
+        "operationId" : "createMember",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "post",
+          "description" : "Mongo ID of member to fetch",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        }, {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string",
+          "format" : "string"
+        }, {
+          "name": "member",
+          "in": "body",
+          "description": "Data for new member",
+          "required": true,
+          "type":
+        }],
+        "responses" : {
+          "200" : {
+            "description" : "Member response",
+            "schema" : {
+              "$ref" : "#/definitions/Memberresponse"
+            }
+          }
+        }
+      },
       "put" : {
         "tags" : [ "members" ],
-        "description" : "Returns a single member",
-        "operationId" : "findMemberByID",
+        "description" : "Update member by ID",
+        "operationId" : "updateMemberByID",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "Mongo ID of member to fetch",
+          "description" : "Mongo ID of member to update",
           "required" : true,
           "type" : "string",
           "format" : "string"
@@ -1515,6 +1549,14 @@
         "genuine_email" : {
           "type" : "boolean",
           "default" : false
+        },
+        "signed_up" : {
+          "type" : "string",
+          "default" : "Not yet"
+        },
+        "signed_up_with" : {
+          "type" : "string",
+          "default" : "Not yet"
         }
       }
     },
@@ -1567,7 +1609,16 @@
         "_id" : {
           "type" : "string"
         },
-        "referrer" : {
+        "type" : {
+          "type" : "string",
+          "description" : "Type of event, such as 'page_view'.",
+          "enum" : [ "page_view", "sign_up",  ]
+        },
+        "source" : {
+          "type" : "string",
+          "description" : "Source of event, such as 'hootsuite', 'email', 'embed'."
+        },
+        "referer" : {
           "type" : "string"
         },
         "original_url" : {
