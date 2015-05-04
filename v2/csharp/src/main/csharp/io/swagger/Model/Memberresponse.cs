@@ -8,7 +8,7 @@ namespace io.swagger.Model {
     
 
     
-    public Member Post { get; set; }
+    public Member Member { get; set; }
 
     
 
@@ -16,7 +16,7 @@ namespace io.swagger.Model {
       var sb = new StringBuilder();
       sb.Append("class Memberresponse {\n");
       
-      sb.Append("  Post: ").Append(Post).Append("\n");
+      sb.Append("  Member: ").Append(Member).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();

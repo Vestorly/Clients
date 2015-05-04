@@ -3,6 +3,7 @@
 
 #include "SamiObject.h"
 
+#include "SamiAdvisorresponse.h"
 #include "SamiAdvisor.h"
 #include "SamiAdvisors.h"
 #include "SamiPostresponse.h"
@@ -44,6 +45,9 @@
 namespace Swagger {
   void*
   create(String type) {
+    if(type.Equals(L"SamiAdvisorresponse", true)) {
+      return new SamiAdvisorresponse();
+    }
     if(type.Equals(L"SamiAdvisor", true)) {
       return new SamiAdvisor();
     }

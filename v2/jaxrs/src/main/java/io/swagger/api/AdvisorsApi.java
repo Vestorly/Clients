@@ -6,8 +6,7 @@ import com.wordnik.swagger.annotations.ApiParam;
 
 import com.sun.jersey.multipart.FormDataParam;
 
-import io.swagger.model.Advisors;
-import io.swagger.model.Advisor;
+import io.swagger.model.Advisorresponse;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -25,30 +24,15 @@ import javax.ws.rs.*;
 public class AdvisorsApi {
   
   @GET
-  
-  
-  
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns all advisors", response = Advisors.class)
-  @com.wordnik.swagger.annotations.ApiResponses(value = { 
-    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "advisors response") })
-
-  public Response findAdvisors(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
-      throws NotFoundException {
-      // do some magic!
-      return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
-  }
-
-  
-  @GET
   @Path("/{id}")
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns a single advisor if the user has access", response = Advisor.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns a single advisors", response = Advisorresponse.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Advisor response") })
 
-  public Response findAdvisorByID(@ApiParam(value = "Mongo ID of advisor to fetch",required=true ) @PathParam("id") String id,
-    @ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
+  public Response findAdvisorByID(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+    @ApiParam(value = "Advisor Id to fetch",required=true ) @PathParam("id") String id)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

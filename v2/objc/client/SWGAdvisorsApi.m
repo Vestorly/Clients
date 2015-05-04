@@ -2,8 +2,7 @@
 #import "SWGFile.h"
 #import "SWGQueryParamCollection.h"
 #import "SWGApiClient.h"
-#import "SWGAdvisors.h"
-#import "SWGAdvisor.h"
+#import "SWGAdvisorresponse.h"
 
 
 
@@ -52,89 +51,10 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 
--(NSNumber*) findAdvisorsWithCompletionBlock: (NSString*) vestorly-auth
+-(NSNumber*) findAdvisorByIDWithCompletionBlock: (NSString*) vestorly-auth
+         _id: (NSString*) _id
         
-        completionHandler: (void (^)(SWGAdvisors* output, NSError* error))completionBlock
-         {
-
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/advisors", basePath];
-
-    // remove format in URL if needed
-    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound)
-        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
-
-    
-
-    NSArray* requestContentTypes = @[];
-    NSString* requestContentType = [requestContentTypes count] > 0 ? requestContentTypes[0] : @"application/json";
-
-    NSArray* responseContentTypes = @[];
-    NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
-
-    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
-        
-        queryParams[@"vestorly-auth"] = vestorly-auth;
-    }
-    
-    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
-    
-
-    id bodyDictionary = nil;
-    
-    
-
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
-
-    
-    
-
-    
-
-    SWGApiClient* client = [SWGApiClient sharedClientFromPool:basePath];
-
-    
-
-    
-    // non container response
-
-    
-
-    
-    // complex response
-        
-    // comples response type
-    return [client dictionary: requestUrl
-                       method: @"GET"
-                  queryParams: queryParams
-                         body: bodyDictionary
-                 headerParams: headerParams
-           requestContentType: requestContentType
-          responseContentType: responseContentType
-              completionBlock: ^(NSDictionary *data, NSError *error) {
-                if (error) {
-                    completionBlock(nil, error);
-                    
-                    return;
-                }
-                SWGAdvisors* result = nil;
-                if (data) {
-                    result = [[SWGAdvisors  alloc]  initWithDictionary:data error:nil];
-                }
-                completionBlock(result , nil);
-                
-              }];
-    
-
-    
-
-    
-}
-
--(NSNumber*) findAdvisorByIDWithCompletionBlock: (NSString*) _id
-         vestorly-auth: (NSString*) vestorly-auth
-        
-        completionHandler: (void (^)(SWGAdvisor* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGAdvisorresponse* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/advisors/{id}", basePath];
@@ -198,9 +118,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGAdvisor* result = nil;
+                SWGAdvisorresponse* result = nil;
                 if (data) {
-                    result = [[SWGAdvisor  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGAdvisorresponse  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 

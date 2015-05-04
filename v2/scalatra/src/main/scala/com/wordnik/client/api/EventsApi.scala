@@ -207,7 +207,7 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         
-        bodyParam[EventInput]("Event").description("")
+        bodyParam[EventInput]("event").description("")
         
         
         
@@ -261,10 +261,10 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
     
 
     
-      val Event = parsedBody.extract[EventInput]
+      val event = parsedBody.extract[EventInput]
     
     
-    println("Event: " + Event)
+    println("event: " + event)
   
   }
 

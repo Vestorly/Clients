@@ -30,73 +30,15 @@ class AdvisorsApi {
 
   
   /**
-   * findAdvisors
-   *
-   * 
-   *
-   * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @return Advisors
-   */
-   public function findAdvisors($vestorly_auth) {
-
-      // parse inputs
-      $resourcePath = "/advisors";
-      $resourcePath = str_replace("{format}", "json", $resourcePath);
-      $method = "GET";
-      $httpBody = '';
-      $queryParams = array();
-      $headerParams = array();
-      $formParams = array();
-      $_header_accept = '';
-      if ($_header_accept !== '') {
-        $headerParams['Accept'] = $_header_accept;
-      }
-      $_header_content_type = array();
-      $headerParams['Content-Type'] = count($_header_content_type) > 0 ? $_header_content_type[0] : 'application/json';
-
-      // query params
-      if($vestorly_auth !== null) {
-        $queryParams['vestorly-auth'] = $this->apiClient->toQueryValue($vestorly_auth);
-      }
-      
-      
-      
-      
-
-      // for model (json/xml)
-      if (isset($body)) {
-        $httpBody = $body; // $body is the method argument, if present
-      }
-      
-      // for HTTP post (form)
-      if (strpos($headerParams['Content-Type'], "application/x-www-form-urlencoded") !== FALSE) {
-        $httpBody = http_build_query($formParams);
-      }
-
-      // make the API Call
-      $response = $this->apiClient->callAPI($resourcePath, $method,
-                                            $queryParams, $httpBody,
-                                            $headerParams);
-
-      if(! $response) {
-        return null;
-      }
-
-  		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Advisors');
-  		return $responseObject;
-  }
-  
-  /**
    * findAdvisorByID
    *
    * 
    *
-   * @param string $id Mongo ID of advisor to fetch (required)
    * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @return Advisor
+   * @param string $id Advisor Id to fetch (required)
+   * @return Advisorresponse
    */
-   public function findAdvisorByID($id, $vestorly_auth) {
+   public function findAdvisorByID($vestorly_auth, $id) {
 
       // parse inputs
       $resourcePath = "/advisors/{id}";
@@ -146,7 +88,7 @@ class AdvisorsApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Advisor');
+  		                                                'Advisorresponse');
   		return $responseObject;
   }
   

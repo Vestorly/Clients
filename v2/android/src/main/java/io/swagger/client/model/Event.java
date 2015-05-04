@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Event  {
   
   private String id = null;
-  private String referrer = null;
+  private String referer = null;
   private String originalUrl = null;
   private String originatorEmail = null;
   private String subjectEmail = null;
@@ -33,12 +33,12 @@ public class Event  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("referrer")
-  public String getReferrer() {
-    return referrer;
+  @JsonProperty("referer")
+  public String getReferer() {
+    return referer;
   }
-  public void setReferrer(String referrer) {
-    this.referrer = referrer;
+  public void setReferer(String referer) {
+    this.referer = referer;
   }
 
   
@@ -121,7 +121,7 @@ public class Event  {
     sb.append("class Event {\n");
     
     sb.append("  id: ").append(id).append("\n");
-    sb.append("  referrer: ").append(referrer).append("\n");
+    sb.append("  referer: ").append(referer).append("\n");
     sb.append("  originalUrl: ").append(originalUrl).append("\n");
     sb.append("  originatorEmail: ").append(originatorEmail).append("\n");
     sb.append("  subjectEmail: ").append(subjectEmail).append("\n");

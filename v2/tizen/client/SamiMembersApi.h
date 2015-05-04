@@ -8,6 +8,7 @@
 #include "SamiMembers.h"
 using Tizen::Base::String;
 #include "SamiMemberresponse.h"
+#include "SamiMember.h"
 
 using namespace Tizen::Net::Http;
 
@@ -21,6 +22,9 @@ public:
   
   SamiMembers* 
   findMembersWithCompletion(String* vestorly-auth, void (* handler)(SamiMembers*, SamiError*));
+  
+  SamiMemberresponse* 
+  createMemberWithCompletion(String* vestorly-auth, SamiMember* member, void (* handler)(SamiMemberresponse*, SamiError*));
   
   SamiMemberresponse* 
   findMemberByIDWithCompletion(String* _id, String* vestorly-auth, void (* handler)(SamiMemberresponse*, SamiError*));

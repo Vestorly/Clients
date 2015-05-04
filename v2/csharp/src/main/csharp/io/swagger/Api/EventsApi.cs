@@ -205,7 +205,7 @@ namespace io.swagger.Api {
     /// </summary>
     /// <param name="Id">Mongo ID of event to update</param>
      /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-     /// <param name="Event">Event</param>
+     /// <param name="Event">The event object to be created</param>
     
     /// <returns></returns>
     public Eventresponse  updateEventByID (string Id, string VestorlyAuth, EventInput Event) {

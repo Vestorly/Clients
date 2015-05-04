@@ -7,7 +7,7 @@ import io.swagger.client.model.*;
 
 import java.util.*;
 
-import io.swagger.client.model.MemberEvents;
+import io.swagger.client.model.MemberEventModel;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.file.FileDataBodyPart;
@@ -39,9 +39,9 @@ public class MembereventsApi {
    * 
    * Returns all MemberEvents
    * @param vestorlyAuth Vestorly Auth Token
-   * @return MemberEvents
+   * @return MemberEventModel
    */
-  public MemberEvents findMemberEvents (String vestorlyAuth) throws ApiException {
+  public MemberEventModel findMemberEvents (String vestorlyAuth) throws ApiException {
     Object postBody = null;
     
 
@@ -77,7 +77,7 @@ public class MembereventsApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (MemberEvents) ApiInvoker.deserialize(response, "", MemberEvents.class);
+        return (MemberEventModel) ApiInvoker.deserialize(response, "", MemberEventModel.class);
       }
       else {
         return null;

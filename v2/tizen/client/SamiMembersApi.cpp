@@ -82,6 +82,79 @@ SamiMembersApi::findMembersWithCompletion(String* vestorly-auth, void (* success
 }
 
 void
+createMemberProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError*)) {
+  int code = pHttpResponse->GetHttpStatusCode();
+
+  if(code >= 200 && code < 300) {
+    ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
+    IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
+
+    SamiMemberresponse* out = new SamiMemberresponse();
+    jsonToValue(out, pJson, L"SamiMemberresponse*", L"SamiMemberresponse");
+
+    if (pJson) {
+      if (pJson->GetType() == JSON_TYPE_OBJECT) {
+         JsonObject* pObject = static_cast< JsonObject* >(pJson);
+         pObject->RemoveAll(true);
+      }
+      else if (pJson->GetType() == JSON_TYPE_ARRAY) {
+         JsonArray* pArray = static_cast< JsonArray* >(pJson);
+         pArray->RemoveAll(true);
+      }
+      handler(out, null);
+    }
+    else {
+      SamiError* error = new SamiError(0, new String(L"No parsable response received"));
+      handler(null, error);
+    }
+    
+  }
+  else {
+    SamiError* error = new SamiError(code, new String(pHttpResponse->GetStatusText()));
+    handler(null, error);
+    
+  }
+}
+
+SamiMemberresponse* 
+SamiMembersApi::createMemberWithCompletion(String* vestorly-auth, SamiMember* member, void (* success)(SamiMemberresponse*, SamiError*)) {
+  client = new SamiApiClient();
+
+  client->success(&createMemberProcessor, (void(*)(void*, SamiError*))success);
+  HashMap* headerParams = new HashMap(SingleObjectDeleter);
+  headerParams->Construct();
+
+  
+
+  HashMap* queryParams = new HashMap(SingleObjectDeleter);
+  queryParams->Construct();
+
+  
+    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+  
+  
+
+  String* mBody = null;
+
+  
+  
+  
+  if(member != null) {
+    mBody = new String(member->asJson());
+    headerParams->Add(new String("Content-Type"), new String("application/json"));
+  }
+  
+  
+
+  String url(L"/members");
+
+  
+
+  client->execute(SamiMembersApi::getBasePath(), url, "POST", (IMap*)queryParams, mBody, (IMap*)headerParams, null, L"application/json");
+  return null;
+}
+
+void
 findMemberByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError*)) {
   int code = pHttpResponse->GetHttpStatusCode();
 

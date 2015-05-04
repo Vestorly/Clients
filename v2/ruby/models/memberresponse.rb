@@ -1,10 +1,10 @@
 
 class Memberresponse
-  attr_accessor :post
+  attr_accessor :member
   # :internal => :external
   def self.attribute_map
     {
-      :post => :'post'
+      :member => :'member'
       
     }
   end
@@ -13,8 +13,8 @@ class Memberresponse
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
     
-    if self.class.attribute_map[:"post"]
-      @post = attributes["post"]
+    if self.class.attribute_map[:"member"]
+      @member = attributes["member"]
     end
     
   end

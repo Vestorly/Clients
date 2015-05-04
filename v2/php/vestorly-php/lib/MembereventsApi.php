@@ -35,7 +35,7 @@ class MembereventsApi {
    * 
    *
    * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @return MemberEvents
+   * @return MemberEventModel
    */
    public function findMemberEvents($vestorly_auth) {
 
@@ -83,7 +83,7 @@ class MembereventsApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'MemberEvents');
+  		                                                'MemberEventModel');
   		return $responseObject;
   }
   

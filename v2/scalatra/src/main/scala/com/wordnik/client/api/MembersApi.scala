@@ -2,6 +2,7 @@ package com.wordnik.client.api
 
 import com.wordnik.client.model.Members
 import com.wordnik.client.model.Memberresponse
+import com.wordnik.client.model.Member
 
 import java.io.File
 
@@ -61,6 +62,66 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
     
     
     println("vestorly-auth: " + vestorly-auth)
+  
+  }
+
+  
+
+  val createMemberOperation = (apiOperation[Memberresponse]("createMember")
+      summary ""
+      parameters(
+        queryParam[String]("vestorly-auth").description("")
+        
+        
+        
+        
+        
+        ,
+        
+        
+        
+        bodyParam[Member]("member").description("")
+        
+        
+        
+        )
+  )
+
+  post("/members",operation(createMemberOperation)) {
+    
+    
+    
+    
+
+    
+      
+      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      
+    
+
+    
+
+    
+
+    
+    
+    println("vestorly-auth: " + vestorly-auth)
+  
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+      val member = parsedBody.extract[Member]
+    
+    
+    println("member: " + member)
   
   }
 

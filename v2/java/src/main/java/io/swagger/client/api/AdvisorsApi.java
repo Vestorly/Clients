@@ -7,8 +7,7 @@ import io.swagger.client.model.*;
 
 import java.util.*;
 
-import io.swagger.client.model.Advisors;
-import io.swagger.client.model.Advisor;
+import io.swagger.client.model.Advisorresponse;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.file.FileDataBodyPart;
@@ -38,64 +37,12 @@ public class AdvisorsApi {
   
   /**
    * 
-   * Returns all advisors
+   * Returns a single advisors
    * @param vestorlyAuth Vestorly Auth Token
-   * @return Advisors
+   * @param id Advisor Id to fetch
+   * @return Advisorresponse
    */
-  public Advisors findAdvisors (String vestorlyAuth) throws ApiException {
-    Object postBody = null;
-    
-
-    // create path and map variables
-    String path = "/advisors".replaceAll("\\{format\\}","json");
-
-    // query params
-    Map<String, String> queryParams = new HashMap<String, String>();
-    Map<String, String> headerParams = new HashMap<String, String>();
-    Map<String, String> formParams = new HashMap<String, String>();
-
-    if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
-    
-    
-    String[] contentTypes = {
-      
-    };
-
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-
-    if(contentType.startsWith("multipart/form-data")) {
-      boolean hasFields = false;
-      FormDataMultiPart mp = new FormDataMultiPart();
-      
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-      
-    }
-
-    try {
-      String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
-      if(response != null){
-        return (Advisors) ApiInvoker.deserialize(response, "", Advisors.class);
-      }
-      else {
-        return null;
-      }
-    } catch (ApiException ex) {
-      throw ex;
-    }
-  }
-  
-  /**
-   * 
-   * Returns a single advisor if the user has access
-   * @param id Mongo ID of advisor to fetch
-   * @param vestorlyAuth Vestorly Auth Token
-   * @return Advisor
-   */
-  public Advisor findAdvisorByID (String id, String vestorlyAuth) throws ApiException {
+  public Advisorresponse findAdvisorByID (String vestorlyAuth, String id) throws ApiException {
     Object postBody = null;
     
 
@@ -132,7 +79,7 @@ public class AdvisorsApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Advisor) ApiInvoker.deserialize(response, "", Advisor.class);
+        return (Advisorresponse) ApiInvoker.deserialize(response, "", Advisorresponse.class);
       }
       else {
         return null;

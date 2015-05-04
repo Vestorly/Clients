@@ -13,7 +13,7 @@ namespace io.swagger.Model {
     
 
     
-    public string Referrer { get; set; }
+    public string Referer { get; set; }
 
     
 
@@ -53,7 +53,7 @@ namespace io.swagger.Model {
       
       sb.Append("  Id: ").Append(Id).Append("\n");
       
-      sb.Append("  Referrer: ").Append(Referrer).Append("\n");
+      sb.Append("  Referer: ").Append(Referer).Append("\n");
       
       sb.Append("  OriginalUrl: ").Append(OriginalUrl).Append("\n");
       

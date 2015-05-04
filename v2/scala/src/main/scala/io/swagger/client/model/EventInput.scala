@@ -4,7 +4,7 @@ package io.swagger.client.model
 
 
 case class EventInput (
-  referrer: String,
+  referer: String,
   original_url: String,
   originator_email: String,
   subject_email: String,

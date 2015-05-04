@@ -71,14 +71,14 @@
 
  @param _id Mongo ID of event to update
  @param vestorly-auth Vestorly Auth Token
- @param Event Event
+ @param event The event object to be created
  
 
  return type: SWGEventresponse*
  */
 -(NSNumber*) updateEventByIDWithCompletionBlock :(NSString*) _id 
      vestorly-auth:(NSString*) vestorly-auth 
-     Event:(SWGEventInput*) Event 
+     event:(SWGEventInput*) event 
     
     completionHandler: (void (^)(SWGEventresponse* output, NSError* error))completionBlock;
     

@@ -8,7 +8,7 @@ class MembereventsApi
   # 
   # Returns all MemberEvents
   # @param vestorly_auth Vestorly Auth Token
-  # @return MemberEvents
+  # @return MemberEventModel
   def self.findMemberEvents (vestorly_auth, opts={})
     query_param_keys = [:vestorly_auth]
     headerParams = {}
@@ -49,7 +49,7 @@ class MembereventsApi
     
     
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     MemberEvents.new(response)
+     MemberEventModel.new(response)
     
     
   

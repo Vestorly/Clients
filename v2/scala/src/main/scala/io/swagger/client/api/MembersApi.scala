@@ -2,6 +2,7 @@ package io.swagger.client.api
 
 import io.swagger.client.model.Members
 import io.swagger.client.model.Memberresponse
+import io.swagger.client.model.Member
 import io.swagger.client.ApiInvoker
 import io.swagger.client.ApiException
 
@@ -43,6 +44,43 @@ class MembersApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
       apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, None, headerParams.toMap, contentType) match {
         case s: String =>
            Some(ApiInvoker.deserialize(s, "", classOf[Members]).asInstanceOf[Members])
+         
+        case _ => None
+      }
+    } catch {
+      case ex: ApiException if ex.code == 404 => None
+      case ex: ApiException => throw ex
+    }
+  }
+  
+  def createMember (vestorly-auth: String, member: Member) : Option[Memberresponse] = {
+    // create path and map variables
+    val path = "/members".replaceAll("\\{format\\}","json")
+
+    
+    val contentType = {
+      if(member != null && member.isInstanceOf[File] )
+        "multipart/form-data"
+      else "application/json"
+      
+      
+    }
+
+    // query params
+    val queryParams = new HashMap[String, String]
+    val headerParams = new HashMap[String, String]
+
+    
+
+    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    
+    
+    
+
+    try {
+      apiInvoker.invokeApi(basePath, path, "POST", queryParams.toMap, member, headerParams.toMap, contentType) match {
+        case s: String =>
+           Some(ApiInvoker.deserialize(s, "", classOf[Memberresponse]).asInstanceOf[Memberresponse])
          
         case _ => None
       }

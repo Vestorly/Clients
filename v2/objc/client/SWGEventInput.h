@@ -8,7 +8,7 @@
 @interface SWGEventInput : SWGObject
 
 
-@property(nonatomic) NSString<Optional>* referrer;
+@property(nonatomic) NSString<Optional>* referer;
 
 @property(nonatomic) NSString* original_url;
 

@@ -9,6 +9,6 @@
 @interface SWGMemberresponse : SWGObject
 
 
-@property(nonatomic) SWGMember<Optional, SWGMember>* post;
+@property(nonatomic) SWGMember<Optional, SWGMember>* member;
 
 @end

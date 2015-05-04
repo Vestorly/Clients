@@ -41,8 +41,8 @@ public:
     SamiEventInput* fromJson(String* obj);
 
     
-    String* getPReferrer();
-    void setPReferrer(String* pReferrer);
+    String* getPReferer();
+    void setPReferer(String* pReferer);
     
     String* getPOriginalUrl();
     void setPOriginalUrl(String* pOriginal_url);
@@ -64,7 +64,7 @@ public:
     
 
 private:
-    String* pReferrer;
+    String* pReferer;
     String* pOriginal_url;
     String* pOriginator_email;
     String* pSubject_email;

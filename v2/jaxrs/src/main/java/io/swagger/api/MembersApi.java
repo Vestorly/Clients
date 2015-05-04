@@ -8,6 +8,7 @@ import com.sun.jersey.multipart.FormDataParam;
 
 import io.swagger.model.Members;
 import io.swagger.model.Memberresponse;
+import io.swagger.model.Member;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -33,6 +34,22 @@ public class MembersApi {
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Member response") })
 
   public Response findMembers(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
+      throws NotFoundException {
+      // do some magic!
+      return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+  }
+
+  
+  @POST
+  
+  
+  
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Create a new member in the Vestorly Platform", response = Memberresponse.class)
+  @com.wordnik.swagger.annotations.ApiResponses(value = { 
+    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "member response") })
+
+  public Response createMember(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
+    @ApiParam(value = "Member you want to create" ,required=true ) Member member)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

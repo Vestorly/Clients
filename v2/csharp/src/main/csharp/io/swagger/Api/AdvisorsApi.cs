@@ -31,69 +31,13 @@ namespace io.swagger.Api {
     
 
     /// <summary>
-    ///  Returns all advisors
+    ///  Returns a single advisors
     /// </summary>
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+     /// <param name="Id">Advisor Id to fetch</param>
     
     /// <returns></returns>
-    public Advisors  findAdvisors (string VestorlyAuth) {
-      // create path and map variables
-      var path = "/advisors".Replace("{format}","json");
-
-      // query params
-      var queryParams = new Dictionary<String, String>();
-      var headerParams = new Dictionary<String, String>();
-      var formParams = new Dictionary<String, object>();
-
-      
-
-      if (VestorlyAuth != null){
-        queryParams.Add("vestorly-auth", apiInvoker.ParameterToString(VestorlyAuth));
-      }
-      
-
-      
-
-      
-
-      try {
-        if (typeof(Advisors) == typeof(byte[])) {
-          
-          var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Advisors;
-          
-          
-        } else {
-          
-          var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          if (response != null){
-             return (Advisors) ApiInvoker.deserialize(response, typeof(Advisors));
-          }
-          else {
-            return null;
-          }
-          
-          
-        }
-      } catch (ApiException ex) {
-        if(ex.ErrorCode == 404) {
-          return null;
-        }
-        else {
-          throw ex;
-        }
-      }
-    }
-    
-
-    /// <summary>
-    ///  Returns a single advisor if the user has access
-    /// </summary>
-    /// <param name="Id">Mongo ID of advisor to fetch</param>
-     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-    
-    /// <returns></returns>
-    public Advisor  findAdvisorByID (string Id, string VestorlyAuth) {
+    public Advisorresponse  findAdvisorByID (string VestorlyAuth, string Id) {
       // create path and map variables
       var path = "/advisors/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -114,17 +58,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Advisor) == typeof(byte[])) {
+        if (typeof(Advisorresponse) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Advisor;
+          return ((object)response) as Advisorresponse;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
           if (response != null){
-             return (Advisor) ApiInvoker.deserialize(response, typeof(Advisor));
+             return (Advisorresponse) ApiInvoker.deserialize(response, typeof(Advisorresponse));
           }
           else {
             return null;

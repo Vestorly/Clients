@@ -4,5 +4,5 @@ import com.wordnik.client.model.Member
 
 
 case class Memberresponse (
-  post: Member
+  member: Member
 )

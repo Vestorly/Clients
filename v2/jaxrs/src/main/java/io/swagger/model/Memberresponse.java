@@ -9,18 +9,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @ApiModel(description = "")
 public class Memberresponse  {
   
-  private Member post = null;
+  private Member member = null;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("post")
-  public Member getPost() {
-    return post;
+  @JsonProperty("member")
+  public Member getMember() {
+    return member;
   }
-  public void setPost(Member post) {
-    this.post = post;
+  public void setMember(Member member) {
+    this.member = member;
   }
 
   
@@ -30,7 +30,7 @@ public class Memberresponse  {
     StringBuilder sb = new StringBuilder();
     sb.append("class Memberresponse {\n");
     
-    sb.append("  post: ").append(post).append("\n");
+    sb.append("  member: ").append(member).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

@@ -41,12 +41,12 @@ public:
     SamiMemberresponse* fromJson(String* obj);
 
     
-    SamiMember* getPPost();
-    void setPPost(SamiMember* pPost);
+    SamiMember* getPMember();
+    void setPMember(SamiMember* pMember);
     
 
 private:
-    SamiMember* pPost;
+    SamiMember* pMember;
     
 };
 

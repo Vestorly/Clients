@@ -30,7 +30,7 @@ public:
   findEventByIDWithCompletion(String* _id, String* vestorly-auth, void (* handler)(SamiEventresponse*, SamiError*));
   
   SamiEventresponse* 
-  updateEventByIDWithCompletion(String* _id, String* vestorly-auth, SamiEventInput* Event, void (* handler)(SamiEventresponse*, SamiError*));
+  updateEventByIDWithCompletion(String* _id, String* vestorly-auth, SamiEventInput* event, void (* handler)(SamiEventresponse*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

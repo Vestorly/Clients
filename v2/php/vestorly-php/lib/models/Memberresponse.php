@@ -28,18 +28,18 @@ use \ArrayAccess;
 
 class Memberresponse implements ArrayAccess {
   static $swaggerTypes = array(
-      'post' => 'Member'
+      'member' => 'Member'
   );
 
   static $attributeMap = array(
-      'post' => 'post'
+      'member' => 'member'
   );
 
   
-  public $post; /* Member */
+  public $member; /* Member */
 
   public function __construct(array $data = null) {
-    $this->post = $data["post"];
+    $this->member = $data["member"];
   }
 
   public function offsetExists($offset) {

@@ -22,16 +22,16 @@ SamiMemberresponse::~SamiMemberresponse() {
 
 void
 SamiMemberresponse::init() {
-    pPost = null;
+    pMember = null;
     
 }
 
 void
 SamiMemberresponse::cleanup() {
-    if(pPost != null) {
+    if(pMember != null) {
         
-        delete pPost;
-        pPost = null;
+        delete pMember;
+        pMember = null;
     }
     
 }
@@ -71,15 +71,15 @@ SamiMemberresponse::fromJsonObject(IJsonValue* pJson) {
     JsonObject* pJsonObject = static_cast< JsonObject* >(pJson);
 
     if(pJsonObject != null) {
-        JsonString* pPostKey = new JsonString(L"post");
-        IJsonValue* pPostVal = null;
-        pJsonObject->GetValue(pPostKey, pPostVal);
-        if(pPostVal != null) {
+        JsonString* pMemberKey = new JsonString(L"member");
+        IJsonValue* pMemberVal = null;
+        pJsonObject->GetValue(pMemberKey, pMemberVal);
+        if(pMemberVal != null) {
             
-            pPost = new SamiMember();
-            jsonToValue(pPost, pPostVal, L"SamiMember", L"SamiMember");
+            pMember = new SamiMember();
+            jsonToValue(pMember, pMemberVal, L"SamiMember", L"SamiMember");
         }
-        delete pPostKey;
+        delete pMemberKey;
         
     }
 }
@@ -132,20 +132,20 @@ SamiMemberresponse::asJsonObject() {
     pJsonObject->Construct();
 
     
-    JsonString *pPostKey = new JsonString(L"post");
-    pJsonObject->Add(pPostKey, toJson(getPPost(), "SamiMember", ""));
+    JsonString *pMemberKey = new JsonString(L"member");
+    pJsonObject->Add(pMemberKey, toJson(getPMember(), "SamiMember", ""));
 
     
     return pJsonObject;
 }
 
 SamiMember*
-SamiMemberresponse::getPPost() {
-    return pPost;
+SamiMemberresponse::getPMember() {
+    return pMember;
 }
 void
-SamiMemberresponse::setPPost(SamiMember* pPost) {
-    this->pPost = pPost;
+SamiMemberresponse::setPMember(SamiMember* pMember) {
+    this->pMember = pMember;
 }
 
 

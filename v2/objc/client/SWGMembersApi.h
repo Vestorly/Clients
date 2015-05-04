@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGMembers.h"
+#import "SWGMember.h"
 #import "SWGMemberresponse.h"
 #import "SWGObject.h"
 
@@ -24,6 +25,24 @@
 -(NSNumber*) findMembersWithCompletionBlock :(NSString*) vestorly-auth 
     
     completionHandler: (void (^)(SWGMembers* output, NSError* error))completionBlock;
+    
+
+
+/**
+
+ 
+ Create a new member in the Vestorly Platform
+
+ @param vestorly-auth Vestorly Auth Token
+ @param member Member you want to create
+ 
+
+ return type: SWGMemberresponse*
+ */
+-(NSNumber*) createMemberWithCompletionBlock :(NSString*) vestorly-auth 
+     member:(SWGMember*) member 
+    
+    completionHandler: (void (^)(SWGMemberresponse* output, NSError* error))completionBlock;
     
 
 

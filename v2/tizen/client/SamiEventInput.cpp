@@ -22,7 +22,7 @@ SamiEventInput::~SamiEventInput() {
 
 void
 SamiEventInput::init() {
-    pReferrer = null;
+    pReferer = null;
     pOriginal_url = null;
     pOriginator_email = null;
     pSubject_email = null;
@@ -34,10 +34,10 @@ SamiEventInput::init() {
 
 void
 SamiEventInput::cleanup() {
-    if(pReferrer != null) {
+    if(pReferer != null) {
         
-        delete pReferrer;
-        pReferrer = null;
+        delete pReferer;
+        pReferer = null;
     }
     if(pOriginal_url != null) {
         
@@ -107,15 +107,15 @@ SamiEventInput::fromJsonObject(IJsonValue* pJson) {
     JsonObject* pJsonObject = static_cast< JsonObject* >(pJson);
 
     if(pJsonObject != null) {
-        JsonString* pReferrerKey = new JsonString(L"referrer");
-        IJsonValue* pReferrerVal = null;
-        pJsonObject->GetValue(pReferrerKey, pReferrerVal);
-        if(pReferrerVal != null) {
+        JsonString* pRefererKey = new JsonString(L"referer");
+        IJsonValue* pRefererVal = null;
+        pJsonObject->GetValue(pRefererKey, pRefererVal);
+        if(pRefererVal != null) {
             
-            pReferrer = new String();
-            jsonToValue(pReferrer, pReferrerVal, L"String", L"String");
+            pReferer = new String();
+            jsonToValue(pReferer, pRefererVal, L"String", L"String");
         }
-        delete pReferrerKey;
+        delete pRefererKey;
         JsonString* pOriginal_urlKey = new JsonString(L"original_url");
         IJsonValue* pOriginal_urlVal = null;
         pJsonObject->GetValue(pOriginal_urlKey, pOriginal_urlVal);
@@ -222,8 +222,8 @@ SamiEventInput::asJsonObject() {
     pJsonObject->Construct();
 
     
-    JsonString *pReferrerKey = new JsonString(L"referrer");
-    pJsonObject->Add(pReferrerKey, toJson(getPReferrer(), "String", ""));
+    JsonString *pRefererKey = new JsonString(L"referer");
+    pJsonObject->Add(pRefererKey, toJson(getPReferer(), "String", ""));
 
     
     JsonString *pOriginal_urlKey = new JsonString(L"original_url");
@@ -254,12 +254,12 @@ SamiEventInput::asJsonObject() {
 }
 
 String*
-SamiEventInput::getPReferrer() {
-    return pReferrer;
+SamiEventInput::getPReferer() {
+    return pReferer;
 }
 void
-SamiEventInput::setPReferrer(String* pReferrer) {
-    this->pReferrer = pReferrer;
+SamiEventInput::setPReferer(String* pReferer) {
+    this->pReferer = pReferer;
 }
 
 String*

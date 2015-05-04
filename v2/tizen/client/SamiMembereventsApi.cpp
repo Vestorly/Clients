@@ -24,8 +24,8 @@ findMemberEventsProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, S
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiMemberEvents* out = new SamiMemberEvents();
-    jsonToValue(out, pJson, L"SamiMemberEvents*", L"SamiMemberEvents");
+    SamiMemberEventModel* out = new SamiMemberEventModel();
+    jsonToValue(out, pJson, L"SamiMemberEventModel*", L"SamiMemberEventModel");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -51,8 +51,8 @@ findMemberEventsProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, S
   }
 }
 
-SamiMemberEvents* 
-SamiMembereventsApi::findMemberEventsWithCompletion(String* vestorly-auth, void (* success)(SamiMemberEvents*, SamiError*)) {
+SamiMemberEventModel* 
+SamiMembereventsApi::findMemberEventsWithCompletion(String* vestorly-auth, void (* success)(SamiMemberEventModel*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findMemberEventsProcessor, (void(*)(void*, SamiError*))success);

@@ -220,7 +220,7 @@ class EventsApi {
    *
    * @param string $id Mongo ID of event to update (required)
    * @param string $vestorly_auth Vestorly Auth Token (required)
-   * @param EventInput $event Event (required)
+   * @param EventInput $event The event object to be created (required)
    * @return Eventresponse
    */
    public function updateEventByID($id, $vestorly_auth, $event) {

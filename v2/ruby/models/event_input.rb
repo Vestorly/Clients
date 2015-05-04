@@ -1,10 +1,10 @@
 
 class EventInput
-  attr_accessor :referrer, :original_url, :originator_email, :subject_email, :advisor_email, :originator_group_name, :newsletter
+  attr_accessor :referer, :original_url, :originator_email, :subject_email, :advisor_email, :originator_group_name, :newsletter
   # :internal => :external
   def self.attribute_map
     {
-      :referrer => :'referrer',
+      :referer => :'referer',
       :original_url => :'original_url',
       :originator_email => :'originator_email',
       :subject_email => :'subject_email',
@@ -19,8 +19,8 @@ class EventInput
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
     
-    if self.class.attribute_map[:"referrer"]
-      @referrer = attributes["referrer"]
+    if self.class.attribute_map[:"referer"]
+      @referer = attributes["referer"]
     end
     
     if self.class.attribute_map[:"original_url"]

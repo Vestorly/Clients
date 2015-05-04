@@ -9,6 +9,7 @@ import java.util.*;
 
 import io.swagger.client.model.Members;
 import io.swagger.client.model.Memberresponse;
+import io.swagger.client.model.Member;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.file.FileDataBodyPart;
@@ -79,6 +80,59 @@ public class MembersApi {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
         return (Members) ApiInvoker.deserialize(response, "", Members.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  
+  /**
+   * 
+   * Create a new member in the Vestorly Platform
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param member Member you want to create
+   * @return Memberresponse
+   */
+  public Memberresponse createMember (String vestorlyAuth, Member member) throws ApiException {
+    Object postBody = member;
+    
+
+    // create path and map variables
+    String path = "/members".replaceAll("\\{format\\}","json");
+
+    // query params
+    Map<String, String> queryParams = new HashMap<String, String>();
+    Map<String, String> headerParams = new HashMap<String, String>();
+    Map<String, String> formParams = new HashMap<String, String>();
+
+    if (vestorlyAuth != null)
+      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+    
+    
+    String[] contentTypes = {
+      
+    };
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if(contentType.startsWith("multipart/form-data")) {
+      boolean hasFields = false;
+      FormDataMultiPart mp = new FormDataMultiPart();
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+      
+    }
+
+    try {
+      String response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType);
+      if(response != null){
+        return (Memberresponse) ApiInvoker.deserialize(response, "", Memberresponse.class);
       }
       else {
         return null;

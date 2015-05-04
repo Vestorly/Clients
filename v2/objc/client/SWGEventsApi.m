@@ -318,7 +318,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
 -(NSNumber*) updateEventByIDWithCompletionBlock: (NSString*) _id
          vestorly-auth: (NSString*) vestorly-auth
-         Event: (SWGEventInput*) Event
+         event: (SWGEventInput*) event
         
         completionHandler: (void (^)(SWGEventresponse* output, NSError* error))completionBlock
          {
@@ -349,7 +349,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
     id bodyDictionary = nil;
     
-    id __body = Event;
+    id __body = event;
 
     if(__body != nil && [__body isKindOfClass:[NSArray class]]){
         NSMutableArray * objs = [[NSMutableArray alloc] init];

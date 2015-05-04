@@ -6,7 +6,7 @@ import com.wordnik.swagger.annotations.ApiParam;
 
 import com.sun.jersey.multipart.FormDataParam;
 
-import io.swagger.model.MemberEvents;
+import io.swagger.model.MemberEventModel;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -27,9 +27,9 @@ public class Member_eventsApi {
   
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns all MemberEvents", response = MemberEvents.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns all MemberEvents", response = MemberEventModel.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
-    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Member Eventsresponse") })
+    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "member event response") })
 
   public Response findMemberEvents(@ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth)
       throws NotFoundException {

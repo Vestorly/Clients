@@ -24,6 +24,34 @@
   } ],
   "schemes" : [ "https" ],
   "paths" : {
+    "/advisors/{id}" : {
+      "get" : {
+        "tags" : [ "advisors" ],
+        "description" : "Returns a single advisors",
+        "operationId" : "findAdvisorByID",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Advisor Id to fetch",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Advisor response",
+            "schema" : {
+              "$ref" : "#/definitions/Advisorresponse"
+            }
+          }
+        }
+      }
+    },
     "/articles" : {
       "get" : {
         "tags" : [ "articles" ],
@@ -195,8 +223,8 @@
           "type" : "string"
         }, {
           "in" : "body",
-          "name" : "Event",
-          "description" : "Event",
+          "name" : "event",
+          "description" : "The event object to be created",
           "required" : true,
           "schema" : {
             "$ref" : "#/definitions/EventInput"
@@ -379,9 +407,9 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Member Eventsresponse",
+            "description" : "member event response",
             "schema" : {
-              "$ref" : "#/definitions/MemberEvents"
+              "$ref" : "#/definitions/MemberEventModel"
             }
           }
         }
@@ -405,6 +433,34 @@
             "description" : "Member response",
             "schema" : {
               "$ref" : "#/definitions/Members"
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "members" ],
+        "description" : "Create a new member in the Vestorly Platform",
+        "operationId" : "createMember",
+        "parameters" : [ {
+          "name" : "vestorly-auth",
+          "in" : "query",
+          "description" : "Vestorly Auth Token",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "member",
+          "description" : "Member you want to create",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Member"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "member response",
+            "schema" : {
+              "$ref" : "#/definitions/Memberresponse"
             }
           }
         }
@@ -965,6 +1021,13 @@
     }
   },
   "definitions" : {
+    "Advisorresponse" : {
+      "properties" : {
+        "advisor" : {
+          "$ref" : "#/definitions/Advisor"
+        }
+      }
+    },
     "Advisor" : {
       "required" : [ "id", "name" ],
       "properties" : {
@@ -1401,7 +1464,7 @@
     },
     "Memberresponse" : {
       "properties" : {
-        "post" : {
+        "member" : {
           "$ref" : "#/definitions/Member"
         }
       }
@@ -1528,7 +1591,7 @@
     "EventInput" : {
       "required" : [ "advisor_email", "newsletter", "original_url", "originator_group_name", "subject_email" ],
       "properties" : {
-        "referrer" : {
+        "referer" : {
           "type" : "string"
         },
         "original_url" : {
@@ -1567,7 +1630,7 @@
         "_id" : {
           "type" : "string"
         },
-        "referrer" : {
+        "referer" : {
           "type" : "string"
         },
         "original_url" : {

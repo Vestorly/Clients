@@ -82,7 +82,7 @@ public class EventsApi {
 
   public Response updateEventByID(@ApiParam(value = "Mongo ID of event to update",required=true ) @PathParam("id") String id,
     @ApiParam(value = "Vestorly Auth Token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
-    @ApiParam(value = "Event" ,required=true ) EventInput event)
+    @ApiParam(value = "The event object to be created" ,required=true ) EventInput event)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

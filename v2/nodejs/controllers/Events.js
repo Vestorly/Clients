@@ -53,10 +53,10 @@ module.exports.findEventByID = function findEventByID (req, res, next) {
 module.exports.updateEventByID = function updateEventByID (req, res, next) {
   var id = req.swagger.params['id'].value;
   var vestorly-auth = req.swagger.params['vestorly-auth'].value;
-  var Event = req.swagger.params['Event'].value;
+  var event = req.swagger.params['event'].value;
   
 
-  var result = Events.updateEventByID(id, vestorly-auth, Event);
+  var result = Events.updateEventByID(id, vestorly-auth, event);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

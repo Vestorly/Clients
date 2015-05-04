@@ -4,7 +4,7 @@ package com.wordnik.client.model
 
 case class Event (
   _id: String,
-  referrer: String,
+  referer: String,
   original_url: String,
   originator_email: String,
   subject_email: String,

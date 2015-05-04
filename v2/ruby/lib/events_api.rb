@@ -184,7 +184,7 @@ class EventsApi
   # Updates a single event by mongo id
   # @param id Mongo ID of event to update
   # @param vestorly_auth Vestorly Auth Token
-  # @param event Event
+  # @param event The event object to be created
   # @return Eventresponse
   def self.updateEventByID (id, vestorly_auth, event, opts={})
     query_param_keys = [:vestorly_auth]

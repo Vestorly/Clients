@@ -7,7 +7,7 @@ import io.swagger.client.model.*;
 
 import java.util.*;
 
-import io.swagger.client.model.MemberEvents;
+import io.swagger.client.model.MemberEventModel;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -38,7 +38,7 @@ public class MembereventsApi {
 
   
   
-  public MemberEvents  findMemberEvents (String vestorlyAuth) throws ApiException {
+  public MemberEventModel  findMemberEvents (String vestorlyAuth) throws ApiException {
     Object postBody = null;
 
     
@@ -79,7 +79,7 @@ public class MembereventsApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (MemberEvents) ApiInvoker.deserialize(response, "", MemberEvents.class);
+        return (MemberEventModel) ApiInvoker.deserialize(response, "", MemberEventModel.class);
       }
       else {
         return null;

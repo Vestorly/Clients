@@ -8,7 +8,7 @@ namespace io.swagger.Model {
     
 
     
-    public string Referrer { get; set; }
+    public string Referer { get; set; }
 
     
 
@@ -46,7 +46,7 @@ namespace io.swagger.Model {
       var sb = new StringBuilder();
       sb.Append("class EventInput {\n");
       
-      sb.Append("  Referrer: ").Append(Referrer).Append("\n");
+      sb.Append("  Referer: ").Append(Referer).Append("\n");
       
       sb.Append("  OriginalUrl: ").Append(OriginalUrl).Append("\n");
       

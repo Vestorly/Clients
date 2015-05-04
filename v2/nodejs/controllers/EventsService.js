@@ -6,7 +6,7 @@ exports.findEvents = function(vestorly-auth) {
   
   examples['application/json'] = {
   "events" : [ {
-    "referrer" : "aeiou",
+    "referer" : "aeiou",
     "newsletter" : "aeiou",
     "originator_group_name" : "aeiou",
     "advisor_email" : "aeiou",
@@ -29,7 +29,7 @@ exports.createEvent = function(vestorly-auth, Event) {
   
   examples['application/json'] = {
   "event" : {
-    "referrer" : "aeiou",
+    "referer" : "aeiou",
     "newsletter" : "aeiou",
     "originator_group_name" : "aeiou",
     "advisor_email" : "aeiou",
@@ -52,7 +52,7 @@ exports.findEventByID = function(id, vestorly-auth) {
   
   examples['application/json'] = {
   "event" : {
-    "referrer" : "aeiou",
+    "referer" : "aeiou",
     "newsletter" : "aeiou",
     "originator_group_name" : "aeiou",
     "advisor_email" : "aeiou",
@@ -69,13 +69,13 @@ exports.findEventByID = function(id, vestorly-auth) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.updateEventByID = function(id, vestorly-auth, Event) {
+exports.updateEventByID = function(id, vestorly-auth, event) {
 
   var examples = {};
   
   examples['application/json'] = {
   "event" : {
-    "referrer" : "aeiou",
+    "referer" : "aeiou",
     "newsletter" : "aeiou",
     "originator_group_name" : "aeiou",
     "advisor_email" : "aeiou",

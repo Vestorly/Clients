@@ -201,7 +201,7 @@ public class EventsApi {
    * Updates a single event by mongo id
    * @param id Mongo ID of event to update
    * @param vestorlyAuth Vestorly Auth Token
-   * @param event Event
+   * @param event The event object to be created
    * @return Eventresponse
    */
   public Eventresponse updateEventByID (String id, String vestorlyAuth, EventInput event) throws ApiException {

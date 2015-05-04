@@ -1,6 +1,6 @@
 package io.swagger.client.api
 
-import io.swagger.client.model.MemberEvents
+import io.swagger.client.model.MemberEventModel
 import io.swagger.client.ApiInvoker
 import io.swagger.client.ApiException
 
@@ -17,7 +17,7 @@ class MembereventsApi(val defBasePath: String = "https://staging.vestorly.com/ap
   def addHeader(key: String, value: String) = apiInvoker.defaultHeaders += key -> value 
 
   
-  def findMemberEvents (vestorly-auth: String) : Option[MemberEvents] = {
+  def findMemberEvents (vestorly-auth: String) : Option[MemberEventModel] = {
     // create path and map variables
     val path = "/member_events".replaceAll("\\{format\\}","json")
 
@@ -41,7 +41,7 @@ class MembereventsApi(val defBasePath: String = "https://staging.vestorly.com/ap
     try {
       apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, None, headerParams.toMap, contentType) match {
         case s: String =>
-           Some(ApiInvoker.deserialize(s, "", classOf[MemberEvents]).asInstanceOf[MemberEvents])
+           Some(ApiInvoker.deserialize(s, "", classOf[MemberEventModel]).asInstanceOf[MemberEventModel])
          
         case _ => None
       }

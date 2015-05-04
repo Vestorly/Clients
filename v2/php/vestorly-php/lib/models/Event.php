@@ -29,7 +29,7 @@ use \ArrayAccess;
 class Event implements ArrayAccess {
   static $swaggerTypes = array(
       '_id' => 'string',
-      'referrer' => 'string',
+      'referer' => 'string',
       'original_url' => 'string',
       'originator_email' => 'string',
       'subject_email' => 'string',
@@ -40,7 +40,7 @@ class Event implements ArrayAccess {
 
   static $attributeMap = array(
       '_id' => '_id',
-      'referrer' => 'referrer',
+      'referer' => 'referer',
       'original_url' => 'original_url',
       'originator_email' => 'originator_email',
       'subject_email' => 'subject_email',
@@ -51,7 +51,7 @@ class Event implements ArrayAccess {
 
   
   public $_id; /* string */
-  public $referrer; /* string */
+  public $referer; /* string */
   public $original_url; /* string */
   public $originator_email; /* string */
   public $subject_email; /* string */
@@ -61,7 +61,7 @@ class Event implements ArrayAccess {
 
   public function __construct(array $data = null) {
     $this->_id = $data["_id"];
-    $this->referrer = $data["referrer"];
+    $this->referer = $data["referer"];
     $this->original_url = $data["original_url"];
     $this->originator_email = $data["originator_email"];
     $this->subject_email = $data["subject_email"];
