@@ -175,7 +175,7 @@
         
         {
   "in" : "body",
-  "name" : "Event",
+  "name" : "event",
   "description" : "Event",
   "required" : true,
   "schema" : {
@@ -276,6 +276,38 @@
   "description" : "Event response",
   "schema" : {
     "$ref" : "#/definitions/Eventresponse"
+  }
+}
+        
+        
+      }
+    }
+  } 
+  
+   ,
+  
+  "/member_reports": {
+    "get": {
+      "x-swagger-router-controller": "Memberreports",
+      "tags": ["Memberreports"],
+      "operationId": "findMemberReports",
+      "parameters": [
+        
+        {
+  "name" : "vestorly-auth",
+  "in" : "query",
+  "description" : "Vestorly Auth Token",
+  "required" : true,
+  "type" : "string"
+}
+        
+      ],
+      "responses": {
+        
+        "200": {
+  "description" : "member reports response",
+  "schema" : {
+    "$ref" : "#/definitions/MemberReports"
   }
 }
         
@@ -611,8 +643,7 @@
   "in" : "query",
   "description" : "Vestorly Auth Token",
   "required" : true,
-  "type" : "string",
-  "format" : "string"
+  "type" : "string"
 }
         
       ],
@@ -621,7 +652,7 @@
         "200": {
   "description" : "member event response",
   "schema" : {
-    "$ref" : "#/definitions/MemberEventModel"
+    "$ref" : "#/definitions/MemberEvents"
   }
 }
         
@@ -737,9 +768,9 @@
       "responses": {
         
         "200": {
-  "description" : "Response",
+  "description" : "You have successfully logged out of the vestorly platform",
   "schema" : {
-    "$ref" : "#/definitions/Session"
+    "$ref" : "#/definitions/SessionLogoutResponse"
   }
 }
         
@@ -1382,6 +1413,16 @@
   "required" : true,
   "type" : "string",
   "format" : "string"
+},
+        
+        {
+  "in" : "body",
+  "name" : "member",
+  "description" : "Member you want to update",
+  "required" : true,
+  "schema" : {
+    "$ref" : "#/definitions/Member"
+  }
 }
         
       ],
@@ -1429,6 +1470,15 @@
       }
     }
   }
+},"Posts": {
+  "properties" : {
+    "posts" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Post"
+      }
+    }
+  }
 },"Postresponse": {
   "properties" : {
     "post" : {
@@ -1446,43 +1496,123 @@
     "_id" : {
       "type" : "string"
     },
-    "title" : {
+    "created_at" : {
       "type" : "string"
     },
-    "post_date" : {
+    "updated_at" : {
       "type" : "string"
     },
-    "body" : {
+    "external_url" : {
       "type" : "string"
     },
-    "comment" : {
+    "external_url_source" : {
       "type" : "string"
     },
-    "client_only" : {
-      "type" : "boolean",
-      "default" : false
-    },
-    "attachment" : {
+    "external_url_type" : {
       "type" : "string"
     },
-    "video" : {
-      "type" : "string"
-    },
-    "img" : {
+    "image_path" : {
       "type" : "string"
     },
     "image_url" : {
       "type" : "string"
     },
-    "img_compressed" : {
-      "type" : "boolean",
-      "default" : false
+    "image_height" : {
+      "type" : "string"
     },
-    "img_changed" : {
-      "type" : "boolean",
-      "default" : false
+    "image_width" : {
+      "type" : "string"
+    },
+    "logo_url" : {
+      "type" : "string"
+    },
+    "square_logo_url" : {
+      "type" : "string"
+    },
+    "needs_sanitize" : {
+      "type" : "string"
+    },
+    "summary" : {
+      "type" : "string"
     },
     "topic" : {
+      "type" : "string"
+    },
+    "approval_status" : {
+      "type" : "string"
+    },
+    "approval_transactions" : {
+      "type" : "string"
+    },
+    "group_ids" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "slug" : {
+      "type" : "string"
+    },
+    "article_id" : {
+      "type" : "string"
+    },
+    "comment" : {
+      "type" : "string"
+    },
+    "newsletter_ids" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "is_featured" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "advisor_id" : {
+      "type" : "string"
+    },
+    "is_published" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "is_responsive" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "is_proxy_needed" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "is_mobile_proxy_needed" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "proxy_url" : {
+      "type" : "string"
+    },
+    "video" : {
+      "type" : "string"
+    },
+    "pdf_attachment_url" : {
+      "type" : "string"
+    },
+    "post_date" : {
+      "type" : "string"
+    },
+    "display_date" : {
+      "type" : "string"
+    },
+    "suitability_score" : {
+      "type" : "string"
+    },
+    "video_id" : {
+      "type" : "string"
+    },
+    "display_tag" : {
+      "type" : "string"
+    },
+    "display_summary" : {
       "type" : "string"
     },
     "vestorly_url" : {
@@ -1490,45 +1620,133 @@
     }
   }
 },"PostInput": {
-  "required" : [ "title" ],
   "properties" : {
-    "title" : {
+    "created_at" : {
       "type" : "string"
     },
-    "post_date" : {
+    "updated_at" : {
       "type" : "string"
     },
-    "body" : {
+    "external_url" : {
       "type" : "string"
     },
-    "comment" : {
+    "external_url_source" : {
       "type" : "string"
     },
-    "client_only" : {
-      "type" : "boolean",
-      "default" : false
-    },
-    "attachment" : {
+    "external_url_type" : {
       "type" : "string"
     },
-    "video" : {
-      "type" : "string"
-    },
-    "img" : {
+    "image_path" : {
       "type" : "string"
     },
     "image_url" : {
       "type" : "string"
     },
-    "img_compressed" : {
-      "type" : "boolean",
-      "default" : false
+    "image_height" : {
+      "type" : "string"
     },
-    "img_changed" : {
-      "type" : "boolean",
-      "default" : false
+    "image_width" : {
+      "type" : "string"
+    },
+    "logo_url" : {
+      "type" : "string"
+    },
+    "square_logo_url" : {
+      "type" : "string"
+    },
+    "needs_sanitize" : {
+      "type" : "string"
+    },
+    "summary" : {
+      "type" : "string"
     },
     "topic" : {
+      "type" : "string"
+    },
+    "approval_status" : {
+      "type" : "string"
+    },
+    "approval_transactions" : {
+      "type" : "string"
+    },
+    "group_ids" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "slug" : {
+      "type" : "string"
+    },
+    "article_id" : {
+      "type" : "string"
+    },
+    "comment" : {
+      "type" : "string"
+    },
+    "newsletter_ids" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "is_featured" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "advisor_id" : {
+      "type" : "string"
+    },
+    "is_published" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "is_responsive" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "is_proxy_needed" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "is_mobile_proxy_needed" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "proxy_url" : {
+      "type" : "string"
+    },
+    "video" : {
+      "type" : "string"
+    },
+    "pdf_attachment_url" : {
+      "type" : "string"
+    },
+    "post_date" : {
+      "type" : "string"
+    },
+    "display_date" : {
+      "type" : "string"
+    },
+    "suitability_score" : {
+      "type" : "string"
+    },
+    "video_id" : {
+      "type" : "string"
+    },
+    "display_tag" : {
+      "type" : "string"
+    },
+    "display_summary" : {
+      "type" : "string"
+    },
+    "vestorly_url" : {
+      "type" : "string"
+    }
+  }
+},"SessionLogoutResponse": {
+  "properties" : {
+    "message" : {
       "type" : "string"
     }
   }
@@ -1697,8 +1915,143 @@
       "default" : false
     }
   }
+},"MemberReport": {
+  "properties" : {
+    "day" : {
+      "type" : "integer",
+      "format" : "int32"
+    },
+    "event_count" : {
+      "type" : "integer",
+      "format" : "int32"
+    },
+    "originator_group_id" : {
+      "type" : "string"
+    },
+    "parent_originator_id" : {
+      "type" : "string"
+    },
+    "source" : {
+      "type" : "string"
+    },
+    "type" : {
+      "type" : "string"
+    },
+    "year" : {
+      "type" : "integer",
+      "format" : "int32"
+    }
+  }
+},"MemberReports": {
+  "properties" : {
+    "member_reports" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/MemberReport"
+      }
+    }
+  }
+},"TruncatedMember": {
+  "properties" : {
+    "_id" : {
+      "type" : "string"
+    },
+    "first_name" : {
+      "type" : "string"
+    },
+    "last_name" : {
+      "type" : "string"
+    },
+    "email" : {
+      "type" : "string"
+    },
+    "picture_url" : {
+      "type" : "string"
+    },
+    "added_on" : {
+      "type" : "string"
+    }
+  }
+},"MemberEvent": {
+  "properties" : {
+    "_id" : {
+      "type" : "string"
+    },
+    "created_at" : {
+      "type" : "string"
+    },
+    "type" : {
+      "type" : "string"
+    },
+    "source" : {
+      "type" : "string"
+    },
+    "referer" : {
+      "type" : "string"
+    },
+    "original_url" : {
+      "type" : "string"
+    },
+    "originator_email" : {
+      "type" : "string"
+    },
+    "originator_name" : {
+      "type" : "string"
+    },
+    "parent_originator_id" : {
+      "type" : "string"
+    },
+    "parent_event_id" : {
+      "type" : "string"
+    },
+    "originator_type" : {
+      "type" : "string"
+    },
+    "originator_group_id" : {
+      "type" : "string"
+    },
+    "event_type" : {
+      "type" : "string"
+    },
+    "event_source" : {
+      "type" : "string"
+    },
+    "content_url" : {
+      "type" : "string"
+    },
+    "event_date" : {
+      "type" : "string"
+    },
+    "username" : {
+      "type" : "string"
+    },
+    "member_id" : {
+      "type" : "string"
+    },
+    "originator_id" : {
+      "type" : "string"
+    },
+    "subject_id" : {
+      "type" : "string"
+    }
+  }
+},"MemberEvents": {
+  "properties" : {
+    "members" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/TruncatedMember"
+      }
+    },
+    "member_events" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/MemberEvent"
+      }
+    }
+  }
 },"Article": {
-  "required" : [ "_id" ],
+  "required" : [ "_id", "title" ],
   "properties" : {
     "_id" : {
       "type" : "string"
@@ -1709,28 +2062,55 @@
     "title" : {
       "type" : "string"
     },
-    "open_calais_topics" : {
+    "body" : {
       "type" : "string"
     },
-    "open_calais_keywords" : {
+    "is_responsive" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "is_proxy_needed" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "is_mobile_proxy_needed" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "needs_sanitize" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "proxy_url" : {
       "type" : "string"
     },
-    "vestorly_topics" : {
+    "topic" : {
       "type" : "string"
     },
-    "categories" : {
+    "suitability_score" : {
       "type" : "string"
     },
     "summary" : {
       "type" : "string"
     },
-    "unparsed_html" : {
+    "image_path" : {
       "type" : "string"
+    },
+    "image_url" : {
+      "type" : "string"
+    },
+    "image_height" : {
+      "type" : "integer",
+      "format" : "int32"
+    },
+    "image_width" : {
+      "type" : "integer",
+      "format" : "int32"
     },
     "logo_url" : {
       "type" : "string"
     },
-    "image_url" : {
+    "square_logo_url" : {
       "type" : "string"
     },
     "url" : {
@@ -1739,7 +2119,10 @@
     "external_url" : {
       "type" : "string"
     },
-    "tags" : {
+    "external_url_source" : {
+      "type" : "string"
+    },
+    "external_url_type" : {
       "type" : "string"
     }
   }
@@ -1828,9 +2211,28 @@
       "$ref" : "#/definitions/Member"
     }
   }
+},"Meta": {
+  "properties" : {
+    "sort_order" : {
+      "type" : "string"
+    },
+    "more_results" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "message" : {
+      "type" : "string"
+    },
+    "sorted_by" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    }
+  }
 },"Members": {
   "properties" : {
-    "posts" : {
+    "members" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/definitions/Member"
@@ -1839,6 +2241,9 @@
     "more_results" : {
       "type" : "boolean",
       "default" : false
+    },
+    "meta" : {
+      "$ref" : "#/definitions/Meta"
     }
   }
 },"Member": {
@@ -1874,8 +2279,22 @@
     "gender" : {
       "type" : "string"
     },
-    "age" : {
+    "interest_consultation" : {
       "type" : "string"
+    },
+    "interest_in_new_advisor" : {
+      "type" : "string"
+    },
+    "assets" : {
+      "type" : "string"
+    },
+    "age" : {
+      "type" : "integer",
+      "format" : "int32"
+    },
+    "data_estimated" : {
+      "type" : "boolean",
+      "default" : false
     },
     "education" : {
       "type" : "string"
@@ -1891,7 +2310,8 @@
       "type" : "string"
     },
     "household_income" : {
-      "type" : "string"
+      "type" : "integer",
+      "format" : "int32"
     },
     "marital_status" : {
       "type" : "string"
@@ -1906,7 +2326,32 @@
       "type" : "string"
     },
     "tags" : {
-      "type" : "string"
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "subscribed_group_ids" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "unsubscribed" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "unsubscribed_date" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "user_type" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "signed_up_with" : {
+      "type" : "boolean",
+      "default" : false
     },
     "message" : {
       "type" : "string"
@@ -1929,13 +2374,55 @@
     "register_ip_addr" : {
       "type" : "string"
     },
-    "data_estimated" : {
-      "type" : "boolean",
-      "default" : false
-    },
     "genuine_email" : {
       "type" : "boolean",
       "default" : false
+    },
+    "last_active_date" : {
+      "type" : "string"
+    },
+    "is_client" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "is_hidden" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "invited_on" : {
+      "type" : "string"
+    },
+    "invited_by" : {
+      "type" : "string"
+    },
+    "portfolio_size" : {
+      "type" : "integer",
+      "format" : "int32"
+    }
+  }
+},"EventContent": {
+  "properties" : {
+    "_id" : {
+      "type" : "string",
+      "description" : "Mongo id of event"
+    },
+    "content_field" : {
+      "type" : "string"
+    },
+    "content_id" : {
+      "type" : "string"
+    },
+    "content_type" : {
+      "type" : "string"
+    },
+    "created_at" : {
+      "type" : "string"
+    },
+    "slug" : {
+      "type" : "string"
+    },
+    "updated_at" : {
+      "type" : "string"
     }
   }
 },"Eventresponse": {
@@ -1945,8 +2432,12 @@
     }
   }
 },"EventInput": {
-  "required" : [ "advisor_email", "newsletter", "original_url", "originator_group_name", "subject_email" ],
+  "required" : [ "original_url", "subject_email", "type" ],
   "properties" : {
+    "type" : {
+      "type" : "string",
+      "enum" : [ "page_view", "sign_up", "sign_in", "content_posted", "create_post", "publish_post", "update_post", "delete_post", "unpublish_post", "invite", "publish_newsletter", "publish_social", "click", "delivered", "open", "dropped", "bounce" ]
+    },
     "referer" : {
       "type" : "string"
     },
@@ -1959,13 +2450,63 @@
     "subject_email" : {
       "type" : "string"
     },
-    "advisor_email" : {
+    "parent_event_id" : {
       "type" : "string"
     },
-    "originator_group_name" : {
+    "originator_id" : {
       "type" : "string"
     },
-    "newsletter" : {
+    "advisor_id" : {
+      "type" : "string"
+    },
+    "subject_id" : {
+      "type" : "string"
+    },
+    "event_content" : {
+      "$ref" : "#/definitions/EventContent"
+    },
+    "created_at" : {
+      "type" : "string"
+    }
+  }
+},"Event": {
+  "required" : [ "_id", "original_url", "subject_email", "type" ],
+  "properties" : {
+    "_id" : {
+      "type" : "string"
+    },
+    "type" : {
+      "type" : "string",
+      "enum" : [ "page_view", "sign_up", "sign_in", "content_posted", "create_post", "publish_post", "update_post", "delete_post", "unpublish_post", "invite", "publish_newsletter", "publish_social", "click", "delivered", "open", "dropped", "bounce" ]
+    },
+    "referer" : {
+      "type" : "string"
+    },
+    "original_url" : {
+      "type" : "string"
+    },
+    "originator_email" : {
+      "type" : "string"
+    },
+    "subject_email" : {
+      "type" : "string"
+    },
+    "parent_event_id" : {
+      "type" : "string"
+    },
+    "originator_id" : {
+      "type" : "string"
+    },
+    "advisor_id" : {
+      "type" : "string"
+    },
+    "subject_id" : {
+      "type" : "string"
+    },
+    "event_content" : {
+      "$ref" : "#/definitions/EventContent"
+    },
+    "created_at" : {
       "type" : "string"
     }
   }
@@ -1976,34 +2517,6 @@
       "items" : {
         "$ref" : "#/definitions/Event"
       }
-    }
-  }
-},"Event": {
-  "required" : [ "_id", "advisor_email", "newsletter", "original_url", "originator_group_name", "subject_email" ],
-  "properties" : {
-    "_id" : {
-      "type" : "string"
-    },
-    "referer" : {
-      "type" : "string"
-    },
-    "original_url" : {
-      "type" : "string"
-    },
-    "originator_email" : {
-      "type" : "string"
-    },
-    "subject_email" : {
-      "type" : "string"
-    },
-    "advisor_email" : {
-      "type" : "string"
-    },
-    "originator_group_name" : {
-      "type" : "string"
-    },
-    "newsletter" : {
-      "type" : "string"
     }
   }
 },"Group": {
@@ -2120,20 +2633,35 @@
     "_id" : {
       "type" : "string"
     },
-    "email_status" : {
-      "type" : "string"
-    },
-    "twitter_status" : {
-      "type" : "string"
-    },
-    "linkedin_status" : {
-      "type" : "string"
+    "email_day_of_week" : {
+      "type" : "integer",
+      "format" : "int32"
     },
     "email_hour" : {
       "type" : "integer",
       "format" : "int32"
     },
-    "twitter_hour" : {
+    "email_status" : {
+      "type" : "string"
+    },
+    "facebook_active_wall" : {
+      "type" : "string"
+    },
+    "facebook_day_of_week" : {
+      "type" : "integer",
+      "format" : "int32"
+    },
+    "facebook_hour" : {
+      "type" : "integer",
+      "format" : "int32"
+    },
+    "facebook_status" : {
+      "type" : "string"
+    },
+    "linkedin_active_wall" : {
+      "type" : "string"
+    },
+    "linkedin_day_of_week" : {
       "type" : "integer",
       "format" : "int32"
     },
@@ -2141,9 +2669,101 @@
       "type" : "integer",
       "format" : "int32"
     },
-    "facebook_hour" : {
+    "linkedin_status" : {
+      "type" : "string"
+    },
+    "social_title" : {
+      "type" : "string"
+    },
+    "social_subtitle" : {
+      "type" : "string"
+    },
+    "social_description" : {
+      "type" : "string"
+    },
+    "twitter_day_of_week" : {
       "type" : "integer",
       "format" : "int32"
+    },
+    "twitter_hour" : {
+      "type" : "integer",
+      "format" : "int32"
+    },
+    "twitter_status" : {
+      "type" : "string"
+    },
+    "social_posting_text" : {
+      "type" : "string"
+    },
+    "newsletter_type" : {
+      "type" : "string"
+    },
+    "group_id" : {
+      "type" : "string"
+    },
+    "montage_enabled" : {
+      "type" : "boolean",
+      "default" : false
+    },
+    "montage_title" : {
+      "type" : "string"
+    },
+    "montage_facebook_image_url" : {
+      "type" : "string"
+    },
+    "montage_linkedin_image_url" : {
+      "type" : "string"
+    },
+    "montage_twitter_image_url" : {
+      "type" : "string"
+    },
+    "newsletter_ids" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "primary_email_font" : {
+      "type" : "string"
+    },
+    "footer_email_font" : {
+      "type" : "string"
+    },
+    "email_accent_color" : {
+      "type" : "string"
+    },
+    "render_version" : {
+      "type" : "string"
+    },
+    "header_image_url" : {
+      "type" : "string"
+    },
+    "header_background_color" : {
+      "type" : "string"
+    },
+    "banner_color" : {
+      "type" : "string"
+    },
+    "title_color" : {
+      "type" : "string"
+    },
+    "footer_html" : {
+      "type" : "string"
+    },
+    "intro_text" : {
+      "type" : "string"
+    },
+    "footer_image_url" : {
+      "type" : "string"
+    },
+    "subject" : {
+      "type" : "string"
+    },
+    "salutation_text" : {
+      "type" : "string"
+    },
+    "body_html" : {
+      "type" : "string"
     }
   }
 },"Sourceresponse": {
@@ -2153,7 +2773,7 @@
     }
   }
 },"Source": {
-  "required" : [ "_id", "custom_rss_feed", "enabled", "logo_url", "name", "rss_publisher" ],
+  "required" : [ "_id", "name", "rss_publisher", "url" ],
   "properties" : {
     "_id" : {
       "type" : "string"
@@ -2180,7 +2800,7 @@
     }
   }
 },"SourceInput": {
-  "required" : [ "custom_rss_feed", "enabled", "logo_url", "name", "rss_publisher" ],
+  "required" : [ "name", "rss_publisher", "url" ],
   "properties" : {
     "name" : {
       "type" : "string"

@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
+#import "SWGEventContent.h"
 
 
 @protocol SWGEvent
@@ -10,6 +11,8 @@
 
 @property(nonatomic) NSString* _id;
 
+@property(nonatomic) NSString* type;
+
 @property(nonatomic) NSString<Optional>* referer;
 
 @property(nonatomic) NSString* original_url;
@@ -18,10 +21,16 @@
 
 @property(nonatomic) NSString* subject_email;
 
-@property(nonatomic) NSString* advisor_email;
+@property(nonatomic) NSString<Optional>* parent_event_id;
 
-@property(nonatomic) NSString* originator_group_name;
+@property(nonatomic) NSString<Optional>* originator_id;
 
-@property(nonatomic) NSString* _newsletter;
+@property(nonatomic) NSString<Optional>* advisor_id;
+
+@property(nonatomic) NSString<Optional>* subject_id;
+
+@property(nonatomic) SWGEventContent<Optional, SWGEventContent>* event_content;
+
+@property(nonatomic) NSString<Optional>* created_at;
 
 @end

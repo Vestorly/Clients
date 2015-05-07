@@ -97,7 +97,7 @@ namespace io.swagger.Api {
      /// <param name="Id">ID of pet to session</param>
     
     /// <returns></returns>
-    public Session  logout (string VestorlyAuth, string Id) {
+    public SessionLogoutResponse  logout (string VestorlyAuth, string Id) {
       // create path and map variables
       var path = "/sessions/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -118,17 +118,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(Session) == typeof(byte[])) {
+        if (typeof(SessionLogoutResponse) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as Session;
+          return ((object)response) as SessionLogoutResponse;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "DELETE", queryParams, null, headerParams, formParams);
           if (response != null){
-             return (Session) ApiInvoker.deserialize(response, typeof(Session));
+             return (SessionLogoutResponse) ApiInvoker.deserialize(response, typeof(SessionLogoutResponse));
           }
           else {
             return null;

@@ -1,6 +1,7 @@
 package io.swagger.client.api
 
 import io.swagger.client.model.Session
+import io.swagger.client.model.SessionLogoutResponse
 import io.swagger.client.ApiInvoker
 import io.swagger.client.ApiException
 
@@ -52,7 +53,7 @@ class SessionsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2
     }
   }
   
-  def logout (vestorly-auth: String, id: String) : Option[Session] = {
+  def logout (vestorly-auth: String, id: String) : Option[SessionLogoutResponse] = {
     // create path and map variables
     val path = "/sessions/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -78,7 +79,7 @@ class SessionsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2
     try {
       apiInvoker.invokeApi(basePath, path, "DELETE", queryParams.toMap, None, headerParams.toMap, contentType) match {
         case s: String =>
-           Some(ApiInvoker.deserialize(s, "", classOf[Session]).asInstanceOf[Session])
+           Some(ApiInvoker.deserialize(s, "", classOf[SessionLogoutResponse]).asInstanceOf[SessionLogoutResponse])
          
         case _ => None
       }

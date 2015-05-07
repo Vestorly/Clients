@@ -31,67 +31,99 @@ class Article implements ArrayAccess {
       '_id' => 'string',
       'created_at' => 'string',
       'title' => 'string',
-      'open_calais_topics' => 'string',
-      'open_calais_keywords' => 'string',
-      'vestorly_topics' => 'string',
-      'categories' => 'string',
+      'body' => 'string',
+      'is_responsive' => 'boolean',
+      'is_proxy_needed' => 'boolean',
+      'is_mobile_proxy_needed' => 'boolean',
+      'needs_sanitize' => 'boolean',
+      'proxy_url' => 'string',
+      'topic' => 'string',
+      'suitability_score' => 'string',
       'summary' => 'string',
-      'unparsed_html' => 'string',
-      'logo_url' => 'string',
+      'image_path' => 'string',
       'image_url' => 'string',
+      'image_height' => 'int',
+      'image_width' => 'int',
+      'logo_url' => 'string',
+      'square_logo_url' => 'string',
       'url' => 'string',
       'external_url' => 'string',
-      'tags' => 'string'
+      'external_url_source' => 'string',
+      'external_url_type' => 'string'
   );
 
   static $attributeMap = array(
       '_id' => '_id',
       'created_at' => 'created_at',
       'title' => 'title',
-      'open_calais_topics' => 'open_calais_topics',
-      'open_calais_keywords' => 'open_calais_keywords',
-      'vestorly_topics' => 'vestorly_topics',
-      'categories' => 'categories',
+      'body' => 'body',
+      'is_responsive' => 'is_responsive',
+      'is_proxy_needed' => 'is_proxy_needed',
+      'is_mobile_proxy_needed' => 'is_mobile_proxy_needed',
+      'needs_sanitize' => 'needs_sanitize',
+      'proxy_url' => 'proxy_url',
+      'topic' => 'topic',
+      'suitability_score' => 'suitability_score',
       'summary' => 'summary',
-      'unparsed_html' => 'unparsed_html',
-      'logo_url' => 'logo_url',
+      'image_path' => 'image_path',
       'image_url' => 'image_url',
+      'image_height' => 'image_height',
+      'image_width' => 'image_width',
+      'logo_url' => 'logo_url',
+      'square_logo_url' => 'square_logo_url',
       'url' => 'url',
       'external_url' => 'external_url',
-      'tags' => 'tags'
+      'external_url_source' => 'external_url_source',
+      'external_url_type' => 'external_url_type'
   );
 
   
   public $_id; /* string */
   public $created_at; /* string */
   public $title; /* string */
-  public $open_calais_topics; /* string */
-  public $open_calais_keywords; /* string */
-  public $vestorly_topics; /* string */
-  public $categories; /* string */
+  public $body; /* string */
+  public $is_responsive; /* boolean */
+  public $is_proxy_needed; /* boolean */
+  public $is_mobile_proxy_needed; /* boolean */
+  public $needs_sanitize; /* boolean */
+  public $proxy_url; /* string */
+  public $topic; /* string */
+  public $suitability_score; /* string */
   public $summary; /* string */
-  public $unparsed_html; /* string */
-  public $logo_url; /* string */
+  public $image_path; /* string */
   public $image_url; /* string */
+  public $image_height; /* int */
+  public $image_width; /* int */
+  public $logo_url; /* string */
+  public $square_logo_url; /* string */
   public $url; /* string */
   public $external_url; /* string */
-  public $tags; /* string */
+  public $external_url_source; /* string */
+  public $external_url_type; /* string */
 
   public function __construct(array $data = null) {
     $this->_id = $data["_id"];
     $this->created_at = $data["created_at"];
     $this->title = $data["title"];
-    $this->open_calais_topics = $data["open_calais_topics"];
-    $this->open_calais_keywords = $data["open_calais_keywords"];
-    $this->vestorly_topics = $data["vestorly_topics"];
-    $this->categories = $data["categories"];
+    $this->body = $data["body"];
+    $this->is_responsive = $data["is_responsive"];
+    $this->is_proxy_needed = $data["is_proxy_needed"];
+    $this->is_mobile_proxy_needed = $data["is_mobile_proxy_needed"];
+    $this->needs_sanitize = $data["needs_sanitize"];
+    $this->proxy_url = $data["proxy_url"];
+    $this->topic = $data["topic"];
+    $this->suitability_score = $data["suitability_score"];
     $this->summary = $data["summary"];
-    $this->unparsed_html = $data["unparsed_html"];
-    $this->logo_url = $data["logo_url"];
+    $this->image_path = $data["image_path"];
     $this->image_url = $data["image_url"];
+    $this->image_height = $data["image_height"];
+    $this->image_width = $data["image_width"];
+    $this->logo_url = $data["logo_url"];
+    $this->square_logo_url = $data["square_logo_url"];
     $this->url = $data["url"];
     $this->external_url = $data["external_url"];
-    $this->tags = $data["tags"];
+    $this->external_url_source = $data["external_url_source"];
+    $this->external_url_type = $data["external_url_type"];
   }
 
   public function offsetExists($offset) {

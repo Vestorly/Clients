@@ -22,18 +22,27 @@ SamiEventInput::~SamiEventInput() {
 
 void
 SamiEventInput::init() {
+    pType = null;
     pReferer = null;
     pOriginal_url = null;
     pOriginator_email = null;
     pSubject_email = null;
-    pAdvisor_email = null;
-    pOriginator_group_name = null;
-    pNewsletter = null;
+    pParent_event_id = null;
+    pOriginator_id = null;
+    pAdvisor_id = null;
+    pSubject_id = null;
+    pEvent_content = null;
+    pCreated_at = null;
     
 }
 
 void
 SamiEventInput::cleanup() {
+    if(pType != null) {
+        
+        delete pType;
+        pType = null;
+    }
     if(pReferer != null) {
         
         delete pReferer;
@@ -54,20 +63,35 @@ SamiEventInput::cleanup() {
         delete pSubject_email;
         pSubject_email = null;
     }
-    if(pAdvisor_email != null) {
+    if(pParent_event_id != null) {
         
-        delete pAdvisor_email;
-        pAdvisor_email = null;
+        delete pParent_event_id;
+        pParent_event_id = null;
     }
-    if(pOriginator_group_name != null) {
+    if(pOriginator_id != null) {
         
-        delete pOriginator_group_name;
-        pOriginator_group_name = null;
+        delete pOriginator_id;
+        pOriginator_id = null;
     }
-    if(pNewsletter != null) {
+    if(pAdvisor_id != null) {
         
-        delete pNewsletter;
-        pNewsletter = null;
+        delete pAdvisor_id;
+        pAdvisor_id = null;
+    }
+    if(pSubject_id != null) {
+        
+        delete pSubject_id;
+        pSubject_id = null;
+    }
+    if(pEvent_content != null) {
+        
+        delete pEvent_content;
+        pEvent_content = null;
+    }
+    if(pCreated_at != null) {
+        
+        delete pCreated_at;
+        pCreated_at = null;
     }
     
 }
@@ -107,6 +131,15 @@ SamiEventInput::fromJsonObject(IJsonValue* pJson) {
     JsonObject* pJsonObject = static_cast< JsonObject* >(pJson);
 
     if(pJsonObject != null) {
+        JsonString* pTypeKey = new JsonString(L"type");
+        IJsonValue* pTypeVal = null;
+        pJsonObject->GetValue(pTypeKey, pTypeVal);
+        if(pTypeVal != null) {
+            
+            pType = new String();
+            jsonToValue(pType, pTypeVal, L"String", L"String");
+        }
+        delete pTypeKey;
         JsonString* pRefererKey = new JsonString(L"referer");
         IJsonValue* pRefererVal = null;
         pJsonObject->GetValue(pRefererKey, pRefererVal);
@@ -143,33 +176,60 @@ SamiEventInput::fromJsonObject(IJsonValue* pJson) {
             jsonToValue(pSubject_email, pSubject_emailVal, L"String", L"String");
         }
         delete pSubject_emailKey;
-        JsonString* pAdvisor_emailKey = new JsonString(L"advisor_email");
-        IJsonValue* pAdvisor_emailVal = null;
-        pJsonObject->GetValue(pAdvisor_emailKey, pAdvisor_emailVal);
-        if(pAdvisor_emailVal != null) {
+        JsonString* pParent_event_idKey = new JsonString(L"parent_event_id");
+        IJsonValue* pParent_event_idVal = null;
+        pJsonObject->GetValue(pParent_event_idKey, pParent_event_idVal);
+        if(pParent_event_idVal != null) {
             
-            pAdvisor_email = new String();
-            jsonToValue(pAdvisor_email, pAdvisor_emailVal, L"String", L"String");
+            pParent_event_id = new String();
+            jsonToValue(pParent_event_id, pParent_event_idVal, L"String", L"String");
         }
-        delete pAdvisor_emailKey;
-        JsonString* pOriginator_group_nameKey = new JsonString(L"originator_group_name");
-        IJsonValue* pOriginator_group_nameVal = null;
-        pJsonObject->GetValue(pOriginator_group_nameKey, pOriginator_group_nameVal);
-        if(pOriginator_group_nameVal != null) {
+        delete pParent_event_idKey;
+        JsonString* pOriginator_idKey = new JsonString(L"originator_id");
+        IJsonValue* pOriginator_idVal = null;
+        pJsonObject->GetValue(pOriginator_idKey, pOriginator_idVal);
+        if(pOriginator_idVal != null) {
             
-            pOriginator_group_name = new String();
-            jsonToValue(pOriginator_group_name, pOriginator_group_nameVal, L"String", L"String");
+            pOriginator_id = new String();
+            jsonToValue(pOriginator_id, pOriginator_idVal, L"String", L"String");
         }
-        delete pOriginator_group_nameKey;
-        JsonString* pNewsletterKey = new JsonString(L"newsletter");
-        IJsonValue* pNewsletterVal = null;
-        pJsonObject->GetValue(pNewsletterKey, pNewsletterVal);
-        if(pNewsletterVal != null) {
+        delete pOriginator_idKey;
+        JsonString* pAdvisor_idKey = new JsonString(L"advisor_id");
+        IJsonValue* pAdvisor_idVal = null;
+        pJsonObject->GetValue(pAdvisor_idKey, pAdvisor_idVal);
+        if(pAdvisor_idVal != null) {
             
-            pNewsletter = new String();
-            jsonToValue(pNewsletter, pNewsletterVal, L"String", L"String");
+            pAdvisor_id = new String();
+            jsonToValue(pAdvisor_id, pAdvisor_idVal, L"String", L"String");
         }
-        delete pNewsletterKey;
+        delete pAdvisor_idKey;
+        JsonString* pSubject_idKey = new JsonString(L"subject_id");
+        IJsonValue* pSubject_idVal = null;
+        pJsonObject->GetValue(pSubject_idKey, pSubject_idVal);
+        if(pSubject_idVal != null) {
+            
+            pSubject_id = new String();
+            jsonToValue(pSubject_id, pSubject_idVal, L"String", L"String");
+        }
+        delete pSubject_idKey;
+        JsonString* pEvent_contentKey = new JsonString(L"event_content");
+        IJsonValue* pEvent_contentVal = null;
+        pJsonObject->GetValue(pEvent_contentKey, pEvent_contentVal);
+        if(pEvent_contentVal != null) {
+            
+            pEvent_content = new SamiEventContent();
+            jsonToValue(pEvent_content, pEvent_contentVal, L"SamiEventContent", L"SamiEventContent");
+        }
+        delete pEvent_contentKey;
+        JsonString* pCreated_atKey = new JsonString(L"created_at");
+        IJsonValue* pCreated_atVal = null;
+        pJsonObject->GetValue(pCreated_atKey, pCreated_atVal);
+        if(pCreated_atVal != null) {
+            
+            pCreated_at = new String();
+            jsonToValue(pCreated_at, pCreated_atVal, L"String", L"String");
+        }
+        delete pCreated_atKey;
         
     }
 }
@@ -222,6 +282,10 @@ SamiEventInput::asJsonObject() {
     pJsonObject->Construct();
 
     
+    JsonString *pTypeKey = new JsonString(L"type");
+    pJsonObject->Add(pTypeKey, toJson(getPType(), "String", ""));
+
+    
     JsonString *pRefererKey = new JsonString(L"referer");
     pJsonObject->Add(pRefererKey, toJson(getPReferer(), "String", ""));
 
@@ -238,19 +302,40 @@ SamiEventInput::asJsonObject() {
     pJsonObject->Add(pSubject_emailKey, toJson(getPSubjectEmail(), "String", ""));
 
     
-    JsonString *pAdvisor_emailKey = new JsonString(L"advisor_email");
-    pJsonObject->Add(pAdvisor_emailKey, toJson(getPAdvisorEmail(), "String", ""));
+    JsonString *pParent_event_idKey = new JsonString(L"parent_event_id");
+    pJsonObject->Add(pParent_event_idKey, toJson(getPParentEventId(), "String", ""));
 
     
-    JsonString *pOriginator_group_nameKey = new JsonString(L"originator_group_name");
-    pJsonObject->Add(pOriginator_group_nameKey, toJson(getPOriginatorGroupName(), "String", ""));
+    JsonString *pOriginator_idKey = new JsonString(L"originator_id");
+    pJsonObject->Add(pOriginator_idKey, toJson(getPOriginatorId(), "String", ""));
 
     
-    JsonString *pNewsletterKey = new JsonString(L"newsletter");
-    pJsonObject->Add(pNewsletterKey, toJson(getPNewsletter(), "String", ""));
+    JsonString *pAdvisor_idKey = new JsonString(L"advisor_id");
+    pJsonObject->Add(pAdvisor_idKey, toJson(getPAdvisorId(), "String", ""));
+
+    
+    JsonString *pSubject_idKey = new JsonString(L"subject_id");
+    pJsonObject->Add(pSubject_idKey, toJson(getPSubjectId(), "String", ""));
+
+    
+    JsonString *pEvent_contentKey = new JsonString(L"event_content");
+    pJsonObject->Add(pEvent_contentKey, toJson(getPEventContent(), "SamiEventContent", ""));
+
+    
+    JsonString *pCreated_atKey = new JsonString(L"created_at");
+    pJsonObject->Add(pCreated_atKey, toJson(getPCreatedAt(), "String", ""));
 
     
     return pJsonObject;
+}
+
+String*
+SamiEventInput::getPType() {
+    return pType;
+}
+void
+SamiEventInput::setPType(String* pType) {
+    this->pType = pType;
 }
 
 String*
@@ -290,30 +375,57 @@ SamiEventInput::setPSubjectEmail(String* pSubject_email) {
 }
 
 String*
-SamiEventInput::getPAdvisorEmail() {
-    return pAdvisor_email;
+SamiEventInput::getPParentEventId() {
+    return pParent_event_id;
 }
 void
-SamiEventInput::setPAdvisorEmail(String* pAdvisor_email) {
-    this->pAdvisor_email = pAdvisor_email;
+SamiEventInput::setPParentEventId(String* pParent_event_id) {
+    this->pParent_event_id = pParent_event_id;
 }
 
 String*
-SamiEventInput::getPOriginatorGroupName() {
-    return pOriginator_group_name;
+SamiEventInput::getPOriginatorId() {
+    return pOriginator_id;
 }
 void
-SamiEventInput::setPOriginatorGroupName(String* pOriginator_group_name) {
-    this->pOriginator_group_name = pOriginator_group_name;
+SamiEventInput::setPOriginatorId(String* pOriginator_id) {
+    this->pOriginator_id = pOriginator_id;
 }
 
 String*
-SamiEventInput::getPNewsletter() {
-    return pNewsletter;
+SamiEventInput::getPAdvisorId() {
+    return pAdvisor_id;
 }
 void
-SamiEventInput::setPNewsletter(String* pNewsletter) {
-    this->pNewsletter = pNewsletter;
+SamiEventInput::setPAdvisorId(String* pAdvisor_id) {
+    this->pAdvisor_id = pAdvisor_id;
+}
+
+String*
+SamiEventInput::getPSubjectId() {
+    return pSubject_id;
+}
+void
+SamiEventInput::setPSubjectId(String* pSubject_id) {
+    this->pSubject_id = pSubject_id;
+}
+
+SamiEventContent*
+SamiEventInput::getPEventContent() {
+    return pEvent_content;
+}
+void
+SamiEventInput::setPEventContent(SamiEventContent* pEvent_content) {
+    this->pEvent_content = pEvent_content;
+}
+
+String*
+SamiEventInput::getPCreatedAt() {
+    return pCreated_at;
+}
+void
+SamiEventInput::setPCreatedAt(String* pCreated_at) {
+    this->pCreated_at = pCreated_at;
 }
 
 

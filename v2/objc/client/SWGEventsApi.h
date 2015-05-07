@@ -34,13 +34,13 @@
  Creates a new event in the system
 
  @param vestorly-auth Vestorly Auth Token
- @param Event Event
+ @param event Event
  
 
  return type: SWGEventresponse*
  */
 -(NSNumber*) createEventWithCompletionBlock :(NSString*) vestorly-auth 
-     Event:(SWGEventInput*) Event 
+     event:(SWGEventInput*) event 
     
     completionHandler: (void (^)(SWGEventresponse* output, NSError* error))completionBlock;
     

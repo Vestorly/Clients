@@ -6,7 +6,7 @@ import com.wordnik.swagger.annotations.ApiParam;
 
 import com.sun.jersey.multipart.FormDataParam;
 
-import io.swagger.model.MemberEventModel;
+import io.swagger.model.MemberEvents;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -27,7 +27,7 @@ public class Member_eventsApi {
   
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns all MemberEvents", response = MemberEventModel.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Returns all MemberEvents", response = MemberEvents.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
     @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "member event response") })
 

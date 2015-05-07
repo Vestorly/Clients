@@ -36,7 +36,7 @@ namespace io.swagger.Api {
     /// <param name="VestorlyAuth">Vestorly Auth Token</param>
     
     /// <returns></returns>
-    public MemberEventModel  findMemberEvents (string VestorlyAuth) {
+    public MemberEvents  findMemberEvents (string VestorlyAuth) {
       // create path and map variables
       var path = "/member_events".Replace("{format}","json");
 
@@ -57,17 +57,17 @@ namespace io.swagger.Api {
       
 
       try {
-        if (typeof(MemberEventModel) == typeof(byte[])) {
+        if (typeof(MemberEvents) == typeof(byte[])) {
           
           var response = apiInvoker.invokeBinaryAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
-          return ((object)response) as MemberEventModel;
+          return ((object)response) as MemberEvents;
           
           
         } else {
           
           var response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, null, headerParams, formParams);
           if (response != null){
-             return (MemberEventModel) ApiInvoker.deserialize(response, typeof(MemberEventModel));
+             return (MemberEvents) ApiInvoker.deserialize(response, typeof(MemberEvents));
           }
           else {
             return null;

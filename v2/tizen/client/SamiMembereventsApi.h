@@ -5,7 +5,7 @@
 #include "SamiApiClient.h"
 #include "SamiError.h"
 
-#include "SamiMemberEventModel.h"
+#include "SamiMemberEvents.h"
 using Tizen::Base::String;
 
 using namespace Tizen::Net::Http;
@@ -18,8 +18,8 @@ public:
   virtual ~SamiMembereventsApi();
 
   
-  SamiMemberEventModel* 
-  findMemberEventsWithCompletion(String* vestorly-auth, void (* handler)(SamiMemberEventModel*, SamiError*));
+  SamiMemberEvents* 
+  findMemberEventsWithCompletion(String* vestorly-auth, void (* handler)(SamiMemberEvents*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

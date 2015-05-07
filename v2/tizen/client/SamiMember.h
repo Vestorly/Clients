@@ -17,8 +17,10 @@
 using namespace Tizen::Web::Json;
 
 
+using Tizen::Base::Integer;
 using Tizen::Base::String;
 using Tizen::Base::Boolean;
+using Tizen::Base::Collection::IList;
 
 
 namespace Swagger {
@@ -72,8 +74,20 @@ public:
     String* getPGender();
     void setPGender(String* pGender);
     
-    String* getPAge();
-    void setPAge(String* pAge);
+    String* getPInterestConsultation();
+    void setPInterestConsultation(String* pInterest_consultation);
+    
+    String* getPInterestInNewAdvisor();
+    void setPInterestInNewAdvisor(String* pInterest_in_new_advisor);
+    
+    String* getPAssets();
+    void setPAssets(String* pAssets);
+    
+    Integer* getPAge();
+    void setPAge(Integer* pAge);
+    
+    Boolean* getPDataEstimated();
+    void setPDataEstimated(Boolean* pData_estimated);
     
     String* getPEducation();
     void setPEducation(String* pEducation);
@@ -87,8 +101,8 @@ public:
     String* getPHomeOwnerStatus();
     void setPHomeOwnerStatus(String* pHome_owner_status);
     
-    String* getPHouseholdIncome();
-    void setPHouseholdIncome(String* pHousehold_income);
+    Integer* getPHouseholdIncome();
+    void setPHouseholdIncome(Integer* pHousehold_income);
     
     String* getPMaritalStatus();
     void setPMaritalStatus(String* pMarital_status);
@@ -102,8 +116,23 @@ public:
     String* getPFamily();
     void setPFamily(String* pFamily);
     
-    String* getPTags();
-    void setPTags(String* pTags);
+    IList* getPTags();
+    void setPTags(IList* pTags);
+    
+    IList* getPSubscribedGroupIds();
+    void setPSubscribedGroupIds(IList* pSubscribed_group_ids);
+    
+    Boolean* getPUnsubscribed();
+    void setPUnsubscribed(Boolean* pUnsubscribed);
+    
+    Boolean* getPUnsubscribedDate();
+    void setPUnsubscribedDate(Boolean* pUnsubscribed_date);
+    
+    Boolean* getPUserType();
+    void setPUserType(Boolean* pUser_type);
+    
+    Boolean* getPSignedUpWith();
+    void setPSignedUpWith(Boolean* pSigned_up_with);
     
     String* getPMessage();
     void setPMessage(String* pMessage);
@@ -126,11 +155,26 @@ public:
     String* getPRegisterIpAddr();
     void setPRegisterIpAddr(String* pRegister_ip_addr);
     
-    Boolean* getPDataEstimated();
-    void setPDataEstimated(Boolean* pData_estimated);
-    
     Boolean* getPGenuineEmail();
     void setPGenuineEmail(Boolean* pGenuine_email);
+    
+    String* getPLastActiveDate();
+    void setPLastActiveDate(String* pLast_active_date);
+    
+    Boolean* getPIsClient();
+    void setPIsClient(Boolean* pIs_client);
+    
+    Boolean* getPIsHidden();
+    void setPIsHidden(Boolean* pIs_hidden);
+    
+    String* getPInvitedOn();
+    void setPInvitedOn(String* pInvited_on);
+    
+    String* getPInvitedBy();
+    void setPInvitedBy(String* pInvited_by);
+    
+    Integer* getPPortfolioSize();
+    void setPPortfolioSize(Integer* pPortfolio_size);
     
 
 private:
@@ -144,17 +188,26 @@ private:
     String* pState;
     String* pZip;
     String* pGender;
-    String* pAge;
+    String* pInterest_consultation;
+    String* pInterest_in_new_advisor;
+    String* pAssets;
+    Integer* pAge;
+    Boolean* pData_estimated;
     String* pEducation;
     Boolean* pHigh_net_worth;
     String* pHome_market_value;
     String* pHome_owner_status;
-    String* pHousehold_income;
+    Integer* pHousehold_income;
     String* pMarital_status;
     String* pOccupation;
     String* pHometown;
     String* pFamily;
-    String* pTags;
+    IList* pTags;
+    IList* pSubscribed_group_ids;
+    Boolean* pUnsubscribed;
+    Boolean* pUnsubscribed_date;
+    Boolean* pUser_type;
+    Boolean* pSigned_up_with;
     String* pMessage;
     String* pLocation;
     String* pPicture_url;
@@ -162,8 +215,13 @@ private:
     String* pEstimated_location;
     String* pEstimated_zip;
     String* pRegister_ip_addr;
-    Boolean* pData_estimated;
     Boolean* pGenuine_email;
+    String* pLast_active_date;
+    Boolean* pIs_client;
+    Boolean* pIs_hidden;
+    String* pInvited_on;
+    String* pInvited_by;
+    Integer* pPortfolio_size;
     
 };
 

@@ -1,5 +1,6 @@
 package io.swagger.client.model;
 
+import io.swagger.client.model.Meta;
 import java.util.*;
 import io.swagger.client.model.Member;
 
@@ -10,19 +11,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @ApiModel(description = "")
 public class Members  {
   
-  private List<Member> posts = new ArrayList<Member>() ;
+  private List<Member> members = new ArrayList<Member>() ;
   private Boolean moreResults = null;
+  private Meta meta = null;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("posts")
-  public List<Member> getPosts() {
-    return posts;
+  @JsonProperty("members")
+  public List<Member> getMembers() {
+    return members;
   }
-  public void setPosts(List<Member> posts) {
-    this.posts = posts;
+  public void setMembers(List<Member> members) {
+    this.members = members;
   }
 
   
@@ -38,14 +40,27 @@ public class Members  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("meta")
+  public Meta getMeta() {
+    return meta;
+  }
+  public void setMeta(Meta meta) {
+    this.meta = meta;
+  }
+
+  
 
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
     sb.append("class Members {\n");
     
-    sb.append("  posts: ").append(posts).append("\n");
+    sb.append("  members: ").append(members).append("\n");
     sb.append("  moreResults: ").append(moreResults).append("\n");
+    sb.append("  meta: ").append(meta).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

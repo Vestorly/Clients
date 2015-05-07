@@ -28,7 +28,15 @@
 
 @property(nonatomic) NSString<Optional>* gender;
 
-@property(nonatomic) NSString<Optional>* age;
+@property(nonatomic) NSString<Optional>* interest_consultation;
+
+@property(nonatomic) NSString<Optional>* interest_in_new_advisor;
+
+@property(nonatomic) NSString<Optional>* assets;
+
+@property(nonatomic) NSNumber<Optional>* age;
+
+@property(nonatomic) NSNumber<Optional>* data_estimated;
 
 @property(nonatomic) NSString<Optional>* education;
 
@@ -38,7 +46,7 @@
 
 @property(nonatomic) NSString<Optional>* home_owner_status;
 
-@property(nonatomic) NSString<Optional>* household_income;
+@property(nonatomic) NSNumber<Optional>* household_income;
 
 @property(nonatomic) NSString<Optional>* marital_status;
 
@@ -48,7 +56,17 @@
 
 @property(nonatomic) NSString<Optional>* family;
 
-@property(nonatomic) NSString<Optional>* tags;
+@property(nonatomic) NSArray<Optional>* tags;
+
+@property(nonatomic) NSArray<Optional>* subscribed_group_ids;
+
+@property(nonatomic) NSNumber<Optional>* unsubscribed;
+
+@property(nonatomic) NSNumber<Optional>* unsubscribed_date;
+
+@property(nonatomic) NSNumber<Optional>* user_type;
+
+@property(nonatomic) NSNumber<Optional>* signed_up_with;
 
 @property(nonatomic) NSString<Optional>* message;
 
@@ -64,8 +82,18 @@
 
 @property(nonatomic) NSString<Optional>* register_ip_addr;
 
-@property(nonatomic) NSNumber<Optional>* data_estimated;
-
 @property(nonatomic) NSNumber<Optional>* genuine_email;
+
+@property(nonatomic) NSString<Optional>* last_active_date;
+
+@property(nonatomic) NSNumber<Optional>* is_client;
+
+@property(nonatomic) NSNumber<Optional>* is_hidden;
+
+@property(nonatomic) NSString<Optional>* invited_on;
+
+@property(nonatomic) NSString<Optional>* invited_by;
+
+@property(nonatomic) NSNumber<Optional>* portfolio_size;
 
 @end

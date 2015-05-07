@@ -6,13 +6,25 @@ exports.findEvents = function(vestorly-auth) {
   
   examples['application/json'] = {
   "events" : [ {
+    "subject_id" : "aeiou",
     "referer" : "aeiou",
-    "newsletter" : "aeiou",
-    "originator_group_name" : "aeiou",
-    "advisor_email" : "aeiou",
+    "event_content" : {
+      "content_type" : "aeiou",
+      "updated_at" : "aeiou",
+      "content_id" : "aeiou",
+      "content_field" : "aeiou",
+      "created_at" : "aeiou",
+      "_id" : "aeiou",
+      "slug" : "aeiou"
+    },
     "original_url" : "aeiou",
+    "originator_id" : "aeiou",
+    "parent_event_id" : "aeiou",
+    "created_at" : "aeiou",
     "originator_email" : "aeiou",
     "_id" : "aeiou",
+    "type" : "aeiou",
+    "advisor_id" : "aeiou",
     "subject_email" : "aeiou"
   } ]
 };
@@ -23,19 +35,31 @@ exports.findEvents = function(vestorly-auth) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.createEvent = function(vestorly-auth, Event) {
+exports.createEvent = function(vestorly-auth, event) {
 
   var examples = {};
   
   examples['application/json'] = {
   "event" : {
+    "subject_id" : "aeiou",
     "referer" : "aeiou",
-    "newsletter" : "aeiou",
-    "originator_group_name" : "aeiou",
-    "advisor_email" : "aeiou",
+    "event_content" : {
+      "content_type" : "aeiou",
+      "updated_at" : "aeiou",
+      "content_id" : "aeiou",
+      "content_field" : "aeiou",
+      "created_at" : "aeiou",
+      "_id" : "aeiou",
+      "slug" : "aeiou"
+    },
     "original_url" : "aeiou",
+    "originator_id" : "aeiou",
+    "parent_event_id" : "aeiou",
+    "created_at" : "aeiou",
     "originator_email" : "aeiou",
     "_id" : "aeiou",
+    "type" : "aeiou",
+    "advisor_id" : "aeiou",
     "subject_email" : "aeiou"
   }
 };
@@ -52,13 +76,25 @@ exports.findEventByID = function(id, vestorly-auth) {
   
   examples['application/json'] = {
   "event" : {
+    "subject_id" : "aeiou",
     "referer" : "aeiou",
-    "newsletter" : "aeiou",
-    "originator_group_name" : "aeiou",
-    "advisor_email" : "aeiou",
+    "event_content" : {
+      "content_type" : "aeiou",
+      "updated_at" : "aeiou",
+      "content_id" : "aeiou",
+      "content_field" : "aeiou",
+      "created_at" : "aeiou",
+      "_id" : "aeiou",
+      "slug" : "aeiou"
+    },
     "original_url" : "aeiou",
+    "originator_id" : "aeiou",
+    "parent_event_id" : "aeiou",
+    "created_at" : "aeiou",
     "originator_email" : "aeiou",
     "_id" : "aeiou",
+    "type" : "aeiou",
+    "advisor_id" : "aeiou",
     "subject_email" : "aeiou"
   }
 };
@@ -75,13 +111,25 @@ exports.updateEventByID = function(id, vestorly-auth, event) {
   
   examples['application/json'] = {
   "event" : {
+    "subject_id" : "aeiou",
     "referer" : "aeiou",
-    "newsletter" : "aeiou",
-    "originator_group_name" : "aeiou",
-    "advisor_email" : "aeiou",
+    "event_content" : {
+      "content_type" : "aeiou",
+      "updated_at" : "aeiou",
+      "content_id" : "aeiou",
+      "content_field" : "aeiou",
+      "created_at" : "aeiou",
+      "_id" : "aeiou",
+      "slug" : "aeiou"
+    },
     "original_url" : "aeiou",
+    "originator_id" : "aeiou",
+    "parent_event_id" : "aeiou",
+    "created_at" : "aeiou",
     "originator_email" : "aeiou",
     "_id" : "aeiou",
+    "type" : "aeiou",
+    "advisor_id" : "aeiou",
     "subject_email" : "aeiou"
   }
 };

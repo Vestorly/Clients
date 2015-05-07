@@ -28,42 +28,58 @@ use \ArrayAccess;
 
 class EventInput implements ArrayAccess {
   static $swaggerTypes = array(
+      'type' => 'string',
       'referer' => 'string',
       'original_url' => 'string',
       'originator_email' => 'string',
       'subject_email' => 'string',
-      'advisor_email' => 'string',
-      'originator_group_name' => 'string',
-      'newsletter' => 'string'
+      'parent_event_id' => 'string',
+      'originator_id' => 'string',
+      'advisor_id' => 'string',
+      'subject_id' => 'string',
+      'event_content' => 'EventContent',
+      'created_at' => 'string'
   );
 
   static $attributeMap = array(
+      'type' => 'type',
       'referer' => 'referer',
       'original_url' => 'original_url',
       'originator_email' => 'originator_email',
       'subject_email' => 'subject_email',
-      'advisor_email' => 'advisor_email',
-      'originator_group_name' => 'originator_group_name',
-      'newsletter' => 'newsletter'
+      'parent_event_id' => 'parent_event_id',
+      'originator_id' => 'originator_id',
+      'advisor_id' => 'advisor_id',
+      'subject_id' => 'subject_id',
+      'event_content' => 'event_content',
+      'created_at' => 'created_at'
   );
 
   
+  public $type; /* string */
   public $referer; /* string */
   public $original_url; /* string */
   public $originator_email; /* string */
   public $subject_email; /* string */
-  public $advisor_email; /* string */
-  public $originator_group_name; /* string */
-  public $newsletter; /* string */
+  public $parent_event_id; /* string */
+  public $originator_id; /* string */
+  public $advisor_id; /* string */
+  public $subject_id; /* string */
+  public $event_content; /* EventContent */
+  public $created_at; /* string */
 
   public function __construct(array $data = null) {
+    $this->type = $data["type"];
     $this->referer = $data["referer"];
     $this->original_url = $data["original_url"];
     $this->originator_email = $data["originator_email"];
     $this->subject_email = $data["subject_email"];
-    $this->advisor_email = $data["advisor_email"];
-    $this->originator_group_name = $data["originator_group_name"];
-    $this->newsletter = $data["newsletter"];
+    $this->parent_event_id = $data["parent_event_id"];
+    $this->originator_id = $data["originator_id"];
+    $this->advisor_id = $data["advisor_id"];
+    $this->subject_id = $data["subject_id"];
+    $this->event_content = $data["event_content"];
+    $this->created_at = $data["created_at"];
   }
 
   public function offsetExists($offset) {

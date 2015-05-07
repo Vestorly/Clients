@@ -61,7 +61,7 @@ class SessionsApi
   # Logout of the vestorly platform
   # @param vestorly_auth Authenication token
   # @param id ID of pet to session
-  # @return Session
+  # @return SessionLogoutResponse
   def self.logout (vestorly_auth, id, opts={})
     query_param_keys = [:vestorly_auth]
     headerParams = {}
@@ -104,7 +104,7 @@ class SessionsApi
     
     
     response = Swagger::Request.new(:DELETE, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Session.new(response)
+     SessionLogoutResponse.new(response)
     
     
   

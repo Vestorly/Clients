@@ -8,6 +8,11 @@ namespace io.swagger.Model {
     
 
     
+    public string Type { get; set; }
+
+    
+
+    
     public string Referer { get; set; }
 
     
@@ -28,23 +33,40 @@ namespace io.swagger.Model {
     
 
     
-    public string AdvisorEmail { get; set; }
+    public string ParentEventId { get; set; }
 
     
 
     
-    public string OriginatorGroupName { get; set; }
+    public string OriginatorId { get; set; }
 
     
 
     
-    public string Newsletter { get; set; }
+    public string AdvisorId { get; set; }
+
+    
+
+    
+    public string SubjectId { get; set; }
+
+    
+
+    
+    public EventContent EventContent { get; set; }
+
+    
+
+    
+    public string CreatedAt { get; set; }
 
     
 
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class EventInput {\n");
+      
+      sb.Append("  Type: ").Append(Type).Append("\n");
       
       sb.Append("  Referer: ").Append(Referer).Append("\n");
       
@@ -54,11 +76,17 @@ namespace io.swagger.Model {
       
       sb.Append("  SubjectEmail: ").Append(SubjectEmail).Append("\n");
       
-      sb.Append("  AdvisorEmail: ").Append(AdvisorEmail).Append("\n");
+      sb.Append("  ParentEventId: ").Append(ParentEventId).Append("\n");
       
-      sb.Append("  OriginatorGroupName: ").Append(OriginatorGroupName).Append("\n");
+      sb.Append("  OriginatorId: ").Append(OriginatorId).Append("\n");
       
-      sb.Append("  Newsletter: ").Append(Newsletter).Append("\n");
+      sb.Append("  AdvisorId: ").Append(AdvisorId).Append("\n");
+      
+      sb.Append("  SubjectId: ").Append(SubjectId).Append("\n");
+      
+      sb.Append("  EventContent: ").Append(EventContent).Append("\n");
+      
+      sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();

@@ -126,7 +126,7 @@ class MembersApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     }
   }
   
-  def findMemberByID_1 (id: String, vestorly-auth: String) : Option[Memberresponse] = {
+  def findMemberByID_1 (id: String, vestorly-auth: String, member: Member) : Option[Memberresponse] = {
     // create path and map variables
     val path = "/members/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
@@ -134,8 +134,11 @@ class MembersApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
 
     
     val contentType = {
+      if(member != null && member.isInstanceOf[File] )
+        "multipart/form-data"
+      else "application/json"
       
-      "application/json"
+      
     }
 
     // query params
@@ -150,7 +153,7 @@ class MembersApi(val defBasePath: String = "https://staging.vestorly.com/api/v2"
     
 
     try {
-      apiInvoker.invokeApi(basePath, path, "PUT", queryParams.toMap, None, headerParams.toMap, contentType) match {
+      apiInvoker.invokeApi(basePath, path, "PUT", queryParams.toMap, member, headerParams.toMap, contentType) match {
         case s: String =>
            Some(ApiInvoker.deserialize(s, "", classOf[Memberresponse]).asInstanceOf[Memberresponse])
          

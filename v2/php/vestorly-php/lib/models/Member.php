@@ -38,17 +38,26 @@ class Member implements ArrayAccess {
       'state' => 'string',
       'zip' => 'string',
       'gender' => 'string',
-      'age' => 'string',
+      'interest_consultation' => 'string',
+      'interest_in_new_advisor' => 'string',
+      'assets' => 'string',
+      'age' => 'int',
+      'data_estimated' => 'boolean',
       'education' => 'string',
       'high_net_worth' => 'boolean',
       'home_market_value' => 'string',
       'home_owner_status' => 'string',
-      'household_income' => 'string',
+      'household_income' => 'int',
       'marital_status' => 'string',
       'occupation' => 'string',
       'hometown' => 'string',
       'family' => 'string',
-      'tags' => 'string',
+      'tags' => 'array[string]',
+      'subscribed_group_ids' => 'array[string]',
+      'unsubscribed' => 'boolean',
+      'unsubscribed_date' => 'boolean',
+      'user_type' => 'boolean',
+      'signed_up_with' => 'boolean',
       'message' => 'string',
       'location' => 'string',
       'picture_url' => 'string',
@@ -56,8 +65,13 @@ class Member implements ArrayAccess {
       'estimated_location' => 'string',
       'estimated_zip' => 'string',
       'register_ip_addr' => 'string',
-      'data_estimated' => 'boolean',
-      'genuine_email' => 'boolean'
+      'genuine_email' => 'boolean',
+      'last_active_date' => 'string',
+      'is_client' => 'boolean',
+      'is_hidden' => 'boolean',
+      'invited_on' => 'string',
+      'invited_by' => 'string',
+      'portfolio_size' => 'int'
   );
 
   static $attributeMap = array(
@@ -71,7 +85,11 @@ class Member implements ArrayAccess {
       'state' => 'state',
       'zip' => 'zip',
       'gender' => 'gender',
+      'interest_consultation' => 'interest_consultation',
+      'interest_in_new_advisor' => 'interest_in_new_advisor',
+      'assets' => 'assets',
       'age' => 'age',
+      'data_estimated' => 'data_estimated',
       'education' => 'education',
       'high_net_worth' => 'high_net_worth',
       'home_market_value' => 'home_market_value',
@@ -82,6 +100,11 @@ class Member implements ArrayAccess {
       'hometown' => 'hometown',
       'family' => 'family',
       'tags' => 'tags',
+      'subscribed_group_ids' => 'subscribed_group_ids',
+      'unsubscribed' => 'unsubscribed',
+      'unsubscribed_date' => 'unsubscribed_date',
+      'user_type' => 'user_type',
+      'signed_up_with' => 'signed_up_with',
       'message' => 'message',
       'location' => 'location',
       'picture_url' => 'picture_url',
@@ -89,8 +112,13 @@ class Member implements ArrayAccess {
       'estimated_location' => 'estimated_location',
       'estimated_zip' => 'estimated_zip',
       'register_ip_addr' => 'register_ip_addr',
-      'data_estimated' => 'data_estimated',
-      'genuine_email' => 'genuine_email'
+      'genuine_email' => 'genuine_email',
+      'last_active_date' => 'last_active_date',
+      'is_client' => 'is_client',
+      'is_hidden' => 'is_hidden',
+      'invited_on' => 'invited_on',
+      'invited_by' => 'invited_by',
+      'portfolio_size' => 'portfolio_size'
   );
 
   
@@ -104,17 +132,26 @@ class Member implements ArrayAccess {
   public $state; /* string */
   public $zip; /* string */
   public $gender; /* string */
-  public $age; /* string */
+  public $interest_consultation; /* string */
+  public $interest_in_new_advisor; /* string */
+  public $assets; /* string */
+  public $age; /* int */
+  public $data_estimated; /* boolean */
   public $education; /* string */
   public $high_net_worth; /* boolean */
   public $home_market_value; /* string */
   public $home_owner_status; /* string */
-  public $household_income; /* string */
+  public $household_income; /* int */
   public $marital_status; /* string */
   public $occupation; /* string */
   public $hometown; /* string */
   public $family; /* string */
-  public $tags; /* string */
+  public $tags; /* array[string] */
+  public $subscribed_group_ids; /* array[string] */
+  public $unsubscribed; /* boolean */
+  public $unsubscribed_date; /* boolean */
+  public $user_type; /* boolean */
+  public $signed_up_with; /* boolean */
   public $message; /* string */
   public $location; /* string */
   public $picture_url; /* string */
@@ -122,8 +159,13 @@ class Member implements ArrayAccess {
   public $estimated_location; /* string */
   public $estimated_zip; /* string */
   public $register_ip_addr; /* string */
-  public $data_estimated; /* boolean */
   public $genuine_email; /* boolean */
+  public $last_active_date; /* string */
+  public $is_client; /* boolean */
+  public $is_hidden; /* boolean */
+  public $invited_on; /* string */
+  public $invited_by; /* string */
+  public $portfolio_size; /* int */
 
   public function __construct(array $data = null) {
     $this->_id = $data["_id"];
@@ -136,7 +178,11 @@ class Member implements ArrayAccess {
     $this->state = $data["state"];
     $this->zip = $data["zip"];
     $this->gender = $data["gender"];
+    $this->interest_consultation = $data["interest_consultation"];
+    $this->interest_in_new_advisor = $data["interest_in_new_advisor"];
+    $this->assets = $data["assets"];
     $this->age = $data["age"];
+    $this->data_estimated = $data["data_estimated"];
     $this->education = $data["education"];
     $this->high_net_worth = $data["high_net_worth"];
     $this->home_market_value = $data["home_market_value"];
@@ -147,6 +193,11 @@ class Member implements ArrayAccess {
     $this->hometown = $data["hometown"];
     $this->family = $data["family"];
     $this->tags = $data["tags"];
+    $this->subscribed_group_ids = $data["subscribed_group_ids"];
+    $this->unsubscribed = $data["unsubscribed"];
+    $this->unsubscribed_date = $data["unsubscribed_date"];
+    $this->user_type = $data["user_type"];
+    $this->signed_up_with = $data["signed_up_with"];
     $this->message = $data["message"];
     $this->location = $data["location"];
     $this->picture_url = $data["picture_url"];
@@ -154,8 +205,13 @@ class Member implements ArrayAccess {
     $this->estimated_location = $data["estimated_location"];
     $this->estimated_zip = $data["estimated_zip"];
     $this->register_ip_addr = $data["register_ip_addr"];
-    $this->data_estimated = $data["data_estimated"];
     $this->genuine_email = $data["genuine_email"];
+    $this->last_active_date = $data["last_active_date"];
+    $this->is_client = $data["is_client"];
+    $this->is_hidden = $data["is_hidden"];
+    $this->invited_on = $data["invited_on"];
+    $this->invited_by = $data["invited_by"];
+    $this->portfolio_size = $data["portfolio_size"];
   }
 
   public function offsetExists($offset) {

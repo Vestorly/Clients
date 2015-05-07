@@ -220,9 +220,10 @@ class MembersApi {
    *
    * @param string $id Mongo ID of member to fetch (required)
    * @param string $vestorly_auth Vestorly Auth Token (required)
+   * @param Member $member Member you want to update (required)
    * @return Memberresponse
    */
-   public function findMemberByID_1($id, $vestorly_auth) {
+   public function findMemberByID_1($id, $vestorly_auth, $member) {
 
       // parse inputs
       $resourcePath = "/members/{id}";
@@ -250,7 +251,11 @@ class MembersApi {
                                     $this->apiClient->toPathValue($id), $resourcePath);
       }
       
-      
+      // body params
+      $body = null;
+      if (isset($member)) {
+        $body = $member;
+      }
 
       // for model (json/xml)
       if (isset($body)) {

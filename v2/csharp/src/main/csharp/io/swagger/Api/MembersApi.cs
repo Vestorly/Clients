@@ -205,9 +205,10 @@ namespace io.swagger.Api {
     /// </summary>
     /// <param name="Id">Mongo ID of member to fetch</param>
      /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+     /// <param name="Member">Member you want to update</param>
     
     /// <returns></returns>
-    public Memberresponse  findMemberByID_1 (string Id, string VestorlyAuth) {
+    public Memberresponse  findMemberByID_1 (string Id, string VestorlyAuth, Member Member) {
       // create path and map variables
       var path = "/members/{id}".Replace("{format}","json").Replace("{" + "id" + "}", apiInvoker.ParameterToString(Id));
 
@@ -236,7 +237,7 @@ namespace io.swagger.Api {
           
         } else {
           
-          var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, null, headerParams, formParams);
+          var response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, Member, headerParams, formParams);
           if (response != null){
              return (Memberresponse) ApiInvoker.deserialize(response, typeof(Memberresponse));
           }

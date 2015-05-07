@@ -58,7 +58,27 @@ namespace io.swagger.Model {
     
 
     
-    public string Age { get; set; }
+    public string InterestConsultation { get; set; }
+
+    
+
+    
+    public string InterestInNewAdvisor { get; set; }
+
+    
+
+    
+    public string Assets { get; set; }
+
+    
+
+    
+    public int? Age { get; set; }
+
+    
+
+    
+    public bool? DataEstimated { get; set; }
 
     
 
@@ -83,7 +103,7 @@ namespace io.swagger.Model {
     
 
     
-    public string HouseholdIncome { get; set; }
+    public int? HouseholdIncome { get; set; }
 
     
 
@@ -108,7 +128,32 @@ namespace io.swagger.Model {
     
 
     
-    public string Tags { get; set; }
+    public List<string> Tags { get; set; }
+
+    
+
+    
+    public List<string> SubscribedGroupIds { get; set; }
+
+    
+
+    
+    public bool? Unsubscribed { get; set; }
+
+    
+
+    
+    public bool? UnsubscribedDate { get; set; }
+
+    
+
+    
+    public bool? UserType { get; set; }
+
+    
+
+    
+    public bool? SignedUpWith { get; set; }
 
     
 
@@ -148,12 +193,37 @@ namespace io.swagger.Model {
     
 
     
-    public bool? DataEstimated { get; set; }
-
-    
-
-    
     public bool? GenuineEmail { get; set; }
+
+    
+
+    
+    public string LastActiveDate { get; set; }
+
+    
+
+    
+    public bool? IsClient { get; set; }
+
+    
+
+    
+    public bool? IsHidden { get; set; }
+
+    
+
+    
+    public string InvitedOn { get; set; }
+
+    
+
+    
+    public string InvitedBy { get; set; }
+
+    
+
+    
+    public int? PortfolioSize { get; set; }
 
     
 
@@ -181,7 +251,15 @@ namespace io.swagger.Model {
       
       sb.Append("  Gender: ").Append(Gender).Append("\n");
       
+      sb.Append("  InterestConsultation: ").Append(InterestConsultation).Append("\n");
+      
+      sb.Append("  InterestInNewAdvisor: ").Append(InterestInNewAdvisor).Append("\n");
+      
+      sb.Append("  Assets: ").Append(Assets).Append("\n");
+      
       sb.Append("  Age: ").Append(Age).Append("\n");
+      
+      sb.Append("  DataEstimated: ").Append(DataEstimated).Append("\n");
       
       sb.Append("  Education: ").Append(Education).Append("\n");
       
@@ -203,6 +281,16 @@ namespace io.swagger.Model {
       
       sb.Append("  Tags: ").Append(Tags).Append("\n");
       
+      sb.Append("  SubscribedGroupIds: ").Append(SubscribedGroupIds).Append("\n");
+      
+      sb.Append("  Unsubscribed: ").Append(Unsubscribed).Append("\n");
+      
+      sb.Append("  UnsubscribedDate: ").Append(UnsubscribedDate).Append("\n");
+      
+      sb.Append("  UserType: ").Append(UserType).Append("\n");
+      
+      sb.Append("  SignedUpWith: ").Append(SignedUpWith).Append("\n");
+      
       sb.Append("  Message: ").Append(Message).Append("\n");
       
       sb.Append("  Location: ").Append(Location).Append("\n");
@@ -217,9 +305,19 @@ namespace io.swagger.Model {
       
       sb.Append("  RegisterIpAddr: ").Append(RegisterIpAddr).Append("\n");
       
-      sb.Append("  DataEstimated: ").Append(DataEstimated).Append("\n");
-      
       sb.Append("  GenuineEmail: ").Append(GenuineEmail).Append("\n");
+      
+      sb.Append("  LastActiveDate: ").Append(LastActiveDate).Append("\n");
+      
+      sb.Append("  IsClient: ").Append(IsClient).Append("\n");
+      
+      sb.Append("  IsHidden: ").Append(IsHidden).Append("\n");
+      
+      sb.Append("  InvitedOn: ").Append(InvitedOn).Append("\n");
+      
+      sb.Append("  InvitedBy: ").Append(InvitedBy).Append("\n");
+      
+      sb.Append("  PortfolioSize: ").Append(PortfolioSize).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();

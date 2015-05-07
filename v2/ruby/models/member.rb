@@ -1,6 +1,6 @@
 
 class Member
-  attr_accessor :_id, :email, :first_name, :last_name, :phone, :address, :city, :state, :zip, :gender, :age, :education, :high_net_worth, :home_market_value, :home_owner_status, :household_income, :marital_status, :occupation, :hometown, :family, :tags, :message, :location, :picture_url, :profile_url, :estimated_location, :estimated_zip, :register_ip_addr, :data_estimated, :genuine_email
+  attr_accessor :_id, :email, :first_name, :last_name, :phone, :address, :city, :state, :zip, :gender, :interest_consultation, :interest_in_new_advisor, :assets, :age, :data_estimated, :education, :high_net_worth, :home_market_value, :home_owner_status, :household_income, :marital_status, :occupation, :hometown, :family, :tags, :subscribed_group_ids, :unsubscribed, :unsubscribed_date, :user_type, :signed_up_with, :message, :location, :picture_url, :profile_url, :estimated_location, :estimated_zip, :register_ip_addr, :genuine_email, :last_active_date, :is_client, :is_hidden, :invited_on, :invited_by, :portfolio_size
   # :internal => :external
   def self.attribute_map
     {
@@ -14,7 +14,11 @@ class Member
       :state => :'state',
       :zip => :'zip',
       :gender => :'gender',
+      :interest_consultation => :'interest_consultation',
+      :interest_in_new_advisor => :'interest_in_new_advisor',
+      :assets => :'assets',
       :age => :'age',
+      :data_estimated => :'data_estimated',
       :education => :'education',
       :high_net_worth => :'high_net_worth',
       :home_market_value => :'home_market_value',
@@ -25,6 +29,11 @@ class Member
       :hometown => :'hometown',
       :family => :'family',
       :tags => :'tags',
+      :subscribed_group_ids => :'subscribed_group_ids',
+      :unsubscribed => :'unsubscribed',
+      :unsubscribed_date => :'unsubscribed_date',
+      :user_type => :'user_type',
+      :signed_up_with => :'signed_up_with',
       :message => :'message',
       :location => :'location',
       :picture_url => :'picture_url',
@@ -32,8 +41,13 @@ class Member
       :estimated_location => :'estimated_location',
       :estimated_zip => :'estimated_zip',
       :register_ip_addr => :'register_ip_addr',
-      :data_estimated => :'data_estimated',
-      :genuine_email => :'genuine_email'
+      :genuine_email => :'genuine_email',
+      :last_active_date => :'last_active_date',
+      :is_client => :'is_client',
+      :is_hidden => :'is_hidden',
+      :invited_on => :'invited_on',
+      :invited_by => :'invited_by',
+      :portfolio_size => :'portfolio_size'
       
     }
   end
@@ -82,8 +96,24 @@ class Member
       @gender = attributes["gender"]
     end
     
+    if self.class.attribute_map[:"interest_consultation"]
+      @interest_consultation = attributes["interest_consultation"]
+    end
+    
+    if self.class.attribute_map[:"interest_in_new_advisor"]
+      @interest_in_new_advisor = attributes["interest_in_new_advisor"]
+    end
+    
+    if self.class.attribute_map[:"assets"]
+      @assets = attributes["assets"]
+    end
+    
     if self.class.attribute_map[:"age"]
       @age = attributes["age"]
+    end
+    
+    if self.class.attribute_map[:"data_estimated"]
+      @data_estimated = attributes["data_estimated"]
     end
     
     if self.class.attribute_map[:"education"]
@@ -123,7 +153,31 @@ class Member
     end
     
     if self.class.attribute_map[:"tags"]
-      @tags = attributes["tags"]
+      if (value = attributes["tags"]).is_a?(Array)
+        @tags = value
+      end
+    end
+    
+    if self.class.attribute_map[:"subscribed_group_ids"]
+      if (value = attributes["subscribed_group_ids"]).is_a?(Array)
+        @subscribed_group_ids = value
+      end
+    end
+    
+    if self.class.attribute_map[:"unsubscribed"]
+      @unsubscribed = attributes["unsubscribed"]
+    end
+    
+    if self.class.attribute_map[:"unsubscribed_date"]
+      @unsubscribed_date = attributes["unsubscribed_date"]
+    end
+    
+    if self.class.attribute_map[:"user_type"]
+      @user_type = attributes["user_type"]
+    end
+    
+    if self.class.attribute_map[:"signed_up_with"]
+      @signed_up_with = attributes["signed_up_with"]
     end
     
     if self.class.attribute_map[:"message"]
@@ -154,12 +208,32 @@ class Member
       @register_ip_addr = attributes["register_ip_addr"]
     end
     
-    if self.class.attribute_map[:"data_estimated"]
-      @data_estimated = attributes["data_estimated"]
-    end
-    
     if self.class.attribute_map[:"genuine_email"]
       @genuine_email = attributes["genuine_email"]
+    end
+    
+    if self.class.attribute_map[:"last_active_date"]
+      @last_active_date = attributes["last_active_date"]
+    end
+    
+    if self.class.attribute_map[:"is_client"]
+      @is_client = attributes["is_client"]
+    end
+    
+    if self.class.attribute_map[:"is_hidden"]
+      @is_hidden = attributes["is_hidden"]
+    end
+    
+    if self.class.attribute_map[:"invited_on"]
+      @invited_on = attributes["invited_on"]
+    end
+    
+    if self.class.attribute_map[:"invited_by"]
+      @invited_by = attributes["invited_by"]
+    end
+    
+    if self.class.attribute_map[:"portfolio_size"]
+      @portfolio_size = attributes["portfolio_size"]
     end
     
   end

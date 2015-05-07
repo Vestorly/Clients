@@ -17,6 +17,7 @@
 using namespace Tizen::Web::Json;
 
 
+#include "SamiEventContent.h"
 using Tizen::Base::String;
 
 
@@ -44,6 +45,9 @@ public:
     String* getPId();
     void setPId(String* p_id);
     
+    String* getPType();
+    void setPType(String* pType);
+    
     String* getPReferer();
     void setPReferer(String* pReferer);
     
@@ -56,25 +60,38 @@ public:
     String* getPSubjectEmail();
     void setPSubjectEmail(String* pSubject_email);
     
-    String* getPAdvisorEmail();
-    void setPAdvisorEmail(String* pAdvisor_email);
+    String* getPParentEventId();
+    void setPParentEventId(String* pParent_event_id);
     
-    String* getPOriginatorGroupName();
-    void setPOriginatorGroupName(String* pOriginator_group_name);
+    String* getPOriginatorId();
+    void setPOriginatorId(String* pOriginator_id);
     
-    String* getPNewsletter();
-    void setPNewsletter(String* pNewsletter);
+    String* getPAdvisorId();
+    void setPAdvisorId(String* pAdvisor_id);
+    
+    String* getPSubjectId();
+    void setPSubjectId(String* pSubject_id);
+    
+    SamiEventContent* getPEventContent();
+    void setPEventContent(SamiEventContent* pEvent_content);
+    
+    String* getPCreatedAt();
+    void setPCreatedAt(String* pCreated_at);
     
 
 private:
     String* p_id;
+    String* pType;
     String* pReferer;
     String* pOriginal_url;
     String* pOriginator_email;
     String* pSubject_email;
-    String* pAdvisor_email;
-    String* pOriginator_group_name;
-    String* pNewsletter;
+    String* pParent_event_id;
+    String* pOriginator_id;
+    String* pAdvisor_id;
+    String* pSubject_id;
+    SamiEventContent* pEvent_content;
+    String* pCreated_at;
     
 };
 

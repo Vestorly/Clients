@@ -117,7 +117,7 @@ createEventProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiEr
 }
 
 SamiEventresponse* 
-SamiEventsApi::createEventWithCompletion(String* vestorly-auth, SamiEventInput* Event, void (* success)(SamiEventresponse*, SamiError*)) {
+SamiEventsApi::createEventWithCompletion(String* vestorly-auth, SamiEventInput* event, void (* success)(SamiEventresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&createEventProcessor, (void(*)(void*, SamiError*))success);
@@ -139,8 +139,8 @@ SamiEventsApi::createEventWithCompletion(String* vestorly-auth, SamiEventInput* 
   
   
   
-  if(Event != null) {
-    mBody = new String(Event->asJson());
+  if(event != null) {
+    mBody = new String(event->asJson());
     headerParams->Add(new String("Content-Type"), new String("application/json"));
   }
   

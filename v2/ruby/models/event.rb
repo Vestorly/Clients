@@ -1,17 +1,21 @@
 
 class Event
-  attr_accessor :_id, :referer, :original_url, :originator_email, :subject_email, :advisor_email, :originator_group_name, :newsletter
+  attr_accessor :_id, :type, :referer, :original_url, :originator_email, :subject_email, :parent_event_id, :originator_id, :advisor_id, :subject_id, :event_content, :created_at
   # :internal => :external
   def self.attribute_map
     {
       :_id => :'_id',
+      :type => :'type',
       :referer => :'referer',
       :original_url => :'original_url',
       :originator_email => :'originator_email',
       :subject_email => :'subject_email',
-      :advisor_email => :'advisor_email',
-      :originator_group_name => :'originator_group_name',
-      :newsletter => :'newsletter'
+      :parent_event_id => :'parent_event_id',
+      :originator_id => :'originator_id',
+      :advisor_id => :'advisor_id',
+      :subject_id => :'subject_id',
+      :event_content => :'event_content',
+      :created_at => :'created_at'
       
     }
   end
@@ -22,6 +26,10 @@ class Event
     
     if self.class.attribute_map[:"_id"]
       @_id = attributes["_id"]
+    end
+    
+    if self.class.attribute_map[:"type"]
+      @type = attributes["type"]
     end
     
     if self.class.attribute_map[:"referer"]
@@ -40,16 +48,28 @@ class Event
       @subject_email = attributes["subject_email"]
     end
     
-    if self.class.attribute_map[:"advisor_email"]
-      @advisor_email = attributes["advisor_email"]
+    if self.class.attribute_map[:"parent_event_id"]
+      @parent_event_id = attributes["parent_event_id"]
     end
     
-    if self.class.attribute_map[:"originator_group_name"]
-      @originator_group_name = attributes["originator_group_name"]
+    if self.class.attribute_map[:"originator_id"]
+      @originator_id = attributes["originator_id"]
     end
     
-    if self.class.attribute_map[:"newsletter"]
-      @newsletter = attributes["newsletter"]
+    if self.class.attribute_map[:"advisor_id"]
+      @advisor_id = attributes["advisor_id"]
+    end
+    
+    if self.class.attribute_map[:"subject_id"]
+      @subject_id = attributes["subject_id"]
+    end
+    
+    if self.class.attribute_map[:"event_content"]
+      @event_content = attributes["event_content"]
+    end
+    
+    if self.class.attribute_map[:"created_at"]
+      @created_at = attributes["created_at"]
     end
     
   end

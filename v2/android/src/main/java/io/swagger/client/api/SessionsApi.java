@@ -8,6 +8,7 @@ import io.swagger.client.model.*;
 import java.util.*;
 
 import io.swagger.client.model.Session;
+import io.swagger.client.model.SessionLogoutResponse;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -92,7 +93,7 @@ public class SessionsApi {
   }
   
   
-  public Session  logout (String vestorlyAuth, String id) throws ApiException {
+  public SessionLogoutResponse  logout (String vestorlyAuth, String id) throws ApiException {
     Object postBody = null;
 
     
@@ -133,7 +134,7 @@ public class SessionsApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "DELETE", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Session) ApiInvoker.deserialize(response, "", Session.class);
+        return (SessionLogoutResponse) ApiInvoker.deserialize(response, "", SessionLogoutResponse.class);
       }
       else {
         return null;

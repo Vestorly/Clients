@@ -1,5 +1,6 @@
 package io.swagger.model;
 
+import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,17 +19,26 @@ public class Member  {
   private String state = null;
   private String zip = null;
   private String gender = null;
-  private String age = null;
+  private String interestConsultation = null;
+  private String interestInNewAdvisor = null;
+  private String assets = null;
+  private Integer age = null;
+  private Boolean dataEstimated = null;
   private String education = null;
   private Boolean highNetWorth = null;
   private String homeMarketValue = null;
   private String homeOwnerStatus = null;
-  private String householdIncome = null;
+  private Integer householdIncome = null;
   private String maritalStatus = null;
   private String occupation = null;
   private String hometown = null;
   private String family = null;
-  private String tags = null;
+  private List<String> tags = new ArrayList<String>() ;
+  private List<String> subscribedGroupIds = new ArrayList<String>() ;
+  private Boolean unsubscribed = null;
+  private Boolean unsubscribedDate = null;
+  private Boolean userType = null;
+  private Boolean signedUpWith = null;
   private String message = null;
   private String location = null;
   private String pictureUrl = null;
@@ -36,8 +46,13 @@ public class Member  {
   private String estimatedLocation = null;
   private String estimatedZip = null;
   private String registerIpAddr = null;
-  private Boolean dataEstimated = null;
   private Boolean genuineEmail = null;
+  private String lastActiveDate = null;
+  private Boolean isClient = null;
+  private Boolean isHidden = null;
+  private String invitedOn = null;
+  private String invitedBy = null;
+  private Integer portfolioSize = null;
 
   
   /**
@@ -163,12 +178,60 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
+  @JsonProperty("interestConsultation")
+  public String getInterestConsultation() {
+    return interestConsultation;
+  }
+  public void setInterestConsultation(String interestConsultation) {
+    this.interestConsultation = interestConsultation;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("interestInNewAdvisor")
+  public String getInterestInNewAdvisor() {
+    return interestInNewAdvisor;
+  }
+  public void setInterestInNewAdvisor(String interestInNewAdvisor) {
+    this.interestInNewAdvisor = interestInNewAdvisor;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("assets")
+  public String getAssets() {
+    return assets;
+  }
+  public void setAssets(String assets) {
+    this.assets = assets;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
   @JsonProperty("age")
-  public String getAge() {
+  public Integer getAge() {
     return age;
   }
-  public void setAge(String age) {
+  public void setAge(Integer age) {
     this.age = age;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("dataEstimated")
+  public Boolean getDataEstimated() {
+    return dataEstimated;
+  }
+  public void setDataEstimated(Boolean dataEstimated) {
+    this.dataEstimated = dataEstimated;
   }
 
   
@@ -224,10 +287,10 @@ public class Member  {
    **/
   @ApiModelProperty(value = "")
   @JsonProperty("householdIncome")
-  public String getHouseholdIncome() {
+  public Integer getHouseholdIncome() {
     return householdIncome;
   }
-  public void setHouseholdIncome(String householdIncome) {
+  public void setHouseholdIncome(Integer householdIncome) {
     this.householdIncome = householdIncome;
   }
 
@@ -284,11 +347,71 @@ public class Member  {
    **/
   @ApiModelProperty(value = "")
   @JsonProperty("tags")
-  public String getTags() {
+  public List<String> getTags() {
     return tags;
   }
-  public void setTags(String tags) {
+  public void setTags(List<String> tags) {
     this.tags = tags;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("subscribedGroupIds")
+  public List<String> getSubscribedGroupIds() {
+    return subscribedGroupIds;
+  }
+  public void setSubscribedGroupIds(List<String> subscribedGroupIds) {
+    this.subscribedGroupIds = subscribedGroupIds;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("unsubscribed")
+  public Boolean getUnsubscribed() {
+    return unsubscribed;
+  }
+  public void setUnsubscribed(Boolean unsubscribed) {
+    this.unsubscribed = unsubscribed;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("unsubscribedDate")
+  public Boolean getUnsubscribedDate() {
+    return unsubscribedDate;
+  }
+  public void setUnsubscribedDate(Boolean unsubscribedDate) {
+    this.unsubscribedDate = unsubscribedDate;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("userType")
+  public Boolean getUserType() {
+    return userType;
+  }
+  public void setUserType(Boolean userType) {
+    this.userType = userType;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("signedUpWith")
+  public Boolean getSignedUpWith() {
+    return signedUpWith;
+  }
+  public void setSignedUpWith(Boolean signedUpWith) {
+    this.signedUpWith = signedUpWith;
   }
 
   
@@ -379,24 +502,84 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("dataEstimated")
-  public Boolean getDataEstimated() {
-    return dataEstimated;
-  }
-  public void setDataEstimated(Boolean dataEstimated) {
-    this.dataEstimated = dataEstimated;
-  }
-
-  
-  /**
-   **/
-  @ApiModelProperty(value = "")
   @JsonProperty("genuineEmail")
   public Boolean getGenuineEmail() {
     return genuineEmail;
   }
   public void setGenuineEmail(Boolean genuineEmail) {
     this.genuineEmail = genuineEmail;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("lastActiveDate")
+  public String getLastActiveDate() {
+    return lastActiveDate;
+  }
+  public void setLastActiveDate(String lastActiveDate) {
+    this.lastActiveDate = lastActiveDate;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("isClient")
+  public Boolean getIsClient() {
+    return isClient;
+  }
+  public void setIsClient(Boolean isClient) {
+    this.isClient = isClient;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("isHidden")
+  public Boolean getIsHidden() {
+    return isHidden;
+  }
+  public void setIsHidden(Boolean isHidden) {
+    this.isHidden = isHidden;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("invitedOn")
+  public String getInvitedOn() {
+    return invitedOn;
+  }
+  public void setInvitedOn(String invitedOn) {
+    this.invitedOn = invitedOn;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("invitedBy")
+  public String getInvitedBy() {
+    return invitedBy;
+  }
+  public void setInvitedBy(String invitedBy) {
+    this.invitedBy = invitedBy;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("portfolioSize")
+  public Integer getPortfolioSize() {
+    return portfolioSize;
+  }
+  public void setPortfolioSize(Integer portfolioSize) {
+    this.portfolioSize = portfolioSize;
   }
 
   
@@ -416,7 +599,11 @@ public class Member  {
     sb.append("  state: ").append(state).append("\n");
     sb.append("  zip: ").append(zip).append("\n");
     sb.append("  gender: ").append(gender).append("\n");
+    sb.append("  interestConsultation: ").append(interestConsultation).append("\n");
+    sb.append("  interestInNewAdvisor: ").append(interestInNewAdvisor).append("\n");
+    sb.append("  assets: ").append(assets).append("\n");
     sb.append("  age: ").append(age).append("\n");
+    sb.append("  dataEstimated: ").append(dataEstimated).append("\n");
     sb.append("  education: ").append(education).append("\n");
     sb.append("  highNetWorth: ").append(highNetWorth).append("\n");
     sb.append("  homeMarketValue: ").append(homeMarketValue).append("\n");
@@ -427,6 +614,11 @@ public class Member  {
     sb.append("  hometown: ").append(hometown).append("\n");
     sb.append("  family: ").append(family).append("\n");
     sb.append("  tags: ").append(tags).append("\n");
+    sb.append("  subscribedGroupIds: ").append(subscribedGroupIds).append("\n");
+    sb.append("  unsubscribed: ").append(unsubscribed).append("\n");
+    sb.append("  unsubscribedDate: ").append(unsubscribedDate).append("\n");
+    sb.append("  userType: ").append(userType).append("\n");
+    sb.append("  signedUpWith: ").append(signedUpWith).append("\n");
     sb.append("  message: ").append(message).append("\n");
     sb.append("  location: ").append(location).append("\n");
     sb.append("  pictureUrl: ").append(pictureUrl).append("\n");
@@ -434,8 +626,13 @@ public class Member  {
     sb.append("  estimatedLocation: ").append(estimatedLocation).append("\n");
     sb.append("  estimatedZip: ").append(estimatedZip).append("\n");
     sb.append("  registerIpAddr: ").append(registerIpAddr).append("\n");
-    sb.append("  dataEstimated: ").append(dataEstimated).append("\n");
     sb.append("  genuineEmail: ").append(genuineEmail).append("\n");
+    sb.append("  lastActiveDate: ").append(lastActiveDate).append("\n");
+    sb.append("  isClient: ").append(isClient).append("\n");
+    sb.append("  isHidden: ").append(isHidden).append("\n");
+    sb.append("  invitedOn: ").append(invitedOn).append("\n");
+    sb.append("  invitedBy: ").append(invitedBy).append("\n");
+    sb.append("  portfolioSize: ").append(portfolioSize).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

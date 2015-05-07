@@ -1,10 +1,12 @@
 package io.swagger.client.model
 
+import io.swagger.client.model.Meta
 import io.swagger.client.model.Member
 
 
 
 case class Members (
-  posts: List[Member],
-  more_results: Boolean)
+  members: List[Member],
+  more_results: Boolean,
+  meta: Meta)
   

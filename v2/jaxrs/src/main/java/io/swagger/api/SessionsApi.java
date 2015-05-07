@@ -7,6 +7,7 @@ import com.wordnik.swagger.annotations.ApiParam;
 import com.sun.jersey.multipart.FormDataParam;
 
 import io.swagger.model.Session;
+import io.swagger.model.SessionLogoutResponse;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -43,9 +44,9 @@ public class SessionsApi {
   @Path("/{id}")
   
   
-  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Logout of the vestorly platform", response = Session.class)
+  @com.wordnik.swagger.annotations.ApiOperation(value = "", notes = "Logout of the vestorly platform", response = SessionLogoutResponse.class)
   @com.wordnik.swagger.annotations.ApiResponses(value = { 
-    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "Response") })
+    @com.wordnik.swagger.annotations.ApiResponse(code = 200, message = "You have successfully logged out of the vestorly platform") })
 
   public Response logout(@ApiParam(value = "Authenication token",required=true) @QueryParam("vestorly-auth") String vestorlyAuth,
     @ApiParam(value = "ID of pet to session",required=true ) @PathParam("id") String id)

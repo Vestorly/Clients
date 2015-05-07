@@ -43,7 +43,7 @@ public class Source  {
   
   /**
    **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty("url")
   public String getUrl() {
     return url;
@@ -55,7 +55,7 @@ public class Source  {
   
   /**
    **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("logoUrl")
   public String getLogoUrl() {
     return logoUrl;
@@ -67,7 +67,7 @@ public class Source  {
   
   /**
    **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("enabled")
   public Boolean getEnabled() {
     return enabled;
@@ -79,7 +79,7 @@ public class Source  {
   
   /**
    **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("customRssFeed")
   public Boolean getCustomRssFeed() {
     return customRssFeed;

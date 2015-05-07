@@ -53,9 +53,10 @@ module.exports.findMemberByID = function findMemberByID (req, res, next) {
 module.exports.findMemberByID_1 = function findMemberByID_1 (req, res, next) {
   var id = req.swagger.params['id'].value;
   var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var member = req.swagger.params['member'].value;
   
 
-  var result = Members.findMemberByID_1(id, vestorly-auth);
+  var result = Members.findMemberByID_1(id, vestorly-auth, member);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

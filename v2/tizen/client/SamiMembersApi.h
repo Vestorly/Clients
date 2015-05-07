@@ -30,7 +30,7 @@ public:
   findMemberByIDWithCompletion(String* _id, String* vestorly-auth, void (* handler)(SamiMemberresponse*, SamiError*));
   
   SamiMemberresponse* 
-  findMemberByID_1WithCompletion(String* _id, String* vestorly-auth, void (* handler)(SamiMemberresponse*, SamiError*));
+  findMemberByID_1WithCompletion(String* _id, String* vestorly-auth, SamiMember* member, void (* handler)(SamiMemberresponse*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

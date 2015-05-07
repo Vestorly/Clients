@@ -22,22 +22,28 @@ SamiMembers::~SamiMembers() {
 
 void
 SamiMembers::init() {
-    pPosts = null;
+    pMembers = null;
     pMore_results = null;
+    pMeta = null;
     
 }
 
 void
 SamiMembers::cleanup() {
-    if(pPosts != null) {
-        pPosts->RemoveAll(true);
-        delete pPosts;
-        pPosts = null;
+    if(pMembers != null) {
+        pMembers->RemoveAll(true);
+        delete pMembers;
+        pMembers = null;
     }
     if(pMore_results != null) {
         
         delete pMore_results;
         pMore_results = null;
+    }
+    if(pMeta != null) {
+        
+        delete pMeta;
+        pMeta = null;
     }
     
 }
@@ -77,15 +83,15 @@ SamiMembers::fromJsonObject(IJsonValue* pJson) {
     JsonObject* pJsonObject = static_cast< JsonObject* >(pJson);
 
     if(pJsonObject != null) {
-        JsonString* pPostsKey = new JsonString(L"posts");
-        IJsonValue* pPostsVal = null;
-        pJsonObject->GetValue(pPostsKey, pPostsVal);
-        if(pPostsVal != null) {
-            pPosts = new ArrayList();
+        JsonString* pMembersKey = new JsonString(L"members");
+        IJsonValue* pMembersVal = null;
+        pJsonObject->GetValue(pMembersKey, pMembersVal);
+        if(pMembersVal != null) {
+            pMembers = new ArrayList();
             
-            jsonToValue(pPosts, pPostsVal, L"IList", L"SamiMember");
+            jsonToValue(pMembers, pMembersVal, L"IList", L"SamiMember");
         }
-        delete pPostsKey;
+        delete pMembersKey;
         JsonString* pMore_resultsKey = new JsonString(L"more_results");
         IJsonValue* pMore_resultsVal = null;
         pJsonObject->GetValue(pMore_resultsKey, pMore_resultsVal);
@@ -95,6 +101,15 @@ SamiMembers::fromJsonObject(IJsonValue* pJson) {
             jsonToValue(pMore_results, pMore_resultsVal, L"Boolean", L"Boolean");
         }
         delete pMore_resultsKey;
+        JsonString* pMetaKey = new JsonString(L"meta");
+        IJsonValue* pMetaVal = null;
+        pJsonObject->GetValue(pMetaKey, pMetaVal);
+        if(pMetaVal != null) {
+            
+            pMeta = new SamiMeta();
+            jsonToValue(pMeta, pMetaVal, L"SamiMeta", L"SamiMeta");
+        }
+        delete pMetaKey;
         
     }
 }
@@ -147,24 +162,28 @@ SamiMembers::asJsonObject() {
     pJsonObject->Construct();
 
     
-    JsonString *pPostsKey = new JsonString(L"posts");
-    pJsonObject->Add(pPostsKey, toJson(getPPosts(), "SamiMember", "array"));
+    JsonString *pMembersKey = new JsonString(L"members");
+    pJsonObject->Add(pMembersKey, toJson(getPMembers(), "SamiMember", "array"));
 
     
     JsonString *pMore_resultsKey = new JsonString(L"more_results");
     pJsonObject->Add(pMore_resultsKey, toJson(getPMoreResults(), "Boolean", ""));
 
     
+    JsonString *pMetaKey = new JsonString(L"meta");
+    pJsonObject->Add(pMetaKey, toJson(getPMeta(), "SamiMeta", ""));
+
+    
     return pJsonObject;
 }
 
 IList*
-SamiMembers::getPPosts() {
-    return pPosts;
+SamiMembers::getPMembers() {
+    return pMembers;
 }
 void
-SamiMembers::setPPosts(IList* pPosts) {
-    this->pPosts = pPosts;
+SamiMembers::setPMembers(IList* pMembers) {
+    this->pMembers = pMembers;
 }
 
 Boolean*
@@ -174,6 +193,15 @@ SamiMembers::getPMoreResults() {
 void
 SamiMembers::setPMoreResults(Boolean* pMore_results) {
     this->pMore_results = pMore_results;
+}
+
+SamiMeta*
+SamiMembers::getPMeta() {
+    return pMeta;
+}
+void
+SamiMembers::setPMeta(SamiMeta* pMeta) {
+    this->pMeta = pMeta;
 }
 
 

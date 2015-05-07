@@ -8,6 +8,7 @@ import io.swagger.client.model.*;
 import java.util.*;
 
 import io.swagger.client.model.Session;
+import io.swagger.client.model.SessionLogoutResponse;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.file.FileDataBodyPart;
@@ -95,9 +96,9 @@ public class SessionsApi {
    * Logout of the vestorly platform
    * @param vestorlyAuth Authenication token
    * @param id ID of pet to session
-   * @return Session
+   * @return SessionLogoutResponse
    */
-  public Session logout (String vestorlyAuth, String id) throws ApiException {
+  public SessionLogoutResponse logout (String vestorlyAuth, String id) throws ApiException {
     Object postBody = null;
     
 
@@ -134,7 +135,7 @@ public class SessionsApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "DELETE", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Session) ApiInvoker.deserialize(response, "", Session.class);
+        return (SessionLogoutResponse) ApiInvoker.deserialize(response, "", SessionLogoutResponse.class);
       }
       else {
         return null;

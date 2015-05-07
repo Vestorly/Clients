@@ -23,22 +23,42 @@ namespace io.swagger.Model {
     
 
     
-    public string OpenCalaisTopics { get; set; }
+    public string Body { get; set; }
 
     
 
     
-    public string OpenCalaisKeywords { get; set; }
+    public bool? IsResponsive { get; set; }
 
     
 
     
-    public string VestorlyTopics { get; set; }
+    public bool? IsProxyNeeded { get; set; }
 
     
 
     
-    public string Categories { get; set; }
+    public bool? IsMobileProxyNeeded { get; set; }
+
+    
+
+    
+    public bool? NeedsSanitize { get; set; }
+
+    
+
+    
+    public string ProxyUrl { get; set; }
+
+    
+
+    
+    public string Topic { get; set; }
+
+    
+
+    
+    public string SuitabilityScore { get; set; }
 
     
 
@@ -48,7 +68,22 @@ namespace io.swagger.Model {
     
 
     
-    public string UnparsedHtml { get; set; }
+    public string ImagePath { get; set; }
+
+    
+
+    
+    public string ImageUrl { get; set; }
+
+    
+
+    
+    public int? ImageHeight { get; set; }
+
+    
+
+    
+    public int? ImageWidth { get; set; }
 
     
 
@@ -58,7 +93,7 @@ namespace io.swagger.Model {
     
 
     
-    public string ImageUrl { get; set; }
+    public string SquareLogoUrl { get; set; }
 
     
 
@@ -73,7 +108,12 @@ namespace io.swagger.Model {
     
 
     
-    public string Tags { get; set; }
+    public string ExternalUrlSource { get; set; }
+
+    
+
+    
+    public string ExternalUrlType { get; set; }
 
     
 
@@ -87,27 +127,43 @@ namespace io.swagger.Model {
       
       sb.Append("  Title: ").Append(Title).Append("\n");
       
-      sb.Append("  OpenCalaisTopics: ").Append(OpenCalaisTopics).Append("\n");
+      sb.Append("  Body: ").Append(Body).Append("\n");
       
-      sb.Append("  OpenCalaisKeywords: ").Append(OpenCalaisKeywords).Append("\n");
+      sb.Append("  IsResponsive: ").Append(IsResponsive).Append("\n");
       
-      sb.Append("  VestorlyTopics: ").Append(VestorlyTopics).Append("\n");
+      sb.Append("  IsProxyNeeded: ").Append(IsProxyNeeded).Append("\n");
       
-      sb.Append("  Categories: ").Append(Categories).Append("\n");
+      sb.Append("  IsMobileProxyNeeded: ").Append(IsMobileProxyNeeded).Append("\n");
+      
+      sb.Append("  NeedsSanitize: ").Append(NeedsSanitize).Append("\n");
+      
+      sb.Append("  ProxyUrl: ").Append(ProxyUrl).Append("\n");
+      
+      sb.Append("  Topic: ").Append(Topic).Append("\n");
+      
+      sb.Append("  SuitabilityScore: ").Append(SuitabilityScore).Append("\n");
       
       sb.Append("  Summary: ").Append(Summary).Append("\n");
       
-      sb.Append("  UnparsedHtml: ").Append(UnparsedHtml).Append("\n");
+      sb.Append("  ImagePath: ").Append(ImagePath).Append("\n");
+      
+      sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
+      
+      sb.Append("  ImageHeight: ").Append(ImageHeight).Append("\n");
+      
+      sb.Append("  ImageWidth: ").Append(ImageWidth).Append("\n");
       
       sb.Append("  LogoUrl: ").Append(LogoUrl).Append("\n");
       
-      sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
+      sb.Append("  SquareLogoUrl: ").Append(SquareLogoUrl).Append("\n");
       
       sb.Append("  Url: ").Append(Url).Append("\n");
       
       sb.Append("  ExternalUrl: ").Append(ExternalUrl).Append("\n");
       
-      sb.Append("  Tags: ").Append(Tags).Append("\n");
+      sb.Append("  ExternalUrlSource: ").Append(ExternalUrlSource).Append("\n");
+      
+      sb.Append("  ExternalUrlType: ").Append(ExternalUrlType).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();

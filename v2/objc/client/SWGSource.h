@@ -12,13 +12,13 @@
 
 @property(nonatomic) NSString* name;
 
-@property(nonatomic) NSString<Optional>* url;
+@property(nonatomic) NSString* url;
 
-@property(nonatomic) NSString* logo_url;
+@property(nonatomic) NSString<Optional>* logo_url;
 
-@property(nonatomic) NSNumber* enabled;
+@property(nonatomic) NSNumber<Optional>* enabled;
 
-@property(nonatomic) NSNumber* custom_rss_feed;
+@property(nonatomic) NSNumber<Optional>* custom_rss_feed;
 
 @property(nonatomic) NSString* rss_publisher;
 

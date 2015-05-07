@@ -1,5 +1,6 @@
 package io.swagger.client.model;
 
+import io.swagger.client.model.EventContent;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -9,13 +10,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Event  {
   
   private String id = null;
+  public enum TypeEnum {
+     page_view,  sign_up,  sign_in,  content_posted,  create_post,  publish_post,  update_post,  delete_post,  unpublish_post,  invite,  publish_newsletter,  publish_social,  click,  delivered,  open,  dropped,  bounce, 
+  };
+  private TypeEnum type = null;
   private String referer = null;
   private String originalUrl = null;
   private String originatorEmail = null;
   private String subjectEmail = null;
-  private String advisorEmail = null;
-  private String originatorGroupName = null;
-  private String newsletter = null;
+  private String parentEventId = null;
+  private String originatorId = null;
+  private String advisorId = null;
+  private String subjectId = null;
+  private EventContent eventContent = null;
+  private String createdAt = null;
 
   
   /**
@@ -27,6 +35,18 @@ public class Event  {
   }
   public void setId(String id) {
     this.id = id;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty("type")
+  public TypeEnum getType() {
+    return type;
+  }
+  public void setType(TypeEnum type) {
+    this.type = type;
   }
 
   
@@ -80,37 +100,73 @@ public class Event  {
   
   /**
    **/
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("advisor_email")
-  public String getAdvisorEmail() {
-    return advisorEmail;
+  @ApiModelProperty(value = "")
+  @JsonProperty("parent_event_id")
+  public String getParentEventId() {
+    return parentEventId;
   }
-  public void setAdvisorEmail(String advisorEmail) {
-    this.advisorEmail = advisorEmail;
-  }
-
-  
-  /**
-   **/
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("originator_group_name")
-  public String getOriginatorGroupName() {
-    return originatorGroupName;
-  }
-  public void setOriginatorGroupName(String originatorGroupName) {
-    this.originatorGroupName = originatorGroupName;
+  public void setParentEventId(String parentEventId) {
+    this.parentEventId = parentEventId;
   }
 
   
   /**
    **/
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("newsletter")
-  public String getNewsletter() {
-    return newsletter;
+  @ApiModelProperty(value = "")
+  @JsonProperty("originator_id")
+  public String getOriginatorId() {
+    return originatorId;
   }
-  public void setNewsletter(String newsletter) {
-    this.newsletter = newsletter;
+  public void setOriginatorId(String originatorId) {
+    this.originatorId = originatorId;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("advisor_id")
+  public String getAdvisorId() {
+    return advisorId;
+  }
+  public void setAdvisorId(String advisorId) {
+    this.advisorId = advisorId;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("subject_id")
+  public String getSubjectId() {
+    return subjectId;
+  }
+  public void setSubjectId(String subjectId) {
+    this.subjectId = subjectId;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("event_content")
+  public EventContent getEventContent() {
+    return eventContent;
+  }
+  public void setEventContent(EventContent eventContent) {
+    this.eventContent = eventContent;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("created_at")
+  public String getCreatedAt() {
+    return createdAt;
+  }
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
   }
 
   
@@ -121,13 +177,17 @@ public class Event  {
     sb.append("class Event {\n");
     
     sb.append("  id: ").append(id).append("\n");
+    sb.append("  type: ").append(type).append("\n");
     sb.append("  referer: ").append(referer).append("\n");
     sb.append("  originalUrl: ").append(originalUrl).append("\n");
     sb.append("  originatorEmail: ").append(originatorEmail).append("\n");
     sb.append("  subjectEmail: ").append(subjectEmail).append("\n");
-    sb.append("  advisorEmail: ").append(advisorEmail).append("\n");
-    sb.append("  originatorGroupName: ").append(originatorGroupName).append("\n");
-    sb.append("  newsletter: ").append(newsletter).append("\n");
+    sb.append("  parentEventId: ").append(parentEventId).append("\n");
+    sb.append("  originatorId: ").append(originatorId).append("\n");
+    sb.append("  advisorId: ").append(advisorId).append("\n");
+    sb.append("  subjectId: ").append(subjectId).append("\n");
+    sb.append("  eventContent: ").append(eventContent).append("\n");
+    sb.append("  createdAt: ").append(createdAt).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

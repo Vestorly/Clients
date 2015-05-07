@@ -6,16 +6,23 @@
 #include "SamiAdvisorresponse.h"
 #include "SamiAdvisor.h"
 #include "SamiAdvisors.h"
+#include "SamiPosts.h"
 #include "SamiPostresponse.h"
 #include "SamiPostrequest.h"
 #include "SamiPost.h"
 #include "SamiPostInput.h"
+#include "SamiSessionLogoutResponse.h"
 #include "SamiSession.h"
 #include "SamiSettings.h"
 #include "SamiOrgSetting.h"
 #include "SamiFeatures.h"
 #include "SamiPersonalSettings.h"
 #include "SamiUser.h"
+#include "SamiMemberReport.h"
+#include "SamiMemberReports.h"
+#include "SamiTruncatedMember.h"
+#include "SamiMemberEvent.h"
+#include "SamiMemberEvents.h"
 #include "SamiArticle.h"
 #include "SamiArticleresponse.h"
 #include "SamiArticles.h"
@@ -24,12 +31,14 @@
 #include "SamiNewsletterInput.h"
 #include "SamiNewsletters.h"
 #include "SamiMemberresponse.h"
+#include "SamiMeta.h"
 #include "SamiMembers.h"
 #include "SamiMember.h"
+#include "SamiEventContent.h"
 #include "SamiEventresponse.h"
 #include "SamiEventInput.h"
-#include "SamiEvents.h"
 #include "SamiEvent.h"
+#include "SamiEvents.h"
 #include "SamiGroup.h"
 #include "SamiGroupInput.h"
 #include "SamiGroups.h"
@@ -54,6 +63,9 @@ namespace Swagger {
     if(type.Equals(L"SamiAdvisors", true)) {
       return new SamiAdvisors();
     }
+    if(type.Equals(L"SamiPosts", true)) {
+      return new SamiPosts();
+    }
     if(type.Equals(L"SamiPostresponse", true)) {
       return new SamiPostresponse();
     }
@@ -65,6 +77,9 @@ namespace Swagger {
     }
     if(type.Equals(L"SamiPostInput", true)) {
       return new SamiPostInput();
+    }
+    if(type.Equals(L"SamiSessionLogoutResponse", true)) {
+      return new SamiSessionLogoutResponse();
     }
     if(type.Equals(L"SamiSession", true)) {
       return new SamiSession();
@@ -83,6 +98,21 @@ namespace Swagger {
     }
     if(type.Equals(L"SamiUser", true)) {
       return new SamiUser();
+    }
+    if(type.Equals(L"SamiMemberReport", true)) {
+      return new SamiMemberReport();
+    }
+    if(type.Equals(L"SamiMemberReports", true)) {
+      return new SamiMemberReports();
+    }
+    if(type.Equals(L"SamiTruncatedMember", true)) {
+      return new SamiTruncatedMember();
+    }
+    if(type.Equals(L"SamiMemberEvent", true)) {
+      return new SamiMemberEvent();
+    }
+    if(type.Equals(L"SamiMemberEvents", true)) {
+      return new SamiMemberEvents();
     }
     if(type.Equals(L"SamiArticle", true)) {
       return new SamiArticle();
@@ -108,11 +138,17 @@ namespace Swagger {
     if(type.Equals(L"SamiMemberresponse", true)) {
       return new SamiMemberresponse();
     }
+    if(type.Equals(L"SamiMeta", true)) {
+      return new SamiMeta();
+    }
     if(type.Equals(L"SamiMembers", true)) {
       return new SamiMembers();
     }
     if(type.Equals(L"SamiMember", true)) {
       return new SamiMember();
+    }
+    if(type.Equals(L"SamiEventContent", true)) {
+      return new SamiEventContent();
     }
     if(type.Equals(L"SamiEventresponse", true)) {
       return new SamiEventresponse();
@@ -120,11 +156,11 @@ namespace Swagger {
     if(type.Equals(L"SamiEventInput", true)) {
       return new SamiEventInput();
     }
-    if(type.Equals(L"SamiEvents", true)) {
-      return new SamiEvents();
-    }
     if(type.Equals(L"SamiEvent", true)) {
       return new SamiEvent();
+    }
+    if(type.Equals(L"SamiEvents", true)) {
+      return new SamiEvents();
     }
     if(type.Equals(L"SamiGroup", true)) {
       return new SamiGroup();

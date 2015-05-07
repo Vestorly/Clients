@@ -196,8 +196,8 @@ public class MembersApi {
   }
   
   
-  public Memberresponse  findMemberByID_1 (String id, String vestorlyAuth) throws ApiException {
-    Object postBody = null;
+  public Memberresponse  findMemberByID_1 (String id, String vestorlyAuth, Member member) throws ApiException {
+    Object postBody = member;
 
     
 

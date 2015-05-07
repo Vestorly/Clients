@@ -25,17 +25,25 @@ SamiArticle::init() {
     p_id = null;
     pCreated_at = null;
     pTitle = null;
-    pOpen_calais_topics = null;
-    pOpen_calais_keywords = null;
-    pVestorly_topics = null;
-    pCategories = null;
+    pBody = null;
+    pIs_responsive = null;
+    pIs_proxy_needed = null;
+    pIs_mobile_proxy_needed = null;
+    pNeeds_sanitize = null;
+    pProxy_url = null;
+    pTopic = null;
+    pSuitability_score = null;
     pSummary = null;
-    pUnparsed_html = null;
-    pLogo_url = null;
+    pImage_path = null;
     pImage_url = null;
+    pImage_height = null;
+    pImage_width = null;
+    pLogo_url = null;
+    pSquare_logo_url = null;
     pUrl = null;
     pExternal_url = null;
-    pTags = null;
+    pExternal_url_source = null;
+    pExternal_url_type = null;
     
 }
 
@@ -56,45 +64,80 @@ SamiArticle::cleanup() {
         delete pTitle;
         pTitle = null;
     }
-    if(pOpen_calais_topics != null) {
+    if(pBody != null) {
         
-        delete pOpen_calais_topics;
-        pOpen_calais_topics = null;
+        delete pBody;
+        pBody = null;
     }
-    if(pOpen_calais_keywords != null) {
+    if(pIs_responsive != null) {
         
-        delete pOpen_calais_keywords;
-        pOpen_calais_keywords = null;
+        delete pIs_responsive;
+        pIs_responsive = null;
     }
-    if(pVestorly_topics != null) {
+    if(pIs_proxy_needed != null) {
         
-        delete pVestorly_topics;
-        pVestorly_topics = null;
+        delete pIs_proxy_needed;
+        pIs_proxy_needed = null;
     }
-    if(pCategories != null) {
+    if(pIs_mobile_proxy_needed != null) {
         
-        delete pCategories;
-        pCategories = null;
+        delete pIs_mobile_proxy_needed;
+        pIs_mobile_proxy_needed = null;
+    }
+    if(pNeeds_sanitize != null) {
+        
+        delete pNeeds_sanitize;
+        pNeeds_sanitize = null;
+    }
+    if(pProxy_url != null) {
+        
+        delete pProxy_url;
+        pProxy_url = null;
+    }
+    if(pTopic != null) {
+        
+        delete pTopic;
+        pTopic = null;
+    }
+    if(pSuitability_score != null) {
+        
+        delete pSuitability_score;
+        pSuitability_score = null;
     }
     if(pSummary != null) {
         
         delete pSummary;
         pSummary = null;
     }
-    if(pUnparsed_html != null) {
+    if(pImage_path != null) {
         
-        delete pUnparsed_html;
-        pUnparsed_html = null;
+        delete pImage_path;
+        pImage_path = null;
+    }
+    if(pImage_url != null) {
+        
+        delete pImage_url;
+        pImage_url = null;
+    }
+    if(pImage_height != null) {
+        
+        delete pImage_height;
+        pImage_height = null;
+    }
+    if(pImage_width != null) {
+        
+        delete pImage_width;
+        pImage_width = null;
     }
     if(pLogo_url != null) {
         
         delete pLogo_url;
         pLogo_url = null;
     }
-    if(pImage_url != null) {
+    if(pSquare_logo_url != null) {
         
-        delete pImage_url;
-        pImage_url = null;
+        delete pSquare_logo_url;
+        pSquare_logo_url = null;
     }
     if(pUrl != null) {
         
@@ -106,10 +149,15 @@ SamiArticle::cleanup() {
         delete pExternal_url;
         pExternal_url = null;
     }
-    if(pTags != null) {
+    if(pExternal_url_source != null) {
         
-        delete pTags;
-        pTags = null;
+        delete pExternal_url_source;
+        pExternal_url_source = null;
+    }
+    if(pExternal_url_type != null) {
+        
+        delete pExternal_url_type;
+        pExternal_url_type = null;
     }
     
 }
@@ -176,42 +224,78 @@ SamiArticle::fromJsonObject(IJsonValue* pJson) {
             jsonToValue(pTitle, pTitleVal, L"String", L"String");
         }
         delete pTitleKey;
-        JsonString* pOpen_calais_topicsKey = new JsonString(L"open_calais_topics");
-        IJsonValue* pOpen_calais_topicsVal = null;
-        pJsonObject->GetValue(pOpen_calais_topicsKey, pOpen_calais_topicsVal);
-        if(pOpen_calais_topicsVal != null) {
+        JsonString* pBodyKey = new JsonString(L"body");
+        IJsonValue* pBodyVal = null;
+        pJsonObject->GetValue(pBodyKey, pBodyVal);
+        if(pBodyVal != null) {
             
-            pOpen_calais_topics = new String();
-            jsonToValue(pOpen_calais_topics, pOpen_calais_topicsVal, L"String", L"String");
+            pBody = new String();
+            jsonToValue(pBody, pBodyVal, L"String", L"String");
         }
-        delete pOpen_calais_topicsKey;
-        JsonString* pOpen_calais_keywordsKey = new JsonString(L"open_calais_keywords");
-        IJsonValue* pOpen_calais_keywordsVal = null;
-        pJsonObject->GetValue(pOpen_calais_keywordsKey, pOpen_calais_keywordsVal);
-        if(pOpen_calais_keywordsVal != null) {
+        delete pBodyKey;
+        JsonString* pIs_responsiveKey = new JsonString(L"is_responsive");
+        IJsonValue* pIs_responsiveVal = null;
+        pJsonObject->GetValue(pIs_responsiveKey, pIs_responsiveVal);
+        if(pIs_responsiveVal != null) {
             
-            pOpen_calais_keywords = new String();
-            jsonToValue(pOpen_calais_keywords, pOpen_calais_keywordsVal, L"String", L"String");
+            pIs_responsive = new Boolean(false);
+            jsonToValue(pIs_responsive, pIs_responsiveVal, L"Boolean", L"Boolean");
         }
-        delete pOpen_calais_keywordsKey;
-        JsonString* pVestorly_topicsKey = new JsonString(L"vestorly_topics");
-        IJsonValue* pVestorly_topicsVal = null;
-        pJsonObject->GetValue(pVestorly_topicsKey, pVestorly_topicsVal);
-        if(pVestorly_topicsVal != null) {
+        delete pIs_responsiveKey;
+        JsonString* pIs_proxy_neededKey = new JsonString(L"is_proxy_needed");
+        IJsonValue* pIs_proxy_neededVal = null;
+        pJsonObject->GetValue(pIs_proxy_neededKey, pIs_proxy_neededVal);
+        if(pIs_proxy_neededVal != null) {
             
-            pVestorly_topics = new String();
-            jsonToValue(pVestorly_topics, pVestorly_topicsVal, L"String", L"String");
+            pIs_proxy_needed = new Boolean(false);
+            jsonToValue(pIs_proxy_needed, pIs_proxy_neededVal, L"Boolean", L"Boolean");
         }
-        delete pVestorly_topicsKey;
-        JsonString* pCategoriesKey = new JsonString(L"categories");
-        IJsonValue* pCategoriesVal = null;
-        pJsonObject->GetValue(pCategoriesKey, pCategoriesVal);
-        if(pCategoriesVal != null) {
+        delete pIs_proxy_neededKey;
+        JsonString* pIs_mobile_proxy_neededKey = new JsonString(L"is_mobile_proxy_needed");
+        IJsonValue* pIs_mobile_proxy_neededVal = null;
+        pJsonObject->GetValue(pIs_mobile_proxy_neededKey, pIs_mobile_proxy_neededVal);
+        if(pIs_mobile_proxy_neededVal != null) {
             
-            pCategories = new String();
-            jsonToValue(pCategories, pCategoriesVal, L"String", L"String");
+            pIs_mobile_proxy_needed = new Boolean(false);
+            jsonToValue(pIs_mobile_proxy_needed, pIs_mobile_proxy_neededVal, L"Boolean", L"Boolean");
         }
-        delete pCategoriesKey;
+        delete pIs_mobile_proxy_neededKey;
+        JsonString* pNeeds_sanitizeKey = new JsonString(L"needs_sanitize");
+        IJsonValue* pNeeds_sanitizeVal = null;
+        pJsonObject->GetValue(pNeeds_sanitizeKey, pNeeds_sanitizeVal);
+        if(pNeeds_sanitizeVal != null) {
+            
+            pNeeds_sanitize = new Boolean(false);
+            jsonToValue(pNeeds_sanitize, pNeeds_sanitizeVal, L"Boolean", L"Boolean");
+        }
+        delete pNeeds_sanitizeKey;
+        JsonString* pProxy_urlKey = new JsonString(L"proxy_url");
+        IJsonValue* pProxy_urlVal = null;
+        pJsonObject->GetValue(pProxy_urlKey, pProxy_urlVal);
+        if(pProxy_urlVal != null) {
+            
+            pProxy_url = new String();
+            jsonToValue(pProxy_url, pProxy_urlVal, L"String", L"String");
+        }
+        delete pProxy_urlKey;
+        JsonString* pTopicKey = new JsonString(L"topic");
+        IJsonValue* pTopicVal = null;
+        pJsonObject->GetValue(pTopicKey, pTopicVal);
+        if(pTopicVal != null) {
+            
+            pTopic = new String();
+            jsonToValue(pTopic, pTopicVal, L"String", L"String");
+        }
+        delete pTopicKey;
+        JsonString* pSuitability_scoreKey = new JsonString(L"suitability_score");
+        IJsonValue* pSuitability_scoreVal = null;
+        pJsonObject->GetValue(pSuitability_scoreKey, pSuitability_scoreVal);
+        if(pSuitability_scoreVal != null) {
+            
+            pSuitability_score = new String();
+            jsonToValue(pSuitability_score, pSuitability_scoreVal, L"String", L"String");
+        }
+        delete pSuitability_scoreKey;
         JsonString* pSummaryKey = new JsonString(L"summary");
         IJsonValue* pSummaryVal = null;
         pJsonObject->GetValue(pSummaryKey, pSummaryVal);
@@ -221,24 +305,15 @@ SamiArticle::fromJsonObject(IJsonValue* pJson) {
             jsonToValue(pSummary, pSummaryVal, L"String", L"String");
         }
         delete pSummaryKey;
-        JsonString* pUnparsed_htmlKey = new JsonString(L"unparsed_html");
-        IJsonValue* pUnparsed_htmlVal = null;
-        pJsonObject->GetValue(pUnparsed_htmlKey, pUnparsed_htmlVal);
-        if(pUnparsed_htmlVal != null) {
+        JsonString* pImage_pathKey = new JsonString(L"image_path");
+        IJsonValue* pImage_pathVal = null;
+        pJsonObject->GetValue(pImage_pathKey, pImage_pathVal);
+        if(pImage_pathVal != null) {
             
-            pUnparsed_html = new String();
-            jsonToValue(pUnparsed_html, pUnparsed_htmlVal, L"String", L"String");
+            pImage_path = new String();
+            jsonToValue(pImage_path, pImage_pathVal, L"String", L"String");
         }
-        delete pUnparsed_htmlKey;
-        JsonString* pLogo_urlKey = new JsonString(L"logo_url");
-        IJsonValue* pLogo_urlVal = null;
-        pJsonObject->GetValue(pLogo_urlKey, pLogo_urlVal);
-        if(pLogo_urlVal != null) {
-            
-            pLogo_url = new String();
-            jsonToValue(pLogo_url, pLogo_urlVal, L"String", L"String");
-        }
-        delete pLogo_urlKey;
+        delete pImage_pathKey;
         JsonString* pImage_urlKey = new JsonString(L"image_url");
         IJsonValue* pImage_urlVal = null;
         pJsonObject->GetValue(pImage_urlKey, pImage_urlVal);
@@ -248,6 +323,42 @@ SamiArticle::fromJsonObject(IJsonValue* pJson) {
             jsonToValue(pImage_url, pImage_urlVal, L"String", L"String");
         }
         delete pImage_urlKey;
+        JsonString* pImage_heightKey = new JsonString(L"image_height");
+        IJsonValue* pImage_heightVal = null;
+        pJsonObject->GetValue(pImage_heightKey, pImage_heightVal);
+        if(pImage_heightVal != null) {
+            
+            pImage_height = new Integer();
+            jsonToValue(pImage_height, pImage_heightVal, L"Integer", L"Integer");
+        }
+        delete pImage_heightKey;
+        JsonString* pImage_widthKey = new JsonString(L"image_width");
+        IJsonValue* pImage_widthVal = null;
+        pJsonObject->GetValue(pImage_widthKey, pImage_widthVal);
+        if(pImage_widthVal != null) {
+            
+            pImage_width = new Integer();
+            jsonToValue(pImage_width, pImage_widthVal, L"Integer", L"Integer");
+        }
+        delete pImage_widthKey;
+        JsonString* pLogo_urlKey = new JsonString(L"logo_url");
+        IJsonValue* pLogo_urlVal = null;
+        pJsonObject->GetValue(pLogo_urlKey, pLogo_urlVal);
+        if(pLogo_urlVal != null) {
+            
+            pLogo_url = new String();
+            jsonToValue(pLogo_url, pLogo_urlVal, L"String", L"String");
+        }
+        delete pLogo_urlKey;
+        JsonString* pSquare_logo_urlKey = new JsonString(L"square_logo_url");
+        IJsonValue* pSquare_logo_urlVal = null;
+        pJsonObject->GetValue(pSquare_logo_urlKey, pSquare_logo_urlVal);
+        if(pSquare_logo_urlVal != null) {
+            
+            pSquare_logo_url = new String();
+            jsonToValue(pSquare_logo_url, pSquare_logo_urlVal, L"String", L"String");
+        }
+        delete pSquare_logo_urlKey;
         JsonString* pUrlKey = new JsonString(L"url");
         IJsonValue* pUrlVal = null;
         pJsonObject->GetValue(pUrlKey, pUrlVal);
@@ -266,15 +377,24 @@ SamiArticle::fromJsonObject(IJsonValue* pJson) {
             jsonToValue(pExternal_url, pExternal_urlVal, L"String", L"String");
         }
         delete pExternal_urlKey;
-        JsonString* pTagsKey = new JsonString(L"tags");
-        IJsonValue* pTagsVal = null;
-        pJsonObject->GetValue(pTagsKey, pTagsVal);
-        if(pTagsVal != null) {
+        JsonString* pExternal_url_sourceKey = new JsonString(L"external_url_source");
+        IJsonValue* pExternal_url_sourceVal = null;
+        pJsonObject->GetValue(pExternal_url_sourceKey, pExternal_url_sourceVal);
+        if(pExternal_url_sourceVal != null) {
             
-            pTags = new String();
-            jsonToValue(pTags, pTagsVal, L"String", L"String");
+            pExternal_url_source = new String();
+            jsonToValue(pExternal_url_source, pExternal_url_sourceVal, L"String", L"String");
         }
-        delete pTagsKey;
+        delete pExternal_url_sourceKey;
+        JsonString* pExternal_url_typeKey = new JsonString(L"external_url_type");
+        IJsonValue* pExternal_url_typeVal = null;
+        pJsonObject->GetValue(pExternal_url_typeKey, pExternal_url_typeVal);
+        if(pExternal_url_typeVal != null) {
+            
+            pExternal_url_type = new String();
+            jsonToValue(pExternal_url_type, pExternal_url_typeVal, L"String", L"String");
+        }
+        delete pExternal_url_typeKey;
         
     }
 }
@@ -339,36 +459,64 @@ SamiArticle::asJsonObject() {
     pJsonObject->Add(pTitleKey, toJson(getPTitle(), "String", ""));
 
     
-    JsonString *pOpen_calais_topicsKey = new JsonString(L"open_calais_topics");
-    pJsonObject->Add(pOpen_calais_topicsKey, toJson(getPOpenCalaisTopics(), "String", ""));
+    JsonString *pBodyKey = new JsonString(L"body");
+    pJsonObject->Add(pBodyKey, toJson(getPBody(), "String", ""));
 
     
-    JsonString *pOpen_calais_keywordsKey = new JsonString(L"open_calais_keywords");
-    pJsonObject->Add(pOpen_calais_keywordsKey, toJson(getPOpenCalaisKeywords(), "String", ""));
+    JsonString *pIs_responsiveKey = new JsonString(L"is_responsive");
+    pJsonObject->Add(pIs_responsiveKey, toJson(getPIsResponsive(), "Boolean", ""));
 
     
-    JsonString *pVestorly_topicsKey = new JsonString(L"vestorly_topics");
-    pJsonObject->Add(pVestorly_topicsKey, toJson(getPVestorlyTopics(), "String", ""));
+    JsonString *pIs_proxy_neededKey = new JsonString(L"is_proxy_needed");
+    pJsonObject->Add(pIs_proxy_neededKey, toJson(getPIsProxyNeeded(), "Boolean", ""));
 
     
-    JsonString *pCategoriesKey = new JsonString(L"categories");
-    pJsonObject->Add(pCategoriesKey, toJson(getPCategories(), "String", ""));
+    JsonString *pIs_mobile_proxy_neededKey = new JsonString(L"is_mobile_proxy_needed");
+    pJsonObject->Add(pIs_mobile_proxy_neededKey, toJson(getPIsMobileProxyNeeded(), "Boolean", ""));
+
+    
+    JsonString *pNeeds_sanitizeKey = new JsonString(L"needs_sanitize");
+    pJsonObject->Add(pNeeds_sanitizeKey, toJson(getPNeedsSanitize(), "Boolean", ""));
+
+    
+    JsonString *pProxy_urlKey = new JsonString(L"proxy_url");
+    pJsonObject->Add(pProxy_urlKey, toJson(getPProxyUrl(), "String", ""));
+
+    
+    JsonString *pTopicKey = new JsonString(L"topic");
+    pJsonObject->Add(pTopicKey, toJson(getPTopic(), "String", ""));
+
+    
+    JsonString *pSuitability_scoreKey = new JsonString(L"suitability_score");
+    pJsonObject->Add(pSuitability_scoreKey, toJson(getPSuitabilityScore(), "String", ""));
 
     
     JsonString *pSummaryKey = new JsonString(L"summary");
     pJsonObject->Add(pSummaryKey, toJson(getPSummary(), "String", ""));
 
     
-    JsonString *pUnparsed_htmlKey = new JsonString(L"unparsed_html");
-    pJsonObject->Add(pUnparsed_htmlKey, toJson(getPUnparsedHtml(), "String", ""));
+    JsonString *pImage_pathKey = new JsonString(L"image_path");
+    pJsonObject->Add(pImage_pathKey, toJson(getPImagePath(), "String", ""));
+
+    
+    JsonString *pImage_urlKey = new JsonString(L"image_url");
+    pJsonObject->Add(pImage_urlKey, toJson(getPImageUrl(), "String", ""));
+
+    
+    JsonString *pImage_heightKey = new JsonString(L"image_height");
+    pJsonObject->Add(pImage_heightKey, toJson(getPImageHeight(), "Integer", ""));
+
+    
+    JsonString *pImage_widthKey = new JsonString(L"image_width");
+    pJsonObject->Add(pImage_widthKey, toJson(getPImageWidth(), "Integer", ""));
 
     
     JsonString *pLogo_urlKey = new JsonString(L"logo_url");
     pJsonObject->Add(pLogo_urlKey, toJson(getPLogoUrl(), "String", ""));
 
     
-    JsonString *pImage_urlKey = new JsonString(L"image_url");
-    pJsonObject->Add(pImage_urlKey, toJson(getPImageUrl(), "String", ""));
+    JsonString *pSquare_logo_urlKey = new JsonString(L"square_logo_url");
+    pJsonObject->Add(pSquare_logo_urlKey, toJson(getPSquareLogoUrl(), "String", ""));
 
     
     JsonString *pUrlKey = new JsonString(L"url");
@@ -379,8 +527,12 @@ SamiArticle::asJsonObject() {
     pJsonObject->Add(pExternal_urlKey, toJson(getPExternalUrl(), "String", ""));
 
     
-    JsonString *pTagsKey = new JsonString(L"tags");
-    pJsonObject->Add(pTagsKey, toJson(getPTags(), "String", ""));
+    JsonString *pExternal_url_sourceKey = new JsonString(L"external_url_source");
+    pJsonObject->Add(pExternal_url_sourceKey, toJson(getPExternalUrlSource(), "String", ""));
+
+    
+    JsonString *pExternal_url_typeKey = new JsonString(L"external_url_type");
+    pJsonObject->Add(pExternal_url_typeKey, toJson(getPExternalUrlType(), "String", ""));
 
     
     return pJsonObject;
@@ -414,39 +566,75 @@ SamiArticle::setPTitle(String* pTitle) {
 }
 
 String*
-SamiArticle::getPOpenCalaisTopics() {
-    return pOpen_calais_topics;
+SamiArticle::getPBody() {
+    return pBody;
 }
 void
-SamiArticle::setPOpenCalaisTopics(String* pOpen_calais_topics) {
-    this->pOpen_calais_topics = pOpen_calais_topics;
+SamiArticle::setPBody(String* pBody) {
+    this->pBody = pBody;
+}
+
+Boolean*
+SamiArticle::getPIsResponsive() {
+    return pIs_responsive;
+}
+void
+SamiArticle::setPIsResponsive(Boolean* pIs_responsive) {
+    this->pIs_responsive = pIs_responsive;
+}
+
+Boolean*
+SamiArticle::getPIsProxyNeeded() {
+    return pIs_proxy_needed;
+}
+void
+SamiArticle::setPIsProxyNeeded(Boolean* pIs_proxy_needed) {
+    this->pIs_proxy_needed = pIs_proxy_needed;
+}
+
+Boolean*
+SamiArticle::getPIsMobileProxyNeeded() {
+    return pIs_mobile_proxy_needed;
+}
+void
+SamiArticle::setPIsMobileProxyNeeded(Boolean* pIs_mobile_proxy_needed) {
+    this->pIs_mobile_proxy_needed = pIs_mobile_proxy_needed;
+}
+
+Boolean*
+SamiArticle::getPNeedsSanitize() {
+    return pNeeds_sanitize;
+}
+void
+SamiArticle::setPNeedsSanitize(Boolean* pNeeds_sanitize) {
+    this->pNeeds_sanitize = pNeeds_sanitize;
 }
 
 String*
-SamiArticle::getPOpenCalaisKeywords() {
-    return pOpen_calais_keywords;
+SamiArticle::getPProxyUrl() {
+    return pProxy_url;
 }
 void
-SamiArticle::setPOpenCalaisKeywords(String* pOpen_calais_keywords) {
-    this->pOpen_calais_keywords = pOpen_calais_keywords;
+SamiArticle::setPProxyUrl(String* pProxy_url) {
+    this->pProxy_url = pProxy_url;
 }
 
 String*
-SamiArticle::getPVestorlyTopics() {
-    return pVestorly_topics;
+SamiArticle::getPTopic() {
+    return pTopic;
 }
 void
-SamiArticle::setPVestorlyTopics(String* pVestorly_topics) {
-    this->pVestorly_topics = pVestorly_topics;
+SamiArticle::setPTopic(String* pTopic) {
+    this->pTopic = pTopic;
 }
 
 String*
-SamiArticle::getPCategories() {
-    return pCategories;
+SamiArticle::getPSuitabilityScore() {
+    return pSuitability_score;
 }
 void
-SamiArticle::setPCategories(String* pCategories) {
-    this->pCategories = pCategories;
+SamiArticle::setPSuitabilityScore(String* pSuitability_score) {
+    this->pSuitability_score = pSuitability_score;
 }
 
 String*
@@ -459,12 +647,39 @@ SamiArticle::setPSummary(String* pSummary) {
 }
 
 String*
-SamiArticle::getPUnparsedHtml() {
-    return pUnparsed_html;
+SamiArticle::getPImagePath() {
+    return pImage_path;
 }
 void
-SamiArticle::setPUnparsedHtml(String* pUnparsed_html) {
-    this->pUnparsed_html = pUnparsed_html;
+SamiArticle::setPImagePath(String* pImage_path) {
+    this->pImage_path = pImage_path;
+}
+
+String*
+SamiArticle::getPImageUrl() {
+    return pImage_url;
+}
+void
+SamiArticle::setPImageUrl(String* pImage_url) {
+    this->pImage_url = pImage_url;
+}
+
+Integer*
+SamiArticle::getPImageHeight() {
+    return pImage_height;
+}
+void
+SamiArticle::setPImageHeight(Integer* pImage_height) {
+    this->pImage_height = pImage_height;
+}
+
+Integer*
+SamiArticle::getPImageWidth() {
+    return pImage_width;
+}
+void
+SamiArticle::setPImageWidth(Integer* pImage_width) {
+    this->pImage_width = pImage_width;
 }
 
 String*
@@ -477,12 +692,12 @@ SamiArticle::setPLogoUrl(String* pLogo_url) {
 }
 
 String*
-SamiArticle::getPImageUrl() {
-    return pImage_url;
+SamiArticle::getPSquareLogoUrl() {
+    return pSquare_logo_url;
 }
 void
-SamiArticle::setPImageUrl(String* pImage_url) {
-    this->pImage_url = pImage_url;
+SamiArticle::setPSquareLogoUrl(String* pSquare_logo_url) {
+    this->pSquare_logo_url = pSquare_logo_url;
 }
 
 String*
@@ -504,12 +719,21 @@ SamiArticle::setPExternalUrl(String* pExternal_url) {
 }
 
 String*
-SamiArticle::getPTags() {
-    return pTags;
+SamiArticle::getPExternalUrlSource() {
+    return pExternal_url_source;
 }
 void
-SamiArticle::setPTags(String* pTags) {
-    this->pTags = pTags;
+SamiArticle::setPExternalUrlSource(String* pExternal_url_source) {
+    this->pExternal_url_source = pExternal_url_source;
+}
+
+String*
+SamiArticle::getPExternalUrlType() {
+    return pExternal_url_type;
+}
+void
+SamiArticle::setPExternalUrlType(String* pExternal_url_type) {
+    this->pExternal_url_type = pExternal_url_type;
 }
 
 

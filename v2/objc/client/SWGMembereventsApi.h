@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "SWGMemberEventModel.h"
+#import "SWGMemberEvents.h"
 #import "SWGObject.h"
 
 
@@ -18,11 +18,11 @@
  @param vestorly-auth Vestorly Auth Token
  
 
- return type: SWGMemberEventModel*
+ return type: SWGMemberEvents*
  */
 -(NSNumber*) findMemberEventsWithCompletionBlock :(NSString*) vestorly-auth 
     
-    completionHandler: (void (^)(SWGMemberEventModel* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGMemberEvents* output, NSError* error))completionBlock;
     
 
 

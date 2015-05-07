@@ -92,8 +92,8 @@ logoutProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError*)
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiSession* out = new SamiSession();
-    jsonToValue(out, pJson, L"SamiSession*", L"SamiSession");
+    SamiSessionLogoutResponse* out = new SamiSessionLogoutResponse();
+    jsonToValue(out, pJson, L"SamiSessionLogoutResponse*", L"SamiSessionLogoutResponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -119,8 +119,8 @@ logoutProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError*)
   }
 }
 
-SamiSession* 
-SamiSessionsApi::logoutWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiSession*, SamiError*)) {
+SamiSessionLogoutResponse* 
+SamiSessionsApi::logoutWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiSessionLogoutResponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&logoutProcessor, (void(*)(void*, SamiError*))success);

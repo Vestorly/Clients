@@ -71,12 +71,14 @@
 
  @param _id Mongo ID of member to fetch
  @param vestorly-auth Vestorly Auth Token
+ @param member Member you want to update
  
 
  return type: SWGMemberresponse*
  */
 -(NSNumber*) findMemberByID_1WithCompletionBlock :(NSString*) _id 
      vestorly-auth:(NSString*) vestorly-auth 
+     member:(SWGMember*) member 
     
     completionHandler: (void (^)(SWGMemberresponse* output, NSError* error))completionBlock;
     

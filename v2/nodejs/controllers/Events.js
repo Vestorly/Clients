@@ -22,10 +22,10 @@ module.exports.findEvents = function findEvents (req, res, next) {
 
 module.exports.createEvent = function createEvent (req, res, next) {
   var vestorly-auth = req.swagger.params['vestorly-auth'].value;
-  var Event = req.swagger.params['Event'].value;
+  var event = req.swagger.params['event'].value;
   
 
-  var result = Events.createEvent(vestorly-auth, Event);
+  var result = Events.createEvent(vestorly-auth, event);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

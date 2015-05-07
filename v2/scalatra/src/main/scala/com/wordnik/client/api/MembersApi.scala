@@ -203,6 +203,13 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         
+        ,
+        
+        
+        
+        bodyParam[Member]("member").description("")
+        
+        
         
         )
   )
@@ -242,6 +249,22 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
     
     
     println("vestorly-auth: " + vestorly-auth)
+  
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+      val member = parsedBody.extract[Member]
+    
+    
+    println("member: " + member)
   
   }
 

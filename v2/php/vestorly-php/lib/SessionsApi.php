@@ -98,7 +98,7 @@ class SessionsApi {
    *
    * @param string $vestorly_auth Authenication token (required)
    * @param string $id ID of pet to session (required)
-   * @return Session
+   * @return SessionLogoutResponse
    */
    public function logout($vestorly_auth, $id) {
 
@@ -150,7 +150,7 @@ class SessionsApi {
       }
 
   		$responseObject = $this->apiClient->deserialize($response,
-  		                                                'Session');
+  		                                                'SessionLogoutResponse');
   		return $responseObject;
   }
   

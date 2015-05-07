@@ -1,6 +1,6 @@
 package com.wordnik.client.api
 
-import com.wordnik.client.model.MemberEventModel
+import com.wordnik.client.model.MemberEvents
 
 import java.io.File
 
@@ -28,7 +28,7 @@ class MembereventsApi (implicit val swagger: Swagger) extends ScalatraServlet
   }
   
 
-  val findMemberEventsOperation = (apiOperation[MemberEventModel]("findMemberEvents")
+  val findMemberEventsOperation = (apiOperation[MemberEvents]("findMemberEvents")
       summary ""
       parameters(
         queryParam[String]("vestorly-auth").description("")

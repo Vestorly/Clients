@@ -2,7 +2,7 @@
 #import "SWGFile.h"
 #import "SWGQueryParamCollection.h"
 #import "SWGApiClient.h"
-#import "SWGMemberEventModel.h"
+#import "SWGMemberEvents.h"
 
 
 
@@ -53,7 +53,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
 -(NSNumber*) findMemberEventsWithCompletionBlock: (NSString*) vestorly-auth
         
-        completionHandler: (void (^)(SWGMemberEventModel* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGMemberEvents* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/member_events", basePath];
@@ -116,9 +116,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGMemberEventModel* result = nil;
+                SWGMemberEvents* result = nil;
                 if (data) {
-                    result = [[SWGMemberEventModel  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGMemberEvents  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 

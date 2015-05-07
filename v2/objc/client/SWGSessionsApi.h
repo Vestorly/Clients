@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGSession.h"
+#import "SWGSessionLogoutResponse.h"
 #import "SWGObject.h"
 
 
@@ -37,12 +38,12 @@
  @param _id ID of pet to session
  
 
- return type: SWGSession*
+ return type: SWGSessionLogoutResponse*
  */
 -(NSNumber*) logoutWithCompletionBlock :(NSString*) vestorly-auth 
      _id:(NSString*) _id 
     
-    completionHandler: (void (^)(SWGSession* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGSessionLogoutResponse* output, NSError* error))completionBlock;
     
 
 

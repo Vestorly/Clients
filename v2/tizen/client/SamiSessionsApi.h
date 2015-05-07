@@ -7,6 +7,7 @@
 
 using Tizen::Base::String;
 #include "SamiSession.h"
+#include "SamiSessionLogoutResponse.h"
 
 using namespace Tizen::Net::Http;
 
@@ -21,8 +22,8 @@ public:
   SamiSession* 
   loginWithCompletion(String* username, String* password, void (* handler)(SamiSession*, SamiError*));
   
-  SamiSession* 
-  logoutWithCompletion(String* vestorly-auth, String* _id, void (* handler)(SamiSession*, SamiError*));
+  SamiSessionLogoutResponse* 
+  logoutWithCompletion(String* vestorly-auth, String* _id, void (* handler)(SamiSessionLogoutResponse*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

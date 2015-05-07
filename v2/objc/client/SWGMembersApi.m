@@ -318,6 +318,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
 -(NSNumber*) findMemberByID_1WithCompletionBlock: (NSString*) _id
          vestorly-auth: (NSString*) vestorly-auth
+         member: (SWGMember*) member
         
         completionHandler: (void (^)(SWGMemberresponse* output, NSError* error))completionBlock
          {
@@ -348,10 +349,33 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
     id bodyDictionary = nil;
     
-    
+    id __body = member;
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
-
+    if(__body != nil && [__body isKindOfClass:[NSArray class]]){
+        NSMutableArray * objs = [[NSMutableArray alloc] init];
+        for (id dict in (NSArray*)__body) {
+            if([dict respondsToSelector:@selector(toDictionary)]) {
+                [objs addObject:[(SWGObject*)dict toDictionary]];
+            }
+            else{
+                [objs addObject:dict];
+            }
+        }
+        bodyDictionary = objs;
+    }
+    else if([__body respondsToSelector:@selector(toDictionary)]) {
+        bodyDictionary = [(SWGObject*)__body toDictionary];
+    }
+    else if([__body isKindOfClass:[NSString class]]) {
+        // convert it to a dictionary
+        NSError * error;
+        NSString * str = (NSString*)__body;
+        NSDictionary *JSON =
+            [NSJSONSerialization JSONObjectWithData: [str dataUsingEncoding: NSUTF8StringEncoding]
+                                            options: NSJSONReadingMutableContainers
+                                              error: &error];
+        bodyDictionary = JSON;
+    }
     
     
 

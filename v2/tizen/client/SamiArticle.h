@@ -17,7 +17,9 @@
 using namespace Tizen::Web::Json;
 
 
+using Tizen::Base::Integer;
 using Tizen::Base::String;
+using Tizen::Base::Boolean;
 
 
 namespace Swagger {
@@ -50,29 +52,50 @@ public:
     String* getPTitle();
     void setPTitle(String* pTitle);
     
-    String* getPOpenCalaisTopics();
-    void setPOpenCalaisTopics(String* pOpen_calais_topics);
+    String* getPBody();
+    void setPBody(String* pBody);
     
-    String* getPOpenCalaisKeywords();
-    void setPOpenCalaisKeywords(String* pOpen_calais_keywords);
+    Boolean* getPIsResponsive();
+    void setPIsResponsive(Boolean* pIs_responsive);
     
-    String* getPVestorlyTopics();
-    void setPVestorlyTopics(String* pVestorly_topics);
+    Boolean* getPIsProxyNeeded();
+    void setPIsProxyNeeded(Boolean* pIs_proxy_needed);
     
-    String* getPCategories();
-    void setPCategories(String* pCategories);
+    Boolean* getPIsMobileProxyNeeded();
+    void setPIsMobileProxyNeeded(Boolean* pIs_mobile_proxy_needed);
+    
+    Boolean* getPNeedsSanitize();
+    void setPNeedsSanitize(Boolean* pNeeds_sanitize);
+    
+    String* getPProxyUrl();
+    void setPProxyUrl(String* pProxy_url);
+    
+    String* getPTopic();
+    void setPTopic(String* pTopic);
+    
+    String* getPSuitabilityScore();
+    void setPSuitabilityScore(String* pSuitability_score);
     
     String* getPSummary();
     void setPSummary(String* pSummary);
     
-    String* getPUnparsedHtml();
-    void setPUnparsedHtml(String* pUnparsed_html);
+    String* getPImagePath();
+    void setPImagePath(String* pImage_path);
+    
+    String* getPImageUrl();
+    void setPImageUrl(String* pImage_url);
+    
+    Integer* getPImageHeight();
+    void setPImageHeight(Integer* pImage_height);
+    
+    Integer* getPImageWidth();
+    void setPImageWidth(Integer* pImage_width);
     
     String* getPLogoUrl();
     void setPLogoUrl(String* pLogo_url);
     
-    String* getPImageUrl();
-    void setPImageUrl(String* pImage_url);
+    String* getPSquareLogoUrl();
+    void setPSquareLogoUrl(String* pSquare_logo_url);
     
     String* getPUrl();
     void setPUrl(String* pUrl);
@@ -80,25 +103,36 @@ public:
     String* getPExternalUrl();
     void setPExternalUrl(String* pExternal_url);
     
-    String* getPTags();
-    void setPTags(String* pTags);
+    String* getPExternalUrlSource();
+    void setPExternalUrlSource(String* pExternal_url_source);
+    
+    String* getPExternalUrlType();
+    void setPExternalUrlType(String* pExternal_url_type);
     
 
 private:
     String* p_id;
     String* pCreated_at;
     String* pTitle;
-    String* pOpen_calais_topics;
-    String* pOpen_calais_keywords;
-    String* pVestorly_topics;
-    String* pCategories;
+    String* pBody;
+    Boolean* pIs_responsive;
+    Boolean* pIs_proxy_needed;
+    Boolean* pIs_mobile_proxy_needed;
+    Boolean* pNeeds_sanitize;
+    String* pProxy_url;
+    String* pTopic;
+    String* pSuitability_score;
     String* pSummary;
-    String* pUnparsed_html;
-    String* pLogo_url;
+    String* pImage_path;
     String* pImage_url;
+    Integer* pImage_height;
+    Integer* pImage_width;
+    String* pLogo_url;
+    String* pSquare_logo_url;
     String* pUrl;
     String* pExternal_url;
-    String* pTags;
+    String* pExternal_url_source;
+    String* pExternal_url_type;
     
 };
 

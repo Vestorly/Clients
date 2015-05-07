@@ -3,6 +3,7 @@
 #import "SWGQueryParamCollection.h"
 #import "SWGApiClient.h"
 #import "SWGSession.h"
+#import "SWGSessionLogoutResponse.h"
 
 
 
@@ -138,7 +139,7 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 -(NSNumber*) logoutWithCompletionBlock: (NSString*) vestorly-auth
          _id: (NSString*) _id
         
-        completionHandler: (void (^)(SWGSession* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGSessionLogoutResponse* output, NSError* error))completionBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/sessions/{id}", basePath];
@@ -202,9 +203,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGSession* result = nil;
+                SWGSessionLogoutResponse* result = nil;
                 if (data) {
-                    result = [[SWGSession  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGSessionLogoutResponse  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 

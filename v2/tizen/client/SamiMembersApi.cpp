@@ -260,7 +260,7 @@ findMemberByID_1Processor(HttpResponse* pHttpResponse, void (* handler)(void*, S
 }
 
 SamiMemberresponse* 
-SamiMembersApi::findMemberByID_1WithCompletion(String* _id, String* vestorly-auth, void (* success)(SamiMemberresponse*, SamiError*)) {
+SamiMembersApi::findMemberByID_1WithCompletion(String* _id, String* vestorly-auth, SamiMember* member, void (* success)(SamiMemberresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findMemberByID_1Processor, (void(*)(void*, SamiError*))success);
@@ -279,6 +279,14 @@ SamiMembersApi::findMemberByID_1WithCompletion(String* _id, String* vestorly-aut
 
   String* mBody = null;
 
+  
+  
+  
+  if(member != null) {
+    mBody = new String(member->asJson());
+    headerParams->Add(new String("Content-Type"), new String("application/json"));
+  }
+  
   
 
   String url(L"/members/{id}");

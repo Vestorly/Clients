@@ -1,6 +1,7 @@
 package com.wordnik.client.api
 
 import com.wordnik.client.model.Session
+import com.wordnik.client.model.SessionLogoutResponse
 
 import java.io.File
 
@@ -90,7 +91,7 @@ class SessionsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   
 
-  val logoutOperation = (apiOperation[Session]("logout")
+  val logoutOperation = (apiOperation[SessionLogoutResponse]("logout")
       summary ""
       parameters(
         queryParam[String]("vestorly-auth").description("")
