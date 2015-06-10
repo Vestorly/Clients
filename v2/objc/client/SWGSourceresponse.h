@@ -9,6 +9,6 @@
 @interface SWGSourceresponse : SWGObject
 
 
-@property(nonatomic) SWGSource<Optional, SWGSource>* source;
+@property(nonatomic) SWGSource* source;
 
 @end

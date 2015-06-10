@@ -9,6 +9,6 @@
 @interface SWGArticles : SWGObject
 
 
-@property(nonatomic) NSArray<Optional, SWGArticle>* articles;
+@property(nonatomic) NSArray<SWGArticle>* articles;
 
 @end

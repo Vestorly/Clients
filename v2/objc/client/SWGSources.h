@@ -9,6 +9,6 @@
 @interface SWGSources : SWGObject
 
 
-@property(nonatomic) NSArray<Optional, SWGSource>* sources;
+@property(nonatomic) NSArray<SWGSource>* sources;
 
 @end

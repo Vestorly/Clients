@@ -2,25 +2,31 @@ package io.swagger.client.model;
 
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class MemberReport  {
   
+  @SerializedName("day")
   private Integer day = null;
+  @SerializedName("event_count")
   private Integer eventCount = null;
+  @SerializedName("originator_group_id")
   private String originatorGroupId = null;
+  @SerializedName("parent_originator_id")
   private String parentOriginatorId = null;
+  @SerializedName("source")
   private String source = null;
+  @SerializedName("type")
   private String type = null;
+  @SerializedName("year")
   private Integer year = null;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("day")
   public Integer getDay() {
     return day;
   }
@@ -32,7 +38,6 @@ public class MemberReport  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("event_count")
   public Integer getEventCount() {
     return eventCount;
   }
@@ -44,7 +49,6 @@ public class MemberReport  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("originator_group_id")
   public String getOriginatorGroupId() {
     return originatorGroupId;
   }
@@ -56,7 +60,6 @@ public class MemberReport  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("parent_originator_id")
   public String getParentOriginatorId() {
     return parentOriginatorId;
   }
@@ -68,7 +71,6 @@ public class MemberReport  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("source")
   public String getSource() {
     return source;
   }
@@ -80,7 +82,6 @@ public class MemberReport  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("type")
   public String getType() {
     return type;
   }
@@ -92,7 +93,6 @@ public class MemberReport  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("year")
   public Integer getYear() {
     return year;
   }

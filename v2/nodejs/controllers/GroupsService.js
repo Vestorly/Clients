@@ -1,20 +1,20 @@
 'use strict';
 
-exports.findGroups = function(vestorly-auth) {
+exports.findGroups = function(vestorlyAuth) {
 
   var examples = {};
   
   examples['application/json'] = {
   "groups" : [ {
+    "new_weekly_mailer_content" : "aeiou",
     "newsletter_subject" : "aeiou",
-    "autopublish" : true,
-    "name" : "aeiou",
-    "is_hidden" : true,
     "number_articles_per_group" : 123,
-    "_id" : "aeiou",
+    "autopublish" : true,
     "number_articles_per_newsletter" : 123,
-    "is_default" : true,
-    "new_weekly_mailer_content" : "aeiou"
+    "_id" : "aeiou",
+    "is_hidden" : true,
+    "name" : "aeiou",
+    "is_default" : true
   } ]
 };
   
@@ -24,20 +24,22 @@ exports.findGroups = function(vestorly-auth) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.findGroupByID = function(vestorly-auth, id) {
+exports.createGroup = function(vestorlyAuth, group) {
 
   var examples = {};
   
   examples['application/json'] = {
-  "newsletter_subject" : "aeiou",
-  "autopublish" : true,
-  "name" : "aeiou",
-  "is_hidden" : true,
-  "number_articles_per_group" : 123,
-  "_id" : "aeiou",
-  "number_articles_per_newsletter" : 123,
-  "is_default" : true,
-  "new_weekly_mailer_content" : "aeiou"
+  "group" : {
+    "new_weekly_mailer_content" : "aeiou",
+    "newsletter_subject" : "aeiou",
+    "number_articles_per_group" : 123,
+    "autopublish" : true,
+    "number_articles_per_newsletter" : 123,
+    "_id" : "aeiou",
+    "is_hidden" : true,
+    "name" : "aeiou",
+    "is_default" : true
+  }
 };
   
 
@@ -46,20 +48,22 @@ exports.findGroupByID = function(vestorly-auth, id) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.addGroup = function(vestorly-auth, id, group) {
+exports.findGroupByID = function(vestorlyAuth, id) {
 
   var examples = {};
   
   examples['application/json'] = {
-  "newsletter_subject" : "aeiou",
-  "autopublish" : true,
-  "name" : "aeiou",
-  "is_hidden" : true,
-  "number_articles_per_group" : 123,
-  "_id" : "aeiou",
-  "number_articles_per_newsletter" : 123,
-  "is_default" : true,
-  "new_weekly_mailer_content" : "aeiou"
+  "group" : {
+    "new_weekly_mailer_content" : "aeiou",
+    "newsletter_subject" : "aeiou",
+    "number_articles_per_group" : 123,
+    "autopublish" : true,
+    "number_articles_per_newsletter" : 123,
+    "_id" : "aeiou",
+    "is_hidden" : true,
+    "name" : "aeiou",
+    "is_default" : true
+  }
 };
   
 
@@ -68,20 +72,22 @@ exports.addGroup = function(vestorly-auth, id, group) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.addGroup_1 = function(group) {
+exports.updateGroupById = function(vestorlyAuth, id, group) {
 
   var examples = {};
   
   examples['application/json'] = {
-  "newsletter_subject" : "aeiou",
-  "autopublish" : true,
-  "name" : "aeiou",
-  "is_hidden" : true,
-  "number_articles_per_group" : 123,
-  "_id" : "aeiou",
-  "number_articles_per_newsletter" : 123,
-  "is_default" : true,
-  "new_weekly_mailer_content" : "aeiou"
+  "group" : {
+    "new_weekly_mailer_content" : "aeiou",
+    "newsletter_subject" : "aeiou",
+    "number_articles_per_group" : 123,
+    "autopublish" : true,
+    "number_articles_per_newsletter" : 123,
+    "_id" : "aeiou",
+    "is_hidden" : true,
+    "name" : "aeiou",
+    "is_default" : true
+  }
 };
   
 
@@ -90,20 +96,22 @@ exports.addGroup_1 = function(group) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.deleteGroup = function(group) {
+exports.deleteGroup = function(vestorlyAuth, id) {
 
   var examples = {};
   
   examples['application/json'] = {
-  "newsletter_subject" : "aeiou",
-  "autopublish" : true,
-  "name" : "aeiou",
-  "is_hidden" : true,
-  "number_articles_per_group" : 123,
-  "_id" : "aeiou",
-  "number_articles_per_newsletter" : 123,
-  "is_default" : true,
-  "new_weekly_mailer_content" : "aeiou"
+  "group" : {
+    "new_weekly_mailer_content" : "aeiou",
+    "newsletter_subject" : "aeiou",
+    "number_articles_per_group" : 123,
+    "autopublish" : true,
+    "number_articles_per_newsletter" : 123,
+    "_id" : "aeiou",
+    "is_hidden" : true,
+    "name" : "aeiou",
+    "is_default" : true
+  }
 };
   
 

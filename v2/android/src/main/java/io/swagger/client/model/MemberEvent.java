@@ -2,38 +2,57 @@ package io.swagger.client.model;
 
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class MemberEvent  {
   
+  @SerializedName("_id")
   private String id = null;
+  @SerializedName("created_at")
   private String createdAt = null;
+  @SerializedName("type")
   private String type = null;
+  @SerializedName("source")
   private String source = null;
+  @SerializedName("referer")
   private String referer = null;
+  @SerializedName("original_url")
   private String originalUrl = null;
+  @SerializedName("originator_email")
   private String originatorEmail = null;
+  @SerializedName("originator_name")
   private String originatorName = null;
+  @SerializedName("parent_originator_id")
   private String parentOriginatorId = null;
+  @SerializedName("parent_event_id")
   private String parentEventId = null;
+  @SerializedName("originator_type")
   private String originatorType = null;
+  @SerializedName("originator_group_id")
   private String originatorGroupId = null;
+  @SerializedName("event_type")
   private String eventType = null;
+  @SerializedName("event_source")
   private String eventSource = null;
+  @SerializedName("content_url")
   private String contentUrl = null;
+  @SerializedName("event_date")
   private String eventDate = null;
+  @SerializedName("username")
   private String username = null;
+  @SerializedName("member_id")
   private String memberId = null;
+  @SerializedName("originator_id")
   private String originatorId = null;
+  @SerializedName("subject_id")
   private String subjectId = null;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("_id")
   public String getId() {
     return id;
   }
@@ -45,7 +64,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("created_at")
   public String getCreatedAt() {
     return createdAt;
   }
@@ -57,7 +75,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("type")
   public String getType() {
     return type;
   }
@@ -69,7 +86,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("source")
   public String getSource() {
     return source;
   }
@@ -81,7 +97,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("referer")
   public String getReferer() {
     return referer;
   }
@@ -93,7 +108,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("original_url")
   public String getOriginalUrl() {
     return originalUrl;
   }
@@ -105,7 +119,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("originator_email")
   public String getOriginatorEmail() {
     return originatorEmail;
   }
@@ -117,7 +130,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("originator_name")
   public String getOriginatorName() {
     return originatorName;
   }
@@ -129,7 +141,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("parent_originator_id")
   public String getParentOriginatorId() {
     return parentOriginatorId;
   }
@@ -141,7 +152,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("parent_event_id")
   public String getParentEventId() {
     return parentEventId;
   }
@@ -153,7 +163,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("originator_type")
   public String getOriginatorType() {
     return originatorType;
   }
@@ -165,7 +174,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("originator_group_id")
   public String getOriginatorGroupId() {
     return originatorGroupId;
   }
@@ -177,7 +185,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("event_type")
   public String getEventType() {
     return eventType;
   }
@@ -189,7 +196,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("event_source")
   public String getEventSource() {
     return eventSource;
   }
@@ -201,7 +207,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("content_url")
   public String getContentUrl() {
     return contentUrl;
   }
@@ -213,7 +218,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("event_date")
   public String getEventDate() {
     return eventDate;
   }
@@ -225,7 +229,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("username")
   public String getUsername() {
     return username;
   }
@@ -237,7 +240,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("member_id")
   public String getMemberId() {
     return memberId;
   }
@@ -249,7 +251,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("originator_id")
   public String getOriginatorId() {
     return originatorId;
   }
@@ -261,7 +262,6 @@ public class MemberEvent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("subject_id")
   public String getSubjectId() {
     return subjectId;
   }

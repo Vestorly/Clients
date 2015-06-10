@@ -2,7 +2,6 @@
   <head>
     <meta charset="utf-8" />
     <title>API Reference</title>
-    <link rel="stylesheet" type="text/css" href="site.css" media="screen" />
   </head>
   <body>
   <h1>Vestorly API</h1>
@@ -19,244 +18,92 @@
   
   
   <div class="method">
-    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /newsletter_settings</code></pre></div>
-    <div class="method-summary"><span class="nickname">findNewsletterSettings</span> </div>
-    <div class="method-notes">Returns all newsletter settings</div>
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /advisors/{id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Advisors</span></div>
+    <div class="method-summary"><span class="nickname">findAdvisorByID</span> </div>
+    <div class="method-notes">Returns a single advisor given their ID</div>
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
+      <div class="param">vestorlyAuth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Newslettersettings</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "newletter_settings" : [ {\n    "footer_image_url" : "aeiou",\n    "email_day_of_week" : 123,\n    "body_html" : "aeiou",\n    "linkedin_active_wall" : "aeiou",\n    "linkedin_status" : "aeiou",\n    "newsletter_ids" : [ "aeiou" ],\n    "montage_twitter_image_url" : "aeiou",\n    "subject" : "aeiou",\n    "linkedin_day_of_week" : 123,\n    "twitter_day_of_week" : 123,\n    "newsletter_type" : "aeiou",\n    "twitter_status" : "aeiou",\n    "facebook_active_wall" : "aeiou",\n    "banner_color" : "aeiou",\n    "intro_text" : "aeiou",\n    "social_subtitle" : "aeiou",\n    "social_title" : "aeiou",\n    "montage_facebook_image_url" : "aeiou",\n    "montage_title" : "aeiou",\n    "linkedin_hour" : 123,\n    "social_posting_text" : "aeiou",\n    "social_description" : "aeiou",\n    "facebook_hour" : 123,\n    "email_accent_color" : "aeiou",\n    "title_color" : "aeiou",\n    "facebook_status" : "aeiou",\n    "salutation_text" : "aeiou",\n    "montage_enabled" : true,\n    "primary_email_font" : "aeiou",\n    "email_status" : "aeiou",\n    "montage_linkedin_image_url" : "aeiou",\n    "twitter_hour" : 123,\n    "header_background_color" : "aeiou",\n    "email_hour" : 123,\n    "facebook_day_of_week" : 123,\n    "group_id" : "aeiou",\n    "render_version" : "aeiou",\n    "footer_email_font" : "aeiou",\n    "footer_html" : "aeiou",\n    "_id" : "aeiou",\n    "header_image_url" : "aeiou"\n  } ]\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /newsletter_settings/{id}</code></pre></div>
-    <div class="method-summary"><span class="nickname">findNewsletterSettingsByID</span> </div>
-    <div class="method-notes">Returns a single newsletter settings if the user has access</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
       <div class="param">id (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of newsletter settings to fetch </div>
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Advisor Id to fetch </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">Newslettersettingresponse</a></div>
+    <div class="return-type"><a href="#">Advisor</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "newsletter_setting" : {\n    "footer_image_url" : "aeiou",\n    "email_day_of_week" : 123,\n    "body_html" : "aeiou",\n    "linkedin_active_wall" : "aeiou",\n    "linkedin_status" : "aeiou",\n    "newsletter_ids" : [ "aeiou" ],\n    "montage_twitter_image_url" : "aeiou",\n    "subject" : "aeiou",\n    "linkedin_day_of_week" : 123,\n    "twitter_day_of_week" : 123,\n    "newsletter_type" : "aeiou",\n    "twitter_status" : "aeiou",\n    "facebook_active_wall" : "aeiou",\n    "banner_color" : "aeiou",\n    "intro_text" : "aeiou",\n    "social_subtitle" : "aeiou",\n    "social_title" : "aeiou",\n    "montage_facebook_image_url" : "aeiou",\n    "montage_title" : "aeiou",\n    "linkedin_hour" : 123,\n    "social_posting_text" : "aeiou",\n    "social_description" : "aeiou",\n    "facebook_hour" : 123,\n    "email_accent_color" : "aeiou",\n    "title_color" : "aeiou",\n    "facebook_status" : "aeiou",\n    "salutation_text" : "aeiou",\n    "montage_enabled" : true,\n    "primary_email_font" : "aeiou",\n    "email_status" : "aeiou",\n    "montage_linkedin_image_url" : "aeiou",\n    "twitter_hour" : 123,\n    "header_background_color" : "aeiou",\n    "email_hour" : 123,\n    "facebook_day_of_week" : 123,\n    "group_id" : "aeiou",\n    "render_version" : "aeiou",\n    "footer_email_font" : "aeiou",\n    "footer_html" : "aeiou",\n    "_id" : "aeiou",\n    "header_image_url" : "aeiou"\n  }\n}</code></pre>
+    <pre class="example"><code>{
+  &quot;other_services_types&quot; : &quot;aeiou&quot;,
+  &quot;referral_reminder&quot; : &quot;aeiou&quot;,
+  &quot;tag&quot; : &quot;aeiou&quot;,
+  &quot;dashboard_url&quot; : &quot;aeiou&quot;,
+  &quot;state&quot; : &quot;aeiou&quot;,
+  &quot;performance_audited&quot; : &quot;aeiou&quot;,
+  &quot;about&quot; : &quot;aeiou&quot;,
+  &quot;twitter_handle&quot; : &quot;aeiou&quot;,
+  &quot;advisor_employees&quot; : &quot;aeiou&quot;,
+  &quot;compliance_bcc_email_address&quot; : &quot;aeiou&quot;,
+  &quot;linkedin_blast&quot; : &quot;aeiou&quot;,
+  &quot;email_report_blast&quot; : &quot;aeiou&quot;,
+  &quot;city&quot; : &quot;aeiou&quot;,
+  &quot;id&quot; : &quot;aeiou&quot;,
+  &quot;first_name&quot; : &quot;aeiou&quot;,
+  &quot;adv_brochure&quot; : &quot;aeiou&quot;,
+  &quot;external_options&quot; : &quot;aeiou&quot;,
+  &quot;name&quot; : &quot;aeiou&quot;,
+  &quot;weekly_email_blast&quot; : &quot;aeiou&quot;,
+  &quot;account_type&quot; : &quot;aeiou&quot;,
+  &quot;consultation_reminder&quot; : &quot;aeiou&quot;,
+  &quot;zip&quot; : &quot;aeiou&quot;,
+  &quot;logo&quot; : &quot;aeiou&quot;,
+  &quot;profile_picture&quot; : &quot;aeiou&quot;,
+  &quot;website&quot; : &quot;aeiou&quot;,
+  &quot;linkedin&quot; : &quot;aeiou&quot;,
+  &quot;plan&quot; : &quot;aeiou&quot;,
+  &quot;twitter_blast&quot; : &quot;aeiou&quot;,
+  &quot;address&quot; : &quot;aeiou&quot;,
+  &quot;api_key&quot; : &quot;aeiou&quot;,
+  &quot;facebook_blast&quot; : &quot;aeiou&quot;,
+  &quot;company&quot; : &quot;aeiou&quot;,
+  &quot;last_name&quot; : &quot;aeiou&quot;,
+  &quot;disclosure&quot; : &quot;aeiou&quot;,
+  &quot;other_compensation&quot; : &quot;aeiou&quot;,
+  &quot;email_blast&quot; : &quot;aeiou&quot;,
+  &quot;reg_number&quot; : &quot;aeiou&quot;
+}</code></pre>
     
   </div> <!-- method -->
   <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /newsletter_settings/{id}</code></pre></div>
-    <div class="method-summary"><span class="nickname">updateNewsletterSettingsByID</span> </div>
-    <div class="method-notes">Update a single newsletter setting by ID</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of newsletter settings to update </div>
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">newsletter_setting (required)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; newsletter settings </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Newslettersettingresponse</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "newsletter_setting" : {\n    "footer_image_url" : "aeiou",\n    "email_day_of_week" : 123,\n    "body_html" : "aeiou",\n    "linkedin_active_wall" : "aeiou",\n    "linkedin_status" : "aeiou",\n    "newsletter_ids" : [ "aeiou" ],\n    "montage_twitter_image_url" : "aeiou",\n    "subject" : "aeiou",\n    "linkedin_day_of_week" : 123,\n    "twitter_day_of_week" : 123,\n    "newsletter_type" : "aeiou",\n    "twitter_status" : "aeiou",\n    "facebook_active_wall" : "aeiou",\n    "banner_color" : "aeiou",\n    "intro_text" : "aeiou",\n    "social_subtitle" : "aeiou",\n    "social_title" : "aeiou",\n    "montage_facebook_image_url" : "aeiou",\n    "montage_title" : "aeiou",\n    "linkedin_hour" : 123,\n    "social_posting_text" : "aeiou",\n    "social_description" : "aeiou",\n    "facebook_hour" : 123,\n    "email_accent_color" : "aeiou",\n    "title_color" : "aeiou",\n    "facebook_status" : "aeiou",\n    "salutation_text" : "aeiou",\n    "montage_enabled" : true,\n    "primary_email_font" : "aeiou",\n    "email_status" : "aeiou",\n    "montage_linkedin_image_url" : "aeiou",\n    "twitter_hour" : 123,\n    "header_background_color" : "aeiou",\n    "email_hour" : 123,\n    "facebook_day_of_week" : 123,\n    "group_id" : "aeiou",\n    "render_version" : "aeiou",\n    "footer_email_font" : "aeiou",\n    "footer_html" : "aeiou",\n    "_id" : "aeiou",\n    "header_image_url" : "aeiou"\n  }\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  
-  
-  <div class="method">
-    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /events</code></pre></div>
-    <div class="method-summary"><span class="nickname">findEvents</span> </div>
-    <div class="method-notes">Returns all events</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Events</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "events" : [ {\n    "subject_id" : "aeiou",\n    "referer" : "aeiou",\n    "event_content" : {\n      "content_type" : "aeiou",\n      "updated_at" : "aeiou",\n      "content_id" : "aeiou",\n      "content_field" : "aeiou",\n      "created_at" : "aeiou",\n      "_id" : "aeiou",\n      "slug" : "aeiou"\n    },\n    "original_url" : "aeiou",\n    "originator_id" : "aeiou",\n    "parent_event_id" : "aeiou",\n    "created_at" : "aeiou",\n    "originator_email" : "aeiou",\n    "_id" : "aeiou",\n    "type" : "aeiou",\n    "advisor_id" : "aeiou",\n    "subject_email" : "aeiou"\n  } ]\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: /events</code></pre></div>
-    <div class="method-summary"><span class="nickname">createEvent</span> </div>
-    <div class="method-notes">Creates a new event in the system</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">event (required)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Event </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Eventresponse</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "event" : {\n    "subject_id" : "aeiou",\n    "referer" : "aeiou",\n    "event_content" : {\n      "content_type" : "aeiou",\n      "updated_at" : "aeiou",\n      "content_id" : "aeiou",\n      "content_field" : "aeiou",\n      "created_at" : "aeiou",\n      "_id" : "aeiou",\n      "slug" : "aeiou"\n    },\n    "original_url" : "aeiou",\n    "originator_id" : "aeiou",\n    "parent_event_id" : "aeiou",\n    "created_at" : "aeiou",\n    "originator_email" : "aeiou",\n    "_id" : "aeiou",\n    "type" : "aeiou",\n    "advisor_id" : "aeiou",\n    "subject_email" : "aeiou"\n  }\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /events/{id}</code></pre></div>
-    <div class="method-summary"><span class="nickname">findEventByID</span> </div>
-    <div class="method-notes">Returns a single event if the user has access</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of event to fetch </div>
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Eventresponse</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "event" : {\n    "subject_id" : "aeiou",\n    "referer" : "aeiou",\n    "event_content" : {\n      "content_type" : "aeiou",\n      "updated_at" : "aeiou",\n      "content_id" : "aeiou",\n      "content_field" : "aeiou",\n      "created_at" : "aeiou",\n      "_id" : "aeiou",\n      "slug" : "aeiou"\n    },\n    "original_url" : "aeiou",\n    "originator_id" : "aeiou",\n    "parent_event_id" : "aeiou",\n    "created_at" : "aeiou",\n    "originator_email" : "aeiou",\n    "_id" : "aeiou",\n    "type" : "aeiou",\n    "advisor_id" : "aeiou",\n    "subject_email" : "aeiou"\n  }\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /events/{id}</code></pre></div>
-    <div class="method-summary"><span class="nickname">updateEventByID</span> </div>
-    <div class="method-notes">Updates a single event by mongo id</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of event to update </div>
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">event (required)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; The event object to be created </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Eventresponse</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "event" : {\n    "subject_id" : "aeiou",\n    "referer" : "aeiou",\n    "event_content" : {\n      "content_type" : "aeiou",\n      "updated_at" : "aeiou",\n      "content_id" : "aeiou",\n      "content_field" : "aeiou",\n      "created_at" : "aeiou",\n      "_id" : "aeiou",\n      "slug" : "aeiou"\n    },\n    "original_url" : "aeiou",\n    "originator_id" : "aeiou",\n    "parent_event_id" : "aeiou",\n    "created_at" : "aeiou",\n    "originator_email" : "aeiou",\n    "_id" : "aeiou",\n    "type" : "aeiou",\n    "advisor_id" : "aeiou",\n    "subject_email" : "aeiou"\n  }\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  
-  
-  <div class="method">
-    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /member_reports</code></pre></div>
-    <div class="method-summary"><span class="nickname">findMemberReports</span> </div>
-    <div class="method-notes">Returns all member reports</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">MemberReports</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "member_reports" : [ {\n    "year" : 123,\n    "event_count" : 123,\n    "originator_group_id" : "aeiou",\n    "source" : "aeiou",\n    "type" : "aeiou",\n    "day" : 123,\n    "parent_originator_id" : "aeiou"\n  } ]\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  
   
   <div class="method">
     <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /articles</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Articles</span></div>
     <div class="method-summary"><span class="nickname">findArticles</span> </div>
     <div class="method-notes">Returns all articles</div>
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
+      <div class="param">vestorlyAuth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">limit (optional)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Limit on the number of articles to return </div>
-      <div class="param">text_query (optional)</div>
+      <div class="param">textQuery (optional)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Search query parameter </div>
-      <div class="param">sort_direction (optional)</div>
+      <div class="param">sortDirection (optional)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Direction of sort (used with sort_by parameter) </div>
-      <div class="param">sort_by (optional)</div>
+      <div class="param">sortBy (optional)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Field on model to sort by </div>
       
@@ -268,19 +115,45 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "articles" : [ {\n    "summary" : "aeiou",\n    "square_logo_url" : "aeiou",\n    "suitability_score" : "aeiou",\n    "is_responsive" : true,\n    "logo_url" : "aeiou",\n    "image_url" : "aeiou",\n    "needs_sanitize" : true,\n    "created_at" : "aeiou",\n    "is_mobile_proxy_needed" : true,\n    "external_url_type" : "aeiou",\n    "image_width" : 123,\n    "title" : "aeiou",\n    "body" : "aeiou",\n    "url" : "aeiou",\n    "external_url" : "aeiou",\n    "image_height" : 123,\n    "is_proxy_needed" : true,\n    "image_path" : "aeiou",\n    "topic" : "aeiou",\n    "_id" : "aeiou",\n    "proxy_url" : "aeiou",\n    "external_url_source" : "aeiou"\n  } ]\n}</code></pre>
+    <pre class="example"><code>{
+  &quot;articles&quot; : [ {
+    &quot;topic&quot; : &quot;aeiou&quot;,
+    &quot;summary&quot; : &quot;aeiou&quot;,
+    &quot;body&quot; : &quot;aeiou&quot;,
+    &quot;is_responsive&quot; : true,
+    &quot;proxy_url&quot; : &quot;aeiou&quot;,
+    &quot;needs_sanitize&quot; : true,
+    &quot;image_height&quot; : 123,
+    &quot;is_mobile_proxy_needed&quot; : true,
+    &quot;square_logo_url&quot; : &quot;aeiou&quot;,
+    &quot;external_url_type&quot; : &quot;aeiou&quot;,
+    &quot;url&quot; : &quot;aeiou&quot;,
+    &quot;external_url_source&quot; : &quot;aeiou&quot;,
+    &quot;title&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;image_url&quot; : &quot;aeiou&quot;,
+    &quot;is_proxy_needed&quot; : true,
+    &quot;image_width&quot; : 123,
+    &quot;created_at&quot; : &quot;aeiou&quot;,
+    &quot;image_path&quot; : &quot;aeiou&quot;,
+    &quot;external_url&quot; : &quot;aeiou&quot;,
+    &quot;logo_url&quot; : &quot;aeiou&quot;,
+    &quot;suitability_score&quot; : &quot;aeiou&quot;
+  } ]
+}</code></pre>
     
   </div> <!-- method -->
   <hr>
   
   <div class="method">
     <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /articles/{id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Articles</span></div>
     <div class="method-summary"><span class="nickname">findArticleByID</span> </div>
     <div class="method-notes">Returns a single article</div>
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
+      <div class="param">vestorlyAuth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">id (required)</div>
@@ -295,21 +168,176 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "article" : {\n    "summary" : "aeiou",\n    "square_logo_url" : "aeiou",\n    "suitability_score" : "aeiou",\n    "is_responsive" : true,\n    "logo_url" : "aeiou",\n    "image_url" : "aeiou",\n    "needs_sanitize" : true,\n    "created_at" : "aeiou",\n    "is_mobile_proxy_needed" : true,\n    "external_url_type" : "aeiou",\n    "image_width" : 123,\n    "title" : "aeiou",\n    "body" : "aeiou",\n    "url" : "aeiou",\n    "external_url" : "aeiou",\n    "image_height" : 123,\n    "is_proxy_needed" : true,\n    "image_path" : "aeiou",\n    "topic" : "aeiou",\n    "_id" : "aeiou",\n    "proxy_url" : "aeiou",\n    "external_url_source" : "aeiou"\n  }\n}</code></pre>
+    <pre class="example"><code>{
+  &quot;article&quot; : {
+    &quot;topic&quot; : &quot;aeiou&quot;,
+    &quot;summary&quot; : &quot;aeiou&quot;,
+    &quot;body&quot; : &quot;aeiou&quot;,
+    &quot;is_responsive&quot; : true,
+    &quot;proxy_url&quot; : &quot;aeiou&quot;,
+    &quot;needs_sanitize&quot; : true,
+    &quot;image_height&quot; : 123,
+    &quot;is_mobile_proxy_needed&quot; : true,
+    &quot;square_logo_url&quot; : &quot;aeiou&quot;,
+    &quot;external_url_type&quot; : &quot;aeiou&quot;,
+    &quot;url&quot; : &quot;aeiou&quot;,
+    &quot;external_url_source&quot; : &quot;aeiou&quot;,
+    &quot;title&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;image_url&quot; : &quot;aeiou&quot;,
+    &quot;is_proxy_needed&quot; : true,
+    &quot;image_width&quot; : 123,
+    &quot;created_at&quot; : &quot;aeiou&quot;,
+    &quot;image_path&quot; : &quot;aeiou&quot;,
+    &quot;external_url&quot; : &quot;aeiou&quot;,
+    &quot;logo_url&quot; : &quot;aeiou&quot;,
+    &quot;suitability_score&quot; : &quot;aeiou&quot;
+  }
+}</code></pre>
     
   </div> <!-- method -->
   <hr>
   
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /events</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Events</span></div>
+    <div class="method-summary"><span class="nickname">findEvents</span> </div>
+    <div class="method-notes">Returns all events</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorlyAuth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Events</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;events&quot; : [ {
+    &quot;event_content&quot; : {
+      &quot;updated_at&quot; : &quot;aeiou&quot;,
+      &quot;content_id&quot; : &quot;aeiou&quot;,
+      &quot;_id&quot; : &quot;aeiou&quot;,
+      &quot;content_field&quot; : &quot;aeiou&quot;,
+      &quot;created_at&quot; : &quot;aeiou&quot;,
+      &quot;slug&quot; : &quot;aeiou&quot;,
+      &quot;content_type&quot; : &quot;aeiou&quot;
+    },
+    &quot;advisor_id&quot; : &quot;aeiou&quot;,
+    &quot;originator_id&quot; : &quot;aeiou&quot;,
+    &quot;original_url&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;subject_email&quot; : &quot;aeiou&quot;,
+    &quot;subject_id&quot; : &quot;aeiou&quot;,
+    &quot;originator_email&quot; : &quot;aeiou&quot;,
+    &quot;created_at&quot; : &quot;aeiou&quot;,
+    &quot;referer&quot; : &quot;aeiou&quot;,
+    &quot;parent_event_id&quot; : &quot;aeiou&quot;,
+    &quot;type&quot; : &quot;aeiou&quot;
+  } ]
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
   
+  <div class="method">
+    <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: /events</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Events</span></div>
+    <div class="method-summary"><span class="nickname">createEvent</span> </div>
+    <div class="method-notes">Creates a new event in the system</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorlyAuth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">event (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Event </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Eventcreateresponse</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;meta&quot; : {
+    &quot;message&quot; : &quot;aeiou&quot;
+  }
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /events/{id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Events</span></div>
+    <div class="method-summary"><span class="nickname">findEventByID</span> </div>
+    <div class="method-notes">Returns a single event if the user has access</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of event to fetch </div>
+      <div class="param">vestorlyAuth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Eventresponse</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;event&quot; : {
+    &quot;event_content&quot; : {
+      &quot;updated_at&quot; : &quot;aeiou&quot;,
+      &quot;content_id&quot; : &quot;aeiou&quot;,
+      &quot;_id&quot; : &quot;aeiou&quot;,
+      &quot;content_field&quot; : &quot;aeiou&quot;,
+      &quot;created_at&quot; : &quot;aeiou&quot;,
+      &quot;slug&quot; : &quot;aeiou&quot;,
+      &quot;content_type&quot; : &quot;aeiou&quot;
+    },
+    &quot;advisor_id&quot; : &quot;aeiou&quot;,
+    &quot;originator_id&quot; : &quot;aeiou&quot;,
+    &quot;original_url&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;subject_email&quot; : &quot;aeiou&quot;,
+    &quot;subject_id&quot; : &quot;aeiou&quot;,
+    &quot;originator_email&quot; : &quot;aeiou&quot;,
+    &quot;created_at&quot; : &quot;aeiou&quot;,
+    &quot;referer&quot; : &quot;aeiou&quot;,
+    &quot;parent_event_id&quot; : &quot;aeiou&quot;,
+    &quot;type&quot; : &quot;aeiou&quot;
+  }
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
   
   <div class="method">
     <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /groups</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Groups</span></div>
     <div class="method-summary"><span class="nickname">findGroups</span> </div>
     <div class="method-notes">Returns all groups</div>
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
+      <div class="param">vestorlyAuth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       
@@ -321,19 +349,72 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "groups" : [ {\n    "newsletter_subject" : "aeiou",\n    "autopublish" : true,\n    "name" : "aeiou",\n    "is_hidden" : true,\n    "number_articles_per_group" : 123,\n    "_id" : "aeiou",\n    "number_articles_per_newsletter" : 123,\n    "is_default" : true,\n    "new_weekly_mailer_content" : "aeiou"\n  } ]\n}</code></pre>
+    <pre class="example"><code>{
+  &quot;groups&quot; : [ {
+    &quot;new_weekly_mailer_content&quot; : &quot;aeiou&quot;,
+    &quot;newsletter_subject&quot; : &quot;aeiou&quot;,
+    &quot;number_articles_per_group&quot; : 123,
+    &quot;autopublish&quot; : true,
+    &quot;number_articles_per_newsletter&quot; : 123,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;is_hidden&quot; : true,
+    &quot;name&quot; : &quot;aeiou&quot;,
+    &quot;is_default&quot; : true
+  } ]
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: /groups</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Groups</span></div>
+    <div class="method-summary"><span class="nickname">createGroup</span> </div>
+    <div class="method-notes">Creates a new Group</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorlyAuth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">group (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Group to add </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Groupresponse</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;group&quot; : {
+    &quot;new_weekly_mailer_content&quot; : &quot;aeiou&quot;,
+    &quot;newsletter_subject&quot; : &quot;aeiou&quot;,
+    &quot;number_articles_per_group&quot; : 123,
+    &quot;autopublish&quot; : true,
+    &quot;number_articles_per_newsletter&quot; : 123,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;is_hidden&quot; : true,
+    &quot;name&quot; : &quot;aeiou&quot;,
+    &quot;is_default&quot; : true
+  }
+}</code></pre>
     
   </div> <!-- method -->
   <hr>
   
   <div class="method">
     <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /groups/{id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Groups</span></div>
     <div class="method-summary"><span class="nickname">findGroupByID</span> </div>
     <div class="method-notes">Returns a single group if user has access</div>
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
+      <div class="param">vestorlyAuth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">id (required)</div>
@@ -343,24 +424,37 @@
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">Group</a></div>
+    <div class="return-type"><a href="#">Groupresponse</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "newsletter_subject" : "aeiou",\n  "autopublish" : true,\n  "name" : "aeiou",\n  "is_hidden" : true,\n  "number_articles_per_group" : 123,\n  "_id" : "aeiou",\n  "number_articles_per_newsletter" : 123,\n  "is_default" : true,\n  "new_weekly_mailer_content" : "aeiou"\n}</code></pre>
+    <pre class="example"><code>{
+  &quot;group&quot; : {
+    &quot;new_weekly_mailer_content&quot; : &quot;aeiou&quot;,
+    &quot;newsletter_subject&quot; : &quot;aeiou&quot;,
+    &quot;number_articles_per_group&quot; : 123,
+    &quot;autopublish&quot; : true,
+    &quot;number_articles_per_newsletter&quot; : 123,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;is_hidden&quot; : true,
+    &quot;name&quot; : &quot;aeiou&quot;,
+    &quot;is_default&quot; : true
+  }
+}</code></pre>
     
   </div> <!-- method -->
   <hr>
   
   <div class="method">
     <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /groups/{id}</code></pre></div>
-    <div class="method-summary"><span class="nickname">addGroup</span> </div>
-    <div class="method-notes">Creates a new Group</div>
+    <div class="method-tags"> <span class="method-tag">Groups</span></div>
+    <div class="method-summary"><span class="nickname">updateGroupById</span> </div>
+    <div class="method-notes">Updates a Group</div>
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
+      <div class="param">vestorlyAuth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">id (required)</div>
@@ -368,79 +462,82 @@
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id of group to update </div>
       <div class="param">group (required)</div>
 
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Group to add </div>
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Group to update </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">GroupInput</a></div>
+    <div class="return-type"><a href="#">Groupresponse</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "newsletter_subject" : "aeiou",\n  "autopublish" : true,\n  "name" : "aeiou",\n  "is_hidden" : true,\n  "number_articles_per_group" : 123,\n  "_id" : "aeiou",\n  "number_articles_per_newsletter" : 123,\n  "is_default" : true,\n  "new_weekly_mailer_content" : "aeiou"\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: /groups/{id}</code></pre></div>
-    <div class="method-summary"><span class="nickname">addGroup_1</span> </div>
-    <div class="method-notes">Creates a new Group</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">group (required)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Group to add </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">GroupInput</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "newsletter_subject" : "aeiou",\n  "autopublish" : true,\n  "name" : "aeiou",\n  "is_hidden" : true,\n  "number_articles_per_group" : 123,\n  "_id" : "aeiou",\n  "number_articles_per_newsletter" : 123,\n  "is_default" : true,\n  "new_weekly_mailer_content" : "aeiou"\n}</code></pre>
+    <pre class="example"><code>{
+  &quot;group&quot; : {
+    &quot;new_weekly_mailer_content&quot; : &quot;aeiou&quot;,
+    &quot;newsletter_subject&quot; : &quot;aeiou&quot;,
+    &quot;number_articles_per_group&quot; : 123,
+    &quot;autopublish&quot; : true,
+    &quot;number_articles_per_newsletter&quot; : 123,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;is_hidden&quot; : true,
+    &quot;name&quot; : &quot;aeiou&quot;,
+    &quot;is_default&quot; : true
+  }
+}</code></pre>
     
   </div> <!-- method -->
   <hr>
   
   <div class="method">
     <div class="method-path"><pre class="delete"><code class="huge"><span>delete</span>: /groups/{id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Groups</span></div>
     <div class="method-summary"><span class="nickname">deleteGroup</span> </div>
     <div class="method-notes">Deletes a Group</div>
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">group (required)</div>
+      <div class="param">vestorlyAuth (required)</div>
 
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Group to remove </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id of group to delete </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">GroupInput</a></div>
+    <div class="return-type"><a href="#">Groupresponse</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "newsletter_subject" : "aeiou",\n  "autopublish" : true,\n  "name" : "aeiou",\n  "is_hidden" : true,\n  "number_articles_per_group" : 123,\n  "_id" : "aeiou",\n  "number_articles_per_newsletter" : 123,\n  "is_default" : true,\n  "new_weekly_mailer_content" : "aeiou"\n}</code></pre>
+    <pre class="example"><code>{
+  &quot;group&quot; : {
+    &quot;new_weekly_mailer_content&quot; : &quot;aeiou&quot;,
+    &quot;newsletter_subject&quot; : &quot;aeiou&quot;,
+    &quot;number_articles_per_group&quot; : 123,
+    &quot;autopublish&quot; : true,
+    &quot;number_articles_per_newsletter&quot; : 123,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;is_hidden&quot; : true,
+    &quot;name&quot; : &quot;aeiou&quot;,
+    &quot;is_default&quot; : true
+  }
+}</code></pre>
     
   </div> <!-- method -->
   <hr>
   
-  
-  
   <div class="method">
     <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /member_events</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Memberevents</span></div>
     <div class="method-summary"><span class="nickname">findMemberEvents</span> </div>
     <div class="method-notes">Returns all MemberEvents</div>
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
+      <div class="param">vestorlyAuth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       
@@ -452,44 +549,1000 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "member_events" : [ {\n    "originator_type" : "aeiou",\n    "member_id" : "aeiou",\n    "subject_id" : "aeiou",\n    "referer" : "aeiou",\n    "originator_id" : "aeiou",\n    "created_at" : "aeiou",\n    "parent_event_id" : "aeiou",\n    "originator_group_id" : "aeiou",\n    "event_source" : "aeiou",\n    "source" : "aeiou",\n    "type" : "aeiou",\n    "event_type" : "aeiou",\n    "originator_name" : "aeiou",\n    "original_url" : "aeiou",\n    "event_date" : "aeiou",\n    "originator_email" : "aeiou",\n    "content_url" : "aeiou",\n    "_id" : "aeiou",\n    "parent_originator_id" : "aeiou",\n    "username" : "aeiou"\n  } ],\n  "members" : [ {\n    "picture_url" : "aeiou",\n    "last_name" : "aeiou",\n    "_id" : "aeiou",\n    "first_name" : "aeiou",\n    "added_on" : "aeiou",\n    "email" : "aeiou"\n  } ]\n}</code></pre>
+    <pre class="example"><code>{
+  &quot;member_events&quot; : [ {
+    &quot;parent_originator_id&quot; : &quot;aeiou&quot;,
+    &quot;originator_id&quot; : &quot;aeiou&quot;,
+    &quot;original_url&quot; : &quot;aeiou&quot;,
+    &quot;subject_id&quot; : &quot;aeiou&quot;,
+    &quot;event_type&quot; : &quot;aeiou&quot;,
+    &quot;type&quot; : &quot;aeiou&quot;,
+    &quot;originator_name&quot; : &quot;aeiou&quot;,
+    &quot;parent_event_id&quot; : &quot;aeiou&quot;,
+    &quot;member_id&quot; : &quot;aeiou&quot;,
+    &quot;content_url&quot; : &quot;aeiou&quot;,
+    &quot;originator_type&quot; : &quot;aeiou&quot;,
+    &quot;username&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;source&quot; : &quot;aeiou&quot;,
+    &quot;originator_email&quot; : &quot;aeiou&quot;,
+    &quot;event_date&quot; : &quot;aeiou&quot;,
+    &quot;created_at&quot; : &quot;aeiou&quot;,
+    &quot;originator_group_id&quot; : &quot;aeiou&quot;,
+    &quot;referer&quot; : &quot;aeiou&quot;,
+    &quot;event_source&quot; : &quot;aeiou&quot;
+  } ],
+  &quot;members&quot; : [ {
+    &quot;first_name&quot; : &quot;aeiou&quot;,
+    &quot;picture_url&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;email&quot; : &quot;aeiou&quot;,
+    &quot;last_name&quot; : &quot;aeiou&quot;,
+    &quot;added_on&quot; : &quot;aeiou&quot;
+  } ]
+}</code></pre>
     
   </div> <!-- method -->
   <hr>
   
-  
-  
   <div class="method">
-    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /advisors/{id}</code></pre></div>
-    <div class="method-summary"><span class="nickname">findAdvisorByID</span> </div>
-    <div class="method-notes">Returns a single advisors</div>
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /member_reports</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Memberreports</span></div>
+    <div class="method-summary"><span class="nickname">findMemberReports</span> </div>
+    <div class="method-notes">Returns all member reports</div>
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
+      <div class="param">vestorlyAuth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Advisor Id to fetch </div>
       
     </div>  <!-- field-items -->
     <h3 class="field-label">Return type</h3>
 
-    <div class="return-type"><a href="#">Advisorresponse</a></div>
+    <div class="return-type"><a href="#">MemberReports</a></div>
 
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "advisor" : {\n    "name" : "aeiou",\n    "id" : "aeiou",\n    "tag" : "aeiou"\n  }\n}</code></pre>
+    <pre class="example"><code>{
+  &quot;member_reports&quot; : [ {
+    &quot;parent_originator_id&quot; : &quot;aeiou&quot;,
+    &quot;source&quot; : &quot;aeiou&quot;,
+    &quot;year&quot; : 123,
+    &quot;originator_group_id&quot; : &quot;aeiou&quot;,
+    &quot;day&quot; : 123,
+    &quot;type&quot; : &quot;aeiou&quot;,
+    &quot;event_count&quot; : 123
+  } ]
+}</code></pre>
     
   </div> <!-- method -->
   <hr>
   
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /members</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Members</span></div>
+    <div class="method-summary"><span class="nickname">findMembers</span> </div>
+    <div class="method-notes">Returns all members</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorlyAuth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Members</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;more_results&quot; : true,
+  &quot;meta&quot; : {
+    &quot;message&quot; : &quot;aeiou&quot;
+  },
+  &quot;members&quot; : [ {
+    &quot;phone&quot; : &quot;aeiou&quot;,
+    &quot;location&quot; : &quot;aeiou&quot;,
+    &quot;state&quot; : &quot;aeiou&quot;,
+    &quot;data_estimated&quot; : true,
+    &quot;last_active_date&quot; : &quot;aeiou&quot;,
+    &quot;education&quot; : &quot;aeiou&quot;,
+    &quot;city&quot; : &quot;aeiou&quot;,
+    &quot;interest_consultation&quot; : &quot;aeiou&quot;,
+    &quot;first_name&quot; : &quot;aeiou&quot;,
+    &quot;unsubscribed&quot; : true,
+    &quot;estimated_zip&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;subscribed_group_ids&quot; : [ &quot;aeiou&quot; ],
+    &quot;family&quot; : &quot;aeiou&quot;,
+    &quot;is_hidden&quot; : true,
+    &quot;age&quot; : &quot;aeiou&quot;,
+    &quot;home_market_value&quot; : &quot;aeiou&quot;,
+    &quot;gender&quot; : &quot;aeiou&quot;,
+    &quot;marital_status&quot; : &quot;aeiou&quot;,
+    &quot;unsubscribed_date&quot; : true,
+    &quot;tags&quot; : [ &quot;aeiou&quot; ],
+    &quot;zip&quot; : &quot;aeiou&quot;,
+    &quot;profile_url&quot; : &quot;aeiou&quot;,
+    &quot;occupation&quot; : &quot;aeiou&quot;,
+    &quot;portfolio_size&quot; : &quot;aeiou&quot;,
+    &quot;invited_by&quot; : &quot;aeiou&quot;,
+    &quot;hometown&quot; : &quot;aeiou&quot;,
+    &quot;picture_url&quot; : &quot;aeiou&quot;,
+    &quot;user_type&quot; : &quot;aeiou&quot;,
+    &quot;is_client&quot; : true,
+    &quot;register_ip_addr&quot; : &quot;aeiou&quot;,
+    &quot;estimated_location&quot; : &quot;aeiou&quot;,
+    &quot;message&quot; : &quot;aeiou&quot;,
+    &quot;household_income&quot; : &quot;aeiou&quot;,
+    &quot;interest_in_new_advisor&quot; : &quot;aeiou&quot;,
+    &quot;assets&quot; : &quot;aeiou&quot;,
+    &quot;home_owner_status&quot; : &quot;aeiou&quot;,
+    &quot;invited_on&quot; : &quot;aeiou&quot;,
+    &quot;address&quot; : &quot;aeiou&quot;,
+    &quot;email&quot; : &quot;aeiou&quot;,
+    &quot;last_name&quot; : &quot;aeiou&quot;,
+    &quot;high_net_worth&quot; : true,
+    &quot;genuine_email&quot; : true,
+    &quot;signed_up_with&quot; : &quot;aeiou&quot;
+  } ]
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
   
+  <div class="method">
+    <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: /members</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Members</span></div>
+    <div class="method-summary"><span class="nickname">createMember</span> </div>
+    <div class="method-notes">Create a new member in the Vestorly Platform</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorlyAuth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">member (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Member you want to create </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Memberresponse</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;member&quot; : {
+    &quot;phone&quot; : &quot;aeiou&quot;,
+    &quot;location&quot; : &quot;aeiou&quot;,
+    &quot;state&quot; : &quot;aeiou&quot;,
+    &quot;data_estimated&quot; : true,
+    &quot;last_active_date&quot; : &quot;aeiou&quot;,
+    &quot;education&quot; : &quot;aeiou&quot;,
+    &quot;city&quot; : &quot;aeiou&quot;,
+    &quot;interest_consultation&quot; : &quot;aeiou&quot;,
+    &quot;first_name&quot; : &quot;aeiou&quot;,
+    &quot;unsubscribed&quot; : true,
+    &quot;estimated_zip&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;subscribed_group_ids&quot; : [ &quot;aeiou&quot; ],
+    &quot;family&quot; : &quot;aeiou&quot;,
+    &quot;is_hidden&quot; : true,
+    &quot;age&quot; : &quot;aeiou&quot;,
+    &quot;home_market_value&quot; : &quot;aeiou&quot;,
+    &quot;gender&quot; : &quot;aeiou&quot;,
+    &quot;marital_status&quot; : &quot;aeiou&quot;,
+    &quot;unsubscribed_date&quot; : true,
+    &quot;tags&quot; : [ &quot;aeiou&quot; ],
+    &quot;zip&quot; : &quot;aeiou&quot;,
+    &quot;profile_url&quot; : &quot;aeiou&quot;,
+    &quot;occupation&quot; : &quot;aeiou&quot;,
+    &quot;portfolio_size&quot; : &quot;aeiou&quot;,
+    &quot;invited_by&quot; : &quot;aeiou&quot;,
+    &quot;hometown&quot; : &quot;aeiou&quot;,
+    &quot;picture_url&quot; : &quot;aeiou&quot;,
+    &quot;user_type&quot; : &quot;aeiou&quot;,
+    &quot;is_client&quot; : true,
+    &quot;register_ip_addr&quot; : &quot;aeiou&quot;,
+    &quot;estimated_location&quot; : &quot;aeiou&quot;,
+    &quot;message&quot; : &quot;aeiou&quot;,
+    &quot;household_income&quot; : &quot;aeiou&quot;,
+    &quot;interest_in_new_advisor&quot; : &quot;aeiou&quot;,
+    &quot;assets&quot; : &quot;aeiou&quot;,
+    &quot;home_owner_status&quot; : &quot;aeiou&quot;,
+    &quot;invited_on&quot; : &quot;aeiou&quot;,
+    &quot;address&quot; : &quot;aeiou&quot;,
+    &quot;email&quot; : &quot;aeiou&quot;,
+    &quot;last_name&quot; : &quot;aeiou&quot;,
+    &quot;high_net_worth&quot; : true,
+    &quot;genuine_email&quot; : true,
+    &quot;signed_up_with&quot; : &quot;aeiou&quot;
+  }
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /members/{id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Members</span></div>
+    <div class="method-summary"><span class="nickname">findMemberByID</span> </div>
+    <div class="method-notes">Returns a single member</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of member to fetch </div>
+      <div class="param">vestorlyAuth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Memberresponse</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;member&quot; : {
+    &quot;phone&quot; : &quot;aeiou&quot;,
+    &quot;location&quot; : &quot;aeiou&quot;,
+    &quot;state&quot; : &quot;aeiou&quot;,
+    &quot;data_estimated&quot; : true,
+    &quot;last_active_date&quot; : &quot;aeiou&quot;,
+    &quot;education&quot; : &quot;aeiou&quot;,
+    &quot;city&quot; : &quot;aeiou&quot;,
+    &quot;interest_consultation&quot; : &quot;aeiou&quot;,
+    &quot;first_name&quot; : &quot;aeiou&quot;,
+    &quot;unsubscribed&quot; : true,
+    &quot;estimated_zip&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;subscribed_group_ids&quot; : [ &quot;aeiou&quot; ],
+    &quot;family&quot; : &quot;aeiou&quot;,
+    &quot;is_hidden&quot; : true,
+    &quot;age&quot; : &quot;aeiou&quot;,
+    &quot;home_market_value&quot; : &quot;aeiou&quot;,
+    &quot;gender&quot; : &quot;aeiou&quot;,
+    &quot;marital_status&quot; : &quot;aeiou&quot;,
+    &quot;unsubscribed_date&quot; : true,
+    &quot;tags&quot; : [ &quot;aeiou&quot; ],
+    &quot;zip&quot; : &quot;aeiou&quot;,
+    &quot;profile_url&quot; : &quot;aeiou&quot;,
+    &quot;occupation&quot; : &quot;aeiou&quot;,
+    &quot;portfolio_size&quot; : &quot;aeiou&quot;,
+    &quot;invited_by&quot; : &quot;aeiou&quot;,
+    &quot;hometown&quot; : &quot;aeiou&quot;,
+    &quot;picture_url&quot; : &quot;aeiou&quot;,
+    &quot;user_type&quot; : &quot;aeiou&quot;,
+    &quot;is_client&quot; : true,
+    &quot;register_ip_addr&quot; : &quot;aeiou&quot;,
+    &quot;estimated_location&quot; : &quot;aeiou&quot;,
+    &quot;message&quot; : &quot;aeiou&quot;,
+    &quot;household_income&quot; : &quot;aeiou&quot;,
+    &quot;interest_in_new_advisor&quot; : &quot;aeiou&quot;,
+    &quot;assets&quot; : &quot;aeiou&quot;,
+    &quot;home_owner_status&quot; : &quot;aeiou&quot;,
+    &quot;invited_on&quot; : &quot;aeiou&quot;,
+    &quot;address&quot; : &quot;aeiou&quot;,
+    &quot;email&quot; : &quot;aeiou&quot;,
+    &quot;last_name&quot; : &quot;aeiou&quot;,
+    &quot;high_net_worth&quot; : true,
+    &quot;genuine_email&quot; : true,
+    &quot;signed_up_with&quot; : &quot;aeiou&quot;
+  }
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /members/{id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Members</span></div>
+    <div class="method-summary"><span class="nickname">updateMemberByID</span> </div>
+    <div class="method-notes">Updates a single member</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of member to fetch </div>
+      <div class="param">vestorlyAuth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">member (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Member you want to update </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Memberresponse</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;member&quot; : {
+    &quot;phone&quot; : &quot;aeiou&quot;,
+    &quot;location&quot; : &quot;aeiou&quot;,
+    &quot;state&quot; : &quot;aeiou&quot;,
+    &quot;data_estimated&quot; : true,
+    &quot;last_active_date&quot; : &quot;aeiou&quot;,
+    &quot;education&quot; : &quot;aeiou&quot;,
+    &quot;city&quot; : &quot;aeiou&quot;,
+    &quot;interest_consultation&quot; : &quot;aeiou&quot;,
+    &quot;first_name&quot; : &quot;aeiou&quot;,
+    &quot;unsubscribed&quot; : true,
+    &quot;estimated_zip&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;subscribed_group_ids&quot; : [ &quot;aeiou&quot; ],
+    &quot;family&quot; : &quot;aeiou&quot;,
+    &quot;is_hidden&quot; : true,
+    &quot;age&quot; : &quot;aeiou&quot;,
+    &quot;home_market_value&quot; : &quot;aeiou&quot;,
+    &quot;gender&quot; : &quot;aeiou&quot;,
+    &quot;marital_status&quot; : &quot;aeiou&quot;,
+    &quot;unsubscribed_date&quot; : true,
+    &quot;tags&quot; : [ &quot;aeiou&quot; ],
+    &quot;zip&quot; : &quot;aeiou&quot;,
+    &quot;profile_url&quot; : &quot;aeiou&quot;,
+    &quot;occupation&quot; : &quot;aeiou&quot;,
+    &quot;portfolio_size&quot; : &quot;aeiou&quot;,
+    &quot;invited_by&quot; : &quot;aeiou&quot;,
+    &quot;hometown&quot; : &quot;aeiou&quot;,
+    &quot;picture_url&quot; : &quot;aeiou&quot;,
+    &quot;user_type&quot; : &quot;aeiou&quot;,
+    &quot;is_client&quot; : true,
+    &quot;register_ip_addr&quot; : &quot;aeiou&quot;,
+    &quot;estimated_location&quot; : &quot;aeiou&quot;,
+    &quot;message&quot; : &quot;aeiou&quot;,
+    &quot;household_income&quot; : &quot;aeiou&quot;,
+    &quot;interest_in_new_advisor&quot; : &quot;aeiou&quot;,
+    &quot;assets&quot; : &quot;aeiou&quot;,
+    &quot;home_owner_status&quot; : &quot;aeiou&quot;,
+    &quot;invited_on&quot; : &quot;aeiou&quot;,
+    &quot;address&quot; : &quot;aeiou&quot;,
+    &quot;email&quot; : &quot;aeiou&quot;,
+    &quot;last_name&quot; : &quot;aeiou&quot;,
+    &quot;high_net_worth&quot; : true,
+    &quot;genuine_email&quot; : true,
+    &quot;signed_up_with&quot; : &quot;aeiou&quot;
+  }
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /newsletter_settings</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Newslettersettings</span></div>
+    <div class="method-summary"><span class="nickname">findNewsletterSettings</span> </div>
+    <div class="method-notes">Returns all newsletter settings</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorlyAuth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">NewsletterSettings</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;newsletter_settings&quot; : [ {
+    &quot;twitter_hour&quot; : 123,
+    &quot;footer_html&quot; : &quot;aeiou&quot;,
+    &quot;footer_email_font&quot; : &quot;aeiou&quot;,
+    &quot;montage_twitter_image_url&quot; : &quot;aeiou&quot;,
+    &quot;facebook_day_of_week&quot; : 123,
+    &quot;subject&quot; : &quot;aeiou&quot;,
+    &quot;montage_linkedin_image_url&quot; : &quot;aeiou&quot;,
+    &quot;email_hour&quot; : 123,
+    &quot;social_description&quot; : &quot;aeiou&quot;,
+    &quot;montage_enabled&quot; : true,
+    &quot;salutation_text&quot; : &quot;aeiou&quot;,
+    &quot;facebook_hour&quot; : 123,
+    &quot;newsletter_ids&quot; : [ &quot;aeiou&quot; ],
+    &quot;linkedin_status&quot; : &quot;aeiou&quot;,
+    &quot;footer_image_url&quot; : &quot;aeiou&quot;,
+    &quot;montage_title&quot; : &quot;aeiou&quot;,
+    &quot;facebook_active_wall&quot; : &quot;aeiou&quot;,
+    &quot;email_day_of_week&quot; : 123,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;social_subtitle&quot; : &quot;aeiou&quot;,
+    &quot;facebook_status&quot; : &quot;aeiou&quot;,
+    &quot;title_color&quot; : &quot;aeiou&quot;,
+    &quot;email_accent_color&quot; : &quot;aeiou&quot;,
+    &quot;banner_color&quot; : &quot;aeiou&quot;,
+    &quot;email_status&quot; : &quot;aeiou&quot;,
+    &quot;newsletter_type&quot; : &quot;aeiou&quot;,
+    &quot;render_version&quot; : &quot;aeiou&quot;,
+    &quot;twitter_status&quot; : &quot;aeiou&quot;,
+    &quot;twitter_day_of_week&quot; : 123,
+    &quot;body_html&quot; : &quot;aeiou&quot;,
+    &quot;header_background_color&quot; : &quot;aeiou&quot;,
+    &quot;group_id&quot; : &quot;aeiou&quot;,
+    &quot;header_image_url&quot; : &quot;aeiou&quot;,
+    &quot;primary_email_font&quot; : &quot;aeiou&quot;,
+    &quot;intro_text&quot; : &quot;aeiou&quot;,
+    &quot;social_title&quot; : &quot;aeiou&quot;,
+    &quot;linkedin_hour&quot; : 123,
+    &quot;social_posting_text&quot; : &quot;aeiou&quot;,
+    &quot;montage_facebook_image_url&quot; : &quot;aeiou&quot;,
+    &quot;linkedin_active_wall&quot; : &quot;aeiou&quot;,
+    &quot;linkedin_day_of_week&quot; : 123
+  } ]
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /newsletter_settings/{id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Newslettersettings</span></div>
+    <div class="method-summary"><span class="nickname">findNewsletterSettingsByID</span> </div>
+    <div class="method-notes">Returns a single newsletter settings if the user has access</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of newsletter settings to fetch </div>
+      <div class="param">vestorlyAuth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Newslettersettingresponse</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;newsletter_setting&quot; : {
+    &quot;twitter_hour&quot; : 123,
+    &quot;footer_html&quot; : &quot;aeiou&quot;,
+    &quot;footer_email_font&quot; : &quot;aeiou&quot;,
+    &quot;montage_twitter_image_url&quot; : &quot;aeiou&quot;,
+    &quot;facebook_day_of_week&quot; : 123,
+    &quot;subject&quot; : &quot;aeiou&quot;,
+    &quot;montage_linkedin_image_url&quot; : &quot;aeiou&quot;,
+    &quot;email_hour&quot; : 123,
+    &quot;social_description&quot; : &quot;aeiou&quot;,
+    &quot;montage_enabled&quot; : true,
+    &quot;salutation_text&quot; : &quot;aeiou&quot;,
+    &quot;facebook_hour&quot; : 123,
+    &quot;newsletter_ids&quot; : [ &quot;aeiou&quot; ],
+    &quot;linkedin_status&quot; : &quot;aeiou&quot;,
+    &quot;footer_image_url&quot; : &quot;aeiou&quot;,
+    &quot;montage_title&quot; : &quot;aeiou&quot;,
+    &quot;facebook_active_wall&quot; : &quot;aeiou&quot;,
+    &quot;email_day_of_week&quot; : 123,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;social_subtitle&quot; : &quot;aeiou&quot;,
+    &quot;facebook_status&quot; : &quot;aeiou&quot;,
+    &quot;title_color&quot; : &quot;aeiou&quot;,
+    &quot;email_accent_color&quot; : &quot;aeiou&quot;,
+    &quot;banner_color&quot; : &quot;aeiou&quot;,
+    &quot;email_status&quot; : &quot;aeiou&quot;,
+    &quot;newsletter_type&quot; : &quot;aeiou&quot;,
+    &quot;render_version&quot; : &quot;aeiou&quot;,
+    &quot;twitter_status&quot; : &quot;aeiou&quot;,
+    &quot;twitter_day_of_week&quot; : 123,
+    &quot;body_html&quot; : &quot;aeiou&quot;,
+    &quot;header_background_color&quot; : &quot;aeiou&quot;,
+    &quot;group_id&quot; : &quot;aeiou&quot;,
+    &quot;header_image_url&quot; : &quot;aeiou&quot;,
+    &quot;primary_email_font&quot; : &quot;aeiou&quot;,
+    &quot;intro_text&quot; : &quot;aeiou&quot;,
+    &quot;social_title&quot; : &quot;aeiou&quot;,
+    &quot;linkedin_hour&quot; : 123,
+    &quot;social_posting_text&quot; : &quot;aeiou&quot;,
+    &quot;montage_facebook_image_url&quot; : &quot;aeiou&quot;,
+    &quot;linkedin_active_wall&quot; : &quot;aeiou&quot;,
+    &quot;linkedin_day_of_week&quot; : 123
+  }
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /newsletter_settings/{id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Newslettersettings</span></div>
+    <div class="method-summary"><span class="nickname">updateNewsletterSettingsByID</span> </div>
+    <div class="method-notes">Update a single newsletter setting by ID</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of newsletter settings to update </div>
+      <div class="param">vestorlyAuth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">newsletterSetting (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; newsletter settings </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Newslettersettingresponse</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;newsletter_setting&quot; : {
+    &quot;twitter_hour&quot; : 123,
+    &quot;footer_html&quot; : &quot;aeiou&quot;,
+    &quot;footer_email_font&quot; : &quot;aeiou&quot;,
+    &quot;montage_twitter_image_url&quot; : &quot;aeiou&quot;,
+    &quot;facebook_day_of_week&quot; : 123,
+    &quot;subject&quot; : &quot;aeiou&quot;,
+    &quot;montage_linkedin_image_url&quot; : &quot;aeiou&quot;,
+    &quot;email_hour&quot; : 123,
+    &quot;social_description&quot; : &quot;aeiou&quot;,
+    &quot;montage_enabled&quot; : true,
+    &quot;salutation_text&quot; : &quot;aeiou&quot;,
+    &quot;facebook_hour&quot; : 123,
+    &quot;newsletter_ids&quot; : [ &quot;aeiou&quot; ],
+    &quot;linkedin_status&quot; : &quot;aeiou&quot;,
+    &quot;footer_image_url&quot; : &quot;aeiou&quot;,
+    &quot;montage_title&quot; : &quot;aeiou&quot;,
+    &quot;facebook_active_wall&quot; : &quot;aeiou&quot;,
+    &quot;email_day_of_week&quot; : 123,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;social_subtitle&quot; : &quot;aeiou&quot;,
+    &quot;facebook_status&quot; : &quot;aeiou&quot;,
+    &quot;title_color&quot; : &quot;aeiou&quot;,
+    &quot;email_accent_color&quot; : &quot;aeiou&quot;,
+    &quot;banner_color&quot; : &quot;aeiou&quot;,
+    &quot;email_status&quot; : &quot;aeiou&quot;,
+    &quot;newsletter_type&quot; : &quot;aeiou&quot;,
+    &quot;render_version&quot; : &quot;aeiou&quot;,
+    &quot;twitter_status&quot; : &quot;aeiou&quot;,
+    &quot;twitter_day_of_week&quot; : 123,
+    &quot;body_html&quot; : &quot;aeiou&quot;,
+    &quot;header_background_color&quot; : &quot;aeiou&quot;,
+    &quot;group_id&quot; : &quot;aeiou&quot;,
+    &quot;header_image_url&quot; : &quot;aeiou&quot;,
+    &quot;primary_email_font&quot; : &quot;aeiou&quot;,
+    &quot;intro_text&quot; : &quot;aeiou&quot;,
+    &quot;social_title&quot; : &quot;aeiou&quot;,
+    &quot;linkedin_hour&quot; : 123,
+    &quot;social_posting_text&quot; : &quot;aeiou&quot;,
+    &quot;montage_facebook_image_url&quot; : &quot;aeiou&quot;,
+    &quot;linkedin_active_wall&quot; : &quot;aeiou&quot;,
+    &quot;linkedin_day_of_week&quot; : 123
+  }
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /newsletters</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Newsletters</span></div>
+    <div class="method-summary"><span class="nickname">findNewsletters</span> </div>
+    <div class="method-notes">Returns all newsletters</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorlyAuth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Newsletters</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;newsletters&quot; : [ {
+    &quot;click_count&quot; : 123456789,
+    &quot;is_sent&quot; : true,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;total_click_count&quot; : 123456789,
+    &quot;unique_click_count&quot; : 123456789,
+    &quot;is_default&quot; : true
+  } ]
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /newsletters/{id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Newsletters</span></div>
+    <div class="method-summary"><span class="nickname">getNewsletterByID</span> </div>
+    <div class="method-notes">Get a newsletter by ID</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorlyAuth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of event to get </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Newsletterresponse</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;newsletter&quot; : {
+    &quot;click_count&quot; : 123456789,
+    &quot;is_sent&quot; : true,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;total_click_count&quot; : 123456789,
+    &quot;unique_click_count&quot; : 123456789,
+    &quot;is_default&quot; : true
+  }
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /newsletters/{id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Newsletters</span></div>
+    <div class="method-summary"><span class="nickname">updateNewsletterByID</span> </div>
+    <div class="method-notes">Updates a newsletter</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorlyAuth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of event to update </div>
+      <div class="param">newsletter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Newsletter </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Newsletterresponse</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;newsletter&quot; : {
+    &quot;click_count&quot; : 123456789,
+    &quot;is_sent&quot; : true,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;total_click_count&quot; : 123456789,
+    &quot;unique_click_count&quot; : 123456789,
+    &quot;is_default&quot; : true
+  }
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /posts</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Posts</span></div>
+    <div class="method-summary"><span class="nickname">findPosts</span> </div>
+    <div class="method-notes">Query all posts</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorlyAuth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">textQuery (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter post by parameters </div>
+      <div class="param">externalUrl (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter by External URL </div>
+      <div class="param">isPublished (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter by is_published boolean </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Posts</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;posts&quot; : [ {
+    &quot;pdf_attachment_url&quot; : &quot;aeiou&quot;,
+    &quot;summary&quot; : &quot;aeiou&quot;,
+    &quot;display_summary&quot; : &quot;aeiou&quot;,
+    &quot;is_responsive&quot; : true,
+    &quot;display_date&quot; : &quot;aeiou&quot;,
+    &quot;needs_sanitize&quot; : &quot;aeiou&quot;,
+    &quot;image_height&quot; : &quot;aeiou&quot;,
+    &quot;vestorly_url&quot; : &quot;aeiou&quot;,
+    &quot;newsletter_ids&quot; : [ &quot;aeiou&quot; ],
+    &quot;approval_transactions&quot; : [ &quot;aeiou&quot; ],
+    &quot;external_url_source&quot; : &quot;aeiou&quot;,
+    &quot;title&quot; : &quot;aeiou&quot;,
+    &quot;article_id&quot; : &quot;aeiou&quot;,
+    &quot;advisor_id&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;is_featured&quot; : true,
+    &quot;image_url&quot; : &quot;aeiou&quot;,
+    &quot;image_width&quot; : &quot;aeiou&quot;,
+    &quot;display_tag&quot; : &quot;aeiou&quot;,
+    &quot;created_at&quot; : &quot;aeiou&quot;,
+    &quot;video_id&quot; : &quot;aeiou&quot;,
+    &quot;external_url&quot; : &quot;aeiou&quot;,
+    &quot;is_published&quot; : true,
+    &quot;video&quot; : &quot;aeiou&quot;,
+    &quot;logo_url&quot; : &quot;aeiou&quot;,
+    &quot;topic&quot; : &quot;aeiou&quot;,
+    &quot;group_ids&quot; : [ &quot;aeiou&quot; ],
+    &quot;proxy_url&quot; : &quot;aeiou&quot;,
+    &quot;approval_status&quot; : &quot;aeiou&quot;,
+    &quot;is_mobile_proxy_needed&quot; : true,
+    &quot;square_logo_url&quot; : &quot;aeiou&quot;,
+    &quot;external_url_type&quot; : &quot;aeiou&quot;,
+    &quot;updated_at&quot; : &quot;aeiou&quot;,
+    &quot;is_proxy_needed&quot; : true,
+    &quot;image_path&quot; : &quot;aeiou&quot;,
+    &quot;slug&quot; : &quot;aeiou&quot;,
+    &quot;comment&quot; : &quot;aeiou&quot;,
+    &quot;suitability_score&quot; : &quot;aeiou&quot;,
+    &quot;post_date&quot; : &quot;aeiou&quot;
+  } ]
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: /posts</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Posts</span></div>
+    <div class="method-summary"><span class="nickname">createPost</span> </div>
+    <div class="method-notes">Create a new post in the Vestorly Platform</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorlyAuth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">post (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Post you want to create </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Postresponse</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;post&quot; : {
+    &quot;pdf_attachment_url&quot; : &quot;aeiou&quot;,
+    &quot;summary&quot; : &quot;aeiou&quot;,
+    &quot;display_summary&quot; : &quot;aeiou&quot;,
+    &quot;is_responsive&quot; : true,
+    &quot;display_date&quot; : &quot;aeiou&quot;,
+    &quot;needs_sanitize&quot; : &quot;aeiou&quot;,
+    &quot;image_height&quot; : &quot;aeiou&quot;,
+    &quot;vestorly_url&quot; : &quot;aeiou&quot;,
+    &quot;newsletter_ids&quot; : [ &quot;aeiou&quot; ],
+    &quot;approval_transactions&quot; : [ &quot;aeiou&quot; ],
+    &quot;external_url_source&quot; : &quot;aeiou&quot;,
+    &quot;title&quot; : &quot;aeiou&quot;,
+    &quot;article_id&quot; : &quot;aeiou&quot;,
+    &quot;advisor_id&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;is_featured&quot; : true,
+    &quot;image_url&quot; : &quot;aeiou&quot;,
+    &quot;image_width&quot; : &quot;aeiou&quot;,
+    &quot;display_tag&quot; : &quot;aeiou&quot;,
+    &quot;created_at&quot; : &quot;aeiou&quot;,
+    &quot;video_id&quot; : &quot;aeiou&quot;,
+    &quot;external_url&quot; : &quot;aeiou&quot;,
+    &quot;is_published&quot; : true,
+    &quot;video&quot; : &quot;aeiou&quot;,
+    &quot;logo_url&quot; : &quot;aeiou&quot;,
+    &quot;topic&quot; : &quot;aeiou&quot;,
+    &quot;group_ids&quot; : [ &quot;aeiou&quot; ],
+    &quot;proxy_url&quot; : &quot;aeiou&quot;,
+    &quot;approval_status&quot; : &quot;aeiou&quot;,
+    &quot;is_mobile_proxy_needed&quot; : true,
+    &quot;square_logo_url&quot; : &quot;aeiou&quot;,
+    &quot;external_url_type&quot; : &quot;aeiou&quot;,
+    &quot;updated_at&quot; : &quot;aeiou&quot;,
+    &quot;is_proxy_needed&quot; : true,
+    &quot;image_path&quot; : &quot;aeiou&quot;,
+    &quot;slug&quot; : &quot;aeiou&quot;,
+    &quot;comment&quot; : &quot;aeiou&quot;,
+    &quot;suitability_score&quot; : &quot;aeiou&quot;,
+    &quot;post_date&quot; : &quot;aeiou&quot;
+  }
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /posts/{id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Posts</span></div>
+    <div class="method-summary"><span class="nickname">getPostByID</span> </div>
+    <div class="method-notes">Query all posts</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorlyAuth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of post to fetch </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Postresponse</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;post&quot; : {
+    &quot;pdf_attachment_url&quot; : &quot;aeiou&quot;,
+    &quot;summary&quot; : &quot;aeiou&quot;,
+    &quot;display_summary&quot; : &quot;aeiou&quot;,
+    &quot;is_responsive&quot; : true,
+    &quot;display_date&quot; : &quot;aeiou&quot;,
+    &quot;needs_sanitize&quot; : &quot;aeiou&quot;,
+    &quot;image_height&quot; : &quot;aeiou&quot;,
+    &quot;vestorly_url&quot; : &quot;aeiou&quot;,
+    &quot;newsletter_ids&quot; : [ &quot;aeiou&quot; ],
+    &quot;approval_transactions&quot; : [ &quot;aeiou&quot; ],
+    &quot;external_url_source&quot; : &quot;aeiou&quot;,
+    &quot;title&quot; : &quot;aeiou&quot;,
+    &quot;article_id&quot; : &quot;aeiou&quot;,
+    &quot;advisor_id&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;is_featured&quot; : true,
+    &quot;image_url&quot; : &quot;aeiou&quot;,
+    &quot;image_width&quot; : &quot;aeiou&quot;,
+    &quot;display_tag&quot; : &quot;aeiou&quot;,
+    &quot;created_at&quot; : &quot;aeiou&quot;,
+    &quot;video_id&quot; : &quot;aeiou&quot;,
+    &quot;external_url&quot; : &quot;aeiou&quot;,
+    &quot;is_published&quot; : true,
+    &quot;video&quot; : &quot;aeiou&quot;,
+    &quot;logo_url&quot; : &quot;aeiou&quot;,
+    &quot;topic&quot; : &quot;aeiou&quot;,
+    &quot;group_ids&quot; : [ &quot;aeiou&quot; ],
+    &quot;proxy_url&quot; : &quot;aeiou&quot;,
+    &quot;approval_status&quot; : &quot;aeiou&quot;,
+    &quot;is_mobile_proxy_needed&quot; : true,
+    &quot;square_logo_url&quot; : &quot;aeiou&quot;,
+    &quot;external_url_type&quot; : &quot;aeiou&quot;,
+    &quot;updated_at&quot; : &quot;aeiou&quot;,
+    &quot;is_proxy_needed&quot; : true,
+    &quot;image_path&quot; : &quot;aeiou&quot;,
+    &quot;slug&quot; : &quot;aeiou&quot;,
+    &quot;comment&quot; : &quot;aeiou&quot;,
+    &quot;suitability_score&quot; : &quot;aeiou&quot;,
+    &quot;post_date&quot; : &quot;aeiou&quot;
+  }
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /posts/{id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Posts</span></div>
+    <div class="method-summary"><span class="nickname">updatePostByID</span> </div>
+    <div class="method-notes">Update A Post</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">vestorlyAuth (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id of post to update </div>
+      <div class="param">post (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Post you want to update </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Postresponse</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;post&quot; : {
+    &quot;pdf_attachment_url&quot; : &quot;aeiou&quot;,
+    &quot;summary&quot; : &quot;aeiou&quot;,
+    &quot;display_summary&quot; : &quot;aeiou&quot;,
+    &quot;is_responsive&quot; : true,
+    &quot;display_date&quot; : &quot;aeiou&quot;,
+    &quot;needs_sanitize&quot; : &quot;aeiou&quot;,
+    &quot;image_height&quot; : &quot;aeiou&quot;,
+    &quot;vestorly_url&quot; : &quot;aeiou&quot;,
+    &quot;newsletter_ids&quot; : [ &quot;aeiou&quot; ],
+    &quot;approval_transactions&quot; : [ &quot;aeiou&quot; ],
+    &quot;external_url_source&quot; : &quot;aeiou&quot;,
+    &quot;title&quot; : &quot;aeiou&quot;,
+    &quot;article_id&quot; : &quot;aeiou&quot;,
+    &quot;advisor_id&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;is_featured&quot; : true,
+    &quot;image_url&quot; : &quot;aeiou&quot;,
+    &quot;image_width&quot; : &quot;aeiou&quot;,
+    &quot;display_tag&quot; : &quot;aeiou&quot;,
+    &quot;created_at&quot; : &quot;aeiou&quot;,
+    &quot;video_id&quot; : &quot;aeiou&quot;,
+    &quot;external_url&quot; : &quot;aeiou&quot;,
+    &quot;is_published&quot; : true,
+    &quot;video&quot; : &quot;aeiou&quot;,
+    &quot;logo_url&quot; : &quot;aeiou&quot;,
+    &quot;topic&quot; : &quot;aeiou&quot;,
+    &quot;group_ids&quot; : [ &quot;aeiou&quot; ],
+    &quot;proxy_url&quot; : &quot;aeiou&quot;,
+    &quot;approval_status&quot; : &quot;aeiou&quot;,
+    &quot;is_mobile_proxy_needed&quot; : true,
+    &quot;square_logo_url&quot; : &quot;aeiou&quot;,
+    &quot;external_url_type&quot; : &quot;aeiou&quot;,
+    &quot;updated_at&quot; : &quot;aeiou&quot;,
+    &quot;is_proxy_needed&quot; : true,
+    &quot;image_path&quot; : &quot;aeiou&quot;,
+    &quot;slug&quot; : &quot;aeiou&quot;,
+    &quot;comment&quot; : &quot;aeiou&quot;,
+    &quot;suitability_score&quot; : &quot;aeiou&quot;,
+    &quot;post_date&quot; : &quot;aeiou&quot;
+  }
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
   
   <div class="method">
     <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: /sessions</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Sessions</span></div>
     <div class="method-summary"><span class="nickname">login</span> </div>
     <div class="method-notes">Login To Vestorly Platform</div>
 
@@ -510,19 +1563,71 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "vestorly-auth" : "aeiou",\n  "settings" : {\n    "website" : "aeiou",\n    "disclosure" : "aeiou",\n    "picture_url" : "aeiou",\n    "feature" : {\n      "_id" : "aeiou"\n    },\n    "orgsetting" : {\n      "privacy_policy_url" : "aeiou",\n      "site_url" : "aeiou",\n      "name" : "aeiou",\n      "company_contact_email" : "aeiou",\n      "_id" : "aeiou",\n      "terms_and_conditions_url" : "aeiou",\n      "is_default" : true,\n      "email_theme_name" : "aeiou",\n      "company_address" : "aeiou",\n      "company_homepage_url" : "aeiou"\n    },\n    "name" : "aeiou",\n    "personalsetting" : {\n      "_id" : "aeiou"\n    },\n    "company" : "aeiou",\n    "_id" : "aeiou",\n    "adv_brochure" : "aeiou",\n    "slug" : "aeiou"\n  },\n  "new_user" : true,\n  "_id" : "aeiou",\n  "current_user" : {\n    "website" : "aeiou",\n    "picture_url" : "aeiou",\n    "plan_setup" : true,\n    "last_name" : "aeiou",\n    "new_user" : true,\n    "user_type" : "aeiou",\n    "show_tour" : true,\n    "name" : "aeiou",\n    "company" : "aeiou",\n    "plan_expired" : true,\n    "_id" : "aeiou",\n    "first_name" : "aeiou",\n    "plan_stripe" : true,\n    "slug" : "aeiou",\n    "plan_id" : "aeiou",\n    "username" : "aeiou",\n    "plan_status" : "aeiou"\n  }\n}</code></pre>
+    <pre class="example"><code>{
+  &quot;_id&quot; : &quot;aeiou&quot;,
+  &quot;current_user&quot; : {
+    &quot;picture_url&quot; : &quot;aeiou&quot;,
+    &quot;website&quot; : &quot;aeiou&quot;,
+    &quot;user_type&quot; : &quot;aeiou&quot;,
+    &quot;plan_expired&quot; : true,
+    &quot;new_user&quot; : true,
+    &quot;plan_id&quot; : &quot;aeiou&quot;,
+    &quot;plan_setup&quot; : true,
+    &quot;first_name&quot; : &quot;aeiou&quot;,
+    &quot;show_tour&quot; : true,
+    &quot;plan_status&quot; : &quot;aeiou&quot;,
+    &quot;username&quot; : &quot;aeiou&quot;,
+    &quot;plan_stripe&quot; : true,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;company&quot; : &quot;aeiou&quot;,
+    &quot;name&quot; : &quot;aeiou&quot;,
+    &quot;last_name&quot; : &quot;aeiou&quot;,
+    &quot;slug&quot; : &quot;aeiou&quot;
+  },
+  &quot;settings&quot; : {
+    &quot;orgsetting&quot; : {
+      &quot;terms_and_conditions_url&quot; : &quot;aeiou&quot;,
+      &quot;company_address&quot; : &quot;aeiou&quot;,
+      &quot;_id&quot; : &quot;aeiou&quot;,
+      &quot;email_theme_name&quot; : &quot;aeiou&quot;,
+      &quot;name&quot; : &quot;aeiou&quot;,
+      &quot;is_default&quot; : true,
+      &quot;company_homepage_url&quot; : &quot;aeiou&quot;,
+      &quot;company_contact_email&quot; : &quot;aeiou&quot;,
+      &quot;privacy_policy_url&quot; : &quot;aeiou&quot;,
+      &quot;site_url&quot; : &quot;aeiou&quot;
+    },
+    &quot;adv_brochure&quot; : &quot;aeiou&quot;,
+    &quot;picture_url&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;website&quot; : &quot;aeiou&quot;,
+    &quot;personalsetting&quot; : {
+      &quot;_id&quot; : &quot;aeiou&quot;
+    },
+    &quot;name&quot; : &quot;aeiou&quot;,
+    &quot;company&quot; : &quot;aeiou&quot;,
+    &quot;disclosure&quot; : &quot;aeiou&quot;,
+    &quot;feature&quot; : {
+      &quot;_id&quot; : &quot;aeiou&quot;
+    },
+    &quot;slug&quot; : &quot;aeiou&quot;
+  },
+  &quot;vestorly-auth&quot; : &quot;aeiou&quot;,
+  &quot;new_user&quot; : true
+}</code></pre>
     
   </div> <!-- method -->
   <hr>
   
   <div class="method">
     <div class="method-path"><pre class="delete"><code class="huge"><span>delete</span>: /sessions/{id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Sessions</span></div>
     <div class="method-summary"><span class="nickname">logout</span> </div>
     <div class="method-notes">Logout of the vestorly platform</div>
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
+      <div class="param">vestorlyAuth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Authenication token </div>
       <div class="param">id (required)</div>
@@ -537,250 +1642,22 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "message" : "aeiou"\n}</code></pre>
+    <pre class="example"><code>{
+  &quot;message&quot; : &quot;aeiou&quot;
+}</code></pre>
     
   </div> <!-- method -->
   <hr>
-  
-  
-  
-  <div class="method">
-    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /newsletters</code></pre></div>
-    <div class="method-summary"><span class="nickname">findNewsletters</span> </div>
-    <div class="method-notes">Returns all events</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Newsletter</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "is_sent" : true,\n  "click_count" : 123456789,\n  "unique_click_count" : 123456789,\n  "_id" : "aeiou",\n  "is_default" : true,\n  "total_click_count" : 123456789\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: /newsletters</code></pre></div>
-    <div class="method-summary"><span class="nickname">createNewsletter</span> </div>
-    <div class="method-notes">Creates a newsletter</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">newsletter (required)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Newsletter </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Newsletterresponse</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "newsletter" : {\n    "square_logo_url" : "aeiou",\n    "newsletter_ids" : [ "aeiou" ],\n    "logo_url" : "aeiou",\n    "is_responsive" : true,\n    "is_published" : true,\n    "created_at" : "aeiou",\n    "external_url_type" : "aeiou",\n    "is_mobile_proxy_needed" : true,\n    "video" : "aeiou",\n    "article_id" : "aeiou",\n    "external_url" : "aeiou",\n    "image_height" : "aeiou",\n    "updated_at" : "aeiou",\n    "is_proxy_needed" : true,\n    "display_summary" : "aeiou",\n    "vestorly_url" : "aeiou",\n    "group_ids" : [ "aeiou" ],\n    "slug" : "aeiou",\n    "summary" : "aeiou",\n    "suitability_score" : "aeiou",\n    "approval_transactions" : "aeiou",\n    "image_url" : "aeiou",\n    "approval_status" : "aeiou",\n    "needs_sanitize" : "aeiou",\n    "image_width" : "aeiou",\n    "advisor_id" : "aeiou",\n    "display_tag" : "aeiou",\n    "display_date" : "aeiou",\n    "pdf_attachment_url" : "aeiou",\n    "image_path" : "aeiou",\n    "post_date" : "aeiou",\n    "topic" : "aeiou",\n    "comment" : "aeiou",\n    "_id" : "aeiou",\n    "proxy_url" : "aeiou",\n    "is_featured" : true,\n    "external_url_source" : "aeiou",\n    "video_id" : "aeiou"\n  }\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /newsletters/{id}</code></pre></div>
-    <div class="method-summary"><span class="nickname">getNewsletterByID</span> </div>
-    <div class="method-notes">Get a newsletter by ID</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of event to get </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Newsletterresponse</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "newsletter" : {\n    "square_logo_url" : "aeiou",\n    "newsletter_ids" : [ "aeiou" ],\n    "logo_url" : "aeiou",\n    "is_responsive" : true,\n    "is_published" : true,\n    "created_at" : "aeiou",\n    "external_url_type" : "aeiou",\n    "is_mobile_proxy_needed" : true,\n    "video" : "aeiou",\n    "article_id" : "aeiou",\n    "external_url" : "aeiou",\n    "image_height" : "aeiou",\n    "updated_at" : "aeiou",\n    "is_proxy_needed" : true,\n    "display_summary" : "aeiou",\n    "vestorly_url" : "aeiou",\n    "group_ids" : [ "aeiou" ],\n    "slug" : "aeiou",\n    "summary" : "aeiou",\n    "suitability_score" : "aeiou",\n    "approval_transactions" : "aeiou",\n    "image_url" : "aeiou",\n    "approval_status" : "aeiou",\n    "needs_sanitize" : "aeiou",\n    "image_width" : "aeiou",\n    "advisor_id" : "aeiou",\n    "display_tag" : "aeiou",\n    "display_date" : "aeiou",\n    "pdf_attachment_url" : "aeiou",\n    "image_path" : "aeiou",\n    "post_date" : "aeiou",\n    "topic" : "aeiou",\n    "comment" : "aeiou",\n    "_id" : "aeiou",\n    "proxy_url" : "aeiou",\n    "is_featured" : true,\n    "external_url_source" : "aeiou",\n    "video_id" : "aeiou"\n  }\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /newsletters/{id}</code></pre></div>
-    <div class="method-summary"><span class="nickname">updateNewsletterByID</span> </div>
-    <div class="method-notes">Updates a newsletter</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of event to update </div>
-      <div class="param">newsletter (required)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Newsletter </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Newsletterresponse</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "newsletter" : {\n    "square_logo_url" : "aeiou",\n    "newsletter_ids" : [ "aeiou" ],\n    "logo_url" : "aeiou",\n    "is_responsive" : true,\n    "is_published" : true,\n    "created_at" : "aeiou",\n    "external_url_type" : "aeiou",\n    "is_mobile_proxy_needed" : true,\n    "video" : "aeiou",\n    "article_id" : "aeiou",\n    "external_url" : "aeiou",\n    "image_height" : "aeiou",\n    "updated_at" : "aeiou",\n    "is_proxy_needed" : true,\n    "display_summary" : "aeiou",\n    "vestorly_url" : "aeiou",\n    "group_ids" : [ "aeiou" ],\n    "slug" : "aeiou",\n    "summary" : "aeiou",\n    "suitability_score" : "aeiou",\n    "approval_transactions" : "aeiou",\n    "image_url" : "aeiou",\n    "approval_status" : "aeiou",\n    "needs_sanitize" : "aeiou",\n    "image_width" : "aeiou",\n    "advisor_id" : "aeiou",\n    "display_tag" : "aeiou",\n    "display_date" : "aeiou",\n    "pdf_attachment_url" : "aeiou",\n    "image_path" : "aeiou",\n    "post_date" : "aeiou",\n    "topic" : "aeiou",\n    "comment" : "aeiou",\n    "_id" : "aeiou",\n    "proxy_url" : "aeiou",\n    "is_featured" : true,\n    "external_url_source" : "aeiou",\n    "video_id" : "aeiou"\n  }\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  
-  
-  <div class="method">
-    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /posts</code></pre></div>
-    <div class="method-summary"><span class="nickname">findPosts</span> </div>
-    <div class="method-notes">Query all posts</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">text_query (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter post by parameters </div>
-      <div class="param">external_url (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter by External URL </div>
-      <div class="param">is_published (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter by is_published boolean </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Posts</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "posts" : [ {\n    "square_logo_url" : "aeiou",\n    "newsletter_ids" : [ "aeiou" ],\n    "logo_url" : "aeiou",\n    "is_responsive" : true,\n    "is_published" : true,\n    "created_at" : "aeiou",\n    "external_url_type" : "aeiou",\n    "is_mobile_proxy_needed" : true,\n    "video" : "aeiou",\n    "article_id" : "aeiou",\n    "external_url" : "aeiou",\n    "image_height" : "aeiou",\n    "updated_at" : "aeiou",\n    "is_proxy_needed" : true,\n    "display_summary" : "aeiou",\n    "vestorly_url" : "aeiou",\n    "group_ids" : [ "aeiou" ],\n    "slug" : "aeiou",\n    "summary" : "aeiou",\n    "suitability_score" : "aeiou",\n    "approval_transactions" : "aeiou",\n    "image_url" : "aeiou",\n    "approval_status" : "aeiou",\n    "needs_sanitize" : "aeiou",\n    "image_width" : "aeiou",\n    "advisor_id" : "aeiou",\n    "display_tag" : "aeiou",\n    "display_date" : "aeiou",\n    "pdf_attachment_url" : "aeiou",\n    "image_path" : "aeiou",\n    "post_date" : "aeiou",\n    "topic" : "aeiou",\n    "comment" : "aeiou",\n    "_id" : "aeiou",\n    "proxy_url" : "aeiou",\n    "is_featured" : true,\n    "external_url_source" : "aeiou",\n    "video_id" : "aeiou"\n  } ]\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: /posts</code></pre></div>
-    <div class="method-summary"><span class="nickname">createPost</span> </div>
-    <div class="method-notes">Create a new post in the Vestorly Platform</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">post (required)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Post you want to create </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Post</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "square_logo_url" : "aeiou",\n  "newsletter_ids" : [ "aeiou" ],\n  "logo_url" : "aeiou",\n  "is_responsive" : true,\n  "is_published" : true,\n  "created_at" : "aeiou",\n  "external_url_type" : "aeiou",\n  "is_mobile_proxy_needed" : true,\n  "video" : "aeiou",\n  "article_id" : "aeiou",\n  "external_url" : "aeiou",\n  "image_height" : "aeiou",\n  "updated_at" : "aeiou",\n  "is_proxy_needed" : true,\n  "display_summary" : "aeiou",\n  "vestorly_url" : "aeiou",\n  "group_ids" : [ "aeiou" ],\n  "slug" : "aeiou",\n  "summary" : "aeiou",\n  "suitability_score" : "aeiou",\n  "approval_transactions" : "aeiou",\n  "image_url" : "aeiou",\n  "approval_status" : "aeiou",\n  "needs_sanitize" : "aeiou",\n  "image_width" : "aeiou",\n  "advisor_id" : "aeiou",\n  "display_tag" : "aeiou",\n  "display_date" : "aeiou",\n  "pdf_attachment_url" : "aeiou",\n  "image_path" : "aeiou",\n  "post_date" : "aeiou",\n  "topic" : "aeiou",\n  "comment" : "aeiou",\n  "_id" : "aeiou",\n  "proxy_url" : "aeiou",\n  "is_featured" : true,\n  "external_url_source" : "aeiou",\n  "video_id" : "aeiou"\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /posts/{id}</code></pre></div>
-    <div class="method-summary"><span class="nickname">getPostByID</span> </div>
-    <div class="method-notes">Query all posts</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of post to fetch </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Postresponse</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "post" : {\n    "square_logo_url" : "aeiou",\n    "newsletter_ids" : [ "aeiou" ],\n    "logo_url" : "aeiou",\n    "is_responsive" : true,\n    "is_published" : true,\n    "created_at" : "aeiou",\n    "external_url_type" : "aeiou",\n    "is_mobile_proxy_needed" : true,\n    "video" : "aeiou",\n    "article_id" : "aeiou",\n    "external_url" : "aeiou",\n    "image_height" : "aeiou",\n    "updated_at" : "aeiou",\n    "is_proxy_needed" : true,\n    "display_summary" : "aeiou",\n    "vestorly_url" : "aeiou",\n    "group_ids" : [ "aeiou" ],\n    "slug" : "aeiou",\n    "summary" : "aeiou",\n    "suitability_score" : "aeiou",\n    "approval_transactions" : "aeiou",\n    "image_url" : "aeiou",\n    "approval_status" : "aeiou",\n    "needs_sanitize" : "aeiou",\n    "image_width" : "aeiou",\n    "advisor_id" : "aeiou",\n    "display_tag" : "aeiou",\n    "display_date" : "aeiou",\n    "pdf_attachment_url" : "aeiou",\n    "image_path" : "aeiou",\n    "post_date" : "aeiou",\n    "topic" : "aeiou",\n    "comment" : "aeiou",\n    "_id" : "aeiou",\n    "proxy_url" : "aeiou",\n    "is_featured" : true,\n    "external_url_source" : "aeiou",\n    "video_id" : "aeiou"\n  }\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /posts/{id}</code></pre></div>
-    <div class="method-summary"><span class="nickname">updatePostByID</span> </div>
-    <div class="method-notes">Update A Post</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id of post to update </div>
-      <div class="param">post (required)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Post you want to update </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Postresponse</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "post" : {\n    "square_logo_url" : "aeiou",\n    "newsletter_ids" : [ "aeiou" ],\n    "logo_url" : "aeiou",\n    "is_responsive" : true,\n    "is_published" : true,\n    "created_at" : "aeiou",\n    "external_url_type" : "aeiou",\n    "is_mobile_proxy_needed" : true,\n    "video" : "aeiou",\n    "article_id" : "aeiou",\n    "external_url" : "aeiou",\n    "image_height" : "aeiou",\n    "updated_at" : "aeiou",\n    "is_proxy_needed" : true,\n    "display_summary" : "aeiou",\n    "vestorly_url" : "aeiou",\n    "group_ids" : [ "aeiou" ],\n    "slug" : "aeiou",\n    "summary" : "aeiou",\n    "suitability_score" : "aeiou",\n    "approval_transactions" : "aeiou",\n    "image_url" : "aeiou",\n    "approval_status" : "aeiou",\n    "needs_sanitize" : "aeiou",\n    "image_width" : "aeiou",\n    "advisor_id" : "aeiou",\n    "display_tag" : "aeiou",\n    "display_date" : "aeiou",\n    "pdf_attachment_url" : "aeiou",\n    "image_path" : "aeiou",\n    "post_date" : "aeiou",\n    "topic" : "aeiou",\n    "comment" : "aeiou",\n    "_id" : "aeiou",\n    "proxy_url" : "aeiou",\n    "is_featured" : true,\n    "external_url_source" : "aeiou",\n    "video_id" : "aeiou"\n  }\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  
   
   <div class="method">
     <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /sources</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Sources</span></div>
     <div class="method-summary"><span class="nickname">findSources</span> </div>
     <div class="method-notes">Returns all sources</div>
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
+      <div class="param">vestorlyAuth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       
@@ -792,19 +1669,30 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "sources" : [ {\n    "logo_url" : "aeiou",\n    "rss_publisher" : "aeiou",\n    "name" : "aeiou",\n    "custom_rss_feed" : true,\n    "_id" : "aeiou",\n    "url" : "aeiou",\n    "enabled" : true\n  } ]\n}</code></pre>
+    <pre class="example"><code>{
+  &quot;sources&quot; : [ {
+    &quot;enabled&quot; : true,
+    &quot;rss_publisher&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;custom_rss_feed&quot; : true,
+    &quot;name&quot; : &quot;aeiou&quot;,
+    &quot;logo_url&quot; : &quot;aeiou&quot;,
+    &quot;url&quot; : &quot;aeiou&quot;
+  } ]
+}</code></pre>
     
   </div> <!-- method -->
   <hr>
   
   <div class="method">
     <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: /sources</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Sources</span></div>
     <div class="method-summary"><span class="nickname">createSource</span> </div>
     <div class="method-notes">Create source</div>
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
+      <div class="param">vestorlyAuth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">source (required)</div>
@@ -819,19 +1707,30 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "source" : {\n    "logo_url" : "aeiou",\n    "rss_publisher" : "aeiou",\n    "name" : "aeiou",\n    "custom_rss_feed" : true,\n    "_id" : "aeiou",\n    "url" : "aeiou",\n    "enabled" : true\n  }\n}</code></pre>
+    <pre class="example"><code>{
+  &quot;source&quot; : {
+    &quot;enabled&quot; : true,
+    &quot;rss_publisher&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;custom_rss_feed&quot; : true,
+    &quot;name&quot; : &quot;aeiou&quot;,
+    &quot;logo_url&quot; : &quot;aeiou&quot;,
+    &quot;url&quot; : &quot;aeiou&quot;
+  }
+}</code></pre>
     
   </div> <!-- method -->
   <hr>
   
   <div class="method">
     <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /sources/{id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Sources</span></div>
     <div class="method-summary"><span class="nickname">getSourceByID</span> </div>
     <div class="method-notes">Get Source By ID</div>
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
+      <div class="param">vestorlyAuth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">id (required)</div>
@@ -846,19 +1745,30 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "source" : {\n    "logo_url" : "aeiou",\n    "rss_publisher" : "aeiou",\n    "name" : "aeiou",\n    "custom_rss_feed" : true,\n    "_id" : "aeiou",\n    "url" : "aeiou",\n    "enabled" : true\n  }\n}</code></pre>
+    <pre class="example"><code>{
+  &quot;source&quot; : {
+    &quot;enabled&quot; : true,
+    &quot;rss_publisher&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;custom_rss_feed&quot; : true,
+    &quot;name&quot; : &quot;aeiou&quot;,
+    &quot;logo_url&quot; : &quot;aeiou&quot;,
+    &quot;url&quot; : &quot;aeiou&quot;
+  }
+}</code></pre>
     
   </div> <!-- method -->
   <hr>
   
   <div class="method">
     <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /sources/{id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Sources</span></div>
     <div class="method-summary"><span class="nickname">updateSourceByID</span> </div>
     <div class="method-notes">Update Source By ID</div>
 
     <h3 class="field-label">Parameters</h3>
     <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
+      <div class="param">vestorlyAuth (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
       <div class="param">id (required)</div>
@@ -876,117 +1786,17 @@
     
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "source" : {\n    "logo_url" : "aeiou",\n    "rss_publisher" : "aeiou",\n    "name" : "aeiou",\n    "custom_rss_feed" : true,\n    "_id" : "aeiou",\n    "url" : "aeiou",\n    "enabled" : true\n  }\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  
-  
-  <div class="method">
-    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /members</code></pre></div>
-    <div class="method-summary"><span class="nickname">findMembers</span> </div>
-    <div class="method-notes">Returns all members</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Members</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "meta" : {\n    "more_results" : true,\n    "message" : "aeiou",\n    "sort_order" : "aeiou",\n    "sorted_by" : [ "aeiou" ]\n  },\n  "members" : [ {\n    "education" : "aeiou",\n    "occupation" : "aeiou",\n    "gender" : "aeiou",\n    "picture_url" : "aeiou",\n    "city" : "aeiou",\n    "profile_url" : "aeiou",\n    "register_ip_addr" : "aeiou",\n    "is_hidden" : true,\n    "estimated_zip" : "aeiou",\n    "genuine_email" : true,\n    "assets" : "aeiou",\n    "user_type" : true,\n    "invited_on" : "aeiou",\n    "portfolio_size" : 123,\n    "home_market_value" : "aeiou",\n    "subscribed_group_ids" : [ "aeiou" ],\n    "state" : "aeiou",\n    "first_name" : "aeiou",\n    "email" : "aeiou",\n    "zip" : "aeiou",\n    "hometown" : "aeiou",\n    "address" : "aeiou",\n    "interest_consultation" : "aeiou",\n    "data_estimated" : true,\n    "interest_in_new_advisor" : "aeiou",\n    "high_net_worth" : true,\n    "last_name" : "aeiou",\n    "household_income" : 123,\n    "home_owner_status" : "aeiou",\n    "signed_up_with" : true,\n    "invited_by" : "aeiou",\n    "message" : "aeiou",\n    "tags" : [ "aeiou" ],\n    "marital_status" : "aeiou",\n    "unsubscribed" : true,\n    "phone" : "aeiou",\n    "last_active_date" : "aeiou",\n    "location" : "aeiou",\n    "_id" : "aeiou",\n    "unsubscribed_date" : true,\n    "is_client" : true,\n    "family" : "aeiou",\n    "age" : 123,\n    "estimated_location" : "aeiou"\n  } ],\n  "more_results" : true\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="post"><code class="huge"><span>post</span>: /members</code></pre></div>
-    <div class="method-summary"><span class="nickname">createMember</span> </div>
-    <div class="method-notes">Create a new member in the Vestorly Platform</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">member (required)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Member you want to create </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Memberresponse</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "member" : {\n    "education" : "aeiou",\n    "occupation" : "aeiou",\n    "gender" : "aeiou",\n    "picture_url" : "aeiou",\n    "city" : "aeiou",\n    "profile_url" : "aeiou",\n    "register_ip_addr" : "aeiou",\n    "is_hidden" : true,\n    "estimated_zip" : "aeiou",\n    "genuine_email" : true,\n    "assets" : "aeiou",\n    "user_type" : true,\n    "invited_on" : "aeiou",\n    "portfolio_size" : 123,\n    "home_market_value" : "aeiou",\n    "subscribed_group_ids" : [ "aeiou" ],\n    "state" : "aeiou",\n    "first_name" : "aeiou",\n    "email" : "aeiou",\n    "zip" : "aeiou",\n    "hometown" : "aeiou",\n    "address" : "aeiou",\n    "interest_consultation" : "aeiou",\n    "data_estimated" : true,\n    "interest_in_new_advisor" : "aeiou",\n    "high_net_worth" : true,\n    "last_name" : "aeiou",\n    "household_income" : 123,\n    "home_owner_status" : "aeiou",\n    "signed_up_with" : true,\n    "invited_by" : "aeiou",\n    "message" : "aeiou",\n    "tags" : [ "aeiou" ],\n    "marital_status" : "aeiou",\n    "unsubscribed" : true,\n    "phone" : "aeiou",\n    "last_active_date" : "aeiou",\n    "location" : "aeiou",\n    "_id" : "aeiou",\n    "unsubscribed_date" : true,\n    "is_client" : true,\n    "family" : "aeiou",\n    "age" : 123,\n    "estimated_location" : "aeiou"\n  }\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /members/{id}</code></pre></div>
-    <div class="method-summary"><span class="nickname">findMemberByID</span> </div>
-    <div class="method-notes">Returns a single member</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of member to fetch </div>
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Memberresponse</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "member" : {\n    "education" : "aeiou",\n    "occupation" : "aeiou",\n    "gender" : "aeiou",\n    "picture_url" : "aeiou",\n    "city" : "aeiou",\n    "profile_url" : "aeiou",\n    "register_ip_addr" : "aeiou",\n    "is_hidden" : true,\n    "estimated_zip" : "aeiou",\n    "genuine_email" : true,\n    "assets" : "aeiou",\n    "user_type" : true,\n    "invited_on" : "aeiou",\n    "portfolio_size" : 123,\n    "home_market_value" : "aeiou",\n    "subscribed_group_ids" : [ "aeiou" ],\n    "state" : "aeiou",\n    "first_name" : "aeiou",\n    "email" : "aeiou",\n    "zip" : "aeiou",\n    "hometown" : "aeiou",\n    "address" : "aeiou",\n    "interest_consultation" : "aeiou",\n    "data_estimated" : true,\n    "interest_in_new_advisor" : "aeiou",\n    "high_net_worth" : true,\n    "last_name" : "aeiou",\n    "household_income" : 123,\n    "home_owner_status" : "aeiou",\n    "signed_up_with" : true,\n    "invited_by" : "aeiou",\n    "message" : "aeiou",\n    "tags" : [ "aeiou" ],\n    "marital_status" : "aeiou",\n    "unsubscribed" : true,\n    "phone" : "aeiou",\n    "last_active_date" : "aeiou",\n    "location" : "aeiou",\n    "_id" : "aeiou",\n    "unsubscribed_date" : true,\n    "is_client" : true,\n    "family" : "aeiou",\n    "age" : 123,\n    "estimated_location" : "aeiou"\n  }\n}</code></pre>
-    
-  </div> <!-- method -->
-  <hr>
-  
-  <div class="method">
-    <div class="method-path"><pre class="put"><code class="huge"><span>put</span>: /members/{id}</code></pre></div>
-    <div class="method-summary"><span class="nickname">findMemberByID_1</span> </div>
-    <div class="method-notes">Returns a single member</div>
-
-    <h3 class="field-label">Parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Mongo ID of member to fetch </div>
-      <div class="param">vestorly-auth (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Vestorly Auth Token </div>
-      <div class="param">member (required)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Member you want to update </div>
-      
-    </div>  <!-- field-items -->
-    <h3 class="field-label">Return type</h3>
-
-    <div class="return-type"><a href="#">Memberresponse</a></div>
-
-    
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{\n  "member" : {\n    "education" : "aeiou",\n    "occupation" : "aeiou",\n    "gender" : "aeiou",\n    "picture_url" : "aeiou",\n    "city" : "aeiou",\n    "profile_url" : "aeiou",\n    "register_ip_addr" : "aeiou",\n    "is_hidden" : true,\n    "estimated_zip" : "aeiou",\n    "genuine_email" : true,\n    "assets" : "aeiou",\n    "user_type" : true,\n    "invited_on" : "aeiou",\n    "portfolio_size" : 123,\n    "home_market_value" : "aeiou",\n    "subscribed_group_ids" : [ "aeiou" ],\n    "state" : "aeiou",\n    "first_name" : "aeiou",\n    "email" : "aeiou",\n    "zip" : "aeiou",\n    "hometown" : "aeiou",\n    "address" : "aeiou",\n    "interest_consultation" : "aeiou",\n    "data_estimated" : true,\n    "interest_in_new_advisor" : "aeiou",\n    "high_net_worth" : true,\n    "last_name" : "aeiou",\n    "household_income" : 123,\n    "home_owner_status" : "aeiou",\n    "signed_up_with" : true,\n    "invited_by" : "aeiou",\n    "message" : "aeiou",\n    "tags" : [ "aeiou" ],\n    "marital_status" : "aeiou",\n    "unsubscribed" : true,\n    "phone" : "aeiou",\n    "last_active_date" : "aeiou",\n    "location" : "aeiou",\n    "_id" : "aeiou",\n    "unsubscribed_date" : true,\n    "is_client" : true,\n    "family" : "aeiou",\n    "age" : 123,\n    "estimated_location" : "aeiou"\n  }\n}</code></pre>
+    <pre class="example"><code>{
+  &quot;source&quot; : {
+    &quot;enabled&quot; : true,
+    &quot;rss_publisher&quot; : &quot;aeiou&quot;,
+    &quot;_id&quot; : &quot;aeiou&quot;,
+    &quot;custom_rss_feed&quot; : true,
+    &quot;name&quot; : &quot;aeiou&quot;,
+    &quot;logo_url&quot; : &quot;aeiou&quot;,
+    &quot;url&quot; : &quot;aeiou&quot;
+  }
+}</code></pre>
     
   </div> <!-- method -->
   <hr>
@@ -1009,6 +1819,40 @@
   <div class="model">
     <h3 class="field-label"><a name="Advisor">Advisor</a></h3>
     <div class="field-items">
+      <div class="param">company </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">address </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">city </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">state </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">zip </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">first_name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">last_name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">reg_number </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">account_type </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">advisor_employees </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">other_services_types </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">other_compensation </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">performance_audited </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">about </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">twitter_handle </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">profile_picture </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">logo </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">linkedin </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">website </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">adv_brochure </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">plan </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">consultation_reminder </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">referral_reminder </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">weekly_email_blast </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">disclosure </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">external_options </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">email_report_blast </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">email_blast </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">twitter_blast </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">linkedin_blast </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">facebook_blast </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">compliance_bcc_email_address </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">dashboard_url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">api_key </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">id </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">tag </div><div class="param-desc"><span class="param-type">String</span> </div>
@@ -1077,7 +1921,7 @@
       <div class="param">summary </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">topic </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">approval_status </div><div class="param-desc"><span class="param-type">String</span> </div>
-      <div class="param">approval_transactions </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">approval_transactions </div><div class="param-desc"><span class="param-type">array[String]</span> </div>
       <div class="param">group_ids </div><div class="param-desc"><span class="param-type">array[String]</span> </div>
       <div class="param">slug </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">article_id </div><div class="param-desc"><span class="param-type">String</span> </div>
@@ -1099,6 +1943,7 @@
       <div class="param">display_tag </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">display_summary </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">vestorly_url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">title </div><div class="param-desc"><span class="param-type">String</span> </div>
       
     </div>  <!-- field-items -->
   </div>
@@ -1123,7 +1968,7 @@
       <div class="param">summary </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">topic </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">approval_status </div><div class="param-desc"><span class="param-type">String</span> </div>
-      <div class="param">approval_transactions </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">approval_transactions </div><div class="param-desc"><span class="param-type">array[String]</span> </div>
       <div class="param">group_ids </div><div class="param-desc"><span class="param-type">array[String]</span> </div>
       <div class="param">slug </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">article_id </div><div class="param-desc"><span class="param-type">String</span> </div>
@@ -1145,6 +1990,7 @@
       <div class="param">display_tag </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">display_summary </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">vestorly_url </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">title </div><div class="param-desc"><span class="param-type">String</span> </div>
       
     </div>  <!-- field-items -->
   </div>
@@ -1395,7 +2241,7 @@
   <div class="model">
     <h3 class="field-label"><a name="Newsletterresponse">Newsletterresponse</a></h3>
     <div class="field-items">
-      <div class="param">newsletter </div><div class="param-desc"><span class="param-type">Post</span> </div>
+      <div class="param">newsletter </div><div class="param-desc"><span class="param-type">Newsletter</span> </div>
       
     </div>  <!-- field-items -->
   </div>
@@ -1434,7 +2280,7 @@
   <div class="model">
     <h3 class="field-label"><a name="Newsletters">Newsletters</a></h3>
     <div class="field-items">
-      <div class="param">newletters </div><div class="param-desc"><span class="param-type">array[Newsletter]</span> </div>
+      <div class="param">newsletters </div><div class="param-desc"><span class="param-type">array[Newsletter]</span> </div>
       
     </div>  <!-- field-items -->
   </div>
@@ -1454,10 +2300,7 @@
   <div class="model">
     <h3 class="field-label"><a name="Meta">Meta</a></h3>
     <div class="field-items">
-      <div class="param">sort_order </div><div class="param-desc"><span class="param-type">String</span> </div>
-      <div class="param">more_results </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       <div class="param">message </div><div class="param-desc"><span class="param-type">String</span> </div>
-      <div class="param">sorted_by </div><div class="param-desc"><span class="param-type">array[String]</span> </div>
       
     </div>  <!-- field-items -->
   </div>
@@ -1492,13 +2335,13 @@
       <div class="param">interest_consultation </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">interest_in_new_advisor </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">assets </div><div class="param-desc"><span class="param-type">String</span> </div>
-      <div class="param">age </div><div class="param-desc"><span class="param-type">Integer</span> </div>
+      <div class="param">age </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">data_estimated </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       <div class="param">education </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">high_net_worth </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       <div class="param">home_market_value </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">home_owner_status </div><div class="param-desc"><span class="param-type">String</span> </div>
-      <div class="param">household_income </div><div class="param-desc"><span class="param-type">Integer</span> </div>
+      <div class="param">household_income </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">marital_status </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">occupation </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">hometown </div><div class="param-desc"><span class="param-type">String</span> </div>
@@ -1507,8 +2350,8 @@
       <div class="param">subscribed_group_ids </div><div class="param-desc"><span class="param-type">array[String]</span> </div>
       <div class="param">unsubscribed </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       <div class="param">unsubscribed_date </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
-      <div class="param">user_type </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
-      <div class="param">signed_up_with </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      <div class="param">user_type </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">signed_up_with </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">message </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">location </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">picture_url </div><div class="param-desc"><span class="param-type">String</span> </div>
@@ -1522,7 +2365,7 @@
       <div class="param">is_hidden </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
       <div class="param">invited_on </div><div class="param-desc"><span class="param-type">String</span> </div>
       <div class="param">invited_by </div><div class="param-desc"><span class="param-type">String</span> </div>
-      <div class="param">portfolio_size </div><div class="param-desc"><span class="param-type">Integer</span> </div>
+      <div class="param">portfolio_size </div><div class="param-desc"><span class="param-type">String</span> </div>
       
     </div>  <!-- field-items -->
   </div>
@@ -1549,6 +2392,16 @@
     <h3 class="field-label"><a name="Eventresponse">Eventresponse</a></h3>
     <div class="field-items">
       <div class="param">event </div><div class="param-desc"><span class="param-type">Event</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Eventcreateresponse">Eventcreateresponse</a></h3>
+    <div class="field-items">
+      <div class="param">meta </div><div class="param-desc"><span class="param-type">Meta</span> </div>
       
     </div>  <!-- field-items -->
   </div>
@@ -1653,6 +2506,16 @@
   
   
   <div class="model">
+    <h3 class="field-label"><a name="Groupresponse">Groupresponse</a></h3>
+    <div class="field-items">
+      <div class="param">group </div><div class="param-desc"><span class="param-type">Group</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
     <h3 class="field-label"><a name="Newslettersettingresponse">Newslettersettingresponse</a></h3>
     <div class="field-items">
       <div class="param">newsletter_setting </div><div class="param-desc"><span class="param-type">NewsletterSetting</span> </div>
@@ -1663,9 +2526,9 @@
   
   
   <div class="model">
-    <h3 class="field-label"><a name="Newslettersettings">Newslettersettings</a></h3>
+    <h3 class="field-label"><a name="NewsletterSettings">NewsletterSettings</a></h3>
     <div class="field-items">
-      <div class="param">newletter_settings </div><div class="param-desc"><span class="param-type">array[NewsletterSetting]</span> </div>
+      <div class="param">newsletter_settings </div><div class="param-desc"><span class="param-type">array[NewsletterSetting]</span> </div>
       
     </div>  <!-- field-items -->
   </div>
@@ -1675,9 +2538,7 @@
   <div class="model">
     <h3 class="field-label"><a name="NewsletterSettingsInput">NewsletterSettingsInput</a></h3>
     <div class="field-items">
-      <div class="param">email_status </div><div class="param-desc"><span class="param-type">String</span> </div>
-      <div class="param">twitter_status </div><div class="param-desc"><span class="param-type">String</span> </div>
-      <div class="param">linkedin_status </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">newsletter_setting </div><div class="param-desc"><span class="param-type">NewsletterSetting</span> </div>
       
     </div>  <!-- field-items -->
   </div>
@@ -1841,6 +2702,7 @@ hr	{
 
 pre {
   padding: 10px;
+  margin-bottom: 2px;
 }
 
 pre.get {
@@ -1922,6 +2784,19 @@ code {
   font-weight: bold;
 }
 
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
   </style>
   </body>
 </html>

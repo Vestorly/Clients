@@ -9,6 +9,6 @@
 @interface SWGPostrequest : SWGObject
 
 
-@property(nonatomic) SWGPostInput<Optional, SWGPostInput>* post;
+@property(nonatomic) SWGPostInput* post;
 
 @end

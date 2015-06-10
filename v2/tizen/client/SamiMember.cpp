@@ -451,8 +451,8 @@ SamiMember::fromJsonObject(IJsonValue* pJson) {
         pJsonObject->GetValue(pAgeKey, pAgeVal);
         if(pAgeVal != null) {
             
-            pAge = new Integer();
-            jsonToValue(pAge, pAgeVal, L"Integer", L"Integer");
+            pAge = new String();
+            jsonToValue(pAge, pAgeVal, L"String", L"String");
         }
         delete pAgeKey;
         JsonString* pData_estimatedKey = new JsonString(L"data_estimated");
@@ -505,8 +505,8 @@ SamiMember::fromJsonObject(IJsonValue* pJson) {
         pJsonObject->GetValue(pHousehold_incomeKey, pHousehold_incomeVal);
         if(pHousehold_incomeVal != null) {
             
-            pHousehold_income = new Integer();
-            jsonToValue(pHousehold_income, pHousehold_incomeVal, L"Integer", L"Integer");
+            pHousehold_income = new String();
+            jsonToValue(pHousehold_income, pHousehold_incomeVal, L"String", L"String");
         }
         delete pHousehold_incomeKey;
         JsonString* pMarital_statusKey = new JsonString(L"marital_status");
@@ -586,8 +586,8 @@ SamiMember::fromJsonObject(IJsonValue* pJson) {
         pJsonObject->GetValue(pUser_typeKey, pUser_typeVal);
         if(pUser_typeVal != null) {
             
-            pUser_type = new Boolean(false);
-            jsonToValue(pUser_type, pUser_typeVal, L"Boolean", L"Boolean");
+            pUser_type = new String();
+            jsonToValue(pUser_type, pUser_typeVal, L"String", L"String");
         }
         delete pUser_typeKey;
         JsonString* pSigned_up_withKey = new JsonString(L"signed_up_with");
@@ -595,8 +595,8 @@ SamiMember::fromJsonObject(IJsonValue* pJson) {
         pJsonObject->GetValue(pSigned_up_withKey, pSigned_up_withVal);
         if(pSigned_up_withVal != null) {
             
-            pSigned_up_with = new Boolean(false);
-            jsonToValue(pSigned_up_with, pSigned_up_withVal, L"Boolean", L"Boolean");
+            pSigned_up_with = new String();
+            jsonToValue(pSigned_up_with, pSigned_up_withVal, L"String", L"String");
         }
         delete pSigned_up_withKey;
         JsonString* pMessageKey = new JsonString(L"message");
@@ -721,8 +721,8 @@ SamiMember::fromJsonObject(IJsonValue* pJson) {
         pJsonObject->GetValue(pPortfolio_sizeKey, pPortfolio_sizeVal);
         if(pPortfolio_sizeVal != null) {
             
-            pPortfolio_size = new Integer();
-            jsonToValue(pPortfolio_size, pPortfolio_sizeVal, L"Integer", L"Integer");
+            pPortfolio_size = new String();
+            jsonToValue(pPortfolio_size, pPortfolio_sizeVal, L"String", L"String");
         }
         delete pPortfolio_sizeKey;
         
@@ -830,7 +830,7 @@ SamiMember::asJsonObject() {
 
     
     JsonString *pAgeKey = new JsonString(L"age");
-    pJsonObject->Add(pAgeKey, toJson(getPAge(), "Integer", ""));
+    pJsonObject->Add(pAgeKey, toJson(getPAge(), "String", ""));
 
     
     JsonString *pData_estimatedKey = new JsonString(L"data_estimated");
@@ -854,7 +854,7 @@ SamiMember::asJsonObject() {
 
     
     JsonString *pHousehold_incomeKey = new JsonString(L"household_income");
-    pJsonObject->Add(pHousehold_incomeKey, toJson(getPHouseholdIncome(), "Integer", ""));
+    pJsonObject->Add(pHousehold_incomeKey, toJson(getPHouseholdIncome(), "String", ""));
 
     
     JsonString *pMarital_statusKey = new JsonString(L"marital_status");
@@ -890,11 +890,11 @@ SamiMember::asJsonObject() {
 
     
     JsonString *pUser_typeKey = new JsonString(L"user_type");
-    pJsonObject->Add(pUser_typeKey, toJson(getPUserType(), "Boolean", ""));
+    pJsonObject->Add(pUser_typeKey, toJson(getPUserType(), "String", ""));
 
     
     JsonString *pSigned_up_withKey = new JsonString(L"signed_up_with");
-    pJsonObject->Add(pSigned_up_withKey, toJson(getPSignedUpWith(), "Boolean", ""));
+    pJsonObject->Add(pSigned_up_withKey, toJson(getPSignedUpWith(), "String", ""));
 
     
     JsonString *pMessageKey = new JsonString(L"message");
@@ -950,7 +950,7 @@ SamiMember::asJsonObject() {
 
     
     JsonString *pPortfolio_sizeKey = new JsonString(L"portfolio_size");
-    pJsonObject->Add(pPortfolio_sizeKey, toJson(getPPortfolioSize(), "Integer", ""));
+    pJsonObject->Add(pPortfolio_sizeKey, toJson(getPPortfolioSize(), "String", ""));
 
     
     return pJsonObject;
@@ -1073,12 +1073,12 @@ SamiMember::setPAssets(String* pAssets) {
     this->pAssets = pAssets;
 }
 
-Integer*
+String*
 SamiMember::getPAge() {
     return pAge;
 }
 void
-SamiMember::setPAge(Integer* pAge) {
+SamiMember::setPAge(String* pAge) {
     this->pAge = pAge;
 }
 
@@ -1127,12 +1127,12 @@ SamiMember::setPHomeOwnerStatus(String* pHome_owner_status) {
     this->pHome_owner_status = pHome_owner_status;
 }
 
-Integer*
+String*
 SamiMember::getPHouseholdIncome() {
     return pHousehold_income;
 }
 void
-SamiMember::setPHouseholdIncome(Integer* pHousehold_income) {
+SamiMember::setPHouseholdIncome(String* pHousehold_income) {
     this->pHousehold_income = pHousehold_income;
 }
 
@@ -1208,21 +1208,21 @@ SamiMember::setPUnsubscribedDate(Boolean* pUnsubscribed_date) {
     this->pUnsubscribed_date = pUnsubscribed_date;
 }
 
-Boolean*
+String*
 SamiMember::getPUserType() {
     return pUser_type;
 }
 void
-SamiMember::setPUserType(Boolean* pUser_type) {
+SamiMember::setPUserType(String* pUser_type) {
     this->pUser_type = pUser_type;
 }
 
-Boolean*
+String*
 SamiMember::getPSignedUpWith() {
     return pSigned_up_with;
 }
 void
-SamiMember::setPSignedUpWith(Boolean* pSigned_up_with) {
+SamiMember::setPSignedUpWith(String* pSigned_up_with) {
     this->pSigned_up_with = pSigned_up_with;
 }
 
@@ -1343,12 +1343,12 @@ SamiMember::setPInvitedBy(String* pInvited_by) {
     this->pInvited_by = pInvited_by;
 }
 
-Integer*
+String*
 SamiMember::getPPortfolioSize() {
     return pPortfolio_size;
 }
 void
-SamiMember::setPPortfolioSize(Integer* pPortfolio_size) {
+SamiMember::setPPortfolioSize(String* pPortfolio_size) {
     this->pPortfolio_size = pPortfolio_size;
 }
 

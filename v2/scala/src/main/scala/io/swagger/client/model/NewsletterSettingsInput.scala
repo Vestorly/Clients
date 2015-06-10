@@ -1,10 +1,9 @@
 package io.swagger.client.model
 
+import io.swagger.client.model.NewsletterSetting
 
 
 
 case class NewsletterSettingsInput (
-  email_status: String,
-  twitter_status: String,
-  linkedin_status: String)
+  newsletter_setting: NewsletterSetting)
   

@@ -32,7 +32,7 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
   val findArticlesOperation = (apiOperation[Articles]("findArticles")
       summary ""
       parameters(
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorlyAuth").description("")
         
         
         
@@ -46,21 +46,21 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         ,
-        queryParam[String]("text_query").description("").optional
+        queryParam[String]("textQuery").description("").optional
         
         
         
         
         
         ,
-        queryParam[String]("sort_direction").description("").optional
+        queryParam[String]("sortDirection").description("").optional
         
         
         
         
         
         ,
-        queryParam[String]("sort_by").description("").optional
+        queryParam[String]("sortBy").description("").optional
         
         
         
@@ -78,7 +78,7 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorlyAuth = params.getAs[String]("vestorlyAuth")
       
     
 
@@ -88,7 +88,7 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorlyAuth: " + vestorlyAuth)
   
     
     
@@ -114,7 +114,7 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val text_query = params.getAs[String]("text_query")
+      val textQuery = params.getAs[String]("textQuery")
       
     
 
@@ -124,7 +124,7 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("text_query: " + text_query)
+    println("textQuery: " + textQuery)
   
     
     
@@ -132,7 +132,7 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val sort_direction = params.getAs[String]("sort_direction")
+      val sortDirection = params.getAs[String]("sortDirection")
       
     
 
@@ -142,7 +142,7 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("sort_direction: " + sort_direction)
+    println("sortDirection: " + sortDirection)
   
     
     
@@ -150,7 +150,7 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val sort_by = params.getAs[String]("sort_by")
+      val sortBy = params.getAs[String]("sortBy")
       
     
 
@@ -160,7 +160,7 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("sort_by: " + sort_by)
+    println("sortBy: " + sortBy)
   
   }
 
@@ -169,7 +169,7 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
   val findArticleByIDOperation = (apiOperation[Articleresponse]("findArticleByID")
       summary ""
       parameters(
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorlyAuth").description("")
         
         
         
@@ -194,7 +194,7 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorlyAuth = params.getAs[String]("vestorlyAuth")
       
     
 
@@ -204,7 +204,7 @@ class ArticlesApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorlyAuth: " + vestorlyAuth)
   
     
     

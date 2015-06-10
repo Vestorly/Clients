@@ -9,6 +9,6 @@
 @interface SWGMemberReports : SWGObject
 
 
-@property(nonatomic) NSArray<Optional, SWGMemberReport>* member_reports;
+@property(nonatomic) NSArray<SWGMemberReport>* memberReports;
 
 @end

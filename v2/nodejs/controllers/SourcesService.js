@@ -1,18 +1,18 @@
 'use strict';
 
-exports.findSources = function(vestorly-auth) {
+exports.findSources = function(vestorlyAuth) {
 
   var examples = {};
   
   examples['application/json'] = {
   "sources" : [ {
-    "logo_url" : "aeiou",
+    "enabled" : true,
     "rss_publisher" : "aeiou",
-    "name" : "aeiou",
-    "custom_rss_feed" : true,
     "_id" : "aeiou",
-    "url" : "aeiou",
-    "enabled" : true
+    "custom_rss_feed" : true,
+    "name" : "aeiou",
+    "logo_url" : "aeiou",
+    "url" : "aeiou"
   } ]
 };
   
@@ -22,19 +22,19 @@ exports.findSources = function(vestorly-auth) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.createSource = function(vestorly-auth, source) {
+exports.createSource = function(vestorlyAuth, source) {
 
   var examples = {};
   
   examples['application/json'] = {
   "source" : {
-    "logo_url" : "aeiou",
+    "enabled" : true,
     "rss_publisher" : "aeiou",
-    "name" : "aeiou",
-    "custom_rss_feed" : true,
     "_id" : "aeiou",
-    "url" : "aeiou",
-    "enabled" : true
+    "custom_rss_feed" : true,
+    "name" : "aeiou",
+    "logo_url" : "aeiou",
+    "url" : "aeiou"
   }
 };
   
@@ -44,19 +44,19 @@ exports.createSource = function(vestorly-auth, source) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.getSourceByID = function(vestorly-auth, id) {
+exports.getSourceByID = function(vestorlyAuth, id) {
 
   var examples = {};
   
   examples['application/json'] = {
   "source" : {
-    "logo_url" : "aeiou",
+    "enabled" : true,
     "rss_publisher" : "aeiou",
-    "name" : "aeiou",
-    "custom_rss_feed" : true,
     "_id" : "aeiou",
-    "url" : "aeiou",
-    "enabled" : true
+    "custom_rss_feed" : true,
+    "name" : "aeiou",
+    "logo_url" : "aeiou",
+    "url" : "aeiou"
   }
 };
   
@@ -66,19 +66,19 @@ exports.getSourceByID = function(vestorly-auth, id) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.updateSourceByID = function(vestorly-auth, id, source) {
+exports.updateSourceByID = function(vestorlyAuth, id, source) {
 
   var examples = {};
   
   examples['application/json'] = {
   "source" : {
-    "logo_url" : "aeiou",
+    "enabled" : true,
     "rss_publisher" : "aeiou",
-    "name" : "aeiou",
-    "custom_rss_feed" : true,
     "_id" : "aeiou",
-    "url" : "aeiou",
-    "enabled" : true
+    "custom_rss_feed" : true,
+    "name" : "aeiou",
+    "logo_url" : "aeiou",
+    "url" : "aeiou"
   }
 };
   

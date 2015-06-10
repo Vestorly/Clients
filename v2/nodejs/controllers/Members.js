@@ -7,10 +7,10 @@ var Members = require('./MembersService');
 
 
 module.exports.findMembers = function findMembers (req, res, next) {
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorlyAuth = req.swagger.params['vestorly_auth'].value;
   
 
-  var result = Members.findMembers(vestorly-auth);
+  var result = Members.findMembers(vestorlyAuth);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -21,11 +21,11 @@ module.exports.findMembers = function findMembers (req, res, next) {
 };
 
 module.exports.createMember = function createMember (req, res, next) {
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorlyAuth = req.swagger.params['vestorly_auth'].value;
   var member = req.swagger.params['member'].value;
   
 
-  var result = Members.createMember(vestorly-auth, member);
+  var result = Members.createMember(vestorlyAuth, member);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -37,10 +37,10 @@ module.exports.createMember = function createMember (req, res, next) {
 
 module.exports.findMemberByID = function findMemberByID (req, res, next) {
   var id = req.swagger.params['id'].value;
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorlyAuth = req.swagger.params['vestorly_auth'].value;
   
 
-  var result = Members.findMemberByID(id, vestorly-auth);
+  var result = Members.findMemberByID(id, vestorlyAuth);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -50,13 +50,13 @@ module.exports.findMemberByID = function findMemberByID (req, res, next) {
     res.end();
 };
 
-module.exports.findMemberByID_1 = function findMemberByID_1 (req, res, next) {
+module.exports.updateMemberByID = function updateMemberByID (req, res, next) {
   var id = req.swagger.params['id'].value;
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorlyAuth = req.swagger.params['vestorly_auth'].value;
   var member = req.swagger.params['member'].value;
   
 
-  var result = Members.findMemberByID_1(id, vestorly-auth, member);
+  var result = Members.updateMemberByID(id, vestorlyAuth, member);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

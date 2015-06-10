@@ -24,8 +24,8 @@ findAdvisorByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sa
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiAdvisorresponse* out = new SamiAdvisorresponse();
-    jsonToValue(out, pJson, L"SamiAdvisorresponse*", L"SamiAdvisorresponse");
+    SamiAdvisor* out = new SamiAdvisor();
+    jsonToValue(out, pJson, L"SamiAdvisor*", L"SamiAdvisor");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -51,8 +51,8 @@ findAdvisorByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sa
   }
 }
 
-SamiAdvisorresponse* 
-SamiAdvisorsApi::findAdvisorByIDWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiAdvisorresponse*, SamiError*)) {
+SamiAdvisor* 
+SamiAdvisorsApi::findAdvisorByIDWithCompletion(String* vestorlyAuth, String* _id, void (* success)(SamiAdvisor*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findAdvisorByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -65,7 +65,7 @@ SamiAdvisorsApi::findAdvisorByIDWithCompletion(String* vestorly-auth, String* _i
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 

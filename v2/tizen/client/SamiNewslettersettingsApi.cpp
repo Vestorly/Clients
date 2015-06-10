@@ -24,8 +24,8 @@ findNewsletterSettingsProcessor(HttpResponse* pHttpResponse, void (* handler)(vo
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiNewslettersettings* out = new SamiNewslettersettings();
-    jsonToValue(out, pJson, L"SamiNewslettersettings*", L"SamiNewslettersettings");
+    SamiNewsletterSettings* out = new SamiNewsletterSettings();
+    jsonToValue(out, pJson, L"SamiNewsletterSettings*", L"SamiNewsletterSettings");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -51,8 +51,8 @@ findNewsletterSettingsProcessor(HttpResponse* pHttpResponse, void (* handler)(vo
   }
 }
 
-SamiNewslettersettings* 
-SamiNewslettersettingsApi::findNewsletterSettingsWithCompletion(String* vestorly-auth, void (* success)(SamiNewslettersettings*, SamiError*)) {
+SamiNewsletterSettings* 
+SamiNewslettersettingsApi::findNewsletterSettingsWithCompletion(String* vestorlyAuth, void (* success)(SamiNewsletterSettings*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findNewsletterSettingsProcessor, (void(*)(void*, SamiError*))success);
@@ -65,7 +65,7 @@ SamiNewslettersettingsApi::findNewsletterSettingsWithCompletion(String* vestorly
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 
@@ -117,7 +117,7 @@ findNewsletterSettingsByIDProcessor(HttpResponse* pHttpResponse, void (* handler
 }
 
 SamiNewslettersettingresponse* 
-SamiNewslettersettingsApi::findNewsletterSettingsByIDWithCompletion(String* _id, String* vestorly-auth, void (* success)(SamiNewslettersettingresponse*, SamiError*)) {
+SamiNewslettersettingsApi::findNewsletterSettingsByIDWithCompletion(String* _id, String* vestorlyAuth, void (* success)(SamiNewslettersettingresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findNewsletterSettingsByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -130,7 +130,7 @@ SamiNewslettersettingsApi::findNewsletterSettingsByIDWithCompletion(String* _id,
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 
@@ -187,7 +187,7 @@ updateNewsletterSettingsByIDProcessor(HttpResponse* pHttpResponse, void (* handl
 }
 
 SamiNewslettersettingresponse* 
-SamiNewslettersettingsApi::updateNewsletterSettingsByIDWithCompletion(String* _id, String* vestorly-auth, SamiNewsletterSettingsInput* newsletter_setting, void (* success)(SamiNewslettersettingresponse*, SamiError*)) {
+SamiNewslettersettingsApi::updateNewsletterSettingsByIDWithCompletion(String* _id, String* vestorlyAuth, SamiNewsletterSettingsInput* newsletterSetting, void (* success)(SamiNewslettersettingresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&updateNewsletterSettingsByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -200,7 +200,7 @@ SamiNewslettersettingsApi::updateNewsletterSettingsByIDWithCompletion(String* _i
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 
@@ -209,8 +209,8 @@ SamiNewslettersettingsApi::updateNewsletterSettingsByIDWithCompletion(String* _i
   
   
   
-  if(newsletter_setting != null) {
-    mBody = new String(newsletter_setting->asJson());
+  if(newsletterSetting != null) {
+    mBody = new String(newsletterSetting->asJson());
     headerParams->Add(new String("Content-Type"), new String("application/json"));
   }
   

@@ -37,10 +37,19 @@ public class MemberreportsApi {
   }
 
   
-  
+  /**
+   * 
+   * Returns all member reports
+   * @param vestorlyAuth Vestorly Auth Token
+   * @return MemberReports
+   */
   public MemberReports  findMemberReports (String vestorlyAuth) throws ApiException {
     Object postBody = null;
-
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling findMemberReports");
+    }
     
 
     // create path and map variables
@@ -54,7 +63,7 @@ public class MemberreportsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     

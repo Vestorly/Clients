@@ -9,6 +9,6 @@
 @interface SWGEventresponse : SWGObject
 
 
-@property(nonatomic) SWGEvent<Optional, SWGEvent>* event;
+@property(nonatomic) SWGEvent* event;
 
 @end

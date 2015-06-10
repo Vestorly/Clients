@@ -7,7 +7,7 @@ import io.swagger.client.model.*;
 
 import java.util.*;
 
-import io.swagger.client.model.Newslettersettings;
+import io.swagger.client.model.NewsletterSettings;
 import io.swagger.client.model.Newslettersettingresponse;
 import io.swagger.client.model.NewsletterSettingsInput;
 
@@ -39,10 +39,19 @@ public class NewslettersettingsApi {
   }
 
   
-  
-  public Newslettersettings  findNewsletterSettings (String vestorlyAuth) throws ApiException {
+  /**
+   * 
+   * Returns all newsletter settings
+   * @param vestorlyAuth Vestorly Auth Token
+   * @return NewsletterSettings
+   */
+  public NewsletterSettings  findNewsletterSettings (String vestorlyAuth) throws ApiException {
     Object postBody = null;
-
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling findNewsletterSettings");
+    }
     
 
     // create path and map variables
@@ -56,7 +65,7 @@ public class NewslettersettingsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -81,7 +90,7 @@ public class NewslettersettingsApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Newslettersettings) ApiInvoker.deserialize(response, "", Newslettersettings.class);
+        return (NewsletterSettings) ApiInvoker.deserialize(response, "", NewsletterSettings.class);
       }
       else {
         return null;
@@ -91,10 +100,25 @@ public class NewslettersettingsApi {
     }
   }
   
-  
+  /**
+   * 
+   * Returns a single newsletter settings if the user has access
+   * @param id Mongo ID of newsletter settings to fetch
+   * @param vestorlyAuth Vestorly Auth Token
+   * @return Newslettersettingresponse
+   */
   public Newslettersettingresponse  findNewsletterSettingsByID (String id, String vestorlyAuth) throws ApiException {
     Object postBody = null;
-
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+       throw new ApiException(400, "Missing the required parameter 'id' when calling findNewsletterSettingsByID");
+    }
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling findNewsletterSettingsByID");
+    }
     
 
     // create path and map variables
@@ -108,7 +132,7 @@ public class NewslettersettingsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -143,10 +167,31 @@ public class NewslettersettingsApi {
     }
   }
   
-  
+  /**
+   * 
+   * Update a single newsletter setting by ID
+   * @param id Mongo ID of newsletter settings to update
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param newsletterSetting newsletter settings
+   * @return Newslettersettingresponse
+   */
   public Newslettersettingresponse  updateNewsletterSettingsByID (String id, String vestorlyAuth, NewsletterSettingsInput newsletterSetting) throws ApiException {
     Object postBody = newsletterSetting;
-
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+       throw new ApiException(400, "Missing the required parameter 'id' when calling updateNewsletterSettingsByID");
+    }
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling updateNewsletterSettingsByID");
+    }
+    
+    // verify the required parameter 'newsletterSetting' is set
+    if (newsletterSetting == null) {
+       throw new ApiException(400, "Missing the required parameter 'newsletterSetting' when calling updateNewsletterSettingsByID");
+    }
     
 
     // create path and map variables
@@ -160,7 +205,7 @@ public class NewslettersettingsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     

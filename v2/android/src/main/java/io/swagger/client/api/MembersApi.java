@@ -8,8 +8,8 @@ import io.swagger.client.model.*;
 import java.util.*;
 
 import io.swagger.client.model.Members;
-import io.swagger.client.model.Memberresponse;
 import io.swagger.client.model.Member;
+import io.swagger.client.model.Memberresponse;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -39,10 +39,19 @@ public class MembersApi {
   }
 
   
-  
+  /**
+   * 
+   * Returns all members
+   * @param vestorlyAuth Vestorly Auth Token
+   * @return Members
+   */
   public Members  findMembers (String vestorlyAuth) throws ApiException {
     Object postBody = null;
-
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling findMembers");
+    }
     
 
     // create path and map variables
@@ -56,7 +65,7 @@ public class MembersApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -91,10 +100,25 @@ public class MembersApi {
     }
   }
   
-  
+  /**
+   * 
+   * Create a new member in the Vestorly Platform
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param member Member you want to create
+   * @return Memberresponse
+   */
   public Memberresponse  createMember (String vestorlyAuth, Member member) throws ApiException {
     Object postBody = member;
-
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling createMember");
+    }
+    
+    // verify the required parameter 'member' is set
+    if (member == null) {
+       throw new ApiException(400, "Missing the required parameter 'member' when calling createMember");
+    }
     
 
     // create path and map variables
@@ -108,7 +132,7 @@ public class MembersApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -143,10 +167,25 @@ public class MembersApi {
     }
   }
   
-  
+  /**
+   * 
+   * Returns a single member
+   * @param id Mongo ID of member to fetch
+   * @param vestorlyAuth Vestorly Auth Token
+   * @return Memberresponse
+   */
   public Memberresponse  findMemberByID (String id, String vestorlyAuth) throws ApiException {
     Object postBody = null;
-
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+       throw new ApiException(400, "Missing the required parameter 'id' when calling findMemberByID");
+    }
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling findMemberByID");
+    }
     
 
     // create path and map variables
@@ -160,7 +199,7 @@ public class MembersApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -195,10 +234,31 @@ public class MembersApi {
     }
   }
   
-  
-  public Memberresponse  findMemberByID_1 (String id, String vestorlyAuth, Member member) throws ApiException {
+  /**
+   * 
+   * Updates a single member
+   * @param id Mongo ID of member to fetch
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param member Member you want to update
+   * @return Memberresponse
+   */
+  public Memberresponse  updateMemberByID (String id, String vestorlyAuth, Member member) throws ApiException {
     Object postBody = member;
-
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+       throw new ApiException(400, "Missing the required parameter 'id' when calling updateMemberByID");
+    }
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling updateMemberByID");
+    }
+    
+    // verify the required parameter 'member' is set
+    if (member == null) {
+       throw new ApiException(400, "Missing the required parameter 'member' when calling updateMemberByID");
+    }
     
 
     // create path and map variables
@@ -212,7 +272,7 @@ public class MembersApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     

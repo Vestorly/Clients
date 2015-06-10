@@ -2,9 +2,12 @@
 #import "SWGFile.h"
 #import "SWGQueryParamCollection.h"
 #import "SWGApiClient.h"
-#import "SWGAdvisorresponse.h"
+#import "SWGAdvisor.h"
 
 
+@interface SWGAdvisorsApi ()
+    @property (readwrite, nonatomic, strong) NSMutableDictionary *defaultHeaders;
+@end
 
 @implementation SWGAdvisorsApi
 static NSString * basePath = @"https://staging.vestorly.com/api/v2";
@@ -32,18 +35,19 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 -(void) addHeader:(NSString*)value forKey:(NSString*)key {
-    [[self apiClient] setHeaderValue:value forKey:key];
+    [self.defaultHeaders setValue:value forKey:key];
 }
 
 -(id) init {
     self = [super init];
+    self.defaultHeaders = [NSMutableDictionary dictionary];
     [self apiClient];
     return self;
 }
 
 -(void) setHeaderValue:(NSString*) value
            forKey:(NSString*)key {
-    [[self apiClient] setHeaderValue:value forKey:key];
+    [self.defaultHeaders setValue:value forKey:key];
 }
 
 -(unsigned long) requestQueueSize {
@@ -51,11 +55,26 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 
--(NSNumber*) findAdvisorByIDWithCompletionBlock: (NSString*) vestorly-auth
+/*!
+ * 
+ * Returns a single advisor given their ID
+ * \param vestorlyAuth Vestorly Auth Token
+ * \param _id Advisor Id to fetch
+ * \returns SWGAdvisor*
+ */
+-(NSNumber*) findAdvisorByIDWithCompletionBlock: (NSString*) vestorlyAuth
          _id: (NSString*) _id
         
-        completionHandler: (void (^)(SWGAdvisorresponse* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGAdvisor* output, NSError* error))completionBlock
          {
+
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    NSAssert(vestorlyAuth != nil, @"Missing the required parameter `vestorlyAuth` when calling findAdvisorByID");
+    
+    // verify the required parameter '_id' is set
+    NSAssert(_id != nil, @"Missing the required parameter `_id` when calling findAdvisorByID");
+    
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/advisors/{id}", basePath];
 
@@ -66,20 +85,33 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"id", @"}"]] withString: [SWGApiClient escape:_id]];
     
 
-    NSArray* requestContentTypes = @[];
-    NSString* requestContentType = [requestContentTypes count] > 0 ? requestContentTypes[0] : @"application/json";
-
-    NSArray* responseContentTypes = @[];
-    NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
-
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
+    if(vestorlyAuth != nil) {
         
-        queryParams[@"vestorly-auth"] = vestorly-auth;
+        queryParams[@"vestorly_auth"] = vestorlyAuth;
     }
     
-    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
+
     
+    
+    // HTTP header `Accept` 
+    headerParams[@"Accept"] = [SWGApiClient selectHeaderAccept:@[]];
+    if ([headerParams[@"Accept"] length] == 0) {
+        [headerParams removeObjectForKey:@"Accept"];
+    }
+
+    // response content type
+    NSString *responseContentType;
+    if ([headerParams objectForKey:@"Accept"]) {
+        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
+    }
+    else {
+        responseContentType = @"";
+    }
+
+    // request content type
+    NSString *requestContentType = [SWGApiClient selectHeaderContentType:@[]];
 
     id bodyDictionary = nil;
     
@@ -118,9 +150,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGAdvisorresponse* result = nil;
+                SWGAdvisor* result = nil;
                 if (data) {
-                    result = [[SWGAdvisorresponse  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGAdvisor  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 

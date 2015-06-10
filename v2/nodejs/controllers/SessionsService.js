@@ -5,56 +5,56 @@ exports.login = function(username, password) {
   var examples = {};
   
   examples['application/json'] = {
-  "vestorly-auth" : "aeiou",
-  "settings" : {
-    "website" : "aeiou",
-    "disclosure" : "aeiou",
+  "_id" : "aeiou",
+  "current_user" : {
     "picture_url" : "aeiou",
-    "feature" : {
-      "_id" : "aeiou"
-    },
-    "orgsetting" : {
-      "privacy_policy_url" : "aeiou",
-      "site_url" : "aeiou",
-      "name" : "aeiou",
-      "company_contact_email" : "aeiou",
-      "_id" : "aeiou",
-      "terms_and_conditions_url" : "aeiou",
-      "is_default" : true,
-      "email_theme_name" : "aeiou",
-      "company_address" : "aeiou",
-      "company_homepage_url" : "aeiou"
-    },
+    "website" : "aeiou",
+    "user_type" : "aeiou",
+    "plan_expired" : true,
+    "new_user" : true,
+    "plan_id" : "aeiou",
+    "plan_setup" : true,
+    "first_name" : "aeiou",
+    "show_tour" : true,
+    "plan_status" : "aeiou",
+    "username" : "aeiou",
+    "plan_stripe" : true,
+    "_id" : "aeiou",
+    "company" : "aeiou",
     "name" : "aeiou",
+    "last_name" : "aeiou",
+    "slug" : "aeiou"
+  },
+  "settings" : {
+    "orgsetting" : {
+      "terms_and_conditions_url" : "aeiou",
+      "company_address" : "aeiou",
+      "_id" : "aeiou",
+      "email_theme_name" : "aeiou",
+      "name" : "aeiou",
+      "is_default" : true,
+      "company_homepage_url" : "aeiou",
+      "company_contact_email" : "aeiou",
+      "privacy_policy_url" : "aeiou",
+      "site_url" : "aeiou"
+    },
+    "adv_brochure" : "aeiou",
+    "picture_url" : "aeiou",
+    "_id" : "aeiou",
+    "website" : "aeiou",
     "personalsetting" : {
       "_id" : "aeiou"
     },
-    "company" : "aeiou",
-    "_id" : "aeiou",
-    "adv_brochure" : "aeiou",
-    "slug" : "aeiou"
-  },
-  "new_user" : true,
-  "_id" : "aeiou",
-  "current_user" : {
-    "website" : "aeiou",
-    "picture_url" : "aeiou",
-    "plan_setup" : true,
-    "last_name" : "aeiou",
-    "new_user" : true,
-    "user_type" : "aeiou",
-    "show_tour" : true,
     "name" : "aeiou",
     "company" : "aeiou",
-    "plan_expired" : true,
-    "_id" : "aeiou",
-    "first_name" : "aeiou",
-    "plan_stripe" : true,
-    "slug" : "aeiou",
-    "plan_id" : "aeiou",
-    "username" : "aeiou",
-    "plan_status" : "aeiou"
-  }
+    "disclosure" : "aeiou",
+    "feature" : {
+      "_id" : "aeiou"
+    },
+    "slug" : "aeiou"
+  },
+  "vestorly-auth" : "aeiou",
+  "new_user" : true
 };
   
 
@@ -63,7 +63,7 @@ exports.login = function(username, password) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.logout = function(vestorly-auth, id) {
+exports.logout = function(vestorlyAuth, id) {
 
   var examples = {};
   

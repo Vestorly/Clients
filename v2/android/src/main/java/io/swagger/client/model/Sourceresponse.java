@@ -3,19 +3,19 @@ package io.swagger.client.model;
 import io.swagger.client.model.Source;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class Sourceresponse  {
   
+  @SerializedName("source")
   private Source source = null;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("source")
   public Source getSource() {
     return source;
   }

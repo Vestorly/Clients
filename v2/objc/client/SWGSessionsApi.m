@@ -6,6 +6,9 @@
 #import "SWGSessionLogoutResponse.h"
 
 
+@interface SWGSessionsApi ()
+    @property (readwrite, nonatomic, strong) NSMutableDictionary *defaultHeaders;
+@end
 
 @implementation SWGSessionsApi
 static NSString * basePath = @"https://staging.vestorly.com/api/v2";
@@ -33,18 +36,19 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 -(void) addHeader:(NSString*)value forKey:(NSString*)key {
-    [[self apiClient] setHeaderValue:value forKey:key];
+    [self.defaultHeaders setValue:value forKey:key];
 }
 
 -(id) init {
     self = [super init];
+    self.defaultHeaders = [NSMutableDictionary dictionary];
     [self apiClient];
     return self;
 }
 
 -(void) setHeaderValue:(NSString*) value
            forKey:(NSString*)key {
-    [[self apiClient] setHeaderValue:value forKey:key];
+    [self.defaultHeaders setValue:value forKey:key];
 }
 
 -(unsigned long) requestQueueSize {
@@ -52,11 +56,26 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 
+/*!
+ * 
+ * Login To Vestorly Platform
+ * \param username Username in the vestorly platform
+ * \param password Password in Vestorly Platform
+ * \returns SWGSession*
+ */
 -(NSNumber*) loginWithCompletionBlock: (NSString*) username
          password: (NSString*) password
         
         completionHandler: (void (^)(SWGSession* output, NSError* error))completionBlock
          {
+
+    
+    // verify the required parameter 'username' is set
+    NSAssert(username != nil, @"Missing the required parameter `username` when calling login");
+    
+    // verify the required parameter 'password' is set
+    NSAssert(password != nil, @"Missing the required parameter `password` when calling login");
+    
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/sessions", basePath];
 
@@ -65,12 +84,6 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
         [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
 
     
-
-    NSArray* requestContentTypes = @[@"application/x-www-form-urlencoded", ];
-    NSString* requestContentType = [requestContentTypes count] > 0 ? requestContentTypes[0] : @"application/json";
-
-    NSArray* responseContentTypes = @[];
-    NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if(username != nil) {
@@ -82,8 +95,27 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
         queryParams[@"password"] = password;
     }
     
-    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
+
     
+    
+    // HTTP header `Accept` 
+    headerParams[@"Accept"] = [SWGApiClient selectHeaderAccept:@[]];
+    if ([headerParams[@"Accept"] length] == 0) {
+        [headerParams removeObjectForKey:@"Accept"];
+    }
+
+    // response content type
+    NSString *responseContentType;
+    if ([headerParams objectForKey:@"Accept"]) {
+        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
+    }
+    else {
+        responseContentType = @"";
+    }
+
+    // request content type
+    NSString *requestContentType = [SWGApiClient selectHeaderContentType:@[@"application/x-www-form-urlencoded"]];
 
     id bodyDictionary = nil;
     
@@ -136,11 +168,26 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     
 }
 
--(NSNumber*) logoutWithCompletionBlock: (NSString*) vestorly-auth
+/*!
+ * 
+ * Logout of the vestorly platform
+ * \param vestorlyAuth Authenication token
+ * \param _id ID of pet to session
+ * \returns SWGSessionLogoutResponse*
+ */
+-(NSNumber*) logoutWithCompletionBlock: (NSString*) vestorlyAuth
          _id: (NSString*) _id
         
         completionHandler: (void (^)(SWGSessionLogoutResponse* output, NSError* error))completionBlock
          {
+
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    NSAssert(vestorlyAuth != nil, @"Missing the required parameter `vestorlyAuth` when calling logout");
+    
+    // verify the required parameter '_id' is set
+    NSAssert(_id != nil, @"Missing the required parameter `_id` when calling logout");
+    
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/sessions/{id}", basePath];
 
@@ -151,20 +198,33 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"id", @"}"]] withString: [SWGApiClient escape:_id]];
     
 
-    NSArray* requestContentTypes = @[];
-    NSString* requestContentType = [requestContentTypes count] > 0 ? requestContentTypes[0] : @"application/json";
-
-    NSArray* responseContentTypes = @[];
-    NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
-
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
+    if(vestorlyAuth != nil) {
         
-        queryParams[@"vestorly-auth"] = vestorly-auth;
+        queryParams[@"vestorly_auth"] = vestorlyAuth;
     }
     
-    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
+
     
+    
+    // HTTP header `Accept` 
+    headerParams[@"Accept"] = [SWGApiClient selectHeaderAccept:@[]];
+    if ([headerParams[@"Accept"] length] == 0) {
+        [headerParams removeObjectForKey:@"Accept"];
+    }
+
+    // response content type
+    NSString *responseContentType;
+    if ([headerParams objectForKey:@"Accept"]) {
+        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
+    }
+    else {
+        responseContentType = @"";
+    }
+
+    // request content type
+    NSString *requestContentType = [SWGApiClient selectHeaderContentType:@[]];
 
     id bodyDictionary = nil;
     

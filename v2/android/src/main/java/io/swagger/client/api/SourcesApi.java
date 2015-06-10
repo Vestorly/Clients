@@ -39,10 +39,19 @@ public class SourcesApi {
   }
 
   
-  
+  /**
+   * 
+   * Returns all sources
+   * @param vestorlyAuth Vestorly Auth Token
+   * @return Sources
+   */
   public Sources  findSources (String vestorlyAuth) throws ApiException {
     Object postBody = null;
-
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling findSources");
+    }
     
 
     // create path and map variables
@@ -56,7 +65,7 @@ public class SourcesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -91,10 +100,25 @@ public class SourcesApi {
     }
   }
   
-  
+  /**
+   * 
+   * Create source
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param source Source
+   * @return Sourceresponse
+   */
   public Sourceresponse  createSource (String vestorlyAuth, SourceInput source) throws ApiException {
     Object postBody = source;
-
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling createSource");
+    }
+    
+    // verify the required parameter 'source' is set
+    if (source == null) {
+       throw new ApiException(400, "Missing the required parameter 'source' when calling createSource");
+    }
     
 
     // create path and map variables
@@ -108,7 +132,7 @@ public class SourcesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -143,10 +167,25 @@ public class SourcesApi {
     }
   }
   
-  
+  /**
+   * 
+   * Get Source By ID
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param id ID of source to fetch
+   * @return Sourceresponse
+   */
   public Sourceresponse  getSourceByID (String vestorlyAuth, String id) throws ApiException {
     Object postBody = null;
-
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling getSourceByID");
+    }
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+       throw new ApiException(400, "Missing the required parameter 'id' when calling getSourceByID");
+    }
     
 
     // create path and map variables
@@ -160,7 +199,7 @@ public class SourcesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -195,10 +234,31 @@ public class SourcesApi {
     }
   }
   
-  
+  /**
+   * 
+   * Update Source By ID
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param id ID of source to fetch
+   * @param source Source
+   * @return Sourceresponse
+   */
   public Sourceresponse  updateSourceByID (String vestorlyAuth, String id, SourceInput source) throws ApiException {
     Object postBody = source;
-
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling updateSourceByID");
+    }
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+       throw new ApiException(400, "Missing the required parameter 'id' when calling updateSourceByID");
+    }
+    
+    // verify the required parameter 'source' is set
+    if (source == null) {
+       throw new ApiException(400, "Missing the required parameter 'source' when calling updateSourceByID");
+    }
     
 
     // create path and map variables
@@ -212,7 +272,7 @@ public class SourcesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     

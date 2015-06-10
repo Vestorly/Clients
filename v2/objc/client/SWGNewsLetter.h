@@ -8,16 +8,16 @@
 @interface SWGNewsletter : SWGObject
 
 
-@property(nonatomic) NSString<Optional>* _id;
+@property(nonatomic) NSString* _id;
 
-@property(nonatomic) NSNumber<Optional>* is_sent;
+@property(nonatomic) BOOL isSent;
 
-@property(nonatomic) NSNumber<Optional>* is_default;
+@property(nonatomic) BOOL isDefault;
 
-@property(nonatomic) NSNumber<Optional>* click_count;
+@property(nonatomic) NSNumber* clickCount;
 
-@property(nonatomic) NSNumber<Optional>* unique_click_count;
+@property(nonatomic) NSNumber* uniqueClickCount;
 
-@property(nonatomic) NSNumber<Optional>* total_click_count;
+@property(nonatomic) NSNumber* totalClickCount;
 
 @end

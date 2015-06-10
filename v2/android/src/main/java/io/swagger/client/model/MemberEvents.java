@@ -1,24 +1,25 @@
 package io.swagger.client.model;
 
+import io.swagger.client.model.MemberEvent;
 import io.swagger.client.model.TruncatedMember;
 import java.util.*;
-import io.swagger.client.model.MemberEvent;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class MemberEvents  {
   
+  @SerializedName("members")
   private List<TruncatedMember> members = new ArrayList<TruncatedMember>() ;
+  @SerializedName("member_events")
   private List<MemberEvent> memberEvents = new ArrayList<MemberEvent>() ;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("members")
   public List<TruncatedMember> getMembers() {
     return members;
   }
@@ -30,7 +31,6 @@ public class MemberEvents  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("member_events")
   public List<MemberEvent> getMemberEvents() {
     return memberEvents;
   }

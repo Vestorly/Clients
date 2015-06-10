@@ -6,6 +6,9 @@
 #import "SWGArticleresponse.h"
 
 
+@interface SWGArticlesApi ()
+    @property (readwrite, nonatomic, strong) NSMutableDictionary *defaultHeaders;
+@end
 
 @implementation SWGArticlesApi
 static NSString * basePath = @"https://staging.vestorly.com/api/v2";
@@ -33,18 +36,19 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 -(void) addHeader:(NSString*)value forKey:(NSString*)key {
-    [[self apiClient] setHeaderValue:value forKey:key];
+    [self.defaultHeaders setValue:value forKey:key];
 }
 
 -(id) init {
     self = [super init];
+    self.defaultHeaders = [NSMutableDictionary dictionary];
     [self apiClient];
     return self;
 }
 
 -(void) setHeaderValue:(NSString*) value
            forKey:(NSString*)key {
-    [[self apiClient] setHeaderValue:value forKey:key];
+    [self.defaultHeaders setValue:value forKey:key];
 }
 
 -(unsigned long) requestQueueSize {
@@ -52,14 +56,29 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 
--(NSNumber*) findArticlesWithCompletionBlock: (NSString*) vestorly-auth
+/*!
+ * 
+ * Returns all articles
+ * \param vestorlyAuth Vestorly Auth Token
+ * \param limit Limit on the number of articles to return
+ * \param textQuery Search query parameter
+ * \param sortDirection Direction of sort (used with sort_by parameter)
+ * \param sortBy Field on model to sort by
+ * \returns SWGArticles*
+ */
+-(NSNumber*) findArticlesWithCompletionBlock: (NSString*) vestorlyAuth
          limit: (NSNumber*) limit
-         text_query: (NSString*) text_query
-         sort_direction: (NSString*) sort_direction
-         sort_by: (NSString*) sort_by
+         textQuery: (NSString*) textQuery
+         sortDirection: (NSString*) sortDirection
+         sortBy: (NSString*) sortBy
         
         completionHandler: (void (^)(SWGArticles* output, NSError* error))completionBlock
          {
+
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    NSAssert(vestorlyAuth != nil, @"Missing the required parameter `vestorlyAuth` when calling findArticles");
+    
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/articles", basePath];
 
@@ -69,36 +88,49 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
     
 
-    NSArray* requestContentTypes = @[];
-    NSString* requestContentType = [requestContentTypes count] > 0 ? requestContentTypes[0] : @"application/json";
-
-    NSArray* responseContentTypes = @[];
-    NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
-
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
+    if(vestorlyAuth != nil) {
         
-        queryParams[@"vestorly-auth"] = vestorly-auth;
+        queryParams[@"vestorly_auth"] = vestorlyAuth;
     }
     if(limit != nil) {
         
         queryParams[@"limit"] = limit;
     }
-    if(text_query != nil) {
+    if(textQuery != nil) {
         
-        queryParams[@"text_query"] = text_query;
+        queryParams[@"text_query"] = textQuery;
     }
-    if(sort_direction != nil) {
+    if(sortDirection != nil) {
         
-        queryParams[@"sort_direction"] = sort_direction;
+        queryParams[@"sort_direction"] = sortDirection;
     }
-    if(sort_by != nil) {
+    if(sortBy != nil) {
         
-        queryParams[@"sort_by"] = sort_by;
+        queryParams[@"sort_by"] = sortBy;
     }
     
-    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
+
     
+    
+    // HTTP header `Accept` 
+    headerParams[@"Accept"] = [SWGApiClient selectHeaderAccept:@[]];
+    if ([headerParams[@"Accept"] length] == 0) {
+        [headerParams removeObjectForKey:@"Accept"];
+    }
+
+    // response content type
+    NSString *responseContentType;
+    if ([headerParams objectForKey:@"Accept"]) {
+        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
+    }
+    else {
+        responseContentType = @"";
+    }
+
+    // request content type
+    NSString *requestContentType = [SWGApiClient selectHeaderContentType:@[]];
 
     id bodyDictionary = nil;
     
@@ -151,11 +183,26 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     
 }
 
--(NSNumber*) findArticleByIDWithCompletionBlock: (NSString*) vestorly-auth
+/*!
+ * 
+ * Returns a single article
+ * \param vestorlyAuth Vestorly Auth Token
+ * \param _id Article Id to fetch
+ * \returns SWGArticleresponse*
+ */
+-(NSNumber*) findArticleByIDWithCompletionBlock: (NSString*) vestorlyAuth
          _id: (NSString*) _id
         
         completionHandler: (void (^)(SWGArticleresponse* output, NSError* error))completionBlock
          {
+
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    NSAssert(vestorlyAuth != nil, @"Missing the required parameter `vestorlyAuth` when calling findArticleByID");
+    
+    // verify the required parameter '_id' is set
+    NSAssert(_id != nil, @"Missing the required parameter `_id` when calling findArticleByID");
+    
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/articles/{id}", basePath];
 
@@ -166,20 +213,33 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"id", @"}"]] withString: [SWGApiClient escape:_id]];
     
 
-    NSArray* requestContentTypes = @[];
-    NSString* requestContentType = [requestContentTypes count] > 0 ? requestContentTypes[0] : @"application/json";
-
-    NSArray* responseContentTypes = @[];
-    NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
-
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
+    if(vestorlyAuth != nil) {
         
-        queryParams[@"vestorly-auth"] = vestorly-auth;
+        queryParams[@"vestorly_auth"] = vestorlyAuth;
     }
     
-    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
+
     
+    
+    // HTTP header `Accept` 
+    headerParams[@"Accept"] = [SWGApiClient selectHeaderAccept:@[]];
+    if ([headerParams[@"Accept"] length] == 0) {
+        [headerParams removeObjectForKey:@"Accept"];
+    }
+
+    // response content type
+    NSString *responseContentType;
+    if ([headerParams objectForKey:@"Accept"]) {
+        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
+    }
+    else {
+        responseContentType = @"";
+    }
+
+    // request content type
+    NSString *requestContentType = [SWGApiClient selectHeaderContentType:@[]];
 
     id bodyDictionary = nil;
     

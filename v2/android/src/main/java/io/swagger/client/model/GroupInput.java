@@ -2,27 +2,35 @@ package io.swagger.client.model;
 
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class GroupInput  {
   
+  @SerializedName("_id")
   private String id = null;
+  @SerializedName("name")
   private String name = null;
+  @SerializedName("is_default")
   private Boolean isDefault = null;
+  @SerializedName("is_hidden")
   private Boolean isHidden = null;
+  @SerializedName("new_weekly_mailer_content")
   private String newWeeklyMailerContent = null;
+  @SerializedName("newsletter_subject")
   private String newsletterSubject = null;
+  @SerializedName("autopublish")
   private Boolean autopublish = null;
+  @SerializedName("number_articles_per_group")
   private Integer numberArticlesPerGroup = null;
+  @SerializedName("number_articles_per_newsletter")
   private Integer numberArticlesPerNewsletter = null;
 
   
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty("_id")
   public String getId() {
     return id;
   }
@@ -34,7 +42,6 @@ public class GroupInput  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("name")
   public String getName() {
     return name;
   }
@@ -46,7 +53,6 @@ public class GroupInput  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("is_default")
   public Boolean getIsDefault() {
     return isDefault;
   }
@@ -58,7 +64,6 @@ public class GroupInput  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("is_hidden")
   public Boolean getIsHidden() {
     return isHidden;
   }
@@ -70,7 +75,6 @@ public class GroupInput  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("new_weekly_mailer_content")
   public String getNewWeeklyMailerContent() {
     return newWeeklyMailerContent;
   }
@@ -82,7 +86,6 @@ public class GroupInput  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("newsletter_subject")
   public String getNewsletterSubject() {
     return newsletterSubject;
   }
@@ -94,7 +97,6 @@ public class GroupInput  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("autopublish")
   public Boolean getAutopublish() {
     return autopublish;
   }
@@ -106,7 +108,6 @@ public class GroupInput  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("number_articles_per_group")
   public Integer getNumberArticlesPerGroup() {
     return numberArticlesPerGroup;
   }
@@ -118,7 +119,6 @@ public class GroupInput  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("number_articles_per_newsletter")
   public Integer getNumberArticlesPerNewsletter() {
     return numberArticlesPerNewsletter;
   }

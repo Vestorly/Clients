@@ -1,25 +1,25 @@
 package io.swagger.client.model;
 
-import io.swagger.client.model.Post;
+import io.swagger.client.model.Newsletter;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class Newsletterresponse  {
   
-  private Post newsletter = null;
+  @SerializedName("newsletter")
+  private Newsletter newsletter = null;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("newsletter")
-  public Post getNewsletter() {
+  public Newsletter getNewsletter() {
     return newsletter;
   }
-  public void setNewsletter(Post newsletter) {
+  public void setNewsletter(Newsletter newsletter) {
     this.newsletter = newsletter;
   }
 

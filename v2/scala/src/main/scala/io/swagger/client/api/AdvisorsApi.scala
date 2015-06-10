@@ -1,8 +1,13 @@
 package io.swagger.client.api
 
-import io.swagger.client.model.Advisorresponse
+import io.swagger.client.model.Advisor
 import io.swagger.client.ApiInvoker
 import io.swagger.client.ApiException
+
+import com.sun.jersey.multipart.FormDataMultiPart
+import com.sun.jersey.multipart.file.FileDataBodyPart
+
+import javax.ws.rs.core.MediaType
 
 import java.io.File
 import java.util.Date
@@ -17,33 +22,49 @@ class AdvisorsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2
   def addHeader(key: String, value: String) = apiInvoker.defaultHeaders += key -> value 
 
   
-  def findAdvisorByID (vestorly-auth: String, id: String) : Option[Advisorresponse] = {
+  /**
+   * 
+   * Returns a single advisor given their ID
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param id Advisor Id to fetch
+   * @return Advisor
+   */
+  def findAdvisorByID (vestorlyAuth: String, id: String) : Option[Advisor] = {
     // create path and map variables
     val path = "/advisors/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
     
 
-    
-    val contentType = {
-      
-      "application/json"
-    }
+    val contentTypes = List("application/json")
+    val contentType = contentTypes(0)
 
     // query params
     val queryParams = new HashMap[String, String]
     val headerParams = new HashMap[String, String]
+    val formParams = new HashMap[String, String]
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorlyAuth) != "null") queryParams += "vestorly_auth" -> vestorlyAuth.toString
     
     
     
+
+    var postBody: AnyRef = null
+
+    if(contentType.startsWith("multipart/form-data")) {
+      val mp = new FormDataMultiPart()
+      
+      postBody = mp
+    }
+    else {
+      
+    }
 
     try {
-      apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, None, headerParams.toMap, contentType) match {
+      apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, formParams.toMap, postBody, headerParams.toMap, contentType) match {
         case s: String =>
-           Some(ApiInvoker.deserialize(s, "", classOf[Advisorresponse]).asInstanceOf[Advisorresponse])
+           Some(ApiInvoker.deserialize(s, "", classOf[Advisor]).asInstanceOf[Advisor])
          
         case _ => None
       }

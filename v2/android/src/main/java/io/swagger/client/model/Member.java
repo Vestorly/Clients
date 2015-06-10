@@ -3,62 +3,105 @@ package io.swagger.client.model;
 import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class Member  {
   
+  @SerializedName("_id")
   private String id = null;
+  @SerializedName("email")
   private String email = null;
+  @SerializedName("first_name")
   private String firstName = null;
+  @SerializedName("last_name")
   private String lastName = null;
+  @SerializedName("phone")
   private String phone = null;
+  @SerializedName("address")
   private String address = null;
+  @SerializedName("city")
   private String city = null;
+  @SerializedName("state")
   private String state = null;
+  @SerializedName("zip")
   private String zip = null;
+  @SerializedName("gender")
   private String gender = null;
+  @SerializedName("interest_consultation")
   private String interestConsultation = null;
+  @SerializedName("interest_in_new_advisor")
   private String interestInNewAdvisor = null;
+  @SerializedName("assets")
   private String assets = null;
-  private Integer age = null;
+  @SerializedName("age")
+  private String age = null;
+  @SerializedName("data_estimated")
   private Boolean dataEstimated = null;
+  @SerializedName("education")
   private String education = null;
+  @SerializedName("high_net_worth")
   private Boolean highNetWorth = null;
+  @SerializedName("home_market_value")
   private String homeMarketValue = null;
+  @SerializedName("home_owner_status")
   private String homeOwnerStatus = null;
-  private Integer householdIncome = null;
+  @SerializedName("household_income")
+  private String householdIncome = null;
+  @SerializedName("marital_status")
   private String maritalStatus = null;
+  @SerializedName("occupation")
   private String occupation = null;
+  @SerializedName("hometown")
   private String hometown = null;
+  @SerializedName("family")
   private String family = null;
+  @SerializedName("tags")
   private List<String> tags = new ArrayList<String>() ;
+  @SerializedName("subscribed_group_ids")
   private List<String> subscribedGroupIds = new ArrayList<String>() ;
+  @SerializedName("unsubscribed")
   private Boolean unsubscribed = null;
+  @SerializedName("unsubscribed_date")
   private Boolean unsubscribedDate = null;
-  private Boolean userType = null;
-  private Boolean signedUpWith = null;
+  @SerializedName("user_type")
+  private String userType = null;
+  @SerializedName("signed_up_with")
+  private String signedUpWith = null;
+  @SerializedName("message")
   private String message = null;
+  @SerializedName("location")
   private String location = null;
+  @SerializedName("picture_url")
   private String pictureUrl = null;
+  @SerializedName("profile_url")
   private String profileUrl = null;
+  @SerializedName("estimated_location")
   private String estimatedLocation = null;
+  @SerializedName("estimated_zip")
   private String estimatedZip = null;
+  @SerializedName("register_ip_addr")
   private String registerIpAddr = null;
+  @SerializedName("genuine_email")
   private Boolean genuineEmail = null;
+  @SerializedName("last_active_date")
   private String lastActiveDate = null;
+  @SerializedName("is_client")
   private Boolean isClient = null;
+  @SerializedName("is_hidden")
   private Boolean isHidden = null;
+  @SerializedName("invited_on")
   private String invitedOn = null;
+  @SerializedName("invited_by")
   private String invitedBy = null;
-  private Integer portfolioSize = null;
+  @SerializedName("portfolio_size")
+  private String portfolioSize = null;
 
   
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty("_id")
   public String getId() {
     return id;
   }
@@ -70,7 +113,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty("email")
   public String getEmail() {
     return email;
   }
@@ -82,7 +124,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("first_name")
   public String getFirstName() {
     return firstName;
   }
@@ -94,7 +135,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("last_name")
   public String getLastName() {
     return lastName;
   }
@@ -106,7 +146,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("phone")
   public String getPhone() {
     return phone;
   }
@@ -118,7 +157,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("address")
   public String getAddress() {
     return address;
   }
@@ -130,7 +168,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("city")
   public String getCity() {
     return city;
   }
@@ -142,7 +179,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("state")
   public String getState() {
     return state;
   }
@@ -154,7 +190,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("zip")
   public String getZip() {
     return zip;
   }
@@ -166,7 +201,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("gender")
   public String getGender() {
     return gender;
   }
@@ -178,7 +212,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("interest_consultation")
   public String getInterestConsultation() {
     return interestConsultation;
   }
@@ -190,7 +223,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("interest_in_new_advisor")
   public String getInterestInNewAdvisor() {
     return interestInNewAdvisor;
   }
@@ -202,7 +234,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("assets")
   public String getAssets() {
     return assets;
   }
@@ -214,11 +245,10 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("age")
-  public Integer getAge() {
+  public String getAge() {
     return age;
   }
-  public void setAge(Integer age) {
+  public void setAge(String age) {
     this.age = age;
   }
 
@@ -226,7 +256,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("data_estimated")
   public Boolean getDataEstimated() {
     return dataEstimated;
   }
@@ -238,7 +267,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("education")
   public String getEducation() {
     return education;
   }
@@ -250,7 +278,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("high_net_worth")
   public Boolean getHighNetWorth() {
     return highNetWorth;
   }
@@ -262,7 +289,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("home_market_value")
   public String getHomeMarketValue() {
     return homeMarketValue;
   }
@@ -274,7 +300,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("home_owner_status")
   public String getHomeOwnerStatus() {
     return homeOwnerStatus;
   }
@@ -286,11 +311,10 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("household_income")
-  public Integer getHouseholdIncome() {
+  public String getHouseholdIncome() {
     return householdIncome;
   }
-  public void setHouseholdIncome(Integer householdIncome) {
+  public void setHouseholdIncome(String householdIncome) {
     this.householdIncome = householdIncome;
   }
 
@@ -298,7 +322,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("marital_status")
   public String getMaritalStatus() {
     return maritalStatus;
   }
@@ -310,7 +333,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("occupation")
   public String getOccupation() {
     return occupation;
   }
@@ -322,7 +344,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("hometown")
   public String getHometown() {
     return hometown;
   }
@@ -334,7 +355,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("family")
   public String getFamily() {
     return family;
   }
@@ -346,7 +366,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("tags")
   public List<String> getTags() {
     return tags;
   }
@@ -358,7 +377,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("subscribed_group_ids")
   public List<String> getSubscribedGroupIds() {
     return subscribedGroupIds;
   }
@@ -370,7 +388,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("unsubscribed")
   public Boolean getUnsubscribed() {
     return unsubscribed;
   }
@@ -382,7 +399,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("unsubscribed_date")
   public Boolean getUnsubscribedDate() {
     return unsubscribedDate;
   }
@@ -394,11 +410,10 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("user_type")
-  public Boolean getUserType() {
+  public String getUserType() {
     return userType;
   }
-  public void setUserType(Boolean userType) {
+  public void setUserType(String userType) {
     this.userType = userType;
   }
 
@@ -406,11 +421,10 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("signed_up_with")
-  public Boolean getSignedUpWith() {
+  public String getSignedUpWith() {
     return signedUpWith;
   }
-  public void setSignedUpWith(Boolean signedUpWith) {
+  public void setSignedUpWith(String signedUpWith) {
     this.signedUpWith = signedUpWith;
   }
 
@@ -418,7 +432,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("message")
   public String getMessage() {
     return message;
   }
@@ -430,7 +443,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("location")
   public String getLocation() {
     return location;
   }
@@ -442,7 +454,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("picture_url")
   public String getPictureUrl() {
     return pictureUrl;
   }
@@ -454,7 +465,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("profile_url")
   public String getProfileUrl() {
     return profileUrl;
   }
@@ -466,7 +476,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("estimated_location")
   public String getEstimatedLocation() {
     return estimatedLocation;
   }
@@ -478,7 +487,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("estimated_zip")
   public String getEstimatedZip() {
     return estimatedZip;
   }
@@ -490,7 +498,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("register_ip_addr")
   public String getRegisterIpAddr() {
     return registerIpAddr;
   }
@@ -502,7 +509,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("genuine_email")
   public Boolean getGenuineEmail() {
     return genuineEmail;
   }
@@ -514,7 +520,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("last_active_date")
   public String getLastActiveDate() {
     return lastActiveDate;
   }
@@ -526,7 +531,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("is_client")
   public Boolean getIsClient() {
     return isClient;
   }
@@ -538,7 +542,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("is_hidden")
   public Boolean getIsHidden() {
     return isHidden;
   }
@@ -550,7 +553,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("invited_on")
   public String getInvitedOn() {
     return invitedOn;
   }
@@ -562,7 +564,6 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("invited_by")
   public String getInvitedBy() {
     return invitedBy;
   }
@@ -574,11 +575,10 @@ public class Member  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("portfolio_size")
-  public Integer getPortfolioSize() {
+  public String getPortfolioSize() {
     return portfolioSize;
   }
-  public void setPortfolioSize(Integer portfolioSize) {
+  public void setPortfolioSize(String portfolioSize) {
     this.portfolioSize = portfolioSize;
   }
 

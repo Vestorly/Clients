@@ -17,10 +17,10 @@
 using namespace Tizen::Web::Json;
 
 
+#include "SamiPersonalSettings.h"
+using Tizen::Base::String;
 #include "SamiOrgSetting.h"
 #include "SamiFeatures.h"
-using Tizen::Base::String;
-#include "SamiPersonalSettings.h"
 
 
 namespace Swagger {

@@ -1,7 +1,8 @@
 #import <Foundation/Foundation.h>
 #import "SWGEvents.h"
-#import "SWGEventresponse.h"
+#import "SWGEventcreateresponse.h"
 #import "SWGEventInput.h"
+#import "SWGEventresponse.h"
 #import "SWGObject.h"
 
 
@@ -17,12 +18,12 @@
  
  Returns all events
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorlyAuth Vestorly Auth Token
  
 
  return type: SWGEvents*
  */
--(NSNumber*) findEventsWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) findEventsWithCompletionBlock :(NSString*) vestorlyAuth 
     
     completionHandler: (void (^)(SWGEvents* output, NSError* error))completionBlock;
     
@@ -33,16 +34,16 @@
  
  Creates a new event in the system
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorlyAuth Vestorly Auth Token
  @param event Event
  
 
- return type: SWGEventresponse*
+ return type: SWGEventcreateresponse*
  */
--(NSNumber*) createEventWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) createEventWithCompletionBlock :(NSString*) vestorlyAuth 
      event:(SWGEventInput*) event 
     
-    completionHandler: (void (^)(SWGEventresponse* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGEventcreateresponse* output, NSError* error))completionBlock;
     
 
 
@@ -52,33 +53,13 @@
  Returns a single event if the user has access
 
  @param _id Mongo ID of event to fetch
- @param vestorly-auth Vestorly Auth Token
+ @param vestorlyAuth Vestorly Auth Token
  
 
  return type: SWGEventresponse*
  */
 -(NSNumber*) findEventByIDWithCompletionBlock :(NSString*) _id 
-     vestorly-auth:(NSString*) vestorly-auth 
-    
-    completionHandler: (void (^)(SWGEventresponse* output, NSError* error))completionBlock;
-    
-
-
-/**
-
- 
- Updates a single event by mongo id
-
- @param _id Mongo ID of event to update
- @param vestorly-auth Vestorly Auth Token
- @param event The event object to be created
- 
-
- return type: SWGEventresponse*
- */
--(NSNumber*) updateEventByIDWithCompletionBlock :(NSString*) _id 
-     vestorly-auth:(NSString*) vestorly-auth 
-     event:(SWGEventInput*) event 
+     vestorlyAuth:(NSString*) vestorlyAuth 
     
     completionHandler: (void (^)(SWGEventresponse* output, NSError* error))completionBlock;
     

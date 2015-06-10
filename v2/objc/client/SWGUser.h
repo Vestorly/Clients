@@ -10,36 +10,36 @@
 
 @property(nonatomic) NSString* _id;
 
-@property(nonatomic) NSString<Optional>* company;
+@property(nonatomic) NSString* company;
 
-@property(nonatomic) NSString<Optional>* picture_url;
+@property(nonatomic) NSString* pictureUrl;
 
-@property(nonatomic) NSString<Optional>* website;
+@property(nonatomic) NSString* website;
 
-@property(nonatomic) NSString<Optional>* user_type;
+@property(nonatomic) NSString* userType;
 
-@property(nonatomic) NSString<Optional>* slug;
+@property(nonatomic) NSString* slug;
 
-@property(nonatomic) NSString<Optional>* name;
+@property(nonatomic) NSString* name;
 
-@property(nonatomic) NSString<Optional>* username;
+@property(nonatomic) NSString* username;
 
-@property(nonatomic) NSString<Optional>* first_name;
+@property(nonatomic) NSString* firstName;
 
-@property(nonatomic) NSString<Optional>* last_name;
+@property(nonatomic) NSString* lastName;
 
-@property(nonatomic) NSNumber<Optional>* _new_user;
+@property(nonatomic) BOOL newUser;
 
-@property(nonatomic) NSNumber<Optional>* show_tour;
+@property(nonatomic) BOOL showTour;
 
-@property(nonatomic) NSNumber<Optional>* plan_setup;
+@property(nonatomic) BOOL planSetup;
 
-@property(nonatomic) NSNumber<Optional>* plan_expired;
+@property(nonatomic) BOOL planExpired;
 
-@property(nonatomic) NSString<Optional>* plan_status;
+@property(nonatomic) NSString* planStatus;
 
-@property(nonatomic) NSString<Optional>* plan_id;
+@property(nonatomic) NSString* planId;
 
-@property(nonatomic) NSNumber<Optional>* plan_stripe;
+@property(nonatomic) BOOL planStripe;
 
 @end

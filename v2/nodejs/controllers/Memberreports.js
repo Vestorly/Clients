@@ -7,10 +7,10 @@ var Memberreports = require('./MemberreportsService');
 
 
 module.exports.findMemberReports = function findMemberReports (req, res, next) {
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorlyAuth = req.swagger.params['vestorly_auth'].value;
   
 
-  var result = Memberreports.findMemberReports(vestorly-auth);
+  var result = Memberreports.findMemberReports(vestorlyAuth);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

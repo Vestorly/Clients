@@ -10,22 +10,22 @@
 
 @property(nonatomic) NSString* _id;
 
-@property(nonatomic) NSNumber<Optional>* is_default;
+@property(nonatomic) BOOL isDefault;
 
-@property(nonatomic) NSString<Optional>* name;
+@property(nonatomic) NSString* name;
 
-@property(nonatomic) NSString<Optional>* email_theme_name;
+@property(nonatomic) NSString* emailThemeName;
 
-@property(nonatomic) NSString<Optional>* company_address;
+@property(nonatomic) NSString* companyAddress;
 
-@property(nonatomic) NSString<Optional>* company_contact_email;
+@property(nonatomic) NSString* companyContactEmail;
 
-@property(nonatomic) NSString<Optional>* site_url;
+@property(nonatomic) NSString* siteUrl;
 
-@property(nonatomic) NSString<Optional>* company_homepage_url;
+@property(nonatomic) NSString* companyHomepageUrl;
 
-@property(nonatomic) NSString<Optional>* privacy_policy_url;
+@property(nonatomic) NSString* privacyPolicyUrl;
 
-@property(nonatomic) NSString<Optional>* terms_and_conditions_url;
+@property(nonatomic) NSString* termsAndConditionsUrl;
 
 @end

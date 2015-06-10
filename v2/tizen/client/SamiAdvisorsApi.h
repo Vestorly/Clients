@@ -5,8 +5,8 @@
 #include "SamiApiClient.h"
 #include "SamiError.h"
 
+#include "SamiAdvisor.h"
 using Tizen::Base::String;
-#include "SamiAdvisorresponse.h"
 
 using namespace Tizen::Net::Http;
 
@@ -18,8 +18,8 @@ public:
   virtual ~SamiAdvisorsApi();
 
   
-  SamiAdvisorresponse* 
-  findAdvisorByIDWithCompletion(String* vestorly-auth, String* _id, void (* handler)(SamiAdvisorresponse*, SamiError*));
+  SamiAdvisor* 
+  findAdvisorByIDWithCompletion(String* vestorlyAuth, String* _id, void (* handler)(SamiAdvisor*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

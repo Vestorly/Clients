@@ -9,6 +9,6 @@
 @interface SWGNewsletters : SWGObject
 
 
-@property(nonatomic) NSArray<Optional, SWGNewsletter>* _newletters;
+@property(nonatomic) NSArray<SWGNewsletter>* newsletters;
 
 @end

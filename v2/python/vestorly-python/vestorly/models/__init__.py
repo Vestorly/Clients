@@ -1,9 +1,53 @@
-#!/usr/bin/env python
-"""Add all of the modules in the current directory to __all__"""
-import os
+from __future__ import absolute_import
 
-__all__ = []
+# import models into model package
+from .advisorresponse import Advisorresponse
+from .advisor import Advisor
+from .advisors import Advisors
+from .posts import Posts
+from .postresponse import Postresponse
+from .postrequest import Postrequest
+from .post import Post
+from .post_input import PostInput
+from .session_logout_response import SessionLogoutResponse
+from .session import Session
+from .settings import Settings
+from .org_setting import OrgSetting
+from .features import Features
+from .personal_settings import PersonalSettings
+from .user import User
+from .member_report import MemberReport
+from .member_reports import MemberReports
+from .truncated_member import TruncatedMember
+from .member_event import MemberEvent
+from .member_events import MemberEvents
+from .article import Article
+from .articleresponse import Articleresponse
+from .articles import Articles
+from .newsletterresponse import Newsletterresponse
+from .newsletter import Newsletter
+from .newsletter_input import NewsletterInput
+from .newsletters import Newsletters
+from .memberresponse import Memberresponse
+from .meta import Meta
+from .members import Members
+from .member import Member
+from .event_content import EventContent
+from .eventresponse import Eventresponse
+from .eventcreateresponse import Eventcreateresponse
+from .event_input import EventInput
+from .event import Event
+from .events import Events
+from .group import Group
+from .group_input import GroupInput
+from .groups import Groups
+from .groupresponse import Groupresponse
+from .newslettersettingresponse import Newslettersettingresponse
+from .newsletter_settings import NewsletterSettings
+from .newsletter_settings_input import NewsletterSettingsInput
+from .newsletter_setting import NewsletterSetting
+from .sourceresponse import Sourceresponse
+from .source import Source
+from .source_input import SourceInput
+from .sources import Sources
 
-for module in os.listdir(os.path.dirname(__file__)):
-  if module != '__init__.py' and module[-3:] == '.py':
-    __all__.append(module[:-3])

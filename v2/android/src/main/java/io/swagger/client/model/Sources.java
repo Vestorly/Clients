@@ -1,22 +1,22 @@
 package io.swagger.client.model;
 
-import java.util.*;
 import io.swagger.client.model.Source;
+import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class Sources  {
   
+  @SerializedName("sources")
   private List<Source> sources = new ArrayList<Source>() ;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("sources")
   public List<Source> getSources() {
     return sources;
   }

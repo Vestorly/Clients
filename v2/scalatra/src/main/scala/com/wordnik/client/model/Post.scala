@@ -19,7 +19,7 @@ case class Post (
   summary: String,
   topic: String,
   approval_status: String,
-  approval_transactions: String,
+  approval_transactions: List[String],
   group_ids: List[String],
   slug: String,
   article_id: String,
@@ -40,5 +40,6 @@ case class Post (
   video_id: String,
   display_tag: String,
   display_summary: String,
-  vestorly_url: String
+  vestorly_url: String,
+  title: String
 )

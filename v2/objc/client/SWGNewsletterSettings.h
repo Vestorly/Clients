@@ -3,12 +3,12 @@
 #import "SWGNewsletterSetting.h"
 
 
-@protocol SWGNewslettersettings
+@protocol SWGNewsletterSettings
 @end
   
-@interface SWGNewslettersettings : SWGObject
+@interface SWGNewsletterSettings : SWGObject
 
 
-@property(nonatomic) NSArray<Optional, SWGNewsletterSetting>* _newletter_settings;
+@property(nonatomic) NSArray<SWGNewsletterSetting>* newsletterSettings;
 
 @end

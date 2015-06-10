@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGGroups.h"
-#import "SWGGroup.h"
-#import "SWGErrorModel.h"
+#import "SWGGroupresponse.h"
 #import "SWGGroupInput.h"
 #import "SWGObject.h"
 
@@ -18,12 +17,12 @@
  
  Returns all groups
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorlyAuth Vestorly Auth Token
  
 
  return type: SWGGroups*
  */
--(NSNumber*) findGroupsWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) findGroupsWithCompletionBlock :(NSString*) vestorlyAuth 
     
     completionHandler: (void (^)(SWGGroups* output, NSError* error))completionBlock;
     
@@ -32,54 +31,56 @@
 /**
 
  
+ Creates a new Group
+
+ @param vestorlyAuth Vestorly Auth Token
+ @param group Group to add
+ 
+
+ return type: SWGGroupresponse*
+ */
+-(NSNumber*) createGroupWithCompletionBlock :(NSString*) vestorlyAuth 
+     group:(SWGGroupInput*) group 
+    
+    completionHandler: (void (^)(SWGGroupresponse* output, NSError* error))completionBlock;
+    
+
+
+/**
+
+ 
  Returns a single group if user has access
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorlyAuth Vestorly Auth Token
  @param _id Mongo ID of group to fetch
  
 
- return type: SWGGroup*
+ return type: SWGGroupresponse*
  */
--(NSNumber*) findGroupByIDWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) findGroupByIDWithCompletionBlock :(NSString*) vestorlyAuth 
      _id:(NSString*) _id 
     
-    completionHandler: (void (^)(SWGGroup* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGGroupresponse* output, NSError* error))completionBlock;
     
 
 
 /**
 
  
- Creates a new Group
+ Updates a Group
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorlyAuth Vestorly Auth Token
  @param _id id of group to update
- @param group Group to add
+ @param group Group to update
  
 
- return type: SWGGroupInput*
+ return type: SWGGroupresponse*
  */
--(NSNumber*) addGroupWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) updateGroupByIdWithCompletionBlock :(NSString*) vestorlyAuth 
      _id:(NSString*) _id 
-     group:(SWGGroup*) group 
+     group:(SWGGroupInput*) group 
     
-    completionHandler: (void (^)(SWGGroupInput* output, NSError* error))completionBlock;
-    
-
-
-/**
-
- 
- Creates a new Group
-
- @param group Group to add
- 
-
- return type: SWGGroupInput*
- */
--(NSNumber*) addGroup_1WithCompletionBlock :(SWGGroup*) group 
-    
-    completionHandler: (void (^)(SWGGroupInput* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGGroupresponse* output, NSError* error))completionBlock;
     
 
 
@@ -88,14 +89,16 @@
  
  Deletes a Group
 
- @param group Group to remove
+ @param vestorlyAuth Vestorly Auth Token
+ @param _id id of group to delete
  
 
- return type: SWGGroupInput*
+ return type: SWGGroupresponse*
  */
--(NSNumber*) deleteGroupWithCompletionBlock :(SWGGroup*) group 
+-(NSNumber*) deleteGroupWithCompletionBlock :(NSString*) vestorlyAuth 
+     _id:(NSString*) _id 
     
-    completionHandler: (void (^)(SWGGroupInput* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGGroupresponse* output, NSError* error))completionBlock;
     
 
 

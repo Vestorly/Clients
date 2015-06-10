@@ -1,5 +1,5 @@
 
-#include "SamiNewslettersettings.h"
+#include "SamiNewsletterSettings.h"
 #include <FLocales.h>
 
 using namespace Tizen::Base;
@@ -12,33 +12,33 @@ using namespace Tizen::Locales;
 
 namespace Swagger {
 
-SamiNewslettersettings::SamiNewslettersettings() {
+SamiNewsletterSettings::SamiNewsletterSettings() {
     init();
 }
 
-SamiNewslettersettings::~SamiNewslettersettings() {
+SamiNewsletterSettings::~SamiNewsletterSettings() {
     this->cleanup();
 }
 
 void
-SamiNewslettersettings::init() {
-    pNewletter_settings = null;
+SamiNewsletterSettings::init() {
+    pNewsletter_settings = null;
     
 }
 
 void
-SamiNewslettersettings::cleanup() {
-    if(pNewletter_settings != null) {
-        pNewletter_settings->RemoveAll(true);
-        delete pNewletter_settings;
-        pNewletter_settings = null;
+SamiNewsletterSettings::cleanup() {
+    if(pNewsletter_settings != null) {
+        pNewsletter_settings->RemoveAll(true);
+        delete pNewsletter_settings;
+        pNewsletter_settings = null;
     }
     
 }
 
 
-SamiNewslettersettings*
-SamiNewslettersettings::fromJson(String* json) {
+SamiNewsletterSettings*
+SamiNewsletterSettings::fromJson(String* json) {
     this->cleanup();
     String str(json->GetPointer());
     int length = str.GetLength();
@@ -67,24 +67,24 @@ SamiNewslettersettings::fromJson(String* json) {
 
 
 void
-SamiNewslettersettings::fromJsonObject(IJsonValue* pJson) {
+SamiNewsletterSettings::fromJsonObject(IJsonValue* pJson) {
     JsonObject* pJsonObject = static_cast< JsonObject* >(pJson);
 
     if(pJsonObject != null) {
-        JsonString* pNewletter_settingsKey = new JsonString(L"newletter_settings");
-        IJsonValue* pNewletter_settingsVal = null;
-        pJsonObject->GetValue(pNewletter_settingsKey, pNewletter_settingsVal);
-        if(pNewletter_settingsVal != null) {
-            pNewletter_settings = new ArrayList();
+        JsonString* pNewsletter_settingsKey = new JsonString(L"newsletter_settings");
+        IJsonValue* pNewsletter_settingsVal = null;
+        pJsonObject->GetValue(pNewsletter_settingsKey, pNewsletter_settingsVal);
+        if(pNewsletter_settingsVal != null) {
+            pNewsletter_settings = new ArrayList();
             
-            jsonToValue(pNewletter_settings, pNewletter_settingsVal, L"IList", L"SamiNewsletterSetting");
+            jsonToValue(pNewsletter_settings, pNewsletter_settingsVal, L"IList", L"SamiNewsletterSetting");
         }
-        delete pNewletter_settingsKey;
+        delete pNewsletter_settingsKey;
         
     }
 }
 
-SamiNewslettersettings::SamiNewslettersettings(String* json) {
+SamiNewsletterSettings::SamiNewsletterSettings(String* json) {
     init();
     String str(json->GetPointer());
     int length = str.GetLength();
@@ -111,7 +111,7 @@ SamiNewslettersettings::SamiNewslettersettings(String* json) {
 }
 
 String
-SamiNewslettersettings::asJson ()
+SamiNewsletterSettings::asJson ()
 {
     JsonObject* pJsonObject = asJsonObject();
 
@@ -127,25 +127,25 @@ SamiNewslettersettings::asJson ()
 }
 
 JsonObject*
-SamiNewslettersettings::asJsonObject() {
+SamiNewsletterSettings::asJsonObject() {
     JsonObject *pJsonObject = new JsonObject();
     pJsonObject->Construct();
 
     
-    JsonString *pNewletter_settingsKey = new JsonString(L"newletter_settings");
-    pJsonObject->Add(pNewletter_settingsKey, toJson(getPNewletterSettings(), "SamiNewsletterSetting", "array"));
+    JsonString *pNewsletter_settingsKey = new JsonString(L"newsletter_settings");
+    pJsonObject->Add(pNewsletter_settingsKey, toJson(getPNewsletterSettings(), "SamiNewsletterSetting", "array"));
 
     
     return pJsonObject;
 }
 
 IList*
-SamiNewslettersettings::getPNewletterSettings() {
-    return pNewletter_settings;
+SamiNewsletterSettings::getPNewsletterSettings() {
+    return pNewsletter_settings;
 }
 void
-SamiNewslettersettings::setPNewletterSettings(IList* pNewletter_settings) {
-    this->pNewletter_settings = pNewletter_settings;
+SamiNewsletterSettings::setPNewsletterSettings(IList* pNewsletter_settings) {
+    this->pNewsletter_settings = pNewsletter_settings;
 }
 
 

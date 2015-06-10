@@ -3,56 +3,95 @@ package io.swagger.client.model;
 import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class Post  {
   
+  @SerializedName("_id")
   private String id = null;
+  @SerializedName("created_at")
   private String createdAt = null;
+  @SerializedName("updated_at")
   private String updatedAt = null;
+  @SerializedName("external_url")
   private String externalUrl = null;
+  @SerializedName("external_url_source")
   private String externalUrlSource = null;
+  @SerializedName("external_url_type")
   private String externalUrlType = null;
+  @SerializedName("image_path")
   private String imagePath = null;
+  @SerializedName("image_url")
   private String imageUrl = null;
+  @SerializedName("image_height")
   private String imageHeight = null;
+  @SerializedName("image_width")
   private String imageWidth = null;
+  @SerializedName("logo_url")
   private String logoUrl = null;
+  @SerializedName("square_logo_url")
   private String squareLogoUrl = null;
+  @SerializedName("needs_sanitize")
   private String needsSanitize = null;
+  @SerializedName("summary")
   private String summary = null;
+  @SerializedName("topic")
   private String topic = null;
+  @SerializedName("approval_status")
   private String approvalStatus = null;
-  private String approvalTransactions = null;
+  @SerializedName("approval_transactions")
+  private List<String> approvalTransactions = new ArrayList<String>() ;
+  @SerializedName("group_ids")
   private List<String> groupIds = new ArrayList<String>() ;
+  @SerializedName("slug")
   private String slug = null;
+  @SerializedName("article_id")
   private String articleId = null;
+  @SerializedName("comment")
   private String comment = null;
+  @SerializedName("newsletter_ids")
   private List<String> newsletterIds = new ArrayList<String>() ;
+  @SerializedName("is_featured")
   private Boolean isFeatured = null;
+  @SerializedName("advisor_id")
   private String advisorId = null;
+  @SerializedName("is_published")
   private Boolean isPublished = null;
+  @SerializedName("is_responsive")
   private Boolean isResponsive = null;
+  @SerializedName("is_proxy_needed")
   private Boolean isProxyNeeded = null;
+  @SerializedName("is_mobile_proxy_needed")
   private Boolean isMobileProxyNeeded = null;
+  @SerializedName("proxy_url")
   private String proxyUrl = null;
+  @SerializedName("video")
   private String video = null;
+  @SerializedName("pdf_attachment_url")
   private String pdfAttachmentUrl = null;
+  @SerializedName("post_date")
   private String postDate = null;
+  @SerializedName("display_date")
   private String displayDate = null;
+  @SerializedName("suitability_score")
   private String suitabilityScore = null;
+  @SerializedName("video_id")
   private String videoId = null;
+  @SerializedName("display_tag")
   private String displayTag = null;
+  @SerializedName("display_summary")
   private String displaySummary = null;
+  @SerializedName("vestorly_url")
   private String vestorlyUrl = null;
+  @SerializedName("title")
+  private String title = null;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("_id")
   public String getId() {
     return id;
   }
@@ -64,7 +103,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("created_at")
   public String getCreatedAt() {
     return createdAt;
   }
@@ -76,7 +114,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("updated_at")
   public String getUpdatedAt() {
     return updatedAt;
   }
@@ -88,7 +125,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("external_url")
   public String getExternalUrl() {
     return externalUrl;
   }
@@ -100,7 +136,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("external_url_source")
   public String getExternalUrlSource() {
     return externalUrlSource;
   }
@@ -112,7 +147,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("external_url_type")
   public String getExternalUrlType() {
     return externalUrlType;
   }
@@ -124,7 +158,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("image_path")
   public String getImagePath() {
     return imagePath;
   }
@@ -136,7 +169,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("image_url")
   public String getImageUrl() {
     return imageUrl;
   }
@@ -148,7 +180,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("image_height")
   public String getImageHeight() {
     return imageHeight;
   }
@@ -160,7 +191,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("image_width")
   public String getImageWidth() {
     return imageWidth;
   }
@@ -172,7 +202,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("logo_url")
   public String getLogoUrl() {
     return logoUrl;
   }
@@ -184,7 +213,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("square_logo_url")
   public String getSquareLogoUrl() {
     return squareLogoUrl;
   }
@@ -196,7 +224,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("needs_sanitize")
   public String getNeedsSanitize() {
     return needsSanitize;
   }
@@ -208,7 +235,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("summary")
   public String getSummary() {
     return summary;
   }
@@ -220,7 +246,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("topic")
   public String getTopic() {
     return topic;
   }
@@ -232,7 +257,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("approval_status")
   public String getApprovalStatus() {
     return approvalStatus;
   }
@@ -244,11 +268,10 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("approval_transactions")
-  public String getApprovalTransactions() {
+  public List<String> getApprovalTransactions() {
     return approvalTransactions;
   }
-  public void setApprovalTransactions(String approvalTransactions) {
+  public void setApprovalTransactions(List<String> approvalTransactions) {
     this.approvalTransactions = approvalTransactions;
   }
 
@@ -256,7 +279,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("group_ids")
   public List<String> getGroupIds() {
     return groupIds;
   }
@@ -268,7 +290,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("slug")
   public String getSlug() {
     return slug;
   }
@@ -280,7 +301,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("article_id")
   public String getArticleId() {
     return articleId;
   }
@@ -292,7 +312,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("comment")
   public String getComment() {
     return comment;
   }
@@ -304,7 +323,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("newsletter_ids")
   public List<String> getNewsletterIds() {
     return newsletterIds;
   }
@@ -316,7 +334,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("is_featured")
   public Boolean getIsFeatured() {
     return isFeatured;
   }
@@ -328,7 +345,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("advisor_id")
   public String getAdvisorId() {
     return advisorId;
   }
@@ -340,7 +356,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("is_published")
   public Boolean getIsPublished() {
     return isPublished;
   }
@@ -352,7 +367,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("is_responsive")
   public Boolean getIsResponsive() {
     return isResponsive;
   }
@@ -364,7 +378,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("is_proxy_needed")
   public Boolean getIsProxyNeeded() {
     return isProxyNeeded;
   }
@@ -376,7 +389,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("is_mobile_proxy_needed")
   public Boolean getIsMobileProxyNeeded() {
     return isMobileProxyNeeded;
   }
@@ -388,7 +400,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("proxy_url")
   public String getProxyUrl() {
     return proxyUrl;
   }
@@ -400,7 +411,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("video")
   public String getVideo() {
     return video;
   }
@@ -412,7 +422,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("pdf_attachment_url")
   public String getPdfAttachmentUrl() {
     return pdfAttachmentUrl;
   }
@@ -424,7 +433,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("post_date")
   public String getPostDate() {
     return postDate;
   }
@@ -436,7 +444,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("display_date")
   public String getDisplayDate() {
     return displayDate;
   }
@@ -448,7 +455,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("suitability_score")
   public String getSuitabilityScore() {
     return suitabilityScore;
   }
@@ -460,7 +466,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("video_id")
   public String getVideoId() {
     return videoId;
   }
@@ -472,7 +477,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("display_tag")
   public String getDisplayTag() {
     return displayTag;
   }
@@ -484,7 +488,6 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("display_summary")
   public String getDisplaySummary() {
     return displaySummary;
   }
@@ -496,12 +499,22 @@ public class Post  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("vestorly_url")
   public String getVestorlyUrl() {
     return vestorlyUrl;
   }
   public void setVestorlyUrl(String vestorlyUrl) {
     this.vestorlyUrl = vestorlyUrl;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public String getTitle() {
+    return title;
+  }
+  public void setTitle(String title) {
+    this.title = title;
   }
 
   
@@ -549,6 +562,7 @@ public class Post  {
     sb.append("  displayTag: ").append(displayTag).append("\n");
     sb.append("  displaySummary: ").append(displaySummary).append("\n");
     sb.append("  vestorlyUrl: ").append(vestorlyUrl).append("\n");
+    sb.append("  title: ").append(title).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

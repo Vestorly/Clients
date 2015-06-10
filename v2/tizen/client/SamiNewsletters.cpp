@@ -22,16 +22,16 @@ SamiNewsletters::~SamiNewsletters() {
 
 void
 SamiNewsletters::init() {
-    pNewletters = null;
+    pNewsletters = null;
     
 }
 
 void
 SamiNewsletters::cleanup() {
-    if(pNewletters != null) {
-        pNewletters->RemoveAll(true);
-        delete pNewletters;
-        pNewletters = null;
+    if(pNewsletters != null) {
+        pNewsletters->RemoveAll(true);
+        delete pNewsletters;
+        pNewsletters = null;
     }
     
 }
@@ -71,15 +71,15 @@ SamiNewsletters::fromJsonObject(IJsonValue* pJson) {
     JsonObject* pJsonObject = static_cast< JsonObject* >(pJson);
 
     if(pJsonObject != null) {
-        JsonString* pNewlettersKey = new JsonString(L"newletters");
-        IJsonValue* pNewlettersVal = null;
-        pJsonObject->GetValue(pNewlettersKey, pNewlettersVal);
-        if(pNewlettersVal != null) {
-            pNewletters = new ArrayList();
+        JsonString* pNewslettersKey = new JsonString(L"newsletters");
+        IJsonValue* pNewslettersVal = null;
+        pJsonObject->GetValue(pNewslettersKey, pNewslettersVal);
+        if(pNewslettersVal != null) {
+            pNewsletters = new ArrayList();
             
-            jsonToValue(pNewletters, pNewlettersVal, L"IList", L"SamiNewsletter");
+            jsonToValue(pNewsletters, pNewslettersVal, L"IList", L"SamiNewsletter");
         }
-        delete pNewlettersKey;
+        delete pNewslettersKey;
         
     }
 }
@@ -132,20 +132,20 @@ SamiNewsletters::asJsonObject() {
     pJsonObject->Construct();
 
     
-    JsonString *pNewlettersKey = new JsonString(L"newletters");
-    pJsonObject->Add(pNewlettersKey, toJson(getPNewletters(), "SamiNewsletter", "array"));
+    JsonString *pNewslettersKey = new JsonString(L"newsletters");
+    pJsonObject->Add(pNewslettersKey, toJson(getPNewsletters(), "SamiNewsletter", "array"));
 
     
     return pJsonObject;
 }
 
 IList*
-SamiNewsletters::getPNewletters() {
-    return pNewletters;
+SamiNewsletters::getPNewsletters() {
+    return pNewsletters;
 }
 void
-SamiNewsletters::setPNewletters(IList* pNewletters) {
-    this->pNewletters = pNewletters;
+SamiNewsletters::setPNewsletters(IList* pNewsletters) {
+    this->pNewsletters = pNewsletters;
 }
 
 

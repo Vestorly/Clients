@@ -5,9 +5,9 @@
 #include "SamiApiClient.h"
 #include "SamiError.h"
 
-using Tizen::Base::Integer;
 #include "SamiArticles.h"
 using Tizen::Base::String;
+using Tizen::Base::Integer;
 #include "SamiArticleresponse.h"
 
 using namespace Tizen::Net::Http;
@@ -21,10 +21,10 @@ public:
 
   
   SamiArticles* 
-  findArticlesWithCompletion(String* vestorly-auth, Integer* limit, String* text_query, String* sort_direction, String* sort_by, void (* handler)(SamiArticles*, SamiError*));
+  findArticlesWithCompletion(String* vestorlyAuth, Integer* limit, String* textQuery, String* sortDirection, String* sortBy, void (* handler)(SamiArticles*, SamiError*));
   
   SamiArticleresponse* 
-  findArticleByIDWithCompletion(String* vestorly-auth, String* _id, void (* handler)(SamiArticleresponse*, SamiError*));
+  findArticleByIDWithCompletion(String* vestorlyAuth, String* _id, void (* handler)(SamiArticleresponse*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

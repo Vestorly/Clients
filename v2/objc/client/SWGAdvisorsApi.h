@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "SWGAdvisorresponse.h"
+#import "SWGAdvisor.h"
 #import "SWGObject.h"
 
 
@@ -13,18 +13,18 @@
 /**
 
  
- Returns a single advisors
+ Returns a single advisor given their ID
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorlyAuth Vestorly Auth Token
  @param _id Advisor Id to fetch
  
 
- return type: SWGAdvisorresponse*
+ return type: SWGAdvisor*
  */
--(NSNumber*) findAdvisorByIDWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) findAdvisorByIDWithCompletionBlock :(NSString*) vestorlyAuth 
      _id:(NSString*) _id 
     
-    completionHandler: (void (^)(SWGAdvisorresponse* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGAdvisor* output, NSError* error))completionBlock;
     
 
 

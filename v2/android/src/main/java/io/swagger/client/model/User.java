@@ -2,35 +2,51 @@ package io.swagger.client.model;
 
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class User  {
   
+  @SerializedName("_id")
   private String id = null;
+  @SerializedName("company")
   private String company = null;
+  @SerializedName("picture_url")
   private String pictureUrl = null;
+  @SerializedName("website")
   private String website = null;
+  @SerializedName("user_type")
   private String userType = null;
+  @SerializedName("slug")
   private String slug = null;
+  @SerializedName("name")
   private String name = null;
+  @SerializedName("username")
   private String username = null;
+  @SerializedName("first_name")
   private String firstName = null;
+  @SerializedName("last_name")
   private String lastName = null;
+  @SerializedName("new_user")
   private Boolean newUser = null;
+  @SerializedName("show_tour")
   private Boolean showTour = null;
+  @SerializedName("plan_setup")
   private Boolean planSetup = null;
+  @SerializedName("plan_expired")
   private Boolean planExpired = null;
+  @SerializedName("plan_status")
   private String planStatus = null;
+  @SerializedName("plan_id")
   private String planId = null;
+  @SerializedName("plan_stripe")
   private Boolean planStripe = null;
 
   
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty("_id")
   public String getId() {
     return id;
   }
@@ -42,7 +58,6 @@ public class User  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("company")
   public String getCompany() {
     return company;
   }
@@ -54,7 +69,6 @@ public class User  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("picture_url")
   public String getPictureUrl() {
     return pictureUrl;
   }
@@ -66,7 +80,6 @@ public class User  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("website")
   public String getWebsite() {
     return website;
   }
@@ -78,7 +91,6 @@ public class User  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("user_type")
   public String getUserType() {
     return userType;
   }
@@ -90,7 +102,6 @@ public class User  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("slug")
   public String getSlug() {
     return slug;
   }
@@ -102,7 +113,6 @@ public class User  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("name")
   public String getName() {
     return name;
   }
@@ -114,7 +124,6 @@ public class User  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("username")
   public String getUsername() {
     return username;
   }
@@ -126,7 +135,6 @@ public class User  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("first_name")
   public String getFirstName() {
     return firstName;
   }
@@ -138,7 +146,6 @@ public class User  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("last_name")
   public String getLastName() {
     return lastName;
   }
@@ -150,7 +157,6 @@ public class User  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("new_user")
   public Boolean getNewUser() {
     return newUser;
   }
@@ -162,7 +168,6 @@ public class User  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("show_tour")
   public Boolean getShowTour() {
     return showTour;
   }
@@ -174,7 +179,6 @@ public class User  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("plan_setup")
   public Boolean getPlanSetup() {
     return planSetup;
   }
@@ -186,7 +190,6 @@ public class User  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("plan_expired")
   public Boolean getPlanExpired() {
     return planExpired;
   }
@@ -198,7 +201,6 @@ public class User  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("plan_status")
   public String getPlanStatus() {
     return planStatus;
   }
@@ -210,7 +212,6 @@ public class User  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("plan_id")
   public String getPlanId() {
     return planId;
   }
@@ -222,7 +223,6 @@ public class User  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("plan_stripe")
   public Boolean getPlanStripe() {
     return planStripe;
   }

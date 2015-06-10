@@ -17,7 +17,7 @@
 using namespace Tizen::Web::Json;
 
 
-#include "SamiPost.h"
+#include "SamiNewsletter.h"
 
 
 namespace Swagger {
@@ -41,12 +41,12 @@ public:
     SamiNewsletterresponse* fromJson(String* obj);
 
     
-    SamiPost* getPNewsletter();
-    void setPNewsletter(SamiPost* pNewsletter);
+    SamiNewsletter* getPNewsletter();
+    void setPNewsletter(SamiNewsletter* pNewsletter);
     
 
 private:
-    SamiPost* pNewsletter;
+    SamiNewsletter* pNewsletter;
     
 };
 

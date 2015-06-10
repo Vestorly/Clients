@@ -7,10 +7,10 @@ var Sources = require('./SourcesService');
 
 
 module.exports.findSources = function findSources (req, res, next) {
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorlyAuth = req.swagger.params['vestorly_auth'].value;
   
 
-  var result = Sources.findSources(vestorly-auth);
+  var result = Sources.findSources(vestorlyAuth);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -21,11 +21,11 @@ module.exports.findSources = function findSources (req, res, next) {
 };
 
 module.exports.createSource = function createSource (req, res, next) {
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorlyAuth = req.swagger.params['vestorly_auth'].value;
   var source = req.swagger.params['source'].value;
   
 
-  var result = Sources.createSource(vestorly-auth, source);
+  var result = Sources.createSource(vestorlyAuth, source);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -36,11 +36,11 @@ module.exports.createSource = function createSource (req, res, next) {
 };
 
 module.exports.getSourceByID = function getSourceByID (req, res, next) {
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorlyAuth = req.swagger.params['vestorly_auth'].value;
   var id = req.swagger.params['id'].value;
   
 
-  var result = Sources.getSourceByID(vestorly-auth, id);
+  var result = Sources.getSourceByID(vestorlyAuth, id);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -51,12 +51,12 @@ module.exports.getSourceByID = function getSourceByID (req, res, next) {
 };
 
 module.exports.updateSourceByID = function updateSourceByID (req, res, next) {
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorlyAuth = req.swagger.params['vestorly_auth'].value;
   var id = req.swagger.params['id'].value;
   var source = req.swagger.params['source'].value;
   
 
-  var result = Sources.updateSourceByID(vestorly-auth, id, source);
+  var result = Sources.updateSourceByID(vestorlyAuth, id, source);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

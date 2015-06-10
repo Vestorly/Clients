@@ -76,8 +76,8 @@ SamiNewsletterresponse::fromJsonObject(IJsonValue* pJson) {
         pJsonObject->GetValue(pNewsletterKey, pNewsletterVal);
         if(pNewsletterVal != null) {
             
-            pNewsletter = new SamiPost();
-            jsonToValue(pNewsletter, pNewsletterVal, L"SamiPost", L"SamiPost");
+            pNewsletter = new SamiNewsletter();
+            jsonToValue(pNewsletter, pNewsletterVal, L"SamiNewsletter", L"SamiNewsletter");
         }
         delete pNewsletterKey;
         
@@ -133,18 +133,18 @@ SamiNewsletterresponse::asJsonObject() {
 
     
     JsonString *pNewsletterKey = new JsonString(L"newsletter");
-    pJsonObject->Add(pNewsletterKey, toJson(getPNewsletter(), "SamiPost", ""));
+    pJsonObject->Add(pNewsletterKey, toJson(getPNewsletter(), "SamiNewsletter", ""));
 
     
     return pJsonObject;
 }
 
-SamiPost*
+SamiNewsletter*
 SamiNewsletterresponse::getPNewsletter() {
     return pNewsletter;
 }
 void
-SamiNewsletterresponse::setPNewsletter(SamiPost* pNewsletter) {
+SamiNewsletterresponse::setPNewsletter(SamiNewsletter* pNewsletter) {
     this->pNewsletter = pNewsletter;
 }
 
