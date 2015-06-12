@@ -1,8 +1,8 @@
 package com.wordnik.client.api
 
-import com.wordnik.client.model.Newsletter
-import com.wordnik.client.model.NewsletterInput
+import com.wordnik.client.model.Newsletters
 import com.wordnik.client.model.Newsletterresponse
+import com.wordnik.client.model.NewsletterInput
 
 import java.io.File
 
@@ -30,10 +30,10 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
   }
   
 
-  val findNewslettersOperation = (apiOperation[Newsletter]("findNewsletters")
+  val findNewslettersOperation = (apiOperation[Newsletters]("findNewsletters")
       summary ""
       parameters(
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorlyAuth").description("")
         
         
         
@@ -51,7 +51,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorlyAuth = params.getAs[String]("vestorlyAuth")
       
     
 
@@ -61,67 +61,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
-  
-  }
-
-  
-
-  val createNewsletterOperation = (apiOperation[Newsletterresponse]("createNewsletter")
-      summary ""
-      parameters(
-        queryParam[String]("vestorly-auth").description("")
-        
-        
-        
-        
-        
-        ,
-        
-        
-        
-        bodyParam[NewsletterInput]("newsletter").description("")
-        
-        
-        
-        )
-  )
-
-  post("/newsletters",operation(createNewsletterOperation)) {
-    
-    
-    
-    
-
-    
-      
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
-      
-    
-
-    
-
-    
-
-    
-    
-    println("vestorly-auth: " + vestorly-auth)
-  
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-      val newsletter = parsedBody.extract[NewsletterInput]
-    
-    
-    println("newsletter: " + newsletter)
+    println("vestorlyAuth: " + vestorlyAuth)
   
   }
 
@@ -130,7 +70,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
   val getNewsletterByIDOperation = (apiOperation[Newsletterresponse]("getNewsletterByID")
       summary ""
       parameters(
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorlyAuth").description("")
         
         
         
@@ -155,7 +95,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorlyAuth = params.getAs[String]("vestorlyAuth")
       
     
 
@@ -165,7 +105,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorlyAuth: " + vestorlyAuth)
   
     
     
@@ -190,7 +130,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
   val updateNewsletterByIDOperation = (apiOperation[Newsletterresponse]("updateNewsletterByID")
       summary ""
       parameters(
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorlyAuth").description("")
         
         
         
@@ -222,7 +162,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorlyAuth = params.getAs[String]("vestorlyAuth")
       
     
 
@@ -232,7 +172,7 @@ class NewslettersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorlyAuth: " + vestorlyAuth)
   
     
     

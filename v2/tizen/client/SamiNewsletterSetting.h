@@ -17,10 +17,10 @@
 using namespace Tizen::Web::Json;
 
 
-using Tizen::Base::Integer;
 using Tizen::Base::String;
-using Tizen::Base::Boolean;
 using Tizen::Base::Collection::IList;
+using Tizen::Base::Boolean;
+using Tizen::Base::Integer;
 
 
 namespace Swagger {

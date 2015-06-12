@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "SWGNewsletter.h"
+#import "SWGNewsletters.h"
 #import "SWGNewsletterresponse.h"
 #import "SWGNewsletterInput.h"
 #import "SWGObject.h"
@@ -15,34 +15,16 @@
 /**
 
  
- Returns all events
+ Returns all newsletters
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorlyAuth Vestorly Auth Token
  
 
- return type: SWGNewsletter*
+ return type: SWGNewsletters*
  */
--(NSNumber*) findNewslettersWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) findNewslettersWithCompletionBlock :(NSString*) vestorlyAuth 
     
-    completionHandler: (void (^)(SWGNewsletter* output, NSError* error))completionBlock;
-    
-
-
-/**
-
- 
- Creates a newsletter
-
- @param vestorly-auth Vestorly Auth Token
- @param newsletter Newsletter
- 
-
- return type: SWGNewsletterresponse*
- */
--(NSNumber*) createNewsletterWithCompletionBlock :(NSString*) vestorly-auth 
-     newsletter:(SWGNewsletterInput*) newsletter 
-    
-    completionHandler: (void (^)(SWGNewsletterresponse* output, NSError* error))completionBlock;
+    completionHandler: (void (^)(SWGNewsletters* output, NSError* error))completionBlock;
     
 
 
@@ -51,13 +33,13 @@
  
  Get a newsletter by ID
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorlyAuth Vestorly Auth Token
  @param _id Mongo ID of event to get
  
 
  return type: SWGNewsletterresponse*
  */
--(NSNumber*) getNewsletterByIDWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) getNewsletterByIDWithCompletionBlock :(NSString*) vestorlyAuth 
      _id:(NSString*) _id 
     
     completionHandler: (void (^)(SWGNewsletterresponse* output, NSError* error))completionBlock;
@@ -69,14 +51,14 @@
  
  Updates a newsletter
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorlyAuth Vestorly Auth Token
  @param _id Mongo ID of event to update
  @param newsletter Newsletter
  
 
  return type: SWGNewsletterresponse*
  */
--(NSNumber*) updateNewsletterByIDWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) updateNewsletterByIDWithCompletionBlock :(NSString*) vestorlyAuth 
      _id:(NSString*) _id 
      newsletter:(SWGNewsletterInput*) newsletter 
     

@@ -42,12 +42,12 @@ public:
     SamiNewsletters* fromJson(String* obj);
 
     
-    IList* getPNewletters();
-    void setPNewletters(IList* pNewletters);
+    IList* getPNewsletters();
+    void setPNewsletters(IList* pNewsletters);
     
 
 private:
-    IList* pNewletters;
+    IList* pNewsletters;
     
 };
 

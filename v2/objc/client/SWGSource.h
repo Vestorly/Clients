@@ -14,12 +14,12 @@
 
 @property(nonatomic) NSString* url;
 
-@property(nonatomic) NSString<Optional>* logo_url;
+@property(nonatomic) NSString* logoUrl;
 
-@property(nonatomic) NSNumber<Optional>* enabled;
+@property(nonatomic) BOOL enabled;
 
-@property(nonatomic) NSNumber<Optional>* custom_rss_feed;
+@property(nonatomic) BOOL customRssFeed;
 
-@property(nonatomic) NSString* rss_publisher;
+@property(nonatomic) NSString* rssPublisher;
 
 @end

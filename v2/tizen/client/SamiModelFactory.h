@@ -36,14 +36,16 @@
 #include "SamiMember.h"
 #include "SamiEventContent.h"
 #include "SamiEventresponse.h"
+#include "SamiEventcreateresponse.h"
 #include "SamiEventInput.h"
 #include "SamiEvent.h"
 #include "SamiEvents.h"
 #include "SamiGroup.h"
 #include "SamiGroupInput.h"
 #include "SamiGroups.h"
+#include "SamiGroupresponse.h"
 #include "SamiNewslettersettingresponse.h"
-#include "SamiNewslettersettings.h"
+#include "SamiNewsletterSettings.h"
 #include "SamiNewsletterSettingsInput.h"
 #include "SamiNewsletterSetting.h"
 #include "SamiSourceresponse.h"
@@ -153,6 +155,9 @@ namespace Swagger {
     if(type.Equals(L"SamiEventresponse", true)) {
       return new SamiEventresponse();
     }
+    if(type.Equals(L"SamiEventcreateresponse", true)) {
+      return new SamiEventcreateresponse();
+    }
     if(type.Equals(L"SamiEventInput", true)) {
       return new SamiEventInput();
     }
@@ -171,11 +176,14 @@ namespace Swagger {
     if(type.Equals(L"SamiGroups", true)) {
       return new SamiGroups();
     }
+    if(type.Equals(L"SamiGroupresponse", true)) {
+      return new SamiGroupresponse();
+    }
     if(type.Equals(L"SamiNewslettersettingresponse", true)) {
       return new SamiNewslettersettingresponse();
     }
-    if(type.Equals(L"SamiNewslettersettings", true)) {
-      return new SamiNewslettersettings();
+    if(type.Equals(L"SamiNewsletterSettings", true)) {
+      return new SamiNewsletterSettings();
     }
     if(type.Equals(L"SamiNewsletterSettingsInput", true)) {
       return new SamiNewsletterSettingsInput();

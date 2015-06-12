@@ -4,23 +4,27 @@ import io.swagger.client.model.User;
 import io.swagger.client.model.Settings;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class Session  {
   
+  @SerializedName("_id")
   private String id = null;
+  @SerializedName("vestorly-auth")
   private String vestorlyAuth = null;
+  @SerializedName("new_user")
   private Boolean newUser = null;
+  @SerializedName("current_user")
   private User currentUser = null;
+  @SerializedName("settings")
   private Settings settings = null;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("_id")
   public String getId() {
     return id;
   }
@@ -32,7 +36,6 @@ public class Session  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("vestorly-auth")
   public String getVestorlyAuth() {
     return vestorlyAuth;
   }
@@ -44,7 +47,6 @@ public class Session  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("new_user")
   public Boolean getNewUser() {
     return newUser;
   }
@@ -56,7 +58,6 @@ public class Session  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("current_user")
   public User getCurrentUser() {
     return currentUser;
   }
@@ -68,7 +69,6 @@ public class Session  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("settings")
   public Settings getSettings() {
     return settings;
   }

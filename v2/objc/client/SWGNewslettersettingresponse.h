@@ -9,6 +9,6 @@
 @interface SWGNewslettersettingresponse : SWGObject
 
 
-@property(nonatomic) SWGNewsletterSetting<Optional, SWGNewsletterSetting>* _newsletter_setting;
+@property(nonatomic) SWGNewsletterSetting* newsletterSetting;
 
 @end

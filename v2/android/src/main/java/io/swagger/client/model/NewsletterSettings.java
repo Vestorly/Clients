@@ -4,24 +4,24 @@ import io.swagger.client.model.NewsletterSetting;
 import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
-public class Newslettersettings  {
+public class NewsletterSettings  {
   
-  private List<NewsletterSetting> newletterSettings = new ArrayList<NewsletterSetting>() ;
+  @SerializedName("newsletter_settings")
+  private List<NewsletterSetting> newsletterSettings = new ArrayList<NewsletterSetting>() ;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("newletter_settings")
-  public List<NewsletterSetting> getNewletterSettings() {
-    return newletterSettings;
+  public List<NewsletterSetting> getNewsletterSettings() {
+    return newsletterSettings;
   }
-  public void setNewletterSettings(List<NewsletterSetting> newletterSettings) {
-    this.newletterSettings = newletterSettings;
+  public void setNewsletterSettings(List<NewsletterSetting> newsletterSettings) {
+    this.newsletterSettings = newsletterSettings;
   }
 
   
@@ -29,9 +29,9 @@ public class Newslettersettings  {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Newslettersettings {\n");
+    sb.append("class NewsletterSettings {\n");
     
-    sb.append("  newletterSettings: ").append(newletterSettings).append("\n");
+    sb.append("  newsletterSettings: ").append(newsletterSettings).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

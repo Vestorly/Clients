@@ -4,7 +4,19 @@
   
 + (JSONKeyMapper *)keyMapper
 {
-  return [[JSONKeyMapper alloc] initWithDictionary:@{ @"_id": @"_id", @"created_at": @"created_at", @"type": @"type", @"source": @"source", @"referer": @"referer", @"original_url": @"original_url", @"originator_email": @"originator_email", @"originator_name": @"originator_name", @"parent_originator_id": @"parent_originator_id", @"parent_event_id": @"parent_event_id", @"originator_type": @"originator_type", @"originator_group_id": @"originator_group_id", @"event_type": @"event_type", @"event_source": @"event_source", @"content_url": @"content_url", @"event_date": @"event_date", @"username": @"username", @"member_id": @"member_id", @"originator_id": @"originator_id", @"subject_id": @"subject_id" }];
+  return [[JSONKeyMapper alloc] initWithDictionary:@{ @"_id": @"_id", @"created_at": @"createdAt", @"type": @"type", @"source": @"source", @"referer": @"referer", @"original_url": @"originalUrl", @"originator_email": @"originatorEmail", @"originator_name": @"originatorName", @"parent_originator_id": @"parentOriginatorId", @"parent_event_id": @"parentEventId", @"originator_type": @"originatorType", @"originator_group_id": @"originatorGroupId", @"event_type": @"eventType", @"event_source": @"eventSource", @"content_url": @"contentUrl", @"event_date": @"eventDate", @"username": @"username", @"member_id": @"memberId", @"originator_id": @"originatorId", @"subject_id": @"subjectId" }];
+}
+
++ (BOOL)propertyIsOptional:(NSString *)propertyName
+{
+  NSArray *optionalProperties = @[@"_id", @"createdAt", @"type", @"source", @"referer", @"originalUrl", @"originatorEmail", @"originatorName", @"parentOriginatorId", @"parentEventId", @"originatorType", @"originatorGroupId", @"eventType", @"eventSource", @"contentUrl", @"eventDate", @"username", @"memberId", @"originatorId", @"subjectId"];
+
+  if ([optionalProperties containsObject:propertyName]) {
+    return YES;
+  }
+  else {
+    return NO;
+  }
 }
 
 @end

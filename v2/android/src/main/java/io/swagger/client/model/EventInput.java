@@ -3,7 +3,7 @@ package io.swagger.client.model;
 import io.swagger.client.model.EventContent;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
@@ -12,23 +12,33 @@ public class EventInput  {
   public enum TypeEnum {
      page_view,  sign_up,  sign_in,  content_posted,  create_post,  publish_post,  update_post,  delete_post,  unpublish_post,  invite,  publish_newsletter,  publish_social,  click,  delivered,  open,  dropped,  bounce, 
   };
+  @SerializedName("type")
   private TypeEnum type = null;
+  @SerializedName("referer")
   private String referer = null;
+  @SerializedName("original_url")
   private String originalUrl = null;
+  @SerializedName("originator_email")
   private String originatorEmail = null;
+  @SerializedName("subject_email")
   private String subjectEmail = null;
+  @SerializedName("parent_event_id")
   private String parentEventId = null;
+  @SerializedName("originator_id")
   private String originatorId = null;
+  @SerializedName("advisor_id")
   private String advisorId = null;
+  @SerializedName("subject_id")
   private String subjectId = null;
+  @SerializedName("event_content")
   private EventContent eventContent = null;
+  @SerializedName("created_at")
   private String createdAt = null;
 
   
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty("type")
   public TypeEnum getType() {
     return type;
   }
@@ -40,7 +50,6 @@ public class EventInput  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("referer")
   public String getReferer() {
     return referer;
   }
@@ -52,7 +61,6 @@ public class EventInput  {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty("original_url")
   public String getOriginalUrl() {
     return originalUrl;
   }
@@ -64,7 +72,6 @@ public class EventInput  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("originator_email")
   public String getOriginatorEmail() {
     return originatorEmail;
   }
@@ -76,7 +83,6 @@ public class EventInput  {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty("subject_email")
   public String getSubjectEmail() {
     return subjectEmail;
   }
@@ -88,7 +94,6 @@ public class EventInput  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("parent_event_id")
   public String getParentEventId() {
     return parentEventId;
   }
@@ -100,7 +105,6 @@ public class EventInput  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("originator_id")
   public String getOriginatorId() {
     return originatorId;
   }
@@ -112,7 +116,6 @@ public class EventInput  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("advisor_id")
   public String getAdvisorId() {
     return advisorId;
   }
@@ -124,7 +127,6 @@ public class EventInput  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("subject_id")
   public String getSubjectId() {
     return subjectId;
   }
@@ -136,7 +138,6 @@ public class EventInput  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("event_content")
   public EventContent getEventContent() {
     return eventContent;
   }
@@ -148,7 +149,6 @@ public class EventInput  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("created_at")
   public String getCreatedAt() {
     return createdAt;
   }

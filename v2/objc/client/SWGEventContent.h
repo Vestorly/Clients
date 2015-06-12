@@ -9,18 +9,18 @@
 
 /* Mongo id of event [optional]
  */
-@property(nonatomic) NSString<Optional>* _id;
+@property(nonatomic) NSString* _id;
 
-@property(nonatomic) NSString<Optional>* content_field;
+@property(nonatomic) NSString* contentField;
 
-@property(nonatomic) NSString<Optional>* content_id;
+@property(nonatomic) NSString* contentId;
 
-@property(nonatomic) NSString<Optional>* content_type;
+@property(nonatomic) NSString* contentType;
 
-@property(nonatomic) NSString<Optional>* created_at;
+@property(nonatomic) NSString* createdAt;
 
-@property(nonatomic) NSString<Optional>* slug;
+@property(nonatomic) NSString* slug;
 
-@property(nonatomic) NSString<Optional>* updated_at;
+@property(nonatomic) NSString* updatedAt;
 
 @end

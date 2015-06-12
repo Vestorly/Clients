@@ -8,80 +8,82 @@
 @interface SWGPost : SWGObject
 
 
-@property(nonatomic) NSString<Optional>* _id;
+@property(nonatomic) NSString* _id;
 
-@property(nonatomic) NSString<Optional>* created_at;
+@property(nonatomic) NSString* createdAt;
 
-@property(nonatomic) NSString<Optional>* updated_at;
+@property(nonatomic) NSString* updatedAt;
 
-@property(nonatomic) NSString<Optional>* external_url;
+@property(nonatomic) NSString* externalUrl;
 
-@property(nonatomic) NSString<Optional>* external_url_source;
+@property(nonatomic) NSString* externalUrlSource;
 
-@property(nonatomic) NSString<Optional>* external_url_type;
+@property(nonatomic) NSString* externalUrlType;
 
-@property(nonatomic) NSString<Optional>* image_path;
+@property(nonatomic) NSString* imagePath;
 
-@property(nonatomic) NSString<Optional>* image_url;
+@property(nonatomic) NSString* imageUrl;
 
-@property(nonatomic) NSString<Optional>* image_height;
+@property(nonatomic) NSString* imageHeight;
 
-@property(nonatomic) NSString<Optional>* image_width;
+@property(nonatomic) NSString* imageWidth;
 
-@property(nonatomic) NSString<Optional>* logo_url;
+@property(nonatomic) NSString* logoUrl;
 
-@property(nonatomic) NSString<Optional>* square_logo_url;
+@property(nonatomic) NSString* squareLogoUrl;
 
-@property(nonatomic) NSString<Optional>* needs_sanitize;
+@property(nonatomic) NSString* needsSanitize;
 
-@property(nonatomic) NSString<Optional>* summary;
+@property(nonatomic) NSString* summary;
 
-@property(nonatomic) NSString<Optional>* topic;
+@property(nonatomic) NSString* topic;
 
-@property(nonatomic) NSString<Optional>* approval_status;
+@property(nonatomic) NSString* approvalStatus;
 
-@property(nonatomic) NSString<Optional>* approval_transactions;
+@property(nonatomic) NSArray* approvalTransactions;
 
-@property(nonatomic) NSArray<Optional>* group_ids;
+@property(nonatomic) NSArray* groupIds;
 
-@property(nonatomic) NSString<Optional>* slug;
+@property(nonatomic) NSString* slug;
 
-@property(nonatomic) NSString<Optional>* article_id;
+@property(nonatomic) NSString* articleId;
 
-@property(nonatomic) NSString<Optional>* comment;
+@property(nonatomic) NSString* comment;
 
-@property(nonatomic) NSArray<Optional>* _newsletter_ids;
+@property(nonatomic) NSArray* newsletterIds;
 
-@property(nonatomic) NSNumber<Optional>* is_featured;
+@property(nonatomic) BOOL isFeatured;
 
-@property(nonatomic) NSString<Optional>* advisor_id;
+@property(nonatomic) NSString* advisorId;
 
-@property(nonatomic) NSNumber<Optional>* is_published;
+@property(nonatomic) BOOL isPublished;
 
-@property(nonatomic) NSNumber<Optional>* is_responsive;
+@property(nonatomic) BOOL isResponsive;
 
-@property(nonatomic) NSNumber<Optional>* is_proxy_needed;
+@property(nonatomic) BOOL isProxyNeeded;
 
-@property(nonatomic) NSNumber<Optional>* is_mobile_proxy_needed;
+@property(nonatomic) BOOL isMobileProxyNeeded;
 
-@property(nonatomic) NSString<Optional>* proxy_url;
+@property(nonatomic) NSString* proxyUrl;
 
-@property(nonatomic) NSString<Optional>* video;
+@property(nonatomic) NSString* video;
 
-@property(nonatomic) NSString<Optional>* pdf_attachment_url;
+@property(nonatomic) NSString* pdfAttachmentUrl;
 
-@property(nonatomic) NSString<Optional>* post_date;
+@property(nonatomic) NSString* postDate;
 
-@property(nonatomic) NSString<Optional>* display_date;
+@property(nonatomic) NSString* displayDate;
 
-@property(nonatomic) NSString<Optional>* suitability_score;
+@property(nonatomic) NSString* suitabilityScore;
 
-@property(nonatomic) NSString<Optional>* video_id;
+@property(nonatomic) NSString* videoId;
 
-@property(nonatomic) NSString<Optional>* display_tag;
+@property(nonatomic) NSString* displayTag;
 
-@property(nonatomic) NSString<Optional>* display_summary;
+@property(nonatomic) NSString* displaySummary;
 
-@property(nonatomic) NSString<Optional>* vestorly_url;
+@property(nonatomic) NSString* vestorlyUrl;
+
+@property(nonatomic) NSString* title;
 
 @end

@@ -52,7 +52,7 @@ findMemberReportsProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, 
 }
 
 SamiMemberReports* 
-SamiMemberreportsApi::findMemberReportsWithCompletion(String* vestorly-auth, void (* success)(SamiMemberReports*, SamiError*)) {
+SamiMemberreportsApi::findMemberReportsWithCompletion(String* vestorlyAuth, void (* success)(SamiMemberReports*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findMemberReportsProcessor, (void(*)(void*, SamiError*))success);
@@ -65,7 +65,7 @@ SamiMemberreportsApi::findMemberReportsWithCompletion(String* vestorly-auth, voi
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 

@@ -1,6 +1,6 @@
 package com.wordnik.client.api
 
-import com.wordnik.client.model.Advisorresponse
+import com.wordnik.client.model.Advisor
 
 import java.io.File
 
@@ -28,10 +28,10 @@ class AdvisorsApi (implicit val swagger: Swagger) extends ScalatraServlet
   }
   
 
-  val findAdvisorByIDOperation = (apiOperation[Advisorresponse]("findAdvisorByID")
+  val findAdvisorByIDOperation = (apiOperation[Advisor]("findAdvisorByID")
       summary ""
       parameters(
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorlyAuth").description("")
         
         
         
@@ -56,7 +56,7 @@ class AdvisorsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorlyAuth = params.getAs[String]("vestorlyAuth")
       
     
 
@@ -66,7 +66,7 @@ class AdvisorsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorlyAuth: " + vestorlyAuth)
   
     
     

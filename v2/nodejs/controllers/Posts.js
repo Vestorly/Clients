@@ -7,13 +7,13 @@ var Posts = require('./PostsService');
 
 
 module.exports.findPosts = function findPosts (req, res, next) {
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
-  var text_query = req.swagger.params['text_query'].value;
-  var external_url = req.swagger.params['external_url'].value;
-  var is_published = req.swagger.params['is_published'].value;
+  var vestorlyAuth = req.swagger.params['vestorly_auth'].value;
+  var textQuery = req.swagger.params['text_query'].value;
+  var externalUrl = req.swagger.params['external_url'].value;
+  var isPublished = req.swagger.params['is_published'].value;
   
 
-  var result = Posts.findPosts(vestorly-auth, text_query, external_url, is_published);
+  var result = Posts.findPosts(vestorlyAuth, textQuery, externalUrl, isPublished);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -24,11 +24,11 @@ module.exports.findPosts = function findPosts (req, res, next) {
 };
 
 module.exports.createPost = function createPost (req, res, next) {
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorlyAuth = req.swagger.params['vestorly_auth'].value;
   var post = req.swagger.params['post'].value;
   
 
-  var result = Posts.createPost(vestorly-auth, post);
+  var result = Posts.createPost(vestorlyAuth, post);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -39,11 +39,11 @@ module.exports.createPost = function createPost (req, res, next) {
 };
 
 module.exports.getPostByID = function getPostByID (req, res, next) {
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorlyAuth = req.swagger.params['vestorly_auth'].value;
   var id = req.swagger.params['id'].value;
   
 
-  var result = Posts.getPostByID(vestorly-auth, id);
+  var result = Posts.getPostByID(vestorlyAuth, id);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -54,12 +54,12 @@ module.exports.getPostByID = function getPostByID (req, res, next) {
 };
 
 module.exports.updatePostByID = function updatePostByID (req, res, next) {
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorlyAuth = req.swagger.params['vestorly_auth'].value;
   var id = req.swagger.params['id'].value;
   var post = req.swagger.params['post'].value;
   
 
-  var result = Posts.updatePostByID(vestorly-auth, id, post);
+  var result = Posts.updatePostByID(vestorlyAuth, id, post);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

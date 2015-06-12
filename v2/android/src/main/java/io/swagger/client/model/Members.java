@@ -1,25 +1,27 @@
 package io.swagger.client.model;
 
+import io.swagger.client.model.Member;
 import io.swagger.client.model.Meta;
 import java.util.*;
-import io.swagger.client.model.Member;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class Members  {
   
+  @SerializedName("members")
   private List<Member> members = new ArrayList<Member>() ;
+  @SerializedName("more_results")
   private Boolean moreResults = null;
+  @SerializedName("meta")
   private Meta meta = null;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("members")
   public List<Member> getMembers() {
     return members;
   }
@@ -31,7 +33,6 @@ public class Members  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("more_results")
   public Boolean getMoreResults() {
     return moreResults;
   }
@@ -43,7 +44,6 @@ public class Members  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("meta")
   public Meta getMeta() {
     return meta;
   }

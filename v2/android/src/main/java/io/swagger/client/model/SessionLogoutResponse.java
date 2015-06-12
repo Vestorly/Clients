@@ -2,19 +2,19 @@ package io.swagger.client.model;
 
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class SessionLogoutResponse  {
   
+  @SerializedName("message")
   private String message = null;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("message")
   public String getMessage() {
     return message;
   }

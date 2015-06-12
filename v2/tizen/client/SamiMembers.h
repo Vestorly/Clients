@@ -17,10 +17,10 @@
 using namespace Tizen::Web::Json;
 
 
-#include "SamiMeta.h"
 #include "SamiMember.h"
-using Tizen::Base::Boolean;
 using Tizen::Base::Collection::IList;
+#include "SamiMeta.h"
+using Tizen::Base::Boolean;
 
 
 namespace Swagger {

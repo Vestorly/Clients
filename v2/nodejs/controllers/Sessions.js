@@ -22,11 +22,11 @@ module.exports.login = function login (req, res, next) {
 };
 
 module.exports.logout = function logout (req, res, next) {
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorlyAuth = req.swagger.params['vestorly_auth'].value;
   var id = req.swagger.params['id'].value;
   
 
-  var result = Sessions.logout(vestorly-auth, id);
+  var result = Sessions.logout(vestorlyAuth, id);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

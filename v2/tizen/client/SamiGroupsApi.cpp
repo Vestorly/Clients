@@ -52,7 +52,7 @@ findGroupsProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiErr
 }
 
 SamiGroups* 
-SamiGroupsApi::findGroupsWithCompletion(String* vestorly-auth, void (* success)(SamiGroups*, SamiError*)) {
+SamiGroupsApi::findGroupsWithCompletion(String* vestorlyAuth, void (* success)(SamiGroups*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findGroupsProcessor, (void(*)(void*, SamiError*))success);
@@ -65,7 +65,7 @@ SamiGroupsApi::findGroupsWithCompletion(String* vestorly-auth, void (* success)(
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 
@@ -82,15 +82,15 @@ SamiGroupsApi::findGroupsWithCompletion(String* vestorly-auth, void (* success)(
 }
 
 void
-findGroupByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError*)) {
+createGroupProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError*)) {
   int code = pHttpResponse->GetHttpStatusCode();
 
   if(code >= 200 && code < 300) {
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiGroup* out = new SamiGroup();
-    jsonToValue(out, pJson, L"SamiGroup*", L"SamiGroup");
+    SamiGroupresponse* out = new SamiGroupresponse();
+    jsonToValue(out, pJson, L"SamiGroupresponse*", L"SamiGroupresponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -116,8 +116,81 @@ findGroupByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sami
   }
 }
 
-SamiGroup* 
-SamiGroupsApi::findGroupByIDWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiGroup*, SamiError*)) {
+SamiGroupresponse* 
+SamiGroupsApi::createGroupWithCompletion(String* vestorlyAuth, SamiGroupInput* group, void (* success)(SamiGroupresponse*, SamiError*)) {
+  client = new SamiApiClient();
+
+  client->success(&createGroupProcessor, (void(*)(void*, SamiError*))success);
+  HashMap* headerParams = new HashMap(SingleObjectDeleter);
+  headerParams->Construct();
+
+  
+
+  HashMap* queryParams = new HashMap(SingleObjectDeleter);
+  queryParams->Construct();
+
+  
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
+  
+  
+
+  String* mBody = null;
+
+  
+  
+  
+  if(group != null) {
+    mBody = new String(group->asJson());
+    headerParams->Add(new String("Content-Type"), new String("application/json"));
+  }
+  
+  
+
+  String url(L"/groups");
+
+  
+
+  client->execute(SamiGroupsApi::getBasePath(), url, "POST", (IMap*)queryParams, mBody, (IMap*)headerParams, null, L"application/json");
+  return null;
+}
+
+void
+findGroupByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError*)) {
+  int code = pHttpResponse->GetHttpStatusCode();
+
+  if(code >= 200 && code < 300) {
+    ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
+    IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
+
+    SamiGroupresponse* out = new SamiGroupresponse();
+    jsonToValue(out, pJson, L"SamiGroupresponse*", L"SamiGroupresponse");
+
+    if (pJson) {
+      if (pJson->GetType() == JSON_TYPE_OBJECT) {
+         JsonObject* pObject = static_cast< JsonObject* >(pJson);
+         pObject->RemoveAll(true);
+      }
+      else if (pJson->GetType() == JSON_TYPE_ARRAY) {
+         JsonArray* pArray = static_cast< JsonArray* >(pJson);
+         pArray->RemoveAll(true);
+      }
+      handler(out, null);
+    }
+    else {
+      SamiError* error = new SamiError(0, new String(L"No parsable response received"));
+      handler(null, error);
+    }
+    
+  }
+  else {
+    SamiError* error = new SamiError(code, new String(pHttpResponse->GetStatusText()));
+    handler(null, error);
+    
+  }
+}
+
+SamiGroupresponse* 
+SamiGroupsApi::findGroupByIDWithCompletion(String* vestorlyAuth, String* _id, void (* success)(SamiGroupresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findGroupByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -130,7 +203,7 @@ SamiGroupsApi::findGroupByIDWithCompletion(String* vestorly-auth, String* _id, v
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 
@@ -152,15 +225,15 @@ SamiGroupsApi::findGroupByIDWithCompletion(String* vestorly-auth, String* _id, v
 }
 
 void
-addGroupProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError*)) {
+updateGroupByIdProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError*)) {
   int code = pHttpResponse->GetHttpStatusCode();
 
   if(code >= 200 && code < 300) {
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiGroupInput* out = new SamiGroupInput();
-    jsonToValue(out, pJson, L"SamiGroupInput*", L"SamiGroupInput");
+    SamiGroupresponse* out = new SamiGroupresponse();
+    jsonToValue(out, pJson, L"SamiGroupresponse*", L"SamiGroupresponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -186,11 +259,11 @@ addGroupProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError
   }
 }
 
-SamiGroupInput* 
-SamiGroupsApi::addGroupWithCompletion(String* vestorly-auth, String* _id, SamiGroup* group, void (* success)(SamiGroupInput*, SamiError*)) {
+SamiGroupresponse* 
+SamiGroupsApi::updateGroupByIdWithCompletion(String* vestorlyAuth, String* _id, SamiGroupInput* group, void (* success)(SamiGroupresponse*, SamiError*)) {
   client = new SamiApiClient();
 
-  client->success(&addGroupProcessor, (void(*)(void*, SamiError*))success);
+  client->success(&updateGroupByIdProcessor, (void(*)(void*, SamiError*))success);
   HashMap* headerParams = new HashMap(SingleObjectDeleter);
   headerParams->Construct();
 
@@ -200,7 +273,7 @@ SamiGroupsApi::addGroupWithCompletion(String* vestorly-auth, String* _id, SamiGr
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 
@@ -230,76 +303,6 @@ SamiGroupsApi::addGroupWithCompletion(String* vestorly-auth, String* _id, SamiGr
 }
 
 void
-addGroup_1Processor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError*)) {
-  int code = pHttpResponse->GetHttpStatusCode();
-
-  if(code >= 200 && code < 300) {
-    ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
-    IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
-
-    SamiGroupInput* out = new SamiGroupInput();
-    jsonToValue(out, pJson, L"SamiGroupInput*", L"SamiGroupInput");
-
-    if (pJson) {
-      if (pJson->GetType() == JSON_TYPE_OBJECT) {
-         JsonObject* pObject = static_cast< JsonObject* >(pJson);
-         pObject->RemoveAll(true);
-      }
-      else if (pJson->GetType() == JSON_TYPE_ARRAY) {
-         JsonArray* pArray = static_cast< JsonArray* >(pJson);
-         pArray->RemoveAll(true);
-      }
-      handler(out, null);
-    }
-    else {
-      SamiError* error = new SamiError(0, new String(L"No parsable response received"));
-      handler(null, error);
-    }
-    
-  }
-  else {
-    SamiError* error = new SamiError(code, new String(pHttpResponse->GetStatusText()));
-    handler(null, error);
-    
-  }
-}
-
-SamiGroupInput* 
-SamiGroupsApi::addGroup_1WithCompletion(SamiGroup* group, void (* success)(SamiGroupInput*, SamiError*)) {
-  client = new SamiApiClient();
-
-  client->success(&addGroup_1Processor, (void(*)(void*, SamiError*))success);
-  HashMap* headerParams = new HashMap(SingleObjectDeleter);
-  headerParams->Construct();
-
-  
-
-  HashMap* queryParams = new HashMap(SingleObjectDeleter);
-  queryParams->Construct();
-
-  
-
-  String* mBody = null;
-
-  
-  
-  
-  if(group != null) {
-    mBody = new String(group->asJson());
-    headerParams->Add(new String("Content-Type"), new String("application/json"));
-  }
-  
-  
-
-  String url(L"/groups/{id}");
-
-  
-
-  client->execute(SamiGroupsApi::getBasePath(), url, "POST", (IMap*)queryParams, mBody, (IMap*)headerParams, null, L"application/json");
-  return null;
-}
-
-void
 deleteGroupProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError*)) {
   int code = pHttpResponse->GetHttpStatusCode();
 
@@ -307,8 +310,8 @@ deleteGroupProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiEr
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiGroupInput* out = new SamiGroupInput();
-    jsonToValue(out, pJson, L"SamiGroupInput*", L"SamiGroupInput");
+    SamiGroupresponse* out = new SamiGroupresponse();
+    jsonToValue(out, pJson, L"SamiGroupresponse*", L"SamiGroupresponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -334,8 +337,8 @@ deleteGroupProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiEr
   }
 }
 
-SamiGroupInput* 
-SamiGroupsApi::deleteGroupWithCompletion(SamiGroup* group, void (* success)(SamiGroupInput*, SamiError*)) {
+SamiGroupresponse* 
+SamiGroupsApi::deleteGroupWithCompletion(String* vestorlyAuth, String* _id, void (* success)(SamiGroupresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&deleteGroupProcessor, (void(*)(void*, SamiError*))success);
@@ -348,21 +351,21 @@ SamiGroupsApi::deleteGroupWithCompletion(SamiGroup* group, void (* success)(Sami
   queryParams->Construct();
 
   
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
+  
+  
 
   String* mBody = null;
 
   
-  
-  
-  if(group != null) {
-    mBody = new String(group->asJson());
-    headerParams->Add(new String("Content-Type"), new String("application/json"));
-  }
-  
-  
 
   String url(L"/groups/{id}");
 
+  
+  String s__id(L"{");
+  s__id.Append(L"id");
+  s__id.Append(L"}");
+  url.Replace(s__id, stringify(_id, L"String*"));
   
 
   client->execute(SamiGroupsApi::getBasePath(), url, "DELETE", (IMap*)queryParams, mBody, (IMap*)headerParams, null, L"application/json");

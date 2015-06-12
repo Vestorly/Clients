@@ -3,19 +3,19 @@ package io.swagger.client.model;
 import io.swagger.client.model.NewsletterSetting;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class Newslettersettingresponse  {
   
+  @SerializedName("newsletter_setting")
   private NewsletterSetting newsletterSetting = null;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("newsletter_setting")
   public NewsletterSetting getNewsletterSetting() {
     return newsletterSetting;
   }

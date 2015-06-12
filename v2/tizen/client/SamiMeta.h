@@ -18,8 +18,6 @@ using namespace Tizen::Web::Json;
 
 
 using Tizen::Base::String;
-using Tizen::Base::Boolean;
-using Tizen::Base::Collection::IList;
 
 
 namespace Swagger {
@@ -43,24 +41,12 @@ public:
     SamiMeta* fromJson(String* obj);
 
     
-    String* getPSortOrder();
-    void setPSortOrder(String* pSort_order);
-    
-    Boolean* getPMoreResults();
-    void setPMoreResults(Boolean* pMore_results);
-    
     String* getPMessage();
     void setPMessage(String* pMessage);
     
-    IList* getPSortedBy();
-    void setPSortedBy(IList* pSorted_by);
-    
 
 private:
-    String* pSort_order;
-    Boolean* pMore_results;
     String* pMessage;
-    IList* pSorted_by;
     
 };
 

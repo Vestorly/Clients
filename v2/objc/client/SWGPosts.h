@@ -9,6 +9,6 @@
 @interface SWGPosts : SWGObject
 
 
-@property(nonatomic) NSArray<Optional, SWGPost>* posts;
+@property(nonatomic) NSArray<SWGPost>* posts;
 
 @end

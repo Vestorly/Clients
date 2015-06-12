@@ -1,112 +1,69 @@
-#!/usr/bin/env python
-"""Add all of the modules in the current directory to __all__"""
-import os
+from __future__ import absolute_import
 
-# import models into package
-
+# import models into sdk package
+from .models.advisorresponse import Advisorresponse
 from .models.advisor import Advisor
-
 from .models.advisors import Advisors
-
+from .models.posts import Posts
 from .models.postresponse import Postresponse
-
 from .models.postrequest import Postrequest
-
 from .models.post import Post
-
 from .models.post_input import PostInput
-
+from .models.session_logout_response import SessionLogoutResponse
 from .models.session import Session
-
 from .models.settings import Settings
-
 from .models.org_setting import OrgSetting
-
 from .models.features import Features
-
 from .models.personal_settings import PersonalSettings
-
 from .models.user import User
-
+from .models.member_report import MemberReport
+from .models.member_reports import MemberReports
+from .models.truncated_member import TruncatedMember
+from .models.member_event import MemberEvent
+from .models.member_events import MemberEvents
 from .models.article import Article
-
 from .models.articleresponse import Articleresponse
-
 from .models.articles import Articles
-
 from .models.newsletterresponse import Newsletterresponse
-
 from .models.newsletter import Newsletter
-
 from .models.newsletter_input import NewsletterInput
-
 from .models.newsletters import Newsletters
-
 from .models.memberresponse import Memberresponse
-
+from .models.meta import Meta
 from .models.members import Members
-
 from .models.member import Member
-
+from .models.event_content import EventContent
 from .models.eventresponse import Eventresponse
-
+from .models.eventcreateresponse import Eventcreateresponse
 from .models.event_input import EventInput
-
-from .models.events import Events
-
 from .models.event import Event
-
+from .models.events import Events
 from .models.group import Group
-
 from .models.group_input import GroupInput
-
 from .models.groups import Groups
-
+from .models.groupresponse import Groupresponse
 from .models.newslettersettingresponse import Newslettersettingresponse
-
-from .models.newslettersettings import Newslettersettings
-
+from .models.newsletter_settings import NewsletterSettings
 from .models.newsletter_settings_input import NewsletterSettingsInput
-
 from .models.newsletter_setting import NewsletterSetting
-
 from .models.sourceresponse import Sourceresponse
-
 from .models.source import Source
-
 from .models.source_input import SourceInput
-
 from .models.sources import Sources
 
-
-# import apis into package
-
-from .newslettersettings_api import NewslettersettingsApi
-
-from .events_api import EventsApi
-
-from .articles_api import ArticlesApi
-
-from .groups_api import GroupsApi
-
-from .memberevents_api import MembereventsApi
-
-from .sessions_api import SessionsApi
-
-from .newsletters_api import NewslettersApi
-
-from .posts_api import PostsApi
-
-from .sources_api import SourcesApi
-
-from .members_api import MembersApi
-
+# import apis into sdk package
+from .apis.groups_api import GroupsApi
+from .apis.sessions_api import SessionsApi
+from .apis.posts_api import PostsApi
+from .apis.newslettersettings_api import NewslettersettingsApi
+from .apis.memberreports_api import MemberreportsApi
+from .apis.advisors_api import AdvisorsApi
+from .apis.events_api import EventsApi
+from .apis.sources_api import SourcesApi
+from .apis.members_api import MembersApi
+from .apis.newsletters_api import NewslettersApi
+from .apis.articles_api import ArticlesApi
+from .apis.memberevents_api import MembereventsApi
 
 # import ApiClient
 from .swagger import ApiClient
-
-__all__ = []
-
-for module in os.listdir(os.path.dirname(__file__)):
-  if module != '__init__.py' and module[-3:] == '.py':
-    __all__.append(module[:-3])

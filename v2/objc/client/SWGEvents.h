@@ -9,6 +9,6 @@
 @interface SWGEvents : SWGObject
 
 
-@property(nonatomic) NSArray<Optional, SWGEvent>* events;
+@property(nonatomic) NSArray<SWGEvent>* events;
 
 @end

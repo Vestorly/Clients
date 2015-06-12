@@ -1,49 +1,50 @@
 'use strict';
 
-exports.findPosts = function(vestorly-auth, text_query, external_url, is_published) {
+exports.findPosts = function(vestorlyAuth, textQuery, externalUrl, isPublished) {
 
   var examples = {};
   
   examples['application/json'] = {
   "posts" : [ {
-    "square_logo_url" : "aeiou",
-    "newsletter_ids" : [ "aeiou" ],
-    "logo_url" : "aeiou",
+    "pdf_attachment_url" : "aeiou",
+    "summary" : "aeiou",
+    "display_summary" : "aeiou",
     "is_responsive" : true,
-    "is_published" : true,
-    "created_at" : "aeiou",
-    "external_url_type" : "aeiou",
-    "is_mobile_proxy_needed" : true,
-    "video" : "aeiou",
-    "article_id" : "aeiou",
-    "external_url" : "aeiou",
+    "display_date" : "aeiou",
+    "needs_sanitize" : "aeiou",
     "image_height" : "aeiou",
+    "vestorly_url" : "aeiou",
+    "newsletter_ids" : [ "aeiou" ],
+    "approval_transactions" : [ "aeiou" ],
+    "external_url_source" : "aeiou",
+    "title" : "aeiou",
+    "article_id" : "aeiou",
+    "advisor_id" : "aeiou",
+    "_id" : "aeiou",
+    "is_featured" : true,
+    "image_url" : "aeiou",
+    "image_width" : "aeiou",
+    "display_tag" : "aeiou",
+    "created_at" : "aeiou",
+    "video_id" : "aeiou",
+    "external_url" : "aeiou",
+    "is_published" : true,
+    "video" : "aeiou",
+    "logo_url" : "aeiou",
+    "topic" : "aeiou",
+    "group_ids" : [ "aeiou" ],
+    "proxy_url" : "aeiou",
+    "approval_status" : "aeiou",
+    "is_mobile_proxy_needed" : true,
+    "square_logo_url" : "aeiou",
+    "external_url_type" : "aeiou",
     "updated_at" : "aeiou",
     "is_proxy_needed" : true,
-    "display_summary" : "aeiou",
-    "vestorly_url" : "aeiou",
-    "group_ids" : [ "aeiou" ],
-    "slug" : "aeiou",
-    "summary" : "aeiou",
-    "suitability_score" : "aeiou",
-    "approval_transactions" : "aeiou",
-    "image_url" : "aeiou",
-    "approval_status" : "aeiou",
-    "needs_sanitize" : "aeiou",
-    "image_width" : "aeiou",
-    "advisor_id" : "aeiou",
-    "display_tag" : "aeiou",
-    "display_date" : "aeiou",
-    "pdf_attachment_url" : "aeiou",
     "image_path" : "aeiou",
-    "post_date" : "aeiou",
-    "topic" : "aeiou",
+    "slug" : "aeiou",
     "comment" : "aeiou",
-    "_id" : "aeiou",
-    "proxy_url" : "aeiou",
-    "is_featured" : true,
-    "external_url_source" : "aeiou",
-    "video_id" : "aeiou"
+    "suitability_score" : "aeiou",
+    "post_date" : "aeiou"
   } ]
 };
   
@@ -53,101 +54,51 @@ exports.findPosts = function(vestorly-auth, text_query, external_url, is_publish
     return examples[Object.keys(examples)[0]];
   
 }
-exports.createPost = function(vestorly-auth, post) {
-
-  var examples = {};
-  
-  examples['application/json'] = {
-  "square_logo_url" : "aeiou",
-  "newsletter_ids" : [ "aeiou" ],
-  "logo_url" : "aeiou",
-  "is_responsive" : true,
-  "is_published" : true,
-  "created_at" : "aeiou",
-  "external_url_type" : "aeiou",
-  "is_mobile_proxy_needed" : true,
-  "video" : "aeiou",
-  "article_id" : "aeiou",
-  "external_url" : "aeiou",
-  "image_height" : "aeiou",
-  "updated_at" : "aeiou",
-  "is_proxy_needed" : true,
-  "display_summary" : "aeiou",
-  "vestorly_url" : "aeiou",
-  "group_ids" : [ "aeiou" ],
-  "slug" : "aeiou",
-  "summary" : "aeiou",
-  "suitability_score" : "aeiou",
-  "approval_transactions" : "aeiou",
-  "image_url" : "aeiou",
-  "approval_status" : "aeiou",
-  "needs_sanitize" : "aeiou",
-  "image_width" : "aeiou",
-  "advisor_id" : "aeiou",
-  "display_tag" : "aeiou",
-  "display_date" : "aeiou",
-  "pdf_attachment_url" : "aeiou",
-  "image_path" : "aeiou",
-  "post_date" : "aeiou",
-  "topic" : "aeiou",
-  "comment" : "aeiou",
-  "_id" : "aeiou",
-  "proxy_url" : "aeiou",
-  "is_featured" : true,
-  "external_url_source" : "aeiou",
-  "video_id" : "aeiou"
-};
-  
-
-  
-  if(Object.keys(examples).length > 0)
-    return examples[Object.keys(examples)[0]];
-  
-}
-exports.getPostByID = function(vestorly-auth, id) {
+exports.createPost = function(vestorlyAuth, post) {
 
   var examples = {};
   
   examples['application/json'] = {
   "post" : {
-    "square_logo_url" : "aeiou",
-    "newsletter_ids" : [ "aeiou" ],
-    "logo_url" : "aeiou",
+    "pdf_attachment_url" : "aeiou",
+    "summary" : "aeiou",
+    "display_summary" : "aeiou",
     "is_responsive" : true,
-    "is_published" : true,
-    "created_at" : "aeiou",
-    "external_url_type" : "aeiou",
-    "is_mobile_proxy_needed" : true,
-    "video" : "aeiou",
-    "article_id" : "aeiou",
-    "external_url" : "aeiou",
+    "display_date" : "aeiou",
+    "needs_sanitize" : "aeiou",
     "image_height" : "aeiou",
+    "vestorly_url" : "aeiou",
+    "newsletter_ids" : [ "aeiou" ],
+    "approval_transactions" : [ "aeiou" ],
+    "external_url_source" : "aeiou",
+    "title" : "aeiou",
+    "article_id" : "aeiou",
+    "advisor_id" : "aeiou",
+    "_id" : "aeiou",
+    "is_featured" : true,
+    "image_url" : "aeiou",
+    "image_width" : "aeiou",
+    "display_tag" : "aeiou",
+    "created_at" : "aeiou",
+    "video_id" : "aeiou",
+    "external_url" : "aeiou",
+    "is_published" : true,
+    "video" : "aeiou",
+    "logo_url" : "aeiou",
+    "topic" : "aeiou",
+    "group_ids" : [ "aeiou" ],
+    "proxy_url" : "aeiou",
+    "approval_status" : "aeiou",
+    "is_mobile_proxy_needed" : true,
+    "square_logo_url" : "aeiou",
+    "external_url_type" : "aeiou",
     "updated_at" : "aeiou",
     "is_proxy_needed" : true,
-    "display_summary" : "aeiou",
-    "vestorly_url" : "aeiou",
-    "group_ids" : [ "aeiou" ],
-    "slug" : "aeiou",
-    "summary" : "aeiou",
-    "suitability_score" : "aeiou",
-    "approval_transactions" : "aeiou",
-    "image_url" : "aeiou",
-    "approval_status" : "aeiou",
-    "needs_sanitize" : "aeiou",
-    "image_width" : "aeiou",
-    "advisor_id" : "aeiou",
-    "display_tag" : "aeiou",
-    "display_date" : "aeiou",
-    "pdf_attachment_url" : "aeiou",
     "image_path" : "aeiou",
-    "post_date" : "aeiou",
-    "topic" : "aeiou",
+    "slug" : "aeiou",
     "comment" : "aeiou",
-    "_id" : "aeiou",
-    "proxy_url" : "aeiou",
-    "is_featured" : true,
-    "external_url_source" : "aeiou",
-    "video_id" : "aeiou"
+    "suitability_score" : "aeiou",
+    "post_date" : "aeiou"
   }
 };
   
@@ -157,50 +108,105 @@ exports.getPostByID = function(vestorly-auth, id) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.updatePostByID = function(vestorly-auth, id, post) {
+exports.getPostByID = function(vestorlyAuth, id) {
 
   var examples = {};
   
   examples['application/json'] = {
   "post" : {
-    "square_logo_url" : "aeiou",
-    "newsletter_ids" : [ "aeiou" ],
-    "logo_url" : "aeiou",
+    "pdf_attachment_url" : "aeiou",
+    "summary" : "aeiou",
+    "display_summary" : "aeiou",
     "is_responsive" : true,
-    "is_published" : true,
-    "created_at" : "aeiou",
-    "external_url_type" : "aeiou",
-    "is_mobile_proxy_needed" : true,
-    "video" : "aeiou",
-    "article_id" : "aeiou",
-    "external_url" : "aeiou",
+    "display_date" : "aeiou",
+    "needs_sanitize" : "aeiou",
     "image_height" : "aeiou",
+    "vestorly_url" : "aeiou",
+    "newsletter_ids" : [ "aeiou" ],
+    "approval_transactions" : [ "aeiou" ],
+    "external_url_source" : "aeiou",
+    "title" : "aeiou",
+    "article_id" : "aeiou",
+    "advisor_id" : "aeiou",
+    "_id" : "aeiou",
+    "is_featured" : true,
+    "image_url" : "aeiou",
+    "image_width" : "aeiou",
+    "display_tag" : "aeiou",
+    "created_at" : "aeiou",
+    "video_id" : "aeiou",
+    "external_url" : "aeiou",
+    "is_published" : true,
+    "video" : "aeiou",
+    "logo_url" : "aeiou",
+    "topic" : "aeiou",
+    "group_ids" : [ "aeiou" ],
+    "proxy_url" : "aeiou",
+    "approval_status" : "aeiou",
+    "is_mobile_proxy_needed" : true,
+    "square_logo_url" : "aeiou",
+    "external_url_type" : "aeiou",
     "updated_at" : "aeiou",
     "is_proxy_needed" : true,
-    "display_summary" : "aeiou",
-    "vestorly_url" : "aeiou",
-    "group_ids" : [ "aeiou" ],
-    "slug" : "aeiou",
-    "summary" : "aeiou",
-    "suitability_score" : "aeiou",
-    "approval_transactions" : "aeiou",
-    "image_url" : "aeiou",
-    "approval_status" : "aeiou",
-    "needs_sanitize" : "aeiou",
-    "image_width" : "aeiou",
-    "advisor_id" : "aeiou",
-    "display_tag" : "aeiou",
-    "display_date" : "aeiou",
-    "pdf_attachment_url" : "aeiou",
     "image_path" : "aeiou",
-    "post_date" : "aeiou",
-    "topic" : "aeiou",
+    "slug" : "aeiou",
     "comment" : "aeiou",
-    "_id" : "aeiou",
-    "proxy_url" : "aeiou",
-    "is_featured" : true,
+    "suitability_score" : "aeiou",
+    "post_date" : "aeiou"
+  }
+};
+  
+
+  
+  if(Object.keys(examples).length > 0)
+    return examples[Object.keys(examples)[0]];
+  
+}
+exports.updatePostByID = function(vestorlyAuth, id, post) {
+
+  var examples = {};
+  
+  examples['application/json'] = {
+  "post" : {
+    "pdf_attachment_url" : "aeiou",
+    "summary" : "aeiou",
+    "display_summary" : "aeiou",
+    "is_responsive" : true,
+    "display_date" : "aeiou",
+    "needs_sanitize" : "aeiou",
+    "image_height" : "aeiou",
+    "vestorly_url" : "aeiou",
+    "newsletter_ids" : [ "aeiou" ],
+    "approval_transactions" : [ "aeiou" ],
     "external_url_source" : "aeiou",
-    "video_id" : "aeiou"
+    "title" : "aeiou",
+    "article_id" : "aeiou",
+    "advisor_id" : "aeiou",
+    "_id" : "aeiou",
+    "is_featured" : true,
+    "image_url" : "aeiou",
+    "image_width" : "aeiou",
+    "display_tag" : "aeiou",
+    "created_at" : "aeiou",
+    "video_id" : "aeiou",
+    "external_url" : "aeiou",
+    "is_published" : true,
+    "video" : "aeiou",
+    "logo_url" : "aeiou",
+    "topic" : "aeiou",
+    "group_ids" : [ "aeiou" ],
+    "proxy_url" : "aeiou",
+    "approval_status" : "aeiou",
+    "is_mobile_proxy_needed" : true,
+    "square_logo_url" : "aeiou",
+    "external_url_type" : "aeiou",
+    "updated_at" : "aeiou",
+    "is_proxy_needed" : true,
+    "image_path" : "aeiou",
+    "slug" : "aeiou",
+    "comment" : "aeiou",
+    "suitability_score" : "aeiou",
+    "post_date" : "aeiou"
   }
 };
   

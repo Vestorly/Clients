@@ -10,46 +10,46 @@
 
 @property(nonatomic) NSString* _id;
 
-@property(nonatomic) NSString<Optional>* created_at;
+@property(nonatomic) NSString* createdAt;
 
 @property(nonatomic) NSString* title;
 
-@property(nonatomic) NSString<Optional>* body;
+@property(nonatomic) NSString* body;
 
-@property(nonatomic) NSNumber<Optional>* is_responsive;
+@property(nonatomic) BOOL isResponsive;
 
-@property(nonatomic) NSNumber<Optional>* is_proxy_needed;
+@property(nonatomic) BOOL isProxyNeeded;
 
-@property(nonatomic) NSNumber<Optional>* is_mobile_proxy_needed;
+@property(nonatomic) BOOL isMobileProxyNeeded;
 
-@property(nonatomic) NSNumber<Optional>* needs_sanitize;
+@property(nonatomic) BOOL needsSanitize;
 
-@property(nonatomic) NSString<Optional>* proxy_url;
+@property(nonatomic) NSString* proxyUrl;
 
-@property(nonatomic) NSString<Optional>* topic;
+@property(nonatomic) NSString* topic;
 
-@property(nonatomic) NSString<Optional>* suitability_score;
+@property(nonatomic) NSString* suitabilityScore;
 
-@property(nonatomic) NSString<Optional>* summary;
+@property(nonatomic) NSString* summary;
 
-@property(nonatomic) NSString<Optional>* image_path;
+@property(nonatomic) NSString* imagePath;
 
-@property(nonatomic) NSString<Optional>* image_url;
+@property(nonatomic) NSString* imageUrl;
 
-@property(nonatomic) NSNumber<Optional>* image_height;
+@property(nonatomic) NSNumber* imageHeight;
 
-@property(nonatomic) NSNumber<Optional>* image_width;
+@property(nonatomic) NSNumber* imageWidth;
 
-@property(nonatomic) NSString<Optional>* logo_url;
+@property(nonatomic) NSString* logoUrl;
 
-@property(nonatomic) NSString<Optional>* square_logo_url;
+@property(nonatomic) NSString* squareLogoUrl;
 
-@property(nonatomic) NSString<Optional>* url;
+@property(nonatomic) NSString* url;
 
-@property(nonatomic) NSString<Optional>* external_url;
+@property(nonatomic) NSString* externalUrl;
 
-@property(nonatomic) NSString<Optional>* external_url_source;
+@property(nonatomic) NSString* externalUrlSource;
 
-@property(nonatomic) NSString<Optional>* external_url_type;
+@property(nonatomic) NSString* externalUrlType;
 
 @end

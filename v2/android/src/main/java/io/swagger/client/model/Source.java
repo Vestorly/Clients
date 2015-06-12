@@ -2,25 +2,31 @@ package io.swagger.client.model;
 
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class Source  {
   
+  @SerializedName("_id")
   private String id = null;
+  @SerializedName("name")
   private String name = null;
+  @SerializedName("url")
   private String url = null;
+  @SerializedName("logo_url")
   private String logoUrl = null;
+  @SerializedName("enabled")
   private Boolean enabled = null;
+  @SerializedName("custom_rss_feed")
   private Boolean customRssFeed = null;
+  @SerializedName("rss_publisher")
   private String rssPublisher = null;
 
   
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty("_id")
   public String getId() {
     return id;
   }
@@ -32,7 +38,6 @@ public class Source  {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty("name")
   public String getName() {
     return name;
   }
@@ -44,7 +49,6 @@ public class Source  {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty("url")
   public String getUrl() {
     return url;
   }
@@ -56,7 +60,6 @@ public class Source  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("logo_url")
   public String getLogoUrl() {
     return logoUrl;
   }
@@ -68,7 +71,6 @@ public class Source  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("enabled")
   public Boolean getEnabled() {
     return enabled;
   }
@@ -80,7 +82,6 @@ public class Source  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("custom_rss_feed")
   public Boolean getCustomRssFeed() {
     return customRssFeed;
   }
@@ -92,7 +93,6 @@ public class Source  {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty("rss_publisher")
   public String getRssPublisher() {
     return rssPublisher;
   }

@@ -4,19 +4,19 @@ import io.swagger.client.model.Event;
 import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class Events  {
   
+  @SerializedName("events")
   private List<Event> events = new ArrayList<Event>() ;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("events")
   public List<Event> getEvents() {
     return events;
   }

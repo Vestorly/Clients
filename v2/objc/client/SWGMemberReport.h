@@ -8,18 +8,18 @@
 @interface SWGMemberReport : SWGObject
 
 
-@property(nonatomic) NSNumber<Optional>* day;
+@property(nonatomic) NSNumber* day;
 
-@property(nonatomic) NSNumber<Optional>* event_count;
+@property(nonatomic) NSNumber* eventCount;
 
-@property(nonatomic) NSString<Optional>* originator_group_id;
+@property(nonatomic) NSString* originatorGroupId;
 
-@property(nonatomic) NSString<Optional>* parent_originator_id;
+@property(nonatomic) NSString* parentOriginatorId;
 
-@property(nonatomic) NSString<Optional>* source;
+@property(nonatomic) NSString* source;
 
-@property(nonatomic) NSString<Optional>* type;
+@property(nonatomic) NSString* type;
 
-@property(nonatomic) NSNumber<Optional>* year;
+@property(nonatomic) NSNumber* year;
 
 @end

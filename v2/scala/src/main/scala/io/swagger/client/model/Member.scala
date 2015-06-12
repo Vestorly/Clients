@@ -17,13 +17,13 @@ case class Member (
   interest_consultation: String,
   interest_in_new_advisor: String,
   assets: String,
-  age: Integer,
+  age: String,
   data_estimated: Boolean,
   education: String,
   high_net_worth: Boolean,
   home_market_value: String,
   home_owner_status: String,
-  household_income: Integer,
+  household_income: String,
   marital_status: String,
   occupation: String,
   hometown: String,
@@ -32,8 +32,8 @@ case class Member (
   subscribed_group_ids: List[String],
   unsubscribed: Boolean,
   unsubscribed_date: Boolean,
-  user_type: Boolean,
-  signed_up_with: Boolean,
+  user_type: String,
+  signed_up_with: String,
   message: String,
   location: String,
   picture_url: String,
@@ -47,5 +47,5 @@ case class Member (
   is_hidden: Boolean,
   invited_on: String,
   invited_by: String,
-  portfolio_size: Integer)
+  portfolio_size: String)
   

@@ -5,10 +5,10 @@
 #include "SamiApiClient.h"
 #include "SamiError.h"
 
-#include "SamiNewsletter.h"
+#include "SamiNewsletters.h"
 using Tizen::Base::String;
-#include "SamiNewsletterInput.h"
 #include "SamiNewsletterresponse.h"
+#include "SamiNewsletterInput.h"
 
 using namespace Tizen::Net::Http;
 
@@ -20,17 +20,14 @@ public:
   virtual ~SamiNewslettersApi();
 
   
-  SamiNewsletter* 
-  findNewslettersWithCompletion(String* vestorly-auth, void (* handler)(SamiNewsletter*, SamiError*));
+  SamiNewsletters* 
+  findNewslettersWithCompletion(String* vestorlyAuth, void (* handler)(SamiNewsletters*, SamiError*));
   
   SamiNewsletterresponse* 
-  createNewsletterWithCompletion(String* vestorly-auth, SamiNewsletterInput* newsletter, void (* handler)(SamiNewsletterresponse*, SamiError*));
+  getNewsletterByIDWithCompletion(String* vestorlyAuth, String* _id, void (* handler)(SamiNewsletterresponse*, SamiError*));
   
   SamiNewsletterresponse* 
-  getNewsletterByIDWithCompletion(String* vestorly-auth, String* _id, void (* handler)(SamiNewsletterresponse*, SamiError*));
-  
-  SamiNewsletterresponse* 
-  updateNewsletterByIDWithCompletion(String* vestorly-auth, String* _id, SamiNewsletterInput* newsletter, void (* handler)(SamiNewsletterresponse*, SamiError*));
+  updateNewsletterByIDWithCompletion(String* vestorlyAuth, String* _id, SamiNewsletterInput* newsletter, void (* handler)(SamiNewsletterresponse*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

@@ -52,7 +52,7 @@ findMembersProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiEr
 }
 
 SamiMembers* 
-SamiMembersApi::findMembersWithCompletion(String* vestorly-auth, void (* success)(SamiMembers*, SamiError*)) {
+SamiMembersApi::findMembersWithCompletion(String* vestorlyAuth, void (* success)(SamiMembers*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findMembersProcessor, (void(*)(void*, SamiError*))success);
@@ -65,7 +65,7 @@ SamiMembersApi::findMembersWithCompletion(String* vestorly-auth, void (* success
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 
@@ -117,7 +117,7 @@ createMemberProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiE
 }
 
 SamiMemberresponse* 
-SamiMembersApi::createMemberWithCompletion(String* vestorly-auth, SamiMember* member, void (* success)(SamiMemberresponse*, SamiError*)) {
+SamiMembersApi::createMemberWithCompletion(String* vestorlyAuth, SamiMember* member, void (* success)(SamiMemberresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&createMemberProcessor, (void(*)(void*, SamiError*))success);
@@ -130,7 +130,7 @@ SamiMembersApi::createMemberWithCompletion(String* vestorly-auth, SamiMember* me
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 
@@ -190,7 +190,7 @@ findMemberByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sam
 }
 
 SamiMemberresponse* 
-SamiMembersApi::findMemberByIDWithCompletion(String* _id, String* vestorly-auth, void (* success)(SamiMemberresponse*, SamiError*)) {
+SamiMembersApi::findMemberByIDWithCompletion(String* _id, String* vestorlyAuth, void (* success)(SamiMemberresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findMemberByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -203,7 +203,7 @@ SamiMembersApi::findMemberByIDWithCompletion(String* _id, String* vestorly-auth,
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 
@@ -225,7 +225,7 @@ SamiMembersApi::findMemberByIDWithCompletion(String* _id, String* vestorly-auth,
 }
 
 void
-findMemberByID_1Processor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError*)) {
+updateMemberByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError*)) {
   int code = pHttpResponse->GetHttpStatusCode();
 
   if(code >= 200 && code < 300) {
@@ -260,10 +260,10 @@ findMemberByID_1Processor(HttpResponse* pHttpResponse, void (* handler)(void*, S
 }
 
 SamiMemberresponse* 
-SamiMembersApi::findMemberByID_1WithCompletion(String* _id, String* vestorly-auth, SamiMember* member, void (* success)(SamiMemberresponse*, SamiError*)) {
+SamiMembersApi::updateMemberByIDWithCompletion(String* _id, String* vestorlyAuth, SamiMember* member, void (* success)(SamiMemberresponse*, SamiError*)) {
   client = new SamiApiClient();
 
-  client->success(&findMemberByID_1Processor, (void(*)(void*, SamiError*))success);
+  client->success(&updateMemberByIDProcessor, (void(*)(void*, SamiError*))success);
   HashMap* headerParams = new HashMap(SingleObjectDeleter);
   headerParams->Construct();
 
@@ -273,7 +273,7 @@ SamiMembersApi::findMemberByID_1WithCompletion(String* _id, String* vestorly-aut
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 

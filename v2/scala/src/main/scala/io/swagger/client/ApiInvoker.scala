@@ -6,6 +6,7 @@ import com.sun.jersey.api.client.config.ClientConfig
 import com.sun.jersey.api.client.config.DefaultClientConfig
 import com.sun.jersey.api.client.filter.LoggingFilter
 
+import com.sun.jersey.core.util.MultivaluedMapImpl
 import com.sun.jersey.multipart.FormDataMultiPart
 import com.sun.jersey.multipart.file.FileDataBodyPart
 
@@ -33,6 +34,7 @@ object ScalaJsonUtil {
     mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
     mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
     mapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY)
+    mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
     mapper
   }
 }
@@ -94,7 +96,7 @@ class ApiInvoker(val mapper: ObjectMapper = ScalaJsonUtil.getJsonMapper,
     } else null
   }
 
-  def invokeApi(host: String, path: String, method: String, queryParams: Map[String, String], body: AnyRef, headerParams: Map[String, String], contentType: String): String = {
+  def invokeApi(host: String, path: String, method: String, queryParams: Map[String, String], formParams: Map[String, String], body: AnyRef, headerParams: Map[String, String], contentType: String): String = {
     val client = getClient(host)
 
     val querystring = queryParams.filter(k => k._2 != null).map(k => (escape(k._1) + "=" + escape(k._2))).mkString("?", "&", "")
@@ -106,13 +108,19 @@ class ApiInvoker(val mapper: ObjectMapper = ScalaJsonUtil.getJsonMapper,
         case false => if (p._2 != null) builder.header(p._1, p._2)
       }
     })
+    var formData: MultivaluedMapImpl = null
+    if(contentType == "application/x-www-form-urlencoded") {
+      formData = new MultivaluedMapImpl()
+      formParams.map(p => formData.add(p._1, p._2))
+    }
 
     val response: ClientResponse = method match {
       case "GET" => {
         builder.get(classOf[ClientResponse]).asInstanceOf[ClientResponse]
       }
       case "POST" => {
-        if(body != null && body.isInstanceOf[File]) {
+        if(formData != null) builder.post(classOf[ClientResponse], formData)
+        else if(body != null && body.isInstanceOf[File]) {
           val file = body.asInstanceOf[File]
           val form = new FormDataMultiPart()
           form.field("filename", file.getName())
@@ -125,7 +133,8 @@ class ApiInvoker(val mapper: ObjectMapper = ScalaJsonUtil.getJsonMapper,
         }
       }
       case "PUT" => {
-        if(body == null) builder.put(classOf[ClientResponse], null)
+        if(formData != null) builder.post(classOf[ClientResponse], formData)
+        else if(body == null) builder.put(classOf[ClientResponse], null)
         else builder.`type`(contentType).put(classOf[ClientResponse], serialize(body))
       }
       case "DELETE" => {
@@ -133,7 +142,7 @@ class ApiInvoker(val mapper: ObjectMapper = ScalaJsonUtil.getJsonMapper,
       }
       case _ => null
     }
-    response.getClientResponseStatus().getStatusCode() match {
+    response.getStatusInfo().getStatusCode() match {
       case 204 => ""
       case code: Int if (Range(200, 299).contains(code)) => {
         response.hasEntity() match {
@@ -147,7 +156,7 @@ class ApiInvoker(val mapper: ObjectMapper = ScalaJsonUtil.getJsonMapper,
           case false => "no data"
         }
         throw new ApiException(
-          response.getClientResponseStatus().getStatusCode(),
+          response.getStatusInfo().getStatusCode(),
           entity)
       }
     }

@@ -1,31 +1,31 @@
 'use strict';
 
-exports.findEvents = function(vestorly-auth) {
+exports.findEvents = function(vestorlyAuth) {
 
   var examples = {};
   
   examples['application/json'] = {
   "events" : [ {
-    "subject_id" : "aeiou",
-    "referer" : "aeiou",
     "event_content" : {
-      "content_type" : "aeiou",
       "updated_at" : "aeiou",
       "content_id" : "aeiou",
+      "_id" : "aeiou",
       "content_field" : "aeiou",
       "created_at" : "aeiou",
-      "_id" : "aeiou",
-      "slug" : "aeiou"
+      "slug" : "aeiou",
+      "content_type" : "aeiou"
     },
-    "original_url" : "aeiou",
-    "originator_id" : "aeiou",
-    "parent_event_id" : "aeiou",
-    "created_at" : "aeiou",
-    "originator_email" : "aeiou",
-    "_id" : "aeiou",
-    "type" : "aeiou",
     "advisor_id" : "aeiou",
-    "subject_email" : "aeiou"
+    "originator_id" : "aeiou",
+    "original_url" : "aeiou",
+    "_id" : "aeiou",
+    "subject_email" : "aeiou",
+    "subject_id" : "aeiou",
+    "originator_email" : "aeiou",
+    "created_at" : "aeiou",
+    "referer" : "aeiou",
+    "parent_event_id" : "aeiou",
+    "type" : "aeiou"
   } ]
 };
   
@@ -35,32 +35,13 @@ exports.findEvents = function(vestorly-auth) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.createEvent = function(vestorly-auth, event) {
+exports.createEvent = function(vestorlyAuth, event) {
 
   var examples = {};
   
   examples['application/json'] = {
-  "event" : {
-    "subject_id" : "aeiou",
-    "referer" : "aeiou",
-    "event_content" : {
-      "content_type" : "aeiou",
-      "updated_at" : "aeiou",
-      "content_id" : "aeiou",
-      "content_field" : "aeiou",
-      "created_at" : "aeiou",
-      "_id" : "aeiou",
-      "slug" : "aeiou"
-    },
-    "original_url" : "aeiou",
-    "originator_id" : "aeiou",
-    "parent_event_id" : "aeiou",
-    "created_at" : "aeiou",
-    "originator_email" : "aeiou",
-    "_id" : "aeiou",
-    "type" : "aeiou",
-    "advisor_id" : "aeiou",
-    "subject_email" : "aeiou"
+  "meta" : {
+    "message" : "aeiou"
   }
 };
   
@@ -70,67 +51,32 @@ exports.createEvent = function(vestorly-auth, event) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.findEventByID = function(id, vestorly-auth) {
+exports.findEventByID = function(id, vestorlyAuth) {
 
   var examples = {};
   
   examples['application/json'] = {
   "event" : {
-    "subject_id" : "aeiou",
-    "referer" : "aeiou",
     "event_content" : {
-      "content_type" : "aeiou",
       "updated_at" : "aeiou",
       "content_id" : "aeiou",
+      "_id" : "aeiou",
       "content_field" : "aeiou",
       "created_at" : "aeiou",
-      "_id" : "aeiou",
-      "slug" : "aeiou"
+      "slug" : "aeiou",
+      "content_type" : "aeiou"
     },
-    "original_url" : "aeiou",
-    "originator_id" : "aeiou",
-    "parent_event_id" : "aeiou",
-    "created_at" : "aeiou",
-    "originator_email" : "aeiou",
-    "_id" : "aeiou",
-    "type" : "aeiou",
     "advisor_id" : "aeiou",
-    "subject_email" : "aeiou"
-  }
-};
-  
-
-  
-  if(Object.keys(examples).length > 0)
-    return examples[Object.keys(examples)[0]];
-  
-}
-exports.updateEventByID = function(id, vestorly-auth, event) {
-
-  var examples = {};
-  
-  examples['application/json'] = {
-  "event" : {
+    "originator_id" : "aeiou",
+    "original_url" : "aeiou",
+    "_id" : "aeiou",
+    "subject_email" : "aeiou",
     "subject_id" : "aeiou",
-    "referer" : "aeiou",
-    "event_content" : {
-      "content_type" : "aeiou",
-      "updated_at" : "aeiou",
-      "content_id" : "aeiou",
-      "content_field" : "aeiou",
-      "created_at" : "aeiou",
-      "_id" : "aeiou",
-      "slug" : "aeiou"
-    },
-    "original_url" : "aeiou",
-    "originator_id" : "aeiou",
-    "parent_event_id" : "aeiou",
-    "created_at" : "aeiou",
     "originator_email" : "aeiou",
-    "_id" : "aeiou",
-    "type" : "aeiou",
-    "advisor_id" : "aeiou",
-    "subject_email" : "aeiou"
+    "created_at" : "aeiou",
+    "referer" : "aeiou",
+    "parent_event_id" : "aeiou",
+    "type" : "aeiou"
   }
 };
   

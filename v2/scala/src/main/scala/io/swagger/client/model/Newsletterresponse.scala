@@ -1,9 +1,9 @@
 package io.swagger.client.model
 
-import io.swagger.client.model.Post
+import io.swagger.client.model.Newsletter
 
 
 
 case class Newsletterresponse (
-  newsletter: Post)
+  newsletter: Newsletter)
   

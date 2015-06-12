@@ -5,10 +5,10 @@
 #include "SamiApiClient.h"
 #include "SamiError.h"
 
-#include "SamiMembers.h"
 using Tizen::Base::String;
-#include "SamiMemberresponse.h"
+#include "SamiMembers.h"
 #include "SamiMember.h"
+#include "SamiMemberresponse.h"
 
 using namespace Tizen::Net::Http;
 
@@ -21,16 +21,16 @@ public:
 
   
   SamiMembers* 
-  findMembersWithCompletion(String* vestorly-auth, void (* handler)(SamiMembers*, SamiError*));
+  findMembersWithCompletion(String* vestorlyAuth, void (* handler)(SamiMembers*, SamiError*));
   
   SamiMemberresponse* 
-  createMemberWithCompletion(String* vestorly-auth, SamiMember* member, void (* handler)(SamiMemberresponse*, SamiError*));
+  createMemberWithCompletion(String* vestorlyAuth, SamiMember* member, void (* handler)(SamiMemberresponse*, SamiError*));
   
   SamiMemberresponse* 
-  findMemberByIDWithCompletion(String* _id, String* vestorly-auth, void (* handler)(SamiMemberresponse*, SamiError*));
+  findMemberByIDWithCompletion(String* _id, String* vestorlyAuth, void (* handler)(SamiMemberresponse*, SamiError*));
   
   SamiMemberresponse* 
-  findMemberByID_1WithCompletion(String* _id, String* vestorly-auth, SamiMember* member, void (* handler)(SamiMemberresponse*, SamiError*));
+  updateMemberByIDWithCompletion(String* _id, String* vestorlyAuth, SamiMember* member, void (* handler)(SamiMemberresponse*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

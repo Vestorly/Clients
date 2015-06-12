@@ -5,11 +5,10 @@
 #include "SamiApiClient.h"
 #include "SamiError.h"
 
-#include "SamiGroups.h"
 using Tizen::Base::String;
-#include "SamiGroup.h"
+#include "SamiGroups.h"
+#include "SamiGroupresponse.h"
 #include "SamiGroupInput.h"
-#include "SamiErrorModel.h"
 
 using namespace Tizen::Net::Http;
 
@@ -22,19 +21,19 @@ public:
 
   
   SamiGroups* 
-  findGroupsWithCompletion(String* vestorly-auth, void (* handler)(SamiGroups*, SamiError*));
+  findGroupsWithCompletion(String* vestorlyAuth, void (* handler)(SamiGroups*, SamiError*));
   
-  SamiGroup* 
-  findGroupByIDWithCompletion(String* vestorly-auth, String* _id, void (* handler)(SamiGroup*, SamiError*));
+  SamiGroupresponse* 
+  createGroupWithCompletion(String* vestorlyAuth, SamiGroupInput* group, void (* handler)(SamiGroupresponse*, SamiError*));
   
-  SamiGroupInput* 
-  addGroupWithCompletion(String* vestorly-auth, String* _id, SamiGroup* group, void (* handler)(SamiGroupInput*, SamiError*));
+  SamiGroupresponse* 
+  findGroupByIDWithCompletion(String* vestorlyAuth, String* _id, void (* handler)(SamiGroupresponse*, SamiError*));
   
-  SamiGroupInput* 
-  addGroup_1WithCompletion(SamiGroup* group, void (* handler)(SamiGroupInput*, SamiError*));
+  SamiGroupresponse* 
+  updateGroupByIdWithCompletion(String* vestorlyAuth, String* _id, SamiGroupInput* group, void (* handler)(SamiGroupresponse*, SamiError*));
   
-  SamiGroupInput* 
-  deleteGroupWithCompletion(SamiGroup* group, void (* handler)(SamiGroupInput*, SamiError*));
+  SamiGroupresponse* 
+  deleteGroupWithCompletion(String* vestorlyAuth, String* _id, void (* handler)(SamiGroupresponse*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

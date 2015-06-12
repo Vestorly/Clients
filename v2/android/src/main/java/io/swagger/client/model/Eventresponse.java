@@ -3,19 +3,19 @@ package io.swagger.client.model;
 import io.swagger.client.model.Event;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class Eventresponse  {
   
+  @SerializedName("event")
   private Event event = null;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("event")
   public Event getEvent() {
     return event;
   }

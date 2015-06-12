@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "SWGPost.h"
+#import "SWGNewsletter.h"
 
 
 @protocol SWGNewsletterresponse
@@ -9,6 +9,6 @@
 @interface SWGNewsletterresponse : SWGObject
 
 
-@property(nonatomic) SWGPost<Optional, SWGPost>* _newsletter;
+@property(nonatomic) SWGNewsletter* newsletter;
 
 @end

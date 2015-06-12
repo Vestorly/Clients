@@ -4,7 +4,19 @@
   
 + (JSONKeyMapper *)keyMapper
 {
-  return [[JSONKeyMapper alloc] initWithDictionary:@{ @"created_at": @"created_at", @"updated_at": @"updated_at", @"external_url": @"external_url", @"external_url_source": @"external_url_source", @"external_url_type": @"external_url_type", @"image_path": @"image_path", @"image_url": @"image_url", @"image_height": @"image_height", @"image_width": @"image_width", @"logo_url": @"logo_url", @"square_logo_url": @"square_logo_url", @"needs_sanitize": @"needs_sanitize", @"summary": @"summary", @"topic": @"topic", @"approval_status": @"approval_status", @"approval_transactions": @"approval_transactions", @"group_ids": @"group_ids", @"slug": @"slug", @"article_id": @"article_id", @"comment": @"comment", @"newsletter_ids": @"_newsletter_ids", @"is_featured": @"is_featured", @"advisor_id": @"advisor_id", @"is_published": @"is_published", @"is_responsive": @"is_responsive", @"is_proxy_needed": @"is_proxy_needed", @"is_mobile_proxy_needed": @"is_mobile_proxy_needed", @"proxy_url": @"proxy_url", @"video": @"video", @"pdf_attachment_url": @"pdf_attachment_url", @"post_date": @"post_date", @"display_date": @"display_date", @"suitability_score": @"suitability_score", @"video_id": @"video_id", @"display_tag": @"display_tag", @"display_summary": @"display_summary", @"vestorly_url": @"vestorly_url" }];
+  return [[JSONKeyMapper alloc] initWithDictionary:@{ @"created_at": @"createdAt", @"updated_at": @"updatedAt", @"external_url": @"externalUrl", @"external_url_source": @"externalUrlSource", @"external_url_type": @"externalUrlType", @"image_path": @"imagePath", @"image_url": @"imageUrl", @"image_height": @"imageHeight", @"image_width": @"imageWidth", @"logo_url": @"logoUrl", @"square_logo_url": @"squareLogoUrl", @"needs_sanitize": @"needsSanitize", @"summary": @"summary", @"topic": @"topic", @"approval_status": @"approvalStatus", @"approval_transactions": @"approvalTransactions", @"group_ids": @"groupIds", @"slug": @"slug", @"article_id": @"articleId", @"comment": @"comment", @"newsletter_ids": @"newsletterIds", @"is_featured": @"isFeatured", @"advisor_id": @"advisorId", @"is_published": @"isPublished", @"is_responsive": @"isResponsive", @"is_proxy_needed": @"isProxyNeeded", @"is_mobile_proxy_needed": @"isMobileProxyNeeded", @"proxy_url": @"proxyUrl", @"video": @"video", @"pdf_attachment_url": @"pdfAttachmentUrl", @"post_date": @"postDate", @"display_date": @"displayDate", @"suitability_score": @"suitabilityScore", @"video_id": @"videoId", @"display_tag": @"displayTag", @"display_summary": @"displaySummary", @"vestorly_url": @"vestorlyUrl", @"title": @"title" }];
+}
+
++ (BOOL)propertyIsOptional:(NSString *)propertyName
+{
+  NSArray *optionalProperties = @[@"createdAt", @"updatedAt", @"externalUrl", @"externalUrlSource", @"externalUrlType", @"imagePath", @"imageUrl", @"imageHeight", @"imageWidth", @"logoUrl", @"squareLogoUrl", @"needsSanitize", @"summary", @"topic", @"approvalStatus", @"approvalTransactions", @"groupIds", @"slug", @"articleId", @"comment", @"newsletterIds", @"isFeatured", @"advisorId", @"isPublished", @"isResponsive", @"isProxyNeeded", @"isMobileProxyNeeded", @"proxyUrl", @"video", @"pdfAttachmentUrl", @"postDate", @"displayDate", @"suitabilityScore", @"videoId", @"displayTag", @"displaySummary", @"vestorlyUrl", ];
+
+  if ([optionalProperties containsObject:propertyName]) {
+    return YES;
+  }
+  else {
+    return NO;
+  }
 }
 
 @end

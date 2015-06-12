@@ -12,88 +12,88 @@
 
 @property(nonatomic) NSString* email;
 
-@property(nonatomic) NSString<Optional>* first_name;
+@property(nonatomic) NSString* firstName;
 
-@property(nonatomic) NSString<Optional>* last_name;
+@property(nonatomic) NSString* lastName;
 
-@property(nonatomic) NSString<Optional>* phone;
+@property(nonatomic) NSString* phone;
 
-@property(nonatomic) NSString<Optional>* address;
+@property(nonatomic) NSString* address;
 
-@property(nonatomic) NSString<Optional>* city;
+@property(nonatomic) NSString* city;
 
-@property(nonatomic) NSString<Optional>* state;
+@property(nonatomic) NSString* state;
 
-@property(nonatomic) NSString<Optional>* zip;
+@property(nonatomic) NSString* zip;
 
-@property(nonatomic) NSString<Optional>* gender;
+@property(nonatomic) NSString* gender;
 
-@property(nonatomic) NSString<Optional>* interest_consultation;
+@property(nonatomic) NSString* interestConsultation;
 
-@property(nonatomic) NSString<Optional>* interest_in_new_advisor;
+@property(nonatomic) NSString* interestInNewAdvisor;
 
-@property(nonatomic) NSString<Optional>* assets;
+@property(nonatomic) NSString* assets;
 
-@property(nonatomic) NSNumber<Optional>* age;
+@property(nonatomic) NSString* age;
 
-@property(nonatomic) NSNumber<Optional>* data_estimated;
+@property(nonatomic) BOOL dataEstimated;
 
-@property(nonatomic) NSString<Optional>* education;
+@property(nonatomic) NSString* education;
 
-@property(nonatomic) NSNumber<Optional>* high_net_worth;
+@property(nonatomic) BOOL highNetWorth;
 
-@property(nonatomic) NSString<Optional>* home_market_value;
+@property(nonatomic) NSString* homeMarketValue;
 
-@property(nonatomic) NSString<Optional>* home_owner_status;
+@property(nonatomic) NSString* homeOwnerStatus;
 
-@property(nonatomic) NSNumber<Optional>* household_income;
+@property(nonatomic) NSString* householdIncome;
 
-@property(nonatomic) NSString<Optional>* marital_status;
+@property(nonatomic) NSString* maritalStatus;
 
-@property(nonatomic) NSString<Optional>* occupation;
+@property(nonatomic) NSString* occupation;
 
-@property(nonatomic) NSString<Optional>* hometown;
+@property(nonatomic) NSString* hometown;
 
-@property(nonatomic) NSString<Optional>* family;
+@property(nonatomic) NSString* family;
 
-@property(nonatomic) NSArray<Optional>* tags;
+@property(nonatomic) NSArray* tags;
 
-@property(nonatomic) NSArray<Optional>* subscribed_group_ids;
+@property(nonatomic) NSArray* subscribedGroupIds;
 
-@property(nonatomic) NSNumber<Optional>* unsubscribed;
+@property(nonatomic) BOOL unsubscribed;
 
-@property(nonatomic) NSNumber<Optional>* unsubscribed_date;
+@property(nonatomic) BOOL unsubscribedDate;
 
-@property(nonatomic) NSNumber<Optional>* user_type;
+@property(nonatomic) NSString* userType;
 
-@property(nonatomic) NSNumber<Optional>* signed_up_with;
+@property(nonatomic) NSString* signedUpWith;
 
-@property(nonatomic) NSString<Optional>* message;
+@property(nonatomic) NSString* message;
 
-@property(nonatomic) NSString<Optional>* location;
+@property(nonatomic) NSString* location;
 
-@property(nonatomic) NSString<Optional>* picture_url;
+@property(nonatomic) NSString* pictureUrl;
 
-@property(nonatomic) NSString<Optional>* profile_url;
+@property(nonatomic) NSString* profileUrl;
 
-@property(nonatomic) NSString<Optional>* estimated_location;
+@property(nonatomic) NSString* estimatedLocation;
 
-@property(nonatomic) NSString<Optional>* estimated_zip;
+@property(nonatomic) NSString* estimatedZip;
 
-@property(nonatomic) NSString<Optional>* register_ip_addr;
+@property(nonatomic) NSString* registerIpAddr;
 
-@property(nonatomic) NSNumber<Optional>* genuine_email;
+@property(nonatomic) BOOL genuineEmail;
 
-@property(nonatomic) NSString<Optional>* last_active_date;
+@property(nonatomic) NSString* lastActiveDate;
 
-@property(nonatomic) NSNumber<Optional>* is_client;
+@property(nonatomic) BOOL isClient;
 
-@property(nonatomic) NSNumber<Optional>* is_hidden;
+@property(nonatomic) BOOL isHidden;
 
-@property(nonatomic) NSString<Optional>* invited_on;
+@property(nonatomic) NSString* invitedOn;
 
-@property(nonatomic) NSString<Optional>* invited_by;
+@property(nonatomic) NSString* invitedBy;
 
-@property(nonatomic) NSNumber<Optional>* portfolio_size;
+@property(nonatomic) NSString* portfolioSize;
 
 @end

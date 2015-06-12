@@ -59,6 +59,7 @@ SamiPostInput::init() {
     pDisplay_tag = null;
     pDisplay_summary = null;
     pVestorly_url = null;
+    pTitle = null;
     
 }
 
@@ -140,7 +141,7 @@ SamiPostInput::cleanup() {
         pApproval_status = null;
     }
     if(pApproval_transactions != null) {
-        
+        pApproval_transactions->RemoveAll(true);
         delete pApproval_transactions;
         pApproval_transactions = null;
     }
@@ -248,6 +249,11 @@ SamiPostInput::cleanup() {
         
         delete pVestorly_url;
         pVestorly_url = null;
+    }
+    if(pTitle != null) {
+        
+        delete pTitle;
+        pTitle = null;
     }
     
 }
@@ -426,9 +432,9 @@ SamiPostInput::fromJsonObject(IJsonValue* pJson) {
         IJsonValue* pApproval_transactionsVal = null;
         pJsonObject->GetValue(pApproval_transactionsKey, pApproval_transactionsVal);
         if(pApproval_transactionsVal != null) {
+            pApproval_transactions = new ArrayList();
             
-            pApproval_transactions = new String();
-            jsonToValue(pApproval_transactions, pApproval_transactionsVal, L"String", L"String");
+            jsonToValue(pApproval_transactions, pApproval_transactionsVal, L"IList", L"String");
         }
         delete pApproval_transactionsKey;
         JsonString* pGroup_idsKey = new JsonString(L"group_ids");
@@ -620,6 +626,15 @@ SamiPostInput::fromJsonObject(IJsonValue* pJson) {
             jsonToValue(pVestorly_url, pVestorly_urlVal, L"String", L"String");
         }
         delete pVestorly_urlKey;
+        JsonString* pTitleKey = new JsonString(L"title");
+        IJsonValue* pTitleVal = null;
+        pJsonObject->GetValue(pTitleKey, pTitleVal);
+        if(pTitleVal != null) {
+            
+            pTitle = new String();
+            jsonToValue(pTitle, pTitleVal, L"String", L"String");
+        }
+        delete pTitleKey;
         
     }
 }
@@ -733,7 +748,7 @@ SamiPostInput::asJsonObject() {
 
     
     JsonString *pApproval_transactionsKey = new JsonString(L"approval_transactions");
-    pJsonObject->Add(pApproval_transactionsKey, toJson(getPApprovalTransactions(), "String", ""));
+    pJsonObject->Add(pApproval_transactionsKey, toJson(getPApprovalTransactions(), "String", "array"));
 
     
     JsonString *pGroup_idsKey = new JsonString(L"group_ids");
@@ -818,6 +833,10 @@ SamiPostInput::asJsonObject() {
     
     JsonString *pVestorly_urlKey = new JsonString(L"vestorly_url");
     pJsonObject->Add(pVestorly_urlKey, toJson(getPVestorlyUrl(), "String", ""));
+
+    
+    JsonString *pTitleKey = new JsonString(L"title");
+    pJsonObject->Add(pTitleKey, toJson(getPTitle(), "String", ""));
 
     
     return pJsonObject;
@@ -958,12 +977,12 @@ SamiPostInput::setPApprovalStatus(String* pApproval_status) {
     this->pApproval_status = pApproval_status;
 }
 
-String*
+IList*
 SamiPostInput::getPApprovalTransactions() {
     return pApproval_transactions;
 }
 void
-SamiPostInput::setPApprovalTransactions(String* pApproval_transactions) {
+SamiPostInput::setPApprovalTransactions(IList* pApproval_transactions) {
     this->pApproval_transactions = pApproval_transactions;
 }
 
@@ -1154,6 +1173,15 @@ SamiPostInput::getPVestorlyUrl() {
 void
 SamiPostInput::setPVestorlyUrl(String* pVestorly_url) {
     this->pVestorly_url = pVestorly_url;
+}
+
+String*
+SamiPostInput::getPTitle() {
+    return pTitle;
+}
+void
+SamiPostInput::setPTitle(String* pTitle) {
+    this->pTitle = pTitle;
 }
 
 

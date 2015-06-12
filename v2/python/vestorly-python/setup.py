@@ -12,7 +12,7 @@ from setuptools import setup, find_packages
 # Try reading the setuptools documentation:
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = []
+REQUIRES = ["urllib3 >= 1.10", "six >= 1.9"]
 
 setup(
     name="vestorly",
@@ -28,5 +28,13 @@ setup(
     Vestorly Developers API
     """
 )
+
+
+
+
+
+
+
+
 
 

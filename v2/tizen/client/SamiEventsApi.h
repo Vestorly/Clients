@@ -5,10 +5,11 @@
 #include "SamiApiClient.h"
 #include "SamiError.h"
 
-#include "SamiEvents.h"
 using Tizen::Base::String;
-#include "SamiEventresponse.h"
+#include "SamiEvents.h"
+#include "SamiEventcreateresponse.h"
 #include "SamiEventInput.h"
+#include "SamiEventresponse.h"
 
 using namespace Tizen::Net::Http;
 
@@ -21,16 +22,13 @@ public:
 
   
   SamiEvents* 
-  findEventsWithCompletion(String* vestorly-auth, void (* handler)(SamiEvents*, SamiError*));
+  findEventsWithCompletion(String* vestorlyAuth, void (* handler)(SamiEvents*, SamiError*));
+  
+  SamiEventcreateresponse* 
+  createEventWithCompletion(String* vestorlyAuth, SamiEventInput* event, void (* handler)(SamiEventcreateresponse*, SamiError*));
   
   SamiEventresponse* 
-  createEventWithCompletion(String* vestorly-auth, SamiEventInput* event, void (* handler)(SamiEventresponse*, SamiError*));
-  
-  SamiEventresponse* 
-  findEventByIDWithCompletion(String* _id, String* vestorly-auth, void (* handler)(SamiEventresponse*, SamiError*));
-  
-  SamiEventresponse* 
-  updateEventByIDWithCompletion(String* _id, String* vestorly-auth, SamiEventInput* event, void (* handler)(SamiEventresponse*, SamiError*));
+  findEventByIDWithCompletion(String* _id, String* vestorlyAuth, void (* handler)(SamiEventresponse*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

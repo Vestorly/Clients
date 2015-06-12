@@ -1,11 +1,15 @@
 package io.swagger.client.api
 
 import io.swagger.client.model.Groups
-import io.swagger.client.model.Group
 import io.swagger.client.model.GroupInput
-import io.swagger.client.model.ErrorModel
+import io.swagger.client.model.Groupresponse
 import io.swagger.client.ApiInvoker
 import io.swagger.client.ApiException
+
+import com.sun.jersey.multipart.FormDataMultiPart
+import com.sun.jersey.multipart.file.FileDataBodyPart
+
+import javax.ws.rs.core.MediaType
 
 import java.io.File
 import java.util.Date
@@ -20,29 +24,44 @@ class GroupsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
   def addHeader(key: String, value: String) = apiInvoker.defaultHeaders += key -> value 
 
   
-  def findGroups (vestorly-auth: String) : Option[Groups] = {
+  /**
+   * 
+   * Returns all groups
+   * @param vestorlyAuth Vestorly Auth Token
+   * @return Groups
+   */
+  def findGroups (vestorlyAuth: String) : Option[Groups] = {
     // create path and map variables
     val path = "/groups".replaceAll("\\{format\\}","json")
 
-    
-    val contentType = {
-      
-      "application/json"
-    }
+    val contentTypes = List("application/json")
+    val contentType = contentTypes(0)
 
     // query params
     val queryParams = new HashMap[String, String]
     val headerParams = new HashMap[String, String]
+    val formParams = new HashMap[String, String]
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorlyAuth) != "null") queryParams += "vestorly_auth" -> vestorlyAuth.toString
     
     
     
+
+    var postBody: AnyRef = null
+
+    if(contentType.startsWith("multipart/form-data")) {
+      val mp = new FormDataMultiPart()
+      
+      postBody = mp
+    }
+    else {
+      
+    }
 
     try {
-      apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, None, headerParams.toMap, contentType) match {
+      apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, formParams.toMap, postBody, headerParams.toMap, contentType) match {
         case s: String =>
            Some(ApiInvoker.deserialize(s, "", classOf[Groups]).asInstanceOf[Groups])
          
@@ -54,33 +73,99 @@ class GroupsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
     }
   }
   
-  def findGroupByID (vestorly-auth: String, id: String) : Option[Group] = {
+  /**
+   * 
+   * Creates a new Group
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param group Group to add
+   * @return Groupresponse
+   */
+  def createGroup (vestorlyAuth: String, group: GroupInput) : Option[Groupresponse] = {
+    // create path and map variables
+    val path = "/groups".replaceAll("\\{format\\}","json")
+
+    val contentTypes = List("application/json")
+    val contentType = contentTypes(0)
+
+    // query params
+    val queryParams = new HashMap[String, String]
+    val headerParams = new HashMap[String, String]
+    val formParams = new HashMap[String, String]
+
+    
+
+    if(String.valueOf(vestorlyAuth) != "null") queryParams += "vestorly_auth" -> vestorlyAuth.toString
+    
+    
+    
+
+    var postBody: AnyRef = group
+
+    if(contentType.startsWith("multipart/form-data")) {
+      val mp = new FormDataMultiPart()
+      
+      postBody = mp
+    }
+    else {
+      
+    }
+
+    try {
+      apiInvoker.invokeApi(basePath, path, "POST", queryParams.toMap, formParams.toMap, postBody, headerParams.toMap, contentType) match {
+        case s: String =>
+           Some(ApiInvoker.deserialize(s, "", classOf[Groupresponse]).asInstanceOf[Groupresponse])
+         
+        case _ => None
+      }
+    } catch {
+      case ex: ApiException if ex.code == 404 => None
+      case ex: ApiException => throw ex
+    }
+  }
+  
+  /**
+   * 
+   * Returns a single group if user has access
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param id Mongo ID of group to fetch
+   * @return Groupresponse
+   */
+  def findGroupByID (vestorlyAuth: String, id: String) : Option[Groupresponse] = {
     // create path and map variables
     val path = "/groups/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
     
 
-    
-    val contentType = {
-      
-      "application/json"
-    }
+    val contentTypes = List("application/json")
+    val contentType = contentTypes(0)
 
     // query params
     val queryParams = new HashMap[String, String]
     val headerParams = new HashMap[String, String]
+    val formParams = new HashMap[String, String]
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorlyAuth) != "null") queryParams += "vestorly_auth" -> vestorlyAuth.toString
     
     
     
+
+    var postBody: AnyRef = null
+
+    if(contentType.startsWith("multipart/form-data")) {
+      val mp = new FormDataMultiPart()
+      
+      postBody = mp
+    }
+    else {
+      
+    }
 
     try {
-      apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, None, headerParams.toMap, contentType) match {
+      apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, formParams.toMap, postBody, headerParams.toMap, contentType) match {
         case s: String =>
-           Some(ApiInvoker.deserialize(s, "", classOf[Group]).asInstanceOf[Group])
+           Some(ApiInvoker.deserialize(s, "", classOf[Groupresponse]).asInstanceOf[Groupresponse])
          
         case _ => None
       }
@@ -90,36 +175,50 @@ class GroupsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
     }
   }
   
-  def addGroup (vestorly-auth: String, id: String, group: Group) : Option[GroupInput] = {
+  /**
+   * 
+   * Updates a Group
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param id id of group to update
+   * @param group Group to update
+   * @return Groupresponse
+   */
+  def updateGroupById (vestorlyAuth: String, id: String, group: GroupInput) : Option[Groupresponse] = {
     // create path and map variables
     val path = "/groups/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
     
 
-    
-    val contentType = {
-      if(group != null && group.isInstanceOf[File] )
-        "multipart/form-data"
-      else "application/json"
-      
-      
-    }
+    val contentTypes = List("application/json")
+    val contentType = contentTypes(0)
 
     // query params
     val queryParams = new HashMap[String, String]
     val headerParams = new HashMap[String, String]
+    val formParams = new HashMap[String, String]
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorlyAuth) != "null") queryParams += "vestorly_auth" -> vestorlyAuth.toString
     
     
     
+
+    var postBody: AnyRef = group
+
+    if(contentType.startsWith("multipart/form-data")) {
+      val mp = new FormDataMultiPart()
+      
+      postBody = mp
+    }
+    else {
+      
+    }
 
     try {
-      apiInvoker.invokeApi(basePath, path, "PUT", queryParams.toMap, group, headerParams.toMap, contentType) match {
+      apiInvoker.invokeApi(basePath, path, "PUT", queryParams.toMap, formParams.toMap, postBody, headerParams.toMap, contentType) match {
         case s: String =>
-           Some(ApiInvoker.deserialize(s, "", classOf[GroupInput]).asInstanceOf[GroupInput])
+           Some(ApiInvoker.deserialize(s, "", classOf[Groupresponse]).asInstanceOf[Groupresponse])
          
         case _ => None
       }
@@ -129,69 +228,49 @@ class GroupsApi(val defBasePath: String = "https://staging.vestorly.com/api/v2",
     }
   }
   
-  def addGroup_1 (group: Group) : Option[GroupInput] = {
+  /**
+   * 
+   * Deletes a Group
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param id id of group to delete
+   * @return Groupresponse
+   */
+  def deleteGroup (vestorlyAuth: String, id: String) : Option[Groupresponse] = {
     // create path and map variables
-    val path = "/groups/{id}".replaceAll("\\{format\\}","json")
+    val path = "/groups/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
     
-    val contentType = {
-      if(group != null && group.isInstanceOf[File] )
-        "multipart/form-data"
-      else "application/json"
-      
-      
-    }
+
+    val contentTypes = List("application/json")
+    val contentType = contentTypes(0)
 
     // query params
     val queryParams = new HashMap[String, String]
     val headerParams = new HashMap[String, String]
+    val formParams = new HashMap[String, String]
 
     
 
+    if(String.valueOf(vestorlyAuth) != "null") queryParams += "vestorly_auth" -> vestorlyAuth.toString
     
     
     
 
-    try {
-      apiInvoker.invokeApi(basePath, path, "POST", queryParams.toMap, group, headerParams.toMap, contentType) match {
-        case s: String =>
-           Some(ApiInvoker.deserialize(s, "", classOf[GroupInput]).asInstanceOf[GroupInput])
-         
-        case _ => None
-      }
-    } catch {
-      case ex: ApiException if ex.code == 404 => None
-      case ex: ApiException => throw ex
-    }
-  }
-  
-  def deleteGroup (group: Group) : Option[GroupInput] = {
-    // create path and map variables
-    val path = "/groups/{id}".replaceAll("\\{format\\}","json")
+    var postBody: AnyRef = null
 
-    
-    val contentType = {
-      if(group != null && group.isInstanceOf[File] )
-        "multipart/form-data"
-      else "application/json"
+    if(contentType.startsWith("multipart/form-data")) {
+      val mp = new FormDataMultiPart()
       
+      postBody = mp
+    }
+    else {
       
     }
 
-    // query params
-    val queryParams = new HashMap[String, String]
-    val headerParams = new HashMap[String, String]
-
-    
-
-    
-    
-    
-
     try {
-      apiInvoker.invokeApi(basePath, path, "DELETE", queryParams.toMap, group, headerParams.toMap, contentType) match {
+      apiInvoker.invokeApi(basePath, path, "DELETE", queryParams.toMap, formParams.toMap, postBody, headerParams.toMap, contentType) match {
         case s: String =>
-           Some(ApiInvoker.deserialize(s, "", classOf[GroupInput]).asInstanceOf[GroupInput])
+           Some(ApiInvoker.deserialize(s, "", classOf[Groupresponse]).asInstanceOf[Groupresponse])
          
         case _ => None
       }

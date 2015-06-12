@@ -1,9 +1,8 @@
 package com.wordnik.client.model
 
+import com.wordnik.client.model.NewsletterSetting
 
 
 case class NewsletterSettingsInput (
-  email_status: String,
-  twitter_status: String,
-  linkedin_status: String
+  newsletter_setting: NewsletterSetting
 )

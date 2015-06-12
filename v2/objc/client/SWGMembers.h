@@ -10,10 +10,10 @@
 @interface SWGMembers : SWGObject
 
 
-@property(nonatomic) NSArray<Optional, SWGMember>* members;
+@property(nonatomic) NSArray<SWGMember>* members;
 
-@property(nonatomic) NSNumber<Optional>* more_results;
+@property(nonatomic) BOOL moreResults;
 
-@property(nonatomic) SWGMeta<Optional, SWGMeta>* meta;
+@property(nonatomic) SWGMeta* meta;
 
 @end

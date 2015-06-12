@@ -52,7 +52,7 @@ findArticlesProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiE
 }
 
 SamiArticles* 
-SamiArticlesApi::findArticlesWithCompletion(String* vestorly-auth, Integer* limit, String* text_query, String* sort_direction, String* sort_by, void (* success)(SamiArticles*, SamiError*)) {
+SamiArticlesApi::findArticlesWithCompletion(String* vestorlyAuth, Integer* limit, String* textQuery, String* sortDirection, String* sortBy, void (* success)(SamiArticles*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findArticlesProcessor, (void(*)(void*, SamiError*))success);
@@ -65,19 +65,19 @@ SamiArticlesApi::findArticlesWithCompletion(String* vestorly-auth, Integer* limi
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
     queryParams->Add(new String("limit"), limit);
   
   
-    queryParams->Add(new String("text_query"), text_query);
+    queryParams->Add(new String("text_query"), textQuery);
   
   
-    queryParams->Add(new String("sort_direction"), sort_direction);
+    queryParams->Add(new String("sort_direction"), sortDirection);
   
   
-    queryParams->Add(new String("sort_by"), sort_by);
+    queryParams->Add(new String("sort_by"), sortBy);
   
   
 
@@ -129,7 +129,7 @@ findArticleByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sa
 }
 
 SamiArticleresponse* 
-SamiArticlesApi::findArticleByIDWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiArticleresponse*, SamiError*)) {
+SamiArticlesApi::findArticleByIDWithCompletion(String* vestorlyAuth, String* _id, void (* success)(SamiArticleresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findArticleByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -142,7 +142,7 @@ SamiArticlesApi::findArticleByIDWithCompletion(String* vestorly-auth, String* _i
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 

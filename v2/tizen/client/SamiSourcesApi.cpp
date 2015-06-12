@@ -52,7 +52,7 @@ findSourcesProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiEr
 }
 
 SamiSources* 
-SamiSourcesApi::findSourcesWithCompletion(String* vestorly-auth, void (* success)(SamiSources*, SamiError*)) {
+SamiSourcesApi::findSourcesWithCompletion(String* vestorlyAuth, void (* success)(SamiSources*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findSourcesProcessor, (void(*)(void*, SamiError*))success);
@@ -65,7 +65,7 @@ SamiSourcesApi::findSourcesWithCompletion(String* vestorly-auth, void (* success
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 
@@ -117,7 +117,7 @@ createSourceProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiE
 }
 
 SamiSourceresponse* 
-SamiSourcesApi::createSourceWithCompletion(String* vestorly-auth, SamiSourceInput* source, void (* success)(SamiSourceresponse*, SamiError*)) {
+SamiSourcesApi::createSourceWithCompletion(String* vestorlyAuth, SamiSourceInput* source, void (* success)(SamiSourceresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&createSourceProcessor, (void(*)(void*, SamiError*))success);
@@ -130,7 +130,7 @@ SamiSourcesApi::createSourceWithCompletion(String* vestorly-auth, SamiSourceInpu
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 
@@ -190,7 +190,7 @@ getSourceByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sami
 }
 
 SamiSourceresponse* 
-SamiSourcesApi::getSourceByIDWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiSourceresponse*, SamiError*)) {
+SamiSourcesApi::getSourceByIDWithCompletion(String* vestorlyAuth, String* _id, void (* success)(SamiSourceresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&getSourceByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -203,7 +203,7 @@ SamiSourcesApi::getSourceByIDWithCompletion(String* vestorly-auth, String* _id, 
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 
@@ -260,7 +260,7 @@ updateSourceByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, S
 }
 
 SamiSourceresponse* 
-SamiSourcesApi::updateSourceByIDWithCompletion(String* vestorly-auth, String* _id, SamiSourceInput* source, void (* success)(SamiSourceresponse*, SamiError*)) {
+SamiSourcesApi::updateSourceByIDWithCompletion(String* vestorlyAuth, String* _id, SamiSourceInput* source, void (* success)(SamiSourceresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&updateSourceByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -273,7 +273,7 @@ SamiSourcesApi::updateSourceByIDWithCompletion(String* vestorly-auth, String* _i
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 
