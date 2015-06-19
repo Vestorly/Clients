@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using RestSharp;
 using vestorly.client;
-using vestorly.Model;
+using vestorly.model;
 
-namespace vestorly.Api {
+namespace vestorly.api {
   
   public class SourcesApi {
     string basePath;
@@ -38,15 +38,24 @@ namespace vestorly.Api {
     /// <summary>
     ///  Returns all sources
     /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
     /// <returns>Sources</returns>
-    public Sources FindSources (string VestorlyAuth) {
+    public Sources FindSources (string vestorlyAuth) {
 
-      var _request = new RestRequest("/sources", Method.GET);
+      String myPath = "/sources";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("GET" == "POST" || "GET" == "PUT") && "SourcesApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.GET);
+
 
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling FindSources");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling FindSources");
       
 
       // add default header, if any
@@ -57,7 +66,7 @@ namespace vestorly.Api {
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("GET" == "GET" || "GET" == "DELETE" || "SourcesApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       
@@ -75,19 +84,28 @@ namespace vestorly.Api {
     /// <summary>
     ///  Create source
     /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-    /// <param name="Source">Source</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="source">Source</param>
     /// <returns>Sourceresponse</returns>
-    public Sourceresponse CreateSource (string VestorlyAuth, SourceInput Source) {
+    public Sourceresponse CreateSource (string vestorlyAuth, SourceInput source) {
 
-      var _request = new RestRequest("/sources", Method.POST);
+      String myPath = "/sources";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("POST" == "POST" || "POST" == "PUT") && "SourcesApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.POST);
+
 
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling CreateSource");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling CreateSource");
       
-      // verify the required parameter 'Source' is set
-      if (Source == null) throw new ApiException(400, "Missing required parameter 'Source' when calling CreateSource");
+      // verify the required parameter 'source' is set
+      if (source == null) throw new ApiException(400, "Missing required parameter 'source' when calling CreateSource");
       
 
       // add default header, if any
@@ -98,11 +116,11 @@ namespace vestorly.Api {
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("POST" == "GET" || "POST" == "DELETE" || "SourcesApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       
-      _request.AddParameter("application/json", ApiInvoker.Serialize(Source), ParameterType.RequestBody); // http body (model) parameter
+      _request.AddParameter("application/json", ApiInvoker.Serialize(source), ParameterType.RequestBody); // http body (model) parameter
       
 
       // make the HTTP request
@@ -117,19 +135,28 @@ namespace vestorly.Api {
     /// <summary>
     ///  Get Source By ID
     /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-    /// <param name="Id">ID of source to fetch</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="id">ID of source to fetch</param>
     /// <returns>Sourceresponse</returns>
-    public Sourceresponse GetSourceByID (string VestorlyAuth, string Id) {
+    public Sourceresponse GetSourceByID (string vestorlyAuth, string id) {
 
-      var _request = new RestRequest("/sources/{id}", Method.GET);
+      String myPath = "/sources/{id}";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("GET" == "POST" || "GET" == "PUT") && "SourcesApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.GET);
+
 
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling GetSourceByID");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling GetSourceByID");
       
-      // verify the required parameter 'Id' is set
-      if (Id == null) throw new ApiException(400, "Missing required parameter 'Id' when calling GetSourceByID");
+      // verify the required parameter 'id' is set
+      if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling GetSourceByID");
       
 
       // add default header, if any
@@ -139,9 +166,9 @@ namespace vestorly.Api {
       }
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
-      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(Id)); // path (url segment) parameter
+      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(id)); // path (url segment) parameter
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("GET" == "GET" || "GET" == "DELETE" || "SourcesApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       
@@ -159,23 +186,32 @@ namespace vestorly.Api {
     /// <summary>
     ///  Update Source By ID
     /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-    /// <param name="Id">ID of source to fetch</param>
-    /// <param name="Source">Source</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="id">ID of source to fetch</param>
+    /// <param name="source">Source</param>
     /// <returns>Sourceresponse</returns>
-    public Sourceresponse UpdateSourceByID (string VestorlyAuth, string Id, SourceInput Source) {
+    public Sourceresponse UpdateSourceByID (string vestorlyAuth, string id, SourceInput source) {
 
-      var _request = new RestRequest("/sources/{id}", Method.PUT);
+      String myPath = "/sources/{id}";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("PUT" == "POST" || "PUT" == "PUT") && "SourcesApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.PUT);
+
 
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling UpdateSourceByID");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling UpdateSourceByID");
       
-      // verify the required parameter 'Id' is set
-      if (Id == null) throw new ApiException(400, "Missing required parameter 'Id' when calling UpdateSourceByID");
+      // verify the required parameter 'id' is set
+      if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling UpdateSourceByID");
       
-      // verify the required parameter 'Source' is set
-      if (Source == null) throw new ApiException(400, "Missing required parameter 'Source' when calling UpdateSourceByID");
+      // verify the required parameter 'source' is set
+      if (source == null) throw new ApiException(400, "Missing required parameter 'source' when calling UpdateSourceByID");
       
 
       // add default header, if any
@@ -185,13 +221,13 @@ namespace vestorly.Api {
       }
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
-      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(Id)); // path (url segment) parameter
+      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(id)); // path (url segment) parameter
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("PUT" == "GET" || "PUT" == "DELETE" || "SourcesApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       
-      _request.AddParameter("application/json", ApiInvoker.Serialize(Source), ParameterType.RequestBody); // http body (model) parameter
+      _request.AddParameter("application/json", ApiInvoker.Serialize(source), ParameterType.RequestBody); // http body (model) parameter
       
 
       // make the HTTP request

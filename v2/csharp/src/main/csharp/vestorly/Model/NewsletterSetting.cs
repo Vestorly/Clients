@@ -4,300 +4,300 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace vestorly.Model {
+namespace vestorly.model {
   [DataContract]
   public class NewsletterSetting {
     
     
     [DataMember(Name="_id", EmitDefaultValue=false)]
-    public string Id { get; set; }
+    public string id { get; set; }
 
     
     
     [DataMember(Name="email_day_of_week", EmitDefaultValue=false)]
-    public int? EmailDayOfWeek { get; set; }
+    public int? emailDayOfWeek { get; set; }
 
     
     
     [DataMember(Name="email_hour", EmitDefaultValue=false)]
-    public int? EmailHour { get; set; }
+    public int? emailHour { get; set; }
 
     
     
     [DataMember(Name="email_status", EmitDefaultValue=false)]
-    public string EmailStatus { get; set; }
+    public string emailStatus { get; set; }
 
     
     
     [DataMember(Name="facebook_active_wall", EmitDefaultValue=false)]
-    public string FacebookActiveWall { get; set; }
+    public string facebookActiveWall { get; set; }
 
     
     
     [DataMember(Name="facebook_day_of_week", EmitDefaultValue=false)]
-    public int? FacebookDayOfWeek { get; set; }
+    public int? facebookDayOfWeek { get; set; }
 
     
     
     [DataMember(Name="facebook_hour", EmitDefaultValue=false)]
-    public int? FacebookHour { get; set; }
+    public int? facebookHour { get; set; }
 
     
     
     [DataMember(Name="facebook_status", EmitDefaultValue=false)]
-    public string FacebookStatus { get; set; }
+    public string facebookStatus { get; set; }
 
     
     
     [DataMember(Name="linkedin_active_wall", EmitDefaultValue=false)]
-    public string LinkedinActiveWall { get; set; }
+    public string linkedinActiveWall { get; set; }
 
     
     
     [DataMember(Name="linkedin_day_of_week", EmitDefaultValue=false)]
-    public int? LinkedinDayOfWeek { get; set; }
+    public int? linkedinDayOfWeek { get; set; }
 
     
     
     [DataMember(Name="linkedin_hour", EmitDefaultValue=false)]
-    public int? LinkedinHour { get; set; }
+    public int? linkedinHour { get; set; }
 
     
     
     [DataMember(Name="linkedin_status", EmitDefaultValue=false)]
-    public string LinkedinStatus { get; set; }
+    public string linkedinStatus { get; set; }
 
     
     
     [DataMember(Name="social_title", EmitDefaultValue=false)]
-    public string SocialTitle { get; set; }
+    public string socialTitle { get; set; }
 
     
     
     [DataMember(Name="social_subtitle", EmitDefaultValue=false)]
-    public string SocialSubtitle { get; set; }
+    public string socialSubtitle { get; set; }
 
     
     
     [DataMember(Name="social_description", EmitDefaultValue=false)]
-    public string SocialDescription { get; set; }
+    public string socialDescription { get; set; }
 
     
     
     [DataMember(Name="twitter_day_of_week", EmitDefaultValue=false)]
-    public int? TwitterDayOfWeek { get; set; }
+    public int? twitterDayOfWeek { get; set; }
 
     
     
     [DataMember(Name="twitter_hour", EmitDefaultValue=false)]
-    public int? TwitterHour { get; set; }
+    public int? twitterHour { get; set; }
 
     
     
     [DataMember(Name="twitter_status", EmitDefaultValue=false)]
-    public string TwitterStatus { get; set; }
+    public string twitterStatus { get; set; }
 
     
     
     [DataMember(Name="social_posting_text", EmitDefaultValue=false)]
-    public string SocialPostingText { get; set; }
+    public string socialPostingText { get; set; }
 
     
     
     [DataMember(Name="newsletter_type", EmitDefaultValue=false)]
-    public string NewsletterType { get; set; }
+    public string newsletterType { get; set; }
 
     
     
     [DataMember(Name="group_id", EmitDefaultValue=false)]
-    public string GroupId { get; set; }
+    public string groupId { get; set; }
 
     
     
     [DataMember(Name="montage_enabled", EmitDefaultValue=false)]
-    public bool? MontageEnabled { get; set; }
+    public bool? montageEnabled { get; set; }
 
     
     
     [DataMember(Name="montage_title", EmitDefaultValue=false)]
-    public string MontageTitle { get; set; }
+    public string montageTitle { get; set; }
 
     
     
     [DataMember(Name="montage_facebook_image_url", EmitDefaultValue=false)]
-    public string MontageFacebookImageUrl { get; set; }
+    public string montageFacebookImageUrl { get; set; }
 
     
     
     [DataMember(Name="montage_linkedin_image_url", EmitDefaultValue=false)]
-    public string MontageLinkedinImageUrl { get; set; }
+    public string montageLinkedinImageUrl { get; set; }
 
     
     
     [DataMember(Name="montage_twitter_image_url", EmitDefaultValue=false)]
-    public string MontageTwitterImageUrl { get; set; }
+    public string montageTwitterImageUrl { get; set; }
 
     
     
     [DataMember(Name="newsletter_ids", EmitDefaultValue=false)]
-    public List<string> NewsletterIds { get; set; }
+    public List<string> newsletterIds { get; set; }
 
     
     
     [DataMember(Name="primary_email_font", EmitDefaultValue=false)]
-    public string PrimaryEmailFont { get; set; }
+    public string primaryEmailFont { get; set; }
 
     
     
     [DataMember(Name="footer_email_font", EmitDefaultValue=false)]
-    public string FooterEmailFont { get; set; }
+    public string footerEmailFont { get; set; }
 
     
     
     [DataMember(Name="email_accent_color", EmitDefaultValue=false)]
-    public string EmailAccentColor { get; set; }
+    public string emailAccentColor { get; set; }
 
     
     
     [DataMember(Name="render_version", EmitDefaultValue=false)]
-    public string RenderVersion { get; set; }
+    public string renderVersion { get; set; }
 
     
     
     [DataMember(Name="header_image_url", EmitDefaultValue=false)]
-    public string HeaderImageUrl { get; set; }
+    public string headerImageUrl { get; set; }
 
     
     
     [DataMember(Name="header_background_color", EmitDefaultValue=false)]
-    public string HeaderBackgroundColor { get; set; }
+    public string headerBackgroundColor { get; set; }
 
     
     
     [DataMember(Name="banner_color", EmitDefaultValue=false)]
-    public string BannerColor { get; set; }
+    public string bannerColor { get; set; }
 
     
     
     [DataMember(Name="title_color", EmitDefaultValue=false)]
-    public string TitleColor { get; set; }
+    public string titleColor { get; set; }
 
     
     
     [DataMember(Name="footer_html", EmitDefaultValue=false)]
-    public string FooterHtml { get; set; }
+    public string footerHtml { get; set; }
 
     
     
     [DataMember(Name="intro_text", EmitDefaultValue=false)]
-    public string IntroText { get; set; }
+    public string introText { get; set; }
 
     
     
     [DataMember(Name="footer_image_url", EmitDefaultValue=false)]
-    public string FooterImageUrl { get; set; }
+    public string footerImageUrl { get; set; }
 
     
     
     [DataMember(Name="subject", EmitDefaultValue=false)]
-    public string Subject { get; set; }
+    public string subject { get; set; }
 
     
     
     [DataMember(Name="salutation_text", EmitDefaultValue=false)]
-    public string SalutationText { get; set; }
+    public string salutationText { get; set; }
 
     
     
     [DataMember(Name="body_html", EmitDefaultValue=false)]
-    public string BodyHtml { get; set; }
+    public string bodyHtml { get; set; }
 
     
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class NewsletterSetting {\n");
       
-      sb.Append("  Id: ").Append(Id).Append("\n");
+      sb.Append("  id: ").Append(id).Append("\n");
       
-      sb.Append("  EmailDayOfWeek: ").Append(EmailDayOfWeek).Append("\n");
+      sb.Append("  emailDayOfWeek: ").Append(emailDayOfWeek).Append("\n");
       
-      sb.Append("  EmailHour: ").Append(EmailHour).Append("\n");
+      sb.Append("  emailHour: ").Append(emailHour).Append("\n");
       
-      sb.Append("  EmailStatus: ").Append(EmailStatus).Append("\n");
+      sb.Append("  emailStatus: ").Append(emailStatus).Append("\n");
       
-      sb.Append("  FacebookActiveWall: ").Append(FacebookActiveWall).Append("\n");
+      sb.Append("  facebookActiveWall: ").Append(facebookActiveWall).Append("\n");
       
-      sb.Append("  FacebookDayOfWeek: ").Append(FacebookDayOfWeek).Append("\n");
+      sb.Append("  facebookDayOfWeek: ").Append(facebookDayOfWeek).Append("\n");
       
-      sb.Append("  FacebookHour: ").Append(FacebookHour).Append("\n");
+      sb.Append("  facebookHour: ").Append(facebookHour).Append("\n");
       
-      sb.Append("  FacebookStatus: ").Append(FacebookStatus).Append("\n");
+      sb.Append("  facebookStatus: ").Append(facebookStatus).Append("\n");
       
-      sb.Append("  LinkedinActiveWall: ").Append(LinkedinActiveWall).Append("\n");
+      sb.Append("  linkedinActiveWall: ").Append(linkedinActiveWall).Append("\n");
       
-      sb.Append("  LinkedinDayOfWeek: ").Append(LinkedinDayOfWeek).Append("\n");
+      sb.Append("  linkedinDayOfWeek: ").Append(linkedinDayOfWeek).Append("\n");
       
-      sb.Append("  LinkedinHour: ").Append(LinkedinHour).Append("\n");
+      sb.Append("  linkedinHour: ").Append(linkedinHour).Append("\n");
       
-      sb.Append("  LinkedinStatus: ").Append(LinkedinStatus).Append("\n");
+      sb.Append("  linkedinStatus: ").Append(linkedinStatus).Append("\n");
       
-      sb.Append("  SocialTitle: ").Append(SocialTitle).Append("\n");
+      sb.Append("  socialTitle: ").Append(socialTitle).Append("\n");
       
-      sb.Append("  SocialSubtitle: ").Append(SocialSubtitle).Append("\n");
+      sb.Append("  socialSubtitle: ").Append(socialSubtitle).Append("\n");
       
-      sb.Append("  SocialDescription: ").Append(SocialDescription).Append("\n");
+      sb.Append("  socialDescription: ").Append(socialDescription).Append("\n");
       
-      sb.Append("  TwitterDayOfWeek: ").Append(TwitterDayOfWeek).Append("\n");
+      sb.Append("  twitterDayOfWeek: ").Append(twitterDayOfWeek).Append("\n");
       
-      sb.Append("  TwitterHour: ").Append(TwitterHour).Append("\n");
+      sb.Append("  twitterHour: ").Append(twitterHour).Append("\n");
       
-      sb.Append("  TwitterStatus: ").Append(TwitterStatus).Append("\n");
+      sb.Append("  twitterStatus: ").Append(twitterStatus).Append("\n");
       
-      sb.Append("  SocialPostingText: ").Append(SocialPostingText).Append("\n");
+      sb.Append("  socialPostingText: ").Append(socialPostingText).Append("\n");
       
-      sb.Append("  NewsletterType: ").Append(NewsletterType).Append("\n");
+      sb.Append("  newsletterType: ").Append(newsletterType).Append("\n");
       
-      sb.Append("  GroupId: ").Append(GroupId).Append("\n");
+      sb.Append("  groupId: ").Append(groupId).Append("\n");
       
-      sb.Append("  MontageEnabled: ").Append(MontageEnabled).Append("\n");
+      sb.Append("  montageEnabled: ").Append(montageEnabled).Append("\n");
       
-      sb.Append("  MontageTitle: ").Append(MontageTitle).Append("\n");
+      sb.Append("  montageTitle: ").Append(montageTitle).Append("\n");
       
-      sb.Append("  MontageFacebookImageUrl: ").Append(MontageFacebookImageUrl).Append("\n");
+      sb.Append("  montageFacebookImageUrl: ").Append(montageFacebookImageUrl).Append("\n");
       
-      sb.Append("  MontageLinkedinImageUrl: ").Append(MontageLinkedinImageUrl).Append("\n");
+      sb.Append("  montageLinkedinImageUrl: ").Append(montageLinkedinImageUrl).Append("\n");
       
-      sb.Append("  MontageTwitterImageUrl: ").Append(MontageTwitterImageUrl).Append("\n");
+      sb.Append("  montageTwitterImageUrl: ").Append(montageTwitterImageUrl).Append("\n");
       
-      sb.Append("  NewsletterIds: ").Append(NewsletterIds).Append("\n");
+      sb.Append("  newsletterIds: ").Append(newsletterIds).Append("\n");
       
-      sb.Append("  PrimaryEmailFont: ").Append(PrimaryEmailFont).Append("\n");
+      sb.Append("  primaryEmailFont: ").Append(primaryEmailFont).Append("\n");
       
-      sb.Append("  FooterEmailFont: ").Append(FooterEmailFont).Append("\n");
+      sb.Append("  footerEmailFont: ").Append(footerEmailFont).Append("\n");
       
-      sb.Append("  EmailAccentColor: ").Append(EmailAccentColor).Append("\n");
+      sb.Append("  emailAccentColor: ").Append(emailAccentColor).Append("\n");
       
-      sb.Append("  RenderVersion: ").Append(RenderVersion).Append("\n");
+      sb.Append("  renderVersion: ").Append(renderVersion).Append("\n");
       
-      sb.Append("  HeaderImageUrl: ").Append(HeaderImageUrl).Append("\n");
+      sb.Append("  headerImageUrl: ").Append(headerImageUrl).Append("\n");
       
-      sb.Append("  HeaderBackgroundColor: ").Append(HeaderBackgroundColor).Append("\n");
+      sb.Append("  headerBackgroundColor: ").Append(headerBackgroundColor).Append("\n");
       
-      sb.Append("  BannerColor: ").Append(BannerColor).Append("\n");
+      sb.Append("  bannerColor: ").Append(bannerColor).Append("\n");
       
-      sb.Append("  TitleColor: ").Append(TitleColor).Append("\n");
+      sb.Append("  titleColor: ").Append(titleColor).Append("\n");
       
-      sb.Append("  FooterHtml: ").Append(FooterHtml).Append("\n");
+      sb.Append("  footerHtml: ").Append(footerHtml).Append("\n");
       
-      sb.Append("  IntroText: ").Append(IntroText).Append("\n");
+      sb.Append("  introText: ").Append(introText).Append("\n");
       
-      sb.Append("  FooterImageUrl: ").Append(FooterImageUrl).Append("\n");
+      sb.Append("  footerImageUrl: ").Append(footerImageUrl).Append("\n");
       
-      sb.Append("  Subject: ").Append(Subject).Append("\n");
+      sb.Append("  subject: ").Append(subject).Append("\n");
       
-      sb.Append("  SalutationText: ").Append(SalutationText).Append("\n");
+      sb.Append("  salutationText: ").Append(salutationText).Append("\n");
       
-      sb.Append("  BodyHtml: ").Append(BodyHtml).Append("\n");
+      sb.Append("  bodyHtml: ").Append(bodyHtml).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();

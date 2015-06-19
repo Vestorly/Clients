@@ -59,7 +59,10 @@ namespace vestorly.client {
 
       try
       {
-          return JsonConvert.DeserializeObject(content, type);
+          JsonSerializerSettings settings = new JsonSerializerSettings();
+          settings.Error = (serializer,err) => err.ErrorContext.Handled = true;
+          var item = JsonConvert.DeserializeObject(content, type, settings);
+          return item;
       }
       catch (IOException e) {
         throw new ApiException(500, e.Message);

@@ -4,20 +4,20 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace vestorly.Model {
+namespace vestorly.model {
   [DataContract]
   public class SessionLogoutResponse {
     
     
     [DataMember(Name="message", EmitDefaultValue=false)]
-    public string Message { get; set; }
+    public string message { get; set; }
 
     
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class SessionLogoutResponse {\n");
       
-      sb.Append("  Message: ").Append(Message).Append("\n");
+      sb.Append("  message: ").Append(message).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();

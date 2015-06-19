@@ -4,167 +4,167 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace vestorly.Model {
+namespace vestorly.model {
   [DataContract]
   public class Article {
     
     
     [DataMember(Name="_id", EmitDefaultValue=false)]
-    public string Id { get; set; }
+    public string id { get; set; }
 
     
     
     [DataMember(Name="created_at", EmitDefaultValue=false)]
-    public string CreatedAt { get; set; }
+    public string createdAt { get; set; }
 
     
     
     [DataMember(Name="title", EmitDefaultValue=false)]
-    public string Title { get; set; }
+    public string title { get; set; }
 
     
     
     [DataMember(Name="body", EmitDefaultValue=false)]
-    public string Body { get; set; }
+    public string body { get; set; }
 
     
     
     [DataMember(Name="is_responsive", EmitDefaultValue=false)]
-    public bool? IsResponsive { get; set; }
+    public bool? isResponsive { get; set; }
 
     
     
     [DataMember(Name="is_proxy_needed", EmitDefaultValue=false)]
-    public bool? IsProxyNeeded { get; set; }
+    public bool? isProxyNeeded { get; set; }
 
     
     
     [DataMember(Name="is_mobile_proxy_needed", EmitDefaultValue=false)]
-    public bool? IsMobileProxyNeeded { get; set; }
+    public bool? isMobileProxyNeeded { get; set; }
 
     
     
     [DataMember(Name="needs_sanitize", EmitDefaultValue=false)]
-    public bool? NeedsSanitize { get; set; }
+    public bool? needsSanitize { get; set; }
 
     
     
     [DataMember(Name="proxy_url", EmitDefaultValue=false)]
-    public string ProxyUrl { get; set; }
+    public string proxyUrl { get; set; }
 
     
     
     [DataMember(Name="topic", EmitDefaultValue=false)]
-    public string Topic { get; set; }
+    public string topic { get; set; }
 
     
     
     [DataMember(Name="suitability_score", EmitDefaultValue=false)]
-    public string SuitabilityScore { get; set; }
+    public string suitabilityScore { get; set; }
 
     
     
     [DataMember(Name="summary", EmitDefaultValue=false)]
-    public string Summary { get; set; }
+    public string summary { get; set; }
 
     
     
     [DataMember(Name="image_path", EmitDefaultValue=false)]
-    public string ImagePath { get; set; }
+    public string imagePath { get; set; }
 
     
     
     [DataMember(Name="image_url", EmitDefaultValue=false)]
-    public string ImageUrl { get; set; }
+    public string imageUrl { get; set; }
 
     
     
     [DataMember(Name="image_height", EmitDefaultValue=false)]
-    public int? ImageHeight { get; set; }
+    public int? imageHeight { get; set; }
 
     
     
     [DataMember(Name="image_width", EmitDefaultValue=false)]
-    public int? ImageWidth { get; set; }
+    public int? imageWidth { get; set; }
 
     
     
     [DataMember(Name="logo_url", EmitDefaultValue=false)]
-    public string LogoUrl { get; set; }
+    public string logoUrl { get; set; }
 
     
     
     [DataMember(Name="square_logo_url", EmitDefaultValue=false)]
-    public string SquareLogoUrl { get; set; }
+    public string squareLogoUrl { get; set; }
 
     
     
     [DataMember(Name="url", EmitDefaultValue=false)]
-    public string Url { get; set; }
+    public string url { get; set; }
 
     
     
     [DataMember(Name="external_url", EmitDefaultValue=false)]
-    public string ExternalUrl { get; set; }
+    public string externalUrl { get; set; }
 
     
     
     [DataMember(Name="external_url_source", EmitDefaultValue=false)]
-    public string ExternalUrlSource { get; set; }
+    public string externalUrlSource { get; set; }
 
     
     
     [DataMember(Name="external_url_type", EmitDefaultValue=false)]
-    public string ExternalUrlType { get; set; }
+    public string externalUrlType { get; set; }
 
     
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class Article {\n");
       
-      sb.Append("  Id: ").Append(Id).Append("\n");
+      sb.Append("  id: ").Append(id).Append("\n");
       
-      sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+      sb.Append("  createdAt: ").Append(createdAt).Append("\n");
       
-      sb.Append("  Title: ").Append(Title).Append("\n");
+      sb.Append("  title: ").Append(title).Append("\n");
       
-      sb.Append("  Body: ").Append(Body).Append("\n");
+      sb.Append("  body: ").Append(body).Append("\n");
       
-      sb.Append("  IsResponsive: ").Append(IsResponsive).Append("\n");
+      sb.Append("  isResponsive: ").Append(isResponsive).Append("\n");
       
-      sb.Append("  IsProxyNeeded: ").Append(IsProxyNeeded).Append("\n");
+      sb.Append("  isProxyNeeded: ").Append(isProxyNeeded).Append("\n");
       
-      sb.Append("  IsMobileProxyNeeded: ").Append(IsMobileProxyNeeded).Append("\n");
+      sb.Append("  isMobileProxyNeeded: ").Append(isMobileProxyNeeded).Append("\n");
       
-      sb.Append("  NeedsSanitize: ").Append(NeedsSanitize).Append("\n");
+      sb.Append("  needsSanitize: ").Append(needsSanitize).Append("\n");
       
-      sb.Append("  ProxyUrl: ").Append(ProxyUrl).Append("\n");
+      sb.Append("  proxyUrl: ").Append(proxyUrl).Append("\n");
       
-      sb.Append("  Topic: ").Append(Topic).Append("\n");
+      sb.Append("  topic: ").Append(topic).Append("\n");
       
-      sb.Append("  SuitabilityScore: ").Append(SuitabilityScore).Append("\n");
+      sb.Append("  suitabilityScore: ").Append(suitabilityScore).Append("\n");
       
-      sb.Append("  Summary: ").Append(Summary).Append("\n");
+      sb.Append("  summary: ").Append(summary).Append("\n");
       
-      sb.Append("  ImagePath: ").Append(ImagePath).Append("\n");
+      sb.Append("  imagePath: ").Append(imagePath).Append("\n");
       
-      sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
+      sb.Append("  imageUrl: ").Append(imageUrl).Append("\n");
       
-      sb.Append("  ImageHeight: ").Append(ImageHeight).Append("\n");
+      sb.Append("  imageHeight: ").Append(imageHeight).Append("\n");
       
-      sb.Append("  ImageWidth: ").Append(ImageWidth).Append("\n");
+      sb.Append("  imageWidth: ").Append(imageWidth).Append("\n");
       
-      sb.Append("  LogoUrl: ").Append(LogoUrl).Append("\n");
+      sb.Append("  logoUrl: ").Append(logoUrl).Append("\n");
       
-      sb.Append("  SquareLogoUrl: ").Append(SquareLogoUrl).Append("\n");
+      sb.Append("  squareLogoUrl: ").Append(squareLogoUrl).Append("\n");
       
-      sb.Append("  Url: ").Append(Url).Append("\n");
+      sb.Append("  url: ").Append(url).Append("\n");
       
-      sb.Append("  ExternalUrl: ").Append(ExternalUrl).Append("\n");
+      sb.Append("  externalUrl: ").Append(externalUrl).Append("\n");
       
-      sb.Append("  ExternalUrlSource: ").Append(ExternalUrlSource).Append("\n");
+      sb.Append("  externalUrlSource: ").Append(externalUrlSource).Append("\n");
       
-      sb.Append("  ExternalUrlType: ").Append(ExternalUrlType).Append("\n");
+      sb.Append("  externalUrlType: ").Append(externalUrlType).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();

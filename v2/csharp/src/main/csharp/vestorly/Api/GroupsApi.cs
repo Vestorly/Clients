@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using RestSharp;
 using vestorly.client;
-using vestorly.Model;
+using vestorly.model;
 
-namespace vestorly.Api {
+namespace vestorly.api {
   
   public class GroupsApi {
     string basePath;
@@ -38,15 +38,24 @@ namespace vestorly.Api {
     /// <summary>
     ///  Returns all groups
     /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
     /// <returns>Groups</returns>
-    public Groups FindGroups (string VestorlyAuth) {
+    public Groups FindGroups (string vestorlyAuth) {
 
-      var _request = new RestRequest("/groups", Method.GET);
+      String myPath = "/groups";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("GET" == "POST" || "GET" == "PUT") && "GroupsApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.GET);
+
 
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling FindGroups");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling FindGroups");
       
 
       // add default header, if any
@@ -57,7 +66,7 @@ namespace vestorly.Api {
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("GET" == "GET" || "GET" == "DELETE" || "GroupsApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       
@@ -75,19 +84,28 @@ namespace vestorly.Api {
     /// <summary>
     ///  Creates a new Group
     /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-    /// <param name="Group">Group to add</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="group">Group to add</param>
     /// <returns>Groupresponse</returns>
-    public Groupresponse CreateGroup (string VestorlyAuth, GroupInput Group) {
+    public Groupresponse CreateGroup (string vestorlyAuth, GroupInput group) {
 
-      var _request = new RestRequest("/groups", Method.POST);
+      String myPath = "/groups";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("POST" == "POST" || "POST" == "PUT") && "GroupsApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.POST);
+
 
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling CreateGroup");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling CreateGroup");
       
-      // verify the required parameter 'Group' is set
-      if (Group == null) throw new ApiException(400, "Missing required parameter 'Group' when calling CreateGroup");
+      // verify the required parameter 'group' is set
+      if (group == null) throw new ApiException(400, "Missing required parameter 'group' when calling CreateGroup");
       
 
       // add default header, if any
@@ -98,11 +116,11 @@ namespace vestorly.Api {
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("POST" == "GET" || "POST" == "DELETE" || "GroupsApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       
-      _request.AddParameter("application/json", ApiInvoker.Serialize(Group), ParameterType.RequestBody); // http body (model) parameter
+      _request.AddParameter("application/json", ApiInvoker.Serialize(group), ParameterType.RequestBody); // http body (model) parameter
       
 
       // make the HTTP request
@@ -117,19 +135,28 @@ namespace vestorly.Api {
     /// <summary>
     ///  Returns a single group if user has access
     /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-    /// <param name="Id">Mongo ID of group to fetch</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="id">Mongo ID of group to fetch</param>
     /// <returns>Groupresponse</returns>
-    public Groupresponse FindGroupByID (string VestorlyAuth, string Id) {
+    public Groupresponse FindGroupByID (string vestorlyAuth, string id) {
 
-      var _request = new RestRequest("/groups/{id}", Method.GET);
+      String myPath = "/groups/{id}";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("GET" == "POST" || "GET" == "PUT") && "GroupsApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.GET);
+
 
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling FindGroupByID");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling FindGroupByID");
       
-      // verify the required parameter 'Id' is set
-      if (Id == null) throw new ApiException(400, "Missing required parameter 'Id' when calling FindGroupByID");
+      // verify the required parameter 'id' is set
+      if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling FindGroupByID");
       
 
       // add default header, if any
@@ -139,9 +166,9 @@ namespace vestorly.Api {
       }
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
-      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(Id)); // path (url segment) parameter
+      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(id)); // path (url segment) parameter
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("GET" == "GET" || "GET" == "DELETE" || "GroupsApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       
@@ -159,23 +186,32 @@ namespace vestorly.Api {
     /// <summary>
     ///  Updates a Group
     /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-    /// <param name="Id">id of group to update</param>
-    /// <param name="Group">Group to update</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="id">id of group to update</param>
+    /// <param name="group">Group to update</param>
     /// <returns>Groupresponse</returns>
-    public Groupresponse UpdateGroupById (string VestorlyAuth, string Id, GroupInput Group) {
+    public Groupresponse UpdateGroupById (string vestorlyAuth, string id, GroupInput group) {
 
-      var _request = new RestRequest("/groups/{id}", Method.PUT);
+      String myPath = "/groups/{id}";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("PUT" == "POST" || "PUT" == "PUT") && "GroupsApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.PUT);
+
 
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling UpdateGroupById");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling UpdateGroupById");
       
-      // verify the required parameter 'Id' is set
-      if (Id == null) throw new ApiException(400, "Missing required parameter 'Id' when calling UpdateGroupById");
+      // verify the required parameter 'id' is set
+      if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling UpdateGroupById");
       
-      // verify the required parameter 'Group' is set
-      if (Group == null) throw new ApiException(400, "Missing required parameter 'Group' when calling UpdateGroupById");
+      // verify the required parameter 'group' is set
+      if (group == null) throw new ApiException(400, "Missing required parameter 'group' when calling UpdateGroupById");
       
 
       // add default header, if any
@@ -185,13 +221,13 @@ namespace vestorly.Api {
       }
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
-      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(Id)); // path (url segment) parameter
+      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(id)); // path (url segment) parameter
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("PUT" == "GET" || "PUT" == "DELETE" || "GroupsApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       
-      _request.AddParameter("application/json", ApiInvoker.Serialize(Group), ParameterType.RequestBody); // http body (model) parameter
+      _request.AddParameter("application/json", ApiInvoker.Serialize(group), ParameterType.RequestBody); // http body (model) parameter
       
 
       // make the HTTP request
@@ -206,19 +242,28 @@ namespace vestorly.Api {
     /// <summary>
     ///  Deletes a Group
     /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-    /// <param name="Id">id of group to delete</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="id">id of group to delete</param>
     /// <returns>Groupresponse</returns>
-    public Groupresponse DeleteGroup (string VestorlyAuth, string Id) {
+    public Groupresponse DeleteGroup (string vestorlyAuth, string id) {
 
-      var _request = new RestRequest("/groups/{id}", Method.DELETE);
+      String myPath = "/groups/{id}";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("DELETE" == "POST" || "DELETE" == "PUT") && "GroupsApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.DELETE);
+
 
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling DeleteGroup");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling DeleteGroup");
       
-      // verify the required parameter 'Id' is set
-      if (Id == null) throw new ApiException(400, "Missing required parameter 'Id' when calling DeleteGroup");
+      // verify the required parameter 'id' is set
+      if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling DeleteGroup");
       
 
       // add default header, if any
@@ -228,9 +273,9 @@ namespace vestorly.Api {
       }
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
-      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(Id)); // path (url segment) parameter
+      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(id)); // path (url segment) parameter
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("DELETE" == "GET" || "DELETE" == "DELETE" || "GroupsApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       

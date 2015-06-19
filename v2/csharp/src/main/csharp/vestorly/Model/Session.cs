@@ -4,48 +4,48 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace vestorly.Model {
+namespace vestorly.model {
   [DataContract]
   public class Session {
     
     
     [DataMember(Name="_id", EmitDefaultValue=false)]
-    public string Id { get; set; }
+    public string id { get; set; }
 
     
     
     [DataMember(Name="vestorly-auth", EmitDefaultValue=false)]
-    public string VestorlyAuth { get; set; }
+    public string vestorlyAuth { get; set; }
 
     
     
     [DataMember(Name="new_user", EmitDefaultValue=false)]
-    public bool? NewUser { get; set; }
+    public bool? newUser { get; set; }
 
     
     
     [DataMember(Name="current_user", EmitDefaultValue=false)]
-    public User CurrentUser { get; set; }
+    public User currentUser { get; set; }
 
     
     
     [DataMember(Name="settings", EmitDefaultValue=false)]
-    public Settings Settings { get; set; }
+    public Settings settings { get; set; }
 
     
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class Session {\n");
       
-      sb.Append("  Id: ").Append(Id).Append("\n");
+      sb.Append("  id: ").Append(id).Append("\n");
       
-      sb.Append("  VestorlyAuth: ").Append(VestorlyAuth).Append("\n");
+      sb.Append("  vestorlyAuth: ").Append(vestorlyAuth).Append("\n");
       
-      sb.Append("  NewUser: ").Append(NewUser).Append("\n");
+      sb.Append("  newUser: ").Append(newUser).Append("\n");
       
-      sb.Append("  CurrentUser: ").Append(CurrentUser).Append("\n");
+      sb.Append("  currentUser: ").Append(currentUser).Append("\n");
       
-      sb.Append("  Settings: ").Append(Settings).Append("\n");
+      sb.Append("  settings: ").Append(settings).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();

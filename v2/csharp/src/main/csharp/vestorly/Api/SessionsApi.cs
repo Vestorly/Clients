@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using RestSharp;
 using vestorly.client;
-using vestorly.Model;
+using vestorly.model;
 
-namespace vestorly.Api {
+namespace vestorly.api {
   
   public class SessionsApi {
     string basePath;
@@ -38,19 +38,32 @@ namespace vestorly.Api {
     /// <summary>
     ///  Login To Vestorly Platform
     /// </summary>
-    /// <param name="Username">Username in the vestorly platform</param>
-    /// <param name="Password">Password in Vestorly Platform</param>
+    /// <param name="username">Username in the vestorly platform</param>
+    /// <param name="password">Password in Vestorly Platform</param>
     /// <returns>Session</returns>
-    public Session Login (string Username, string Password) {
+    public Session Login (string username, string password) {
 
-      var _request = new RestRequest("/sessions", Method.POST);
+      String myPath = "/sessions";
+
+       if ("username" == "vestorlyAuth") {
+        if (("POST" == "POST" || "POST" == "PUT") && "SessionsApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + username;
+        }
+      } if ("password" == "vestorlyAuth") {
+        if (("POST" == "POST" || "POST" == "PUT") && "SessionsApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + password;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.POST);
+
 
       
-      // verify the required parameter 'Username' is set
-      if (Username == null) throw new ApiException(400, "Missing required parameter 'Username' when calling Login");
+      // verify the required parameter 'username' is set
+      if (username == null) throw new ApiException(400, "Missing required parameter 'username' when calling Login");
       
-      // verify the required parameter 'Password' is set
-      if (Password == null) throw new ApiException(400, "Missing required parameter 'Password' when calling Login");
+      // verify the required parameter 'password' is set
+      if (password == null) throw new ApiException(400, "Missing required parameter 'password' when calling Login");
       
 
       // add default header, if any
@@ -61,8 +74,8 @@ namespace vestorly.Api {
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
       
-       if (Username != null) _request.AddParameter("username", ApiInvoker.ParameterToString(Username)); // query parameter
-       if (Password != null) _request.AddParameter("password", ApiInvoker.ParameterToString(Password)); // query parameter
+       if (username != null && ("POST" == "GET" || "POST" == "DELETE" || "SessionsApi" == "SessionsApi")) _request.AddParameter("username", ApiInvoker.ParameterToString(username)); // query parameter
+       if (password != null && ("POST" == "GET" || "POST" == "DELETE" || "SessionsApi" == "SessionsApi")) _request.AddParameter("password", ApiInvoker.ParameterToString(password)); // query parameter
       
       
       
@@ -80,19 +93,28 @@ namespace vestorly.Api {
     /// <summary>
     ///  Logout of the vestorly platform
     /// </summary>
-    /// <param name="VestorlyAuth">Authenication token</param>
-    /// <param name="Id">ID of pet to session</param>
+    /// <param name="vestorlyAuth">Authenication token</param>
+    /// <param name="id">ID of pet to session</param>
     /// <returns>SessionLogoutResponse</returns>
-    public SessionLogoutResponse Logout (string VestorlyAuth, string Id) {
+    public SessionLogoutResponse Logout (string vestorlyAuth, string id) {
 
-      var _request = new RestRequest("/sessions/{id}", Method.DELETE);
+      String myPath = "/sessions/{id}";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("DELETE" == "POST" || "DELETE" == "PUT") && "SessionsApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.DELETE);
+
 
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling Logout");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling Logout");
       
-      // verify the required parameter 'Id' is set
-      if (Id == null) throw new ApiException(400, "Missing required parameter 'Id' when calling Logout");
+      // verify the required parameter 'id' is set
+      if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling Logout");
       
 
       // add default header, if any
@@ -102,9 +124,9 @@ namespace vestorly.Api {
       }
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
-      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(Id)); // path (url segment) parameter
+      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(id)); // path (url segment) parameter
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("DELETE" == "GET" || "DELETE" == "DELETE" || "SessionsApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       

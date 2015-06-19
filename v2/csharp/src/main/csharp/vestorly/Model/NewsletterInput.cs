@@ -4,48 +4,48 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace vestorly.Model {
+namespace vestorly.model {
   [DataContract]
   public class NewsletterInput {
     
     
     [DataMember(Name="is_sent", EmitDefaultValue=false)]
-    public bool? IsSent { get; set; }
+    public bool? isSent { get; set; }
 
     
     
     [DataMember(Name="is_default", EmitDefaultValue=false)]
-    public bool? IsDefault { get; set; }
+    public bool? isDefault { get; set; }
 
     
     
     [DataMember(Name="click_count", EmitDefaultValue=false)]
-    public long? ClickCount { get; set; }
+    public long? clickCount { get; set; }
 
     
     
     [DataMember(Name="unique_click_count", EmitDefaultValue=false)]
-    public long? UniqueClickCount { get; set; }
+    public long? uniqueClickCount { get; set; }
 
     
     
     [DataMember(Name="total_click_count", EmitDefaultValue=false)]
-    public long? TotalClickCount { get; set; }
+    public long? totalClickCount { get; set; }
 
     
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class NewsletterInput {\n");
       
-      sb.Append("  IsSent: ").Append(IsSent).Append("\n");
+      sb.Append("  isSent: ").Append(isSent).Append("\n");
       
-      sb.Append("  IsDefault: ").Append(IsDefault).Append("\n");
+      sb.Append("  isDefault: ").Append(isDefault).Append("\n");
       
-      sb.Append("  ClickCount: ").Append(ClickCount).Append("\n");
+      sb.Append("  clickCount: ").Append(clickCount).Append("\n");
       
-      sb.Append("  UniqueClickCount: ").Append(UniqueClickCount).Append("\n");
+      sb.Append("  uniqueClickCount: ").Append(uniqueClickCount).Append("\n");
       
-      sb.Append("  TotalClickCount: ").Append(TotalClickCount).Append("\n");
+      sb.Append("  totalClickCount: ").Append(totalClickCount).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();

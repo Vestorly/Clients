@@ -4,132 +4,132 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace vestorly.Model {
+namespace vestorly.model {
   [DataContract]
   public class User {
     
     
     [DataMember(Name="_id", EmitDefaultValue=false)]
-    public string Id { get; set; }
+    public string id { get; set; }
 
     
     
     [DataMember(Name="company", EmitDefaultValue=false)]
-    public string Company { get; set; }
+    public string company { get; set; }
 
     
     
     [DataMember(Name="picture_url", EmitDefaultValue=false)]
-    public string PictureUrl { get; set; }
+    public string pictureUrl { get; set; }
 
     
     
     [DataMember(Name="website", EmitDefaultValue=false)]
-    public string Website { get; set; }
+    public string website { get; set; }
 
     
     
     [DataMember(Name="user_type", EmitDefaultValue=false)]
-    public string UserType { get; set; }
+    public string userType { get; set; }
 
     
     
     [DataMember(Name="slug", EmitDefaultValue=false)]
-    public string Slug { get; set; }
+    public string slug { get; set; }
 
     
     
     [DataMember(Name="name", EmitDefaultValue=false)]
-    public string Name { get; set; }
+    public string name { get; set; }
 
     
     
     [DataMember(Name="username", EmitDefaultValue=false)]
-    public string Username { get; set; }
+    public string username { get; set; }
 
     
     
     [DataMember(Name="first_name", EmitDefaultValue=false)]
-    public string FirstName { get; set; }
+    public string firstName { get; set; }
 
     
     
     [DataMember(Name="last_name", EmitDefaultValue=false)]
-    public string LastName { get; set; }
+    public string lastName { get; set; }
 
     
     
     [DataMember(Name="new_user", EmitDefaultValue=false)]
-    public bool? NewUser { get; set; }
+    public bool? newUser { get; set; }
 
     
     
     [DataMember(Name="show_tour", EmitDefaultValue=false)]
-    public bool? ShowTour { get; set; }
+    public bool? showTour { get; set; }
 
     
     
     [DataMember(Name="plan_setup", EmitDefaultValue=false)]
-    public bool? PlanSetup { get; set; }
+    public bool? planSetup { get; set; }
 
     
     
     [DataMember(Name="plan_expired", EmitDefaultValue=false)]
-    public bool? PlanExpired { get; set; }
+    public bool? planExpired { get; set; }
 
     
     
     [DataMember(Name="plan_status", EmitDefaultValue=false)]
-    public string PlanStatus { get; set; }
+    public string planStatus { get; set; }
 
     
     
     [DataMember(Name="plan_id", EmitDefaultValue=false)]
-    public string PlanId { get; set; }
+    public string planId { get; set; }
 
     
     
     [DataMember(Name="plan_stripe", EmitDefaultValue=false)]
-    public bool? PlanStripe { get; set; }
+    public bool? planStripe { get; set; }
 
     
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class User {\n");
       
-      sb.Append("  Id: ").Append(Id).Append("\n");
+      sb.Append("  id: ").Append(id).Append("\n");
       
-      sb.Append("  Company: ").Append(Company).Append("\n");
+      sb.Append("  company: ").Append(company).Append("\n");
       
-      sb.Append("  PictureUrl: ").Append(PictureUrl).Append("\n");
+      sb.Append("  pictureUrl: ").Append(pictureUrl).Append("\n");
       
-      sb.Append("  Website: ").Append(Website).Append("\n");
+      sb.Append("  website: ").Append(website).Append("\n");
       
-      sb.Append("  UserType: ").Append(UserType).Append("\n");
+      sb.Append("  userType: ").Append(userType).Append("\n");
       
-      sb.Append("  Slug: ").Append(Slug).Append("\n");
+      sb.Append("  slug: ").Append(slug).Append("\n");
       
-      sb.Append("  Name: ").Append(Name).Append("\n");
+      sb.Append("  name: ").Append(name).Append("\n");
       
-      sb.Append("  Username: ").Append(Username).Append("\n");
+      sb.Append("  username: ").Append(username).Append("\n");
       
-      sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+      sb.Append("  firstName: ").Append(firstName).Append("\n");
       
-      sb.Append("  LastName: ").Append(LastName).Append("\n");
+      sb.Append("  lastName: ").Append(lastName).Append("\n");
       
-      sb.Append("  NewUser: ").Append(NewUser).Append("\n");
+      sb.Append("  newUser: ").Append(newUser).Append("\n");
       
-      sb.Append("  ShowTour: ").Append(ShowTour).Append("\n");
+      sb.Append("  showTour: ").Append(showTour).Append("\n");
       
-      sb.Append("  PlanSetup: ").Append(PlanSetup).Append("\n");
+      sb.Append("  planSetup: ").Append(planSetup).Append("\n");
       
-      sb.Append("  PlanExpired: ").Append(PlanExpired).Append("\n");
+      sb.Append("  planExpired: ").Append(planExpired).Append("\n");
       
-      sb.Append("  PlanStatus: ").Append(PlanStatus).Append("\n");
+      sb.Append("  planStatus: ").Append(planStatus).Append("\n");
       
-      sb.Append("  PlanId: ").Append(PlanId).Append("\n");
+      sb.Append("  planId: ").Append(planId).Append("\n");
       
-      sb.Append("  PlanStripe: ").Append(PlanStripe).Append("\n");
+      sb.Append("  planStripe: ").Append(planStripe).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();

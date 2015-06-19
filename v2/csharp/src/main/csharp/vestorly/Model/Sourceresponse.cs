@@ -4,20 +4,20 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace vestorly.Model {
+namespace vestorly.model {
   [DataContract]
   public class Sourceresponse {
     
     
     [DataMember(Name="source", EmitDefaultValue=false)]
-    public Source Source { get; set; }
+    public Source source { get; set; }
 
     
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class Sourceresponse {\n");
       
-      sb.Append("  Source: ").Append(Source).Append("\n");
+      sb.Append("  source: ").Append(source).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();

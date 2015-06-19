@@ -4,83 +4,83 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace vestorly.Model {
+namespace vestorly.model {
   [DataContract]
   public class OrgSetting {
     
     
     [DataMember(Name="_id", EmitDefaultValue=false)]
-    public string Id { get; set; }
+    public string id { get; set; }
 
     
     
     [DataMember(Name="is_default", EmitDefaultValue=false)]
-    public bool? IsDefault { get; set; }
+    public bool? isDefault { get; set; }
 
     
     
     [DataMember(Name="name", EmitDefaultValue=false)]
-    public string Name { get; set; }
+    public string name { get; set; }
 
     
     
     [DataMember(Name="email_theme_name", EmitDefaultValue=false)]
-    public string EmailThemeName { get; set; }
+    public string emailThemeName { get; set; }
 
     
     
     [DataMember(Name="company_address", EmitDefaultValue=false)]
-    public string CompanyAddress { get; set; }
+    public string companyAddress { get; set; }
 
     
     
     [DataMember(Name="company_contact_email", EmitDefaultValue=false)]
-    public string CompanyContactEmail { get; set; }
+    public string companyContactEmail { get; set; }
 
     
     
     [DataMember(Name="site_url", EmitDefaultValue=false)]
-    public string SiteUrl { get; set; }
+    public string siteUrl { get; set; }
 
     
     
     [DataMember(Name="company_homepage_url", EmitDefaultValue=false)]
-    public string CompanyHomepageUrl { get; set; }
+    public string companyHomepageUrl { get; set; }
 
     
     
     [DataMember(Name="privacy_policy_url", EmitDefaultValue=false)]
-    public string PrivacyPolicyUrl { get; set; }
+    public string privacyPolicyUrl { get; set; }
 
     
     
     [DataMember(Name="terms_and_conditions_url", EmitDefaultValue=false)]
-    public string TermsAndConditionsUrl { get; set; }
+    public string termsAndConditionsUrl { get; set; }
 
     
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class OrgSetting {\n");
       
-      sb.Append("  Id: ").Append(Id).Append("\n");
+      sb.Append("  id: ").Append(id).Append("\n");
       
-      sb.Append("  IsDefault: ").Append(IsDefault).Append("\n");
+      sb.Append("  isDefault: ").Append(isDefault).Append("\n");
       
-      sb.Append("  Name: ").Append(Name).Append("\n");
+      sb.Append("  name: ").Append(name).Append("\n");
       
-      sb.Append("  EmailThemeName: ").Append(EmailThemeName).Append("\n");
+      sb.Append("  emailThemeName: ").Append(emailThemeName).Append("\n");
       
-      sb.Append("  CompanyAddress: ").Append(CompanyAddress).Append("\n");
+      sb.Append("  companyAddress: ").Append(companyAddress).Append("\n");
       
-      sb.Append("  CompanyContactEmail: ").Append(CompanyContactEmail).Append("\n");
+      sb.Append("  companyContactEmail: ").Append(companyContactEmail).Append("\n");
       
-      sb.Append("  SiteUrl: ").Append(SiteUrl).Append("\n");
+      sb.Append("  siteUrl: ").Append(siteUrl).Append("\n");
       
-      sb.Append("  CompanyHomepageUrl: ").Append(CompanyHomepageUrl).Append("\n");
+      sb.Append("  companyHomepageUrl: ").Append(companyHomepageUrl).Append("\n");
       
-      sb.Append("  PrivacyPolicyUrl: ").Append(PrivacyPolicyUrl).Append("\n");
+      sb.Append("  privacyPolicyUrl: ").Append(privacyPolicyUrl).Append("\n");
       
-      sb.Append("  TermsAndConditionsUrl: ").Append(TermsAndConditionsUrl).Append("\n");
+      sb.Append("  termsAndConditionsUrl: ").Append(termsAndConditionsUrl).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();
