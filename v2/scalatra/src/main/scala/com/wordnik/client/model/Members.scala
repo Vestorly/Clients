@@ -1,7 +1,7 @@
 package com.wordnik.client.model
 
-import com.wordnik.client.model.Meta
 import com.wordnik.client.model.Member
+import com.wordnik.client.model.Meta
 
 
 case class Members (

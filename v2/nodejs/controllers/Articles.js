@@ -7,14 +7,14 @@ var Articles = require('./ArticlesService');
 
 
 module.exports.findArticles = function findArticles (req, res, next) {
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorlyAuth = req.swagger.params['vestorly_auth'].value;
   var limit = req.swagger.params['limit'].value;
-  var text_query = req.swagger.params['text_query'].value;
-  var sort_direction = req.swagger.params['sort_direction'].value;
-  var sort_by = req.swagger.params['sort_by'].value;
+  var textQuery = req.swagger.params['text_query'].value;
+  var sortDirection = req.swagger.params['sort_direction'].value;
+  var sortBy = req.swagger.params['sort_by'].value;
   
 
-  var result = Articles.findArticles(vestorly-auth, limit, text_query, sort_direction, sort_by);
+  var result = Articles.findArticles(vestorlyAuth, limit, textQuery, sortDirection, sortBy);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -25,11 +25,11 @@ module.exports.findArticles = function findArticles (req, res, next) {
 };
 
 module.exports.findArticleByID = function findArticleByID (req, res, next) {
-  var vestorly-auth = req.swagger.params['vestorly-auth'].value;
+  var vestorlyAuth = req.swagger.params['vestorly_auth'].value;
   var id = req.swagger.params['id'].value;
   
 
-  var result = Articles.findArticleByID(vestorly-auth, id);
+  var result = Articles.findArticleByID(vestorlyAuth, id);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

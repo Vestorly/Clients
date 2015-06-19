@@ -9,6 +9,6 @@
 @interface SWGGroups : SWGObject
 
 
-@property(nonatomic) NSArray<Optional, SWGGroup>* groups;
+@property(nonatomic) NSArray<SWGGroup>* groups;
 
 @end

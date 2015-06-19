@@ -15,12 +15,12 @@
  
  Returns all member reports
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorlyAuth Vestorly Auth Token
  
 
  return type: SWGMemberReports*
  */
--(NSNumber*) findMemberReportsWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) findMemberReportsWithCompletionBlock :(NSString*) vestorlyAuth 
     
     completionHandler: (void (^)(SWGMemberReports* output, NSError* error))completionBlock;
     

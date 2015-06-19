@@ -1,18 +1,18 @@
 'use strict';
 
-exports.findMemberReports = function(vestorly-auth) {
+exports.findMemberReports = function(vestorlyAuth) {
 
   var examples = {};
   
   examples['application/json'] = {
   "member_reports" : [ {
-    "year" : 123,
-    "event_count" : 123,
-    "originator_group_id" : "aeiou",
+    "parent_originator_id" : "aeiou",
     "source" : "aeiou",
-    "type" : "aeiou",
+    "year" : 123,
+    "originator_group_id" : "aeiou",
     "day" : 123,
-    "parent_originator_id" : "aeiou"
+    "type" : "aeiou",
+    "event_count" : 123
   } ]
 };
   

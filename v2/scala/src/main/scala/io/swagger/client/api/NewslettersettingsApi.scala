@@ -1,10 +1,15 @@
 package io.swagger.client.api
 
-import io.swagger.client.model.Newslettersettings
+import io.swagger.client.model.NewsletterSettings
 import io.swagger.client.model.Newslettersettingresponse
 import io.swagger.client.model.NewsletterSettingsInput
 import io.swagger.client.ApiInvoker
 import io.swagger.client.ApiException
+
+import com.sun.jersey.multipart.FormDataMultiPart
+import com.sun.jersey.multipart.file.FileDataBodyPart
+
+import javax.ws.rs.core.MediaType
 
 import java.io.File
 import java.util.Date
@@ -19,31 +24,46 @@ class NewslettersettingsApi(val defBasePath: String = "https://staging.vestorly.
   def addHeader(key: String, value: String) = apiInvoker.defaultHeaders += key -> value 
 
   
-  def findNewsletterSettings (vestorly-auth: String) : Option[Newslettersettings] = {
+  /**
+   * 
+   * Returns all newsletter settings
+   * @param vestorlyAuth Vestorly Auth Token
+   * @return NewsletterSettings
+   */
+  def findNewsletterSettings (vestorlyAuth: String) : Option[NewsletterSettings] = {
     // create path and map variables
     val path = "/newsletter_settings".replaceAll("\\{format\\}","json")
 
-    
-    val contentType = {
-      
-      "application/json"
-    }
+    val contentTypes = List("application/json")
+    val contentType = contentTypes(0)
 
     // query params
     val queryParams = new HashMap[String, String]
     val headerParams = new HashMap[String, String]
+    val formParams = new HashMap[String, String]
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorlyAuth) != "null") queryParams += "vestorly_auth" -> vestorlyAuth.toString
     
     
     
+
+    var postBody: AnyRef = null
+
+    if(contentType.startsWith("multipart/form-data")) {
+      val mp = new FormDataMultiPart()
+      
+      postBody = mp
+    }
+    else {
+      
+    }
 
     try {
-      apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, None, headerParams.toMap, contentType) match {
+      apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, formParams.toMap, postBody, headerParams.toMap, contentType) match {
         case s: String =>
-           Some(ApiInvoker.deserialize(s, "", classOf[Newslettersettings]).asInstanceOf[Newslettersettings])
+           Some(ApiInvoker.deserialize(s, "", classOf[NewsletterSettings]).asInstanceOf[NewsletterSettings])
          
         case _ => None
       }
@@ -53,31 +73,47 @@ class NewslettersettingsApi(val defBasePath: String = "https://staging.vestorly.
     }
   }
   
-  def findNewsletterSettingsByID (id: String, vestorly-auth: String) : Option[Newslettersettingresponse] = {
+  /**
+   * 
+   * Returns a single newsletter settings if the user has access
+   * @param id Mongo ID of newsletter settings to fetch
+   * @param vestorlyAuth Vestorly Auth Token
+   * @return Newslettersettingresponse
+   */
+  def findNewsletterSettingsByID (id: String, vestorlyAuth: String) : Option[Newslettersettingresponse] = {
     // create path and map variables
     val path = "/newsletter_settings/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
     
 
-    
-    val contentType = {
-      
-      "application/json"
-    }
+    val contentTypes = List("application/json")
+    val contentType = contentTypes(0)
 
     // query params
     val queryParams = new HashMap[String, String]
     val headerParams = new HashMap[String, String]
+    val formParams = new HashMap[String, String]
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorlyAuth) != "null") queryParams += "vestorly_auth" -> vestorlyAuth.toString
     
     
     
+
+    var postBody: AnyRef = null
+
+    if(contentType.startsWith("multipart/form-data")) {
+      val mp = new FormDataMultiPart()
+      
+      postBody = mp
+    }
+    else {
+      
+    }
 
     try {
-      apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, None, headerParams.toMap, contentType) match {
+      apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, formParams.toMap, postBody, headerParams.toMap, contentType) match {
         case s: String =>
            Some(ApiInvoker.deserialize(s, "", classOf[Newslettersettingresponse]).asInstanceOf[Newslettersettingresponse])
          
@@ -89,34 +125,48 @@ class NewslettersettingsApi(val defBasePath: String = "https://staging.vestorly.
     }
   }
   
-  def updateNewsletterSettingsByID (id: String, vestorly-auth: String, newsletter_setting: NewsletterSettingsInput) : Option[Newslettersettingresponse] = {
+  /**
+   * 
+   * Update a single newsletter setting by ID
+   * @param id Mongo ID of newsletter settings to update
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param newsletterSetting newsletter settings
+   * @return Newslettersettingresponse
+   */
+  def updateNewsletterSettingsByID (id: String, vestorlyAuth: String, newsletterSetting: NewsletterSettingsInput) : Option[Newslettersettingresponse] = {
     // create path and map variables
     val path = "/newsletter_settings/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}",apiInvoker.escape(id))
 
     
 
-    
-    val contentType = {
-      if(newsletter_setting != null && newsletter_setting.isInstanceOf[File] )
-        "multipart/form-data"
-      else "application/json"
-      
-      
-    }
+    val contentTypes = List("application/json")
+    val contentType = contentTypes(0)
 
     // query params
     val queryParams = new HashMap[String, String]
     val headerParams = new HashMap[String, String]
+    val formParams = new HashMap[String, String]
 
     
 
-    if(String.valueOf(vestorly-auth) != "null") queryParams += "vestorly-auth" -> vestorly-auth.toString
+    if(String.valueOf(vestorlyAuth) != "null") queryParams += "vestorly_auth" -> vestorlyAuth.toString
     
     
     
+
+    var postBody: AnyRef = newsletterSetting
+
+    if(contentType.startsWith("multipart/form-data")) {
+      val mp = new FormDataMultiPart()
+      
+      postBody = mp
+    }
+    else {
+      
+    }
 
     try {
-      apiInvoker.invokeApi(basePath, path, "PUT", queryParams.toMap, newsletter_setting, headerParams.toMap, contentType) match {
+      apiInvoker.invokeApi(basePath, path, "PUT", queryParams.toMap, formParams.toMap, postBody, headerParams.toMap, contentType) match {
         case s: String =>
            Some(ApiInvoker.deserialize(s, "", classOf[Newslettersettingresponse]).asInstanceOf[Newslettersettingresponse])
          

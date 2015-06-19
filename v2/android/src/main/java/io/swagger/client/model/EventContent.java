@@ -2,18 +2,25 @@ package io.swagger.client.model;
 
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class EventContent  {
   
+  @SerializedName("_id")
   private String id = null;
+  @SerializedName("content_field")
   private String contentField = null;
+  @SerializedName("content_id")
   private String contentId = null;
+  @SerializedName("content_type")
   private String contentType = null;
+  @SerializedName("created_at")
   private String createdAt = null;
+  @SerializedName("slug")
   private String slug = null;
+  @SerializedName("updated_at")
   private String updatedAt = null;
 
   
@@ -21,7 +28,6 @@ public class EventContent  {
    * Mongo id of event
    **/
   @ApiModelProperty(value = "Mongo id of event")
-  @JsonProperty("_id")
   public String getId() {
     return id;
   }
@@ -33,7 +39,6 @@ public class EventContent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("content_field")
   public String getContentField() {
     return contentField;
   }
@@ -45,7 +50,6 @@ public class EventContent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("content_id")
   public String getContentId() {
     return contentId;
   }
@@ -57,7 +61,6 @@ public class EventContent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("content_type")
   public String getContentType() {
     return contentType;
   }
@@ -69,7 +72,6 @@ public class EventContent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("created_at")
   public String getCreatedAt() {
     return createdAt;
   }
@@ -81,7 +83,6 @@ public class EventContent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("slug")
   public String getSlug() {
     return slug;
   }
@@ -93,7 +94,6 @@ public class EventContent  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("updated_at")
   public String getUpdatedAt() {
     return updatedAt;
   }

@@ -10,20 +10,20 @@
 
 @property(nonatomic) NSString* _id;
 
-@property(nonatomic) NSString<Optional>* name;
+@property(nonatomic) NSString* name;
 
-@property(nonatomic) NSNumber<Optional>* is_default;
+@property(nonatomic) BOOL isDefault;
 
-@property(nonatomic) NSNumber<Optional>* is_hidden;
+@property(nonatomic) BOOL isHidden;
 
-@property(nonatomic) NSString<Optional>* _new_weekly_mailer_content;
+@property(nonatomic) NSString* newWeeklyMailerContent;
 
-@property(nonatomic) NSString<Optional>* _newsletter_subject;
+@property(nonatomic) NSString* newsletterSubject;
 
-@property(nonatomic) NSNumber<Optional>* autopublish;
+@property(nonatomic) BOOL autopublish;
 
-@property(nonatomic) NSNumber<Optional>* number_articles_per_group;
+@property(nonatomic) NSNumber* numberArticlesPerGroup;
 
-@property(nonatomic) NSNumber<Optional>* number_articles_per_newsletter;
+@property(nonatomic) NSNumber* numberArticlesPerNewsletter;
 
 @end

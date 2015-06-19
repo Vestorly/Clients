@@ -4,7 +4,19 @@
   
 + (JSONKeyMapper *)keyMapper
 {
-  return [[JSONKeyMapper alloc] initWithDictionary:@{ @"sort_order": @"sort_order", @"more_results": @"more_results", @"message": @"message", @"sorted_by": @"sorted_by" }];
+  return [[JSONKeyMapper alloc] initWithDictionary:@{ @"message": @"message" }];
+}
+
++ (BOOL)propertyIsOptional:(NSString *)propertyName
+{
+  NSArray *optionalProperties = @[@"message"];
+
+  if ([optionalProperties containsObject:propertyName]) {
+    return YES;
+  }
+  else {
+    return NO;
+  }
 }
 
 @end

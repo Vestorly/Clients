@@ -2,24 +2,29 @@ package io.swagger.client.model;
 
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class TruncatedMember  {
   
+  @SerializedName("_id")
   private String id = null;
+  @SerializedName("first_name")
   private String firstName = null;
+  @SerializedName("last_name")
   private String lastName = null;
+  @SerializedName("email")
   private String email = null;
+  @SerializedName("picture_url")
   private String pictureUrl = null;
+  @SerializedName("added_on")
   private String addedOn = null;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("_id")
   public String getId() {
     return id;
   }
@@ -31,7 +36,6 @@ public class TruncatedMember  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("first_name")
   public String getFirstName() {
     return firstName;
   }
@@ -43,7 +47,6 @@ public class TruncatedMember  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("last_name")
   public String getLastName() {
     return lastName;
   }
@@ -55,7 +58,6 @@ public class TruncatedMember  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("email")
   public String getEmail() {
     return email;
   }
@@ -67,7 +69,6 @@ public class TruncatedMember  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("picture_url")
   public String getPictureUrl() {
     return pictureUrl;
   }
@@ -79,7 +80,6 @@ public class TruncatedMember  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("added_on")
   public String getAddedOn() {
     return addedOn;
   }

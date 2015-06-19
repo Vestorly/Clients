@@ -9,6 +9,6 @@
 @interface SWGArticleresponse : SWGObject
 
 
-@property(nonatomic) SWGArticle<Optional, SWGArticle>* article;
+@property(nonatomic) SWGArticle* article;
 
 @end

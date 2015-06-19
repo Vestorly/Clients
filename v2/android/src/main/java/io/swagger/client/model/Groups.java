@@ -1,22 +1,22 @@
 package io.swagger.client.model;
 
-import io.swagger.client.model.Group;
 import java.util.*;
+import io.swagger.client.model.Group;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class Groups  {
   
+  @SerializedName("groups")
   private List<Group> groups = new ArrayList<Group>() ;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("groups")
   public List<Group> getGroups() {
     return groups;
   }

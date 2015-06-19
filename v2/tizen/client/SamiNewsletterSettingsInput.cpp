@@ -22,28 +22,16 @@ SamiNewsletterSettingsInput::~SamiNewsletterSettingsInput() {
 
 void
 SamiNewsletterSettingsInput::init() {
-    pEmail_status = null;
-    pTwitter_status = null;
-    pLinkedin_status = null;
+    pNewsletter_setting = null;
     
 }
 
 void
 SamiNewsletterSettingsInput::cleanup() {
-    if(pEmail_status != null) {
+    if(pNewsletter_setting != null) {
         
-        delete pEmail_status;
-        pEmail_status = null;
-    }
-    if(pTwitter_status != null) {
-        
-        delete pTwitter_status;
-        pTwitter_status = null;
-    }
-    if(pLinkedin_status != null) {
-        
-        delete pLinkedin_status;
-        pLinkedin_status = null;
+        delete pNewsletter_setting;
+        pNewsletter_setting = null;
     }
     
 }
@@ -83,33 +71,15 @@ SamiNewsletterSettingsInput::fromJsonObject(IJsonValue* pJson) {
     JsonObject* pJsonObject = static_cast< JsonObject* >(pJson);
 
     if(pJsonObject != null) {
-        JsonString* pEmail_statusKey = new JsonString(L"email_status");
-        IJsonValue* pEmail_statusVal = null;
-        pJsonObject->GetValue(pEmail_statusKey, pEmail_statusVal);
-        if(pEmail_statusVal != null) {
+        JsonString* pNewsletter_settingKey = new JsonString(L"newsletter_setting");
+        IJsonValue* pNewsletter_settingVal = null;
+        pJsonObject->GetValue(pNewsletter_settingKey, pNewsletter_settingVal);
+        if(pNewsletter_settingVal != null) {
             
-            pEmail_status = new String();
-            jsonToValue(pEmail_status, pEmail_statusVal, L"String", L"String");
+            pNewsletter_setting = new SamiNewsletterSetting();
+            jsonToValue(pNewsletter_setting, pNewsletter_settingVal, L"SamiNewsletterSetting", L"SamiNewsletterSetting");
         }
-        delete pEmail_statusKey;
-        JsonString* pTwitter_statusKey = new JsonString(L"twitter_status");
-        IJsonValue* pTwitter_statusVal = null;
-        pJsonObject->GetValue(pTwitter_statusKey, pTwitter_statusVal);
-        if(pTwitter_statusVal != null) {
-            
-            pTwitter_status = new String();
-            jsonToValue(pTwitter_status, pTwitter_statusVal, L"String", L"String");
-        }
-        delete pTwitter_statusKey;
-        JsonString* pLinkedin_statusKey = new JsonString(L"linkedin_status");
-        IJsonValue* pLinkedin_statusVal = null;
-        pJsonObject->GetValue(pLinkedin_statusKey, pLinkedin_statusVal);
-        if(pLinkedin_statusVal != null) {
-            
-            pLinkedin_status = new String();
-            jsonToValue(pLinkedin_status, pLinkedin_statusVal, L"String", L"String");
-        }
-        delete pLinkedin_statusKey;
+        delete pNewsletter_settingKey;
         
     }
 }
@@ -162,46 +132,20 @@ SamiNewsletterSettingsInput::asJsonObject() {
     pJsonObject->Construct();
 
     
-    JsonString *pEmail_statusKey = new JsonString(L"email_status");
-    pJsonObject->Add(pEmail_statusKey, toJson(getPEmailStatus(), "String", ""));
-
-    
-    JsonString *pTwitter_statusKey = new JsonString(L"twitter_status");
-    pJsonObject->Add(pTwitter_statusKey, toJson(getPTwitterStatus(), "String", ""));
-
-    
-    JsonString *pLinkedin_statusKey = new JsonString(L"linkedin_status");
-    pJsonObject->Add(pLinkedin_statusKey, toJson(getPLinkedinStatus(), "String", ""));
+    JsonString *pNewsletter_settingKey = new JsonString(L"newsletter_setting");
+    pJsonObject->Add(pNewsletter_settingKey, toJson(getPNewsletterSetting(), "SamiNewsletterSetting", ""));
 
     
     return pJsonObject;
 }
 
-String*
-SamiNewsletterSettingsInput::getPEmailStatus() {
-    return pEmail_status;
+SamiNewsletterSetting*
+SamiNewsletterSettingsInput::getPNewsletterSetting() {
+    return pNewsletter_setting;
 }
 void
-SamiNewsletterSettingsInput::setPEmailStatus(String* pEmail_status) {
-    this->pEmail_status = pEmail_status;
-}
-
-String*
-SamiNewsletterSettingsInput::getPTwitterStatus() {
-    return pTwitter_status;
-}
-void
-SamiNewsletterSettingsInput::setPTwitterStatus(String* pTwitter_status) {
-    this->pTwitter_status = pTwitter_status;
-}
-
-String*
-SamiNewsletterSettingsInput::getPLinkedinStatus() {
-    return pLinkedin_status;
-}
-void
-SamiNewsletterSettingsInput::setPLinkedinStatus(String* pLinkedin_status) {
-    this->pLinkedin_status = pLinkedin_status;
+SamiNewsletterSettingsInput::setPNewsletterSetting(SamiNewsletterSetting* pNewsletter_setting) {
+    this->pNewsletter_setting = pNewsletter_setting;
 }
 
 

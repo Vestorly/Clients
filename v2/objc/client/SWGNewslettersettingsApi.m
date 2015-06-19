@@ -2,11 +2,14 @@
 #import "SWGFile.h"
 #import "SWGQueryParamCollection.h"
 #import "SWGApiClient.h"
-#import "SWGNewslettersettings.h"
+#import "SWGNewsletterSettings.h"
 #import "SWGNewslettersettingresponse.h"
 #import "SWGNewsletterSettingsInput.h"
 
 
+@interface SWGNewslettersettingsApi ()
+    @property (readwrite, nonatomic, strong) NSMutableDictionary *defaultHeaders;
+@end
 
 @implementation SWGNewslettersettingsApi
 static NSString * basePath = @"https://staging.vestorly.com/api/v2";
@@ -34,18 +37,19 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 -(void) addHeader:(NSString*)value forKey:(NSString*)key {
-    [[self apiClient] setHeaderValue:value forKey:key];
+    [self.defaultHeaders setValue:value forKey:key];
 }
 
 -(id) init {
     self = [super init];
+    self.defaultHeaders = [NSMutableDictionary dictionary];
     [self apiClient];
     return self;
 }
 
 -(void) setHeaderValue:(NSString*) value
            forKey:(NSString*)key {
-    [[self apiClient] setHeaderValue:value forKey:key];
+    [self.defaultHeaders setValue:value forKey:key];
 }
 
 -(unsigned long) requestQueueSize {
@@ -53,10 +57,21 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 }
 
 
--(NSNumber*) findNewsletterSettingsWithCompletionBlock: (NSString*) vestorly-auth
+/*!
+ * 
+ * Returns all newsletter settings
+ * \param vestorlyAuth Vestorly Auth Token
+ * \returns SWGNewsletterSettings*
+ */
+-(NSNumber*) findNewsletterSettingsWithCompletionBlock: (NSString*) vestorlyAuth
         
-        completionHandler: (void (^)(SWGNewslettersettings* output, NSError* error))completionBlock
+        completionHandler: (void (^)(SWGNewsletterSettings* output, NSError* error))completionBlock
          {
+
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    NSAssert(vestorlyAuth != nil, @"Missing the required parameter `vestorlyAuth` when calling findNewsletterSettings");
+    
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/newsletter_settings", basePath];
 
@@ -66,20 +81,33 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
 
     
 
-    NSArray* requestContentTypes = @[];
-    NSString* requestContentType = [requestContentTypes count] > 0 ? requestContentTypes[0] : @"application/json";
-
-    NSArray* responseContentTypes = @[];
-    NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
-
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
+    if(vestorlyAuth != nil) {
         
-        queryParams[@"vestorly-auth"] = vestorly-auth;
+        queryParams[@"vestorly_auth"] = vestorlyAuth;
     }
     
-    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
+
     
+    
+    // HTTP header `Accept` 
+    headerParams[@"Accept"] = [SWGApiClient selectHeaderAccept:@[]];
+    if ([headerParams[@"Accept"] length] == 0) {
+        [headerParams removeObjectForKey:@"Accept"];
+    }
+
+    // response content type
+    NSString *responseContentType;
+    if ([headerParams objectForKey:@"Accept"]) {
+        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
+    }
+    else {
+        responseContentType = @"";
+    }
+
+    // request content type
+    NSString *requestContentType = [SWGApiClient selectHeaderContentType:@[]];
 
     id bodyDictionary = nil;
     
@@ -118,9 +146,9 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
                     
                     return;
                 }
-                SWGNewslettersettings* result = nil;
+                SWGNewsletterSettings* result = nil;
                 if (data) {
-                    result = [[SWGNewslettersettings  alloc]  initWithDictionary:data error:nil];
+                    result = [[SWGNewsletterSettings  alloc]  initWithDictionary:data error:nil];
                 }
                 completionBlock(result , nil);
                 
@@ -132,11 +160,26 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     
 }
 
+/*!
+ * 
+ * Returns a single newsletter settings if the user has access
+ * \param _id Mongo ID of newsletter settings to fetch
+ * \param vestorlyAuth Vestorly Auth Token
+ * \returns SWGNewslettersettingresponse*
+ */
 -(NSNumber*) findNewsletterSettingsByIDWithCompletionBlock: (NSString*) _id
-         vestorly-auth: (NSString*) vestorly-auth
+         vestorlyAuth: (NSString*) vestorlyAuth
         
         completionHandler: (void (^)(SWGNewslettersettingresponse* output, NSError* error))completionBlock
          {
+
+    
+    // verify the required parameter '_id' is set
+    NSAssert(_id != nil, @"Missing the required parameter `_id` when calling findNewsletterSettingsByID");
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    NSAssert(vestorlyAuth != nil, @"Missing the required parameter `vestorlyAuth` when calling findNewsletterSettingsByID");
+    
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/newsletter_settings/{id}", basePath];
 
@@ -147,20 +190,33 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"id", @"}"]] withString: [SWGApiClient escape:_id]];
     
 
-    NSArray* requestContentTypes = @[];
-    NSString* requestContentType = [requestContentTypes count] > 0 ? requestContentTypes[0] : @"application/json";
-
-    NSArray* responseContentTypes = @[];
-    NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
-
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
+    if(vestorlyAuth != nil) {
         
-        queryParams[@"vestorly-auth"] = vestorly-auth;
+        queryParams[@"vestorly_auth"] = vestorlyAuth;
     }
     
-    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
+
     
+    
+    // HTTP header `Accept` 
+    headerParams[@"Accept"] = [SWGApiClient selectHeaderAccept:@[]];
+    if ([headerParams[@"Accept"] length] == 0) {
+        [headerParams removeObjectForKey:@"Accept"];
+    }
+
+    // response content type
+    NSString *responseContentType;
+    if ([headerParams objectForKey:@"Accept"]) {
+        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
+    }
+    else {
+        responseContentType = @"";
+    }
+
+    // request content type
+    NSString *requestContentType = [SWGApiClient selectHeaderContentType:@[]];
 
     id bodyDictionary = nil;
     
@@ -213,12 +269,31 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     
 }
 
+/*!
+ * 
+ * Update a single newsletter setting by ID
+ * \param _id Mongo ID of newsletter settings to update
+ * \param vestorlyAuth Vestorly Auth Token
+ * \param newsletterSetting newsletter settings
+ * \returns SWGNewslettersettingresponse*
+ */
 -(NSNumber*) updateNewsletterSettingsByIDWithCompletionBlock: (NSString*) _id
-         vestorly-auth: (NSString*) vestorly-auth
-         newsletter_setting: (SWGNewsletterSettingsInput*) newsletter_setting
+         vestorlyAuth: (NSString*) vestorlyAuth
+         newsletterSetting: (SWGNewsletterSettingsInput*) newsletterSetting
         
         completionHandler: (void (^)(SWGNewslettersettingresponse* output, NSError* error))completionBlock
          {
+
+    
+    // verify the required parameter '_id' is set
+    NSAssert(_id != nil, @"Missing the required parameter `_id` when calling updateNewsletterSettingsByID");
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    NSAssert(vestorlyAuth != nil, @"Missing the required parameter `vestorlyAuth` when calling updateNewsletterSettingsByID");
+    
+    // verify the required parameter 'newsletterSetting' is set
+    NSAssert(newsletterSetting != nil, @"Missing the required parameter `newsletterSetting` when calling updateNewsletterSettingsByID");
+    
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/newsletter_settings/{id}", basePath];
 
@@ -229,24 +304,37 @@ static NSString * basePath = @"https://staging.vestorly.com/api/v2";
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"id", @"}"]] withString: [SWGApiClient escape:_id]];
     
 
-    NSArray* requestContentTypes = @[];
-    NSString* requestContentType = [requestContentTypes count] > 0 ? requestContentTypes[0] : @"application/json";
-
-    NSArray* responseContentTypes = @[];
-    NSString* responseContentType = [responseContentTypes count] > 0 ? responseContentTypes[0] : @"application/json";
-
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if(vestorly-auth != nil) {
+    if(vestorlyAuth != nil) {
         
-        queryParams[@"vestorly-auth"] = vestorly-auth;
+        queryParams[@"vestorly_auth"] = vestorlyAuth;
     }
     
-    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
+
     
+    
+    // HTTP header `Accept` 
+    headerParams[@"Accept"] = [SWGApiClient selectHeaderAccept:@[]];
+    if ([headerParams[@"Accept"] length] == 0) {
+        [headerParams removeObjectForKey:@"Accept"];
+    }
+
+    // response content type
+    NSString *responseContentType;
+    if ([headerParams objectForKey:@"Accept"]) {
+        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
+    }
+    else {
+        responseContentType = @"";
+    }
+
+    // request content type
+    NSString *requestContentType = [SWGApiClient selectHeaderContentType:@[]];
 
     id bodyDictionary = nil;
     
-    id __body = newsletter_setting;
+    id __body = newsletterSetting;
 
     if(__body != nil && [__body isKindOfClass:[NSArray class]]){
         NSMutableArray * objs = [[NSMutableArray alloc] init];

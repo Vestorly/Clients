@@ -8,9 +8,9 @@ import io.swagger.client.model.*;
 import java.util.*;
 
 import io.swagger.client.model.Posts;
-import io.swagger.client.model.Post;
 import io.swagger.client.model.PostInput;
 import io.swagger.client.model.Postresponse;
+import io.swagger.client.model.Post;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -40,10 +40,22 @@ public class PostsApi {
   }
 
   
-  
+  /**
+   * 
+   * Query all posts
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param textQuery Filter post by parameters
+   * @param externalUrl Filter by External URL
+   * @param isPublished Filter by is_published boolean
+   * @return Posts
+   */
   public Posts  findPosts (String vestorlyAuth, String textQuery, String externalUrl, String isPublished) throws ApiException {
     Object postBody = null;
-
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling findPosts");
+    }
     
 
     // create path and map variables
@@ -57,7 +69,7 @@ public class PostsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     if (textQuery != null)
       queryParams.put("text_query", ApiInvoker.parameterToString(textQuery));
     if (externalUrl != null)
@@ -98,10 +110,25 @@ public class PostsApi {
     }
   }
   
-  
-  public Post  createPost (String vestorlyAuth, PostInput post) throws ApiException {
+  /**
+   * 
+   * Create a new post in the Vestorly Platform
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param post Post you want to create
+   * @return Postresponse
+   */
+  public Postresponse  createPost (String vestorlyAuth, PostInput post) throws ApiException {
     Object postBody = post;
-
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling createPost");
+    }
+    
+    // verify the required parameter 'post' is set
+    if (post == null) {
+       throw new ApiException(400, "Missing the required parameter 'post' when calling createPost");
+    }
     
 
     // create path and map variables
@@ -115,7 +142,7 @@ public class PostsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -140,7 +167,7 @@ public class PostsApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Post) ApiInvoker.deserialize(response, "", Post.class);
+        return (Postresponse) ApiInvoker.deserialize(response, "", Postresponse.class);
       }
       else {
         return null;
@@ -150,10 +177,25 @@ public class PostsApi {
     }
   }
   
-  
+  /**
+   * 
+   * Query all posts
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param id ID of post to fetch
+   * @return Postresponse
+   */
   public Postresponse  getPostByID (String vestorlyAuth, String id) throws ApiException {
     Object postBody = null;
-
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling getPostByID");
+    }
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+       throw new ApiException(400, "Missing the required parameter 'id' when calling getPostByID");
+    }
     
 
     // create path and map variables
@@ -167,7 +209,7 @@ public class PostsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -202,10 +244,31 @@ public class PostsApi {
     }
   }
   
-  
+  /**
+   * 
+   * Update A Post
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param id id of post to update
+   * @param post Post you want to update
+   * @return Postresponse
+   */
   public Postresponse  updatePostByID (String vestorlyAuth, String id, Post post) throws ApiException {
     Object postBody = post;
-
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling updatePostByID");
+    }
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+       throw new ApiException(400, "Missing the required parameter 'id' when calling updatePostByID");
+    }
+    
+    // verify the required parameter 'post' is set
+    if (post == null) {
+       throw new ApiException(400, "Missing the required parameter 'post' when calling updatePostByID");
+    }
     
 
     // create path and map variables
@@ -219,7 +282,7 @@ public class PostsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     

@@ -2,28 +2,37 @@ package io.swagger.client.model;
 
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class OrgSetting  {
   
+  @SerializedName("_id")
   private String id = null;
+  @SerializedName("is_default")
   private Boolean isDefault = null;
+  @SerializedName("name")
   private String name = null;
+  @SerializedName("email_theme_name")
   private String emailThemeName = null;
+  @SerializedName("company_address")
   private String companyAddress = null;
+  @SerializedName("company_contact_email")
   private String companyContactEmail = null;
+  @SerializedName("site_url")
   private String siteUrl = null;
+  @SerializedName("company_homepage_url")
   private String companyHomepageUrl = null;
+  @SerializedName("privacy_policy_url")
   private String privacyPolicyUrl = null;
+  @SerializedName("terms_and_conditions_url")
   private String termsAndConditionsUrl = null;
 
   
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty("_id")
   public String getId() {
     return id;
   }
@@ -35,7 +44,6 @@ public class OrgSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("is_default")
   public Boolean getIsDefault() {
     return isDefault;
   }
@@ -47,7 +55,6 @@ public class OrgSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("name")
   public String getName() {
     return name;
   }
@@ -59,7 +66,6 @@ public class OrgSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("email_theme_name")
   public String getEmailThemeName() {
     return emailThemeName;
   }
@@ -71,7 +77,6 @@ public class OrgSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("company_address")
   public String getCompanyAddress() {
     return companyAddress;
   }
@@ -83,7 +88,6 @@ public class OrgSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("company_contact_email")
   public String getCompanyContactEmail() {
     return companyContactEmail;
   }
@@ -95,7 +99,6 @@ public class OrgSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("site_url")
   public String getSiteUrl() {
     return siteUrl;
   }
@@ -107,7 +110,6 @@ public class OrgSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("company_homepage_url")
   public String getCompanyHomepageUrl() {
     return companyHomepageUrl;
   }
@@ -119,7 +121,6 @@ public class OrgSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("privacy_policy_url")
   public String getPrivacyPolicyUrl() {
     return privacyPolicyUrl;
   }
@@ -131,7 +132,6 @@ public class OrgSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("terms_and_conditions_url")
   public String getTermsAndConditionsUrl() {
     return termsAndConditionsUrl;
   }

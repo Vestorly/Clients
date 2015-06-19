@@ -38,10 +38,23 @@ public class ArticlesApi {
   }
 
   
-  
+  /**
+   * 
+   * Returns all articles
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param limit Limit on the number of articles to return
+   * @param textQuery Search query parameter
+   * @param sortDirection Direction of sort (used with sort_by parameter)
+   * @param sortBy Field on model to sort by
+   * @return Articles
+   */
   public Articles  findArticles (String vestorlyAuth, Integer limit, String textQuery, String sortDirection, String sortBy) throws ApiException {
     Object postBody = null;
-
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling findArticles");
+    }
     
 
     // create path and map variables
@@ -55,7 +68,7 @@ public class ArticlesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     if (limit != null)
       queryParams.put("limit", ApiInvoker.parameterToString(limit));
     if (textQuery != null)
@@ -98,10 +111,25 @@ public class ArticlesApi {
     }
   }
   
-  
+  /**
+   * 
+   * Returns a single article
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param id Article Id to fetch
+   * @return Articleresponse
+   */
   public Articleresponse  findArticleByID (String vestorlyAuth, String id) throws ApiException {
     Object postBody = null;
-
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling findArticleByID");
+    }
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+       throw new ApiException(400, "Missing the required parameter 'id' when calling findArticleByID");
+    }
     
 
     // create path and map variables
@@ -115,7 +143,7 @@ public class ArticlesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     

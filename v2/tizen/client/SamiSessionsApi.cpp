@@ -120,7 +120,7 @@ logoutProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiError*)
 }
 
 SamiSessionLogoutResponse* 
-SamiSessionsApi::logoutWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiSessionLogoutResponse*, SamiError*)) {
+SamiSessionsApi::logoutWithCompletion(String* vestorlyAuth, String* _id, void (* success)(SamiSessionLogoutResponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&logoutProcessor, (void(*)(void*, SamiError*))success);
@@ -133,7 +133,7 @@ SamiSessionsApi::logoutWithCompletion(String* vestorly-auth, String* _id, void (
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 

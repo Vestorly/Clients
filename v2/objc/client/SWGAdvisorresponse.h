@@ -9,6 +9,6 @@
 @interface SWGAdvisorresponse : SWGObject
 
 
-@property(nonatomic) SWGAdvisor<Optional, SWGAdvisor>* advisor;
+@property(nonatomic) SWGAdvisor* advisor;
 
 @end

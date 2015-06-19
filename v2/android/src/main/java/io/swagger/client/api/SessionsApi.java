@@ -38,10 +38,25 @@ public class SessionsApi {
   }
 
   
-  
+  /**
+   * 
+   * Login To Vestorly Platform
+   * @param username Username in the vestorly platform
+   * @param password Password in Vestorly Platform
+   * @return Session
+   */
   public Session  login (String username, String password) throws ApiException {
     Object postBody = null;
-
+    
+    // verify the required parameter 'username' is set
+    if (username == null) {
+       throw new ApiException(400, "Missing the required parameter 'username' when calling login");
+    }
+    
+    // verify the required parameter 'password' is set
+    if (password == null) {
+       throw new ApiException(400, "Missing the required parameter 'password' when calling login");
+    }
     
 
     // create path and map variables
@@ -63,7 +78,7 @@ public class SessionsApi {
     
 
     String[] contentTypes = {
-      "application/x-www-form-urlencoded",
+      "application/x-www-form-urlencoded"
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -92,10 +107,25 @@ public class SessionsApi {
     }
   }
   
-  
+  /**
+   * 
+   * Logout of the vestorly platform
+   * @param vestorlyAuth Authenication token
+   * @param id ID of pet to session
+   * @return SessionLogoutResponse
+   */
   public SessionLogoutResponse  logout (String vestorlyAuth, String id) throws ApiException {
     Object postBody = null;
-
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling logout");
+    }
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+       throw new ApiException(400, "Missing the required parameter 'id' when calling logout");
+    }
     
 
     // create path and map variables
@@ -109,7 +139,7 @@ public class SessionsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     

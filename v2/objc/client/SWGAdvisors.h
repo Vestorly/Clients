@@ -9,6 +9,6 @@
 @interface SWGAdvisors : SWGObject
 
 
-@property(nonatomic) NSArray<Optional, SWGAdvisor>* advisors;
+@property(nonatomic) NSArray<SWGAdvisor>* advisors;
 
 @end

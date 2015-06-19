@@ -17,7 +17,7 @@
 using namespace Tizen::Web::Json;
 
 
-using Tizen::Base::String;
+#include "SamiNewsletterSetting.h"
 
 
 namespace Swagger {
@@ -41,20 +41,12 @@ public:
     SamiNewsletterSettingsInput* fromJson(String* obj);
 
     
-    String* getPEmailStatus();
-    void setPEmailStatus(String* pEmail_status);
-    
-    String* getPTwitterStatus();
-    void setPTwitterStatus(String* pTwitter_status);
-    
-    String* getPLinkedinStatus();
-    void setPLinkedinStatus(String* pLinkedin_status);
+    SamiNewsletterSetting* getPNewsletterSetting();
+    void setPNewsletterSetting(SamiNewsletterSetting* pNewsletter_setting);
     
 
 private:
-    String* pEmail_status;
-    String* pTwitter_status;
-    String* pLinkedin_status;
+    SamiNewsletterSetting* pNewsletter_setting;
     
 };
 

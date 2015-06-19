@@ -1,22 +1,22 @@
 package io.swagger.client.model;
 
-import io.swagger.client.model.MemberReport;
 import java.util.*;
+import io.swagger.client.model.MemberReport;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class MemberReports  {
   
+  @SerializedName("member_reports")
   private List<MemberReport> memberReports = new ArrayList<MemberReport>() ;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("member_reports")
   public List<MemberReport> getMemberReports() {
     return memberReports;
   }

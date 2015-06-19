@@ -13,17 +13,21 @@
   <h3 class="section">HTTP Method</h3>
   <code>GET</code>
   <h3 class="section">Response Type</h3>
-  <div class="model" id="Newslettersettings"><a href="#">Newslettersettings</a></div>
+  <div class="model" data-model="NewsletterSettings"><a href="">NewsletterSettings</a></div>
   <h3 class="section">Parameters</h3>
   <ul>
   	
-	  <div class="parameter">
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
       
       
-
       
-	    <p class="param-description">Vestorly Auth Token</p>
-	  </div>
+      <span class="param-name">vestorlyAuth</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">Vestorly Auth Token</p>
+	  </li>
     
   </ul>
   
@@ -36,25 +40,33 @@
   <h3 class="section">HTTP Method</h3>
   <code>GET</code>
   <h3 class="section">Response Type</h3>
-  <div class="model" id="Newslettersettingresponse"><a href="#">Newslettersettingresponse</a></div>
+  <div class="model" data-model="Newslettersettingresponse"><a href="">Newslettersettingresponse</a></div>
   <h3 class="section">Parameters</h3>
   <ul>
   	
-	  <div class="parameter">
+	  <li class="parameter">
       
       
-
+      <span class="param-in">Path: </span>
       
-	    <p class="param-description">Mongo ID of newsletter settings to fetch</p>
-	  </div>
+      
+      <span class="param-name">id</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">Mongo ID of newsletter settings to fetch</p>
+	  </li>
     
-	  <div class="parameter">
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
       
       
-
       
-	    <p class="param-description">Vestorly Auth Token</p>
-	  </div>
+      <span class="param-name">vestorlyAuth</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">Vestorly Auth Token</p>
+	  </li>
     
   </ul>
   
@@ -67,33 +79,45 @@
   <h3 class="section">HTTP Method</h3>
   <code>PUT</code>
   <h3 class="section">Response Type</h3>
-  <div class="model" id="Newslettersettingresponse"><a href="#">Newslettersettingresponse</a></div>
+  <div class="model" data-model="Newslettersettingresponse"><a href="">Newslettersettingresponse</a></div>
   <h3 class="section">Parameters</h3>
   <ul>
   	
-	  <div class="parameter">
+	  <li class="parameter">
       
       
-
+      <span class="param-in">Path: </span>
       
-	    <p class="param-description">Mongo ID of newsletter settings to update</p>
-	  </div>
+      
+      <span class="param-name">id</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">Mongo ID of newsletter settings to update</p>
+	  </li>
     
-	  <div class="parameter">
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
       
       
-
       
-	    <p class="param-description">Vestorly Auth Token</p>
-	  </div>
+      <span class="param-name">vestorlyAuth</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">Vestorly Auth Token</p>
+	  </li>
     
-	  <div class="parameter">
+	  <li class="parameter">
       
       
-
       
-	    <p class="param-description">newsletter settings</p>
-	  </div>
+      
+      <span class="param-in">Body: </span>
+      <span class="param-name">newsletterSetting</span>
+      <span class="param-type">NewsletterSettingsInput</span>
+      
+      <p class="param-description">newsletter settings</p>
+	  </li>
     
   </ul>
   

@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
+#import "SWGNewsletterSetting.h"
 
 
 @protocol SWGNewsletterSettingsInput
@@ -8,10 +9,6 @@
 @interface SWGNewsletterSettingsInput : SWGObject
 
 
-@property(nonatomic) NSString<Optional>* email_status;
-
-@property(nonatomic) NSString<Optional>* twitter_status;
-
-@property(nonatomic) NSString<Optional>* linkedin_status;
+@property(nonatomic) SWGNewsletterSetting* newsletterSetting;
 
 @end

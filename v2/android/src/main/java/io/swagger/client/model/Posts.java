@@ -4,19 +4,19 @@ import io.swagger.client.model.Post;
 import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class Posts  {
   
+  @SerializedName("posts")
   private List<Post> posts = new ArrayList<Post>() ;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("posts")
   public List<Post> getPosts() {
     return posts;
   }

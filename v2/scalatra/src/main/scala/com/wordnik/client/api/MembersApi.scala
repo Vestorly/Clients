@@ -1,8 +1,8 @@
 package com.wordnik.client.api
 
 import com.wordnik.client.model.Members
-import com.wordnik.client.model.Memberresponse
 import com.wordnik.client.model.Member
+import com.wordnik.client.model.Memberresponse
 
 import java.io.File
 
@@ -33,7 +33,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
   val findMembersOperation = (apiOperation[Members]("findMembers")
       summary ""
       parameters(
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorlyAuth").description("")
         
         
         
@@ -51,7 +51,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorlyAuth = params.getAs[String]("vestorlyAuth")
       
     
 
@@ -61,7 +61,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorlyAuth: " + vestorlyAuth)
   
   }
 
@@ -70,7 +70,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
   val createMemberOperation = (apiOperation[Memberresponse]("createMember")
       summary ""
       parameters(
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorlyAuth").description("")
         
         
         
@@ -95,7 +95,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorlyAuth = params.getAs[String]("vestorlyAuth")
       
     
 
@@ -105,7 +105,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorlyAuth: " + vestorlyAuth)
   
     
     
@@ -137,7 +137,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         ,
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorlyAuth").description("")
         
         
         
@@ -171,7 +171,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorlyAuth = params.getAs[String]("vestorlyAuth")
       
     
 
@@ -181,13 +181,13 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorlyAuth: " + vestorlyAuth)
   
   }
 
   
 
-  val findMemberByID_1Operation = (apiOperation[Memberresponse]("findMemberByID_1")
+  val updateMemberByIDOperation = (apiOperation[Memberresponse]("updateMemberByID")
       summary ""
       parameters(
         
@@ -197,7 +197,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
         
         
         ,
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorlyAuth").description("")
         
         
         
@@ -214,7 +214,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
         )
   )
 
-  put("/members/{id}",operation(findMemberByID_1Operation)) {
+  put("/members/{id}",operation(updateMemberByIDOperation)) {
     
     
     
@@ -238,7 +238,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorlyAuth = params.getAs[String]("vestorlyAuth")
       
     
 
@@ -248,7 +248,7 @@ class MembersApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorlyAuth: " + vestorlyAuth)
   
     
     

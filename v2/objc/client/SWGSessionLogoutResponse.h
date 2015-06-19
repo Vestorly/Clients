@@ -8,6 +8,6 @@
 @interface SWGSessionLogoutResponse : SWGObject
 
 
-@property(nonatomic) NSString<Optional>* message;
+@property(nonatomic) NSString* message;
 
 @end

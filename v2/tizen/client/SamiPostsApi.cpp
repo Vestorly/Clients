@@ -52,7 +52,7 @@ findPostsProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiErro
 }
 
 SamiPosts* 
-SamiPostsApi::findPostsWithCompletion(String* vestorly-auth, String* text_query, String* external_url, String* is_published, void (* success)(SamiPosts*, SamiError*)) {
+SamiPostsApi::findPostsWithCompletion(String* vestorlyAuth, String* textQuery, String* externalUrl, String* isPublished, void (* success)(SamiPosts*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&findPostsProcessor, (void(*)(void*, SamiError*))success);
@@ -65,16 +65,16 @@ SamiPostsApi::findPostsWithCompletion(String* vestorly-auth, String* text_query,
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
-    queryParams->Add(new String("text_query"), text_query);
+    queryParams->Add(new String("text_query"), textQuery);
   
   
-    queryParams->Add(new String("external_url"), external_url);
+    queryParams->Add(new String("external_url"), externalUrl);
   
   
-    queryParams->Add(new String("is_published"), is_published);
+    queryParams->Add(new String("is_published"), isPublished);
   
   
 
@@ -98,8 +98,8 @@ createPostProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiErr
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiPost* out = new SamiPost();
-    jsonToValue(out, pJson, L"SamiPost*", L"SamiPost");
+    SamiPostresponse* out = new SamiPostresponse();
+    jsonToValue(out, pJson, L"SamiPostresponse*", L"SamiPostresponse");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -125,8 +125,8 @@ createPostProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiErr
   }
 }
 
-SamiPost* 
-SamiPostsApi::createPostWithCompletion(String* vestorly-auth, SamiPostInput* post, void (* success)(SamiPost*, SamiError*)) {
+SamiPostresponse* 
+SamiPostsApi::createPostWithCompletion(String* vestorlyAuth, SamiPostInput* post, void (* success)(SamiPostresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&createPostProcessor, (void(*)(void*, SamiError*))success);
@@ -139,7 +139,7 @@ SamiPostsApi::createPostWithCompletion(String* vestorly-auth, SamiPostInput* pos
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 
@@ -199,7 +199,7 @@ getPostByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, SamiEr
 }
 
 SamiPostresponse* 
-SamiPostsApi::getPostByIDWithCompletion(String* vestorly-auth, String* _id, void (* success)(SamiPostresponse*, SamiError*)) {
+SamiPostsApi::getPostByIDWithCompletion(String* vestorlyAuth, String* _id, void (* success)(SamiPostresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&getPostByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -212,7 +212,7 @@ SamiPostsApi::getPostByIDWithCompletion(String* vestorly-auth, String* _id, void
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 
@@ -269,7 +269,7 @@ updatePostByIDProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, Sam
 }
 
 SamiPostresponse* 
-SamiPostsApi::updatePostByIDWithCompletion(String* vestorly-auth, String* _id, SamiPost* post, void (* success)(SamiPostresponse*, SamiError*)) {
+SamiPostsApi::updatePostByIDWithCompletion(String* vestorlyAuth, String* _id, SamiPost* post, void (* success)(SamiPostresponse*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&updatePostByIDProcessor, (void(*)(void*, SamiError*))success);
@@ -282,7 +282,7 @@ SamiPostsApi::updatePostByIDWithCompletion(String* vestorly-auth, String* _id, S
   queryParams->Construct();
 
   
-    queryParams->Add(new String("vestorly-auth"), vestorly-auth);
+    queryParams->Add(new String("vestorly_auth"), vestorlyAuth);
   
   
 

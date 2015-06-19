@@ -10,84 +10,84 @@
 
 @property(nonatomic) NSString* _id;
 
-@property(nonatomic) NSNumber<Optional>* email_day_of_week;
+@property(nonatomic) NSNumber* emailDayOfWeek;
 
-@property(nonatomic) NSNumber<Optional>* email_hour;
+@property(nonatomic) NSNumber* emailHour;
 
-@property(nonatomic) NSString<Optional>* email_status;
+@property(nonatomic) NSString* emailStatus;
 
-@property(nonatomic) NSString<Optional>* facebook_active_wall;
+@property(nonatomic) NSString* facebookActiveWall;
 
-@property(nonatomic) NSNumber<Optional>* facebook_day_of_week;
+@property(nonatomic) NSNumber* facebookDayOfWeek;
 
-@property(nonatomic) NSNumber<Optional>* facebook_hour;
+@property(nonatomic) NSNumber* facebookHour;
 
-@property(nonatomic) NSString<Optional>* facebook_status;
+@property(nonatomic) NSString* facebookStatus;
 
-@property(nonatomic) NSString<Optional>* linkedin_active_wall;
+@property(nonatomic) NSString* linkedinActiveWall;
 
-@property(nonatomic) NSNumber<Optional>* linkedin_day_of_week;
+@property(nonatomic) NSNumber* linkedinDayOfWeek;
 
-@property(nonatomic) NSNumber<Optional>* linkedin_hour;
+@property(nonatomic) NSNumber* linkedinHour;
 
-@property(nonatomic) NSString<Optional>* linkedin_status;
+@property(nonatomic) NSString* linkedinStatus;
 
-@property(nonatomic) NSString<Optional>* social_title;
+@property(nonatomic) NSString* socialTitle;
 
-@property(nonatomic) NSString<Optional>* social_subtitle;
+@property(nonatomic) NSString* socialSubtitle;
 
-@property(nonatomic) NSString<Optional>* social_description;
+@property(nonatomic) NSString* socialDescription;
 
-@property(nonatomic) NSNumber<Optional>* twitter_day_of_week;
+@property(nonatomic) NSNumber* twitterDayOfWeek;
 
-@property(nonatomic) NSNumber<Optional>* twitter_hour;
+@property(nonatomic) NSNumber* twitterHour;
 
-@property(nonatomic) NSString<Optional>* twitter_status;
+@property(nonatomic) NSString* twitterStatus;
 
-@property(nonatomic) NSString<Optional>* social_posting_text;
+@property(nonatomic) NSString* socialPostingText;
 
-@property(nonatomic) NSString<Optional>* _newsletter_type;
+@property(nonatomic) NSString* newsletterType;
 
-@property(nonatomic) NSString<Optional>* group_id;
+@property(nonatomic) NSString* groupId;
 
-@property(nonatomic) NSNumber<Optional>* montage_enabled;
+@property(nonatomic) BOOL montageEnabled;
 
-@property(nonatomic) NSString<Optional>* montage_title;
+@property(nonatomic) NSString* montageTitle;
 
-@property(nonatomic) NSString<Optional>* montage_facebook_image_url;
+@property(nonatomic) NSString* montageFacebookImageUrl;
 
-@property(nonatomic) NSString<Optional>* montage_linkedin_image_url;
+@property(nonatomic) NSString* montageLinkedinImageUrl;
 
-@property(nonatomic) NSString<Optional>* montage_twitter_image_url;
+@property(nonatomic) NSString* montageTwitterImageUrl;
 
-@property(nonatomic) NSArray<Optional>* _newsletter_ids;
+@property(nonatomic) NSArray* newsletterIds;
 
-@property(nonatomic) NSString<Optional>* primary_email_font;
+@property(nonatomic) NSString* primaryEmailFont;
 
-@property(nonatomic) NSString<Optional>* footer_email_font;
+@property(nonatomic) NSString* footerEmailFont;
 
-@property(nonatomic) NSString<Optional>* email_accent_color;
+@property(nonatomic) NSString* emailAccentColor;
 
-@property(nonatomic) NSString<Optional>* render_version;
+@property(nonatomic) NSString* renderVersion;
 
-@property(nonatomic) NSString<Optional>* header_image_url;
+@property(nonatomic) NSString* headerImageUrl;
 
-@property(nonatomic) NSString<Optional>* header_background_color;
+@property(nonatomic) NSString* headerBackgroundColor;
 
-@property(nonatomic) NSString<Optional>* banner_color;
+@property(nonatomic) NSString* bannerColor;
 
-@property(nonatomic) NSString<Optional>* title_color;
+@property(nonatomic) NSString* titleColor;
 
-@property(nonatomic) NSString<Optional>* footer_html;
+@property(nonatomic) NSString* footerHtml;
 
-@property(nonatomic) NSString<Optional>* intro_text;
+@property(nonatomic) NSString* introText;
 
-@property(nonatomic) NSString<Optional>* footer_image_url;
+@property(nonatomic) NSString* footerImageUrl;
 
-@property(nonatomic) NSString<Optional>* subject;
+@property(nonatomic) NSString* subject;
 
-@property(nonatomic) NSString<Optional>* salutation_text;
+@property(nonatomic) NSString* salutationText;
 
-@property(nonatomic) NSString<Optional>* body_html;
+@property(nonatomic) NSString* bodyHtml;
 
 @end

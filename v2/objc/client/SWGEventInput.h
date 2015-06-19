@@ -11,24 +11,24 @@
 
 @property(nonatomic) NSString* type;
 
-@property(nonatomic) NSString<Optional>* referer;
+@property(nonatomic) NSString* referer;
 
-@property(nonatomic) NSString* original_url;
+@property(nonatomic) NSString* originalUrl;
 
-@property(nonatomic) NSString<Optional>* originator_email;
+@property(nonatomic) NSString* originatorEmail;
 
-@property(nonatomic) NSString* subject_email;
+@property(nonatomic) NSString* subjectEmail;
 
-@property(nonatomic) NSString<Optional>* parent_event_id;
+@property(nonatomic) NSString* parentEventId;
 
-@property(nonatomic) NSString<Optional>* originator_id;
+@property(nonatomic) NSString* originatorId;
 
-@property(nonatomic) NSString<Optional>* advisor_id;
+@property(nonatomic) NSString* advisorId;
 
-@property(nonatomic) NSString<Optional>* subject_id;
+@property(nonatomic) NSString* subjectId;
 
-@property(nonatomic) SWGEventContent<Optional, SWGEventContent>* event_content;
+@property(nonatomic) SWGEventContent* eventContent;
 
-@property(nonatomic) NSString<Optional>* created_at;
+@property(nonatomic) NSString* createdAt;
 
 @end

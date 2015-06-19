@@ -3,59 +3,99 @@ package io.swagger.client.model;
 import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class NewsletterSetting  {
   
+  @SerializedName("_id")
   private String id = null;
+  @SerializedName("email_day_of_week")
   private Integer emailDayOfWeek = null;
+  @SerializedName("email_hour")
   private Integer emailHour = null;
+  @SerializedName("email_status")
   private String emailStatus = null;
+  @SerializedName("facebook_active_wall")
   private String facebookActiveWall = null;
+  @SerializedName("facebook_day_of_week")
   private Integer facebookDayOfWeek = null;
+  @SerializedName("facebook_hour")
   private Integer facebookHour = null;
+  @SerializedName("facebook_status")
   private String facebookStatus = null;
+  @SerializedName("linkedin_active_wall")
   private String linkedinActiveWall = null;
+  @SerializedName("linkedin_day_of_week")
   private Integer linkedinDayOfWeek = null;
+  @SerializedName("linkedin_hour")
   private Integer linkedinHour = null;
+  @SerializedName("linkedin_status")
   private String linkedinStatus = null;
+  @SerializedName("social_title")
   private String socialTitle = null;
+  @SerializedName("social_subtitle")
   private String socialSubtitle = null;
+  @SerializedName("social_description")
   private String socialDescription = null;
+  @SerializedName("twitter_day_of_week")
   private Integer twitterDayOfWeek = null;
+  @SerializedName("twitter_hour")
   private Integer twitterHour = null;
+  @SerializedName("twitter_status")
   private String twitterStatus = null;
+  @SerializedName("social_posting_text")
   private String socialPostingText = null;
+  @SerializedName("newsletter_type")
   private String newsletterType = null;
+  @SerializedName("group_id")
   private String groupId = null;
+  @SerializedName("montage_enabled")
   private Boolean montageEnabled = null;
+  @SerializedName("montage_title")
   private String montageTitle = null;
+  @SerializedName("montage_facebook_image_url")
   private String montageFacebookImageUrl = null;
+  @SerializedName("montage_linkedin_image_url")
   private String montageLinkedinImageUrl = null;
+  @SerializedName("montage_twitter_image_url")
   private String montageTwitterImageUrl = null;
+  @SerializedName("newsletter_ids")
   private List<String> newsletterIds = new ArrayList<String>() ;
+  @SerializedName("primary_email_font")
   private String primaryEmailFont = null;
+  @SerializedName("footer_email_font")
   private String footerEmailFont = null;
+  @SerializedName("email_accent_color")
   private String emailAccentColor = null;
+  @SerializedName("render_version")
   private String renderVersion = null;
+  @SerializedName("header_image_url")
   private String headerImageUrl = null;
+  @SerializedName("header_background_color")
   private String headerBackgroundColor = null;
+  @SerializedName("banner_color")
   private String bannerColor = null;
+  @SerializedName("title_color")
   private String titleColor = null;
+  @SerializedName("footer_html")
   private String footerHtml = null;
+  @SerializedName("intro_text")
   private String introText = null;
+  @SerializedName("footer_image_url")
   private String footerImageUrl = null;
+  @SerializedName("subject")
   private String subject = null;
+  @SerializedName("salutation_text")
   private String salutationText = null;
+  @SerializedName("body_html")
   private String bodyHtml = null;
 
   
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty("_id")
   public String getId() {
     return id;
   }
@@ -67,7 +107,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("email_day_of_week")
   public Integer getEmailDayOfWeek() {
     return emailDayOfWeek;
   }
@@ -79,7 +118,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("email_hour")
   public Integer getEmailHour() {
     return emailHour;
   }
@@ -91,7 +129,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("email_status")
   public String getEmailStatus() {
     return emailStatus;
   }
@@ -103,7 +140,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("facebook_active_wall")
   public String getFacebookActiveWall() {
     return facebookActiveWall;
   }
@@ -115,7 +151,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("facebook_day_of_week")
   public Integer getFacebookDayOfWeek() {
     return facebookDayOfWeek;
   }
@@ -127,7 +162,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("facebook_hour")
   public Integer getFacebookHour() {
     return facebookHour;
   }
@@ -139,7 +173,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("facebook_status")
   public String getFacebookStatus() {
     return facebookStatus;
   }
@@ -151,7 +184,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("linkedin_active_wall")
   public String getLinkedinActiveWall() {
     return linkedinActiveWall;
   }
@@ -163,7 +195,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("linkedin_day_of_week")
   public Integer getLinkedinDayOfWeek() {
     return linkedinDayOfWeek;
   }
@@ -175,7 +206,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("linkedin_hour")
   public Integer getLinkedinHour() {
     return linkedinHour;
   }
@@ -187,7 +217,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("linkedin_status")
   public String getLinkedinStatus() {
     return linkedinStatus;
   }
@@ -199,7 +228,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("social_title")
   public String getSocialTitle() {
     return socialTitle;
   }
@@ -211,7 +239,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("social_subtitle")
   public String getSocialSubtitle() {
     return socialSubtitle;
   }
@@ -223,7 +250,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("social_description")
   public String getSocialDescription() {
     return socialDescription;
   }
@@ -235,7 +261,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("twitter_day_of_week")
   public Integer getTwitterDayOfWeek() {
     return twitterDayOfWeek;
   }
@@ -247,7 +272,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("twitter_hour")
   public Integer getTwitterHour() {
     return twitterHour;
   }
@@ -259,7 +283,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("twitter_status")
   public String getTwitterStatus() {
     return twitterStatus;
   }
@@ -271,7 +294,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("social_posting_text")
   public String getSocialPostingText() {
     return socialPostingText;
   }
@@ -283,7 +305,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("newsletter_type")
   public String getNewsletterType() {
     return newsletterType;
   }
@@ -295,7 +316,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("group_id")
   public String getGroupId() {
     return groupId;
   }
@@ -307,7 +327,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("montage_enabled")
   public Boolean getMontageEnabled() {
     return montageEnabled;
   }
@@ -319,7 +338,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("montage_title")
   public String getMontageTitle() {
     return montageTitle;
   }
@@ -331,7 +349,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("montage_facebook_image_url")
   public String getMontageFacebookImageUrl() {
     return montageFacebookImageUrl;
   }
@@ -343,7 +360,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("montage_linkedin_image_url")
   public String getMontageLinkedinImageUrl() {
     return montageLinkedinImageUrl;
   }
@@ -355,7 +371,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("montage_twitter_image_url")
   public String getMontageTwitterImageUrl() {
     return montageTwitterImageUrl;
   }
@@ -367,7 +382,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("newsletter_ids")
   public List<String> getNewsletterIds() {
     return newsletterIds;
   }
@@ -379,7 +393,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("primary_email_font")
   public String getPrimaryEmailFont() {
     return primaryEmailFont;
   }
@@ -391,7 +404,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("footer_email_font")
   public String getFooterEmailFont() {
     return footerEmailFont;
   }
@@ -403,7 +415,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("email_accent_color")
   public String getEmailAccentColor() {
     return emailAccentColor;
   }
@@ -415,7 +426,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("render_version")
   public String getRenderVersion() {
     return renderVersion;
   }
@@ -427,7 +437,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("header_image_url")
   public String getHeaderImageUrl() {
     return headerImageUrl;
   }
@@ -439,7 +448,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("header_background_color")
   public String getHeaderBackgroundColor() {
     return headerBackgroundColor;
   }
@@ -451,7 +459,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("banner_color")
   public String getBannerColor() {
     return bannerColor;
   }
@@ -463,7 +470,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("title_color")
   public String getTitleColor() {
     return titleColor;
   }
@@ -475,7 +481,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("footer_html")
   public String getFooterHtml() {
     return footerHtml;
   }
@@ -487,7 +492,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("intro_text")
   public String getIntroText() {
     return introText;
   }
@@ -499,7 +503,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("footer_image_url")
   public String getFooterImageUrl() {
     return footerImageUrl;
   }
@@ -511,7 +514,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("subject")
   public String getSubject() {
     return subject;
   }
@@ -523,7 +525,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("salutation_text")
   public String getSalutationText() {
     return salutationText;
   }
@@ -535,7 +536,6 @@ public class NewsletterSetting  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("body_html")
   public String getBodyHtml() {
     return bodyHtml;
   }

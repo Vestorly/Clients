@@ -9,6 +9,6 @@
 @interface SWGPostresponse : SWGObject
 
 
-@property(nonatomic) SWGPost<Optional, SWGPost>* post;
+@property(nonatomic) SWGPost* post;
 
 @end

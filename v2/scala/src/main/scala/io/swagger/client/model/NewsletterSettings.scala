@@ -4,6 +4,6 @@ import io.swagger.client.model.NewsletterSetting
 
 
 
-case class Newslettersettings (
-  newletter_settings: List[NewsletterSetting])
+case class NewsletterSettings (
+  newsletter_settings: List[NewsletterSetting])
   

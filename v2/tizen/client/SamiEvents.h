@@ -17,8 +17,8 @@
 using namespace Tizen::Web::Json;
 
 
-#include "SamiEvent.h"
 using Tizen::Base::Collection::IList;
+#include "SamiEvent.h"
 
 
 namespace Swagger {

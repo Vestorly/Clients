@@ -5,29 +5,39 @@ import io.swagger.client.model.OrgSetting;
 import io.swagger.client.model.Features;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class Settings  {
   
+  @SerializedName("_id")
   private String id = null;
+  @SerializedName("company")
   private String company = null;
+  @SerializedName("picture_url")
   private String pictureUrl = null;
+  @SerializedName("website")
   private String website = null;
+  @SerializedName("disclosure")
   private String disclosure = null;
+  @SerializedName("adv_brochure")
   private String advBrochure = null;
+  @SerializedName("slug")
   private String slug = null;
+  @SerializedName("name")
   private String name = null;
+  @SerializedName("orgsetting")
   private OrgSetting orgsetting = null;
+  @SerializedName("feature")
   private Features feature = null;
+  @SerializedName("personalsetting")
   private PersonalSettings personalsetting = null;
 
   
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty("_id")
   public String getId() {
     return id;
   }
@@ -39,7 +49,6 @@ public class Settings  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("company")
   public String getCompany() {
     return company;
   }
@@ -51,7 +60,6 @@ public class Settings  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("picture_url")
   public String getPictureUrl() {
     return pictureUrl;
   }
@@ -63,7 +71,6 @@ public class Settings  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("website")
   public String getWebsite() {
     return website;
   }
@@ -75,7 +82,6 @@ public class Settings  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("disclosure")
   public String getDisclosure() {
     return disclosure;
   }
@@ -87,7 +93,6 @@ public class Settings  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("adv_brochure")
   public String getAdvBrochure() {
     return advBrochure;
   }
@@ -99,7 +104,6 @@ public class Settings  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("slug")
   public String getSlug() {
     return slug;
   }
@@ -111,7 +115,6 @@ public class Settings  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("name")
   public String getName() {
     return name;
   }
@@ -123,7 +126,6 @@ public class Settings  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("orgsetting")
   public OrgSetting getOrgsetting() {
     return orgsetting;
   }
@@ -135,7 +137,6 @@ public class Settings  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("feature")
   public Features getFeature() {
     return feature;
   }
@@ -147,7 +148,6 @@ public class Settings  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("personalsetting")
   public PersonalSettings getPersonalsetting() {
     return personalsetting;
   }

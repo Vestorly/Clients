@@ -1,7 +1,7 @@
 package io.swagger.client.model
 
-import io.swagger.client.model.Meta
 import io.swagger.client.model.Member
+import io.swagger.client.model.Meta
 
 
 

@@ -94,7 +94,7 @@ class SessionsApi (implicit val swagger: Swagger) extends ScalatraServlet
   val logoutOperation = (apiOperation[SessionLogoutResponse]("logout")
       summary ""
       parameters(
-        queryParam[String]("vestorly-auth").description("")
+        queryParam[String]("vestorlyAuth").description("")
         
         
         
@@ -119,7 +119,7 @@ class SessionsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
       
-      val vestorly-auth = params.getAs[String]("vestorly-auth")
+      val vestorlyAuth = params.getAs[String]("vestorlyAuth")
       
     
 
@@ -129,7 +129,7 @@ class SessionsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
     
     
-    println("vestorly-auth: " + vestorly-auth)
+    println("vestorlyAuth: " + vestorlyAuth)
   
     
     

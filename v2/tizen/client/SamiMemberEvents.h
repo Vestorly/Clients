@@ -18,8 +18,8 @@ using namespace Tizen::Web::Json;
 
 
 #include "SamiTruncatedMember.h"
-#include "SamiMemberEvent.h"
 using Tizen::Base::Collection::IList;
+#include "SamiMemberEvent.h"
 
 
 namespace Swagger {

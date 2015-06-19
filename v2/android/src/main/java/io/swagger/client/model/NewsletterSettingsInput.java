@@ -1,51 +1,26 @@
 package io.swagger.client.model;
 
+import io.swagger.client.model.NewsletterSetting;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class NewsletterSettingsInput  {
   
-  private String emailStatus = null;
-  private String twitterStatus = null;
-  private String linkedinStatus = null;
+  @SerializedName("newsletter_setting")
+  private NewsletterSetting newsletterSetting = null;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("email_status")
-  public String getEmailStatus() {
-    return emailStatus;
+  public NewsletterSetting getNewsletterSetting() {
+    return newsletterSetting;
   }
-  public void setEmailStatus(String emailStatus) {
-    this.emailStatus = emailStatus;
-  }
-
-  
-  /**
-   **/
-  @ApiModelProperty(value = "")
-  @JsonProperty("twitter_status")
-  public String getTwitterStatus() {
-    return twitterStatus;
-  }
-  public void setTwitterStatus(String twitterStatus) {
-    this.twitterStatus = twitterStatus;
-  }
-
-  
-  /**
-   **/
-  @ApiModelProperty(value = "")
-  @JsonProperty("linkedin_status")
-  public String getLinkedinStatus() {
-    return linkedinStatus;
-  }
-  public void setLinkedinStatus(String linkedinStatus) {
-    this.linkedinStatus = linkedinStatus;
+  public void setNewsletterSetting(NewsletterSetting newsletterSetting) {
+    this.newsletterSetting = newsletterSetting;
   }
 
   
@@ -55,9 +30,7 @@ public class NewsletterSettingsInput  {
     StringBuilder sb = new StringBuilder();
     sb.append("class NewsletterSettingsInput {\n");
     
-    sb.append("  emailStatus: ").append(emailStatus).append("\n");
-    sb.append("  twitterStatus: ").append(twitterStatus).append("\n");
-    sb.append("  linkedinStatus: ").append(linkedinStatus).append("\n");
+    sb.append("  newsletterSetting: ").append(newsletterSetting).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

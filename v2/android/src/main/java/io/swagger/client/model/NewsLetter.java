@@ -2,24 +2,29 @@ package io.swagger.client.model;
 
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class Newsletter  {
   
+  @SerializedName("_id")
   private String id = null;
+  @SerializedName("is_sent")
   private Boolean isSent = null;
+  @SerializedName("is_default")
   private Boolean isDefault = null;
+  @SerializedName("click_count")
   private Long clickCount = null;
+  @SerializedName("unique_click_count")
   private Long uniqueClickCount = null;
+  @SerializedName("total_click_count")
   private Long totalClickCount = null;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("_id")
   public String getId() {
     return id;
   }
@@ -31,7 +36,6 @@ public class Newsletter  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("is_sent")
   public Boolean getIsSent() {
     return isSent;
   }
@@ -43,7 +47,6 @@ public class Newsletter  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("is_default")
   public Boolean getIsDefault() {
     return isDefault;
   }
@@ -55,7 +58,6 @@ public class Newsletter  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("click_count")
   public Long getClickCount() {
     return clickCount;
   }
@@ -67,7 +69,6 @@ public class Newsletter  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("unique_click_count")
   public Long getUniqueClickCount() {
     return uniqueClickCount;
   }
@@ -79,7 +80,6 @@ public class Newsletter  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("total_click_count")
   public Long getTotalClickCount() {
     return totalClickCount;
   }

@@ -5,10 +5,10 @@
 #include "SamiApiClient.h"
 #include "SamiError.h"
 
-#include "SamiSources.h"
 using Tizen::Base::String;
-#include "SamiSourceresponse.h"
+#include "SamiSources.h"
 #include "SamiSourceInput.h"
+#include "SamiSourceresponse.h"
 
 using namespace Tizen::Net::Http;
 
@@ -21,16 +21,16 @@ public:
 
   
   SamiSources* 
-  findSourcesWithCompletion(String* vestorly-auth, void (* handler)(SamiSources*, SamiError*));
+  findSourcesWithCompletion(String* vestorlyAuth, void (* handler)(SamiSources*, SamiError*));
   
   SamiSourceresponse* 
-  createSourceWithCompletion(String* vestorly-auth, SamiSourceInput* source, void (* handler)(SamiSourceresponse*, SamiError*));
+  createSourceWithCompletion(String* vestorlyAuth, SamiSourceInput* source, void (* handler)(SamiSourceresponse*, SamiError*));
   
   SamiSourceresponse* 
-  getSourceByIDWithCompletion(String* vestorly-auth, String* _id, void (* handler)(SamiSourceresponse*, SamiError*));
+  getSourceByIDWithCompletion(String* vestorlyAuth, String* _id, void (* handler)(SamiSourceresponse*, SamiError*));
   
   SamiSourceresponse* 
-  updateSourceByIDWithCompletion(String* vestorly-auth, String* _id, SamiSourceInput* source, void (* handler)(SamiSourceresponse*, SamiError*));
+  updateSourceByIDWithCompletion(String* vestorlyAuth, String* _id, SamiSourceInput* source, void (* handler)(SamiSourceresponse*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

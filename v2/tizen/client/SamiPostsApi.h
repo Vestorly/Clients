@@ -5,11 +5,11 @@
 #include "SamiApiClient.h"
 #include "SamiError.h"
 
-#include "SamiPosts.h"
 using Tizen::Base::String;
-#include "SamiPost.h"
-#include "SamiPostInput.h"
+#include "SamiPosts.h"
 #include "SamiPostresponse.h"
+#include "SamiPostInput.h"
+#include "SamiPost.h"
 
 using namespace Tizen::Net::Http;
 
@@ -22,16 +22,16 @@ public:
 
   
   SamiPosts* 
-  findPostsWithCompletion(String* vestorly-auth, String* text_query, String* external_url, String* is_published, void (* handler)(SamiPosts*, SamiError*));
-  
-  SamiPost* 
-  createPostWithCompletion(String* vestorly-auth, SamiPostInput* post, void (* handler)(SamiPost*, SamiError*));
+  findPostsWithCompletion(String* vestorlyAuth, String* textQuery, String* externalUrl, String* isPublished, void (* handler)(SamiPosts*, SamiError*));
   
   SamiPostresponse* 
-  getPostByIDWithCompletion(String* vestorly-auth, String* _id, void (* handler)(SamiPostresponse*, SamiError*));
+  createPostWithCompletion(String* vestorlyAuth, SamiPostInput* post, void (* handler)(SamiPostresponse*, SamiError*));
   
   SamiPostresponse* 
-  updatePostByIDWithCompletion(String* vestorly-auth, String* _id, SamiPost* post, void (* handler)(SamiPostresponse*, SamiError*));
+  getPostByIDWithCompletion(String* vestorlyAuth, String* _id, void (* handler)(SamiPostresponse*, SamiError*));
+  
+  SamiPostresponse* 
+  updatePostByIDWithCompletion(String* vestorlyAuth, String* _id, SamiPost* post, void (* handler)(SamiPostresponse*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

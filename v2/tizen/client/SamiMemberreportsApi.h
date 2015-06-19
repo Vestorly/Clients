@@ -19,7 +19,7 @@ public:
 
   
   SamiMemberReports* 
-  findMemberReportsWithCompletion(String* vestorly-auth, void (* handler)(SamiMemberReports*, SamiError*));
+  findMemberReportsWithCompletion(String* vestorlyAuth, void (* handler)(SamiMemberReports*, SamiError*));
   
   static String getBasePath() {
     return L"https://staging.vestorly.com/api/v2";

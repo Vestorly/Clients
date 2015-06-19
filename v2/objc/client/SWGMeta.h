@@ -8,12 +8,6 @@
 @interface SWGMeta : SWGObject
 
 
-@property(nonatomic) NSString<Optional>* sort_order;
-
-@property(nonatomic) NSNumber<Optional>* more_results;
-
-@property(nonatomic) NSString<Optional>* message;
-
-@property(nonatomic) NSArray<Optional>* sorted_by;
+@property(nonatomic) NSString* message;
 
 @end

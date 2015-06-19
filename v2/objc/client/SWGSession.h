@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "SWGUser.h"
 #import "SWGSettings.h"
+#import "SWGUser.h"
 
 
 @protocol SWGSession
@@ -10,14 +10,14 @@
 @interface SWGSession : SWGObject
 
 
-@property(nonatomic) NSString<Optional>* _id;
+@property(nonatomic) NSString* _id;
 
-@property(nonatomic) NSString<Optional>* vestorlyauth;
+@property(nonatomic) NSString* vestorlyAuth;
 
-@property(nonatomic) NSNumber<Optional>* _new_user;
+@property(nonatomic) BOOL newUser;
 
-@property(nonatomic) SWGUser<Optional, SWGUser>* current_user;
+@property(nonatomic) SWGUser* currentUser;
 
-@property(nonatomic) SWGSettings<Optional, SWGSettings>* settings;
+@property(nonatomic) SWGSettings* settings;
 
 @end

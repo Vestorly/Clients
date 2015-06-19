@@ -1,11 +1,11 @@
 /*
- * SamiNewslettersettings.h
+ * SamiNewsletterSettings.h
  * 
  * 
  */
 
-#ifndef SamiNewslettersettings_H_
-#define SamiNewslettersettings_H_
+#ifndef SamiNewsletterSettings_H_
+#define SamiNewsletterSettings_H_
 
 #include <FApp.h>
 #include <FBase.h>
@@ -17,17 +17,17 @@
 using namespace Tizen::Web::Json;
 
 
-#include "SamiNewsletterSetting.h"
 using Tizen::Base::Collection::IList;
+#include "SamiNewsletterSetting.h"
 
 
 namespace Swagger {
 
-class SamiNewslettersettings: public SamiObject {
+class SamiNewsletterSettings: public SamiObject {
 public:
-    SamiNewslettersettings();
-    SamiNewslettersettings(String* json);
-    virtual ~SamiNewslettersettings();
+    SamiNewsletterSettings();
+    SamiNewsletterSettings(String* json);
+    virtual ~SamiNewsletterSettings();
 
     void init();
 
@@ -39,18 +39,18 @@ public:
 
     void fromJsonObject(IJsonValue* json);
 
-    SamiNewslettersettings* fromJson(String* obj);
+    SamiNewsletterSettings* fromJson(String* obj);
 
     
-    IList* getPNewletterSettings();
-    void setPNewletterSettings(IList* pNewletter_settings);
+    IList* getPNewsletterSettings();
+    void setPNewsletterSettings(IList* pNewsletter_settings);
     
 
 private:
-    IList* pNewletter_settings;
+    IList* pNewsletter_settings;
     
 };
 
 } /* namespace Swagger */
 
-#endif /* SamiNewslettersettings_H_ */
+#endif /* SamiNewsletterSettings_H_ */

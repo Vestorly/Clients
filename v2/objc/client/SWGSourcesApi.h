@@ -17,12 +17,12 @@
  
  Returns all sources
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorlyAuth Vestorly Auth Token
  
 
  return type: SWGSources*
  */
--(NSNumber*) findSourcesWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) findSourcesWithCompletionBlock :(NSString*) vestorlyAuth 
     
     completionHandler: (void (^)(SWGSources* output, NSError* error))completionBlock;
     
@@ -33,13 +33,13 @@
  
  Create source
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorlyAuth Vestorly Auth Token
  @param source Source
  
 
  return type: SWGSourceresponse*
  */
--(NSNumber*) createSourceWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) createSourceWithCompletionBlock :(NSString*) vestorlyAuth 
      source:(SWGSourceInput*) source 
     
     completionHandler: (void (^)(SWGSourceresponse* output, NSError* error))completionBlock;
@@ -51,13 +51,13 @@
  
  Get Source By ID
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorlyAuth Vestorly Auth Token
  @param _id ID of source to fetch
  
 
  return type: SWGSourceresponse*
  */
--(NSNumber*) getSourceByIDWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) getSourceByIDWithCompletionBlock :(NSString*) vestorlyAuth 
      _id:(NSString*) _id 
     
     completionHandler: (void (^)(SWGSourceresponse* output, NSError* error))completionBlock;
@@ -69,14 +69,14 @@
  
  Update Source By ID
 
- @param vestorly-auth Vestorly Auth Token
+ @param vestorlyAuth Vestorly Auth Token
  @param _id ID of source to fetch
  @param source Source
  
 
  return type: SWGSourceresponse*
  */
--(NSNumber*) updateSourceByIDWithCompletionBlock :(NSString*) vestorly-auth 
+-(NSNumber*) updateSourceByIDWithCompletionBlock :(NSString*) vestorlyAuth 
      _id:(NSString*) _id 
      source:(SWGSourceInput*) source 
     

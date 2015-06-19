@@ -17,9 +17,9 @@
 using namespace Tizen::Web::Json;
 
 
+#include "SamiUser.h"
 #include "SamiSettings.h"
 using Tizen::Base::String;
-#include "SamiUser.h"
 using Tizen::Base::Boolean;
 
 

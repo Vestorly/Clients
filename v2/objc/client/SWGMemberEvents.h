@@ -10,8 +10,8 @@
 @interface SWGMemberEvents : SWGObject
 
 
-@property(nonatomic) NSArray<Optional, SWGTruncatedMember>* members;
+@property(nonatomic) NSArray<SWGTruncatedMember>* members;
 
-@property(nonatomic) NSArray<Optional, SWGMemberEvent>* member_events;
+@property(nonatomic) NSArray<SWGMemberEvent>* memberEvents;
 
 @end

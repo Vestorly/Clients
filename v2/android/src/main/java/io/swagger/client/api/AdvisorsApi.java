@@ -7,7 +7,7 @@ import io.swagger.client.model.*;
 
 import java.util.*;
 
-import io.swagger.client.model.Advisorresponse;
+import io.swagger.client.model.Advisor;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -37,10 +37,25 @@ public class AdvisorsApi {
   }
 
   
-  
-  public Advisorresponse  findAdvisorByID (String vestorlyAuth, String id) throws ApiException {
+  /**
+   * 
+   * Returns a single advisor given their ID
+   * @param vestorlyAuth Vestorly Auth Token
+   * @param id Advisor Id to fetch
+   * @return Advisor
+   */
+  public Advisor  findAdvisorByID (String vestorlyAuth, String id) throws ApiException {
     Object postBody = null;
-
+    
+    // verify the required parameter 'vestorlyAuth' is set
+    if (vestorlyAuth == null) {
+       throw new ApiException(400, "Missing the required parameter 'vestorlyAuth' when calling findAdvisorByID");
+    }
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+       throw new ApiException(400, "Missing the required parameter 'id' when calling findAdvisorByID");
+    }
     
 
     // create path and map variables
@@ -54,7 +69,7 @@ public class AdvisorsApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     if (vestorlyAuth != null)
-      queryParams.put("vestorly-auth", ApiInvoker.parameterToString(vestorlyAuth));
+      queryParams.put("vestorly_auth", ApiInvoker.parameterToString(vestorlyAuth));
     
 
     
@@ -79,7 +94,7 @@ public class AdvisorsApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Advisorresponse) ApiInvoker.deserialize(response, "", Advisorresponse.class);
+        return (Advisor) ApiInvoker.deserialize(response, "", Advisor.class);
       }
       else {
         return null;

@@ -18,8 +18,8 @@ using namespace Tizen::Web::Json;
 
 
 using Tizen::Base::String;
-using Tizen::Base::Boolean;
 using Tizen::Base::Collection::IList;
+using Tizen::Base::Boolean;
 
 
 namespace Swagger {
@@ -91,8 +91,8 @@ public:
     String* getPApprovalStatus();
     void setPApprovalStatus(String* pApproval_status);
     
-    String* getPApprovalTransactions();
-    void setPApprovalTransactions(String* pApproval_transactions);
+    IList* getPApprovalTransactions();
+    void setPApprovalTransactions(IList* pApproval_transactions);
     
     IList* getPGroupIds();
     void setPGroupIds(IList* pGroup_ids);
@@ -157,6 +157,9 @@ public:
     String* getPVestorlyUrl();
     void setPVestorlyUrl(String* pVestorly_url);
     
+    String* getPTitle();
+    void setPTitle(String* pTitle);
+    
 
 private:
     String* p_id;
@@ -175,7 +178,7 @@ private:
     String* pSummary;
     String* pTopic;
     String* pApproval_status;
-    String* pApproval_transactions;
+    IList* pApproval_transactions;
     IList* pGroup_ids;
     String* pSlug;
     String* pArticle_id;
@@ -197,6 +200,7 @@ private:
     String* pDisplay_tag;
     String* pDisplay_summary;
     String* pVestorly_url;
+    String* pTitle;
     
 };
 

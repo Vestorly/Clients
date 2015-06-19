@@ -2,40 +2,61 @@ package io.swagger.client.model;
 
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class Article  {
   
+  @SerializedName("_id")
   private String id = null;
+  @SerializedName("created_at")
   private String createdAt = null;
+  @SerializedName("title")
   private String title = null;
+  @SerializedName("body")
   private String body = null;
+  @SerializedName("is_responsive")
   private Boolean isResponsive = null;
+  @SerializedName("is_proxy_needed")
   private Boolean isProxyNeeded = null;
+  @SerializedName("is_mobile_proxy_needed")
   private Boolean isMobileProxyNeeded = null;
+  @SerializedName("needs_sanitize")
   private Boolean needsSanitize = null;
+  @SerializedName("proxy_url")
   private String proxyUrl = null;
+  @SerializedName("topic")
   private String topic = null;
+  @SerializedName("suitability_score")
   private String suitabilityScore = null;
+  @SerializedName("summary")
   private String summary = null;
+  @SerializedName("image_path")
   private String imagePath = null;
+  @SerializedName("image_url")
   private String imageUrl = null;
+  @SerializedName("image_height")
   private Integer imageHeight = null;
+  @SerializedName("image_width")
   private Integer imageWidth = null;
+  @SerializedName("logo_url")
   private String logoUrl = null;
+  @SerializedName("square_logo_url")
   private String squareLogoUrl = null;
+  @SerializedName("url")
   private String url = null;
+  @SerializedName("external_url")
   private String externalUrl = null;
+  @SerializedName("external_url_source")
   private String externalUrlSource = null;
+  @SerializedName("external_url_type")
   private String externalUrlType = null;
 
   
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty("_id")
   public String getId() {
     return id;
   }
@@ -47,7 +68,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("created_at")
   public String getCreatedAt() {
     return createdAt;
   }
@@ -59,7 +79,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty("title")
   public String getTitle() {
     return title;
   }
@@ -71,7 +90,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("body")
   public String getBody() {
     return body;
   }
@@ -83,7 +101,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("is_responsive")
   public Boolean getIsResponsive() {
     return isResponsive;
   }
@@ -95,7 +112,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("is_proxy_needed")
   public Boolean getIsProxyNeeded() {
     return isProxyNeeded;
   }
@@ -107,7 +123,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("is_mobile_proxy_needed")
   public Boolean getIsMobileProxyNeeded() {
     return isMobileProxyNeeded;
   }
@@ -119,7 +134,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("needs_sanitize")
   public Boolean getNeedsSanitize() {
     return needsSanitize;
   }
@@ -131,7 +145,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("proxy_url")
   public String getProxyUrl() {
     return proxyUrl;
   }
@@ -143,7 +156,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("topic")
   public String getTopic() {
     return topic;
   }
@@ -155,7 +167,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("suitability_score")
   public String getSuitabilityScore() {
     return suitabilityScore;
   }
@@ -167,7 +178,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("summary")
   public String getSummary() {
     return summary;
   }
@@ -179,7 +189,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("image_path")
   public String getImagePath() {
     return imagePath;
   }
@@ -191,7 +200,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("image_url")
   public String getImageUrl() {
     return imageUrl;
   }
@@ -203,7 +211,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("image_height")
   public Integer getImageHeight() {
     return imageHeight;
   }
@@ -215,7 +222,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("image_width")
   public Integer getImageWidth() {
     return imageWidth;
   }
@@ -227,7 +233,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("logo_url")
   public String getLogoUrl() {
     return logoUrl;
   }
@@ -239,7 +244,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("square_logo_url")
   public String getSquareLogoUrl() {
     return squareLogoUrl;
   }
@@ -251,7 +255,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("url")
   public String getUrl() {
     return url;
   }
@@ -263,7 +266,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("external_url")
   public String getExternalUrl() {
     return externalUrl;
   }
@@ -275,7 +277,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("external_url_source")
   public String getExternalUrlSource() {
     return externalUrlSource;
   }
@@ -287,7 +288,6 @@ public class Article  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("external_url_type")
   public String getExternalUrlType() {
     return externalUrlType;
   }

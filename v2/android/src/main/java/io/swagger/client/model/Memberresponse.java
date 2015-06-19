@@ -3,19 +3,19 @@ package io.swagger.client.model;
 import io.swagger.client.model.Member;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class Memberresponse  {
   
+  @SerializedName("member")
   private Member member = null;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("member")
   public Member getMember() {
     return member;
   }

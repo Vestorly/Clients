@@ -17,10 +17,9 @@
 using namespace Tizen::Web::Json;
 
 
-using Tizen::Base::Integer;
 using Tizen::Base::String;
-using Tizen::Base::Boolean;
 using Tizen::Base::Collection::IList;
+using Tizen::Base::Boolean;
 
 
 namespace Swagger {
@@ -83,8 +82,8 @@ public:
     String* getPAssets();
     void setPAssets(String* pAssets);
     
-    Integer* getPAge();
-    void setPAge(Integer* pAge);
+    String* getPAge();
+    void setPAge(String* pAge);
     
     Boolean* getPDataEstimated();
     void setPDataEstimated(Boolean* pData_estimated);
@@ -101,8 +100,8 @@ public:
     String* getPHomeOwnerStatus();
     void setPHomeOwnerStatus(String* pHome_owner_status);
     
-    Integer* getPHouseholdIncome();
-    void setPHouseholdIncome(Integer* pHousehold_income);
+    String* getPHouseholdIncome();
+    void setPHouseholdIncome(String* pHousehold_income);
     
     String* getPMaritalStatus();
     void setPMaritalStatus(String* pMarital_status);
@@ -128,11 +127,11 @@ public:
     Boolean* getPUnsubscribedDate();
     void setPUnsubscribedDate(Boolean* pUnsubscribed_date);
     
-    Boolean* getPUserType();
-    void setPUserType(Boolean* pUser_type);
+    String* getPUserType();
+    void setPUserType(String* pUser_type);
     
-    Boolean* getPSignedUpWith();
-    void setPSignedUpWith(Boolean* pSigned_up_with);
+    String* getPSignedUpWith();
+    void setPSignedUpWith(String* pSigned_up_with);
     
     String* getPMessage();
     void setPMessage(String* pMessage);
@@ -173,8 +172,8 @@ public:
     String* getPInvitedBy();
     void setPInvitedBy(String* pInvited_by);
     
-    Integer* getPPortfolioSize();
-    void setPPortfolioSize(Integer* pPortfolio_size);
+    String* getPPortfolioSize();
+    void setPPortfolioSize(String* pPortfolio_size);
     
 
 private:
@@ -191,13 +190,13 @@ private:
     String* pInterest_consultation;
     String* pInterest_in_new_advisor;
     String* pAssets;
-    Integer* pAge;
+    String* pAge;
     Boolean* pData_estimated;
     String* pEducation;
     Boolean* pHigh_net_worth;
     String* pHome_market_value;
     String* pHome_owner_status;
-    Integer* pHousehold_income;
+    String* pHousehold_income;
     String* pMarital_status;
     String* pOccupation;
     String* pHometown;
@@ -206,8 +205,8 @@ private:
     IList* pSubscribed_group_ids;
     Boolean* pUnsubscribed;
     Boolean* pUnsubscribed_date;
-    Boolean* pUser_type;
-    Boolean* pSigned_up_with;
+    String* pUser_type;
+    String* pSigned_up_with;
     String* pMessage;
     String* pLocation;
     String* pPicture_url;
@@ -221,7 +220,7 @@ private:
     Boolean* pIs_hidden;
     String* pInvited_on;
     String* pInvited_by;
-    Integer* pPortfolio_size;
+    String* pPortfolio_size;
     
 };
 

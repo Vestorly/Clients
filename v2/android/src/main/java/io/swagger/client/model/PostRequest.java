@@ -3,19 +3,19 @@ package io.swagger.client.model;
 import io.swagger.client.model.PostInput;
 
 import com.wordnik.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 
 @ApiModel(description = "")
 public class Postrequest  {
   
+  @SerializedName("post")
   private PostInput post = null;
 
   
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("post")
   public PostInput getPost() {
     return post;
   }
