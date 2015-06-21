@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using RestSharp;
 using vestorly.client;
-using vestorly.Model;
+using vestorly.model;
 
-namespace vestorly.Api {
+namespace vestorly.api {
   
   public class MembersApi {
     string basePath;
@@ -38,15 +38,24 @@ namespace vestorly.Api {
     /// <summary>
     ///  Returns all members
     /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
     /// <returns>Members</returns>
-    public Members FindMembers (string VestorlyAuth) {
+    public Members FindMembers (string vestorlyAuth) {
 
-      var _request = new RestRequest("/members", Method.GET);
+      String myPath = "/members";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("GET" == "POST" || "GET" == "PUT") && "MembersApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.GET);
+
 
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling FindMembers");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling FindMembers");
       
 
       // add default header, if any
@@ -57,7 +66,7 @@ namespace vestorly.Api {
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("GET" == "GET" || "GET" == "DELETE" || "MembersApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       
@@ -75,19 +84,28 @@ namespace vestorly.Api {
     /// <summary>
     ///  Create a new member in the Vestorly Platform
     /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-    /// <param name="Member">Member you want to create</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="member">Member you want to create</param>
     /// <returns>Memberresponse</returns>
-    public Memberresponse CreateMember (string VestorlyAuth, Member Member) {
+    public Memberresponse CreateMember (string vestorlyAuth, Member member) {
 
-      var _request = new RestRequest("/members", Method.POST);
+      String myPath = "/members";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("POST" == "POST" || "POST" == "PUT") && "MembersApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.POST);
+
 
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling CreateMember");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling CreateMember");
       
-      // verify the required parameter 'Member' is set
-      if (Member == null) throw new ApiException(400, "Missing required parameter 'Member' when calling CreateMember");
+      // verify the required parameter 'member' is set
+      if (member == null) throw new ApiException(400, "Missing required parameter 'member' when calling CreateMember");
       
 
       // add default header, if any
@@ -98,11 +116,11 @@ namespace vestorly.Api {
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("POST" == "GET" || "POST" == "DELETE" || "MembersApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       
-      _request.AddParameter("application/json", ApiInvoker.Serialize(Member), ParameterType.RequestBody); // http body (model) parameter
+      _request.AddParameter("application/json", ApiInvoker.Serialize(member), ParameterType.RequestBody); // http body (model) parameter
       
 
       // make the HTTP request
@@ -117,19 +135,28 @@ namespace vestorly.Api {
     /// <summary>
     ///  Returns a single member
     /// </summary>
-    /// <param name="Id">Mongo ID of member to fetch</param>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="id">Mongo ID of member to fetch</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
     /// <returns>Memberresponse</returns>
-    public Memberresponse FindMemberByID (string Id, string VestorlyAuth) {
+    public Memberresponse FindMemberByID (string id, string vestorlyAuth) {
 
-      var _request = new RestRequest("/members/{id}", Method.GET);
+      String myPath = "/members/{id}";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("GET" == "POST" || "GET" == "PUT") && "MembersApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.GET);
+
 
       
-      // verify the required parameter 'Id' is set
-      if (Id == null) throw new ApiException(400, "Missing required parameter 'Id' when calling FindMemberByID");
+      // verify the required parameter 'id' is set
+      if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling FindMemberByID");
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling FindMemberByID");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling FindMemberByID");
       
 
       // add default header, if any
@@ -139,9 +166,9 @@ namespace vestorly.Api {
       }
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
-      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(Id)); // path (url segment) parameter
+      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(id)); // path (url segment) parameter
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("GET" == "GET" || "GET" == "DELETE" || "MembersApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       
@@ -159,23 +186,32 @@ namespace vestorly.Api {
     /// <summary>
     ///  Updates a single member
     /// </summary>
-    /// <param name="Id">Mongo ID of member to fetch</param>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-    /// <param name="Member">Member you want to update</param>
+    /// <param name="id">Mongo ID of member to fetch</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="member">Member you want to update</param>
     /// <returns>Memberresponse</returns>
-    public Memberresponse UpdateMemberByID (string Id, string VestorlyAuth, Member Member) {
+    public Memberresponse UpdateMemberByID (string id, string vestorlyAuth, Member member) {
 
-      var _request = new RestRequest("/members/{id}", Method.PUT);
+      String myPath = "/members/{id}";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("PUT" == "POST" || "PUT" == "PUT") && "MembersApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.PUT);
+
 
       
-      // verify the required parameter 'Id' is set
-      if (Id == null) throw new ApiException(400, "Missing required parameter 'Id' when calling UpdateMemberByID");
+      // verify the required parameter 'id' is set
+      if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling UpdateMemberByID");
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling UpdateMemberByID");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling UpdateMemberByID");
       
-      // verify the required parameter 'Member' is set
-      if (Member == null) throw new ApiException(400, "Missing required parameter 'Member' when calling UpdateMemberByID");
+      // verify the required parameter 'member' is set
+      if (member == null) throw new ApiException(400, "Missing required parameter 'member' when calling UpdateMemberByID");
       
 
       // add default header, if any
@@ -185,13 +221,13 @@ namespace vestorly.Api {
       }
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
-      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(Id)); // path (url segment) parameter
+      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(id)); // path (url segment) parameter
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("PUT" == "GET" || "PUT" == "DELETE" || "MembersApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       
-      _request.AddParameter("application/json", ApiInvoker.Serialize(Member), ParameterType.RequestBody); // http body (model) parameter
+      _request.AddParameter("application/json", ApiInvoker.Serialize(member), ParameterType.RequestBody); // http body (model) parameter
       
 
       // make the HTTP request

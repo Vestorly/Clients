@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using RestSharp;
 using vestorly.client;
-using vestorly.Model;
+using vestorly.model;
 
-namespace vestorly.Api {
+namespace vestorly.api {
   
   public class EventsApi {
     string basePath;
@@ -38,15 +38,24 @@ namespace vestorly.Api {
     /// <summary>
     ///  Returns all events
     /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
     /// <returns>Events</returns>
-    public Events FindEvents (string VestorlyAuth) {
+    public Events FindEvents (string vestorlyAuth) {
 
-      var _request = new RestRequest("/events", Method.GET);
+      String myPath = "/events";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("GET" == "POST" || "GET" == "PUT") && "EventsApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.GET);
+
 
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling FindEvents");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling FindEvents");
       
 
       // add default header, if any
@@ -57,7 +66,7 @@ namespace vestorly.Api {
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("GET" == "GET" || "GET" == "DELETE" || "EventsApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       
@@ -75,19 +84,28 @@ namespace vestorly.Api {
     /// <summary>
     ///  Creates a new event in the system
     /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-    /// <param name="Event">Event</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="_event">Event</param>
     /// <returns>Eventcreateresponse</returns>
-    public Eventcreateresponse CreateEvent (string VestorlyAuth, EventInput Event) {
+    public Eventcreateresponse CreateEvent (string vestorlyAuth, EventInput _event) {
 
-      var _request = new RestRequest("/events", Method.POST);
+      String myPath = "/events";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("POST" == "POST" || "POST" == "PUT") && "EventsApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.POST);
+
 
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling CreateEvent");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling CreateEvent");
       
-      // verify the required parameter 'Event' is set
-      if (Event == null) throw new ApiException(400, "Missing required parameter 'Event' when calling CreateEvent");
+      // verify the required parameter '_event' is set
+      if (_event == null) throw new ApiException(400, "Missing required parameter '_event' when calling CreateEvent");
       
 
       // add default header, if any
@@ -98,11 +116,11 @@ namespace vestorly.Api {
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("POST" == "GET" || "POST" == "DELETE" || "EventsApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       
-      _request.AddParameter("application/json", ApiInvoker.Serialize(Event), ParameterType.RequestBody); // http body (model) parameter
+      _request.AddParameter("application/json", ApiInvoker.Serialize(_event), ParameterType.RequestBody); // http body (model) parameter
       
 
       // make the HTTP request
@@ -117,19 +135,28 @@ namespace vestorly.Api {
     /// <summary>
     ///  Returns a single event if the user has access
     /// </summary>
-    /// <param name="Id">Mongo ID of event to fetch</param>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="id">Mongo ID of event to fetch</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
     /// <returns>Eventresponse</returns>
-    public Eventresponse FindEventByID (string Id, string VestorlyAuth) {
+    public Eventresponse FindEventByID (string id, string vestorlyAuth) {
 
-      var _request = new RestRequest("/events/{id}", Method.GET);
+      String myPath = "/events/{id}";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("GET" == "POST" || "GET" == "PUT") && "EventsApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.GET);
+
 
       
-      // verify the required parameter 'Id' is set
-      if (Id == null) throw new ApiException(400, "Missing required parameter 'Id' when calling FindEventByID");
+      // verify the required parameter 'id' is set
+      if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling FindEventByID");
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling FindEventByID");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling FindEventByID");
       
 
       // add default header, if any
@@ -139,9 +166,9 @@ namespace vestorly.Api {
       }
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
-      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(Id)); // path (url segment) parameter
+      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(id)); // path (url segment) parameter
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("GET" == "GET" || "GET" == "DELETE" || "EventsApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       

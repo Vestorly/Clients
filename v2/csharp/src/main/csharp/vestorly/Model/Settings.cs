@@ -4,90 +4,90 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace vestorly.Model {
+namespace vestorly.model {
   [DataContract]
   public class Settings {
     
     
     [DataMember(Name="_id", EmitDefaultValue=false)]
-    public string Id { get; set; }
+    public string id { get; set; }
 
     
     
     [DataMember(Name="company", EmitDefaultValue=false)]
-    public string Company { get; set; }
+    public string company { get; set; }
 
     
     
     [DataMember(Name="picture_url", EmitDefaultValue=false)]
-    public string PictureUrl { get; set; }
+    public string pictureUrl { get; set; }
 
     
     
     [DataMember(Name="website", EmitDefaultValue=false)]
-    public string Website { get; set; }
+    public string website { get; set; }
 
     
     
     [DataMember(Name="disclosure", EmitDefaultValue=false)]
-    public string Disclosure { get; set; }
+    public string disclosure { get; set; }
 
     
     
     [DataMember(Name="adv_brochure", EmitDefaultValue=false)]
-    public string AdvBrochure { get; set; }
+    public string advBrochure { get; set; }
 
     
     
     [DataMember(Name="slug", EmitDefaultValue=false)]
-    public string Slug { get; set; }
+    public string slug { get; set; }
 
     
     
     [DataMember(Name="name", EmitDefaultValue=false)]
-    public string Name { get; set; }
+    public string name { get; set; }
 
     
     
     [DataMember(Name="orgsetting", EmitDefaultValue=false)]
-    public OrgSetting Orgsetting { get; set; }
+    public OrgSetting orgsetting { get; set; }
 
     
     
     [DataMember(Name="feature", EmitDefaultValue=false)]
-    public Features Feature { get; set; }
+    public Features feature { get; set; }
 
     
     
     [DataMember(Name="personalsetting", EmitDefaultValue=false)]
-    public PersonalSettings Personalsetting { get; set; }
+    public PersonalSettings personalsetting { get; set; }
 
     
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class Settings {\n");
       
-      sb.Append("  Id: ").Append(Id).Append("\n");
+      sb.Append("  id: ").Append(id).Append("\n");
       
-      sb.Append("  Company: ").Append(Company).Append("\n");
+      sb.Append("  company: ").Append(company).Append("\n");
       
-      sb.Append("  PictureUrl: ").Append(PictureUrl).Append("\n");
+      sb.Append("  pictureUrl: ").Append(pictureUrl).Append("\n");
       
-      sb.Append("  Website: ").Append(Website).Append("\n");
+      sb.Append("  website: ").Append(website).Append("\n");
       
-      sb.Append("  Disclosure: ").Append(Disclosure).Append("\n");
+      sb.Append("  disclosure: ").Append(disclosure).Append("\n");
       
-      sb.Append("  AdvBrochure: ").Append(AdvBrochure).Append("\n");
+      sb.Append("  advBrochure: ").Append(advBrochure).Append("\n");
       
-      sb.Append("  Slug: ").Append(Slug).Append("\n");
+      sb.Append("  slug: ").Append(slug).Append("\n");
       
-      sb.Append("  Name: ").Append(Name).Append("\n");
+      sb.Append("  name: ").Append(name).Append("\n");
       
-      sb.Append("  Orgsetting: ").Append(Orgsetting).Append("\n");
+      sb.Append("  orgsetting: ").Append(orgsetting).Append("\n");
       
-      sb.Append("  Feature: ").Append(Feature).Append("\n");
+      sb.Append("  feature: ").Append(feature).Append("\n");
       
-      sb.Append("  Personalsetting: ").Append(Personalsetting).Append("\n");
+      sb.Append("  personalsetting: ").Append(personalsetting).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();

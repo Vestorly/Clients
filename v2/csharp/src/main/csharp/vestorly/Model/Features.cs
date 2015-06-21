@@ -4,20 +4,20 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace vestorly.Model {
+namespace vestorly.model {
   [DataContract]
   public class Features {
     
     
     [DataMember(Name="_id", EmitDefaultValue=false)]
-    public string Id { get; set; }
+    public string id { get; set; }
 
     
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class Features {\n");
       
-      sb.Append("  Id: ").Append(Id).Append("\n");
+      sb.Append("  id: ").Append(id).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();

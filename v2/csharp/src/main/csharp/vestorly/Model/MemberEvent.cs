@@ -4,153 +4,153 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace vestorly.Model {
+namespace vestorly.model {
   [DataContract]
   public class MemberEvent {
     
     
     [DataMember(Name="_id", EmitDefaultValue=false)]
-    public string Id { get; set; }
+    public string id { get; set; }
 
     
     
     [DataMember(Name="created_at", EmitDefaultValue=false)]
-    public string CreatedAt { get; set; }
+    public string createdAt { get; set; }
 
     
     
     [DataMember(Name="type", EmitDefaultValue=false)]
-    public string Type { get; set; }
+    public string type { get; set; }
 
     
     
     [DataMember(Name="source", EmitDefaultValue=false)]
-    public string Source { get; set; }
+    public string source { get; set; }
 
     
     
     [DataMember(Name="referer", EmitDefaultValue=false)]
-    public string Referer { get; set; }
+    public string referer { get; set; }
 
     
     
     [DataMember(Name="original_url", EmitDefaultValue=false)]
-    public string OriginalUrl { get; set; }
+    public string originalUrl { get; set; }
 
     
     
     [DataMember(Name="originator_email", EmitDefaultValue=false)]
-    public string OriginatorEmail { get; set; }
+    public string originatorEmail { get; set; }
 
     
     
     [DataMember(Name="originator_name", EmitDefaultValue=false)]
-    public string OriginatorName { get; set; }
+    public string originatorName { get; set; }
 
     
     
     [DataMember(Name="parent_originator_id", EmitDefaultValue=false)]
-    public string ParentOriginatorId { get; set; }
+    public string parentOriginatorId { get; set; }
 
     
     
     [DataMember(Name="parent_event_id", EmitDefaultValue=false)]
-    public string ParentEventId { get; set; }
+    public string parentEventId { get; set; }
 
     
     
     [DataMember(Name="originator_type", EmitDefaultValue=false)]
-    public string OriginatorType { get; set; }
+    public string originatorType { get; set; }
 
     
     
     [DataMember(Name="originator_group_id", EmitDefaultValue=false)]
-    public string OriginatorGroupId { get; set; }
+    public string originatorGroupId { get; set; }
 
     
     
     [DataMember(Name="event_type", EmitDefaultValue=false)]
-    public string EventType { get; set; }
+    public string eventType { get; set; }
 
     
     
     [DataMember(Name="event_source", EmitDefaultValue=false)]
-    public string EventSource { get; set; }
+    public string eventSource { get; set; }
 
     
     
     [DataMember(Name="content_url", EmitDefaultValue=false)]
-    public string ContentUrl { get; set; }
+    public string contentUrl { get; set; }
 
     
     
     [DataMember(Name="event_date", EmitDefaultValue=false)]
-    public string EventDate { get; set; }
+    public string eventDate { get; set; }
 
     
     
     [DataMember(Name="username", EmitDefaultValue=false)]
-    public string Username { get; set; }
+    public string username { get; set; }
 
     
     
     [DataMember(Name="member_id", EmitDefaultValue=false)]
-    public string MemberId { get; set; }
+    public string memberId { get; set; }
 
     
     
     [DataMember(Name="originator_id", EmitDefaultValue=false)]
-    public string OriginatorId { get; set; }
+    public string originatorId { get; set; }
 
     
     
     [DataMember(Name="subject_id", EmitDefaultValue=false)]
-    public string SubjectId { get; set; }
+    public string subjectId { get; set; }
 
     
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class MemberEvent {\n");
       
-      sb.Append("  Id: ").Append(Id).Append("\n");
+      sb.Append("  id: ").Append(id).Append("\n");
       
-      sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+      sb.Append("  createdAt: ").Append(createdAt).Append("\n");
       
-      sb.Append("  Type: ").Append(Type).Append("\n");
+      sb.Append("  type: ").Append(type).Append("\n");
       
-      sb.Append("  Source: ").Append(Source).Append("\n");
+      sb.Append("  source: ").Append(source).Append("\n");
       
-      sb.Append("  Referer: ").Append(Referer).Append("\n");
+      sb.Append("  referer: ").Append(referer).Append("\n");
       
-      sb.Append("  OriginalUrl: ").Append(OriginalUrl).Append("\n");
+      sb.Append("  originalUrl: ").Append(originalUrl).Append("\n");
       
-      sb.Append("  OriginatorEmail: ").Append(OriginatorEmail).Append("\n");
+      sb.Append("  originatorEmail: ").Append(originatorEmail).Append("\n");
       
-      sb.Append("  OriginatorName: ").Append(OriginatorName).Append("\n");
+      sb.Append("  originatorName: ").Append(originatorName).Append("\n");
       
-      sb.Append("  ParentOriginatorId: ").Append(ParentOriginatorId).Append("\n");
+      sb.Append("  parentOriginatorId: ").Append(parentOriginatorId).Append("\n");
       
-      sb.Append("  ParentEventId: ").Append(ParentEventId).Append("\n");
+      sb.Append("  parentEventId: ").Append(parentEventId).Append("\n");
       
-      sb.Append("  OriginatorType: ").Append(OriginatorType).Append("\n");
+      sb.Append("  originatorType: ").Append(originatorType).Append("\n");
       
-      sb.Append("  OriginatorGroupId: ").Append(OriginatorGroupId).Append("\n");
+      sb.Append("  originatorGroupId: ").Append(originatorGroupId).Append("\n");
       
-      sb.Append("  EventType: ").Append(EventType).Append("\n");
+      sb.Append("  eventType: ").Append(eventType).Append("\n");
       
-      sb.Append("  EventSource: ").Append(EventSource).Append("\n");
+      sb.Append("  eventSource: ").Append(eventSource).Append("\n");
       
-      sb.Append("  ContentUrl: ").Append(ContentUrl).Append("\n");
+      sb.Append("  contentUrl: ").Append(contentUrl).Append("\n");
       
-      sb.Append("  EventDate: ").Append(EventDate).Append("\n");
+      sb.Append("  eventDate: ").Append(eventDate).Append("\n");
       
-      sb.Append("  Username: ").Append(Username).Append("\n");
+      sb.Append("  username: ").Append(username).Append("\n");
       
-      sb.Append("  MemberId: ").Append(MemberId).Append("\n");
+      sb.Append("  memberId: ").Append(memberId).Append("\n");
       
-      sb.Append("  OriginatorId: ").Append(OriginatorId).Append("\n");
+      sb.Append("  originatorId: ").Append(originatorId).Append("\n");
       
-      sb.Append("  SubjectId: ").Append(SubjectId).Append("\n");
+      sb.Append("  subjectId: ").Append(subjectId).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();

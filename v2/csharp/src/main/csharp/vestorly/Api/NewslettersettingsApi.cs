@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using RestSharp;
 using vestorly.client;
-using vestorly.Model;
+using vestorly.model;
 
-namespace vestorly.Api {
+namespace vestorly.api {
   
   public class NewslettersettingsApi {
     string basePath;
@@ -38,15 +38,24 @@ namespace vestorly.Api {
     /// <summary>
     ///  Returns all newsletter settings
     /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
     /// <returns>NewsletterSettings</returns>
-    public NewsletterSettings FindNewsletterSettings (string VestorlyAuth) {
+    public NewsletterSettings FindNewsletterSettings (string vestorlyAuth) {
 
-      var _request = new RestRequest("/newsletter_settings", Method.GET);
+      String myPath = "/newsletter_settings";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("GET" == "POST" || "GET" == "PUT") && "NewslettersettingsApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.GET);
+
 
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling FindNewsletterSettings");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling FindNewsletterSettings");
       
 
       // add default header, if any
@@ -57,7 +66,7 @@ namespace vestorly.Api {
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("GET" == "GET" || "GET" == "DELETE" || "NewslettersettingsApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       
@@ -75,19 +84,28 @@ namespace vestorly.Api {
     /// <summary>
     ///  Returns a single newsletter settings if the user has access
     /// </summary>
-    /// <param name="Id">Mongo ID of newsletter settings to fetch</param>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="id">Mongo ID of newsletter settings to fetch</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
     /// <returns>Newslettersettingresponse</returns>
-    public Newslettersettingresponse FindNewsletterSettingsByID (string Id, string VestorlyAuth) {
+    public Newslettersettingresponse FindNewsletterSettingsByID (string id, string vestorlyAuth) {
 
-      var _request = new RestRequest("/newsletter_settings/{id}", Method.GET);
+      String myPath = "/newsletter_settings/{id}";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("GET" == "POST" || "GET" == "PUT") && "NewslettersettingsApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.GET);
+
 
       
-      // verify the required parameter 'Id' is set
-      if (Id == null) throw new ApiException(400, "Missing required parameter 'Id' when calling FindNewsletterSettingsByID");
+      // verify the required parameter 'id' is set
+      if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling FindNewsletterSettingsByID");
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling FindNewsletterSettingsByID");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling FindNewsletterSettingsByID");
       
 
       // add default header, if any
@@ -97,9 +115,9 @@ namespace vestorly.Api {
       }
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
-      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(Id)); // path (url segment) parameter
+      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(id)); // path (url segment) parameter
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("GET" == "GET" || "GET" == "DELETE" || "NewslettersettingsApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       
@@ -117,23 +135,32 @@ namespace vestorly.Api {
     /// <summary>
     ///  Update a single newsletter setting by ID
     /// </summary>
-    /// <param name="Id">Mongo ID of newsletter settings to update</param>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-    /// <param name="NewsletterSetting">newsletter settings</param>
+    /// <param name="id">Mongo ID of newsletter settings to update</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="newsletterSetting">newsletter settings</param>
     /// <returns>Newslettersettingresponse</returns>
-    public Newslettersettingresponse UpdateNewsletterSettingsByID (string Id, string VestorlyAuth, NewsletterSettingsInput NewsletterSetting) {
+    public Newslettersettingresponse UpdateNewsletterSettingsByID (string id, string vestorlyAuth, NewsletterSettingsInput newsletterSetting) {
 
-      var _request = new RestRequest("/newsletter_settings/{id}", Method.PUT);
+      String myPath = "/newsletter_settings/{id}";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("PUT" == "POST" || "PUT" == "PUT") && "NewslettersettingsApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.PUT);
+
 
       
-      // verify the required parameter 'Id' is set
-      if (Id == null) throw new ApiException(400, "Missing required parameter 'Id' when calling UpdateNewsletterSettingsByID");
+      // verify the required parameter 'id' is set
+      if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling UpdateNewsletterSettingsByID");
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling UpdateNewsletterSettingsByID");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling UpdateNewsletterSettingsByID");
       
-      // verify the required parameter 'NewsletterSetting' is set
-      if (NewsletterSetting == null) throw new ApiException(400, "Missing required parameter 'NewsletterSetting' when calling UpdateNewsletterSettingsByID");
+      // verify the required parameter 'newsletterSetting' is set
+      if (newsletterSetting == null) throw new ApiException(400, "Missing required parameter 'newsletterSetting' when calling UpdateNewsletterSettingsByID");
       
 
       // add default header, if any
@@ -143,13 +170,13 @@ namespace vestorly.Api {
       }
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
-      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(Id)); // path (url segment) parameter
+      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(id)); // path (url segment) parameter
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("PUT" == "GET" || "PUT" == "DELETE" || "NewslettersettingsApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       
-      _request.AddParameter("application/json", ApiInvoker.Serialize(NewsletterSetting), ParameterType.RequestBody); // http body (model) parameter
+      _request.AddParameter("application/json", ApiInvoker.Serialize(newsletterSetting), ParameterType.RequestBody); // http body (model) parameter
       
 
       // make the HTTP request

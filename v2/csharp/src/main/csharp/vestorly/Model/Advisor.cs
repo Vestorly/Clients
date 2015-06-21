@@ -4,272 +4,272 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace vestorly.Model {
+namespace vestorly.model {
   [DataContract]
   public class Advisor {
     
     
     [DataMember(Name="company", EmitDefaultValue=false)]
-    public string Company { get; set; }
+    public string company { get; set; }
 
     
     
     [DataMember(Name="address", EmitDefaultValue=false)]
-    public string Address { get; set; }
+    public string address { get; set; }
 
     
     
     [DataMember(Name="city", EmitDefaultValue=false)]
-    public string City { get; set; }
+    public string city { get; set; }
 
     
     
     [DataMember(Name="state", EmitDefaultValue=false)]
-    public string State { get; set; }
+    public string state { get; set; }
 
     
     
     [DataMember(Name="zip", EmitDefaultValue=false)]
-    public string Zip { get; set; }
+    public string zip { get; set; }
 
     
     
     [DataMember(Name="first_name", EmitDefaultValue=false)]
-    public string FirstName { get; set; }
+    public string firstName { get; set; }
 
     
     
     [DataMember(Name="last_name", EmitDefaultValue=false)]
-    public string LastName { get; set; }
+    public string lastName { get; set; }
 
     
     
     [DataMember(Name="reg_number", EmitDefaultValue=false)]
-    public string RegNumber { get; set; }
+    public string regNumber { get; set; }
 
     
     
     [DataMember(Name="account_type", EmitDefaultValue=false)]
-    public string AccountType { get; set; }
+    public string accountType { get; set; }
 
     
     
     [DataMember(Name="advisor_employees", EmitDefaultValue=false)]
-    public string AdvisorEmployees { get; set; }
+    public string advisorEmployees { get; set; }
 
     
     
     [DataMember(Name="other_services_types", EmitDefaultValue=false)]
-    public string OtherServicesTypes { get; set; }
+    public string otherServicesTypes { get; set; }
 
     
     
     [DataMember(Name="other_compensation", EmitDefaultValue=false)]
-    public string OtherCompensation { get; set; }
+    public string otherCompensation { get; set; }
 
     
     
     [DataMember(Name="performance_audited", EmitDefaultValue=false)]
-    public string PerformanceAudited { get; set; }
+    public string performanceAudited { get; set; }
 
     
     
     [DataMember(Name="about", EmitDefaultValue=false)]
-    public string About { get; set; }
+    public string about { get; set; }
 
     
     
     [DataMember(Name="twitter_handle", EmitDefaultValue=false)]
-    public string TwitterHandle { get; set; }
+    public string twitterHandle { get; set; }
 
     
     
     [DataMember(Name="profile_picture", EmitDefaultValue=false)]
-    public string ProfilePicture { get; set; }
+    public string profilePicture { get; set; }
 
     
     
     [DataMember(Name="logo", EmitDefaultValue=false)]
-    public string Logo { get; set; }
+    public string logo { get; set; }
 
     
     
     [DataMember(Name="linkedin", EmitDefaultValue=false)]
-    public string Linkedin { get; set; }
+    public string linkedin { get; set; }
 
     
     
     [DataMember(Name="website", EmitDefaultValue=false)]
-    public string Website { get; set; }
+    public string website { get; set; }
 
     
     
     [DataMember(Name="adv_brochure", EmitDefaultValue=false)]
-    public string AdvBrochure { get; set; }
+    public string advBrochure { get; set; }
 
     
     
     [DataMember(Name="plan", EmitDefaultValue=false)]
-    public string Plan { get; set; }
+    public string plan { get; set; }
 
     
     
     [DataMember(Name="consultation_reminder", EmitDefaultValue=false)]
-    public string ConsultationReminder { get; set; }
+    public string consultationReminder { get; set; }
 
     
     
     [DataMember(Name="referral_reminder", EmitDefaultValue=false)]
-    public string ReferralReminder { get; set; }
+    public string referralReminder { get; set; }
 
     
     
     [DataMember(Name="weekly_email_blast", EmitDefaultValue=false)]
-    public string WeeklyEmailBlast { get; set; }
+    public string weeklyEmailBlast { get; set; }
 
     
     
     [DataMember(Name="disclosure", EmitDefaultValue=false)]
-    public string Disclosure { get; set; }
+    public string disclosure { get; set; }
 
     
     
     [DataMember(Name="external_options", EmitDefaultValue=false)]
-    public string ExternalOptions { get; set; }
+    public string externalOptions { get; set; }
 
     
     
     [DataMember(Name="email_report_blast", EmitDefaultValue=false)]
-    public string EmailReportBlast { get; set; }
+    public string emailReportBlast { get; set; }
 
     
     
     [DataMember(Name="email_blast", EmitDefaultValue=false)]
-    public string EmailBlast { get; set; }
+    public string emailBlast { get; set; }
 
     
     
     [DataMember(Name="twitter_blast", EmitDefaultValue=false)]
-    public string TwitterBlast { get; set; }
+    public string twitterBlast { get; set; }
 
     
     
     [DataMember(Name="linkedin_blast", EmitDefaultValue=false)]
-    public string LinkedinBlast { get; set; }
+    public string linkedinBlast { get; set; }
 
     
     
     [DataMember(Name="facebook_blast", EmitDefaultValue=false)]
-    public string FacebookBlast { get; set; }
+    public string facebookBlast { get; set; }
 
     
     
     [DataMember(Name="compliance_bcc_email_address", EmitDefaultValue=false)]
-    public string ComplianceBccEmailAddress { get; set; }
+    public string complianceBccEmailAddress { get; set; }
 
     
     
     [DataMember(Name="dashboard_url", EmitDefaultValue=false)]
-    public string DashboardUrl { get; set; }
+    public string dashboardUrl { get; set; }
 
     
     
     [DataMember(Name="api_key", EmitDefaultValue=false)]
-    public string ApiKey { get; set; }
+    public string apiKey { get; set; }
 
     
     
     [DataMember(Name="id", EmitDefaultValue=false)]
-    public string Id { get; set; }
+    public string id { get; set; }
 
     
     
     [DataMember(Name="name", EmitDefaultValue=false)]
-    public string Name { get; set; }
+    public string name { get; set; }
 
     
     
     [DataMember(Name="tag", EmitDefaultValue=false)]
-    public string Tag { get; set; }
+    public string tag { get; set; }
 
     
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class Advisor {\n");
       
-      sb.Append("  Company: ").Append(Company).Append("\n");
+      sb.Append("  company: ").Append(company).Append("\n");
       
-      sb.Append("  Address: ").Append(Address).Append("\n");
+      sb.Append("  address: ").Append(address).Append("\n");
       
-      sb.Append("  City: ").Append(City).Append("\n");
+      sb.Append("  city: ").Append(city).Append("\n");
       
-      sb.Append("  State: ").Append(State).Append("\n");
+      sb.Append("  state: ").Append(state).Append("\n");
       
-      sb.Append("  Zip: ").Append(Zip).Append("\n");
+      sb.Append("  zip: ").Append(zip).Append("\n");
       
-      sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+      sb.Append("  firstName: ").Append(firstName).Append("\n");
       
-      sb.Append("  LastName: ").Append(LastName).Append("\n");
+      sb.Append("  lastName: ").Append(lastName).Append("\n");
       
-      sb.Append("  RegNumber: ").Append(RegNumber).Append("\n");
+      sb.Append("  regNumber: ").Append(regNumber).Append("\n");
       
-      sb.Append("  AccountType: ").Append(AccountType).Append("\n");
+      sb.Append("  accountType: ").Append(accountType).Append("\n");
       
-      sb.Append("  AdvisorEmployees: ").Append(AdvisorEmployees).Append("\n");
+      sb.Append("  advisorEmployees: ").Append(advisorEmployees).Append("\n");
       
-      sb.Append("  OtherServicesTypes: ").Append(OtherServicesTypes).Append("\n");
+      sb.Append("  otherServicesTypes: ").Append(otherServicesTypes).Append("\n");
       
-      sb.Append("  OtherCompensation: ").Append(OtherCompensation).Append("\n");
+      sb.Append("  otherCompensation: ").Append(otherCompensation).Append("\n");
       
-      sb.Append("  PerformanceAudited: ").Append(PerformanceAudited).Append("\n");
+      sb.Append("  performanceAudited: ").Append(performanceAudited).Append("\n");
       
-      sb.Append("  About: ").Append(About).Append("\n");
+      sb.Append("  about: ").Append(about).Append("\n");
       
-      sb.Append("  TwitterHandle: ").Append(TwitterHandle).Append("\n");
+      sb.Append("  twitterHandle: ").Append(twitterHandle).Append("\n");
       
-      sb.Append("  ProfilePicture: ").Append(ProfilePicture).Append("\n");
+      sb.Append("  profilePicture: ").Append(profilePicture).Append("\n");
       
-      sb.Append("  Logo: ").Append(Logo).Append("\n");
+      sb.Append("  logo: ").Append(logo).Append("\n");
       
-      sb.Append("  Linkedin: ").Append(Linkedin).Append("\n");
+      sb.Append("  linkedin: ").Append(linkedin).Append("\n");
       
-      sb.Append("  Website: ").Append(Website).Append("\n");
+      sb.Append("  website: ").Append(website).Append("\n");
       
-      sb.Append("  AdvBrochure: ").Append(AdvBrochure).Append("\n");
+      sb.Append("  advBrochure: ").Append(advBrochure).Append("\n");
       
-      sb.Append("  Plan: ").Append(Plan).Append("\n");
+      sb.Append("  plan: ").Append(plan).Append("\n");
       
-      sb.Append("  ConsultationReminder: ").Append(ConsultationReminder).Append("\n");
+      sb.Append("  consultationReminder: ").Append(consultationReminder).Append("\n");
       
-      sb.Append("  ReferralReminder: ").Append(ReferralReminder).Append("\n");
+      sb.Append("  referralReminder: ").Append(referralReminder).Append("\n");
       
-      sb.Append("  WeeklyEmailBlast: ").Append(WeeklyEmailBlast).Append("\n");
+      sb.Append("  weeklyEmailBlast: ").Append(weeklyEmailBlast).Append("\n");
       
-      sb.Append("  Disclosure: ").Append(Disclosure).Append("\n");
+      sb.Append("  disclosure: ").Append(disclosure).Append("\n");
       
-      sb.Append("  ExternalOptions: ").Append(ExternalOptions).Append("\n");
+      sb.Append("  externalOptions: ").Append(externalOptions).Append("\n");
       
-      sb.Append("  EmailReportBlast: ").Append(EmailReportBlast).Append("\n");
+      sb.Append("  emailReportBlast: ").Append(emailReportBlast).Append("\n");
       
-      sb.Append("  EmailBlast: ").Append(EmailBlast).Append("\n");
+      sb.Append("  emailBlast: ").Append(emailBlast).Append("\n");
       
-      sb.Append("  TwitterBlast: ").Append(TwitterBlast).Append("\n");
+      sb.Append("  twitterBlast: ").Append(twitterBlast).Append("\n");
       
-      sb.Append("  LinkedinBlast: ").Append(LinkedinBlast).Append("\n");
+      sb.Append("  linkedinBlast: ").Append(linkedinBlast).Append("\n");
       
-      sb.Append("  FacebookBlast: ").Append(FacebookBlast).Append("\n");
+      sb.Append("  facebookBlast: ").Append(facebookBlast).Append("\n");
       
-      sb.Append("  ComplianceBccEmailAddress: ").Append(ComplianceBccEmailAddress).Append("\n");
+      sb.Append("  complianceBccEmailAddress: ").Append(complianceBccEmailAddress).Append("\n");
       
-      sb.Append("  DashboardUrl: ").Append(DashboardUrl).Append("\n");
+      sb.Append("  dashboardUrl: ").Append(dashboardUrl).Append("\n");
       
-      sb.Append("  ApiKey: ").Append(ApiKey).Append("\n");
+      sb.Append("  apiKey: ").Append(apiKey).Append("\n");
       
-      sb.Append("  Id: ").Append(Id).Append("\n");
+      sb.Append("  id: ").Append(id).Append("\n");
       
-      sb.Append("  Name: ").Append(Name).Append("\n");
+      sb.Append("  name: ").Append(name).Append("\n");
       
-      sb.Append("  Tag: ").Append(Tag).Append("\n");
+      sb.Append("  tag: ").Append(tag).Append("\n");
       
       sb.Append("}\n");
       return sb.ToString();

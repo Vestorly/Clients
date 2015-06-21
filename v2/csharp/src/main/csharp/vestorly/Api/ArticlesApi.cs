@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using RestSharp;
 using vestorly.client;
-using vestorly.Model;
+using vestorly.model;
 
-namespace vestorly.Api {
+namespace vestorly.api {
   
   public class ArticlesApi {
     string basePath;
@@ -38,19 +38,44 @@ namespace vestorly.Api {
     /// <summary>
     ///  Returns all articles
     /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-    /// <param name="Limit">Limit on the number of articles to return</param>
-    /// <param name="TextQuery">Search query parameter</param>
-    /// <param name="SortDirection">Direction of sort (used with sort_by parameter)</param>
-    /// <param name="SortBy">Field on model to sort by</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="limit">Limit on the number of articles to return</param>
+    /// <param name="textQuery">Search query parameter</param>
+    /// <param name="sortDirection">Direction of sort (used with sort_by parameter)</param>
+    /// <param name="sortBy">Field on model to sort by</param>
     /// <returns>Articles</returns>
-    public Articles FindArticles (string VestorlyAuth, int? Limit, string TextQuery, string SortDirection, string SortBy) {
+    public Articles FindArticles (string vestorlyAuth, int? limit, string textQuery, string sortDirection, string sortBy) {
 
-      var _request = new RestRequest("/articles", Method.GET);
+      String myPath = "/articles";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("GET" == "POST" || "GET" == "PUT") && "ArticlesApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      } if ("limit" == "vestorlyAuth") {
+        if (("GET" == "POST" || "GET" == "PUT") && "ArticlesApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + limit;
+        }
+      } if ("textQuery" == "vestorlyAuth") {
+        if (("GET" == "POST" || "GET" == "PUT") && "ArticlesApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + textQuery;
+        }
+      } if ("sortDirection" == "vestorlyAuth") {
+        if (("GET" == "POST" || "GET" == "PUT") && "ArticlesApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + sortDirection;
+        }
+      } if ("sortBy" == "vestorlyAuth") {
+        if (("GET" == "POST" || "GET" == "PUT") && "ArticlesApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + sortBy;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.GET);
+
 
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling FindArticles");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling FindArticles");
       
 
       // add default header, if any
@@ -61,11 +86,11 @@ namespace vestorly.Api {
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
-       if (Limit != null) _request.AddParameter("limit", ApiInvoker.ParameterToString(Limit)); // query parameter
-       if (TextQuery != null) _request.AddParameter("text_query", ApiInvoker.ParameterToString(TextQuery)); // query parameter
-       if (SortDirection != null) _request.AddParameter("sort_direction", ApiInvoker.ParameterToString(SortDirection)); // query parameter
-       if (SortBy != null) _request.AddParameter("sort_by", ApiInvoker.ParameterToString(SortBy)); // query parameter
+       if (vestorlyAuth != null && ("GET" == "GET" || "GET" == "DELETE" || "ArticlesApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
+       if (limit != null && ("GET" == "GET" || "GET" == "DELETE" || "ArticlesApi" == "SessionsApi")) _request.AddParameter("limit", ApiInvoker.ParameterToString(limit)); // query parameter
+       if (textQuery != null && ("GET" == "GET" || "GET" == "DELETE" || "ArticlesApi" == "SessionsApi")) _request.AddParameter("text_query", ApiInvoker.ParameterToString(textQuery)); // query parameter
+       if (sortDirection != null && ("GET" == "GET" || "GET" == "DELETE" || "ArticlesApi" == "SessionsApi")) _request.AddParameter("sort_direction", ApiInvoker.ParameterToString(sortDirection)); // query parameter
+       if (sortBy != null && ("GET" == "GET" || "GET" == "DELETE" || "ArticlesApi" == "SessionsApi")) _request.AddParameter("sort_by", ApiInvoker.ParameterToString(sortBy)); // query parameter
       
       
       
@@ -83,19 +108,28 @@ namespace vestorly.Api {
     /// <summary>
     ///  Returns a single article
     /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-    /// <param name="Id">Article Id to fetch</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="id">Article Id to fetch</param>
     /// <returns>Articleresponse</returns>
-    public Articleresponse FindArticleByID (string VestorlyAuth, string Id) {
+    public Articleresponse FindArticleByID (string vestorlyAuth, string id) {
 
-      var _request = new RestRequest("/articles/{id}", Method.GET);
+      String myPath = "/articles/{id}";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("GET" == "POST" || "GET" == "PUT") && "ArticlesApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.GET);
+
 
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling FindArticleByID");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling FindArticleByID");
       
-      // verify the required parameter 'Id' is set
-      if (Id == null) throw new ApiException(400, "Missing required parameter 'Id' when calling FindArticleByID");
+      // verify the required parameter 'id' is set
+      if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling FindArticleByID");
       
 
       // add default header, if any
@@ -105,9 +139,9 @@ namespace vestorly.Api {
       }
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
-      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(Id)); // path (url segment) parameter
+      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(id)); // path (url segment) parameter
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("GET" == "GET" || "GET" == "DELETE" || "ArticlesApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       

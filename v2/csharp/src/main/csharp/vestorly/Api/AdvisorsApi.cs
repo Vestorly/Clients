@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using RestSharp;
 using vestorly.client;
-using vestorly.Model;
+using vestorly.model;
 
-namespace vestorly.Api {
+namespace vestorly.api {
   
   public class AdvisorsApi {
     string basePath;
@@ -38,19 +38,28 @@ namespace vestorly.Api {
     /// <summary>
     ///  Returns a single advisor given their ID
     /// </summary>
-    /// <param name="VestorlyAuth">Vestorly Auth Token</param>
-    /// <param name="Id">Advisor Id to fetch</param>
+    /// <param name="vestorlyAuth">Vestorly Auth Token</param>
+    /// <param name="id">Advisor Id to fetch</param>
     /// <returns>Advisor</returns>
-    public Advisor FindAdvisorByID (string VestorlyAuth, string Id) {
+    public Advisor FindAdvisorByID (string vestorlyAuth, string id) {
 
-      var _request = new RestRequest("/advisors/{id}", Method.GET);
+      String myPath = "/advisors/{id}";
+
+       if ("vestorlyAuth" == "vestorlyAuth") {
+        if (("GET" == "POST" || "GET" == "PUT") && "AdvisorsApi" != "SessionsApi") {
+          myPath += "?vestorly_auth=" + vestorlyAuth;
+        }
+      }
+      
+      var _request = new RestRequest(myPath, Method.GET);
+
 
       
-      // verify the required parameter 'VestorlyAuth' is set
-      if (VestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'VestorlyAuth' when calling FindAdvisorByID");
+      // verify the required parameter 'vestorlyAuth' is set
+      if (vestorlyAuth == null) throw new ApiException(400, "Missing required parameter 'vestorlyAuth' when calling FindAdvisorByID");
       
-      // verify the required parameter 'Id' is set
-      if (Id == null) throw new ApiException(400, "Missing required parameter 'Id' when calling FindAdvisorByID");
+      // verify the required parameter 'id' is set
+      if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling FindAdvisorByID");
       
 
       // add default header, if any
@@ -60,9 +69,9 @@ namespace vestorly.Api {
       }
 
       _request.AddUrlSegment("format", "json"); // set format to json by default
-      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(Id)); // path (url segment) parameter
+      _request.AddUrlSegment("id", ApiInvoker.ParameterToString(id)); // path (url segment) parameter
       
-       if (VestorlyAuth != null) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(VestorlyAuth)); // query parameter
+       if (vestorlyAuth != null && ("GET" == "GET" || "GET" == "DELETE" || "AdvisorsApi" == "SessionsApi")) _request.AddParameter("vestorly_auth", ApiInvoker.ParameterToString(vestorlyAuth)); // query parameter
       
       
       
